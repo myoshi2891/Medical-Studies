@@ -625,7 +625,563 @@ flowchart LR
   </ul>
 </section>
 
-<!-- PHASE 3: SECTIONS 10-18 -->
+
+<!-- ============================================================ SECTION 10 -->
+<section id="s10" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">10</div>
+    <h1 class="sec-title">STEP 2 — 過用薬剤の離脱（Detoxification）</h1>
+  </div>
+
+  <h2>10.1 離脱方法の選択</h2>
+
+  <div class="mmd">
+    <div class="mmd-lbl">離脱方法の選択 — 薬剤種別による突然離脱 vs 漸減</div>
+    <pre class="mermaid">
+flowchart TD
+    A["過用薬剤の離脱開始"] --> B{"どの薬剤を過用しているか？"}
+
+    B -- "単純鎮痛薬<br/>（アセトアミノフェン・NSAIDs）<br/>トリプタン<br/>エルゴタミン" --> C["🔴 突然離脱（Abrupt Withdrawal）<br/>● 推奨される標準的アプローチ<br/>● 外来設定でも実施可能<br/>● 離脱期間：5〜10日"]
+
+    B -- "オピオイド<br/>バルビツール酸（ブタルビタール）<br/>ベンゾジアゼピン<br/>カフェイン大量配合製剤" --> D["🟡 段階的漸減（Gradual Tapering）<br/>● 急激中断で重篤な離脱症状のリスク<br/>● 10〜20%/週ずつ漸減<br/>● 入院設定を考慮"]
+
+    C --> E["外来管理（多くのケースで適切）"]
+    D --> F{"依存度・症状の重症度？"}
+    F -- "軽〜中等度" --> E
+    F -- "重度・精神医学的併存疾患あり" --> G["入院管理<br/>（専門施設）"]
+
+    E --> H["ブリッジング療法へ → STEP 3"]
+    G --> H
+
+    style C fill:#e74c3c,color:#fff
+    style D fill:#e67e22,color:#fff
+    style G fill:#8e44ad,color:#fff
+    style H fill:#27ae60,color:#fff
+    </pre>
+  </div>
+
+  <h2>10.2 離脱症状の予測と対処</h2>
+  <div class="alert a-warn">
+    <span class="alert-i">⚠️</span>
+    <div><strong>離脱頭痛を乗り越えることが重要：</strong> 離脱開始後、多くの患者で一時的に頭痛が悪化します（離脱頭痛）。この段階を乗り越えることがMOH治療の最大の鍵です。事前に患者に十分な説明を行うことが不可欠です。</div>
+  </div>
+  <div class="tbl th-orange">
+    <table>
+      <thead><tr><th>離脱症状</th><th>発現時期</th><th>持続期間</th></tr></thead>
+      <tbody>
+        <tr><td><strong>頭痛の一時的悪化</strong></td><td>離脱後2〜10日</td><td>トリプタン：短め（2〜4日）/ 鎮痛薬：やや長め（5〜7日）/ オピオイド：最も長い</td></tr>
+        <tr><td><strong>悪心・嘔吐</strong></td><td>2〜5日</td><td>数日間</td></tr>
+        <tr><td><strong>不眠</strong></td><td>全期間</td><td>2週間程度</td></tr>
+        <tr><td><strong>不安・易刺激性</strong></td><td>2〜5日</td><td>数日間</td></tr>
+        <tr><td><strong>血圧変動</strong></td><td>特にオピオイド離脱時</td><td>数日間</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 11 -->
+<section id="s11" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">11</div>
+    <h1 class="sec-title">STEP 3 — ブリッジング療法</h1>
+  </div>
+
+  <p>過用薬剤を中断した後の離脱症状を緩和するための「橋渡し」薬物療法です。</p>
+
+  <h2>11.1 外来ブリッジング</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>薬剤</th><th>用量・用法</th><th>エビデンス</th><th>注意事項</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ナプロキセン</strong></td><td>500mg 1日2回 × 10〜14日</td><td><span class="bB">Grade B</span></td><td>NSAIDs離脱の場合は使用不可</td></tr>
+        <tr><td><strong>プレドニゾロン</strong></td><td>40〜60mg/日 × 5〜7日（漸減）</td><td><span class="bC">Grade C</span></td><td>効果はメタ解析で混在 — 短期のみ使用</td></tr>
+        <tr><td><strong>メトクロプラミド（制吐剤）</strong></td><td>10mg 頓用または1日3回</td><td><span class="bB">Grade B</span></td><td>悪心・嘔吐管理に有効</td></tr>
+        <tr><td><strong>オンダンセトロン</strong></td><td>4〜8mg 頓用</td><td><span class="bC">Grade C</span></td><td>嘔吐が強い場合</td></tr>
+        <tr><td><strong>クロルプロマジン（経口）</strong></td><td>25〜50mg</td><td><span class="bU">Expert Opinion</span></td><td>難治例、鎮静作用あり — 転倒注意</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>11.2 入院ブリッジング（重症例）</h2>
+  <div class="tbl th-purple">
+    <table>
+      <thead><tr><th>薬剤</th><th>用量</th><th>エビデンス</th><th>特記</th></tr></thead>
+      <tbody>
+        <tr><td><strong>IV ジヒドロエルゴタミン（DHE）</strong></td><td>0.5〜1mg IV q8h × 2〜3日</td><td><span class="bA">Grade A</span></td><td>ラスムッセン・プロトコル — 専門施設限定</td></tr>
+        <tr><td><strong>IV マグネシウム硫酸塩</strong></td><td>1〜2g IV 緩徐投与</td><td><span class="bB">Grade B</span></td><td>妊婦の重症急性発作にも使用可</td></tr>
+        <tr><td><strong>IV メトクロプラミド</strong></td><td>10mg IV</td><td><span class="bB">Grade B</span></td><td>制吐・鎮痛補助</td></tr>
+        <tr><td><strong>IV バルプロ酸</strong></td><td>500〜1000mg IV</td><td><span class="bC">Grade C</span></td><td>難治性 — <span class="bRed">妊婦禁忌</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 12 -->
+<section id="s12" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">12</div>
+    <h1 class="sec-title">STEP 4 — 予防薬療法</h1>
+  </div>
+
+  <div class="alert a-info">
+    <span class="alert-i">📌</span>
+    <div><strong>パラダイムシフト：</strong> 過去は「まず離脱してから予防薬開始」が通説でしたが、近年のエビデンスは<strong>離脱と同時並行での開始</strong>も有効であることを示しています（特にCGRP製剤）。MOHと慢性片頭痛の双方を同時に標的とする戦略が推奨されます。</div>
+  </div>
+
+  <h2>12.1 従来型予防薬（エビデンス順）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>薬剤</th><th>用量</th><th>MOHでのエビデンス</th><th>主な副作用・禁忌</th></tr></thead>
+      <tbody>
+        <tr><td><strong>トピラマート</strong></td><td>50〜100mg/日（2回分割）</td><td><span class="bA">Grade A</span> MOHで特に有効</td><td>認知障害（ぼんやり感）、腎結石、体重減少、<span class="bRed">妊婦禁忌（Category D）</span></td></tr>
+        <tr><td><strong>アミトリプチリン</strong></td><td>10〜75mg/日（就寝前）</td><td><span class="bB">Grade B</span></td><td>口渇・眠気・体重増加、QT延長、高齢者は10mgから開始</td></tr>
+        <tr><td><strong>プロプラノロール</strong></td><td>40〜120mg/日（2回分割）</td><td><span class="bA">Grade A</span></td><td>気管支喘息禁忌、起立性低血圧、糖尿病患者は低血糖マスク注意</td></tr>
+        <tr><td><strong>バルプロ酸</strong></td><td>500〜1500mg/日</td><td><span class="bA">Grade A</span></td><td><span class="bRed">妊婦絶対禁忌（Category X — REMS必要）</span>、肝障害、体重増加</td></tr>
+        <tr><td><strong>フルナリジン</strong><br><small>（日本未承認）</small></td><td>5〜10mg/日（就寝前）</td><td><span class="bA">Grade A</span> (EHF)</td><td>錐体外路症状、うつ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>12.2 ボツリヌストキシン（オナボツリヌストキシンA）</h2>
+  <div class="card">
+    <div class="tbl" style="margin:0">
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td>対象</td><td><strong>慢性片頭痛 + MOH</strong>（PREEMPT プロトコル）</td></tr>
+          <tr><td>用量</td><td>155〜195単位、31〜39箇所への頭頸部筋肉内注射</td></tr>
+          <tr><td>投与間隔</td><td>12週ごと</td></tr>
+          <tr><td>エビデンス</td><td><span class="bA">Grade A</span> — PREEMPT 1/2 試験（n=1384）で有効性確立</td></tr>
+          <tr><td>特徴</td><td>MOHがある慢性片頭痛でも有効。過用薬剤なしでも使用可</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2>12.3 CGRP 関連製剤（最新・最重要）</h2>
+  <p><strong>CGRP製剤はMOH合併例でも有効性が示されている革新的薬剤群です。</strong></p>
+
+  <h3>予防的モノクローナル抗体（mAbs）</h3>
+  <div class="drug-grid">
+    <div class="drug">
+      <div class="drug-nm">エレヌマブ（Aimovig）</div>
+      <div class="drug-br">標的: CGRPr（受容体）</div>
+      <div class="drug-tx">
+        <strong>用量:</strong> 70〜140mg SC 月1回<br>
+        <strong>エビデンス:</strong> <span class="bA">Grade A</span> REGAIN試験でMOH合併CM改善<br>
+        <strong>副作用:</strong> 便秘・注射部位反応
+      </div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">フレマネズマブ（Ajovy）</div>
+      <div class="drug-br">標的: CGRP（リガンド）</div>
+      <div class="drug-tx">
+        <strong>用量:</strong> 225mg SC 月1回 または 675mg SC 3ヶ月1回<br>
+        <strong>エビデンス:</strong> <span class="bA">Grade A</span> MOH合併でも有効<br>
+        <strong>副作用:</strong> 注射部位反応
+      </div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">ガルカネズマブ（Emgality）</div>
+      <div class="drug-br">標的: CGRP（リガンド）</div>
+      <div class="drug-tx">
+        <strong>用量:</strong> 240mgローディング後 120mg SC 月1回<br>
+        <strong>エビデンス:</strong> <span class="bA">Grade A</span><br>
+        <strong>副作用:</strong> 注射部位反応
+      </div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">エプチネズマブ（Vyepti）</div>
+      <div class="drug-br">標的: CGRP（リガンド）</div>
+      <div class="drug-tx">
+        <strong>用量:</strong> 100〜300mg IV 3ヶ月1回<br>
+        <strong>エビデンス:</strong> <span class="bA">Grade A</span><br>
+        <strong>特徴:</strong> IV投与 — 即効性
+      </div>
+    </div>
+  </div>
+
+  <h3>急性期 CGRP gepants（二刀流薬剤あり）</h3>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>薬剤</th><th>承認</th><th>用量</th><th>MOH誘発リスク</th><th>特徴</th></tr></thead>
+      <tbody>
+        <tr><td><strong>リメゲパント（Nurtec ODT）</strong></td><td>急性期＋予防（米国）</td><td>75mg ODT 隔日（予防）/ 頓用（急性）</td><td><span class="bGrn">低リスク</span></td><td>唯一の急性＋予防デュアル承認薬</td></tr>
+        <tr><td><strong>ウブロゲパント（Ubrelvy）</strong></td><td>急性期</td><td>50〜100mg 頓用</td><td><span class="bGrn">低リスク</span></td><td>心血管安全性が高い</td></tr>
+        <tr><td><strong>ザベゲパント（Zavzpret）</strong></td><td>急性期</td><td>10mg 鼻腔内</td><td><span class="bGrn">低リスク</span></td><td>最速発現（鼻腔内）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 13 -->
+<section id="s13" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">13</div>
+    <h1 class="sec-title">STEP 5 — 非薬物療法・行動介入</h1>
+  </div>
+
+  <h2>13.1 根拠のある非薬物療法</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>介入</th><th>エビデンス</th><th>概要</th></tr></thead>
+      <tbody>
+        <tr><td><strong>認知行動療法（CBT）</strong></td><td><span class="bB">Grade B</span> (AAN/EHF)</td><td>頭痛に関連した破局化思考・回避行動の修正、薬物渇望への対処スキル構築。再発予防に特に有効</td></tr>
+        <tr><td><strong>バイオフィードバック</strong></td><td><span class="bB">Grade B</span> (AAN)</td><td>筋電図（EMG）または皮膚温フィードバックによる自律神経調節訓練。薬剤単独よりも組合せで相乗効果</td></tr>
+        <tr><td><strong>リラクゼーション訓練</strong></td><td><span class="bB">Grade B</span> (AAN)</td><td>漸進的筋弛緩法、横隔膜呼吸、自律訓練法。自宅で継続可能</td></tr>
+        <tr><td><strong>マインドフルネス瞑想（MBSR）</strong></td><td><span class="bC">Grade C</span></td><td>痛みへの注意制御、感情反応の調節。うつ・不安の併存にも有益</td></tr>
+        <tr><td><strong>理学療法（頸椎アプローチ）</strong></td><td><span class="bB">Grade B</span></td><td>特に頸原性要因が関与する場合。手技療法＋運動療法の組合せ</td></tr>
+        <tr><td><strong>有酸素運動</strong></td><td><span class="bB">Grade B</span></td><td>週3〜5回 × 30〜40分の中強度有酸素運動。内因性エンドルフィン・セロトニン分泌促進</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>13.2 栄養・サプリメント療法</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>サプリメント</th><th>用量</th><th>エビデンス</th><th>MOHへの意義</th></tr></thead>
+      <tbody>
+        <tr><td><strong>マグネシウム（グリシン酸/クエン酸塩）</strong></td><td>400〜600mg/日</td><td><span class="bA">Grade A/B</span></td><td>中枢感作の軽減、三叉神経興奮閾値の上昇</td></tr>
+        <tr><td><strong>リボフラビン（ビタミンB2）</strong></td><td>400mg/日</td><td><span class="bA">Grade A/B</span></td><td>ミトコンドリア機能改善（電子伝達系Complex I）</td></tr>
+        <tr><td><strong>CoQ10（ユビキノール）</strong></td><td>300mg/日</td><td><span class="bB">Grade B</span></td><td>ミトコンドリアComplex I/III支持</td></tr>
+        <tr><td><strong>メラトニン</strong></td><td>3mg（就寝前）</td><td><span class="bC">Grade C</span></td><td>睡眠障害関連頭痛、特に群発頭痛との共存時</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 14 -->
+<section id="s14" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">14</div>
+    <h1 class="sec-title">特殊集団への対応</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <span class="alert-i">🚨</span>
+    <div><strong>絶対禁忌薬剤（妊婦）：</strong> バルプロ酸（Category X）・トピラマート（Category D）・エルゴタミンは妊婦・妊娠可能性のある女性への投与が禁忌です。CGRP mAbsも原則回避推奨です。</div>
+  </div>
+
+  <h2>14.1 妊娠中・授乳中</h2>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>薬剤カテゴリー</th><th>推奨</th></tr></thead>
+      <tbody>
+        <tr><td>バルプロ酸</td><td>🔴 <strong>絶対禁忌（Category X）</strong> — 胎児の重大催奇形性リスク</td></tr>
+        <tr><td>トピラマート</td><td>🔴 <strong>禁忌（Category D）</strong></td></tr>
+        <tr><td>エルゴタミン</td><td>🔴 <strong>禁忌</strong></td></tr>
+        <tr><td>トリプタン</td><td>🟡 <strong>注意使用</strong>（スマトリプタン妊娠レジストリあり、リスク検討の上で使用）</td></tr>
+        <tr><td>CGRP mAbs</td><td>🟡 <strong>データ不十分</strong> — 原則回避推奨</td></tr>
+        <tr><td>アセトアミノフェン</td><td>🟢 <strong>急性期第一選択</strong>（最も安全性データ充実）</td></tr>
+        <tr><td>IV マグネシウム硫酸塩</td><td>🟢 <strong>重症急性発作で使用可</strong></td></tr>
+        <tr><td>非薬物療法（CBT・バイオフィードバック）</td><td>🟢 <strong>積極的に活用</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>14.2 高齢者（65歳以上）</h2>
+  <div class="tbl th-orange">
+    <table>
+      <thead><tr><th>考慮点</th><th>推奨事項</th></tr></thead>
+      <tbody>
+        <tr><td>三環系抗うつ薬（アミトリプチリン）</td><td><strong>10mgから開始</strong>（起立性低血圧・転倒リスク）</td></tr>
+        <tr><td>トピラマート</td><td>認知機能への影響を注意深くモニタリング</td></tr>
+        <tr><td>β遮断薬</td><td>徐脈・起立性低血圧・転倒に注意</td></tr>
+        <tr><td>オピオイド</td><td><strong>可能な限り回避</strong>（転倒・せん妄リスク）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>14.3 小児・思春期（12〜18歳）</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>薬剤</th><th>推奨</th></tr></thead>
+      <tbody>
+        <tr><td>イブプロフェン 10mg/kg</td><td>急性期第一選択</td></tr>
+        <tr><td>アセトアミノフェン 15mg/kg</td><td>急性期第一選択</td></tr>
+        <tr><td>スマトリプタン鼻腔内スプレー</td><td><strong>12歳以上で承認</strong>（最も普及）</td></tr>
+        <tr><td>バルプロ酸（思春期女性）</td><td>体重増加・催奇形性についての十分なカウンセリングが必須</td></tr>
+        <tr><td>CGRP mAbs（思春期）</td><td>データ蓄積中 — 個別判断</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 15 -->
+<section id="s15" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">15</div>
+    <h1 class="sec-title">予後・再発予防</h1>
+  </div>
+
+  <h2>15.1 予後データ</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>評価時期</th><th>改善率</th><th>再発率</th><th>データソース</th></tr></thead>
+      <tbody>
+        <tr><td>離脱後3ヶ月</td><td><strong class="tG">60〜70%</strong></td><td>—</td><td>Diener et al., 1989; 複数コホート研究</td></tr>
+        <tr><td>離脱後1年</td><td><strong class="tG">50〜70%</strong></td><td><strong class="tO">25〜30%</strong></td><td>Schnider et al., 1996; Aaseth et al., 2011</td></tr>
+        <tr><td>離脱後5年</td><td>—</td><td><strong class="tR">40〜45%</strong></td><td>Schnider et al., 1996</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>15.2 予後不良予測因子</h2>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>予後不良因子</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td><strong>オピオイド・複合鎮痛薬の過用</strong></td><td>単純鎮痛薬・トリプタンよりも再発率が高い</td></tr>
+        <tr><td><strong>MOH罹患期間が長い</strong></td><td>5年以上の慢性化</td></tr>
+        <tr><td><strong>SDS（依存重症度スケール）スコア高値</strong></td><td>スコア高値は予後不良の有意な予測因子</td></tr>
+        <tr><td><strong>うつ病・不安障害の未治療</strong></td><td>精神医学的併存疾患への介入が必須</td></tr>
+        <tr><td><strong>社会的サポートの欠如</strong></td><td>再発時の受け皿が薬物頼りになりやすい</td></tr>
+        <tr><td><strong>複数薬剤の同時過用（8.2.6/8.2.7）</strong></td><td>単一薬剤過用より複雑</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>15.3 再発予防のための長期戦略</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">再発予防のための長期戦略 — 離脱成功後のフォローアップ</div>
+    <pre class="mermaid">
+flowchart TD
+    A["✅ 離脱成功（頭痛日数≥50%減少）"]
+    A --> B["📅 定期フォローアップ体制の確立<br/>（3・6・12ヶ月後の再評価）"]
+    B --> C["📓 頭痛日誌の継続記録<br/>（過用再発の早期発見）"]
+    B --> D["🛡 予防薬の継続<br/>（最低12〜24ヶ月）"]
+    B --> E["🧠 CBT・リラクゼーションの継続<br/>（再発時の対処スキル）"]
+    B --> F["📋 限界日数の遵守<br/>（急性期薬：月10日未満のルール）"]
+    C --> G{"過用再発の兆候？"}
+    G -- "なし" --> H["良好なコントロール状態維持"]
+    G -- "あり" --> I["🚨 早期介入<br/>主治医への報告<br/>離脱・治療計画の再検討"]
+
+    style A fill:#27ae60,color:#fff,font-weight:bold
+    style I fill:#e74c3c,color:#fff,font-weight:bold
+    style H fill:#2980b9,color:#fff
+    </pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 16 -->
+<section id="s16" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">16</div>
+    <h1 class="sec-title">アウトカム評価ツール</h1>
+  </div>
+
+  <h2>16.1 必須評価ツール一覧</h2>
+  <div class="tbl th-purple">
+    <table>
+      <thead><tr><th>ツール名</th><th>測定内容</th><th>カットオフ / 判定</th><th>評価タイミング</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HIT-6</strong><br><small>(Headache Impact Test)</small></td><td>頭痛による日常生活への影響</td><td><span class="bRed">≥60点 = 重度障害</span></td><td>治療前・3ヶ月後・6ヶ月後</td></tr>
+        <tr><td><strong>MIDAS</strong><br><small>(Migraine Disability Assessment)</small></td><td>過去3ヶ月の日常活動消失日数</td><td><span class="bRed">≥21日 = Grade IV（最重度）</span></td><td>治療前・3ヶ月後</td></tr>
+        <tr><td><strong>VAS / NRS</strong></td><td>疼痛強度 0〜10</td><td>2点以上の改善 = 臨床的有意差</td><td>発作ごと（発作時・ピーク時・治療後2h）</td></tr>
+        <tr><td><strong>PGIC</strong><br><small>(Patient Global Impression of Change)</small></td><td>患者自身の包括的改善感</td><td>7段階評価（1=最大改善 〜 7=最大悪化）</td><td>3・6ヶ月後</td></tr>
+        <tr><td><strong>SDS</strong><br><small>(Severity of Dependence Scale)</small></td><td>薬物依存重症度</td><td>スコア高値→予後不良因子</td><td>治療前</td></tr>
+        <tr><td><strong>頭痛日誌</strong></td><td>頭痛日数・使用薬剤・疼痛強度・誘発因子</td><td>治療前30日間のベースライン必須</td><td>継続的（最低30日ベースライン → 維持期）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>16.2 治療成功の定義（目標値）</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>目標</th><th>数値</th></tr></thead>
+      <tbody>
+        <tr><td>頭痛日数の減少</td><td><strong>≥50%の減少</strong>（ベースラインから3ヶ月後）</td></tr>
+        <tr><td>HIT-6スコア</td><td><strong>56点未満</strong>（重度障害からの離脱）</td></tr>
+        <tr><td>月間急性期薬使用日数</td><td><strong>&lt;10日/月</strong>（NSAID/アセトアミノフェン）または<strong>&lt;8日/月</strong>（トリプタン）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 17 -->
+<section id="s17" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">17</div>
+    <h1 class="sec-title">エビデンスサマリー</h1>
+  </div>
+
+  <div class="alert a-ok">
+    <span class="alert-i">✅</span>
+    <div>以下は AAN・EHF・NICE・Cochrane のコンセンサスに基づくエビデンスグレードのまとめです。すべて国際的に認可された機関の推奨に基づいています。</div>
+  </div>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>介入</th><th>エビデンスグレード</th><th>推奨出典</th></tr></thead>
+      <tbody>
+        <tr><td>オナボツリヌストキシンA（慢性片頭痛+MOH）</td><td><span class="bA">Grade A</span></td><td>AAN/AHS 2016, NICE CG150</td></tr>
+        <tr><td>トピラマート（MOH合併予防）</td><td><span class="bA">Grade A</span></td><td>AAN, EHF</td></tr>
+        <tr><td>CGRP mAbs（MOH合併CM）</td><td><span class="bA">Grade A</span></td><td>EHF 2022 Guideline (PMC9188162)</td></tr>
+        <tr><td>プロプラノロール</td><td><span class="bA">Grade A</span></td><td>AAN</td></tr>
+        <tr><td>バルプロ酸</td><td><span class="bA">Grade A</span></td><td>AAN（<span class="bRed">妊婦禁忌</span>）</td></tr>
+        <tr><td>IV DHE（入院ブリッジング）</td><td><span class="bA">Grade A</span></td><td>AAN（専門施設限定）</td></tr>
+        <tr><td>患者教育・Brief intervention（プライマリケア）</td><td><span class="bA">Grade A</span></td><td>BIMOH試験（BMJ 2015, Neurology 2016）</td></tr>
+        <tr><td>アミトリプチリン</td><td><span class="bB">Grade B</span></td><td>AAN, EHF</td></tr>
+        <tr><td>認知行動療法（CBT）</td><td><span class="bB">Grade B</span></td><td>AAN, Cochrane</td></tr>
+        <tr><td>バイオフィードバック</td><td><span class="bB">Grade B</span></td><td>AAN, Cochrane</td></tr>
+        <tr><td>マグネシウム（予防）</td><td><span class="bA">Grade A/B</span></td><td>AAN, EHF, Cochrane 2025</td></tr>
+        <tr><td>リボフラビン 400mg</td><td><span class="bA">Grade A/B</span></td><td>AAN, EHF</td></tr>
+        <tr><td>CoQ10 300mg</td><td><span class="bB">Grade B</span></td><td>EHF</td></tr>
+        <tr><td>短期プレドニゾロン（ブリッジング）</td><td><span class="bC">Grade C</span></td><td>EHF（混在したメタ解析結果）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>エビデンスグレード定義</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>グレード</th><th>定義</th></tr></thead>
+      <tbody>
+        <tr><td><span class="bA">Grade A</span></td><td>複数の良質な RCT またはメタ解析で裏付けられた強い推奨</td></tr>
+        <tr><td><span class="bB">Grade B</span></td><td>限られた RCT または質の高い観察研究に基づく推奨</td></tr>
+        <tr><td><span class="bC">Grade C</span></td><td>専門家コンセンサスまたは小規模研究に基づく弱い推奨</td></tr>
+        <tr><td><span class="bU">Expert Opinion</span></td><td>エビデンスに乏しいが専門医の臨床経験に基づく</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 18 -->
+<section id="s18" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">18</div>
+    <h1 class="sec-title">参考文献・ソースURL</h1>
+  </div>
+
+  <div class="alert a-ok">
+    <span class="alert-i">✅</span>
+    <div>以下はすべて国際的に認可された機関・ジャーナルからのソースです。URLはすべて2025年時点でアクセス可能なものを掲載しています。</div>
+  </div>
+
+  <h2>A. 診断基準（ICHD-3）</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">ICHD-3 公式サイト（全文閲覧可）</div>
+      <a class="src-url" href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">https://ichd-3.org/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / Cephalalgia 2018</div>
+      <div class="src-t">ICHD-3 全文PDF（Cephalalgia 2018）— 8.2 MOH診断基準</div>
+      <a class="src-url" href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf" target="_blank" rel="noopener noreferrer">ichd-3.org/…/ICHD-3-Edition-2018.pdf</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS</div>
+      <div class="src-t">IHS 分類委員会（ICHD-4最新動向）</div>
+      <a class="src-url" href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/" target="_blank" rel="noopener noreferrer">ihs-headache.org/…/classification/</a>
+    </div>
+  </div>
+
+  <h2>B. 臨床ガイドライン</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">AAN</div>
+      <div class="src-t">AAN 頭痛ガイドライン一覧</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">https://www.aan.com/guidelines/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">AAN / AHS</div>
+      <div class="src-t">AAN/AHS 片頭痛予防ガイドライン（PDF）</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/home/getguidelinecontent/545" target="_blank" rel="noopener noreferrer">aan.com/guidelines/…/545</a>
+    </div>
+    <div class="src">
+      <div class="src-org">AAN 2024 Draft</div>
+      <div class="src-t">AAN 2024年予防療法ドラフト（公開レビュー用）</div>
+      <a class="src-url" href="https://www.aan.com/siteassets/home-page/policy-and-guidelines/guidelines/guidelines-and-measures-open-for-public-comment/24-pharmacologic-treatment-for-migraine-prevention-in-adults_draft_08-14-2024.pdf" target="_blank" rel="noopener noreferrer">aan.com/…/pharmacologic-treatment-draft-2024.pdf</a>
+    </div>
+    <div class="src">
+      <div class="src-org">EHF 2022</div>
+      <div class="src-t">EHF CGRP mAbs 予防療法ガイドライン 2022（PMC全文）</div>
+      <a class="src-url" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">EHF 2022</div>
+      <div class="src-t">EHF トリプタン治療コンセンサス 2022</div>
+      <a class="src-url" href="https://link.springer.com/article/10.1186/s10194-022-01502-z" target="_blank" rel="noopener noreferrer">link.springer.com/…/s10194-022-01502-z</a>
+    </div>
+    <div class="src">
+      <div class="src-org">NICE</div>
+      <div class="src-t">NICE 頭痛ガイドライン CG150（英国）</div>
+      <a class="src-url" href="https://www.nice.org.uk/guidance/cg150" target="_blank" rel="noopener noreferrer">https://www.nice.org.uk/guidance/cg150</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / Cephalalgia 2024</div>
+      <div class="src-t">IHS 急性期治療推奨 2024（Cephalalgia誌全文）</div>
+      <a class="src-url" href="https://journals.sagepub.com/doi/10.1177/03331024241252666" target="_blank" rel="noopener noreferrer">journals.sagepub.com/doi/10.1177/03331024241252666</a>
+    </div>
+  </div>
+
+  <h2>C. Cochrane エビデンスレビュー</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Cochrane Library</div>
+      <div class="src-t">Cochrane 頭痛・片頭痛レビュー検索</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/search?query=headache+migraine&searchBy=3&type=cdsr" target="_blank" rel="noopener noreferrer">cochranelibrary.com/search?query=headache+migraine</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane 2025</div>
+      <div class="src-t">マグネシウム補充 片頭痛予防（2025年最新）</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD016307" target="_blank" rel="noopener noreferrer">cochranelibrary.com/…/CD016307</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane</div>
+      <div class="src-t">心理療法（CBT/バイオフィードバック）片頭痛予防</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2/full" target="_blank" rel="noopener noreferrer">cochranelibrary.com/…/CD012295.pub2</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane</div>
+      <div class="src-t">ボツリヌストキシン 慢性片頭痛予防</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011914" target="_blank" rel="noopener noreferrer">cochranelibrary.com/…/CD011914</a>
+    </div>
+  </div>
+
+  <h2>D. 主要専門誌・データベース</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">EHF Official Journal</div>
+      <div class="src-t">Journal of Headache and Pain（EHF公式誌・OA）</div>
+      <a class="src-url" href="https://thejournalofheadacheandpain.biomedcentral.com/" target="_blank" rel="noopener noreferrer">https://thejournalofheadacheandpain.biomedcentral.com/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS Official Journal</div>
+      <div class="src-t">Cephalalgia（IHS公式誌）</div>
+      <a class="src-url" href="https://journals.sagepub.com/home/cep" target="_blank" rel="noopener noreferrer">https://journals.sagepub.com/home/cep</a>
+    </div>
+    <div class="src">
+      <div class="src-org">PubMed / NCBI</div>
+      <div class="src-t">PubMed 薬剤過用頭痛 RCT 専用検索</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/?term=medication+overuse+headache&filter=pubt.clinicaltrials" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/?term=medication+overuse+headache</a>
+    </div>
+    <div class="src">
+      <div class="src-org">ClinicalTrials.gov</div>
+      <div class="src-t">ClinicalTrials.gov（MOH関連試験）</div>
+      <a class="src-url" href="https://clinicaltrials.gov/search?cond=Medication+Overuse+Headache" target="_blank" rel="noopener noreferrer">clinicaltrials.gov/search?cond=Medication+Overuse+Headache</a>
+    </div>
+  </div>
+
+  <h2>E. 主要一次文献（精選）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>著者・年</th><th>タイトル（要旨）</th><th>掲載誌</th></tr></thead>
+      <tbody>
+        <tr><td>Diener HC et al., 1989</td><td>鎮痛薬誘発性頭痛：離脱療法の長期結果</td><td><em>J Neurol</em> 236: 9–14</td></tr>
+        <tr><td>Schnider P et al., 1996</td><td>入院離脱後5年フォローアップ</td><td><em>Cephalalgia</em> 16: 481–485</td></tr>
+        <tr><td>Kristoffersen ES et al., 2015 (BIMOH)</td><td>プライマリケアでの簡潔介入RCT</td><td><em>J Neurol Neurosurg Psychiatry</em> 86: 505–512</td></tr>
+        <tr><td>Kristoffersen ES et al., 2016</td><td>BIMOH研究6ヶ月フォローアップ</td><td><em>J Neurol</em> 263: 344–353</td></tr>
+        <tr><td>Aaseth K et al., 2011</td><td>二次性慢性頭痛の3年フォローアップ（Akershus研究）</td><td><em>Eur J Pain</em> 15: 186–192</td></tr>
+        <tr><td>Limmroth V et al., 2002</td><td>異なる急性期薬過用後のMOH特徴</td><td><em>Neurology</em> 59: 1011–1014</td></tr>
+        <tr><td>Grande RB et al., 2009</td><td>SDSスコアとMOH検出（Akershus研究）</td><td><em>J Neurol Neurosurg Psychiatry</em> 80: 784–789</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size:12px;color:var(--g6);margin-top:24px">本ガイドは ICHD-3（IHS, 2018）、AAN/AHS ガイドライン、EHF 2022ガイドライン、NICE CG150、Cochrane Library の内容に基づき作成されました。最終更新参照基準日：2025年8月（Claude知識カットオフ）。個別臨床判断は必ず専門医との相談の上で行ってください。</p>
+</section>
 </main>
 </div><!-- end layout -->
 
