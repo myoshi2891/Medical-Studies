@@ -265,7 +265,7 @@ flowchart TD
 [ ] ブラウザで開き、Mermaid 図が全てレンダリングされる
 [ ] サイドバーのスクロールリンクが全て機能する
 [ ] モバイル幅（<900px）でサイドバーが非表示になりコンテンツが読める
-[ ] 全ての外部リンクが target="_blank" で開く
+[ ] 全ての外部リンクが target="_blank" かつ rel="noopener noreferrer" で開く
 [ ] <script> タグに integrity + crossorigin が付いている
 [ ] ヒーローグラジエントが他ページと重複していない
 [ ] エビデンスバッジ (.bA/.bB/.bC/.bU) が正しく使われている
