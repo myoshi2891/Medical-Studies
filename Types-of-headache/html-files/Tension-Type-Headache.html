@@ -311,28 +311,28 @@ pre.mermaid{text-align:center}
     <div class="mmd-lbl">フローチャート — 末梢感作から中枢感作への移行モデル</div>
 <pre class="mermaid">
 flowchart TD
-    A([誘発因子\nストレス / 姿勢異常 / 睡眠障害\n疲労 / 不規則な食事 / カフェイン]) --> B
+A([誘発因子\nストレス / 姿勢異常 / 睡眠障害\n疲労 / 不規則な食事 / カフェイン]) --> B
 
-    B[頭頸部筋・筋膜の\n持続的収縮・虚血]
+B[頭頸部筋・筋膜の\n持続的収縮・虚血]
 
-    B --> C[一酸化窒素 NO 産生増加\n筋膜侵害受容器の活性化]
-    C --> D[**末梢感作**\n圧痛閾値 PPT の低下\n頭蓋周囲圧痛 増大]
+B --> C[一酸化窒素 NO 産生増加\n筋膜侵害受容器の活性化]
+C --> D[**末梢感作**\n圧痛閾値 PPT の低下\n頭蓋周囲圧痛 増大]
 
-    D --> E{頭痛頻度}
+D --> E{頭痛頻度}
 
-    E -->|低頻度 &lt; 1日/月| F[2.1 低頻度エピソード型\n末梢機序が主体]
-    E -->|高頻度 1-14日/月| G[2.2 高頻度エピソード型\n末梢＋中枢機序]
-    E -->|慢性化 ≥15日/月| H[2.3 慢性緊張型頭痛\n**中枢感作が主体**]
+E -->|低頻度 &lt; 1日/月| F[2.1 低頻度エピソード型\n末梢機序が主体]
+E -->|高頻度 1-14日/月| G[2.2 高頻度エピソード型\n末梢＋中枢機序]
+E -->|慢性化 ≥15日/月| H[2.3 慢性緊張型頭痛\n**中枢感作が主体**]
 
-    G --> I[**中枢感作**\n三叉神経核脊髄路の過感受化\n下行性疼痛抑制系の機能低下\nセロトニン・ノルアドレナリン経路]
-    H --> I
+G --> I[**中枢感作**\n三叉神経核脊髄路の過感受化\n下行性疼痛抑制系の機能低下\nセロトニン・ノルアドレナリン経路]
+H --> I
 
-    I --> J[痛み処理回路の可塑的変化\n灰白質体積減少\n慢性疼痛サイクルの確立]
+I --> J[痛み処理回路の可塑的変化\n灰白質体積減少\n慢性疼痛サイクルの確立]
 
-    style A fill:#f0e68c
-    style D fill:#ffcc99
-    style I fill:#ff9999
-    style J fill:#ff6666,color:#fff
+style A fill:#f0e68c
+style D fill:#ffcc99
+style I fill:#ff9999
+style J fill:#ff6666,color:#fff
 </pre>
   </div>
 
@@ -433,41 +433,41 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — ICHD-3 第2章 完全分類体系</div>
 <pre class="mermaid">
 flowchart TD
-    ROOT["2. 緊張型頭痛
-    Tension-Type Headache
-    ICHD-3 第2章"]
+ROOT["2. 緊張型頭痛
+Tension-Type Headache
+ICHD-3 第2章"]
 
-    ROOT --> A["2.1 低頻度エピソード型
-    Infrequent Episodic TTH
-    &lt; 1日/月（年 &lt; 12日）"]
-    ROOT --> B["2.2 高頻度エピソード型
-    Frequent Episodic TTH
-    1〜14日/月（&gt; 3ヶ月）"]
-    ROOT --> C["2.3 慢性緊張型頭痛
-    Chronic TTH
-    ≥ 15日/月（&gt; 3ヶ月）"]
-    ROOT --> D["2.4 確率的緊張型頭痛
-    Probable TTH
-    基準を1項目欠く場合"]
+ROOT --> A["2.1 低頻度エピソード型
+Infrequent Episodic TTH
+&lt; 1日/月（年 &lt; 12日）"]
+ROOT --> B["2.2 高頻度エピソード型
+Frequent Episodic TTH
+1〜14日/月（&gt; 3ヶ月）"]
+ROOT --> C["2.3 慢性緊張型頭痛
+Chronic TTH
+≥ 15日/月（&gt; 3ヶ月）"]
+ROOT --> D["2.4 確率的緊張型頭痛
+Probable TTH
+基準を1項目欠く場合"]
 
-    A --> A1["2.1.1 頭蓋周囲圧痛あり"]
-    A --> A2["2.1.2 頭蓋周囲圧痛なし"]
+A --> A1["2.1.1 頭蓋周囲圧痛あり"]
+A --> A2["2.1.2 頭蓋周囲圧痛なし"]
 
-    B --> B1["2.2.1 頭蓋周囲圧痛あり"]
-    B --> B2["2.2.2 頭蓋周囲圧痛なし"]
+B --> B1["2.2.1 頭蓋周囲圧痛あり"]
+B --> B2["2.2.2 頭蓋周囲圧痛なし"]
 
-    C --> C1["2.3.1 頭蓋周囲圧痛あり"]
-    C --> C2["2.3.2 頭蓋周囲圧痛なし"]
+C --> C1["2.3.1 頭蓋周囲圧痛あり"]
+C --> C2["2.3.2 頭蓋周囲圧痛なし"]
 
-    D --> D1["2.4.1 確率的低頻度型"]
-    D --> D2["2.4.2 確率的高頻度型"]
-    D --> D3["2.4.3 確率的慢性型"]
+D --> D1["2.4.1 確率的低頻度型"]
+D --> D2["2.4.2 確率的高頻度型"]
+D --> D3["2.4.3 確率的慢性型"]
 
-    style ROOT fill:#2c3e50,color:#fff
-    style A fill:#27ae60,color:#fff
-    style B fill:#e67e22,color:#fff
-    style C fill:#e74c3c,color:#fff
-    style D fill:#7f8c8d,color:#fff
+style ROOT fill:#2c3e50,color:#fff
+style A fill:#27ae60,color:#fff
+style B fill:#e67e22,color:#fff
+style C fill:#e74c3c,color:#fff
+style D fill:#7f8c8d,color:#fff
 </pre>
   </div>
 
@@ -503,42 +503,42 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — ICHD-3 エピソード型 TTH 診断プロセス</div>
 <pre class="mermaid">
 flowchart TD
-    START([頭痛患者 評価開始]) --> SNOOP
+START([頭痛患者 評価開始]) --> SNOOP
 
-    SNOOP{SNOOP4 レッドフラッグ確認\n→ Section 6 参照}
-    SNOOP -->|レッドフラッグあり| EMERGENCY[緊急画像検査\nCT / MRI\n二次性頭痛を除外]
-    SNOOP -->|クリア| A
+SNOOP{SNOOP4 レッドフラッグ確認\n→ Section 6 参照}
+SNOOP -->|レッドフラッグあり| EMERGENCY[緊急画像検査\nCT / MRI\n二次性頭痛を除外]
+SNOOP -->|クリア| A
 
-    A{"A. エピソード数\n10回以上のエピソードがあるか？"}
-    A -->|いいえ| FAIL[診断基準 未充足\n他疾患を検討]
-    A -->|はい| B
+A{"A. エピソード数\n10回以上のエピソードがあるか？"}
+A -->|いいえ| FAIL[診断基準 未充足\n他疾患を検討]
+A -->|はい| B
 
-    B{"B. 持続時間\n30分〜7日間か？"}
-    B -->|いいえ| FAIL
-    B -->|はい| C
+B{"B. 持続時間\n30分〜7日間か？"}
+B -->|いいえ| FAIL
+B -->|はい| C
 
-    C{"C. 以下の4特徴のうち\n2項目以上を満たすか？\n① 両側性\n② 圧迫感・締め付け感（非拍動性）\n③ 軽度〜中等度の強度\n④ 日常的身体活動で悪化しない"}
-    C -->|1項目以下| FAIL
-    C -->|2項目以上| D
+C{"C. 以下の4特徴のうち\n2項目以上を満たすか？\n① 両側性\n② 圧迫感・締め付け感（非拍動性）\n③ 軽度〜中等度の強度\n④ 日常的身体活動で悪化しない"}
+C -->|1項目以下| FAIL
+C -->|2項目以上| D
 
-    D{"D. 以下の両方を満たすか？\n① 悪心・嘔吐なし\n② 光過敏または音過敏の一方のみ（両方は不可）"}
-    D -->|いいえ| MIGRAINE[片頭痛の可能性を再評価]
-    D -->|はい| E
+D{"D. 以下の両方を満たすか？\n① 悪心・嘔吐なし\n② 光過敏または音過敏の一方のみ（両方は不可）"}
+D -->|いいえ| MIGRAINE[片頭痛の可能性を再評価]
+D -->|はい| E
 
-    E{"E. 他の ICHD-3 診断で\n説明できないか？"}
-    E -->|説明できる| OTHER[他診断を適用]
-    E -->|説明できない| FREQ
+E{"E. 他の ICHD-3 診断で\n説明できないか？"}
+E -->|説明できる| OTHER[他診断を適用]
+E -->|説明できない| FREQ
 
-    FREQ{"頻度で分類"}
-    FREQ -->|&lt; 1日/月| CODE21["2.1 低頻度エピソード型TTH"]
-    FREQ -->|1〜14日/月| CODE22["2.2 高頻度エピソード型TTH"]
+FREQ{"頻度で分類"}
+FREQ -->|&lt; 1日/月| CODE21["2.1 低頻度エピソード型TTH"]
+FREQ -->|1〜14日/月| CODE22["2.2 高頻度エピソード型TTH"]
 
-    style EMERGENCY fill:#e74c3c,color:#fff
-    style FAIL fill:#95a5a6,color:#fff
-    style CODE21 fill:#27ae60,color:#fff
-    style CODE22 fill:#f39c12,color:#fff
-    style MIGRAINE fill:#8e44ad,color:#fff
-    style OTHER fill:#2980b9,color:#fff
+style EMERGENCY fill:#e74c3c,color:#fff
+style FAIL fill:#95a5a6,color:#fff
+style CODE21 fill:#27ae60,color:#fff
+style CODE22 fill:#f39c12,color:#fff
+style MIGRAINE fill:#8e44ad,color:#fff
+style OTHER fill:#2980b9,color:#fff
 </pre>
   </div>
 
@@ -592,37 +592,37 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — SNOOP4 レッドフラッグ評価</div>
 <pre class="mermaid">
 flowchart TD
-    START([頭痛患者\n来院・問診開始]) --> S
+START([頭痛患者\n来院・問診開始]) --> S
 
-    S{"S — Systemic 全身症状\n・発熱・項部硬直\n・体重減少\n・免疫不全状態\n・既知の悪性腫瘍既往"}
-    S -->|該当あり| RED["EMERGENCY\n緊急 CT / MRI 施行\n二次性頭痛を除外\n専門科へ緊急コンサルト"]
-    S -->|なし| N
+S{"S — Systemic 全身症状\n・発熱・項部硬直\n・体重減少\n・免疫不全状態\n・既知の悪性腫瘍既往"}
+S -->|該当あり| RED["EMERGENCY\n緊急 CT / MRI 施行\n二次性頭痛を除外\n専門科へ緊急コンサルト"]
+S -->|なし| N
 
-    N{"N — Neurological Deficits\n神経学的欠損症状\n・運動麻痺・感覚障害\n・失語・複視・視野欠損\n・意識障害"}
-    N -->|該当あり| RED
-    N -->|なし| O1
+N{"N — Neurological Deficits\n神経学的欠損症状\n・運動麻痺・感覚障害\n・失語・複視・視野欠損\n・意識障害"}
+N -->|該当あり| RED
+N -->|なし| O1
 
-    O1{"O — Onset 発症様式\n突発性発症：\n生涯で最悪の頭痛\nThunderclap Headache\nくも膜下出血除外必須"}
-    O1 -->|該当あり| RED
-    O1 -->|なし| O2
+O1{"O — Onset 発症様式\n突発性発症：\n生涯で最悪の頭痛\nThunderclap Headache\nくも膜下出血除外必須"}
+O1 -->|該当あり| RED
+O1 -->|なし| O2
 
-    O2{"O — Onset after 50\n50歳以降の新規発症\n側頭動脈炎\n頭蓋内占拠性病変"}
-    O2 -->|該当あり| RED
-    O2 -->|なし| P
+O2{"O — Onset after 50\n50歳以降の新規発症\n側頭動脈炎\n頭蓋内占拠性病変"}
+O2 -->|該当あり| RED
+O2 -->|なし| P
 
-    P{"P — Pattern Change\nパターン変化\n・進行性増悪\n・外傷後の新規発症\n・体位性変化（仰臥位 or 起立位悪化）"}
-    P -->|該当あり| RED
-    P -->|なし| FOUR
+P{"P — Pattern Change\nパターン変化\n・進行性増悪\n・外傷後の新規発症\n・体位性変化（仰臥位 or 起立位悪化）"}
+P -->|該当あり| RED
+P -->|なし| FOUR
 
-    FOUR{"4 — 四つのP\nPapilledema 乳頭浮腫\nPostdural 硬膜穿刺後\nPost-seizure 痙攣後\nPregnancy / Postpartum 妊娠・産後"}
-    FOUR -->|該当あり| RED
-    FOUR -->|なし| CLEAR
+FOUR{"4 — 四つのP\nPapilledema 乳頭浮腫\nPostdural 硬膜穿刺後\nPost-seizure 痙攣後\nPregnancy / Postpartum 妊娠・産後"}
+FOUR -->|該当あり| RED
+FOUR -->|なし| CLEAR
 
-    CLEAR["SNOOP4 クリア\n一次性頭痛の診断プロセスへ\nICHD-3 分類へ進む"]
+CLEAR["SNOOP4 クリア\n一次性頭痛の診断プロセスへ\nICHD-3 分類へ進む"]
 
-    style RED fill:#c0392b,color:#fff
-    style CLEAR fill:#27ae60,color:#fff
-    style START fill:#2980b9,color:#fff
+style RED fill:#c0392b,color:#fff
+style CLEAR fill:#27ae60,color:#fff
+style START fill:#2980b9,color:#fff
 </pre>
   </div>
 
@@ -816,37 +816,37 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 急性期 Step-by-Step 治療</div>
 <pre class="mermaid">
 flowchart TD
-    ASSESS([急性頭痛発症\n疼痛強度を評価]) --> MILD
+ASSESS([急性頭痛発症\n疼痛強度を評価]) --> MILD
 
-    MILD{"NRS ≤ 3\n軽度"}
-    MILD -->|はい| STEP1
-    MILD -->|いいえ| MOD
+MILD{"NRS ≤ 3\n軽度"}
+MILD -->|はい| STEP1
+MILD -->|いいえ| MOD
 
-    STEP1["Step 1 — 一般OTC薬\n・イブプロフェン 400〜800mg\n・アセトアミノフェン 500〜1000mg\n・アスピリン 500〜1000mg\nGrade A（AAN / NICE CG150）"]
-    STEP1 --> CHECK1
+STEP1["Step 1 — 一般OTC薬\n・イブプロフェン 400〜800mg\n・アセトアミノフェン 500〜1000mg\n・アスピリン 500〜1000mg\nGrade A（AAN / NICE CG150）"]
+STEP1 --> CHECK1
 
-    CHECK1{"2時間後\n効果ありか？"}
-    CHECK1 -->|はい| END1["治療完了\n使用頻度を記録"]
-    CHECK1 -->|いいえ| MOD
+CHECK1{"2時間後\n効果ありか？"}
+CHECK1 -->|はい| END1["治療完了\n使用頻度を記録"]
+CHECK1 -->|いいえ| MOD
 
-    MOD{"NRS 4〜7\n中等度"}
-    MOD --> STEP2
+MOD{"NRS 4〜7\n中等度"}
+MOD --> STEP2
 
-    STEP2["Step 2 — NSAIDs 強化 or 変薬\n・ナプロキセン 375〜550mg\n・ケトプロフェン 25〜50mg\n・アスピリン + カフェイン 配合剤\nGrade A/B"]
-    STEP2 --> CHECK2
+STEP2["Step 2 — NSAIDs 強化 or 変薬\n・ナプロキセン 375〜550mg\n・ケトプロフェン 25〜50mg\n・アスピリン + カフェイン 配合剤\nGrade A/B"]
+STEP2 --> CHECK2
 
-    CHECK2{"2時間後\n効果ありか？"}
-    CHECK2 -->|はい| END2["治療完了"]
-    CHECK2 -->|いいえ| RESCUE
+CHECK2{"2時間後\n効果ありか？"}
+CHECK2 -->|はい| END2["治療完了"]
+CHECK2 -->|いいえ| RESCUE
 
-    RESCUE["Step 3 — レスキュー\n専門医へコンサルト\n非薬物療法の併用\nMOH評価・予防療法導入を検討\nGrade C / Expert Opinion"]
+RESCUE["Step 3 — レスキュー\n専門医へコンサルト\n非薬物療法の併用\nMOH評価・予防療法導入を検討\nGrade C / Expert Opinion"]
 
-    RESCUE --> WARN["注意事項\nトリプタン：TTHへの適応なし\nオピオイド：一次性頭痛では避ける\n（MOH・依存リスク）"]
+RESCUE --> WARN["注意事項\nトリプタン：TTHへの適応なし\nオピオイド：一次性頭痛では避ける\n（MOH・依存リスク）"]
 
-    style END1 fill:#27ae60,color:#fff
-    style END2 fill:#27ae60,color:#fff
-    style WARN fill:#c0392b,color:#fff
-    style RESCUE fill:#e67e22,color:#fff
+style END1 fill:#27ae60,color:#fff
+style END2 fill:#27ae60,color:#fff
+style WARN fill:#c0392b,color:#fff
+style RESCUE fill:#e67e22,color:#fff
 </pre>
   </div>
 
@@ -876,21 +876,21 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 予防療法の適応判断</div>
 <pre class="mermaid">
 flowchart LR
-    CHECK{"予防療法の適応を評価"}
+CHECK{"予防療法の適応を評価"}
 
-    CHECK --> I1["頭痛頻度\n≥ 1回/週（高頻度ETTH）\nまたは 慢性型（CTTH）"]
-    CHECK --> I2["急性薬剤で\n十分なコントロール不良"]
-    CHECK --> I3["MOHリスク\nまたは 既存のMOH"]
-    CHECK --> I4["QOL著明低下\nHIT-6 ≥ 60点\nMIDAS ≥ 11点"]
-    CHECK --> I5["精神的合併症\n（うつ・不安）あり"]
+CHECK --> I1["頭痛頻度\n≥ 1回/週（高頻度ETTH）\nまたは 慢性型（CTTH）"]
+CHECK --> I2["急性薬剤で\n十分なコントロール不良"]
+CHECK --> I3["MOHリスク\nまたは 既存のMOH"]
+CHECK --> I4["QOL著明低下\nHIT-6 ≥ 60点\nMIDAS ≥ 11点"]
+CHECK --> I5["精神的合併症\n（うつ・不安）あり"]
 
-    I1 & I2 & I3 & I4 & I5 --> DECIDE{"いずれか1つでも\n該当するか？"}
+I1 & I2 & I3 & I4 & I5 --> DECIDE{"いずれか1つでも\n該当するか？"}
 
-    DECIDE -->|はい| START["予防療法開始\n第一選択：アミトリプチリン\n非薬物療法を必ず併用"]
-    DECIDE -->|いいえ| WATCH["経過観察\n頭痛日誌を継続\n1〜3ヶ月後に再評価"]
+DECIDE -->|はい| START["予防療法開始\n第一選択：アミトリプチリン\n非薬物療法を必ず併用"]
+DECIDE -->|いいえ| WATCH["経過観察\n頭痛日誌を継続\n1〜3ヶ月後に再評価"]
 
-    style START fill:#27ae60,color:#fff
-    style WATCH fill:#3498db,color:#fff
+style START fill:#27ae60,color:#fff
+style WATCH fill:#3498db,color:#fff
 </pre>
   </div>
 
@@ -923,30 +923,30 @@ flowchart LR
     <div class="mmd-lbl">フローチャート — 非薬物療法の全体像</div>
 <pre class="mermaid">
 flowchart TD
-    NP["非薬物療法\nNon-Pharmacological Treatment"]
+NP["非薬物療法\nNon-Pharmacological Treatment"]
 
-    NP --> PSY["心理・行動療法"]
-    NP --> PHY["身体療法"]
-    NP --> LIFE["生活習慣改善"]
+NP --> PSY["心理・行動療法"]
+NP --> PHY["身体療法"]
+NP --> LIFE["生活習慣改善"]
 
-    PSY --> P1["認知行動療法 CBT\nGrade B — Cochrane SR 2017\n薬物療法と同等の効果"]
-    PSY --> P2["バイオフィードバック\nGrade B — Meta-analysis 2008\nEMGフィードバックが最有効"]
-    PSY --> P3["リラクゼーション訓練\nGrade B — AAN/AHS\n漸進的筋弛緩法・自律訓練法"]
-    PSY --> P4["マインドフルネス MBSR\nGrade C — 小規模RCT\n慢性型に有望"]
+PSY --> P1["認知行動療法 CBT\nGrade B — Cochrane SR 2017\n薬物療法と同等の効果"]
+PSY --> P2["バイオフィードバック\nGrade B — Meta-analysis 2008\nEMGフィードバックが最有効"]
+PSY --> P3["リラクゼーション訓練\nGrade B — AAN/AHS\n漸進的筋弛緩法・自律訓練法"]
+PSY --> P4["マインドフルネス MBSR\nGrade C — 小規模RCT\n慢性型に有望"]
 
-    PHY --> H1["理学療法 / 頸部モビライゼーション\nGrade B — Fernandez-de-las-Penas 2006\n姿勢矯正・頸部機能障害に有効"]
-    PHY --> H2["鍼治療\nGrade B — Cochrane SR 2016\n予防効果：偽鍼と同等以上"]
-    PHY --> H3["マッサージ療法\nGrade C — 観察研究\n頭蓋周囲圧痛の軽減"]
-    PHY --> H4["有酸素運動\nGrade C — Varkey et al. 2011\n週3回30分を推奨"]
+PHY --> H1["理学療法 / 頸部モビライゼーション\nGrade B — Fernandez-de-las-Penas 2006\n姿勢矯正・頸部機能障害に有効"]
+PHY --> H2["鍼治療\nGrade B — Cochrane SR 2016\n予防効果：偽鍼と同等以上"]
+PHY --> H3["マッサージ療法\nGrade C — 観察研究\n頭蓋周囲圧痛の軽減"]
+PHY --> H4["有酸素運動\nGrade C — Varkey et al. 2011\n週3回30分を推奨"]
 
-    LIFE --> L1["睡眠衛生指導\n目標 7〜8時間/日\n規則正しい起床就寝時刻"]
-    LIFE --> L2["ストレスマネジメント\n職場環境・対人関係調整"]
-    LIFE --> L3["姿勢指導\nエルゴノミクス\nデスクワーク中の姿勢"]
-    LIFE --> L4["トリガー管理\n頭痛日誌による同定\n規則的な食事・水分補給"]
+LIFE --> L1["睡眠衛生指導\n目標 7〜8時間/日\n規則正しい起床就寝時刻"]
+LIFE --> L2["ストレスマネジメント\n職場環境・対人関係調整"]
+LIFE --> L3["姿勢指導\nエルゴノミクス\nデスクワーク中の姿勢"]
+LIFE --> L4["トリガー管理\n頭痛日誌による同定\n規則的な食事・水分補給"]
 
-    style PSY fill:#3498db,color:#fff
-    style PHY fill:#27ae60,color:#fff
-    style LIFE fill:#8e44ad,color:#fff
+style PSY fill:#3498db,color:#fff
+style PHY fill:#27ae60,color:#fff
+style LIFE fill:#8e44ad,color:#fff
 </pre>
   </div>
 
@@ -1058,38 +1058,38 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — ICHD-3 コード 8.2 薬剤過用頭痛の診断</div>
 <pre class="mermaid">
 flowchart TD
-    START(["急性期薬剤の使用歴を評価\nICHD-3 8.2 MOH診断基準に照合"]) --> A
+START(["急性期薬剤の使用歴を評価\nICHD-3 8.2 MOH診断基準に照合"]) --> A
 
-    A{"単純鎮痛薬 / NSAIDs\n（イブプロフェン・アセトアミノフェン等）\n≥ 15日/月 かつ ≥ 3ヶ月間？"}
-    A -->|はい| MOH
-    A -->|いいえ| B
+A{"単純鎮痛薬 / NSAIDs\n（イブプロフェン・アセトアミノフェン等）\n≥ 15日/月 かつ ≥ 3ヶ月間？"}
+A -->|はい| MOH
+A -->|いいえ| B
 
-    B{"トリプタン / エルゴタミン / オピオイド\n≥ 10日/月 かつ ≥ 3ヶ月間？"}
-    B -->|はい| MOH
-    B -->|いいえ| C
+B{"トリプタン / エルゴタミン / オピオイド\n≥ 10日/月 かつ ≥ 3ヶ月間？"}
+B -->|はい| MOH
+B -->|いいえ| C
 
-    C{"配合鎮痛薬（複合成分製剤）\n≥ 10日/月 かつ ≥ 3ヶ月間？"}
-    C -->|はい| MOH
-    C -->|いいえ| D
+C{"配合鎮痛薬（複合成分製剤）\n≥ 10日/月 かつ ≥ 3ヶ月間？"}
+C -->|はい| MOH
+C -->|いいえ| D
 
-    D{"複数薬剤を組み合わせて\n合計 ≥ 10日/月使用？"}
-    D -->|はい| MOH
-    D -->|いいえ| SAFE
+D{"複数薬剤を組み合わせて\n合計 ≥ 10日/月使用？"}
+D -->|はい| MOH
+D -->|いいえ| SAFE
 
-    SAFE["現時点のMOHリスクなし\n定期的な再評価を継続"]
+SAFE["現時点のMOHリスクなし\n定期的な再評価を継続"]
 
-    MOH["MEDICATION OVERUSE HEADACHE 疑い\nICHD-3コード：8.2\n逆説的頭痛頻度増加に注意"]
+MOH["MEDICATION OVERUSE HEADACHE 疑い\nICHD-3コード：8.2\n逆説的頭痛頻度増加に注意"]
 
-    MOH --> MANAGE["管理戦略"]
-    MANAGE --> M1["段階的な過用薬剤の離脱\n（急激な中止は離脱頭痛のリスク）"]
-    MANAGE --> M2["予防療法の並行開始\nアミトリプチリン Grade A"]
-    MANAGE --> M3["詳細な患者教育\nMOHのメカニズム説明"]
-    MANAGE --> M4["行動療法の導入\nCBT / バイオフィードバック"]
-    MANAGE --> M5["3ヶ月後に再評価\nICHD-3: MOHは薬剤中止後に消退"]
+MOH --> MANAGE["管理戦略"]
+MANAGE --> M1["段階的な過用薬剤の離脱\n（急激な中止は離脱頭痛のリスク）"]
+MANAGE --> M2["予防療法の並行開始\nアミトリプチリン Grade A"]
+MANAGE --> M3["詳細な患者教育\nMOHのメカニズム説明"]
+MANAGE --> M4["行動療法の導入\nCBT / バイオフィードバック"]
+MANAGE --> M5["3ヶ月後に再評価\nICHD-3: MOHは薬剤中止後に消退"]
 
-    style MOH fill:#c0392b,color:#fff
-    style SAFE fill:#27ae60,color:#fff
-    style MANAGE fill:#e67e22,color:#fff
+style MOH fill:#c0392b,color:#fff
+style SAFE fill:#27ae60,color:#fff
+style MANAGE fill:#e67e22,color:#fff
 </pre>
   </div>
 
@@ -1225,7 +1225,7 @@ flowchart TD
           <tr><td>職業</td><td>IT プロジェクトマネージャー（長時間デスクワーク）</td></tr>
           <tr><td>生活習慣</td><td>睡眠6時間/日（不規則）；運動習慣なし；コーヒー4杯/日；水分摂取不足</td></tr>
           <tr><td>既往歴</td><td>特記事項なし；アレルギーなし</td></tr>
-          <tr><td>服薬歴</td><td>OTC イブプロフェン自己使用（月10〜12日）</td></tr>
+          <tr><td>服薬歴</td><td>OTC イブプロフェン自己使用（月 ≥ 15日、継続 ≥ 3ヶ月）</td></tr>
         </tbody>
       </table>
     </div>
@@ -1290,7 +1290,7 @@ flowchart TD
         <thead><tr><th>診断</th><th>ICHD-3 コード</th></tr></thead>
         <tbody>
           <tr><td><strong>高頻度エピソード型緊張型頭痛</strong></td><td><strong>2.2.1</strong>（頭蓋周囲圧痛あり）</td></tr>
-          <tr><td>薬剤過用頭痛（同時診断）</td><td><strong>8.2</strong>（イブプロフェン ≥ 10日/月 ≥ 3ヶ月）</td></tr>
+          <tr><td>薬剤過用頭痛（同時診断）</td><td><strong>8.2.3.2</strong>（NSAIDs過用：イブプロフェン ≥ 15日/月 かつ ≥ 3ヶ月）</td></tr>
         </tbody>
       </table>
     </div>
@@ -1551,7 +1551,7 @@ flowchart TD
     <div class="src">
       <div class="src-org">EHF 公式誌（OA）</div>
       <div class="src-t">Journal of Headache and Pain</div>
-      <a class="src-url" href="https://thejournalofheadacheandpaint.biomedcentral.com/" target="_blank" rel="noopener noreferrer">BioMed Central / JHAP</a>
+      <a class="src-url" href="https://thejournalofheadacheandpain.biomedcentral.com/" target="_blank" rel="noopener noreferrer">BioMed Central / JHAP</a>
     </div>
     <div class="src">
       <div class="src-org">IHS 公式誌</div>

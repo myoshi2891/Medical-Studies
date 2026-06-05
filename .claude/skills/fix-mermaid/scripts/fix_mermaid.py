@@ -1,7 +1,8 @@
 """
 Mermaid v10 インデント修正スクリプト
 
-HTML ファイルのすべての <div class="mermaid"> ブロックを一括検査・修正する。
+HTML ファイルのすべての <div class="mermaid"> および <pre class="mermaid"> ブロックを
+一括検査・修正する。
 mindmap は内部インデントを保持 (階層構造が構文上の意味を持つため)。
 
 使い方:
@@ -120,6 +121,17 @@ def fix_mermaid_blocks(html: str) -> tuple[str, list[str]]:
         r'[^>]*>)(.*?)(</div>)',
         fix_block,
         html,
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    # <pre class="mermaid"> ブロックも同一の正規化ロジックで処理する
+    # (Tension-Type-Headache.html や Migraine.html などで使用)
+    fixed_html = re.sub(
+        r'(<pre\b[^>]*\bclass\s*=\s*'
+        r"""(?:"[^"]*\bmermaid\b[^"]*"|'[^']*\bmermaid\b[^']*'"""
+        r'|[^\s>]*\bmermaid\b[^\s>]*)'
+        r'[^>]*>)(.*?)(</pre>)',
+        fix_block,
+        fixed_html,
         flags=re.DOTALL | re.IGNORECASE,
     )
     return fixed_html, report

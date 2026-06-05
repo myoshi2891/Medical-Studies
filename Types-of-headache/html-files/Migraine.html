@@ -320,22 +320,22 @@ pre.mermaid{text-align:center}
     <div class="mmd-lbl">病態生理カスケード（上から順に発生）</div>
     <pre class="mermaid">
 flowchart TD
-    A["🧬 遺伝的素因 ＋ 環境トリガー\n（ストレス・睡眠変化・ホルモン変動）"]
-    B["皮質拡延性抑制（CSD）\n神経電気活動の波状抑制（約3mm/分）\n→ 前兆症状の神経生理学的基盤"]
-    C["三叉神経血管系の活性化\n（Trigeminovascular Activation）\n硬膜・軟膜の感覚神経終末"]
-    D["神経ペプチドの大量放出\nCGRP・Substance P・PACAP\n強力な血管拡張・神経炎症物質"]
-    E["硬膜血管の拡張 ＋ 神経因性炎症\n肥満細胞の脱顆粒"]
-    F["三叉神経核尾側亜核（TNC）\nへの侵害信号伝達"]
-    G["視床 → 大脳皮質（S1・島皮質）\nへの痛み信号伝達"]
-    H["中枢感作（Central Sensitization）\n痛み信号の増幅 → 慢性化リスク↑"]
-    I["🔴 片頭痛発作\n片側拍動性頭痛 ＋ 光・音過敏・悪心"]
+A["🧬 遺伝的素因 ＋ 環境トリガー\n（ストレス・睡眠変化・ホルモン変動）"]
+B["皮質拡延性抑制（CSD）\n神経電気活動の波状抑制（約3mm/分）\n→ 前兆症状の神経生理学的基盤"]
+C["三叉神経血管系の活性化\n（Trigeminovascular Activation）\n硬膜・軟膜の感覚神経終末"]
+D["神経ペプチドの大量放出\nCGRP・Substance P・PACAP\n強力な血管拡張・神経炎症物質"]
+E["硬膜血管の拡張 ＋ 神経因性炎症\n肥満細胞の脱顆粒"]
+F["三叉神経核尾側亜核（TNC）\nへの侵害信号伝達"]
+G["視床 → 大脳皮質（S1・島皮質）\nへの痛み信号伝達"]
+H["中枢感作（Central Sensitization）\n痛み信号の増幅 → 慢性化リスク↑"]
+I["🔴 片頭痛発作\n片側拍動性頭痛 ＋ 光・音過敏・悪心"]
 
-    A --> B --> C --> D --> E --> F --> G --> H --> I
+A --> B --> C --> D --> E --> F --> G --> H --> I
 
-    style A fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
-    style D fill:#fce4ec,stroke:#c62828,color:#7b1a1a
-    style H fill:#f3e5f5,stroke:#6a1b9a,color:#4a1169
-    style I fill:#ffebee,stroke:#b71c1c,color:#7b1a1a
+style A fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
+style D fill:#fce4ec,stroke:#c62828,color:#7b1a1a
+style H fill:#f3e5f5,stroke:#6a1b9a,color:#4a1169
+style I fill:#ffebee,stroke:#b71c1c,color:#7b1a1a
     </pre>
   </div>
 
@@ -407,25 +407,25 @@ flowchart TD
     <div class="mmd-lbl">ICHD-3 診断フロー（SNOOP4 クリア後）</div>
     <pre class="mermaid">
 flowchart TD
-    Start["頭痛患者が来院\nSNOOP4 クリア済み"] --> Freq{"頭痛日数/月？"}
-    Freq -- "≥15日/月 ≥3ヶ月" --> Chronic["慢性頭痛カテゴリーへ"]
-    Freq -- "<15日/月" --> Type{"頭痛の特性確認\nICHD-3 A〜E 基準"}
-    Type --> Pa{"拍動性・片側性\n4〜72時間\n悪心・光過敏あり？"}
-    Pa -- "≥2〜3項目 Yes" --> AuraQ{"前兆（Aura）あり？\n（≥2回）"}
-    Pa -- "圧迫性・両側性\n軽〜中等度" --> TTH["ICHD-3 2.x\n緊張型頭痛"]
-    Pa -- "一側眼窩周囲\n群発性・自律症状" --> Cl["ICHD-3 3.x\n群発頭痛"]
-    AuraQ -- "なし" --> M11["✅ ICHD-3 1.1\n前兆のない片頭痛"]
-    AuraQ -- "あり" --> M12["✅ ICHD-3 1.2\n前兆のある片頭痛"]
-    Chronic --> MOH{"MOH 評価\n薬剤過剰使用？"}
-    MOH -- "Yes" --> CM_MOH["ICHD-3 1.3 + 8.2\n慢性片頭痛 ＋ MOH"]
-    MOH -- "No" --> CM["ICHD-3 1.3\n慢性片頭痛"]
+Start["頭痛患者が来院\nSNOOP4 クリア済み"] --> Freq{"頭痛日数/月？"}
+Freq -- "≥15日/月 ≥3ヶ月" --> Chronic["慢性頭痛カテゴリーへ"]
+Freq -- "<15日/月" --> Type{"頭痛の特性確認\nICHD-3 A〜E 基準"}
+Type --> Pa{"拍動性・片側性\n4〜72時間\n悪心・光過敏あり？"}
+Pa -- "≥2〜3項目 Yes" --> AuraQ{"前兆（Aura）あり？\n（≥2回）"}
+Pa -- "圧迫性・両側性\n軽〜中等度" --> TTH["ICHD-3 2.x\n緊張型頭痛"]
+Pa -- "一側眼窩周囲\n群発性・自律症状" --> Cl["ICHD-3 3.x\n群発頭痛"]
+AuraQ -- "なし" --> M11["✅ ICHD-3 1.1\n前兆のない片頭痛"]
+AuraQ -- "あり" --> M12["✅ ICHD-3 1.2\n前兆のある片頭痛"]
+Chronic --> MOH{"MOH 評価\n薬剤過剰使用？"}
+MOH -- "Yes" --> CM_MOH["ICHD-3 1.3 + 8.2\n慢性片頭痛 ＋ MOH"]
+MOH -- "No" --> CM["ICHD-3 1.3\n慢性片頭痛"]
 
-    style M11 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style M12 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style CM_MOH fill:#fce4ec,stroke:#880e4f,color:#560027
-    style CM fill:#fff3e0,stroke:#e65100,color:#7b2e00
-    style TTH fill:#fffde7,stroke:#f9a825,color:#5c3d00
-    style Cl fill:#fffde7,stroke:#f9a825,color:#5c3d00
+style M11 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style M12 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style CM_MOH fill:#fce4ec,stroke:#880e4f,color:#560027
+style CM fill:#fff3e0,stroke:#e65100,color:#7b2e00
+style TTH fill:#fffde7,stroke:#f9a825,color:#5c3d00
+style Cl fill:#fffde7,stroke:#f9a825,color:#5c3d00
     </pre>
   </div>
 </section>
@@ -487,34 +487,34 @@ flowchart TD
     <div class="mmd-lbl">新規頭痛・パターン変化がある全症例に適用</div>
     <pre class="mermaid">
 flowchart TD
-    A["新規頭痛患者 / パターン変化"]
-    B{"S: 全身症状\n発熱・項部硬直\n体重減少・免疫抑制？"}
-    C{"N: 神経学的欠損\n麻痺・失語・複視\n意識変化？"}
-    D{"O: 突然発症\n雷鳴頭痛？"}
-    E{"O: 50歳以降\n新規発症？"}
-    F{"P: パターン変化\n進行性・体位依存性？"}
-    G{"4フラグ\n乳頭浮腫・硬膜穿刺後\nけいれん後・妊娠？"}
-    EM["🚨 即時緊急対応\nCT → 腰椎穿刺（SAH除外）\n感染症スクリーニング\n脳神経外科コンサルト"]
-    UG["⚡ 緊急画像診断（24h以内）\n側頭動脈炎疑い → CRP/ESR も"]
-    OK["✅ SNOOP4 クリア\n一次性頭痛の診断・治療フローへ"]
+A["新規頭痛患者 / パターン変化"]
+B{"S: 全身症状\n発熱・項部硬直\n体重減少・免疫抑制？"}
+C{"N: 神経学的欠損\n麻痺・失語・複視\n意識変化？"}
+D{"O: 突然発症\n雷鳴頭痛？"}
+E{"O: 50歳以降\n新規発症？"}
+F{"P: パターン変化\n進行性・体位依存性？"}
+G{"4フラグ\n乳頭浮腫・硬膜穿刺後\nけいれん後・妊娠？"}
+EM["🚨 即時緊急対応\nCT → 腰椎穿刺（SAH除外）\n感染症スクリーニング\n脳神経外科コンサルト"]
+UG["⚡ 緊急画像診断（24h以内）\n側頭動脈炎疑い → CRP/ESR も"]
+OK["✅ SNOOP4 クリア\n一次性頭痛の診断・治療フローへ"]
 
-    A --> B
-    B -- "Yes" --> EM
-    B -- "No" --> C
-    C -- "Yes" --> EM
-    C -- "No" --> D
-    D -- "Yes" --> EM
-    D -- "No" --> E
-    E -- "Yes" --> UG
-    E -- "No" --> F
-    F -- "Yes" --> UG
-    F -- "No" --> G
-    G -- "Yes" --> UG
-    G -- "No" --> OK
+A --> B
+B -- "Yes" --> EM
+B -- "No" --> C
+C -- "Yes" --> EM
+C -- "No" --> D
+D -- "Yes" --> EM
+D -- "No" --> E
+E -- "Yes" --> UG
+E -- "No" --> F
+F -- "Yes" --> UG
+F -- "No" --> G
+G -- "Yes" --> UG
+G -- "No" --> OK
 
-    style EM fill:#b71c1c,color:#ffffff
-    style UG fill:#e65100,color:#ffffff
-    style OK fill:#1b5e20,color:#ffffff
+style EM fill:#b71c1c,color:#ffffff
+style UG fill:#e65100,color:#ffffff
+style OK fill:#1b5e20,color:#ffffff
     </pre>
   </div>
 </section>
@@ -549,36 +549,36 @@ flowchart TD
     <div class="mmd-lbl">Step 1 → Step 2 → レスキューの順に進む</div>
     <pre class="mermaid">
 flowchart TD
-    Start["🔴 片頭痛発作開始\nMOH リスク確認（Section 13）"]
-    VAS{"重症度評価\nVAS / NRS スコア"}
-    S1["📋 Step 1 — 軽度（VAS 1〜4）\nNSAIDs（イブプロフェン 400〜800mg）\nまたはアセトアミノフェン 1000mg\n± 制吐薬（メトクロプラミド）\n[Grade A/B]"]
-    CV{"心血管禁忌？\n（CAD・高血圧・脳卒中既往）"}
-    S2a["📋 Step 2A — トリプタン\nスマトリプタン 50〜100mg\n[Grade A]"]
-    S2b["📋 Step 2B — CGRP 系\nゲパント（ウブロゲパント等）\nまたはジタン（ラスミジタン）\n[Grade A]"]
-    S3["📋 Step 3 — 院内レスキュー\nIV メトクロプラミド 10mg\n＋ IV ケトロラク 30mg\nまたは IV バルプロ酸 500mg\n[Grade B/C]"]
-    Rescue["🏥 救急対応\nIV ジヒドロエルゴタミン（DHE）\nまたは IV ドパミン拮抗薬"]
-    OK["✅ 発作終了\n薬剤使用を記録\nMOH 閾値を監視"]
+Start["🔴 片頭痛発作開始\nMOH リスク確認（Section 13）"]
+VAS{"重症度評価\nVAS / NRS スコア"}
+S1["📋 Step 1 — 軽度（VAS 1〜4）\nNSAIDs（イブプロフェン 400〜800mg）\nまたはアセトアミノフェン 1000mg\n± 制吐薬（メトクロプラミド）\n[Grade A/B]"]
+CV{"心血管禁忌？\n（CAD・高血圧・脳卒中既往）"}
+S2a["📋 Step 2A — トリプタン\nスマトリプタン 50〜100mg\n[Grade A]"]
+S2b["📋 Step 2B — CGRP 系\nゲパント（ウブロゲパント等）\nまたはジタン（ラスミジタン）\n[Grade A]"]
+S3["📋 Step 3 — 院内レスキュー\nIV メトクロプラミド 10mg\n＋ IV ケトロラク 30mg\nまたは IV バルプロ酸 500mg\n[Grade B/C]"]
+Rescue["🏥 救急対応\nIV ジヒドロエルゴタミン（DHE）\nまたは IV ドパミン拮抗薬"]
+OK["✅ 発作終了\n薬剤使用を記録\nMOH 閾値を監視"]
 
-    Start --> VAS
-    VAS -- "VAS 1〜4 軽度" --> S1
-    VAS -- "VAS 5〜10 中〜重度" --> CV
-    CV -- "No（禁忌なし）" --> S2a
-    CV -- "Yes（禁忌あり）" --> S2b
-    S1 -- "2h 後 効果不十分" --> CV
-    S2a -- "2h 後 効果不十分" --> S3
-    S2b -- "2h 後 効果不十分" --> S3
-    S2a -- "2h 後 改善 ✅" --> OK
-    S2b -- "2h 後 改善 ✅" --> OK
-    S1 -- "2h 後 改善 ✅" --> OK
-    S3 -- "効果不十分" --> Rescue
+Start --> VAS
+VAS -- "VAS 1〜4 軽度" --> S1
+VAS -- "VAS 5〜10 中〜重度" --> CV
+CV -- "No（禁忌なし）" --> S2a
+CV -- "Yes（禁忌あり）" --> S2b
+S1 -- "2h 後 効果不十分" --> CV
+S2a -- "2h 後 効果不十分" --> S3
+S2b -- "2h 後 効果不十分" --> S3
+S2a -- "2h 後 改善 ✅" --> OK
+S2b -- "2h 後 改善 ✅" --> OK
+S1 -- "2h 後 改善 ✅" --> OK
+S3 -- "効果不十分" --> Rescue
 
-    style Start fill:#ffcdd2,stroke:#c62828,color:#7b1a1a
-    style S1 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style S2a fill:#fff3e0,stroke:#e65100,color:#7b2e00
-    style S2b fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
-    style S3 fill:#fce4ec,stroke:#880e4f,color:#560027
-    style Rescue fill:#880e4f,color:#ffffff
-    style OK fill:#1b5e20,color:#ffffff
+style Start fill:#ffcdd2,stroke:#c62828,color:#7b1a1a
+style S1 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style S2a fill:#fff3e0,stroke:#e65100,color:#7b2e00
+style S2b fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
+style S3 fill:#fce4ec,stroke:#880e4f,color:#560027
+style Rescue fill:#880e4f,color:#ffffff
+style OK fill:#1b5e20,color:#ffffff
     </pre>
   </div>
 
@@ -654,40 +654,40 @@ flowchart TD
     <div class="mmd-lbl">合併症・禁忌に応じた選択アルゴリズム</div>
     <pre class="mermaid">
 flowchart TD
-    A["予防療法の適応あり"]
-    B{"合併症・禁忌の確認"}
-    Beta["β遮断薬\nプロプラノロール\n[Grade A]"]
-    TCA["三環系抗うつ薬\nアミトリプチリン\n[Grade B]"]
-    AED["バルプロ酸\n（非妊婦のみ）\n[Grade A]"]
-    TPM["トピラマート\n（肥満合併・非妊婦）\n[Grade A]"]
-    CV{"心血管禁忌\nまたは妊婦？"}
-    FL["第1選択\nプロプラノロール\nまたはトピラマート\n[Grade A]"]
-    CGRP["CGRP mAb を検討"]
-    CT{"慢性片頭痛\n（≥15日/月）？"}
-    All4["4種 CGRP mAb ＋\nBotox も選択肢\n[Grade A]"]
-    C3["エレヌマブ /\nフレマネズマブ /\nガルカネズマブ\n[Grade A]"]
-    Sp["頭痛専門医\nへ紹介"]
+A["予防療法の適応あり"]
+B{"合併症・禁忌の確認"}
+Beta["β遮断薬\nプロプラノロール\n[Grade A]"]
+TCA["三環系抗うつ薬\nアミトリプチリン\n[Grade B]"]
+AED["バルプロ酸\n（非妊婦のみ）\n[Grade A]"]
+TPM["トピラマート\n（肥満合併・非妊婦）\n[Grade A]"]
+CV{"心血管禁忌\nまたは妊婦？"}
+FL["第1選択\nプロプラノロール\nまたはトピラマート\n[Grade A]"]
+CGRP["CGRP mAb を検討"]
+CT{"慢性片頭痛\n（≥15日/月）？"}
+All4["4種 CGRP mAb ＋\nBotox も選択肢\n[Grade A]"]
+C3["エレヌマブ /\nフレマネズマブ /\nガルカネズマブ\n[Grade A]"]
+Sp["頭痛専門医\nへ紹介"]
 
-    A --> B
-    B -- "高血圧あり" --> Beta
-    B -- "うつ・不眠あり" --> TCA
-    B -- "てんかん合併（非妊婦）" --> AED
-    B -- "肥満あり（非妊婦）" --> TPM
-    B -- "特記なし" --> CV
-    CV -- "No" --> FL
-    CV -- "Yes" --> CGRP
-    FL -- "3ヶ月後 50%改善なし" --> CGRP
-    CGRP --> CT
-    CT -- "Yes" --> All4
-    CT -- "No（エピソード性）" --> C3
-    All4 -- "6ヶ月後 効果不十分" --> Sp
-    C3 -- "効果不十分" --> Sp
+A --> B
+B -- "高血圧あり" --> Beta
+B -- "うつ・不眠あり" --> TCA
+B -- "てんかん合併（非妊婦）" --> AED
+B -- "肥満あり（非妊婦）" --> TPM
+B -- "特記なし" --> CV
+CV -- "No" --> FL
+CV -- "Yes" --> CGRP
+FL -- "3ヶ月後 50%改善なし" --> CGRP
+CGRP --> CT
+CT -- "Yes" --> All4
+CT -- "No（エピソード性）" --> C3
+All4 -- "6ヶ月後 効果不十分" --> Sp
+C3 -- "効果不十分" --> Sp
 
-    style FL fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style CGRP fill:#fff3e0,stroke:#e65100,color:#7b2e00
-    style All4 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style C3 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style Sp fill:#fce4ec,stroke:#880e4f,color:#560027
+style FL fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style CGRP fill:#fff3e0,stroke:#e65100,color:#7b2e00
+style All4 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style C3 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style Sp fill:#fce4ec,stroke:#880e4f,color:#560027
     </pre>
   </div>
   <p style="font-size:12px;color:var(--g6)">📌 ボツリヌストキシン A（PREEMPT）: <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011914" target="_blank" rel="noopener noreferrer">Cochrane レビュー</a> | AAN 2024 ドラフト: <a href="https://www.aan.com/siteassets/home-page/policy-and-guidelines/guidelines/guidelines-and-measures-open-for-public-comment/24-pharmacologic-treatment-for-migraine-prevention-in-adults_draft_08-14-2024.pdf" target="_blank" rel="noopener noreferrer">PDF</a></p>
@@ -705,24 +705,24 @@ flowchart TD
     <div class="mmd-lbl">三叉神経 → CGRP 放出 → 受容体 → 血管拡張・頭痛 の各段階に薬剤が介入</div>
     <pre class="mermaid">
 flowchart LR
-    TG["三叉神経節\nTrigeminal Ganglion"]
-    CGRP["CGRP 放出\n（強力な血管拡張物質）"]
-    Rec["CGRP 受容体\n（硬膜血管・中枢神経）"]
-    Eff["血管拡張\n神経炎症\n痛み増幅"]
-    Pain["🔴 片頭痛発作"]
-    LigAb["💉 CGRP リガンド mAb\nフレマネズマブ\nガルカネズマブ\nエプチネズマブ"]
-    RecAb["💉 CGRP 受容体 mAb\nエレヌマブ"]
-    Gep["💊 ゲパント\nウブロゲパント\nリメゲパント\nザベゲパント"]
+TG["三叉神経節\nTrigeminal Ganglion"]
+CGRP["CGRP 放出\n（強力な血管拡張物質）"]
+Rec["CGRP 受容体\n（硬膜血管・中枢神経）"]
+Eff["血管拡張\n神経炎症\n痛み増幅"]
+Pain["🔴 片頭痛発作"]
+LigAb["💉 CGRP リガンド mAb\nフレマネズマブ\nガルカネズマブ\nエプチネズマブ"]
+RecAb["💉 CGRP 受容体 mAb\nエレヌマブ"]
+Gep["💊 ゲパント\nウブロゲパント\nリメゲパント\nザベゲパント"]
 
-    TG --> CGRP --> Rec --> Eff --> Pain
-    LigAb -. "リガンドを中和（予防）" .-> CGRP
-    RecAb -. "受容体を遮断（予防）" .-> Rec
-    Gep -. "受容体を拮抗（急性・予防）" .-> Rec
+TG --> CGRP --> Rec --> Eff --> Pain
+LigAb -. "リガンドを中和（予防）" .-> CGRP
+RecAb -. "受容体を遮断（予防）" .-> Rec
+Gep -. "受容体を拮抗（急性・予防）" .-> Rec
 
-    style Pain fill:#ffcdd2,stroke:#c62828,color:#7b1a1a
-    style LigAb fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style RecAb fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style Gep fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
+style Pain fill:#ffcdd2,stroke:#c62828,color:#7b1a1a
+style LigAb fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style RecAb fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style Gep fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
     </pre>
   </div>
 
@@ -852,29 +852,29 @@ flowchart LR
     <div class="mmd-lbl">統合治療の全体像と評価サイクル（3ヶ月毎）</div>
     <pre class="mermaid">
 flowchart TD
-    Center["🎯 片頭痛管理の目標\n≥50%頭痛日数減少（3ヶ月）\nHIT-6 / MIDAS 改善"]
-    Ph["💊 薬物療法\n急性期：NSAIDs → トリプタン/ゲパント\n予防：β遮断薬 / AED / CGRP mAb"]
-    PT["🏃 理学療法\n頸部・肩甲帯 MMT\nマニピュレーション・姿勢矯正\n[Grade B]"]
-    BE["🧠 行動療法\nCBT [Grade B]\nバイオフィードバック [Grade B]\n漸進的筋弛緩法 [Grade B]"]
-    NT["🥗 栄養補助\nMg ＋ B2 ＋ CoQ10\n食事トリガー日記\n睡眠・水分管理"]
-    Mon["📊 3ヶ月後アウトカム評価\nHIT-6 / MIDAS / VAS\n頭痛日数・薬剤使用頻度"]
-    As{"目標達成？\n≥50%改善？"}
-    Ok["✅ 維持・継続\n6ヶ月毎フォロー"]
-    Up["🔺 治療強化\nCGRP mAb 導入 or\n頭痛専門医紹介"]
+Center["🎯 片頭痛管理の目標\n≥50%頭痛日数減少（3ヶ月）\nHIT-6 / MIDAS 改善"]
+Ph["💊 薬物療法\n急性期：NSAIDs → トリプタン/ゲパント\n予防：β遮断薬 / AED / CGRP mAb"]
+PT["🏃 理学療法\n頸部・肩甲帯 MMT\nマニピュレーション・姿勢矯正\n[Grade B]"]
+BE["🧠 行動療法\nCBT [Grade B]\nバイオフィードバック [Grade B]\n漸進的筋弛緩法 [Grade B]"]
+NT["🥗 栄養補助\nMg ＋ B2 ＋ CoQ10\n食事トリガー日記\n睡眠・水分管理"]
+Mon["📊 3ヶ月後アウトカム評価\nHIT-6 / MIDAS / VAS\n頭痛日数・薬剤使用頻度"]
+As{"目標達成？\n≥50%改善？"}
+Ok["✅ 維持・継続\n6ヶ月毎フォロー"]
+Up["🔺 治療強化\nCGRP mAb 導入 or\n頭痛専門医紹介"]
 
-    Center --> Ph & PT & BE & NT
-    Ph --> Mon
-    PT --> Mon
-    BE --> Mon
-    NT --> Mon
-    Mon --> As
-    As -- "Yes" --> Ok
-    As -- "No" --> Up
+Center --> Ph & PT & BE & NT
+Ph --> Mon
+PT --> Mon
+BE --> Mon
+NT --> Mon
+Mon --> As
+As -- "Yes" --> Ok
+As -- "No" --> Up
 
-    style Center fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
-    style Mon fill:#fff3e0,stroke:#e65100,color:#7b2e00
-    style Ok fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style Up fill:#fce4ec,stroke:#880e4f,color:#560027
+style Center fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
+style Mon fill:#fff3e0,stroke:#e65100,color:#7b2e00
+style Ok fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style Up fill:#fce4ec,stroke:#880e4f,color:#560027
     </pre>
   </div>
 
@@ -971,26 +971,26 @@ flowchart TD
     <div class="mmd-lbl">妊娠中の薬剤選択（安全性データに基づく）</div>
     <pre class="mermaid">
 flowchart TD
-    A["妊娠中の片頭痛発作"]
-    B{"重症度？"}
-    C["✅ 第1選択\nアセトアミノフェン 1g\n＋ 暗室・安静・冷却\n± 制吐薬（必要時）"]
-    D["IV 硫酸マグネシウム\n1〜2g\n（専門医管理下）\n[安全データあり]"]
-    E{"妊娠週数？"}
-    F["低用量トリプタン\n（個別リスク/ベネフィット評価）\n最新安全データを確認"]
-    G["⚠️ トリプタンは慎重\n産科専門医に相談"]
-    Avoid["❌ 絶対回避\nバルプロ酸（Category X）\nトピラマート（Category D）\nエルゴタミン\nCGRP mAb（安全データ不十分）\nNSAIDs（第3三半期）"]
+A["妊娠中の片頭痛発作"]
+B{"重症度？"}
+C["✅ 第1選択\nアセトアミノフェン 1g\n＋ 暗室・安静・冷却\n± 制吐薬（必要時）"]
+D["IV 硫酸マグネシウム\n1〜2g\n（専門医管理下）\n[安全データあり]"]
+E{"妊娠週数？"}
+F["低用量トリプタン\n（個別リスク/ベネフィット評価）\n最新安全データを確認"]
+G["⚠️ トリプタンは慎重\n産科専門医に相談"]
+Avoid["❌ 絶対回避\nバルプロ酸（Category X）\nトピラマート（Category D）\nエルゴタミン\nCGRP mAb（安全データ不十分）\nNSAIDs（第3三半期）"]
 
-    A --> B & Avoid
-    B -- "軽〜中等度" --> C
-    B -- "重度・難治性" --> D
-    C -- "効果不十分" --> E
-    E -- "第1〜2三半期" --> F
-    E -- "第3三半期" --> G
+A --> B & Avoid
+B -- "軽〜中等度" --> C
+B -- "重度・難治性" --> D
+C -- "効果不十分" --> E
+E -- "第1〜2三半期" --> F
+E -- "第3三半期" --> G
 
-    style D fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
-    style C fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style Avoid fill:#b71c1c,color:#ffffff
-    style G fill:#e65100,color:#ffffff
+style D fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
+style C fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+style Avoid fill:#b71c1c,color:#ffffff
+style G fill:#e65100,color:#ffffff
     </pre>
   </div>
 </section>
@@ -1041,32 +1041,32 @@ flowchart TD
     <div class="mmd-lbl">MOH の診断から離脱・予防再発まで</div>
     <pre class="mermaid">
 flowchart TD
-    A["頭痛日数 ≥15日/月\n≥3ヶ月継続する患者"]
-    B{"鎮痛薬使用頻度\nを確認"}
-    C["⚠️ MOH 診断\nICHD-3: 8.2\n同時に 1.3（慢性片頭痛）\nも診断"]
-    D["MOH 以外の慢性化要因を検索\n→ 1.3 慢性片頭痛として管理"]
-    S1["Step 1\n過剰使用薬の段階的中止\n（外来または入院）\n患者教育が鍵"]
-    S2["Step 2\n橋渡し療法\nNSAIDs 短期\nまたはステロイド短期"]
-    S3["Step 3\n予防療法の開始\nトピラマートまたは CGRP mAb"]
-    S4["Step 4\n行動療法\nCBT・動機付け面接"]
-    Wd["⚠️ 離脱症状に注意\n頭痛一時増悪・悪心\n不安・睡眠障害\n（通常1〜2週間で改善）"]
-    Ev["3ヶ月後再評価\nMIDAS / HIT-6\n薬剤使用頻度記録"]
-    Ok["✅ 予防療法継続\nMOH 再発防止教育\n6ヶ月毎フォロー"]
-    Ref["頭痛専門医へ\n紹介または入院管理"]
+A["頭痛日数 ≥15日/月\n≥3ヶ月継続する患者"]
+B{"鎮痛薬使用頻度\nを確認"}
+C["⚠️ MOH 診断\nICHD-3: 8.2\n同時に 1.3（慢性片頭痛）\nも診断"]
+D["MOH 以外の慢性化要因を検索\n→ 1.3 慢性片頭痛として管理"]
+S1["Step 1\n過剰使用薬の段階的中止\n（外来または入院）\n患者教育が鍵"]
+S2["Step 2\n橋渡し療法\nNSAIDs 短期\nまたはステロイド短期"]
+S3["Step 3\n予防療法の開始\nトピラマートまたは CGRP mAb"]
+S4["Step 4\n行動療法\nCBT・動機付け面接"]
+Wd["⚠️ 離脱症状に注意\n頭痛一時増悪・悪心\n不安・睡眠障害\n（通常1〜2週間で改善）"]
+Ev["3ヶ月後再評価\nMIDAS / HIT-6\n薬剤使用頻度記録"]
+Ok["✅ 予防療法継続\nMOH 再発防止教育\n6ヶ月毎フォロー"]
+Ref["頭痛専門医へ\n紹介または入院管理"]
 
-    A --> B
-    B -- "トリプタン等 >8日/月\nまたは NSAIDs >10日/月" --> C
-    B -- "閾値以下" --> D
-    C --> S1
-    S1 --> S2 --> S3 --> S4 --> Ev
-    S1 --> Wd
-    Ev --> Ok
-    Ev --> Ref
+A --> B
+B -- "トリプタン等 >8日/月\nまたは NSAIDs >10日/月" --> C
+B -- "閾値以下" --> D
+C --> S1
+S1 --> S2 --> S3 --> S4 --> Ev
+S1 --> Wd
+Ev --> Ok
+Ev --> Ref
 
-    style C fill:#e65100,color:#ffffff
-    style Wd fill:#fce4ec,stroke:#880e4f,color:#560027
-    style Ok fill:#1b5e20,color:#ffffff
-    style Ref fill:#880e4f,color:#ffffff
+style C fill:#e65100,color:#ffffff
+style Wd fill:#fce4ec,stroke:#880e4f,color:#560027
+style Ok fill:#1b5e20,color:#ffffff
+style Ref fill:#880e4f,color:#ffffff
     </pre>
   </div>
 </section>
