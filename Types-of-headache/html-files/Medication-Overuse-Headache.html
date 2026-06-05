@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>💊 薬剤過用頭痛（MOH）完全ガイド</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{
+  --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
+  --orange:#e65100;--red:#c62828;--green:#2e7d32;--purple:#6a1b9a;
+  --red-l:#ffebee;--orange-l:#fff3e0;--green-l:#e8f5e9;
+  --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
+  --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
+  --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  --ember1:#4e2000;--ember2:#bf360c;--ember3:#e64a19;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--ember1),var(--ember2) 55%,var(--ember3));color:#fff;padding:52px 28px 40px;text-align:center}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
+.hero-sub{font-size:14px;opacity:.85;margin-bottom:22px}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Disclaimer */
+.disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
+.disclaimer strong{color:var(--orange)}
+
+/* Layout */
+.layout{display:flex;max-width:1360px;margin:0 auto}
+
+/* Sidebar */
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
+.s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
+.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--ember2);color:var(--ember1)}
+.nav-a.active{font-weight:600;background:#fbe9e7}
+.n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Main */
+.main{flex:1;padding:28px 32px 80px;min-width:0}
+
+/* Section */
+.sec{margin:40px 0;scroll-margin-top:12px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-num{background:var(--ember2);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--ember1)}
+h2{font-size:16px;font-weight:700;color:var(--navy2);margin:22px 0 10px;padding-left:10px;border-left:4px solid #5c6bc0}
+h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
+p{margin-bottom:10px;color:var(--g8)}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px}
+a{color:var(--blue)}
+a:hover{text-decoration:underline}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+
+/* Alerts */
+.alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.alert-i{font-size:20px;flex-shrink:0}
+.a-danger{background:var(--red-l);border-left:4px solid var(--red)}
+.a-warn{background:var(--orange-l);border-left:4px solid var(--orange)}
+.a-info{background:var(--blue-l);border-left:4px solid var(--blue)}
+.a-ok{background:var(--green-l);border-left:4px solid var(--green)}
+.a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+thead th{background:var(--navy);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:#f7f8ff}
+tbody tr:hover{background:#eef0fb}
+tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
+.th-teal thead th{background:var(--teal)}
+.th-red thead th{background:var(--red)}
+.th-orange thead th{background:var(--orange)}
+.th-purple thead th{background:var(--purple)}
+
+/* Evidence badges */
+.bA{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.bB{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
+.bC{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
+.bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+.bRed{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a}
+.bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
+.bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
+
+/* Color text */
+.tR{color:var(--red);font-weight:700}
+.tG{color:var(--green);font-weight:700}
+.tO{color:var(--orange);font-weight:700}
+.tB{color:var(--blue);font-weight:700}
+.tN{color:var(--navy);font-weight:700}
+
+/* Mermaid */
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--ember2);display:inline-block}
+pre.mermaid{text-align:center}
+
+/* Phase cards */
+.phase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0}
+@media(max-width:900px){.phase-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.phase-grid{grid-template-columns:repeat(2,1fr)}}
+.ph{border-radius:var(--rs);padding:16px;text-align:center}
+.ph1{background:#fff8e1;border:2px solid #ffc107}
+.ph2{background:#e3f2fd;border:2px solid #2196f3}
+.ph3{background:#ffebee;border:2px solid #ef5350}
+.ph4{background:#f3e5f5;border:2px solid #ab47bc}
+.ph5{background:#e8f5e9;border:2px solid #66bb6a}
+.ph-icon{font-size:28px;margin-bottom:6px}
+.ph-title{font-weight:700;font-size:13.5px;margin-bottom:2px}
+.ph-time{font-size:11px;color:var(--g6);margin-bottom:6px}
+.ph-desc{font-size:12px;line-height:1.5;text-align:left}
+
+/* MOH cards */
+.moh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:14px 0}
+.moh{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.moh-h{border-top:4px solid var(--red)}
+.moh-m{border-top:4px solid var(--orange)}
+.moh-l{border-top:4px solid var(--green)}
+.moh-day{font-size:26px;font-weight:800;line-height:1}
+.moh-unit{font-size:10.5px;color:var(--g6);margin-bottom:4px}
+.moh-drug{font-size:12.5px;font-weight:600;color:var(--g8)}
+.moh-note{font-size:11.5px;color:var(--g6);margin-top:6px;line-height:1.5}
+
+/* CGRP drug cards */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:14px 0}
+.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--purple)}
+.drug-nm{font-size:13.5px;font-weight:700;color:var(--purple);margin-bottom:2px}
+.drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
+.drug-tx{font-size:12px;line-height:1.6}
+
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--blue)}
+.src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:2px}
+.src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
+.src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
+
+/* Footer */
+.footer{background:var(--ember1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer strong{color:#fff}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size:52px;margin-bottom:4px">💊</div>
+  <h1>薬剤過用頭痛（MOH）完全ガイド</h1>
+  <p class="hero-sub">国際エビデンス（ICHD-3 / AAN / EHF / NICE 2024）に基づく包括的解説 — 初学者向けステップバイステップ</p>
+  <div class="hero-tags">
+    <span class="hero-tag">ICHD-3 コード 8.2</span>
+    <span class="hero-tag">Grade A〜U エビデンス</span>
+    <span class="hero-tag">5ステップ治療戦略</span>
+    <span class="hero-tag">CGRP 製剤 MOH 対応</span>
+    <span class="hero-tag">再発予防・長期戦略</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="s-hdr">目次</div>
+  <a class="nav-a" href="#s1"><span class="n-num">1</span>MOHとは何か — 基本概念</a>
+  <a class="nav-a" href="#s2"><span class="n-num">2</span>疫学 — 有病率・人口統計</a>
+  <a class="nav-a" href="#s3"><span class="n-num">3</span>病態生理 — メカニズム</a>
+  <a class="nav-a" href="#s4"><span class="n-num">4</span>ICHD-3 診断基準</a>
+  <a class="nav-a" href="#s5"><span class="n-num">5</span>原因薬剤と過用閾値</a>
+  <a class="nav-a" href="#s6"><span class="n-num">6</span>リスクファクター</a>
+  <a class="nav-a" href="#s7"><span class="n-num">7</span>診断アルゴリズム</a>
+  <a class="nav-a" href="#s8"><span class="n-num">8</span>治療戦略の全体像</a>
+  <a class="nav-a" href="#s9"><span class="n-num">9</span>STEP 1: 患者教育</a>
+  <a class="nav-a" href="#s10"><span class="n-num">10</span>STEP 2: 薬剤離脱</a>
+  <a class="nav-a" href="#s11"><span class="n-num">11</span>STEP 3: ブリッジング</a>
+  <a class="nav-a" href="#s12"><span class="n-num">12</span>STEP 4: 予防薬療法</a>
+  <a class="nav-a" href="#s13"><span class="n-num">13</span>STEP 5: 非薬物療法</a>
+  <a class="nav-a" href="#s14"><span class="n-num">14</span>特殊集団への対応</a>
+  <a class="nav-a" href="#s15"><span class="n-num">15</span>予後・再発予防</a>
+  <a class="nav-a" href="#s16"><span class="n-num">16</span>アウトカム評価ツール</a>
+  <a class="nav-a" href="#s17"><span class="n-num">17</span>エビデンスサマリー</a>
+  <a class="nav-a" href="#s18"><span class="n-num">18</span>参考文献・URL</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+<!-- PHASE 2: SECTIONS 1-9 -->
+<!-- PHASE 3: SECTIONS 10-18 -->
+</main>
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>薬剤過用頭痛（MOH）完全ガイド</strong> — 国際エビデンス（ICHD-3 / AAN / EHF / NICE 2024）に基づく<br>
+  📅 作成年: 2025年 | 次回レビュー推奨: ICHD-4 正式発行時・AAN/EHF 年次ガイドライン更新時<br>
+  ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#fbe9e7',
+    primaryTextColor: '#4e2000',
+    primaryBorderColor: '#bf360c',
+    lineColor: '#546e7a',
+    secondaryColor: '#fff3e0',
+    tertiaryColor: '#e8f5e9',
+    edgeLabelBackground: '#ffffff',
+    fontSize: '13px'
+  },
+  flowchart: { curve: 'linear', padding: 20 }
+});
+
+const navAs = document.querySelectorAll('.nav-a');
+navAs.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+const secs = document.querySelectorAll('.sec');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const id = en.target.id;
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {threshold: 0.25});
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
