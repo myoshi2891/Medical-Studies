@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🧠 後頭神経ブロック（Occipital Nerve Block: ONB）完全ガイド</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{
+  --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
+  --orange:#e65100;--red:#c62828;--green:#2e7d32;--purple:#6a1b9a;
+  --red-l:#ffebee;--orange-l:#fff3e0;--green-l:#e8f5e9;
+  --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
+  --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
+  --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  /* Occipital Nerve Block page accent — Deep Teal → Cyan（他ページと非重複） */
+  --onb1:#00363a;--onb2:#006064;--onb3:#0097a7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--onb1),var(--onb2) 50%,var(--onb3));color:#fff;padding:52px 28px 40px;text-align:center}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
+.hero-sub{font-size:14px;color:#fafafa;margin-bottom:22px}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Disclaimer */
+.disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
+.disclaimer strong{color:var(--orange)}
+
+/* Layout */
+.layout{display:flex;max-width:1360px;margin:0 auto}
+
+/* Sidebar */
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
+.s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
+.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--onb2);color:var(--onb1)}
+.nav-a.active{font-weight:600;background:var(--teal-l)}
+.n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Main */
+.main{flex:1;padding:28px 32px 80px;min-width:0}
+
+/* Section */
+.sec{margin:40px 0;scroll-margin-top:12px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-num{background:var(--onb2);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--onb1)}
+h2{font-size:16px;font-weight:700;color:var(--onb2);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--onb3)}
+h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
+p{margin-bottom:10px;color:var(--g8)}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px}
+a{color:var(--blue)}
+a:hover{text-decoration:underline}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+
+/* Alerts */
+.alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.alert-i{font-size:20px;flex-shrink:0}
+.a-danger{background:var(--red-l);border-left:4px solid var(--red)}
+.a-warn{background:var(--orange-l);border-left:4px solid var(--orange)}
+.a-info{background:var(--blue-l);border-left:4px solid var(--blue)}
+.a-ok{background:var(--green-l);border-left:4px solid var(--green)}
+.a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+thead th{background:var(--onb2);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:#eef6f6}
+tbody tr:hover{background:var(--teal-l)}
+tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
+.th-teal thead th{background:var(--teal)}
+.th-red thead th{background:var(--red)}
+.th-orange thead th{background:var(--orange)}
+.th-purple thead th{background:var(--purple)}
+
+/* Evidence badges */
+.bA{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.bB{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
+.bC{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
+.bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+.bRed{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a}
+.bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
+.bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
+
+/* Color text */
+.tR{color:var(--red);font-weight:700}
+.tG{color:var(--green);font-weight:700}
+.tO{color:var(--orange);font-weight:700}
+.tB{color:var(--blue);font-weight:700}
+.tN{color:var(--onb1);font-weight:700}
+
+/* Mermaid */
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--onb2);display:inline-block}
+pre.mermaid{text-align:center}
+
+/* Phase cards */
+.phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+@media(max-width:700px){.phase-grid{grid-template-columns:repeat(2,1fr)}}
+.ph{border-radius:var(--rs);padding:16px;text-align:center}
+.ph1{background:#fff8e1;border:2px solid #ffc107}
+.ph2{background:#e3f2fd;border:2px solid #2196f3}
+.ph3{background:#ffebee;border:2px solid #ef5350}
+.ph4{background:#e8f5e9;border:2px solid #66bb6a}
+.ph-icon{font-size:28px;margin-bottom:6px}
+.ph-title{font-weight:700;font-size:13.5px;margin-bottom:2px}
+.ph-time{font-size:11px;color:var(--g6);margin-bottom:6px}
+.ph-desc{font-size:12px;line-height:1.5;text-align:left}
+
+/* SNOOP4-style cards */
+.snoop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:16px 0}
+.sn{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh);border-top:4px solid var(--onb2)}
+.sn-letter{font-size:32px;font-weight:800;color:var(--onb2);line-height:1}
+.sn-title{font-size:13px;font-weight:700;color:var(--g8);margin:3px 0 5px}
+.sn-symp{font-size:12px;color:var(--g6);line-height:1.5}
+.sn-dx{font-size:11px;color:var(--onb1);font-weight:600;margin-top:7px;background:var(--teal-l);padding:2px 7px;border-radius:4px;display:inline-block}
+
+/* Drug cards */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
+.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--onb2)}
+.drug-nm{font-size:13.5px;font-weight:700;color:var(--onb2);margin-bottom:2px}
+.drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
+.drug-tx{font-size:12px;line-height:1.6}
+
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--onb2)}
+.src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--onb2);margin-bottom:2px}
+.src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
+.src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
+
+/* Quick ref */
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
+.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.qr-t{font-size:13px;font-weight:700;color:var(--onb1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
+
+/* Footer */
+.footer{background:var(--onb1);color:rgba(255,255,255,.78);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer strong{color:#fff}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px 14px 60px}
+}
+
+/* ONB page-specific: anatomy landmark callout & summary key-point list */
+.onb-key-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:16px 0}
+.onb-key{background:#fff;border-radius:var(--rs);padding:14px 16px;box-shadow:var(--sh);border-left:4px solid var(--onb3);display:flex;gap:12px;align-items:flex-start}
+.onb-key-n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--onb2);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.onb-key-tx{font-size:12.5px;line-height:1.6;color:var(--g8)}
+.onb-role-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0}
+.onb-role{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh);border-top:4px solid var(--onb3)}
+.onb-role-t{font-size:14px;font-weight:700;color:var(--onb1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.onb-role-d{font-size:12.5px;line-height:1.6;color:var(--g8)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size:34px">🧠</div>
+  <h1>後頭神経ブロック（Occipital Nerve Block: ONB）完全ガイド</h1>
+  <p class="hero-sub">国際エビデンス（ICHD-3 / AAN / IHS / StatPearls 2025）に基づく包括的解説 — 初学者向けステップバイステップ</p>
+  <div class="hero-tags">
+    <span class="hero-tag">大後頭神経（GON / C2）</span>
+    <span class="hero-tag">三叉頸椎複合体（TCC）</span>
+    <span class="hero-tag">ICHD-3 13.1 後頭神経痛</span>
+    <span class="hero-tag">エコーガイド下法</span>
+    <span class="hero-tag">SNOOP4 安全管理</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。後頭神経ブロックは<strong>侵襲的手技</strong>であり、適切なトレーニング・設備・緊急対応体制を備えた医療専門家のみが実施できます。本資料は個人への医療アドバイス・診断・処方を提供するものではありません。実際の手技は必ず有資格医師の判断のもとで行ってください。
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="s-hdr">目次</div>
+  <a class="nav-a" href="#s1"><span class="n-num">1</span>後頭神経ブロックとは</a>
+  <a class="nav-a" href="#s2"><span class="n-num">2</span>解剖学 — 後頭部の神経</a>
+  <a class="nav-a" href="#s3"><span class="n-num">3</span>作用機序（TCC）</a>
+  <a class="nav-a" href="#s4"><span class="n-num">4</span>SNOOP4 スクリーニング</a>
+  <a class="nav-a" href="#s5"><span class="n-num">5</span>ICHD-3 適応疾患</a>
+  <a class="nav-a" href="#s6"><span class="n-num">6</span>患者選択基準と禁忌</a>
+  <a class="nav-a" href="#s7"><span class="n-num">7</span>必要物品・使用薬剤</a>
+  <a class="nav-a" href="#s8"><span class="n-num">8</span>手技① ランドマーク法</a>
+  <a class="nav-a" href="#s9"><span class="n-num">9</span>手技② エコーガイド下法</a>
+  <a class="nav-a" href="#s10"><span class="n-num">10</span>術後ケアと効果評価</a>
+  <a class="nav-a" href="#s11"><span class="n-num">11</span>疾患別エビデンス</a>
+  <a class="nav-a" href="#s12"><span class="n-num">12</span>ステロイド併用 vs 単独</a>
+  <a class="nav-a" href="#s13"><span class="n-num">13</span>合併症・安全性</a>
+  <a class="nav-a" href="#s14"><span class="n-num">14</span>アウトカム評価指標</a>
+  <a class="nav-a" href="#s15"><span class="n-num">15</span>多モーダル統合</a>
+  <a class="nav-a" href="#s16"><span class="n-num">16</span>参考文献・公式リソース</a>
+  <a class="nav-a" href="#s17"><span class="n-num">★</span>まとめ — 10ポイント</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<!-- SECTIONS_PLACEHOLDER -->
+
+</main>
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>後頭神経ブロック（ONB）完全ガイド</strong> — 国際エビデンス（StatPearls 2025・VA/DoD 2024・ICHD-3・EHF 2022）に基づく学術資料<br>
+  📅 最終更新: 2025年7月版を反映 | 次回レビュー推奨: 主要RCT・ガイドライン改訂時<br>
+  ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#e0f2f1',
+    primaryTextColor: '#00363a',
+    primaryBorderColor: '#0097a7',
+    lineColor: '#546e7a',
+    secondaryColor: '#e0f2f1',
+    tertiaryColor: '#e8f5e9',
+    edgeLabelBackground: '#ffffff',
+    fontSize: '13px'
+  },
+  flowchart: { curve: 'linear', padding: 20 }
+});
+
+const navAs = document.querySelectorAll('.nav-a');
+navAs.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+const secs = document.querySelectorAll('.sec');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const id = en.target.id;
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {threshold: 0.25});
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
