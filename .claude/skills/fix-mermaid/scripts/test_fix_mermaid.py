@@ -70,3 +70,23 @@ def test_div_class_matching():
     # report にエントリがある
     assert len(report) == 1
     assert "modified" in report[0]
+
+
+def test_pre_class_matching():
+    """<pre class="mermaid"> ブロックも検出・処理される."""
+    html = (
+        '<pre class="mermaid">\n'
+        "    graph TD\n"
+        "    A --> B\n"
+        '</pre>'
+    )
+    fixed, report = fix_mermaid_blocks(html)
+
+    # ブロックが検出されインデント除去が行われた
+    assert "graph TD" in fixed
+    assert "    graph TD" not in fixed
+    assert "A --> B" in fixed
+    assert "    A --> B" not in fixed
+    # report にエントリがある
+    assert len(report) == 1
+    assert "modified" in report[0]
