@@ -154,6 +154,130 @@ pre.mermaid{text-align:center}
   .sidebar{display:none}
   .main{padding:16px 14px 60px}
 }
+
+/* Evidence Map Styles */
+.evidence-map {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 20px 0;
+  width: 100%;
+}
+.evidence-sec-card {
+  border-radius: var(--rs);
+  padding: 18px 22px;
+  box-shadow: var(--sh);
+  border: 1px solid transparent;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.evidence-sec-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+.evidence-hdr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.evidence-icon {
+  font-size: 18px;
+}
+.evidence-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--g9);
+}
+.evidence-desc {
+  font-size: 12.5px;
+  color: var(--g6);
+  font-weight: normal;
+}
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+.evidence-node {
+  background: #fff;
+  border: 1px solid var(--g3);
+  border-radius: 6px;
+  padding: 12px 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.evidence-node:hover {
+  background: var(--g1);
+  border-color: var(--g6);
+}
+.evidence-node .subtext {
+  font-size: 11px;
+  color: var(--g6);
+  margin-top: 4px;
+  font-weight: normal;
+}
+
+/* 各グレードのテーマカラー */
+.evidence-sec-card.ongoing {
+  background: #f3e5f5; /* purple-l */
+  border-left: 5px solid var(--purple);
+}
+.evidence-sec-card.ongoing .evidence-node {
+  border-color: #d1c4e9;
+  color: var(--purple);
+}
+.evidence-sec-card.ongoing .evidence-node:hover {
+  background: #ede7f6;
+  border-color: var(--purple);
+}
+
+.evidence-sec-card.grade-c {
+  background: var(--orange-l);
+  border-left: 5px solid var(--orange);
+}
+.evidence-sec-card.grade-c .evidence-node {
+  border-color: #ffe0b2;
+  color: #e65100;
+}
+.evidence-sec-card.grade-c .evidence-node:hover {
+  background: #fff3e0;
+  border-color: var(--orange);
+}
+
+.evidence-sec-card.grade-b {
+  background: var(--yellow-l);
+  border-left: 5px solid #fbc02d;
+}
+.evidence-sec-card.grade-b .evidence-node {
+  border-color: #fff9c4;
+  color: #f57f17;
+}
+.evidence-sec-card.grade-b .evidence-node:hover {
+  background: #fffde7;
+  border-color: #fbc02d;
+}
+
+.evidence-sec-card.grade-a {
+  background: var(--green-l);
+  border-left: 5px solid var(--green);
+}
+.evidence-sec-card.grade-a .evidence-node {
+  border-color: #c8e6c9;
+  color: #1b5e20;
+}
+.evidence-sec-card.grade-a .evidence-node:hover {
+  background: #e8f5e9;
+  border-color: var(--green);
+}
 </style>
 </head>
 <body>
@@ -945,43 +1069,73 @@ style DISCHARGE fill:#2e7d32,color:#fff
   </div>
 
   <h2>総合エビデンスマップ</h2>
-  <div class="mmd">
-    <div class="mmd-lbl">フローチャート — 適応症のエビデンスグレード分布</div>
-<pre class="mermaid">
-flowchart LR
-subgraph Grade_A["⭐⭐⭐ Grade A\n（複数RCTまたはCochrane SR）"]
-GA1["ホットフラッシュ\n（更年期・乳がん治療後）"]
-end
+  <div class="card">
+    <div class="mmd-lbl">適応症のエビデンスグレード分布</div>
+    <div class="evidence-map">
+      
+      <!-- 進行中RCT -->
+      <div class="evidence-sec-card ongoing">
+        <div class="evidence-hdr">
+          <span class="evidence-icon">🔬</span>
+          <span class="evidence-title">進行中RCT</span>
+        </div>
+        <div class="evidence-grid">
+          <div class="evidence-node">電気的嵐 <span class="subtext">（GANGSTER Trial）</span></div>
+          <div class="evidence-node">周術期AF予防 <span class="subtext">（NCT06476925等）</span></div>
+          <div class="evidence-node">脳血管攣縮 <span class="subtext">（NCT04691271等）</span></div>
+        </div>
+      </div>
 
-subgraph Grade_B["⭐⭐ Grade B\n（単数RCTまたは複数観察研究）"]
-GB1["PTSD"]
-GB2["室性不整脈・電気的嵐"]
-GB3["CRPS type I/II"]
-GB4["帯状疱疹後神経痛"]
-GB5["多汗症（上肢・頭部）"]
-end
+      <!-- Grade C -->
+      <div class="evidence-sec-card grade-c">
+        <div class="evidence-hdr">
+          <span class="evidence-icon">⭐</span>
+          <span class="evidence-title">Grade C</span>
+          <span class="evidence-desc">（症例集積・小規模研究）</span>
+        </div>
+        <div class="evidence-grid">
+          <div class="evidence-node">片頭痛・群発頭痛</div>
+          <div class="evidence-node">顔面非定型痛</div>
+          <div class="evidence-node">急性感音性難聴</div>
+          <div class="evidence-node">Bell麻痺</div>
+          <div class="evidence-node">心房細動予防</div>
+          <div class="evidence-node">レイノー症候群</div>
+          <div class="evidence-node">脳血管攣縮</div>
+        </div>
+      </div>
 
-subgraph Grade_C["⭐ Grade C\n（症例集積・小規模研究）"]
-GC1["片頭痛・群発頭痛"]
-GC2["顔面非定型痛"]
-GC3["急性感音性難聴"]
-GC4["Bell麻痺"]
-GC5["心房細動予防"]
-GC6["レイノー症候群"]
-GC7["脳血管攣縮"]
-end
+      <!-- Grade B -->
+      <div class="evidence-sec-card grade-b">
+        <div class="evidence-hdr">
+          <span class="evidence-icon">⭐⭐</span>
+          <span class="evidence-title">Grade B</span>
+          <span class="evidence-desc">（単数RCTまたは複数観察研究）</span>
+        </div>
+        <div class="evidence-grid">
+          <div class="evidence-node">PTSD</div>
+          <div class="evidence-node">室性不整脈・電気的嵐</div>
+          <div class="evidence-node">CRPS type I/II</div>
+          <div class="evidence-node">帯状疱疹後神経痛</div>
+          <div class="evidence-node">多汗症（上肢・頭部）</div>
+        </div>
+      </div>
 
-subgraph Ongoing["🔬 進行中RCT"]
-RCT1["電気的嵐（GANGSTER Trial）"]
-RCT2["周術期AF予防（NCT06476925等）"]
-RCT3["脳血管攣縮（NCT04691271等）"]
-end
+      <!-- Grade A -->
+      <div class="evidence-sec-card grade-a">
+        <div class="evidence-hdr">
+          <span class="evidence-icon">⭐⭐⭐</span>
+          <span class="evidence-title">Grade A</span>
+          <span class="evidence-desc">（複数RCTまたはCochrane SR）</span>
+        </div>
+        <div class="evidence-grid">
+          <div class="evidence-node">
+            ホットフラッシュ
+            <span class="subtext">（更年期・乳がん治療後）</span>
+          </div>
+        </div>
+      </div>
 
-style Grade_A fill:#c8e6c9,stroke:#2e7d32
-style Grade_B fill:#fff9c4,stroke:#f9a825
-style Grade_C fill:#ffe0b2,stroke:#e65100
-style Ongoing fill:#ede7f6,stroke:#5e35b1
-</pre>
+    </div>
   </div>
 </section>
 
