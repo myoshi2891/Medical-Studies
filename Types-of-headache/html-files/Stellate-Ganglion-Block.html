@@ -199,7 +199,479 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
-<!-- ============================================================ SECTIONS 1-11 inserted in Phase 2/3 -->
+<!-- ============================================================ SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">概論 — 星状神経節ブロックとは</h1>
+  </div>
+
+  <p><strong>星状神経節ブロック（Stellate Ganglion Block: SGB）</strong>は、頸胸部交感神経節（星状神経節）の近傍に局所麻酔薬を注入することで、同側の交感神経活動を一時的に遮断する<strong>低侵襲的な神経ブロック手技</strong>です。</p>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div>「星状（stellate）」の語源はラテン語の <em>stella</em>（星）に由来し、この神経節の外観が星形であることから命名されました。</div>
+  </div>
+
+  <h2>歴史的背景</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>年代</th><th>出来事</th></tr></thead>
+      <tbody>
+        <tr><td>1920年代</td><td>交感神経ブロックとして臨床導入</td></tr>
+        <tr><td>1930〜1960年代</td><td>疼痛・血管障害への応用が広がる</td></tr>
+        <tr><td>1990年代</td><td>ホットフラッシュ（更年期症状）への適応拡大</td></tr>
+        <tr><td>2008年〜</td><td>PTSD（心的外傷後ストレス障害）への適応が報告され始める</td></tr>
+        <tr><td>2010年代</td><td>超音波ガイド下技術の普及により安全性が大幅向上</td></tr>
+        <tr><td>2020年代</td><td>不整脈（電気的嵐）・周術期合併症予防など新領域へのエビデンス蓄積が進む</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>全体像の把握</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 星状神経節からみたSGBの適応領域</div>
+<pre class="mermaid">
+flowchart TD
+    SG["⭐ 星状神経節\n（Stellate Ganglion）\n頸部・胸部交感神経の主要中継点"]
+
+    SG --> Anatomy["🫀 解剖\n下頸神経節 + 第1胸神経節の融合体\n（約80%の人口で）\nC6-C7椎体レベルに位置"]
+
+    SG --> Function["⚡ 機能\n・頭頸部・上肢の交感神経支配\n・心臓交感神経調節\n・闘争/逃走（Fight-or-Flight）反応の制御"]
+
+    SG --> Block["💉 SGB実施\n局所麻酔薬の神経節周囲への注入\n→ 交感神経シグナルの一時的遮断"]
+
+    Block --> Effect1["🩺 疼痛性疾患\nCRPS・片頭痛\n顔面痛・帯状疱疹後神経痛"]
+    Block --> Effect2["🫀 心臓領域\n室性不整脈（電気的嵐）\n心房細動予防"]
+    Block --> Effect3["🧠 精神・神経領域\nPTSD・うつ症状\n睡眠障害"]
+    Block --> Effect4["🌡️ 自律神経領域\nホットフラッシュ\n多汗症・レイノー症候群"]
+
+    style SG fill:#ede7f6,stroke:#5e35b1,font-weight:bold
+    style Block fill:#fff3e0,stroke:#e65100
+    style Effect1 fill:#e8f5e9,stroke:#2e7d32
+    style Effect2 fill:#fce4ec,stroke:#c62828
+    style Effect3 fill:#f3e5f5,stroke:#6a1b9a
+    style Effect4 fill:#fff8e1,stroke:#f57f17
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">解剖学的基礎</h1>
+  </div>
+
+  <div class="alert a-purple">
+    <div class="alert-i">🎯</div>
+    <div><strong>初学者へのポイント：</strong>SGBを安全に理解するには、まず星状神経節の位置と周辺構造を確実に把握することが最重要です。</div>
+  </div>
+
+  <h2>星状神経節の形成</h2>
+  <p><strong>星状神経節（SG）</strong>は、以下の2つの神経節が合体して形成されます。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>構成要素</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>下頸神経節</strong>（Inferior cervical ganglion）</td><td>頸部交感神経幹の最下端</td></tr>
+        <tr><td><strong>第1胸神経節</strong>（First thoracic ganglion: T1）</td><td>胸部交感神経幹の最上端</td></tr>
+        <tr><td><strong>融合率</strong></td><td>約<strong>80%</strong>の人で両者が融合してSGを形成；残り20%は独立して存在</td></tr>
+        <tr><td><strong>大きさ</strong></td><td>長径 約2.5 cm、幅 約1 cm（個人差大）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>重要な解剖学的注意点：</strong>約20%の人では下頸神経節とT1神経節が融合せず独立して存在します。この場合、「星状神経節」という構造自体が存在せず、解剖学的変異として認識する必要があります。</div>
+  </div>
+
+  <h2>位置関係（Topographic Anatomy）</h2>
+  <p>SGは以下の構造に囲まれた、手術的に危険な領域に位置します。</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 星状神経節を取り囲む解剖構造（赤＝高リスク構造）</div>
+<pre class="mermaid">
+flowchart LR
+    subgraph anterior["前方（Anterior）"]
+        CA["総頸動脈\nCommon Carotid Artery"]
+        IJV["内頸静脈\nInternal Jugular Vein"]
+    end
+
+    subgraph medial["内側（Medial）"]
+        LC["前長筋\nLongus Colli Muscle"]
+        RL["反回喉頭神経\nRecurrent Laryngeal Nerve"]
+        ESO["食道（左側）\nEsophagus"]
+    end
+
+    SG["⭐ 星状神経節\nC7-T1レベル\n（C6での注射が安全）"]
+
+    subgraph lateral["外側（Lateral）"]
+        BP["腕神経叢\nBrachial Plexus"]
+        SCM["胸鎖乳突筋\nSCM Muscle"]
+    end
+
+    subgraph posterior["後方（Posterior）"]
+        VA["椎骨動脈\nVertebral Artery\n（C6では横突孔内に保護）"]
+        SP["頸椎横突起\nTransverse Process"]
+    end
+
+    subgraph inferior["下方（Inferior）"]
+        APEX["肺尖部\nLung Apex\n（気胸リスク）"]
+        TH["胸管（左側）\nThoracic Duct"]
+    end
+
+    anterior --- SG
+    medial --- SG
+    lateral --- SG
+    posterior --- SG
+    inferior --- SG
+
+    style SG fill:#fff9c4,stroke:#f9a825,font-weight:bold
+    style APEX fill:#ffcdd2,stroke:#c62828
+    style VA fill:#fce4ec,stroke:#c62828
+    style RL fill:#fce4ec,stroke:#c62828
+</pre>
+  </div>
+
+  <h2>C6 vs C7：注射レベルの選択</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>C6（シャセニャック結節）</th><th>C7レベル</th></tr></thead>
+      <tbody>
+        <tr><td>解剖学的目印</td><td>前結節（Chassaignac's tubercle）が触知可能</td><td>前結節が小さく触知困難</td></tr>
+        <tr><td>椎骨動脈</td><td>横突孔内に収まり保護される ✅</td><td>横突孔外に出る可能性 ⚠️</td></tr>
+        <tr><td>肺尖部との距離</td><td>比較的離れている ✅</td><td>近接する ⚠️</td></tr>
+        <tr><td>腕神経叢との距離</td><td>比較的離れている ✅</td><td>近接する ⚠️</td></tr>
+        <tr><td>真のSGへの到達</td><td>技術的にはSG本体（C7/T1）より上方</td><td>SG本体により近い</td></tr>
+        <tr><td>臨床的名称</td><td><strong>頸部交感神経ブロック</strong>（より正確）</td><td>星状神経節ブロック（より直接的）</td></tr>
+        <tr><td><strong>推奨度</strong></td><td><span class="tG">臨床上の第一選択 ✅</span></td><td>特殊なケースに限定</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>解剖学的補足：</strong>厳密には、C6レベルに存在するのは星状神経節ではなく、そこを通過する交感神経線維（中頸神経節の一部）です。しかし局所麻酔薬の拡散により交感神経遮断効果が得られるため、臨床上「SGB」と呼ばれます。</div>
+  </div>
+
+  <h2>組織学的構造</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>構成成分</th><th>役割</th></tr></thead>
+      <tbody>
+        <tr><td>節後ニューロン（Postganglionic neurons）</td><td>交感神経シグナルの最終共通経路</td></tr>
+        <tr><td>衛星グリア細胞（Satellite glial cells）</td><td>ニューロンの代謝サポート・シグナル調節</td></tr>
+        <tr><td>SIF細胞（Small intensely fluorescent cells）</td><td>神経節内伝達の調節</td></tr>
+        <tr><td>混合神経線維</td><td>節前・節後の軸索が混在</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">作用機序</h1>
+  </div>
+
+  <h2>基本的な交感神経遮断機序</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 局所麻酔薬による交感神経遮断のカスケード</div>
+<pre class="mermaid">
+flowchart TD
+    A["💉 局所麻酔薬の注入\n（ブピバカイン/ロピバカインなど）"]
+
+    A --> B["Na+チャネルの遮断\n神経膜電位の安定化"]
+    B --> C["節前・節後ニューロンの\n活動電位伝導ブロック"]
+    C --> D["交感神経シグナルの遮断"]
+
+    D --> E1["頭頸部への\n交感神経遮断\n→ ホルネル症候群"]
+    D --> E2["上肢への\n交感神経遮断\n→ 血管拡張・皮膚温上昇"]
+    D --> E3["心臓交感神経への\n影響\n→ 抗不整脈効果"]
+
+    E1 --> F["ブロック成功の確認\n✅ ホルネル症候群の出現"]
+
+    style A fill:#ede7f6,stroke:#5e35b1
+    style D fill:#fff3e0,stroke:#e65100
+    style F fill:#e8f5e9,stroke:#2e7d32,font-weight:bold
+</pre>
+  </div>
+
+  <h2>延長効果の仮説的機序（NGF仮説）</h2>
+  <p>局所麻酔薬の作用時間（数時間）を超えた持続効果を説明するため、以下の機序が提唱されています。</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — NGF仮説：疾患形成（赤）とSGBによる是正（緑）</div>
+<pre class="mermaid">
+flowchart TD
+    Trigger["外傷・ストレス・ホルモン変動\n（PTSD・CRPS・更年期などの誘因）"]
+    NGF["🔬 神経成長因子（NGF）の過剰産生\n交感神経節での発現亢進"]
+    Sprouting["交感神経の異常発芽\n（Sympathetic Sprouting）\n→ 脊髄後根神経節への異常投射"]
+    NE["脳内ノルエピネフリン（NE）の上昇\n→ 扁桃体・視床下部の過活動"]
+    Symptoms["症状の発現\nPTSD過覚醒 / ホットフラッシュ / CRPS疼痛"]
+
+    SGB["💉 SGB施行\n（局所麻酔薬の星状神経節周囲注射）"]
+    NGF_down["NGF産生の低下\n交感神経シグナルの遮断"]
+    Sprouting_down["異常発芽の退縮\n（長期的リモデリング）"]
+    NE_down["脳内NE濃度の正常化\n視床下部-下垂体-副腎（HPA）軸の調整"]
+    Improvement["🟢 症状改善\n局所麻酔効果を超えた持続効果の根拠"]
+
+    Trigger --> NGF
+    NGF --> Sprouting
+    Sprouting --> NE
+    NE --> Symptoms
+
+    SGB --> NGF_down
+    NGF_down --> Sprouting_down
+    Sprouting_down --> NE_down
+    NE_down --> Improvement
+
+    style Trigger fill:#ffcdd2,stroke:#c62828
+    style Symptoms fill:#ff8a80,stroke:#c62828
+    style SGB fill:#ede7f6,stroke:#5e35b1,font-weight:bold
+    style Improvement fill:#c8e6c9,stroke:#2e7d32,font-weight:bold
+</pre>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>重要な注記：</strong>このNGF仮説は現在研究段階にあり、完全には解明されていません。PTSDへの持続効果のメカニズムは「incomplete understanding（不完全な理解）」の状態です。</div>
+  </div>
+
+  <h2>心臓への作用機序（不整脈領域）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 左右星状神経節の心臓支配と左SGBの抗不整脈効果</div>
+<pre class="mermaid">
+flowchart LR
+    LeftSG["左星状神経節\n左心室・左心房の\n主要な交感神経支配"]
+    RightSG["右星状神経節\n洞結節（SA node）に優位\n→ 心拍数制御"]
+
+    LeftSG --> QT["QT延長\n→ 不整脈誘発"]
+    RightSG --> HR["心拍数↑\n→ 不整脈閾値低下"]
+
+    SGB_L["左SGB実施\n（不整脈への第一選択）"]
+    SGB_L --> QT_norm["QT正常化\n交感神経過活動の抑制\n→ VT/VF抑制"]
+
+    QT --- SGB_L
+    HR --- SGB_L
+
+    style LeftSG fill:#fce4ec,stroke:#c62828
+    style SGB_L fill:#ede7f6,stroke:#5e35b1
+    style QT_norm fill:#e8f5e9,stroke:#2e7d32
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">適応症とエビデンスグレード</h1>
+  </div>
+
+  <h2>適応症一覧</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>適応症</th><th>エビデンス</th><th>推奨サイド</th><th>主なエビデンス源</th></tr></thead>
+      <tbody>
+        <tr><td><strong>複合性局所疼痛症候群（CRPS type I/II）</strong></td><td><span class="bB">Grade B</span></td><td>患側</td><td>系統的レビュー複数</td></tr>
+        <tr><td>交感神経性維持疼痛</td><td><span class="bB">Grade B</span></td><td>患側</td><td>RCT/観察研究</td></tr>
+        <tr><td><strong>ホットフラッシュ（更年期・乳がん治療後）</strong></td><td><span class="bA">Grade A</span></td><td>右側優先</td><td>複数RCT（Menopause誌）</td></tr>
+        <tr><td>多汗症（上肢・頭部）</td><td><span class="bB">Grade B</span></td><td>患側</td><td>観察研究・症例集積</td></tr>
+        <tr><td>レイノー症候群</td><td><span class="bC">Grade C</span></td><td>患側</td><td>症例報告・小規模研究</td></tr>
+        <tr><td>帯状疱疹後神経痛（顔面・上肢）</td><td><span class="bB">Grade B</span></td><td>患側</td><td>複数RCT</td></tr>
+        <tr><td><strong>PTSD</strong></td><td><span class="bB">Grade B</span></td><td>右側優先</td><td>複数RCT（Anesth Analg 誌等）</td></tr>
+        <tr><td><strong>室性不整脈・電気的嵐</strong></td><td><span class="bB">Grade B</span></td><td>左側優先</td><td>多施設観察研究・STAR study (ESC)</td></tr>
+        <tr><td>心房細動（周術期予防）</td><td><span class="bC">Grade C</span></td><td>左または右</td><td>単施設RCT複数</td></tr>
+        <tr><td>片頭痛・群発頭痛</td><td><span class="bC">Grade C</span></td><td>患側</td><td>小規模研究・症例集積</td></tr>
+        <tr><td>顔面非定型痛</td><td><span class="bC">Grade C</span></td><td>患側</td><td>症例報告・専門家コンセンサス</td></tr>
+        <tr><td>急性感音性難聴</td><td><span class="bC">Grade C</span></td><td>患側</td><td>小規模RCT（日本・韓国）</td></tr>
+        <tr><td>突発性難聴</td><td><span class="bC">Grade C</span></td><td>患側</td><td>症例集積・小規模研究</td></tr>
+        <tr><td>Bell麻痺</td><td><span class="bC">Grade C</span></td><td>患側</td><td>小規模RCT</td></tr>
+        <tr><td>脳血管攣縮（くも膜下出血後）</td><td><span class="bC">Grade C</span></td><td>進行中RCT</td><td>NCT04691271（試験中）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>エビデンスグレード凡例：</strong>
+      <span class="bA">Grade A</span> = 複数の高質なRCTまたはCochrane系統的レビュー／
+      <span class="bB">Grade B</span> = 単数のRCTまたは複数の観察研究／
+      <span class="bC">Grade C</span> = 小規模研究・症例報告・専門家コンセンサス
+    </div>
+  </div>
+
+  <h2>適応選択フローチャート</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 患者評価から効果判定までの意思決定フロー</div>
+<pre class="mermaid">
+flowchart TD
+    START(["患者評価開始"])
+
+    START --> Q1{"SNOOP4\nレッドフラッグ確認\n（頭痛主訴の場合）"}
+    Q1 -->|"該当あり"| EMERGENCY["🚨 緊急対応\nCT/MRI施行\n二次性疾患の除外を優先"]
+    Q1 -->|"クリア"| Q2{"SGBの\n適応症に該当するか？"}
+
+    Q2 -->|"No"| OTHER["他の治療法を検討"]
+    Q2 -->|"Yes"| Q3{"禁忌事項の\n確認"}
+
+    Q3 -->|"禁忌あり"| CONTRAINDICATED["⛔ SGB禁忌\n代替治療へ"]
+    Q3 -->|"禁忌なし"| Q4{"病変の側面確認"}
+
+    Q4 -->|"両側性 or 不明確"| SIDE_SELECT["サイド選択の原則：\n・疼痛 → 患側\n・PTSD/ホットフラッシュ → 右側\n・不整脈 → 左側"]
+    Q4 -->|"片側性疾患"| IPSILATERAL["患側でのSGBを実施"]
+
+    SIDE_SELECT --> IMAGING["画像ガイド下施術の準備\n（超音波推奨）"]
+    IPSILATERAL --> IMAGING
+
+    IMAGING --> PROCEDURE["施術実施\n↓\nホルネル症候群の確認"]
+
+    PROCEDURE --> FOLLOWUP["効果判定\n・急性期：24〜48時間後\n・慢性期：1〜3ヶ月後"]
+
+    style EMERGENCY fill:#c62828,color:#fff
+    style CONTRAINDICATED fill:#e64a19,color:#fff
+    style PROCEDURE fill:#5e35b1,color:#fff
+    style START fill:#2e7d32,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">禁忌と注意事項</h1>
+  </div>
+
+  <h2>絶対禁忌</h2>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>禁忌事項</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td><strong>対側SGBからの24時間以内の二度目の実施</strong></td><td>両側の反回喉頭神経同時ブロック → 気道閉塞のリスク</td></tr>
+        <tr><td>注射部位の局所感染</td><td>感染播種・化膿性神経炎のリスク</td></tr>
+        <tr><td>重篤な出血傾向・抗凝固療法中（コントロール不良）</td><td>頸部血腫による気道圧迫のリスク</td></tr>
+        <tr><td>局所麻酔薬アレルギーの既往</td><td>アナフィラキシーショック</td></tr>
+        <tr><td>患者の同意が得られない場合</td><td>倫理的・法的義務</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>相対禁忌・慎重投与</h2>
+  <div class="tbl th-orange">
+    <table>
+      <thead><tr><th>条件</th><th>内容</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr><td>重篤な呼吸機能障害（FEV1 &lt;1.0L）</td><td>片側横隔膜神経ブロックでも呼吸不全悪化リスク</td><td>事前に呼吸機能評価を実施</td></tr>
+        <tr><td>重篤な頸椎疾患・頸椎手術後</td><td>解剖構造の変化により合併症リスク増大</td><td>画像確認後に慎重に判断</td></tr>
+        <tr><td>高度不整脈（徐脈：HR &lt;50 bpm）</td><td>交感神経遮断により悪化の可能性</td><td>不整脈管理後に実施</td></tr>
+        <tr><td>妊娠（特に第1三半期）</td><td>局所麻酔薬の胎児への影響</td><td>リスクベネフィットを慎重に評価</td></tr>
+        <tr><td>血液凝固異常（INR &gt;1.5、PT &gt;1.5倍）</td><td>血腫リスク</td><td>凝固改善後に実施</td></tr>
+        <tr><td>対側声帯麻痺の既往</td><td>反回喉頭神経ブロックで気道確保が困難に</td><td>耳鼻咽喉科評価後に判断</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">施術プロトコル — ステップバイステップ</h1>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>以下は教育目的の概説です。実際の施術は専門的なトレーニングを受けた医師のみが実施できます。</div>
+  </div>
+
+  <h2>施術前の準備</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 施術前チェックリスト（赤＝救急設備の必須確認）</div>
+<pre class="mermaid">
+flowchart TD
+    PRE_A["📋 施術前チェックリスト"]
+
+    PRE_A --> CONSENT["✅ インフォームドコンセントの取得\n・適応・リスク・代替治療を説明\n・書面での同意"]
+
+    PRE_A --> LABS["🔬 検査確認\n・血液凝固（PT-INR・APTT・血小板）\n・アレルギー歴\n・現在の薬剤（抗凝固薬・抗血小板薬）"]
+
+    PRE_A --> EQUIP["🏥 救急設備の確認\n・除細動器\n・気道確保器具（ラリンゲアルマスク・挿管器具）\n・エピネフリン・脂肪乳剤（LAST対応）\n・パルスオキシメーター・心電図モニター"]
+
+    PRE_A --> POSITION["🛏️ 患者体位の設定\n・仰臥位\n・頸部をわずかに後屈（枕を肩の下に入れる）\n・患者の頭部を反対側に10〜15°回旋\n・口は軽く開ける（気道確保のため）"]
+
+    style PRE_A fill:#ede7f6,stroke:#5e35b1,font-weight:bold
+    style EQUIP fill:#fce4ec,stroke:#c62828
+</pre>
+  </div>
+
+  <h2>超音波ガイド下施術の手順（C6レベル）</h2>
+
+  <h3>ステップ 1：超音波プローブの設置と解剖構造の同定</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>手順</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td>プローブ</td><td><strong>高周波リニアプローブ</strong>（7〜15 MHz）</td></tr>
+        <tr><td>設置部位</td><td>輪状軟骨（甲状腺下方）の高さ、胸鎖乳突筋の内側縁</td></tr>
+        <tr><td>確認構造</td><td>頸動脈（CA）、内頸静脈（IJV）、甲状腺、前長筋（LC）、C6横突起前結節</td></tr>
+        <tr><td>ターゲット</td><td><strong>前長筋（longus colli）の腹側表面と椎前筋膜の間</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>ステップ 2：皮膚消毒と局所麻酔</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>手順</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td>皮膚消毒</td><td>ポビドンヨードまたはクロルヘキシジンアルコール</td></tr>
+        <tr><td>局所麻酔</td><td>皮膚・皮下組織への1〜2% リドカイン 0.5〜1 mL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>ステップ 3：穿刺と薬液注入</h3>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 平面内アプローチによる穿刺〜注入〜確認</div>
+<pre class="mermaid">
+flowchart LR
+    PROBE["🖥️ 超音波プローブ\n（横断面短軸観察）"]
+
+    PROBE --> VIEW["解剖構造確認\n・頸動脈（CA）\n・前長筋（LC）\n・C6横突起前結節\n・椎骨動脈（横突孔内）"]
+
+    VIEW --> NEEDLE["🪡 穿刺\n平面内（in-plane）アプローチ\n22〜25G針\n\n針先の目標：\n椎前筋膜と前長筋の境界面\n（subfascial injection）"]
+
+    NEEDLE --> ASPIRATION["吸引確認（Aspiration test）\n血液の逆流がないことを確認\n※ 陰性でも血管内注入の可能性あり"]
+
+    ASPIRATION -->|"血液なし"| TEST_DOSE["テスト用量の注入\n（1〜2 mL）\n→ 局所麻酔薬中毒症状がないことを確認\n30秒待機"]
+
+    ASPIRATION -->|"血液あり"| REPOSITION["針の位置調整\n再度穿刺"]
+
+    TEST_DOSE --> FULL_INJECTION["全量注入\n（残りを1〜2 mLずつ分割投与）\n※ リアルタイム超音波で薬液拡散を観察"]
+
+    FULL_INJECTION --> CONFIRM["ホルネル症候群の確認\n（5〜10分後）"]
+
+    style ASPIRATION fill:#fff3e0,stroke:#e65100
+    style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold
+</pre>
+  </div>
+
+  <h2>アプローチ法の比較</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>アプローチ法</th><th>概要</th><th>長所</th><th>短所</th><th>推奨度</th></tr></thead>
+      <tbody>
+        <tr><td><strong>超音波ガイド下（パラカロティド）</strong></td><td>リアルタイム超音波で針先と解剖構造を可視化</td><td>血管誤穿刺リスク最低；薬液拡散の確認が可能</td><td>機器と習熟が必要</td><td><span class="tG">第一選択 ✅</span></td></tr>
+        <tr><td>透視（フルオロスコピー）ガイド下</td><td>X線透視下でのランドマーク確認後に注射</td><td>骨性目標の可視化に優れる</td><td>放射線被曝；血管は見えない</td><td>代替選択</td></tr>
+        <tr><td>CT ガイド下</td><td>CT画像で詳細な位置確認後に注射</td><td>最高の精度；解剖学的変異への対応</td><td>放射線量が多い；施術時間が長い；コスト高</td><td>特殊ケースのみ</td></tr>
+        <tr><td>体表ランドマーク（盲目的）</td><td>シャセニャック結節の触診のみに依存</td><td>機器不要；迅速</td><td>合併症リスクが最も高い</td><td><span class="tR">非推奨 ⛔</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 </main>
 </div><!-- end layout -->
