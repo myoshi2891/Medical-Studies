@@ -21,9 +21,9 @@ allowed-tools:
 
 ## 対象ファイル
 
-- **入力**: `Types-of-headache/md-files/{HeadacheName}.md`
-- **出力**: `Types-of-headache/html-files/{HeadacheName}.html`
-- **テンプレート参照**: `Types-of-headache/html-files/Migraine.html`（デザインシステムの権威ソース）
+- **入力**: `Types-of-headache/md-files/{Category}/{HeadacheName}.md` （※Categoryは `Headaches` または `Blocks`）
+- **出力**: `Types-of-headache/html-files/{Category}/{HeadacheName}.html`
+- **テンプレート参照**: `Types-of-headache/html-files/Headaches/Migraine.html`（デザインシステムの権威ソース）
 - **プランファイル**: `.claude/plans/*.md`（存在する場合は事前に読む）
 
 ---

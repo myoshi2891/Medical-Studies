@@ -6,9 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 頭痛疾患（Types of Headache）の医療教育コンテンツを Markdown で執筆し、スタイル付き HTML に変換するスタディリポジトリ。
 
-- **コンテンツ源**: `Types-of-headache/md-files/*.md` — 国際エビデンス（ICHD-3）に基づいた医療教育 Markdown
-- **成果物**: `Types-of-headache/html-files/*.html` — ブラウザで閲覧可能な教育 HTML ページ
-- **デザインの権威ソース**: `Types-of-headache/html-files/Migraine.html`（CSS 変数・コンポーネントはここを基準とする）
+- **コンテンツ源**: `Types-of-headache/md-files/{Headaches,Blocks}/*.md` — 国際エビデンス（ICHD-3）に基づいた医療教育 Markdown
+- **成果物**: `Types-of-headache/html-files/{Headaches,Blocks}/*.html` — ブラウザで閲覧可能な教育 HTML ページ
+- **デザインの権威ソース**: `Types-of-headache/html-files/Headaches/Migraine.html`（CSS 変数・コンポーネントはここを基準とする）
 
 ## コマンド
 
