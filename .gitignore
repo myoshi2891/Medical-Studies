@@ -69,3 +69,7 @@ pnpm-debug.log*
 # Backup/Temp
 *.tmp
 *.bak
+
+# Playwright MCP
+.playwright-mcp/
+
