@@ -155,51 +155,51 @@ pre.mermaid{text-align:center}
   .main{padding:16px 14px 60px}
 }
 
-/* Evidence Map Styles */
-.evidence-map {
+/* SGB Page-Specific Custom Style Exception: Evidence Map Component */
+.sgb-evidence-map {
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin: 20px 0;
   width: 100%;
 }
-.evidence-sec-card {
+.sgb-evidence-sec-card {
   border-radius: var(--rs);
   padding: 18px 22px;
   box-shadow: var(--sh);
   border: 1px solid transparent;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.evidence-sec-card:hover {
+.sgb-evidence-sec-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
-.evidence-hdr {
+.sgb-evidence-hdr {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 14px;
   flex-wrap: wrap;
 }
-.evidence-icon {
+.sgb-evidence-icon {
   font-size: 18px;
 }
-.evidence-title {
+.sgb-evidence-title {
   font-weight: 700;
   font-size: 15px;
   color: var(--g9);
 }
-.evidence-desc {
+.sgb-evidence-desc {
   font-size: 12.5px;
   color: var(--g6);
   font-weight: normal;
 }
-.evidence-grid {
+.sgb-evidence-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 12px;
 }
-.evidence-node {
+.sgb-evidence-node {
   background: #fff;
   border: 1px solid var(--g3);
   border-radius: 6px;
@@ -215,11 +215,11 @@ pre.mermaid{text-align:center}
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-.evidence-node:hover {
+.sgb-evidence-node:hover {
   background: var(--g1);
   border-color: var(--g6);
 }
-.evidence-node .subtext {
+.sgb-evidence-node .subtext {
   font-size: 11px;
   color: var(--g6);
   margin-top: 4px;
@@ -227,54 +227,54 @@ pre.mermaid{text-align:center}
 }
 
 /* 各グレードのテーマカラー */
-.evidence-sec-card.ongoing {
+.sgb-evidence-sec-card.ongoing {
   background: #f3e5f5; /* purple-l */
   border-left: 5px solid var(--purple);
 }
-.evidence-sec-card.ongoing .evidence-node {
+.sgb-evidence-sec-card.ongoing .sgb-evidence-node {
   border-color: #d1c4e9;
   color: var(--purple);
 }
-.evidence-sec-card.ongoing .evidence-node:hover {
+.sgb-evidence-sec-card.ongoing .sgb-evidence-node:hover {
   background: #ede7f6;
   border-color: var(--purple);
 }
 
-.evidence-sec-card.grade-c {
+.sgb-evidence-sec-card.grade-c {
   background: var(--orange-l);
   border-left: 5px solid var(--orange);
 }
-.evidence-sec-card.grade-c .evidence-node {
+.sgb-evidence-sec-card.grade-c .sgb-evidence-node {
   border-color: #ffe0b2;
   color: #e65100;
 }
-.evidence-sec-card.grade-c .evidence-node:hover {
+.sgb-evidence-sec-card.grade-c .sgb-evidence-node:hover {
   background: #fff3e0;
   border-color: var(--orange);
 }
 
-.evidence-sec-card.grade-b {
+.sgb-evidence-sec-card.grade-b {
   background: var(--yellow-l);
   border-left: 5px solid #fbc02d;
 }
-.evidence-sec-card.grade-b .evidence-node {
+.sgb-evidence-sec-card.grade-b .sgb-evidence-node {
   border-color: #fff9c4;
   color: #f57f17;
 }
-.evidence-sec-card.grade-b .evidence-node:hover {
+.sgb-evidence-sec-card.grade-b .sgb-evidence-node:hover {
   background: #fffde7;
   border-color: #fbc02d;
 }
 
-.evidence-sec-card.grade-a {
+.sgb-evidence-sec-card.grade-a {
   background: var(--green-l);
   border-left: 5px solid var(--green);
 }
-.evidence-sec-card.grade-a .evidence-node {
+.sgb-evidence-sec-card.grade-a .sgb-evidence-node {
   border-color: #c8e6c9;
   color: #1b5e20;
 }
-.evidence-sec-card.grade-a .evidence-node:hover {
+.sgb-evidence-sec-card.grade-a .sgb-evidence-node:hover {
   background: #e8f5e9;
   border-color: var(--green);
 }
@@ -1071,64 +1071,64 @@ style DISCHARGE fill:#2e7d32,color:#fff
   <h2>総合エビデンスマップ</h2>
   <div class="card">
     <div class="mmd-lbl">適応症のエビデンスグレード分布</div>
-    <div class="evidence-map">
+    <div class="sgb-evidence-map">
       
       <!-- 進行中RCT -->
-      <div class="evidence-sec-card ongoing">
-        <div class="evidence-hdr">
-          <span class="evidence-icon">🔬</span>
-          <span class="evidence-title">進行中RCT</span>
+      <div class="sgb-evidence-sec-card ongoing">
+        <div class="sgb-evidence-hdr">
+          <span class="sgb-evidence-icon">🔬</span>
+          <span class="sgb-evidence-title">進行中RCT</span>
         </div>
-        <div class="evidence-grid">
-          <div class="evidence-node">電気的嵐 <span class="subtext">（GANGSTER Trial）</span></div>
-          <div class="evidence-node">周術期AF予防 <span class="subtext">（NCT06476925等）</span></div>
-          <div class="evidence-node">脳血管攣縮 <span class="subtext">（NCT04691271等）</span></div>
+        <div class="sgb-evidence-grid">
+          <div class="sgb-evidence-node">電気的嵐 <span class="subtext">（GANGSTER Trial）</span></div>
+          <div class="sgb-evidence-node">周術期AF予防 <span class="subtext">（NCT06476925等）</span></div>
+          <div class="sgb-evidence-node">脳血管攣縮 <span class="subtext">（NCT04691271等）</span></div>
         </div>
       </div>
 
       <!-- Grade C -->
-      <div class="evidence-sec-card grade-c">
-        <div class="evidence-hdr">
-          <span class="evidence-icon">⭐</span>
-          <span class="evidence-title">Grade C</span>
-          <span class="evidence-desc">（症例集積・小規模研究）</span>
+      <div class="sgb-evidence-sec-card grade-c">
+        <div class="sgb-evidence-hdr">
+          <span class="sgb-evidence-icon">⭐</span>
+          <span class="sgb-evidence-title">Grade C</span>
+          <span class="sgb-evidence-desc">（症例集積・小規模研究）</span>
         </div>
-        <div class="evidence-grid">
-          <div class="evidence-node">片頭痛・群発頭痛</div>
-          <div class="evidence-node">顔面非定型痛</div>
-          <div class="evidence-node">急性感音性難聴</div>
-          <div class="evidence-node">Bell麻痺</div>
-          <div class="evidence-node">心房細動予防</div>
-          <div class="evidence-node">レイノー症候群</div>
-          <div class="evidence-node">脳血管攣縮</div>
+        <div class="sgb-evidence-grid">
+          <div class="sgb-evidence-node">片頭痛・群発頭痛</div>
+          <div class="sgb-evidence-node">顔面非定型痛</div>
+          <div class="sgb-evidence-node">急性感音性難聴</div>
+          <div class="sgb-evidence-node">Bell麻痺</div>
+          <div class="sgb-evidence-node">心房細動予防</div>
+          <div class="sgb-evidence-node">レイノー症候群</div>
+          <div class="sgb-evidence-node">脳血管攣縮</div>
         </div>
       </div>
 
       <!-- Grade B -->
-      <div class="evidence-sec-card grade-b">
-        <div class="evidence-hdr">
-          <span class="evidence-icon">⭐⭐</span>
-          <span class="evidence-title">Grade B</span>
-          <span class="evidence-desc">（単数RCTまたは複数観察研究）</span>
+      <div class="sgb-evidence-sec-card grade-b">
+        <div class="sgb-evidence-hdr">
+          <span class="sgb-evidence-icon">⭐⭐</span>
+          <span class="sgb-evidence-title">Grade B</span>
+          <span class="sgb-evidence-desc">（単数RCTまたは複数観察研究）</span>
         </div>
-        <div class="evidence-grid">
-          <div class="evidence-node">PTSD</div>
-          <div class="evidence-node">室性不整脈・電気的嵐</div>
-          <div class="evidence-node">CRPS type I/II</div>
-          <div class="evidence-node">帯状疱疹後神経痛</div>
-          <div class="evidence-node">多汗症（上肢・頭部）</div>
+        <div class="sgb-evidence-grid">
+          <div class="sgb-evidence-node">PTSD</div>
+          <div class="sgb-evidence-node">室性不整脈・電気的嵐</div>
+          <div class="sgb-evidence-node">CRPS type I/II</div>
+          <div class="sgb-evidence-node">帯状疱疹後神経痛</div>
+          <div class="sgb-evidence-node">多汗症（上肢・頭部）</div>
         </div>
       </div>
 
       <!-- Grade A -->
-      <div class="evidence-sec-card grade-a">
-        <div class="evidence-hdr">
-          <span class="evidence-icon">⭐⭐⭐</span>
-          <span class="evidence-title">Grade A</span>
-          <span class="evidence-desc">（複数RCTまたはCochrane SR）</span>
+      <div class="sgb-evidence-sec-card grade-a">
+        <div class="sgb-evidence-hdr">
+          <span class="sgb-evidence-icon">⭐⭐⭐</span>
+          <span class="sgb-evidence-title">Grade A</span>
+          <span class="sgb-evidence-desc">（複数RCTまたはCochrane SR）</span>
         </div>
-        <div class="evidence-grid">
-          <div class="evidence-node">
+        <div class="sgb-evidence-grid">
+          <div class="sgb-evidence-node">
             ホットフラッシュ
             <span class="subtext">（更年期・乳がん治療後）</span>
           </div>

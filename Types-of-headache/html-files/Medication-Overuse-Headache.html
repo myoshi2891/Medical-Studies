@@ -13,14 +13,13 @@
   --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
   --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
   --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
-  --ember1:#4e2000;--ember2:#bf360c;--ember3:#e64a19;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
 
 /* Hero */
-.hero{background:linear-gradient(135deg,var(--ember1),var(--ember2) 55%,var(--ember3));color:#fff;padding:52px 28px 40px;text-align:center}
+.hero{background:linear-gradient(135deg,var(--red),var(--orange) 55%,var(--teal));color:#fff;padding:52px 28px 40px;text-align:center}
 .hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
 .hero-sub{font-size:14px;opacity:.85;margin-bottom:22px}
 .hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -39,8 +38,8 @@ body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP'
 .sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
 .s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
 .nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
-.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--ember2);color:var(--ember1)}
-.nav-a.active{font-weight:600;background:#fbe9e7}
+.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--orange);color:var(--red)}
+.nav-a.active{font-weight:600;background:var(--orange-l)}
 .n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
 /* Main */
@@ -49,8 +48,8 @@ body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP'
 /* Section */
 .sec{margin:40px 0;scroll-margin-top:12px}
 .sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
-.sec-num{background:var(--ember2);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
-.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--ember1)}
+.sec-num{background:var(--orange);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--red)}
 h2{font-size:16px;font-weight:700;color:var(--navy2);margin:22px 0 10px;padding-left:10px;border-left:4px solid #5c6bc0}
 h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
 p{margin-bottom:10px;color:var(--g8)}
@@ -102,7 +101,7 @@ tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
 /* Mermaid */
 .mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
 .mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
-.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--ember2);display:inline-block}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--orange);display:inline-block}
 pre.mermaid{text-align:center}
 
 /* Phase cards */
@@ -146,7 +145,7 @@ pre.mermaid{text-align:center}
 .src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
 
 /* Footer */
-.footer{background:var(--ember1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer{background:var(--red);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
 .footer strong{color:#fff}
 
 /* Responsive */
