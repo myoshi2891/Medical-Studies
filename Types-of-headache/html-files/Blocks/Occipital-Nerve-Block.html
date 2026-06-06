@@ -216,6 +216,518 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
+<!-- ============================================================ SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">後頭神経ブロックとは — 基礎概念</h1>
+  </div>
+
+  <p><strong>後頭神経ブロック（Occipital Nerve Block; ONB）</strong>は、後頭部に分布する神経（主に<strong>大後頭神経 GON</strong>）の周囲に局所麻酔薬やステロイドを注入することで、後頭部を起源とする様々な頭痛を治療する手技です。</p>
+
+  <div class="alert a-purple">
+    <div class="alert-i">💡</div>
+    <div><strong>なぜ効くのか（一言で）：</strong>頸部の神経と頭部の神経（三叉神経）が<strong>脳幹レベルで収束</strong>しているため。後頭神経の痛みシグナルを遮断することで、三叉神経系の痛みまで抑制できます（詳細は §3）。</div>
+  </div>
+
+  <h2>GON ブロックの双対的役割</h2>
+  <div class="onb-role-grid">
+    <div class="onb-role">
+      <div class="onb-role-t">🔍 診断的役割</div>
+      <div class="onb-role-d">局所麻酔薬の注入後に頭痛が消失 → <strong>後頭神経起源の頭痛</strong>と確認できる。後頭神経痛（ICHD-3 13.1）の診断基準にも含まれる。</div>
+    </div>
+    <div class="onb-role">
+      <div class="onb-role-t">💉 治療的役割</div>
+      <div class="onb-role-d">急性発作の緩和・予防的抑制の<strong>双方</strong>に使用できる。繰り返し施行による予防的ブロックも可能。</div>
+    </div>
+  </div>
+
+  <h2>効果の持続時間 — 「麻酔」を超える鎮痛</h2>
+  <div class="alert a-info">
+    <div class="alert-i">⏳</div>
+    <div>局所麻酔薬の効果（数時間）よりも<strong>はるかに長い</strong>鎮痛効果（数週間〜数ヶ月）が得られることがあります。これは末梢から中枢への<strong>「中枢感作の抑制」</strong>が起きているためと考えられています（§3 で詳述）。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">解剖学 — 後頭部の神経構造</h1>
+  </div>
+
+  <p>後頭部には3つの神経が分布しており、それぞれが異なる部位を支配しています。ブロックの主標的は<strong>大後頭神経（GON）</strong>です。</p>
+
+  <h2>後頭部の3神経</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>神経名</th><th>英語名</th><th>起源</th><th>支配領域</th><th>ブロックの主対象</th></tr></thead>
+      <tbody>
+        <tr><td><strong>大後頭神経</strong></td><td>Greater Occipital Nerve (GON)</td><td>C2後枝（背側一次枝）の感覚枝</td><td>後頭部の大部分〜頭頂部</td><td><span class="tG">✅ 最重要（主標的）</span></td></tr>
+        <tr><td><strong>小後頭神経</strong></td><td>Lesser Occipital Nerve (LON)</td><td>C2/C3腹側一次枝</td><td>後頭部外側〜耳介後部</td><td>⚪ 補助的に使用</td></tr>
+        <tr><td><strong>第三後頭神経</strong></td><td>Third Occipital Nerve (TON)</td><td>C3後枝の表在内側枝</td><td>上頸部〜後頭骨隆起下方</td><td>⚪ 頸原性頭痛に重要</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>大後頭神経（GON）の走行 — ステップごとに理解する</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — GON の起源から皮下出現までの走行</div>
+<pre class="mermaid">
+flowchart LR
+A["🔵 C2脊髄神経\n（後根神経節）\n起源"]
+B["下斜筋\nと半棘筋頸部の間を\n上行（筋間走行）"]
+C["半棘筋頸部を\n貫通\n（筋貫通点 ← 絞扼リスク）"]
+D["僧帽筋の腱膜下を\n内側から外側へ走行"]
+E["後頭動脈の\n内側に位置\n（上項線レベル）"]
+F["🔴 皮下に出現\n後頭部皮膚を\n広く支配\n（頭頂部まで）"]
+
+A --> B --> C --> D --> E --> F
+
+style A fill:#1565c0,color:#fff
+style C fill:#e65100,color:#fff
+style F fill:#2e7d32,color:#fff
+</pre>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>絞扼点（Entrapment Sites）：</strong>GON は<strong>下斜筋・半棘筋・僧帽筋</strong>の3箇所で物理的に絞扼されやすい。これが後頭神経痛の原因となります。</div>
+  </div>
+
+  <h2>体表ランドマークとブロック注入点の関係</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ランドマーク</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td><strong>後頭骨隆起（EOP）</strong></td><td>後頭部正中の骨の突起（「イニオン」とも呼ばれる）。触れてわかる。</td></tr>
+        <tr><td><strong>乳様突起（Mastoid Process）</strong></td><td>耳の後方にある骨の突起。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="onb-role-grid">
+    <div class="onb-role">
+      <div class="onb-role-t">📍 GON 注入点</div>
+      <div class="onb-role-d">EOP〜乳様突起を結ぶ線上の<strong>内側2/3</strong>（EOPから約1/3）。<strong>後頭動脈の拍動の内側</strong>。上項線レベル。目安は EOP から<strong>約2cm外側・2cm下方</strong>。</div>
+    </div>
+    <div class="onb-role">
+      <div class="onb-role-t">📍 LON 注入点</div>
+      <div class="onb-role-d">EOP〜乳様突起を結ぶ線上の<strong>外側1/3</strong>（乳様突起寄り）。</div>
+    </div>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">🔗</div>
+    <div><strong>次セクションへの橋渡し：</strong>GON は C2 レベルで<strong>三叉頸椎複合体（TCC）</strong>に入り、三叉神経第1枝（V1）からの求心性線維と<strong>同一の2次ニューロンに収束</strong>します。これが GON ブロックが片頭痛・群発頭痛にも効く解剖学的根拠です。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">作用機序 — 三叉頸椎複合体（TCC）</h1>
+  </div>
+
+  <p>GON ブロックの効果が局所麻酔薬の作用時間を超えて持続するのは、単なる神経の「麻酔」ではなく、<strong>中枢レベルの痛覚調節</strong>が起きているためと考えられています。</p>
+
+  <h2>三叉頸椎複合体（Trigeminocervical Complex, TCC）とは</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — TCC における三叉神経系と後頭神経系の収束</div>
+<pre class="mermaid">
+flowchart TD
+A["🔴 三叉神経（V1: 眼枝）\n硬膜・前頭部・眼窩周囲の\n痛みシグナル"]
+B["🔵 大後頭神経（GON/C2）\n後頭部・頸部の\n痛みシグナル"]
+C["三叉頸椎複合体（TCC）\nTrigeminal nucleus caudalis\n+ 上位頸髄（C1〜C3）\n両者が同一の2次ニューロンに収束"]
+D["視床\nThalamus\n痛みシグナルの中継・増幅"]
+E["大脳皮質\n（一次感覚野・島皮質）\n痛みの「知覚」・情動反応"]
+F["🟢 GONブロックによる\n求心性シグナル遮断\n↓\n三叉神経系の痛覚伝達も\n同時に抑制（中枢調節）"]
+
+A --> C
+B --> C
+C --> D
+D --> E
+F -. "C2レベルで\n侵害信号を遮断" .-> C
+
+style A fill:#b71c1c,color:#fff
+style B fill:#1565c0,color:#fff
+style C fill:#4a148c,color:#fff
+style F fill:#1b5e20,color:#fff
+</pre>
+  </div>
+
+  <h2>作用機序の仮説（現在の理解）— 4ステップ</h2>
+  <div class="phase-grid">
+    <div class="ph ph2">
+      <div class="ph-icon">①</div>
+      <div class="ph-title">求心性シグナル遮断</div>
+      <div class="ph-time">即時</div>
+      <div class="ph-desc">局所麻酔薬が GON に作用し、後頭部から C2 経由で脊髄へ向かう痛みの求心性シグナルを一時的に遮断。</div>
+    </div>
+    <div class="ph ph1">
+      <div class="ph-icon">②</div>
+      <div class="ph-title">中枢感作の抑制</div>
+      <div class="ph-time">持続的</div>
+      <div class="ph-desc">TCC における三叉神経痛覚ニューロンの興奮性が低下。麻酔が消えた後も続く鎮痛の主要メカニズム。</div>
+    </div>
+    <div class="ph ph4">
+      <div class="ph-icon">③</div>
+      <div class="ph-title">下行性抑制系の賦活</div>
+      <div class="ph-time">持続的</div>
+      <div class="ph-desc">中脳水道周囲灰白質（PAG）からの下行性抑制系が賦活され、脳幹で痛みの「ゲート」が閉じる。</div>
+    </div>
+    <div class="ph ph3">
+      <div class="ph-icon">④</div>
+      <div class="ph-title">神経炎症の鎮静</div>
+      <div class="ph-time">長期</div>
+      <div class="ph-desc">ステロイド併用時、GON 周囲の神経炎症（浮腫・炎症性メディエーター）が抑制され、より長期の効果。</div>
+    </div>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>根拠：</strong>Hoffmann J et al. GON block modulates nociceptive signals within the trigeminocervical complex. <em>J Neurol Neurosurg Psychiatry</em>, 2021. doi:<a href="https://jnnp.bmj.com/content/92/10/1046" target="_blank" rel="noopener noreferrer">10.1136/jnnp-2021-326433</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">SNOOP4 レッドフラグスクリーニング</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">🚨</div>
+    <div><strong>最重要原則：</strong>GON ブロックはあくまで<strong>一次性頭痛</strong>に対する治療です。二次性頭痛（脳腫瘍・くも膜下出血・髄膜炎など）を見逃してはなりません。<strong>すべての患者で手技実施前に SNOOP4 を確認</strong>してください。</div>
+  </div>
+
+  <h2>SNOOP4 — 6つの危険サイン</h2>
+  <div class="snoop-grid">
+    <div class="sn">
+      <div class="sn-letter">S</div>
+      <div class="sn-title">Systemic（全身症状）</div>
+      <div class="sn-symp">発熱・項部硬直（髄膜炎）、体重減少（悪性腫瘍）、免疫不全・既知の悪性腫瘍</div>
+      <div class="sn-dx">画像・髄液検査を検討</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">N</div>
+      <div class="sn-title">Neurological（神経学的欠損）</div>
+      <div class="sn-symp">片麻痺・感覚障害・失語、複視・意識障害</div>
+      <div class="sn-dx">緊急画像診断</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">Onset sudden（突発性発症）</div>
+      <div class="sn-symp">「生涯最悪の頭痛」・雷鳴頭痛 → SAH 除外必須</div>
+      <div class="sn-dx">CT / 髄液で SAH 除外</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">Onset after age 50（50歳以降）</div>
+      <div class="sn-symp">新規発症 → 側頭動脈炎・頭蓋内病変</div>
+      <div class="sn-dx">CRP/ESR・画像</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">P</div>
+      <div class="sn-title">Pattern change（パターン変化）</div>
+      <div class="sn-symp">進行性増悪、体位性変化（仰臥位悪化 → ICP↑）、外傷後新規発症</div>
+      <div class="sn-dx">緊急画像診断</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">4</div>
+      <div class="sn-title">4つの追加フラグ</div>
+      <div class="sn-symp">乳頭浮腫・硬膜穿刺後・けいれん後・妊娠/産後</div>
+      <div class="sn-dx">個別に精査</div>
+    </div>
+  </div>
+
+  <h2>SNOOP4 判定フロー</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — SNOOP4 による二次性頭痛スクリーニング</div>
+<pre class="mermaid">
+flowchart TD
+START(["🩺 後頭神経ブロック\n候補患者の評価"]) --> S
+
+S{"S — Systemic 全身症状\n・発熱・項部硬直（髄膜炎）\n・体重減少（悪性腫瘍）\n・免疫不全・既知の悪性腫瘍"}
+S -->|"該当あり"| RED["🚨 緊急対応 STOP\n▶ 画像診断（CT/MRI）\n▶ 髄液検査を検討\n▶ 専門科コンサルト\n▶ ONBは実施しない"]
+S -->|"なし"| N
+
+N{"N — Neurological Deficits\n神経学的欠損\n・片麻痺・感覚障害・失語\n・複視・意識障害"}
+N -->|"該当あり"| RED
+N -->|"なし"| O1
+
+O1{"O — Onset sudden\n突発性発症\n'生涯最悪の頭痛'\n雷鳴頭痛 → SAH除外必須"}
+O1 -->|"該当あり"| RED
+O1 -->|"なし"| O2
+
+O2{"O — Onset after age 50\n50歳以降の新規発症\n→ 側頭動脈炎・頭蓋内病変"}
+O2 -->|"該当あり"| URGENT["⚡ 緊急画像診断\n（24時間以内）\nCRP/ESR採血も考慮\nONB延期"]
+O2 -->|"なし"| P
+
+P{"P — Pattern change\nパターン変化\n・進行性増悪\n・体位性変化（仰臥位悪化 → ICP↑）\n・外傷後新規発症"}
+P -->|"該当あり"| URGENT
+P -->|"なし"| FOUR
+
+FOUR{"4 — 乳頭浮腫\n硬膜穿刺後\nけいれん後\n妊娠/産後"}
+FOUR -->|"該当あり"| URGENT
+FOUR -->|"なし"| CLEAR["✅ SNOOP4 クリア\nONB 実施を検討可\n→ 患者選択基準へ"]
+
+style RED fill:#b71c1c,color:#ffffff,font-weight:bold
+style URGENT fill:#e65100,color:#ffffff
+style CLEAR fill:#1b5e20,color:#ffffff
+style START fill:#1565c0,color:#fff
+</pre>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">🤰</div>
+    <div><strong>産後・妊娠中の注意：</strong>硬膜穿刺後頭痛（PDPH）は ONB が有効な特殊状況のひとつ（FOUR フラグ）です。ただし「産後」に該当する場合でも、<strong>脳静脈洞血栓症（CVST）を除外</strong>したうえで ONB を検討します。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">ICHD-3 適応疾患</h1>
+  </div>
+
+  <p>GON ブロックが有効とされる主要な頭痛疾患と、対応する ICHD-3 コードを以下に示します。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ICHD-3</th><th>疾患名</th><th>GONブロックの位置づけ</th><th>エビデンスグレード</th></tr></thead>
+      <tbody>
+        <tr><td><strong>13.1</strong></td><td><strong>後頭神経痛</strong></td><td>✅ 第一選択・診断的ブロック</td><td><span class="bA">Grade A/B</span> ガイドライン推奨</td></tr>
+        <tr><td><strong>1.1 / 1.2</strong></td><td>前兆あり/なし片頭痛（急性期）</td><td>✅ 急性期・難治性発作に</td><td><span class="bB">Grade B</span> AAN/VA-DoD 2024</td></tr>
+        <tr><td><strong>1.3</strong></td><td>慢性片頭痛（≥15日/月）</td><td>✅ 予防的ブロック（反復施行）</td><td><span class="bB">Grade B</span> メタ解析支持</td></tr>
+        <tr><td><strong>3.1 / 3.2</strong></td><td>エピソード性/慢性群発頭痛</td><td>✅ 移行療法・救済療法として</td><td><span class="bB">Grade B</span> 2 RCT 支持</td></tr>
+        <tr><td><strong>11.2</strong></td><td>頸原性頭痛</td><td>✅ 第三後頭神経ブロックも考慮</td><td><span class="bB">Grade B</span> 1 RCT</td></tr>
+        <tr><td><strong>7.2.1</strong></td><td>硬膜穿刺後頭痛（PDPH）</td><td>✅ ブラッドパッチへの橋渡し</td><td><span class="bC">Grade C</span> 症例・観察研究</td></tr>
+        <tr><td><strong>1.3（重積）</strong></td><td>片頭痛重積（Status Migrainosus）</td><td>⚪ 補助的使用（ER設定）</td><td><span class="bC">Grade C</span></td></tr>
+        <tr><td><strong>13.x</strong></td><td>後頭神経絞扼症候群</td><td>✅ 診断・治療的ブロック</td><td><span class="bU">Expert Opinion</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース：</strong><a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ICHD-3 公式サイト</a> ｜ <a href="https://www.nursingcenter.com/getattachment/clinical-resources/Guideline-Summaries/Headache/Guideline-Summary_Headache_August-2024.pdf.aspx" target="_blank" rel="noopener noreferrer">VA/DoD 頭痛ガイドライン 2024</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">患者選択基準と禁忌</h1>
+  </div>
+
+  <h2>ONB が特に有効な患者プロファイル</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>特徴</th><th>臨床的意義</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GON圧迫点で再現性のある圧痛</strong></td><td>診断的意義が高く、ブロック反応の最良の予測因子</td></tr>
+        <tr><td><strong>頭皮の異痛症（Allodynia）</strong></td><td>中枢感作の存在を示し、末梢遮断が有効な場合が多い</td></tr>
+        <tr><td>後頭部〜頭頂部の放散痛</td><td>GON 支配領域に一致した症状</td></tr>
+        <tr><td>他の治療が無効・禁忌</td><td>妊婦・高齢者など薬物療法に制限がある場合</td></tr>
+        <tr><td>片頭痛の急性期・重積状態</td><td>ER/外来での迅速な介入として</td></tr>
+        <tr><td>群発頭痛の発作期</td><td>予防薬が効果発現するまでの「橋渡し療法」</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>患者選択フローチャート</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — SNOOP4 → 適応 → 禁忌確認 → 同意取得の流れ</div>
+<pre class="mermaid">
+flowchart TD
+A["頭痛患者\n後頭神経ブロック候補？"] --> B{"SNOOP4クリア？\n（Section 4参照）"}
+B -->|"❌ フラグあり"| STOP["ONB 実施しない\n二次性頭痛を除外"]
+B -->|"✅ クリア"| C{"ICHD-3 適応疾患\nに該当するか？"}
+C -->|"なし"| D["他の診断を検討\nまたは専門医紹介"]
+C -->|"あり"| E{"絶対禁忌の\n確認"}
+
+E -->|"あり"| STOP2["ONB 禁忌\n代替療法を選択"]
+E -->|"なし"| F{"相対禁忌の\n確認と評価"}
+F -->|"リスクが高い"| G["リスク・ベネフィット\n慎重に評価\n患者と相談"]
+F -->|"リスク許容範囲"| H["✅ インフォームド\nコンセント取得\n→ 手技へ"]
+G -->|"同意"| H
+G -->|"非同意"| D
+
+style STOP fill:#b71c1c,color:#fff
+style STOP2 fill:#b71c1c,color:#fff
+style H fill:#1b5e20,color:#fff
+</pre>
+  </div>
+
+  <h2>禁忌一覧</h2>
+  <h3>絶対禁忌（Absolute Contraindications）</h3>
+  <div class="tbl">
+    <table class="th-red">
+      <thead><tr><th>禁忌</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td>患者の拒否</td><td>インフォームドコンセントなしに手技は行えない</td></tr>
+        <tr><td>局所麻酔薬へのアレルギー</td><td>アナフィラキシーリスク</td></tr>
+        <tr><td>注入部位の感染・皮膚病変</td><td>感染の深部播種リスク</td></tr>
+        <tr><td>開頭術後の解剖学的欠損部位</td><td>頭蓋内浸入リスク</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>相対禁忌（Relative Contraindications）</h3>
+  <div class="tbl">
+    <table class="th-orange">
+      <thead><tr><th>禁忌</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td>凝固障害（抗凝固療法中など）</td><td>血腫形成リスク（慎重に評価）</td></tr>
+        <tr><td>アーノルド・キアリ奇形の既往</td><td>解剖学的変異による合併症リスク</td></tr>
+        <tr><td>長時間の腹臥位/座位困難</td><td>手技の安全な実施に必要な体位がとれない</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース：</strong><a href="https://www.ncbi.nlm.nih.gov/books/NBK580523/" target="_blank" rel="noopener noreferrer">StatPearls — Occipital Nerve Block (NCBI Bookshelf, 2025年7月更新)</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">必要物品・使用薬剤</h1>
+  </div>
+
+  <h2>標準的な必要物品リスト</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>カテゴリー</th><th>品目</th><th>規格・備考</th></tr></thead>
+      <tbody>
+        <tr><td>注射器</td><td>シリンジ</td><td>5mL（片側）×必要本数</td></tr>
+        <tr><td>針</td><td>注射針</td><td><strong>25G × 25mm</strong>（標準）— 細針推奨</td></tr>
+        <tr><td>消毒</td><td>ポビドンヨード/クロルヘキシジン</td><td>注入部位の皮膚消毒</td></tr>
+        <tr><td>ドレープ</td><td>滅菌ドレープ</td><td>任意（外来では省略可）</td></tr>
+        <tr><td>エコー（任意）</td><td>超音波装置</td><td>線形プローブ（高周波）推奨</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>局所麻酔薬（必須）</h2>
+  <div class="drug-grid">
+    <div class="drug">
+      <div class="drug-nm">リドカイン（Lidocaine）</div>
+      <div class="drug-br">1〜2% / 1〜2mL</div>
+      <div class="drug-tx">作用発現 5〜10分・持続 1〜3時間。<strong>速効性</strong>で効果確認用に最適。</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">ブピバカイン（Bupivacaine）</div>
+      <div class="drug-br">0.25〜0.5% / 1〜2mL</div>
+      <div class="drug-tx">作用発現 15〜20分・持続 6〜12時間。<strong>長時間作用</strong>で予防的ブロックに適す。</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">混合（1:1〜1:3）</div>
+      <div class="drug-br">計 2〜4mL</div>
+      <div class="drug-tx"><strong>最も一般的</strong>。リドカイン即効＋ブピバカイン持続を両立。</div>
+    </div>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>総注入量：</strong>片側あたり<strong>最大4mL</strong>を超えないこと。両側ブロックでも過剰にならないよう注意。</div>
+  </div>
+
+  <h2>コルチコステロイド（任意・疾患により使い分け）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>薬剤</th><th>量</th><th>皮膚副作用リスク</th><th>推奨状況</th></tr></thead>
+      <tbody>
+        <tr><td><strong>メチルプレドニゾロン</strong></td><td>40mg/mL × 1〜2mL</td><td><span class="bGrn">低め（推奨）</span></td><td>群発頭痛・頸原性頭痛</td></tr>
+        <tr><td><strong>デキサメタゾン</strong></td><td>2〜4mg × 1mL</td><td><span class="bGrn">最低</span></td><td>妊婦での使用も比較的安全</td></tr>
+        <tr><td><strong>トリアムシノロン</strong></td><td>—</td><td><span class="bRed">⚠️ 最高</span></td><td><span class="tR">推奨しない</span> — 脱毛・皮膚萎縮</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">🚫</div>
+    <div><strong>重要：</strong>トリアムシノロンは局所皮膚萎縮・後頭部脱毛（円形脱毛症様）の報告が多い。<strong>メチルプレドニゾロンまたはデキサメタゾンが推奨</strong>されます。<br>📌 Lambru G et al. <em>Headache</em> 2012: doi:<a href="https://headachejournal.onlinelibrary.wiley.com/doi/abs/10.1111/j.1526-4610.2012.02270.x" target="_blank" rel="noopener noreferrer">10.1111/j.1526-4610.2012.02270.x</a></div>
+  </div>
+
+  <h2>片頭痛 vs. 群発頭痛でのステロイド使用の判断</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>疾患</th><th>ステロイド追加</th><th>根拠</th></tr></thead>
+      <tbody>
+        <tr><td>片頭痛</td><td><span class="tR">❌ 追加効果なし</span></td><td>短期・長期ともに有意差なし（RCT複数）</td></tr>
+        <tr><td>群発頭痛</td><td><span class="tG">✅ 推奨</span></td><td>後頭下ステロイド注射が群発期を短縮（2 RCT）</td></tr>
+        <tr><td>頸原性頭痛</td><td><span class="tG">✅ 推奨</span></td><td>神経周囲炎症の鎮静に有効</td></tr>
+        <tr><td>後頭神経痛</td><td><span class="tG">✅ 推奨</span></td><td>神経絞扼部位の炎症抑制</td></tr>
+        <tr><td>硬膜穿刺後頭痛</td><td>⚪ 状況次第</td><td>局所麻酔薬のみで十分なことが多い</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース：</strong><a href="https://www.ncbi.nlm.nih.gov/books/NBK580523/" target="_blank" rel="noopener noreferrer">StatPearls — Occipital Nerve Block (NCBI, 2025)</a> — "Studies suggest no difference in short and long-term migraine pain control when anesthetic is injected alone or in combination with steroid."</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">手技① — ランドマーク法（体表指標法）</h1>
+  </div>
+
+  <p>ランドマーク法は体表の骨指標と動脈の拍動を用いて注入点を決定する方法です。<strong>外来・救急での迅速な実施</strong>に適しています。</p>
+
+  <h2>ランドマーク法の7ステップ</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — ランドマーク法の手技ステップ</div>
+<pre class="mermaid">
+flowchart TD
+S1["🟤 STEP 1: 体位決定\n患者を座位または腹臥位とする\n頸部をやや前屈（顎を引く）\n→ 後頭部の構造が触れやすくなる"]
+S2["🔵 STEP 2: 体表ランドマークの確認\n① 後頭骨隆起（EOP）を同定\n② 乳様突起を同定\n③ 両者を結ぶ線（上項線）を想定"]
+S3["🟠 STEP 3: 注入点の決定\n✦ GON注入点:\nEOP〜乳様突起線の内側1/3〜2/3境界\n後頭動脈の拍動（触知可能）の\n直接内側（medial）\n✦ LON注入点（必要時）:\n外側1/3（乳様突起寄り）"]
+S4["🟡 STEP 4: 消毒\nポビドンヨードまたはクロルヘキシジンで\n注入予定部位を消毒・乾燥"]
+S5["🟢 STEP 5: 注入\n① 25G針を用いて皮下垂直刺入\n② 必ず逆吸引（aspiration）\n  血液逆流→位置変更\n③ 皮下〜神経周囲に\n  2〜4mLをゆっくり注入\n  （扇状に広げると確実）"]
+S6["🔵 STEP 6: 効果確認\n5分後（リドカイン）または\n15分後（ブピバカイン）に\n後頭部の感覚変化（しびれ感）を確認\n→ 感覚鈍麻が得られれば成功"]
+S7["✅ STEP 7: 術後観察\n15〜30分間経過観察\n迷走神経反射（失神）監視\nVAS/NRS で痛みスコア再評価"]
+
+S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7
+
+style S1 fill:#4e342e,color:#fff
+style S2 fill:#1565c0,color:#fff
+style S3 fill:#e65100,color:#fff
+style S4 fill:#f9a825,color:#333
+style S5 fill:#1b5e20,color:#fff
+style S6 fill:#0d47a1,color:#fff
+style S7 fill:#2e7d32,color:#fff
+</pre>
+  </div>
+
+  <h2>逆吸引（Aspiration）が特に重要な理由</h2>
+  <div class="alert a-danger">
+    <div class="alert-i">🩸</div>
+    <div>後頭動脈は GON 注入点の直近を走行しています。誤って動脈内に注入すると<strong>局所麻酔薬全身毒性（LAST）</strong>または逆行性塞栓による<strong>脳梗塞</strong>のリスクがあります。<strong>必ず注入前に吸引</strong>してください。</div>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>吸引結果</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr><td>血液の逆流なし</td><td><span class="tG">そのまま注入可</span></td></tr>
+        <tr><td>血液が逆流</td><td><span class="tR">針を抜いて位置を変更、再試行</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- SECTIONS_PLACEHOLDER -->
 
 </main>
