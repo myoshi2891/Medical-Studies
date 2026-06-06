@@ -307,7 +307,7 @@ pre.mermaid{text-align:center}
     <div class="mmd-lbl">病態生理カスケード — 中枢感作の悪循環</div>
     <pre class="mermaid">
 flowchart TD
-    A["🔴 急性期頭痛薬の慢性過用<br/>（&gt;8〜10日/月 × 3ヶ月以上）"]
+    A["🔴 急性期頭痛薬の慢性過用<br/>（&gt;10〜15日/月 × 3ヶ月以上）"]
     A --> B["三叉神経痛覚経路の持続的活性化"]
     B --> C["中枢感作の進行<br/>（脊髄後角・三叉神経核尾側亜核）"]
     B --> D["下行性疼痛抑制系（PAG/RVM）の機能不全"]
@@ -383,37 +383,37 @@ flowchart TD
 
   <div class="moh-grid">
     <div class="moh moh-h">
-      <div class="moh-day">≥8日</div>
+      <div class="moh-day">≥10日</div>
       <div class="moh-unit">/ 月（過用閾値）</div>
       <div class="moh-drug">🔴 オピオイド</div>
       <div class="moh-note">コデイン、トラマドール、モルヒネ<br>MOH誘発リスク: 最高 / 離脱困難度: 高（漸減必須）</div>
     </div>
     <div class="moh moh-h">
-      <div class="moh-day">≥8日</div>
+      <div class="moh-day">≥10日</div>
       <div class="moh-unit">/ 月（過用閾値）</div>
       <div class="moh-drug">🔴 複合鎮痛薬</div>
       <div class="moh-note">カフェイン配合、バルビツール配合製剤<br>MOH誘発リスク: 高 / 離脱困難度: 高（漸減推奨）</div>
     </div>
     <div class="moh moh-h">
-      <div class="moh-day">≥8日</div>
+      <div class="moh-day">≥10日</div>
       <div class="moh-unit">/ 月（過用閾値）</div>
       <div class="moh-drug">🔴 エルゴタミン</div>
       <div class="moh-note">エルゴタミン酒石酸塩<br>MOH誘発リスク: 高 / 離脱困難度: 中〜高</div>
     </div>
     <div class="moh moh-m">
-      <div class="moh-day">≥8日</div>
+      <div class="moh-day">≥10日</div>
       <div class="moh-unit">/ 月（過用閾値）</div>
       <div class="moh-drug">🟠 トリプタン</div>
       <div class="moh-note">スマトリプタン、ゾルミトリプタン等<br>MOH誘発リスク: 中〜高 / 離脱困難度: 中（比較的迅速）</div>
     </div>
     <div class="moh moh-m">
-      <div class="moh-day">≥10日</div>
+      <div class="moh-day">≥15日</div>
       <div class="moh-unit">/ 月（過用閾値）</div>
       <div class="moh-drug">🟡 アセトアミノフェン</div>
       <div class="moh-note">パラセタモール（カロナール等）<br>MOH誘発リスク: 中 / 離脱困難度: 中</div>
     </div>
     <div class="moh moh-m">
-      <div class="moh-day">≥10日</div>
+      <div class="moh-day">≥15日</div>
       <div class="moh-unit">/ 月（過用閾値）</div>
       <div class="moh-drug">🟡 NSAIDs（アスピリン含む）</div>
       <div class="moh-note">イブプロフェン、ナプロキセン等<br>MOH誘発リスク: 中 / 離脱困難度: 中</div>
@@ -504,7 +504,7 @@ flowchart TD
     Q5{"使用頻度と期間を確認<br/>（30日頭痛日誌を参照）"}
     Q5 --> DRUG_CHECK
 
-    DRUG_CHECK["📋 薬剤別閾値チェック<br/>━━━━━━━━━━━━━━━━━━<br/>✦ トリプタン・オピオイド・エルゴタミン<br/>  → ≥8日/月 × &gt;3ヶ月<br/>✦ 鎮痛薬（アセトアミノフェン・NSAIDs）<br/>  → ≥10日/月 × &gt;3ヶ月<br/>✦ 複合鎮痛薬<br/>  → ≥8日/月 × &gt;3ヶ月"]
+    DRUG_CHECK["📋 薬剤別閾値チェック<br/>━━━━━━━━━━━━━━━━━━<br/>✦ トリプタン・オピオイド・エルゴタミン<br/>  → ≥10日/月 × &gt;3ヶ月<br/>✦ 鎮痛薬（アセトアミノフェン・NSAIDs）<br/>  → ≥15日/月 × &gt;3ヶ月<br/>✦ 複合鎮痛薬<br/>  → ≥10日/月 × &gt;3ヶ月"]
 
     DRUG_CHECK --> Q6{"閾値を超えているか？"}
     Q6 -- "いいえ" --> Q7{"複数薬剤の合計が<br/>≥10日/月？"}
@@ -992,7 +992,7 @@ flowchart TD
       <tbody>
         <tr><td>頭痛日数の減少</td><td><strong>≥50%の減少</strong>（ベースラインから3ヶ月後）</td></tr>
         <tr><td>HIT-6スコア</td><td><strong>56点未満</strong>（重度障害からの離脱）</td></tr>
-        <tr><td>月間急性期薬使用日数</td><td><strong>&lt;10日/月</strong>（NSAID/アセトアミノフェン）または<strong>&lt;8日/月</strong>（トリプタン）</td></tr>
+        <tr><td>月間急性期薬使用日数</td><td><strong>&lt;15日/月</strong>（NSAID/アセトアミノフェン）または<strong>&lt;10日/月</strong>（トリプタン）</td></tr>
       </tbody>
     </table>
   </div>

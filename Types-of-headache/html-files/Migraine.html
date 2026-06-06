@@ -409,7 +409,7 @@ style I fill:#ffebee,stroke:#b71c1c,color:#7b1a1a
 flowchart TD
 Start["頭痛患者が来院\nSNOOP4 クリア済み"] --> Freq{"頭痛日数/月？"}
 Freq -- "≥15日/月 ≥3ヶ月" --> Chronic["慢性頭痛カテゴリーへ"]
-Freq -- "<15日/月" --> Type{"頭痛の特性確認\nICHD-3 A〜E 基準"}
+Freq -- "&lt;15日/月" --> Type{"頭痛の特性確認\nICHD-3 A〜E 基準"}
 Type --> Pa{"拍動性・片側性\n4〜72時間\n悪心・光過敏あり？"}
 Pa -- "≥2〜3項目 Yes" --> AuraQ{"前兆（Aura）あり？\n（≥2回）"}
 Pa -- "圧迫性・両側性\n軽〜中等度" --> TTH["ICHD-3 2.x\n緊張型頭痛"]
@@ -1055,7 +1055,7 @@ Ok["✅ 予防療法継続\nMOH 再発防止教育\n6ヶ月毎フォロー"]
 Ref["頭痛専門医へ\n紹介または入院管理"]
 
 A --> B
-B -- "トリプタン等 >8日/月\nまたは NSAIDs >10日/月" --> C
+B -- "トリプタン等 &gt;10日/月\nまたは NSAIDs &gt;15日/月" --> C
 B -- "閾値以下" --> D
 C --> S1
 S1 --> S2 --> S3 --> S4 --> Ev
