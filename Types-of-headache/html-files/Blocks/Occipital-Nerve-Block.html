@@ -728,7 +728,580 @@ style S7 fill:#2e7d32,color:#fff
   </div>
 </section>
 
-<!-- SECTIONS_PLACEHOLDER -->
+<!-- ============================================================ SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h1 class="sec-title">手技② — エコーガイド下法（超音波ガイド法）</h1>
+  </div>
+
+  <p>超音波ガイド下法はより<strong>標的特異的</strong>で、解剖学的変異がある症例や「ランドマーク法が失敗した症例」に特に有用です。</p>
+
+  <h2>ランドマーク法 vs. エコーガイド下法</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>比較点</th><th>ランドマーク法</th><th>エコーガイド下法</th></tr></thead>
+      <tbody>
+        <tr><td>設定の容易さ</td><td><span class="tG">✅ 簡便・迅速</span></td><td>⚠️ エコー機器が必要</td></tr>
+        <tr><td>標的特異性</td><td><span class="tR">❌ 隣接神経も麻酔されやすい</span></td><td><span class="tG">✅ 高い特異性</span></td></tr>
+        <tr><td>解剖変異への対応</td><td><span class="tR">❌ 困難</span></td><td><span class="tG">✅ 良好</span></td></tr>
+        <tr><td>診断的精度</td><td>低い</td><td>高い（神経の直接可視化）</td></tr>
+        <tr><td>合併症リスク</td><td>5〜10%の懸念</td><td>低下（動脈損傷回避）</td></tr>
+        <tr><td>学習曲線</td><td>浅い</td><td>必要あり</td></tr>
+        <tr><td>エビデンス</td><td>長い使用歴</td><td>増加中</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース：</strong>Greher M et al. "Sonographic visualization and ultrasound-guided blockade of the greater occipital nerve." <em>Br J Anaesth</em> 2010;104:637-42. doi:<a href="https://academic.oup.com/bja/article/104/5/637/261124" target="_blank" rel="noopener noreferrer">10.1093/bja/aeq052</a></div>
+  </div>
+
+  <h2>エコーガイド下法の2つのアプローチ</h2>
+  <div class="onb-role-grid">
+    <div class="onb-role">
+      <div class="onb-role-t">① 上項線レベル（古典的）</div>
+      <div class="onb-role-d">線形プローブを上項線に横断位 → カラードプラで後頭動脈を同定。GON は動脈の<strong>内側</strong>に高エコー索状構造。深さ約8mm（浅い）。GON が既に分岐していることがあり確実性やや低い。</div>
+    </div>
+    <div class="onb-role">
+      <div class="onb-role-t">② C2レベル（推奨）</div>
+      <div class="onb-role-d">プローブを C2 椎体レベルに → 下斜筋（OCI）の浅層に GON を同定。深さ約17〜18mm。<strong>注入確実性 20/20（100%）</strong>（vs 古典法 16/20＝80%）。標的特異性が高く診断的ブロックにも推奨。</div>
+    </div>
+  </div>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — エコーガイド下法 2アプローチの比較</div>
+<pre class="mermaid">
+flowchart LR
+subgraph Classic["アプローチ① 上項線レベル"]
+C1["プローブ横断位\n上項線上"] --> C2["後頭動脈同定\n（カラードプラ）"] --> C3["GON = 動脈の\n内側に索状高エコー"] --> C4["深さ約8mm\n1〜3mL注入"]
+end
+
+subgraph C2Level["アプローチ② C2レベル（推奨）"]
+D1["プローブ横断位\nC2椎体レベル"] --> D2["下斜筋（OCI）を\n同定"] --> D3["GON = OCI浅層の\n筋膜上に索状高エコー"] --> D4["深さ約17〜18mm\n2〜3mL注入"]
+end
+
+style Classic fill:#e3f2fd,stroke:#1565c0
+style C2Level fill:#e8f5e9,stroke:#2e7d32
+</pre>
+  </div>
+
+  <h2>エコーガイド下法のステップ（上項線レベル）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ステップ</th><th>操作</th><th>ポイント</th></tr></thead>
+      <tbody>
+        <tr><td>1. プローブ設置</td><td>線形プローブ（13〜15MHz）を上項線に横断位</td><td>ゲル少量使用</td></tr>
+        <tr><td>2. 後頭動脈同定</td><td>カラードプラON → 拍動する血流信号</td><td>EOPの1〜2cm外側に出現</td></tr>
+        <tr><td>3. GON同定</td><td>動脈内側の白い索状構造（高エコー）</td><td>直径約4mm × 1.4mm</td></tr>
+        <tr><td>4. 針の刺入</td><td>平面内アプローチ（in-plane）で針先を追跡</td><td>神経束内への直接注入を避ける</td></tr>
+        <tr><td>5. 逆吸引</td><td>血液の逆流がないことを確認</td><td>動脈内注入予防</td></tr>
+        <tr><td>6. 注入</td><td>神経の<strong>周囲</strong>（epineural）に注入（ハイドロダイセクション）</td><td>薬液がGONを「包む」のを確認</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 10 -->
+<section id="s10" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">10</div>
+    <h1 class="sec-title">術後ケアと効果の評価</h1>
+  </div>
+
+  <h2>術後即時管理</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>時間</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr><td>注入直後</td><td>注入部位を軽く圧迫（出血・血腫予防）</td></tr>
+        <tr><td>5分後</td><td>リドカイン使用時は感覚変化（しびれ・温感）を確認</td></tr>
+        <tr><td>15〜30分後</td><td>VAS/NRS で頭痛スコア再評価、迷走神経反射症状の確認</td></tr>
+        <tr><td>30分後</td><td>歩行・帰宅可能かチェック（失神リスクが消えた後）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>効果の時間軸</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 注入直後から数ヶ月までの効果の推移</div>
+<pre class="mermaid">
+flowchart LR
+T0["注入直後\n0分"] --> T20["15〜30分後\nリドカイン効果\n発現開始\n局所感覚鈍麻"] --> T6["〜12時間\nブピバカイン\n効果持続"] --> T2w["数日〜数週\n局所麻酔消失後も\n中枢感作抑制効果\n持続（個人差大）"] --> T3m["数週〜3ヶ月\n一部の患者で\n長期鎮痛持続"]
+
+style T0 fill:#e3f2fd,stroke:#1565c0
+style T20 fill:#fff9c4,stroke:#f9a825
+style T6 fill:#e8f5e9,stroke:#2e7d32
+style T2w fill:#f3e5f5,stroke:#6a1b9a
+style T3m fill:#e8f5e9,stroke:#1b5e20
+</pre>
+  </div>
+
+  <h2>再投与の基準</h2>
+  <div class="alert a-ok">
+    <div class="alert-i">🔁</div>
+    <div>効果が良好で持続が短い場合：<strong>6週〜3ヶ月ごと</strong>の繰り返し施行を検討。<br><strong>6ヶ月以内に3回以上</strong>のブロックが必要な場合は、代替・追加治療の探索を強く推奨。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 11 -->
+<section id="s11" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">11</div>
+    <h1 class="sec-title">適応疾患別エビデンスレビュー</h1>
+  </div>
+
+  <h2>後頭神経痛（ICHD-3: 13.1）— 最も強い適応</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>疾患の定義</td><td>GON・LON・TON の支配領域を走る片側性または両側性の発作性疼痛</td></tr>
+        <tr><td>診断的ブロックの意義</td><td>「診断的GONブロックで痛みが消失」が ICHD-3 診断基準に含まれる</td></tr>
+        <tr><td>治療的ブロックの位置づけ</td><td>第一選択療法（ステロイド併用を推奨）</td></tr>
+        <tr><td>期待される効果</td><td>数日〜数ヶ月の疼痛緩和</td></tr>
+        <tr><td>エビデンスグレード</td><td><span class="bB">Grade B</span> 観察研究・症例シリーズが中心</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>片頭痛（Migraine）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 片頭痛における GON ブロックの活用シーン</div>
+<pre class="mermaid">
+flowchart TD
+M["片頭痛患者における\nGONブロックの活用シーン"]
+
+M --> A1["急性発作の緩和\n（Acute Treatment）\n✅ 推奨：Grade B"]
+M --> A2["難治性片頭痛重積\n（Status Migrainosus）\nERでの迅速介入"]
+M --> A3["慢性片頭痛の予防\n（≥15日/月）\n定期的反復施行"]
+M --> A4["延長前兆\n（Prolonged Aura）\n症例報告レベル"]
+
+A1 --> E1["12/13のRCTで有効性確認\n（頭痛頻度・強度・持続時間\nのいずれかが改善）\nVA/DoD 2024 推奨: Suggested"]
+A3 --> E2["メタ解析 2022\n（Acta Neurol Scand）:\n慢性片頭痛でGONB有効\nVAS低下・頭痛日数減少"]
+
+style M fill:#1565c0,color:#fff
+style E1 fill:#e8f5e9,stroke:#2e7d32
+style E2 fill:#e8f5e9,stroke:#2e7d32
+</pre>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究</th><th>デザイン</th><th>主な結果</th></tr></thead>
+      <tbody>
+        <tr><td>12のRCTメタ解析</td><td>SR/MA</td><td>12/13のRCTで有効性あり（頻度・強度・持続時間改善）</td></tr>
+        <tr><td>VA/DoD 2024ガイドライン</td><td>推奨</td><td>"急性期片頭痛治療として GONB が示唆される"</td></tr>
+        <tr><td>Velásquez-Rimachi 2022</td><td>SR/MA（Acta Neurol Scand）</td><td>慢性片頭痛で VAS・頭痛日数有意改善</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>群発頭痛（ICHD-3: 3.1/3.2）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>使用タイミング</td><td>群発期開始時の「移行療法」。予防薬（ベラパミル等）が効果発現するまでの橋渡し。</td></tr>
+        <tr><td>注入薬剤</td><td><strong>ステロイドの追加が必須</strong>（局所麻酔薬のみでは不十分）</td></tr>
+        <tr><td>メタ解析のまとめ</td><td>1ヶ月時点の無痛率 <strong>50%</strong>（95%CI 24〜76%）。RCT 2件でプラセボ比の相対リスク比 <strong>4.86</strong>（95%CI 1.35〜17.55）</td></tr>
+        <tr><td>エビデンスグレード</td><td><span class="bB">Grade B</span>（2つのRCT）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース：</strong>González-García N et al. "Efficacy and safety of greater occipital nerve block for the treatment of cluster headache: a systematic review and meta-analysis." <em>Cephalalgia</em> 2020. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32781922/" target="_blank" rel="noopener noreferrer">32781922</a></div>
+  </div>
+
+  <h2>頸原性頭痛（ICHD-3: 11.2）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>特徴</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td>TONブロックの意義</td><td>C2-3椎間関節由来の頸原性頭痛には第三後頭神経（TON）ブロックが特に有効</td></tr>
+        <tr><td>GONブロックの役割</td><td>GON + TON の同時ブロックが推奨（単独より上乗せ効果）</td></tr>
+        <tr><td>ステロイド追加</td><td>推奨（神経周囲炎症の鎮静）</td></tr>
+        <tr><td>エビデンスグレード</td><td><span class="bB">Grade B</span> 1つのRCT</td></tr>
+        <tr><td>注意点</td><td>理学療法との組み合わせで相乗効果</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>硬膜穿刺後頭痛（PDPH）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>特徴</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td>使用タイミング</td><td>ブラッドパッチ実施前の橋渡し、またはブラッドパッチ拒否時</td></tr>
+        <tr><td>推定機序</td><td>低髄液圧による三叉神経・後頭神経の感作を抑制</td></tr>
+        <tr><td>エビデンスグレード</td><td><span class="bC">Grade C</span> 観察研究・症例報告中心</td></tr>
+        <tr><td>妊婦への使用</td><td>比較的安全（局所麻酔薬のみ推奨、ステロイドは慎重に）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 12 -->
+<section id="s12" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">12</div>
+    <h1 class="sec-title">ステロイド併用 vs. 局所麻酔薬単独</h1>
+  </div>
+
+  <p>最も臨床的に重要な問いのひとつは<strong>「ステロイドを加えるべきか？」</strong>です。現時点の最良のエビデンスをまとめます。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>疾患</th><th>ステロイド追加の推奨</th><th>根拠</th></tr></thead>
+      <tbody>
+        <tr><td><strong>片頭痛</strong></td><td><span class="tR">❌ 追加効果なし</span></td><td>複数のRCTで局所麻酔単独と有意差なし</td></tr>
+        <tr><td><strong>群発頭痛</strong></td><td><span class="tG">✅ 強く推奨</span></td><td>後頭下ステロイド注射で RCT 2件が有効性確認</td></tr>
+        <tr><td><strong>後頭神経痛</strong></td><td><span class="tG">✅ 推奨（長期効果）</span></td><td>神経周囲炎症の鎮静に有効</td></tr>
+        <tr><td><strong>頸原性頭痛</strong></td><td><span class="tG">✅ 推奨</span></td><td>神経根周囲炎症の鎮静</td></tr>
+        <tr><td><strong>PDPH</strong></td><td>⚪ 局所麻酔のみで十分なことが多い</td><td>エビデンス限定的</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>ステロイド選択のアルゴリズム（使用する場合）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — ステロイド選択（粒子性・皮膚副作用リスクで判断）</div>
+<pre class="mermaid">
+flowchart LR
+A["ステロイドを追加する場合"] --> B{"どのステロイドを選ぶか？"}
+B --> C["メチルプレドニゾロン 40mg\n✅ 第一推奨\n粒子性低い・皮膚副作用少ない"]
+B --> D["デキサメタゾン 4〜8mg\n✅ 第一推奨（代替）\n水溶性・妊婦でも比較的安全"]
+B --> E["トリアムシノロン\n❌ 避けること\n粒子状・脱毛・皮膚萎縮リスク高"]
+
+style C fill:#1b5e20,color:#fff
+style D fill:#1b5e20,color:#fff
+style E fill:#b71c1c,color:#fff
+</pre>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース：</strong>Shields KG et al. "Alopecia and cutaneous atrophy after greater occipital nerve infiltration with corticosteroid." <em>Neurology</em> 2004;63:2193–4. ｜ Lambru G et al. <em>Headache</em> 2012.</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 13 -->
+<section id="s13" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">13</div>
+    <h1 class="sec-title">合併症・安全プロファイル</h1>
+  </div>
+
+  <p>GON ブロックは一般的に安全性が高く、重篤な合併症はまれです。</p>
+
+  <h2>合併症の全体像</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>カテゴリー</th><th>合併症</th><th>頻度</th><th>予防策</th></tr></thead>
+      <tbody>
+        <tr><td>局所・一時的</td><td>注入部位の疼痛・内出血</td><td>一般的</td><td>細針使用・圧迫止血</td></tr>
+        <tr><td>局所・一時的</td><td>迷走神経反射（血管迷走神経性失神）</td><td>まれ〜時々</td><td>仰臥位で経過観察</td></tr>
+        <tr><td>ステロイド関連</td><td>皮膚萎縮（Cutaneous Atrophy）</td><td>&lt;1%</td><td>メチルプレドニゾロン推奨・深部注入</td></tr>
+        <tr><td>ステロイド関連</td><td>後頭部脱毛（Alopecia）</td><td>まれ</td><td>トリアムシノロン回避</td></tr>
+        <tr><td>ステロイド関連</td><td>毛嚢炎（Folliculitis）</td><td>まれ</td><td>無菌操作の徹底</td></tr>
+        <tr><td>血管関連</td><td>動脈内注入（後頭動脈）</td><td>まれ</td><td>必ず逆吸引確認</td></tr>
+        <tr><td><span class="tR">重篤（極めてまれ）</span></td><td>局所麻酔薬全身毒性（LAST）</td><td>極めてまれ</td><td>逆吸引・低用量・分割注入</td></tr>
+        <tr><td><span class="tR">重篤（極めてまれ）</span></td><td>くも膜下腔誤注入 → 脳幹麻酔</td><td>極めてまれ</td><td>深度管理・エコーガイド</td></tr>
+        <tr><td><span class="tR">重篤（極めてまれ）</span></td><td>急性小脳症候群</td><td>症例報告レベル</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>特に注意：脱毛と皮膚萎縮</h2>
+  <div class="alert a-warn">
+    <div class="alert-i">💈</div>
+    <div>後頭部の脱毛（円形脱毛症様）と皮膚萎縮は、<strong>トリアムシノロン</strong>使用時に報告が集中。<br><strong>機序：</strong>粒子状ステロイドが皮下に結晶沈着 → 周囲血管収縮 → 皮膚・毛根への血流低下 → 皮膚萎縮・脱毛。皮膚が薄い後頭部は特にリスクが高い。</div>
+  </div>
+  <div class="alert a-ok">
+    <div class="alert-i">✅</div>
+    <div><strong>回避策：</strong>メチルプレドニゾロンまたはデキサメタゾンを使用し、皮内への浅い注入を避けること。</div>
+  </div>
+
+  <h2>LAST への備え</h2>
+  <div class="alert a-danger">
+    <div class="alert-i">🧯</div>
+    <div>GON ブロックを実施する場所には、LAST の初期症状（耳鳴り・金属味・痙攣）を認識し対応できるスタッフと、<strong>イントラリポス（脂肪乳剤）</strong>の準備があることが望ましい。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 14 -->
+<section id="s14" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">14</div>
+    <h1 class="sec-title">アウトカム評価指標</h1>
+  </div>
+
+  <p>以下の標準化ツールを用いて GON ブロックの効果を定量的に評価します。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ツール</th><th>評価内容</th><th>判断基準</th><th>評価タイミング</th></tr></thead>
+      <tbody>
+        <tr><td><strong>VAS / NRS (0〜10)</strong></td><td>痛みの強度</td><td>3以上の低下を有意とする</td><td>注入前・30分後・1週後</td></tr>
+        <tr><td><strong>HIT-6</strong></td><td>日常生活への影響</td><td>≥60点 = 重度障害</td><td>3ヶ月ごと</td></tr>
+        <tr><td><strong>MIDAS</strong></td><td>片頭痛による生活機能障害</td><td>≥21点 = Grade IV 重度</td><td>3ヶ月ごと</td></tr>
+        <tr><td><strong>頭痛日数/月</strong></td><td>頻度の客観的指標</td><td><strong>≥50%減少</strong>を治療成功目標</td><td>毎月</td></tr>
+        <tr><td><strong>PGIC</strong></td><td>患者の主観的改善感</td><td>7段階（1〜7）</td><td>注入4〜6週後</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>治療成功の定義と再評価</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 4〜6週後の再評価と次のアクション</div>
+<pre class="mermaid">
+flowchart LR
+A["GONブロック実施"]
+B["4〜6週後に再評価"]
+C{"頭痛日数≥50%減少\nまたは\nVAS≥3点改善？"}
+D["✅ 成功\n必要に応じて\n定期的反復施行\n（6〜12週ごと）"]
+E{"反応なし or\n不十分？"}
+F["代替治療を検討\n・CGRP mAb\n・ボツリヌストキシン\n・中枢作用型予防薬\n・頭痛専門医紹介"]
+G["部分的反応\n（25〜49%改善）"]
+H["追加治療の\n組み合わせを検討\n（多モーダルアプローチ）"]
+
+A --> B --> C
+C -->|"Yes"| D
+C -->|"No"| E
+E -->|"反応なし"| F
+E -->|"部分反応"| G
+G --> H
+
+style D fill:#1b5e20,color:#fff
+style F fill:#b71c1c,color:#fff
+style H fill:#e65100,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 15 -->
+<section id="s15" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">15</div>
+    <h1 class="sec-title">多モーダル統合アプローチ</h1>
+  </div>
+
+  <p>GON ブロックは単独治療としても使えますが、最善の効果は<strong>他の治療法との組み合わせ</strong>で得られます。</p>
+
+  <h2>慢性片頭痛（ICHD-3: 1.3）の統合プロトコル</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>治療モダリティ</th><th>内容</th><th>エビデンス</th></tr></thead>
+      <tbody>
+        <tr><td>GONブロック</td><td>6〜12週ごと定期施行（急性増悪時にも）</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>CGRP mAb</td><td>エレヌマブ/フレマネズマブ/ガルカネズマブ 月1回</td><td><span class="bA">Grade A</span></td></tr>
+        <tr><td>ボツリヌストキシン</td><td>PREEMPTプロトコル 12週毎（155〜195単位）</td><td><span class="bA">Grade A</span></td></tr>
+        <tr><td>認知行動療法</td><td>薬物療法との組み合わせで相乗効果</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>マグネシウム補充</td><td>400〜600mg/日</td><td><span class="bA">Grade A/B</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>群発頭痛（3.1/3.2）の群発期管理</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>治療モダリティ</th><th>内容</th><th>エビデンス</th></tr></thead>
+      <tbody>
+        <tr><td>GONブロック（ステロイド込み）</td><td>群発期開始時に即施行（移行療法）</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>ベラパミル（予防）</td><td>240〜480mg/日（主要予防薬）</td><td><span class="bA">Grade A</span></td></tr>
+        <tr><td>スマトリプタン皮下注射</td><td>6mg 皮下注、各発作に</td><td><span class="bA">Grade A</span></td></tr>
+        <tr><td>高流量酸素吸入</td><td>100% O₂ 12〜15L/分 × 15〜20分</td><td><span class="bA">Grade A</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>後頭神経痛の難治性症例 — ステップアップ</h2>
+  <div class="phase-grid">
+    <div class="ph ph2"><div class="ph-icon">1</div><div class="ph-title">Step 1</div><div class="ph-desc">GONブロック（局麻＋ステロイド）× 繰り返し施行</div></div>
+    <div class="ph ph1"><div class="ph-icon">2</div><div class="ph-title">Step 2</div><div class="ph-desc">薬物療法：アミトリプチリン/ガバペンチン/カルバマゼピン</div></div>
+    <div class="ph ph3"><div class="ph-icon">3</div><div class="ph-title">Step 3</div><div class="ph-desc">パルス高周波（PRF）/ 後頭神経刺激（ONS）</div></div>
+    <div class="ph ph4"><div class="ph-icon">4</div><div class="ph-title">Step 4</div><div class="ph-desc">脊髄刺激療法（SCS）— 難治例</div></div>
+  </div>
+
+  <h2>GONブロックと他治療の相互作用</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>組み合わせ</th><th>相乗効果の根拠</th></tr></thead>
+      <tbody>
+        <tr><td>GONブロック ＋ CGRP mAb</td><td>末梢（GON）＋中枢（CGRP）の異なる標的に作用</td></tr>
+        <tr><td>GONブロック ＋ 理学療法</td><td>頸椎由来の頭痛（頸原性頭痛）で特に有効</td></tr>
+        <tr><td>GONブロック ＋ 認知行動療法</td><td>痛みの恐怖・回避行動の修正と身体的介入の統合</td></tr>
+        <tr><td>GONブロック ＋ 生活習慣改善</td><td>トリガー管理＋神経系のリセットを同時に</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 16 -->
+<section id="s16" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">16</div>
+    <h1 class="sec-title">参考文献・公式リソース</h1>
+  </div>
+
+  <h2>最重要一次文献・ガイドライン</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">StatPearls / NCBI</div>
+      <div class="src-t">Occipital Nerve Block（2025年7月更新）— 解剖・手技の最重要リファレンス</div>
+      <a class="src-url" href="https://www.ncbi.nlm.nih.gov/books/NBK580523/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/books/NBK580523/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">ICHD-3 公式サイト（診断基準 全文閲覧可）</div>
+      <a class="src-url" href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">https://ichd-3.org/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">ICHD-3 全文PDF</div>
+      <div class="src-t">The International Classification of Headache Disorders, 3rd Edition (2018)</div>
+      <a class="src-url" href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf" target="_blank" rel="noopener noreferrer">ichd-3.org/…/ICHD-3rd-Edition-2018.pdf</a>
+    </div>
+    <div class="src">
+      <div class="src-org">VA / DoD 2024</div>
+      <div class="src-t">頭痛の総合診療ガイドライン（GONブロック推奨含む）</div>
+      <a class="src-url" href="https://www.nursingcenter.com/getattachment/clinical-resources/Guideline-Summaries/Headache/Guideline-Summary_Headache_August-2024.pdf.aspx" target="_blank" rel="noopener noreferrer">nursingcenter.com/…/Guideline-Summary_Headache_August-2024.pdf</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / Cephalalgia 2024</div>
+      <div class="src-t">IHS Acute Treatment Recommendations</div>
+      <a class="src-url" href="https://journals.sagepub.com/doi/10.1177/03331024241252666" target="_blank" rel="noopener noreferrer">https://journals.sagepub.com/doi/10.1177/03331024241252666</a>
+    </div>
+    <div class="src">
+      <div class="src-org">AAN</div>
+      <div class="src-t">AAN Headache Guidelines ホームページ</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">https://www.aan.com/guidelines/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">EHF 2022 / PMC</div>
+      <div class="src-t">CGRP mAb 予防療法ガイドライン（PMC 全文）</div>
+      <a class="src-url" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/</a>
+    </div>
+  </div>
+
+  <h2>GONブロック専門文献（PubMed）</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Med Clin (Barc) 2023</div>
+      <div class="src-t">Castillo-Álvarez F et al. — GONブロックのエビデンスレビュー（最新SR）</div>
+      <a class="src-url" href="https://www.sciencedirect.com/science/article/abs/pii/S2387020623002905" target="_blank" rel="noopener noreferrer">sciencedirect.com/…/S2387020623002905</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cephalalgia 2020 · PMID 32781922</div>
+      <div class="src-t">González-García N et al. — 群発頭痛への GONB：SR/MA</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/32781922/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/32781922/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">J Oral Facial Pain Headache 2024</div>
+      <div class="src-t">Shekoohi S et al. — GONブロックのナラティブレビュー（2024年2月）</div>
+      <a class="src-url" href="https://www.jofph.com/articles/10.22514/jofph.2024.010" target="_blank" rel="noopener noreferrer">https://www.jofph.com/articles/10.22514/jofph.2024.010</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Br J Anaesth 2010</div>
+      <div class="src-t">Greher M et al. — エコーガイド下 GONB の解剖学的検証（C2法 vs 古典法）</div>
+      <a class="src-url" href="https://academic.oup.com/bja/article/104/5/637/261124" target="_blank" rel="noopener noreferrer">https://academic.oup.com/bja/article/104/5/637/261124</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cephalalgia 2006 · PMID 17504651</div>
+      <div class="src-t">Afridi SK et al. — GONB の PubMed レビュー</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/17504651/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/17504651/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Headache 2012</div>
+      <div class="src-t">Lambru G et al. — トリアムシノロンによる脱毛・皮膚萎縮</div>
+      <a class="src-url" href="https://headachejournal.onlinelibrary.wiley.com/doi/abs/10.1111/j.1526-4610.2012.02270.x" target="_blank" rel="noopener noreferrer">headachejournal.onlinelibrary.wiley.com/…/j.1526-4610.2012.02270.x</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Acta Neurol Scand 2022 · PMID 35538756</div>
+      <div class="src-t">Velásquez-Rimachi V et al. — 慢性片頭痛への GONB：MA</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/35538756/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/35538756/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">JNNP 2021</div>
+      <div class="src-t">Hoffmann J et al. — GONB の三叉頸椎複合体への作用（fMRI 研究）</div>
+      <a class="src-url" href="https://jnnp.bmj.com/content/92/10/1046" target="_blank" rel="noopener noreferrer">https://jnnp.bmj.com/content/92/10/1046</a>
+    </div>
+  </div>
+
+  <h2>エコーガイド下法・解剖学リソース</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">NYSORA</div>
+      <div class="src-t">Ultrasound-Guided Greater Occipital Nerve Block</div>
+      <a class="src-url" href="https://www.nysora.com/pain-management/ultrasound-guided-greater-occipital-nerve-block/" target="_blank" rel="noopener noreferrer">nysora.com/…/ultrasound-guided-greater-occipital-nerve-block/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">USRA</div>
+      <div class="src-t">Greater Occipital Nerve Block</div>
+      <a class="src-url" href="https://usra.ca/pain-medicine/specific-blocks/head-neck/gon.php" target="_blank" rel="noopener noreferrer">https://usra.ca/pain-medicine/specific-blocks/head-neck/gon.php</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Emory University</div>
+      <div class="src-t">Ultrasound-Guided ONB Procedure</div>
+      <a class="src-url" href="https://med.emory.edu/departments/emergency-medicine/sections/ultrasound/case-of-the-month/procedures/occipital-nerve-block.html" target="_blank" rel="noopener noreferrer">med.emory.edu/…/occipital-nerve-block.html</a>
+    </div>
+    <div class="src">
+      <div class="src-org">ALiEM</div>
+      <div class="src-t">GON Block in the Emergency Department</div>
+      <a class="src-url" href="https://www.aliem.com/greater-occipital-nerve-block-emergency-department/" target="_blank" rel="noopener noreferrer">aliem.com/greater-occipital-nerve-block-emergency-department/</a>
+    </div>
+  </div>
+
+  <h2>継続的情報更新リソース</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">PubMed</div>
+      <div class="src-t">GON Block 検索（最新RCT・MA）</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/?term=greater+occipital+nerve+block+headache&amp;filter=pubt.clinicaltrial" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/?term=greater+occipital+nerve+block+headache</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane Library</div>
+      <div class="src-t">系統的レビュー検索</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/search?query=occipital+nerve+block&amp;searchBy=3" target="_blank" rel="noopener noreferrer">cochranelibrary.com/search?query=occipital+nerve+block</a>
+    </div>
+    <div class="src">
+      <div class="src-org">The J. of Headache and Pain</div>
+      <div class="src-t">EHF 公式誌（オープンアクセス）</div>
+      <a class="src-url" href="https://thejournalofheadacheandpain.biomedcentral.com/" target="_blank" rel="noopener noreferrer">https://thejournalofheadacheandpain.biomedcentral.com/</a>
+    </div>
+    <div class="src">
+      <div class="src-org">ClinicalTrials.gov</div>
+      <div class="src-t">進行中・完了試験</div>
+      <a class="src-url" href="https://clinicaltrials.gov/search?cond=occipital+nerve+block" target="_blank" rel="noopener noreferrer">https://clinicaltrials.gov/search?cond=occipital+nerve+block</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 17 -->
+<section id="s17" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">★</div>
+    <h1 class="sec-title">まとめ — 初学者が押さえるべき10のポイント</h1>
+  </div>
+
+  <div class="onb-key-grid">
+    <div class="onb-key"><div class="onb-key-n">1</div><div class="onb-key-tx">GONブロックは「局所麻酔」だが、効果は中枢（三叉頸椎複合体）レベルの調節により、局所麻酔薬の作用時間より<strong>長く持続</strong>する。</div></div>
+    <div class="onb-key"><div class="onb-key-n">2</div><div class="onb-key-tx"><strong>SNOOP4 を必ず確認</strong>してから実施。二次性頭痛の見逃しは致命的になりえる。</div></div>
+    <div class="onb-key"><div class="onb-key-n">3</div><div class="onb-key-tx">GON 注入点は「後頭動脈の拍動の<strong>直接内側</strong>」が目安。</div></div>
+    <div class="onb-key"><div class="onb-key-n">4</div><div class="onb-key-tx">注入前の<strong>逆吸引（aspiration）は必須</strong> — 動脈内注入回避。</div></div>
+    <div class="onb-key"><div class="onb-key-n">5</div><div class="onb-key-tx">片頭痛ではステロイド追加の上乗せ効果はない。<strong>群発頭痛・後頭神経痛</strong>では追加推奨。</div></div>
+    <div class="onb-key"><div class="onb-key-n">6</div><div class="onb-key-tx"><strong>トリアムシノロンは使用しない</strong>（脱毛・皮膚萎縮）。メチルプレドニゾロンまたはデキサメタゾンを選ぶ。</div></div>
+    <div class="onb-key"><div class="onb-key-n">7</div><div class="onb-key-tx">注入総量は片側<strong>最大4mL</strong>。両側ブロックでも過剰にならないよう注意。</div></div>
+    <div class="onb-key"><div class="onb-key-n">8</div><div class="onb-key-tx">エコーガイド下法（C2レベル）は<strong>100%の標的特異性</strong>を持ち、難治例・解剖変異例に推奨。</div></div>
+    <div class="onb-key"><div class="onb-key-n">9</div><div class="onb-key-tx"><strong>6ヶ月以内に3回以上</strong>必要なら代替・追加治療を強く検討。</div></div>
+    <div class="onb-key"><div class="onb-key-n">10</div><div class="onb-key-tx">GONブロックは単独治療ではなく、薬物療法・CGRP製剤・理学療法などとの<strong>多モーダル統合の一部</strong>。</div></div>
+  </div>
+
+  <div class="alert a-purple">
+    <div class="alert-i">📋</div>
+    <div><strong>最終的な学術的免責事項：</strong>本資料のすべての情報は<strong>学術・教育・研究目的のみ</strong>を対象としています。後頭神経ブロックは侵襲的手技であり、適切な医学的トレーニング・設備・緊急対応体制なしに実施することは禁止されています。すべての臨床判断は、有資格医師による個別患者評価のもとで行われなければなりません。</div>
+  </div>
+</section>
 
 </main>
 </div><!-- end layout -->
