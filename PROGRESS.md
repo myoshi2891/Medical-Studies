@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `524b93c` feat(Types-of-headache): Occipital-Nerve-Block.html — Phase 3/4: sections 9-16 + summary
-- **ビルド状態**: Markdown lint 正常 / Mermaid 修正スクリプト pytest 4 passed
+- **最新 HEAD**: `418347e` feat(Types-of-headache): Physical-Therapy-for-Headache.html — Phase 3/4: sections 8-15
+- **ビルド状態**: Mermaid 修正スクリプト pytest 4 passed / 外部リンク 57 件すべて rel 付与 / ASCII 図解残存ゼロ
 - **次の作業**: `Cervical-Plexus-Block.html` 移行（作成）
 - **未移行 HTML 残数**: 1
 
@@ -19,6 +19,7 @@
 | Blocks | 星状神経節ブロック (SGB) | [Stellate-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Stellate-Ganglion-Block.md) | [Stellate-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Stellate-Ganglion-Block.html) | ✅ 完了 | |
 | Blocks | 後頭神経ブロック (ONB) | [Occipital-Nerve-Block.md](Types-of-headache/md-files/Blocks/Occipital-Nerve-Block.md) | [Occipital-Nerve-Block.html](Types-of-headache/html-files/Blocks/Occipital-Nerve-Block.html) | ✅ 完了 | Deep Teal→Cyan ヒーロー / Mermaid 10図 / 4フェーズ分割 |
 | Blocks | 頸椎神経叢ブロック (CPB) | [Cervical-Plexus-Block.md](Types-of-headache/md-files/Blocks/Cervical-Plexus-Block.md) | - | ⏳ 未着手 | |
+| Physical Therapy | 頭痛に対する理学療法 (PT) | [Physical Therapy-for-Headache.md](Types-of-headache/md-files/Physical-Therapy/Physical%20Therapy-for-Headache.md) | [Physical-Therapy-for-Headache.html](Types-of-headache/html-files/Physical-Therapy/Physical-Therapy-for-Headache.html) | ✅ 完了 | Amber→Coral ヒーロー / Mermaid 9図 / .steps で ASCII 代替 / 4フェーズ分割 |
 
 ---
 
@@ -26,7 +27,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 524b93c
+- 最新 HEAD: 418347e
 - 次の作業: Cervical-Plexus-Block.html 移行
 - 未移行 HTML 残数: 1
 ```
