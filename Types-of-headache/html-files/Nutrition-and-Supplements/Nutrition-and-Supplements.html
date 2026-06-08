@@ -222,31 +222,31 @@ pre.mermaid{text-align:center}
     <div class="mmd-lbl">フローチャート — 片頭痛の病態メカニズムと栄養素の作用点</div>
 <pre class="mermaid">
 flowchart TD
-    TRIGGER["⚡ トリガー因子\n（ストレス・睡眠不足・ホルモン変動・食事）"]
+TRIGGER["⚡ トリガー因子\n（ストレス・睡眠不足・ホルモン変動・食事）"]
 
-    TRIGGER --> MITO["🔋 ミトコンドリア機能低下\nATP産生障害\n酸化ストレス増大"]
-    TRIGGER --> ION["⚡ イオンチャネル異常\nMg²⁺欠乏 → NMDA受容体過活動\nCSD（皮質拡延性抑制）促進"]
-    TRIGGER --> NEURO["🧠 神経炎症\nCGRP放出増加\n三叉神経節活性化"]
+TRIGGER --> MITO["🔋 ミトコンドリア機能低下\nATP産生障害\n酸化ストレス増大"]
+TRIGGER --> ION["⚡ イオンチャネル異常\nMg²⁺欠乏 → NMDA受容体過活動\nCSD（皮質拡延性抑制）促進"]
+TRIGGER --> NEURO["🧠 神経炎症\nCGRP放出増加\n三叉神経節活性化"]
 
-    MITO --> ATTACK["🔴 片頭痛発作\nCGRP主導の神経血管性炎症\n三叉神経痛覚過敏"]
-    ION --> ATTACK
-    NEURO --> ATTACK
+MITO --> ATTACK["🔴 片頭痛発作\nCGRP主導の神経血管性炎症\n三叉神経痛覚過敏"]
+ION --> ATTACK
+NEURO --> ATTACK
 
-    B2["💊 リボフラビン（B2）400mg/日\n→ ETC Complex I 最適化"] -.->|補正| MITO
-    CoQ10["💊 CoQ10 300mg/日\n→ Complex I/III 電子伝達"] -.->|補正| MITO
-    Mg["💊 マグネシウム 400-600mg/日\n→ NMDA受容体調節・CSD抑制"] -.->|補正| ION
-    Omega3["💊 オメガ3脂肪酸 1-3g/日\n→ プロスタグランジン調節"] -.->|抑制| NEURO
-    ALA["💊 α-リポ酸 600mg/日\n→ 酸化ストレス軽減"] -.->|補正| MITO
+B2["💊 リボフラビン（B2）400mg/日\n→ ETC Complex I 最適化"] -.->|補正| MITO
+CoQ10["💊 CoQ10 300mg/日\n→ Complex I/III 電子伝達"] -.->|補正| MITO
+Mg["💊 マグネシウム 400-600mg/日\n→ NMDA受容体調節・CSD抑制"] -.->|補正| ION
+Omega3["💊 オメガ3脂肪酸 1-3g/日\n→ プロスタグランジン調節"] -.->|抑制| NEURO
+ALA["💊 α-リポ酸 600mg/日\n→ 酸化ストレス軽減"] -.->|補正| MITO
 
-    style ATTACK fill:#c0392b,color:#fff
-    style MITO fill:#e74c3c,color:#fff
-    style ION fill:#e67e22,color:#fff
-    style NEURO fill:#8e44ad,color:#fff
-    style Mg fill:#27ae60,color:#fff
-    style B2 fill:#27ae60,color:#fff
-    style CoQ10 fill:#27ae60,color:#fff
-    style Omega3 fill:#2980b9,color:#fff
-    style ALA fill:#2980b9,color:#fff
+style ATTACK fill:#c0392b,color:#fff
+style MITO fill:#e74c3c,color:#fff
+style ION fill:#e67e22,color:#fff
+style NEURO fill:#8e44ad,color:#fff
+style Mg fill:#27ae60,color:#fff
+style B2 fill:#27ae60,color:#fff
+style CoQ10 fill:#27ae60,color:#fff
+style Omega3 fill:#2980b9,color:#fff
+style ALA fill:#2980b9,color:#fff
 </pre>
   </div>
 
@@ -300,34 +300,34 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — エビデンスグレード別サプリメント分類</div>
 <pre class="mermaid">
 flowchart LR
-    subgraph A["🟢 Grade A / B（AAN/EHF承認）"]
-        direction TB
-        Mg2["🧲 マグネシウム\n400–600mg/日\nGrade A/B"]
-        B22["🟡 リボフラビン（B2）\n400mg/日\nGrade A/B"]
-        CoQ["⚡ CoQ10（ユビキノール）\n300mg/日\nGrade B"]
-    end
+subgraph A["🟢 Grade A / B（AAN/EHF承認）"]
+direction TB
+Mg2["🧲 マグネシウム\n400–600mg/日\nGrade A/B"]
+B22["🟡 リボフラビン（B2）\n400mg/日\nGrade A/B"]
+CoQ["⚡ CoQ10（ユビキノール）\n300mg/日\nGrade B"]
+end
 
-    subgraph B["🟡 Grade C（補助的使用可）"]
-        direction TB
-        Mel["🌙 メラトニン\n3mg/夜\nGrade C"]
-        ALA2["🔶 α-リポ酸\n600mg/日\nGrade C"]
-        Om["🐟 オメガ3脂肪酸\n1–3g/日\nGrade C"]
-        Gin["🌿 ショウガエキス\n250mg（急性補助）\nGrade C"]
-    end
+subgraph B["🟡 Grade C（補助的使用可）"]
+direction TB
+Mel["🌙 メラトニン\n3mg/夜\nGrade C"]
+ALA2["🔶 α-リポ酸\n600mg/日\nGrade C"]
+Om["🐟 オメガ3脂肪酸\n1–3g/日\nGrade C"]
+Gin["🌿 ショウガエキス\n250mg（急性補助）\nGrade C"]
+end
 
-    subgraph C["⚠️ 要注意（慎重使用）"]
-        direction TB
-        FV["🌼 フィーバーフュー\n(MIG-99)\nGrade C＋要監視"]
-        BB["🌱 バターバー\nPA-free品のみ\nGrade C＋肝毒性注意"]
-        VD["☀️ ビタミンD\n欠乏確認後のみ\nGrade C"]
-    end
+subgraph C["⚠️ 要注意（慎重使用）"]
+direction TB
+FV["🌼 フィーバーフュー\n(MIG-99)\nGrade C＋要監視"]
+BB["🌱 バターバー\nPA-free品のみ\nGrade C＋肝毒性注意"]
+VD["☀️ ビタミンD\n欠乏確認後のみ\nGrade C"]
+end
 
-    subgraph D["🔴 禁忌"]
-        direction TB
-        B6["❌ 高用量B6\n&gt;200mg/日\n末梢神経障害リスク"]
-    end
+subgraph D["🔴 禁忌"]
+direction TB
+B6["❌ 高用量B6\n&gt;200mg/日\n末梢神経障害リスク"]
+end
 
-    A --> B --> C --> D
+A --> B --> C --> D
 </pre>
   </div>
 </section>
@@ -434,21 +434,21 @@ flowchart LR
     <div class="mmd-lbl">フローチャート — リボフラビンのミトコンドリア作用機序</div>
 <pre class="mermaid">
 flowchart LR
-    B2["💊 リボフラビン（B2）\n400mg/日"]
+B2["💊 リボフラビン（B2）\n400mg/日"]
 
-    B2 --> FAD["FAD（フラビンアデニン\nジヌクレオチド）合成増加"]
-    B2 --> FMN["FMN（フラビンモノ\nヌクレオチド）合成増加"]
+B2 --> FAD["FAD（フラビンアデニン\nジヌクレオチド）合成増加"]
+B2 --> FMN["FMN（フラビンモノ\nヌクレオチド）合成増加"]
 
-    FAD --> ComplexI["⚡ ミトコンドリア\nETC Complex I\n（NADH脱水素酵素）"]
-    FMN --> ComplexI
+FAD --> ComplexI["⚡ ミトコンドリア\nETC Complex I\n（NADH脱水素酵素）"]
+FMN --> ComplexI
 
-    ComplexI --> ATP["🔋 ATP産生効率改善"]
-    ATP --> Stabilize["脳エネルギー代謝安定化"]
-    Stabilize --> Prevent["💚 CSD閾値上昇\n→ 片頭痛発作抑制"]
+ComplexI --> ATP["🔋 ATP産生効率改善"]
+ATP --> Stabilize["脳エネルギー代謝安定化"]
+Stabilize --> Prevent["💚 CSD閾値上昇\n→ 片頭痛発作抑制"]
 
-    style B2 fill:#f39c12,color:#fff
-    style Prevent fill:#27ae60,color:#fff
-    style ComplexI fill:#2980b9,color:#fff
+style B2 fill:#f39c12,color:#fff
+style Prevent fill:#27ae60,color:#fff
+style ComplexI fill:#2980b9,color:#fff
 </pre>
   </div>
 
@@ -569,31 +569,31 @@ flowchart LR
     <div class="mmd-lbl">フローチャート — 三剤のミトコンドリア電子伝達系における作用点</div>
 <pre class="mermaid">
 flowchart TD
-    Input["🍎 食事摂取\nエネルギー基質（グルコース・脂肪酸）"]
+Input["🍎 食事摂取\nエネルギー基質（グルコース・脂肪酸）"]
 
-    Input --> Glycolysis["解糖系\nグルコース → ピルビン酸"]
-    Glycolysis --> TCA["TCAサイクル\nピルビン酸 → NADH / FADH₂"]
+Input --> Glycolysis["解糖系\nグルコース → ピルビン酸"]
+Glycolysis --> TCA["TCAサイクル\nピルビン酸 → NADH / FADH₂"]
 
-    TCA --> C1["Complex I\nNADH脱水素酵素"]
-    TCA --> C2["Complex II\nコハク酸脱水素酵素"]
-    C1 --> CoQ10Chain["🔄 CoQ10 電子シャトル"]
-    C2 --> CoQ10Chain
-    CoQ10Chain --> C3["Complex III\nシトクロムbc₁複合体"]
-    C3 --> Cytc["シトクロムc"]
-    Cytc --> C4["Complex IV\nシトクロムcオキシダーゼ"]
-    C4 --> O2["O₂ → H₂O"]
+TCA --> C1["Complex I\nNADH脱水素酵素"]
+TCA --> C2["Complex II\nコハク酸脱水素酵素"]
+C1 --> CoQ10Chain["🔄 CoQ10 電子シャトル"]
+C2 --> CoQ10Chain
+CoQ10Chain --> C3["Complex III\nシトクロムbc₁複合体"]
+C3 --> Cytc["シトクロムc"]
+Cytc --> C4["Complex IV\nシトクロムcオキシダーゼ"]
+C4 --> O2["O₂ → H₂O"]
 
-    C1 &amp; C2 &amp; C3 &amp; C4 --> ATP_Synth["Complex V（ATP合成酵素）"]
-    ATP_Synth --> ATP["⚡ ATP 産生"]
+C1 &amp; C2 &amp; C3 &amp; C4 --> ATP_Synth["Complex V（ATP合成酵素）"]
+ATP_Synth --> ATP["⚡ ATP 産生"]
 
-    Mg_effect["🧲 Mg²⁺\n→ ATP合成酵素の補因子\n→ NMDA受容体チャネル調節"] -.->|補助| ATP_Synth
-    B2_effect["🟡 B2（リボフラビン）\n→ FAD/FMN供与\n→ Complex Iを直接活性化"] -.->|補助| C1
-    CoQ10_effect["⚡ CoQ10（ユビキノール）\n→ Complex I–III間\n電子伝達を仲介"] -.->|補助| CoQ10Chain
+Mg_effect["🧲 Mg²⁺\n→ ATP合成酵素の補因子\n→ NMDA受容体チャネル調節"] -.->|補助| ATP_Synth
+B2_effect["🟡 B2（リボフラビン）\n→ FAD/FMN供与\n→ Complex Iを直接活性化"] -.->|補助| C1
+CoQ10_effect["⚡ CoQ10（ユビキノール）\n→ Complex I–III間\n電子伝達を仲介"] -.->|補助| CoQ10Chain
 
-    style ATP fill:#f39c12,color:#fff
-    style Mg_effect fill:#27ae60,color:#fff
-    style B2_effect fill:#f39c12,color:#fff
-    style CoQ10_effect fill:#2980b9,color:#fff
+style ATP fill:#f39c12,color:#fff
+style Mg_effect fill:#27ae60,color:#fff
+style B2_effect fill:#f39c12,color:#fff
+style CoQ10_effect fill:#2980b9,color:#fff
 </pre>
   </div>
 
@@ -827,21 +827,21 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — カフェイン依存と離脱頭痛のサイクル</div>
 <pre class="mermaid">
 flowchart TD
-    Caffeine["☕ カフェイン常用\n（&gt;200mg/日）"]
+Caffeine["☕ カフェイン常用\n（&gt;200mg/日）"]
 
-    Caffeine --> Tolerance["アデノシン受容体の上方制御\n（カフェイン耐性形成）"]
-    Tolerance --> Dependency["カフェイン依存状態"]
-    Dependency --> Withdrawal["⚠️ 急な摂取中断\n（&gt;24時間）"]
-    Withdrawal --> Rebound["🔴 カフェイン離脱頭痛\n（両側性・拍動性・悪心を伴う）\n通常12–24時間後に発症"]
+Caffeine --> Tolerance["アデノシン受容体の上方制御\n（カフェイン耐性形成）"]
+Tolerance --> Dependency["カフェイン依存状態"]
+Dependency --> Withdrawal["⚠️ 急な摂取中断\n（&gt;24時間）"]
+Withdrawal --> Rebound["🔴 カフェイン離脱頭痛\n（両側性・拍動性・悪心を伴う）\n通常12–24時間後に発症"]
 
-    Rebound --> MoreCaffeine["再びカフェイン摂取\n→ 一時的な緩和"]
-    MoreCaffeine --> Dependency
+Rebound --> MoreCaffeine["再びカフェイン摂取\n→ 一時的な緩和"]
+MoreCaffeine --> Dependency
 
-    Solution["✅ 正しい対応\n段階的な減量（weekly 10–20%ずつ）\n急な中断は禁忌"]
+Solution["✅ 正しい対応\n段階的な減量（weekly 10–20%ずつ）\n急な中断は禁忌"]
 
-    style Rebound fill:#c0392b,color:#fff
-    style Solution fill:#27ae60,color:#fff
-    style Dependency fill:#e74c3c,color:#fff
+style Rebound fill:#c0392b,color:#fff
+style Solution fill:#27ae60,color:#fff
+style Dependency fill:#e74c3c,color:#fff
 </pre>
   </div>
   <div class="card">
@@ -864,6 +864,331 @@ flowchart TD
     </table>
   </div>
   <div class="alert a-ok"><div class="alert-i">📝</div><div><strong>推奨記録期間</strong>：最低30日間（治療開始前のベースライン確立）</div></div>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">STEP 5 — MOHリスク評価との統合</h1>
+  </div>
+
+  <h2>7-1. MOHとは何か</h2>
+  <p><strong>薬物乱用頭痛（MOH: Medication-Overuse Headache）</strong>は、急性期鎮痛薬の過剰使用により逆説的に頭痛が増加するという、頭痛医学における最も重要な落とし穴の一つです（ICHD-3コード: 8.2）。</p>
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>栄養補助療法とMOHの関係</strong>：サプリメントはMOHを引き起こしません。しかし、MOHが存在する場合、サプリメントの効果も制限される可能性があります。必ずMOHリスクを先に評価してください。</div>
+  </div>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — MOH スクリーニングと栄養補助療法の開始判断</div>
+<pre class="mermaid">
+flowchart TD
+START(["🔍 STEP 0: 急性期薬剤の使用歴を確認する\n（ICHD-3 MOH診断基準 8.2）"])
+
+START --> A{"💊 単純鎮痛薬 / NSAIDs\n（イブプロフェン・アセトアミノフェン等）\n≥ 10日/月 かつ ≥ 3ヶ月 継続？"}
+A -->|"⚠️ はい"| MOH_FLAG
+A -->|"いいえ"| B
+
+B{"💊 トリプタン / エルゴタミン / オピオイド\n≥ 8日/月 かつ ≥ 3ヶ月 継続？"}
+B -->|"⚠️ はい"| MOH_FLAG
+B -->|"いいえ"| C
+
+C{"💊 配合鎮痛薬（複合成分製剤）\n≥ 10日/月 かつ ≥ 3ヶ月 継続？"}
+C -->|"⚠️ はい"| MOH_FLAG
+C -->|"いいえ"| D
+
+D{"複数薬剤を組み合わせて\n合計 ≥ 10日/月 使用？"}
+D -->|"⚠️ はい"| MOH_FLAG
+D -->|"いいえ"| SAFE
+
+SAFE["✅ 現時点のMOHリスク低\n→ 栄養補助療法の並行開始を検討"]
+
+MOH_FLAG["🚨 MOH 疑い（ICHD-3: 8.2）\n→ まず頭痛専門医への紹介を優先"]
+
+MOH_FLAG --> NUTR_ADJUNCT["📝 MOH管理中の栄養補助療法\nMg + B2 + CoQ10 は\nMOH患者にも安全に使用可能\n予防効果の補助として継続推奨"]
+
+SAFE --> NUTR_START["🌿 栄養補助療法の開始\nSTEP 1のプロトコルを参照"]
+
+style MOH_FLAG fill:#c0392b,color:#fff
+style SAFE fill:#27ae60,color:#fff
+style NUTR_ADJUNCT fill:#e67e22,color:#fff
+style NUTR_START fill:#27ae60,color:#fff
+</pre>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：<a href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/" target="_blank" rel="noopener noreferrer">ICHD-3 MOH（薬物乱用頭痛）診断基準 8.2</a></div></div>
+</section>
+
+<!-- ====================================================== SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">STEP 6 — 薬物・サプリメント相互作用チェックリスト</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">⚠️</div>
+    <div><strong>このチェックリストは毎回のサプリメント開始前に必ず確認してください。</strong></div>
+  </div>
+
+  <h2>8-1. 重大な相互作用（使用禁忌または厳重管理）</h2>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>サプリメント</th><th>相互作用薬</th><th>リスク</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr><td><strong>フィーバーフュー</strong></td><td>ワルファリン / 抗血小板薬</td><td>出血リスク大幅増加</td><td><strong>⛔ 併用回避</strong></td></tr>
+        <tr><td><strong>フィーバーフュー</strong></td><td>術前</td><td>出血リスク</td><td><strong>手術2週間前に中止</strong></td></tr>
+        <tr><td><strong>オメガ3 &gt;3g/日</strong></td><td>抗凝固薬（ワルファリン）</td><td>INR変動・出血リスク</td><td><strong>INRモニタリング必須</strong></td></tr>
+        <tr><td><strong>バターバー（PA含有品）</strong></td><td>—</td><td>肝静脈閉塞症</td><td><strong>⛔ 絶対使用禁止</strong></td></tr>
+        <tr><td><strong>バターバー（PA-free品）</strong></td><td>免疫抑制剤</td><td>相互作用不明</td><td><strong>⛔ 使用禁忌</strong></td></tr>
+        <tr><td><strong>高用量B6 &gt;200mg/日</strong></td><td>—</td><td>末梢神経障害</td><td><strong>⛔ この用量禁忌</strong></td></tr>
+        <tr><td><strong>ショウガエキス</strong></td><td>抗血小板薬 / ワルファリン</td><td>出血リスク</td><td>注意・モニタリング</td></tr>
+        <tr><td><strong>α-リポ酸</strong></td><td>インスリン / 血糖降下薬</td><td>低血糖</td><td>血糖モニタリング強化</td></tr>
+        <tr><td><strong>CoQ10</strong></td><td>ワルファリン</td><td>INR変動</td><td>INRモニタリング推奨</td></tr>
+        <tr><td><strong>マグネシウム</strong></td><td>Caチャネル拮抗薬</td><td>相乗的降圧作用</td><td>血圧モニタリング</td></tr>
+        <tr><td><strong>高用量オメガ3</strong></td><td>アスピリン</td><td>出血リスク強化</td><td>モニタリング</td></tr>
+        <tr><td><strong>バターバー（PA-free）</strong></td><td>定期LFT</td><td>肝保護目的</td><td>3ヶ月毎に肝機能検査</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8-2. 片頭痛の主要薬物との相互作用（サプリ視点）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>主要薬</th><th>関連サプリ</th><th>注意事項</th></tr></thead>
+      <tbody>
+        <tr><td><strong>トリプタン</strong></td><td>—</td><td>サプリとの直接的な重大相互作用は少ない</td></tr>
+        <tr><td><strong>SSRIs/SNRIs</strong></td><td>5-HTPサプリ（本ガイド範囲外）</td><td>セロトニン症候群リスク</td></tr>
+        <tr><td><strong>MAO阻害薬</strong></td><td>チラミン高含有食品</td><td>高血圧クリーゼリスク（本ガイド記載の食事トリガー参照）</td></tr>
+        <tr><td><strong>バルプロ酸</strong></td><td>CoQ10</td><td>バルプロ酸がCoQ10産生を阻害 → 補充を考慮</td></tr>
+        <tr><td><strong>スタチン</strong></td><td>CoQ10</td><td>スタチンがCoQ10産生を阻害 → <strong>補充を積極的に推奨</strong></td></tr>
+        <tr><td><strong>利尿薬</strong></td><td>マグネシウム</td><td>利尿薬がMg排泄を増加 → 補充を考慮</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h1 class="sec-title">STEP 7 — 特別集団への配慮</h1>
+  </div>
+
+  <h2>9-1. 集団別サプリメント安全ガイド</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 患者プロファイル別の安全性判断</div>
+<pre class="mermaid">
+flowchart TD
+Patient["👤 患者プロファイルを確認"]
+
+Patient --> Ped["👶 小児（&lt; 12歳）"]
+Patient --> Teen["🧑 青年期（12–18歳）"]
+Patient --> Preg["🤰 妊娠・授乳中"]
+Patient --> Elderly["👴 高齢者（&gt; 65歳）"]
+Patient --> Renal["🫁 腎機能低下"]
+
+Ped --> Ped_Safe["✅ 安全: Mg（低用量）・B2\n⚠️ CoQ10は12歳以下データ限定\n❌ バターバー・フィーバーフュー禁忌"]
+Teen --> Teen_Safe["✅ 安全: Mg・B2・CoQ10\n⚠️ バターバーは18歳未満禁忌\n✅ メラトニンは入眠障害合併に有効"]
+Preg --> Preg_Safe["✅ 安全: Mg（食事量程度）・B2\n⚠️ CoQ10: 安全データ限定 → 医師相談\n❌ フィーバーフュー禁忌（子宮収縮）\n❌ バターバー禁忌\n⚠️ オメガ3: 2g/日以下推奨"]
+Elderly --> Elderly_Safe["✅ Mg（グリシン酸優先）・B2・CoQ10\n⚠️ Mg: 腎機能確認必須\n⚠️ メラトニン: 低用量（0.5–1mg）から開始\n✅ ユビキノール: 高齢者に特に推奨"]
+Renal --> Renal_Safe["⚠️ Mg: eGFR&lt; 30で禁忌または厳重管理\n✅ B2: 安全（水溶性）\n✅ CoQ10: 安全\n⚠️ α-リポ酸: 代謝変化に注意"]
+
+style Preg fill:#fce4ec,stroke:#880e4f
+style Renal fill:#fff3e0,stroke:#e65100
+</pre>
+  </div>
+
+  <h2>9-2. 集団別推奨サマリー表</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>サプリメント</th><th>小児</th><th>青年期</th><th>妊娠中</th><th>授乳中</th><th>高齢者</th><th>腎機能低下</th></tr></thead>
+      <tbody>
+        <tr><td>マグネシウム</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅⚠️</td><td>⚠️（eGFR確認）</td></tr>
+        <tr><td>リボフラビン（B2）</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>CoQ10</td><td>⚠️</td><td>✅</td><td>⚠️</td><td>⚠️</td><td>✅</td><td>✅</td></tr>
+        <tr><td>メラトニン</td><td>⚠️</td><td>✅</td><td>❌</td><td>❌</td><td>✅（低用量）</td><td>⚠️</td></tr>
+        <tr><td>オメガ3</td><td>✅（低用量）</td><td>✅</td><td>✅（≤2g）</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>α-リポ酸</td><td>❌</td><td>⚠️</td><td>❌</td><td>❌</td><td>⚠️</td><td>⚠️</td></tr>
+        <tr><td>フィーバーフュー</td><td>❌</td><td>⚠️</td><td>❌</td><td>❌</td><td>⚠️</td><td>⚠️</td></tr>
+        <tr><td>バターバー</td><td>❌</td><td>❌（&lt;18歳）</td><td>❌</td><td>❌</td><td>⚠️（PA-free）</td><td>⚠️</td></tr>
+        <tr><td>ビタミンD</td><td>✅（欠乏時）</td><td>✅</td><td>✅（欠乏時）</td><td>✅</td><td>✅</td><td>⚠️</td></tr>
+        <tr><td>高用量B6（&gt;200mg）</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">🔑</div><div><strong>凡例</strong>：✅ = 使用可 ／ ⚠️ = 注意・医師確認 ／ ❌ = 禁忌・推奨しない</div></div>
+</section>
+
+<!-- ====================================================== SECTION 10 -->
+<section id="s10" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">10</div>
+    <h1 class="sec-title">STEP 8 — 統合プロトコル（段階的実践ガイド）</h1>
+  </div>
+
+  <h2>10-1. 全体的なアプローチの流れ</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — ベースラインから維持までの4フェーズ統合プロトコル</div>
+<pre class="mermaid">
+flowchart TD
+S0["📋 PHASE 0: ベースライン確立\n（治療開始前）"]
+
+S0 --> D0["① 頭痛日記の開始\n（最低30日間）"]
+S0 --> D1["② 血液検査\n血清Mg・ビタミンD・LFT・CBC・INR"]
+S0 --> D2["③ MOHリスク評価（STEP 5参照）"]
+S0 --> D3["④ HIT-6 / MIDAS / VASによるベースライン記録"]
+
+D0 &amp; D1 &amp; D2 &amp; D3 --> S1
+
+S1["💊 PHASE 1（Week 1-4）: 基盤サプリメント導入"]
+S1 --> P1A["マグネシウム 200mg/日から開始\n（Week 2から300–400mg/日へ増量）"]
+S1 --> P1B["リボフラビン（B2）400mg/日 開始"]
+S1 --> P1C["食事トリガー日記の継続と分析"]
+
+P1A &amp; P1B &amp; P1C --> S2
+
+S2["⚡ PHASE 2（Week 4-12）: 完全プロトコル実施"]
+S2 --> P2A["マグネシウム 400–600mg/日\n（目標血清Mg ≥0.85 mmol/L）"]
+S2 --> P2B["リボフラビン 400mg/日 継続"]
+S2 --> P2C["CoQ10（ユビキノール）300mg/日 追加"]
+S2 --> P2D["必要に応じてメラトニン 3mg/夜（睡眠障害合併時）"]
+S2 --> P2E["カフェイン管理・食事トリガー排除開始"]
+S2 --> P2F["水分摂取 1.5–2L/日の確保"]
+S2 --> P2G["週3–5回 × 30分の有酸素運動開始"]
+
+P2A &amp; P2B &amp; P2C &amp; P2D &amp; P2E &amp; P2F &amp; P2G --> S3
+
+S3["📊 PHASE 3（3ヶ月）: アウトカム評価"]
+S3 --> Eval{"目標達成評価\n≥50%頭痛日数減少？\nHIT-6 / MIDAS 改善？"}
+Eval -->|"✅ 達成"| Maintain["維持フェーズ\n6ヶ月毎に再評価"]
+Eval -->|"❌ 未達成"| Escalate["治療強化\n頭痛専門医への相談\n予防薬（β遮断薬 / CGRP mAb）の検討"]
+
+style S0 fill:#e3f2fd,stroke:#1565c0
+style S1 fill:#e8f5e9,stroke:#2e7d32
+style S2 fill:#fff3e0,stroke:#e65100
+style S3 fill:#fce4ec,stroke:#880e4f
+style Maintain fill:#27ae60,color:#fff
+style Escalate fill:#c0392b,color:#fff
+</pre>
+  </div>
+
+  <h2>10-2. 薬物療法との統合アプローチ</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>治療カテゴリ</th><th>具体的介入</th><th>エビデンス</th><th>栄養療法との相乗効果</th></tr></thead>
+      <tbody>
+        <tr><td><strong>急性期薬物</strong></td><td>NSAIDs / トリプタン / ゲパント</td><td><span class="bA">Grade A</span></td><td>なし（直接的相乗なし）</td></tr>
+        <tr><td><strong>予防薬物</strong></td><td>プロプラノロール / トピラマート</td><td><span class="bA">Grade A</span></td><td>Mg補充でトピラマートの腎結石リスク↓</td></tr>
+        <tr><td><strong>CGRP mAbs</strong></td><td>エレヌマブ / フレマネズマブ等</td><td><span class="bA">Grade A</span></td><td>Mg + B2 + CoQ10はミトコンドリアレベルから相補</td></tr>
+        <tr><td><strong>ボツリヌストキシン</strong></td><td>PREEMPT プロトコル</td><td><span class="bA">Grade A</span></td><td>栄養療法は独立した補助的役割</td></tr>
+        <tr><td><strong>CBT / バイオフィードバック</strong></td><td>認知行動療法 / EMGフィードバック</td><td><span class="bB">Grade B</span></td><td>食事トリガー管理 + 心理療法で相乗効果</td></tr>
+        <tr><td><strong>有酸素運動</strong></td><td>週3–5回 × 30–40分</td><td><span class="bB">Grade B</span></td><td>CoQ10 / Mg補充でミトコンドリアの運動適応を促進</td></tr>
+        <tr><td><strong>栄養補助（本ガイド）</strong></td><td>Mg + B2 + CoQ10（コアトリオ）</td><td><span class="bA">Grade A/B</span></td><td>全モダリティの土台</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 11 -->
+<section id="s11" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">11</div>
+    <h1 class="sec-title">STEP 9 — アウトカム評価と効果測定</h1>
+  </div>
+
+  <h2>11-1. 主要評価ツール</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ツール</th><th>評価内容</th><th>重症度スコア</th><th>測定タイミング</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HIT-6</strong></td><td>頭痛による日常生活への影響</td><td>≥60: 重篤 / 50–59: 実質的 / &lt;50: 中等度以下</td><td>開始時・3ヶ月毎</td></tr>
+        <tr><td><strong>MIDAS</strong></td><td>仕事・家事・社会活動の損失日数（90日）</td><td>≥21: Grade IV / 11–20: III / 6–10: II / 0–5: I</td><td>開始時・3ヶ月毎</td></tr>
+        <tr><td><strong>VAS/NRS</strong></td><td>疼痛強度</td><td>0–10（発症時・ピーク・2時間後）</td><td>毎回記録</td></tr>
+        <tr><td><strong>PGIC</strong></td><td>患者全体的改善印象</td><td>7段階スケール</td><td>8週後・治療終了時</td></tr>
+        <tr><td><strong>頭痛日誌</strong></td><td>頻度・強度・トリガー・薬剤使用</td><td>月次で集計</td><td>毎日継続</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>11-2. 治療成功基準（エビデンスベース）</h2>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>評価指標</th><th>最低成功基準（MCID）</th><th>優良基準</th></tr></thead>
+      <tbody>
+        <tr><td>頭痛日数/月</td><td><strong>≥ 50% 減少</strong></td><td>≥ 75% 減少</td></tr>
+        <tr><td>HIT-6スコア</td><td>≥ 6点改善</td><td>&lt; 50点（正常域）</td></tr>
+        <tr><td>MIDASスコア</td><td>1グレード以上の改善</td><td>Grade I または II</td></tr>
+        <tr><td>急性期薬使用日数</td><td>MOH閾値以下（&lt; 8–10日/月）</td><td>≤ 4日/月</td></tr>
+        <tr><td>VASピーク強度</td><td>≥ 30% 低下</td><td>≥ 50% 低下</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース（HIT-6 MCID）</strong>：<a href="https://pubmed.ncbi.nlm.nih.gov/12789668/" target="_blank" rel="noopener noreferrer">Kosinski M, et al. <em>Qual Life Res</em> 2003 — PubMed</a></div></div>
+</section>
+
+<!-- ====================================================== SECTION 12 -->
+<section id="s12" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">12</div>
+    <h1 class="sec-title">参考文献・ソースURL</h1>
+  </div>
+
+  <div class="alert a-ok">
+    <div class="alert-i">🌐</div>
+    <div><strong>注意</strong>：すべてのソースは国際的に認可された機関・査読済みジャーナルのものです。</div>
+  </div>
+
+  <div class="src-sep">A. 診断基準（ICHD-3 / IHS）</div>
+  <div class="src-grid">
+    <div class="src"><div class="src-org">ICHD-3</div><div class="src-t">公式サイト（全文閲覧可）</div><a class="src-url" href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">https://ichd-3.org/</a></div>
+    <div class="src"><div class="src-org">ICHD-3</div><div class="src-t">全文PDF（Cephalalgia 2018）</div><a class="src-url" href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf" target="_blank" rel="noopener noreferrer">ichd-3.org/…/ICHD-3-2018.pdf</a></div>
+    <div class="src"><div class="src-org">IHS</div><div class="src-t">分類委員会（ICHD-4最新動向）</div><a class="src-url" href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/" target="_blank" rel="noopener noreferrer">ihs-headache.org/…/classification</a></div>
+    <div class="src"><div class="src-org">ICHD-3</div><div class="src-t">MOH 診断基準 8.2</div><a class="src-url" href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/" target="_blank" rel="noopener noreferrer">ichd-3.org/…/8-2-medication-overuse-headache-moh</a></div>
+  </div>
+
+  <div class="src-sep">B. 臨床ガイドライン（AAN / EHF / NICE）</div>
+  <div class="src-grid">
+    <div class="src"><div class="src-org">AAN</div><div class="src-t">Guidelines ホーム（全頭痛ガイドライン一覧）</div><a class="src-url" href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">https://www.aan.com/guidelines/</a></div>
+    <div class="src"><div class="src-org">AAN/AHS</div><div class="src-t">片頭痛予防ガイドライン 2024草案</div><a class="src-url" href="https://www.aan.com/siteassets/home-page/policy-and-guidelines/guidelines/guidelines-and-measures-open-for-public-comment/24-pharmacologic-treatment-for-migraine-prevention-in-adults_draft_08-14-2024.pdf" target="_blank" rel="noopener noreferrer">aan.com/…/migraine-prevention_draft_2024.pdf</a></div>
+    <div class="src"><div class="src-org">EHF</div><div class="src-t">CGRP mAbs予防療法ガイドライン 2022</div><a class="src-url" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov/pmc/articles/PMC9188162</a></div>
+    <div class="src"><div class="src-org">EHF</div><div class="src-t">トリプタン治療コンセンサス 2022</div><a class="src-url" href="https://link.springer.com/article/10.1186/s10194-022-01502-z" target="_blank" rel="noopener noreferrer">link.springer.com/…/s10194-022-01502-z</a></div>
+    <div class="src"><div class="src-org">IHS</div><div class="src-t">急性期治療推奨 2024（Cephalalgia誌）</div><a class="src-url" href="https://journals.sagepub.com/doi/10.1177/03331024241252666" target="_blank" rel="noopener noreferrer">journals.sagepub.com/doi/10.1177/03331024241252666</a></div>
+    <div class="src"><div class="src-org">NICE</div><div class="src-t">頭痛ガイドライン CG150</div><a class="src-url" href="https://www.nice.org.uk/guidance/cg150" target="_blank" rel="noopener noreferrer">https://www.nice.org.uk/guidance/cg150</a></div>
+  </div>
+
+  <div class="src-sep">C. Cochrane エビデンスレビュー</div>
+  <div class="src-grid">
+    <div class="src"><div class="src-org">Cochrane</div><div class="src-t">マグネシウム補充・片頭痛予防（2025年最新）</div><a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD016307" target="_blank" rel="noopener noreferrer">cochranelibrary.com/cdsr/…/CD016307</a></div>
+    <div class="src"><div class="src-org">Cochrane</div><div class="src-t">心理療法（CBT/バイオフィードバック）片頭痛予防</div><a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2/full" target="_blank" rel="noopener noreferrer">cochranelibrary.com/cdsr/…/CD012295.pub2</a></div>
+    <div class="src"><div class="src-org">Cochrane</div><div class="src-t">ボツリヌストキシン・慢性片頭痛予防</div><a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD011914" target="_blank" rel="noopener noreferrer">cochranelibrary.com/cdsr/…/CD011914</a></div>
+    <div class="src"><div class="src-org">Cochrane</div><div class="src-t">頭痛レビュー検索ページ</div><a class="src-url" href="https://www.cochranelibrary.com/search?query=headache+migraine&amp;searchBy=3&amp;type=cdsr" target="_blank" rel="noopener noreferrer">cochranelibrary.com/search?query=headache+migraine</a></div>
+  </div>
+
+  <div class="src-sep">D. 主要個別研究（PubMed）</div>
+  <div class="src-grid">
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Peikert A, et al. 1996 — Magnesium 600mg/day</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/8734727/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/8734727</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Schoenen J, et al. 1998 — Riboflavin 400mg/day RCT</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/9484373/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/9484373</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Sándor PS, et al. 2005 — CoQ10 300mg/day RCT</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/15728298/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/15728298</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Gonçalves AL, et al. 2016 — Melatonin vs Propranolol RCT</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/26898255/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/26898255</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Ramsden CE, et al. 2021 — Omega-3 and migraine (BMJ)</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/34112693/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/34112693</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Maghbooli M, et al. 2014 — Ginger for acute migraine</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/24254706/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/24254706</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Lipton RB, et al. 2004 — Butterbur (Petadolex) RCT</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/15148345/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/15148345</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Holroyd KA, et al. 2001 — CBT + Amitriptyline (JAMA)</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/11325323/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/11325323</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">Kosinski M, et al. 2003 — HIT-6 MCID (Qual Life Res)</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/12789668/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/12789668</a></div>
+  </div>
+
+  <div class="src-sep">E. 専門誌・継続リサーチ用リソース</div>
+  <div class="src-grid">
+    <div class="src"><div class="src-org">EHF 公式誌</div><div class="src-t">Journal of Headache and Pain（OA）</div><a class="src-url" href="https://thejournalofheadacheandpain.biomedcentral.com/" target="_blank" rel="noopener noreferrer">thejournalofheadacheandpain.biomedcentral.com</a></div>
+    <div class="src"><div class="src-org">IHS 公式誌</div><div class="src-t">Cephalalgia</div><a class="src-url" href="https://journals.sagepub.com/home/cep" target="_blank" rel="noopener noreferrer">journals.sagepub.com/home/cep</a></div>
+    <div class="src"><div class="src-org">PubMed</div><div class="src-t">頭痛 RCT 専用検索</div><a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/?term=headache+migraine&amp;filter=pubt.clinicaltrial" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/?term=headache+migraine</a></div>
+    <div class="src"><div class="src-org">NIH</div><div class="src-t">ClinicalTrials.gov 頭痛試験</div><a class="src-url" href="https://clinicaltrials.gov/search?term=migraine+headache" target="_blank" rel="noopener noreferrer">clinicaltrials.gov/search?term=migraine+headache</a></div>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📖</div>
+    <div><strong>作成基準</strong>：ICHD-3 | AAN/AHS 2024 | EHF 2022 | IHS 2024 | NICE CG150 | Cochrane Library｜<strong>エビデンスグレーディング</strong>：AAN/EHF標準基準（Grade A/B/C/U）｜<strong>対象読者</strong>：医学生・研修医・神経内科研修者・頭痛患者教育担当者</div>
+  </div>
 </section>
 
 </main>
