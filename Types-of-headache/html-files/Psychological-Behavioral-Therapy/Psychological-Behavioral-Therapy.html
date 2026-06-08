@@ -213,7 +213,456 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
-<!-- ============================================================ SECTIONS -->
+<!-- ============================================================ SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">なぜ「心理・行動療法」が頭痛治療の柱なのか？</h1>
+  </div>
+
+  <p>頭痛は<strong>バイオサイコソーシャル（BPS）モデル</strong>で理解する疾患です。片頭痛・緊張型頭痛（TTH）の発症・慢性化には、生物学的因子のみならず、心理的ストレス・感情調節不全・不適切な行動パターンが深く関与しています。</p>
+
+  <h2>1-1. 薬物療法単独の限界</h2>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>課題</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>薬物乱用頭痛（MOH）リスク</strong></td><td>NSAIDs &gt;10日/月・トリプタン &gt;8日/月で逆説的に頭痛を増悪（ICHD-3 code: 8.2）</td></tr>
+        <tr><td><strong>副作用・禁忌</strong></td><td>トリプタン（心血管禁忌）・バルプロ酸（妊娠禁忌 Category X）等の重大な制限</td></tr>
+        <tr><td><strong>慢性化の抑制に限界</strong></td><td>薬物は急性症状に対応するが、慢性化プロセスへの根本介入は困難</td></tr>
+        <tr><td><strong>患者選好・アクセシビリティ</strong></td><td>妊婦・小児・高齢者・薬剤過敏例では薬物使用に制限がある</td></tr>
+        <tr><td><strong>心理的側面の未対応</strong></td><td>疼痛破局化・不安・うつは薬物単独では改善しない慢性化の独立因子</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1-2. 心理・行動療法の優位性</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 薬物単独 vs. 統合療法のアウトカム</div>
+<pre class="mermaid">
+flowchart TD
+    DRUG["💊 薬物療法のみ"]
+    COMBO["✨ 薬物 ＋ 心理・行動療法"]
+
+    DRUG --> D1["急性症状を一時的に抑制"]
+    DRUG --> D2["MOHリスクが蓄積"]
+    DRUG --> D3["心理的慢性化因子は未解決"]
+
+    COMBO --> C1["急性症状の緩和\n（薬剤使用量を削減しながら）"]
+    COMBO --> C2["慢性化プロセスへの直接介入\n（中枢感作・疼痛破局化）"]
+    COMBO --> C3["再発率の低下\n（技法の自己管理化による長期効果）"]
+    COMBO --> C4["MOHリスクの積極的軽減"]
+
+    C1 & C2 & C3 & C4 --> OUTCOME["📊 治療目標：≥50% 頭痛日数減少\nHIT-6 / MIDAS スコア改善\nQOLの回復"]
+
+    style DRUG fill:#922b21,color:#fff
+    style COMBO fill:#1a6b3c,color:#fff
+    style OUTCOME fill:#1a237e,color:#fff
+</pre>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>主要エビデンスソース（統合療法優位性）</strong><br>
+      AAN 2012 行動・理学療法ガイドライン: <a href="https://www.aan.com/guidelines/home/getguidelinecontent/383" target="_blank" rel="noopener noreferrer">aan.com/guidelines/…/383</a><br>
+      Cochrane 心理療法 SR（CBT/バイオフィードバック）: <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2/full" target="_blank" rel="noopener noreferrer">cochranelibrary.com/…/CD012295.pub2</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">必読：SNOOP4 レッドフラッグスクリーニング</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">⛔</div>
+    <div>すべての心理・行動療法の開始前に、以下の<strong>二次性頭痛（危険な疾患が原因）の除外</strong>を必ず行うこと。一項目でも該当する場合は心理・行動療法を開始せず、神経内科へ緊急紹介する。</div>
+  </div>
+
+  <div class="snoop-grid">
+    <div class="sn">
+      <div class="sn-letter">S</div>
+      <div class="sn-title">Systemic symptoms（全身症状）</div>
+      <div class="sn-symp">発熱・髄膜刺激症状・体重減少・免疫抑制状態・悪性腫瘍既往</div>
+      <div class="sn-dx">髄膜炎・脳炎・転移性脳腫瘍</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">N</div>
+      <div class="sn-title">Neurological deficits（神経学的欠落）</div>
+      <div class="sn-symp">運動麻痺・感覚障害・失語・複視・意識変容・認知変化</div>
+      <div class="sn-dx">脳血管障害・占拠性病変</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">Onset sudden（突発発症 / thunderclap）</div>
+      <div class="sn-symp">「生涯最悪の頭痛」が数秒で最大に達する</div>
+      <div class="sn-dx">くも膜下出血（SAH）→ 緊急CT</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">Onset after age 50（50歳以降発症）</div>
+      <div class="sn-symp">50歳以降の新規発症頭痛</div>
+      <div class="sn-dx">側頭動脈炎・頭蓋内病変</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">P</div>
+      <div class="sn-title">Pattern change（パターン変化）</div>
+      <div class="sn-symp">進行性増悪・体位依存（仰臥位で悪化→頭蓋内圧↑；直立で悪化→低髄液圧）</div>
+      <div class="sn-dx">頭蓋内圧亢進・硬膜下血腫</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">4</div>
+      <div class="sn-title">Papilledema / Postdural / Post-seizure / Pregnancy</div>
+      <div class="sn-symp">うっ血乳頭・硬膜穿刺後・発作後・妊娠/産褥期</div>
+      <div class="sn-dx">それぞれの緊急病態</div>
+    </div>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong>：Dodick DW. "Pearls: Headache." Semin Neurol 2010; Dodick DW. Headache 2019. — <a href="https://pubmed.ncbi.nlm.nih.gov/31350744/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/31350744</a></div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">エビデンスグレードの読み方</h1>
+  </div>
+
+  <p>本文書では AAN（米国神経学会）/EHF（欧州頭痛連盟）の標準的な評価基準を使用します。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>グレード</th><th>定義</th><th>意味</th></tr></thead>
+      <tbody>
+        <tr><td><span class="bA">Grade A</span></td><td>≥2本の一貫した Class I RCT / Cochrane SR（低 heterogeneity）</td><td>強いエビデンス：臨床実践に採用すべき</td></tr>
+        <tr><td><span class="bB">Grade B</span></td><td>1本の Class I RCT または ≥2本の Class II 研究</td><td>可能性が高いエビデンス：推奨される</td></tr>
+        <tr><td><span class="bC">Grade C</span></td><td>1本の Class II または ≥2本の Class III 研究</td><td>可能性のあるエビデンス：考慮してよい</td></tr>
+        <tr><td><span class="bU">Grade U</span></td><td>不十分または相反するエビデンス</td><td>現時点では推奨できない</td></tr>
+        <tr><td><span class="bExp">Expert</span></td><td>RCT なし、ガイドライン委員会コンセンサス</td><td>専門家意見</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">神経科学的基盤 — 心理と頭痛をつなぐ脳内メカニズム</h1>
+  </div>
+
+  <p>「心理療法は気持ちの問題を扱うだけ」というのは誤解です。頭痛と心理的因子の関係には、以下の<strong>明確な神経生物学的基盤</strong>があります。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — ストレスから慢性化へ、そして介入ポイント</div>
+<pre class="mermaid">
+flowchart TD
+    STRESS["⚡ 心理的ストレス・感情反応"]
+
+    STRESS --> HPA["視床下部—下垂体—副腎皮質軸\n（HPA axis）\nコルチゾール↑・CRH↑"]
+    STRESS --> LIMBIC["辺縁系（扁桃体・島皮質）\n感情処理の過活動"]
+    STRESS --> ANS["自律神経系\n交感神経過緊張\n→ 頸部・頭部筋緊張↑"]
+
+    HPA --> CS["🔴 中枢感作\n（Central Sensitization）\n脊髄後角・脳幹の過剰感受性\n→ 慢性化の核心機序"]
+    LIMBIC --> CATAS["疼痛破局化\n（Pain Catastrophizing）\n痛みの過大評価・無力感\n→ 慢性化の独立予測因子"]
+    ANS --> TP["トリガーポイント形成\n→ 緊張型頭痛・片頭痛の増悪"]
+
+    CS & CATAS & TP --> CHRONIC["慢性頭痛への移行\n（Episodic → Chronic）"]
+
+    INTERV["✅ 心理・行動療法の介入ポイント"]
+    INTERV --> I1["CBT → 疼痛破局化の修正\n認知再構成"]
+    INTERV --> I2["バイオフィードバック → 自律神経調節\n筋緊張の自己制御"]
+    INTERV --> I3["MBSR / PMR → HPA軸の正常化\nコルチゾール↓"]
+    INTERV --> I4["有酸素運動 → BDNF↑\n中枢感作の逆転"]
+
+    I1 -.->|修正| CATAS
+    I2 -.->|制御| ANS
+    I3 -.->|調節| HPA
+    I4 -.->|抑制| CS
+
+    style STRESS fill:#922b21,color:#fff
+    style CHRONIC fill:#8B0000,color:#fff
+    style INTERV fill:#1a6b3c,color:#fff
+    style I1 fill:#1b4332,color:#fff
+    style I2 fill:#1b4332,color:#fff
+    style I3 fill:#1b4332,color:#fff
+    style I4 fill:#1b4332,color:#fff
+</pre>
+  </div>
+
+  <h2>主要な神経科学的機序まとめ</h2>
+  <div class="tbl th-purple">
+    <table>
+      <thead><tr><th>機序</th><th>詳細</th><th>心理療法による介入</th></tr></thead>
+      <tbody>
+        <tr><td><strong>視床下部—辺縁系—脳幹軸</strong></td><td>ストレス・感情が三叉神経核（TNC）の興奮閾値を直接変調</td><td>CBT・MBSR による前頭前野の調節能力強化</td></tr>
+        <tr><td><strong>下降性疼痛抑制系（DPMS）</strong></td><td>PAG（中脳水道周囲灰白質）を介するオピオイド性抑制；ストレスで弱化</td><td>リラクゼーション・バイオフィードバックで副交感神経優位化</td></tr>
+        <tr><td><strong>中枢感作</strong></td><td>繰り返す疼痛刺激が脊髄後角・脳幹を「過剰感受性」化 → 慢性化</td><td>有酸素運動による BDNF 上昇で神経可塑性を回復</td></tr>
+        <tr><td><strong>疼痛破局化</strong></td><td>痛みの過大評価・無力感・反芻思考；慢性化・頻度増加の独立予測因子</td><td>CBT の認知再構成が最も直接的に介入</td></tr>
+        <tr><td><strong>HPA 軸の過活動</strong></td><td>慢性ストレス → コルチゾール過剰 → 炎症性メディエーター増加</td><td>MBSR・PMR がコルチゾール日内変動を正常化</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">PART I 心理療法 — 全体マップ ＋ STEP1 認知行動療法（CBT）</h1>
+  </div>
+
+  <h2>療法選択の全体マップ</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 患者プロファイルから心理療法を選択する</div>
+<pre class="mermaid">
+flowchart TD
+    ENTRY["患者プロファイル評価"]
+    ENTRY --> Q1{"不安・うつ症状あり\nまたは慢性化（≥15日/月）？"}
+    ENTRY --> Q2{"筋緊張・自律神経症状が主体？"}
+    ENTRY --> Q3{"中枢感作が進行？\n薬剤を忌避したい？"}
+    ENTRY --> Q4{"痛みへの過剰な感情反応？\n回避行動？"}
+
+    Q1 -->|"Yes"| CBT["→ STEP 1: CBT\n[Grade B]\n認知再構成・行動活性化"]
+    Q2 -->|"Yes"| BF["→ STEP 2: バイオフィードバック\n[Grade A]\nEMG / 熱 / HRV"]
+    Q3 -->|"Yes"| RELAX["→ STEP 3: PMR / AT\n[Grade B]\n漸進的筋弛緩・自律訓練"]
+    Q3 -->|"Yes"| MBSR["→ STEP 4: MBSR\n[Grade C]\nマインドフルネス8週"]
+    Q4 -->|"Yes"| ACT["→ STEP 5: ACT\n[Grade C/U]\nアクセプタンス療法"]
+
+    CBT & BF & RELAX & MBSR & ACT --> COMBINE["多くの場合、2〜3種の組み合わせが最も効果的\n（CBT ＋ バイオフィードバック が最頻推奨）"]
+
+    style CBT fill:#4a235a,color:#fff
+    style BF fill:#154360,color:#fff
+    style RELAX fill:#1b4332,color:#fff
+    style MBSR fill:#7b3f00,color:#fff
+    style ACT fill:#5d4037,color:#fff
+    style COMBINE fill:#1a6b3c,color:#fff
+</pre>
+  </div>
+
+  <h2>STEP 1：認知行動療法（CBT） <span class="bB">Grade B — AAN / EHF / Cochrane SR</span></h2>
+  <h3>CBT とは？（初学者向け解説）</h3>
+  <p><strong>認知行動療法（Cognitive Behavioral Therapy: CBT）</strong>は、「考え方のクセ（認知）」と「行動パターン」の悪循環を特定し、より適応的なパターンへと修正する心理療法です。慢性頭痛において、CBT は疼痛体験そのものを変えるのではなく、<strong>痛みに対する反応（認知・感情・行動）を変える</strong>ことで慢性化を防ぎます。</p>
+
+  <h3>頭痛における CBT の悪循環モデル</h3>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — CBT が断ち切る悪循環と4つの介入ポイント</div>
+<pre class="mermaid">
+flowchart TD
+    TRIGGER_P["⚡ 頭痛発症・ストレス"]
+
+    TRIGGER_P --> THOUGHT["🧠 自動思考（認知）\n『また頭痛だ。今日も1日終わった』\n『絶対治らない（破局化思考）』\n『自分は役に立たない（無力感）』"]
+
+    THOUGHT --> EMOTION["💔 感情反応\n不安・うつ・怒り・絶望感"]
+    EMOTION --> BEHAVIOR["🚶 行動パターン\n社会的引きこもり\n過剰な薬剤使用（→MOH）\n活動回避 → 機能低下"]
+    BEHAVIOR --> PHYS["🔴 身体反応\n筋緊張↑・睡眠障害・HPA軸過活動\n頭痛の慢性化促進"]
+    PHYS --> TRIGGER_P
+
+    CBT_INT["✅ CBT の4つの介入ポイント"]
+    CBT_INT --> C1["① 認知再構成\n→ 破局化思考を現実的・適応的思考に書き換える"]
+    CBT_INT --> C2["② 行動活性化\n→ 段階的な活動参加・回避の克服"]
+    CBT_INT --> C3["③ 対処スキル訓練\n→ 痛みへの適応的対処法の習得"]
+    CBT_INT --> C4["④ 再発防止\n→ 前兆認識と早期対処計画の個別化"]
+
+    C1 -.->|「現実的な思考」に修正| THOUGHT
+    C2 -.->|「段階的行動」に置換| BEHAVIOR
+    C3 -.->|「感情調節」で緩和| EMOTION
+    C4 -.->|「早期対処」でトリガー制御| TRIGGER_P
+
+    style PHYS fill:#8B0000,color:#fff
+    style THOUGHT fill:#922b21,color:#fff
+    style CBT_INT fill:#1a6b3c,color:#fff
+    style C1 fill:#1b4332,color:#fff
+    style C2 fill:#1b4332,color:#fff
+    style C3 fill:#1b4332,color:#fff
+    style C4 fill:#1b4332,color:#fff
+</pre>
+  </div>
+
+  <h3>標準的 CBT プログラム構成（12セッション）</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>セッション</th><th>テーマ</th><th>主な内容</th></tr></thead>
+      <tbody>
+        <tr><td>1〜2回目</td><td>心理教育</td><td>慢性頭痛のバイオサイコソーシャルモデルの理解；頭痛日誌解析；個別目標設定</td></tr>
+        <tr><td>3〜4回目</td><td>認知の同定</td><td>自動思考・頭痛に対する信念の特定；コラム法（ABCモデル）の練習</td></tr>
+        <tr><td>5〜6回目</td><td>認知再構成</td><td>非機能的思考の同定；証拠の検討；現実的・適応的思考への書き換え</td></tr>
+        <tr><td>7〜8回目</td><td>行動活性化</td><td>活動回避パターンの特定；段階的克服；価値に基づく行動計画</td></tr>
+        <tr><td>9〜10回目</td><td>対処スキル</td><td>発作時の対処計画（Pain Coping Plan）；ストレス管理スキルの実践</td></tr>
+        <tr><td>11〜12回目</td><td>再発防止</td><td>前兆（Prodrome）の個別認識；維持計画の作成；セルフモニタリング</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>認知再構成の実践例（ABCモデル）</h3>
+  <div class="tbl th-purple">
+    <table>
+      <thead><tr><th>要素</th><th>例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A：出来事（Activating Event）</strong></td><td>仕事中に頭痛が始まった</td></tr>
+        <tr><td><strong>B：信念（Belief）</strong></td><td>「また片頭痛だ。今日のプレゼンも台無し。私はいつもこうだ」（破局化）</td></tr>
+        <tr><td><strong>C：結果（Consequence）</strong></td><td>強い不安・集中力低下・過剰な鎮痛薬使用</td></tr>
+        <tr><td><strong>D：反駁（Disputation）</strong></td><td>「過去にも発表中に頭痛があったが乗り切った。今日も対処できる可能性がある」</td></tr>
+        <tr><td><strong>E：代替思考（Effect）</strong></td><td>「休憩をとり、水分補給と呼吸法で対処してみよう。最悪の場合は相談できる」</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>CBT エビデンスサマリー</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究</th><th>主要知見</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>Holroyd KA et al. <em>JAMA</em> 2001</td><td>CBT＋アミトリプチリンで薬物単独より有意な頭痛頻度減少（慢性TTH）</td><td><span class="bA">Grade A</span></td></tr>
+        <tr><td>Andrasik F. <em>Headache</em> 2004</td><td>CBT はトリプタンと同等の長期的有効性（片頭痛）</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>Cochrane SR 2017（Martin PR et al.）</td><td>心理療法（CBT・バイオフィードバック）は片頭痛予防に有効</td><td><span class="bB">Grade B</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong><br>
+      Cochrane 心理療法レビュー（CBT/バイオフィードバック）: <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2/full" target="_blank" rel="noopener noreferrer">cochranelibrary.com/…/CD012295.pub2</a><br>
+      Holroyd KA et al. JAMA 2001 — PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/11325323/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/11325323</a><br>
+      AAN 2012 行動療法ガイドライン: <a href="https://www.aan.com/guidelines/home/getguidelinecontent/383" target="_blank" rel="noopener noreferrer">aan.com/guidelines/…/383</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">STEP2 バイオフィードバック</h1>
+  </div>
+
+  <p><span class="bA">Grade A（EMG・熱）</span> <span class="bB">Grade B（HRV）— AAN 2012</span></p>
+
+  <h3>バイオフィードバックとは？（初学者向け解説）</h3>
+  <p><strong>バイオフィードバック（Biofeedback）</strong>は、通常は意識下にある生理的信号（筋電図・皮膚温・心拍変動）をリアルタイムで可視化・音声化し、その信号を<strong>意識的にコントロールする訓練法</strong>です。繰り返すことで自律神経・筋緊張の自己制御能力が確立されます。</p>
+
+  <h3>種類とエビデンス</h3>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>種類</th><th>計測パラメータ</th><th>主な対象頭痛</th><th>エビデンス</th></tr></thead>
+      <tbody>
+        <tr><td><strong>EMG バイオフィードバック</strong></td><td>前頭筋・僧帽筋の筋電図（μV）</td><td>緊張型頭痛（第一選択）・片頭痛</td><td><span class="bA">Grade A（AAN）</span></td></tr>
+        <tr><td><strong>熱（皮膚温）バイオフィードバック</strong></td><td>指先皮膚温（℃）：末梢血管の代替指標</td><td>片頭痛（特に有効）・自律神経症状</td><td><span class="bA">Grade A（AAN）</span></td></tr>
+        <tr><td><strong>HRV バイオフィードバック</strong></td><td>心拍変動（ms²）：迷走神経トーン</td><td>慢性頭痛・自律神経障害合併</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td><strong>EEG ニューロフィードバック</strong></td><td>α/θ波パターン</td><td>慢性頭痛（一部）</td><td><span class="bC">Grade C</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>EMG バイオフィードバック：ステップバイステップ手順</h3>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — EMG バイオフィードバックの6ステップ</div>
+<pre class="mermaid">
+flowchart LR
+    S1["🔬 Step 1\n【評価・設定】\n電極を前頭筋（Fp1-Fp2）\nまたは僧帽筋上部に装着\n安静時ベースラインEMGを\n3分間記録\n（目標 &lt; 2.0 μV が理想的弛緩状態）"]
+
+    S2["📊 Step 2\n【フィードバック開始】\n音または数値でリアルタイム提示\n目標：音が低くなる方向に\n自発的に調整\n（= 筋緊張の低下）"]
+
+    S3["🌬️ Step 3\n【呼吸技法の統合】\n腹式呼吸（4-7-8 法）と同時実施\n吸気4秒 → 保持7秒 → 呼気8秒\n3〜4サイクル繰り返す"]
+
+    S4["🌄 Step 4\n【視覚化の統合】\n暖かく穏やかな場面を想像\n体の各部位が温かく\n重くなる感覚に集中"]
+
+    S5["⏱️ Step 5\n【セッション管理】\n1セッション：20〜30分\n頻度：週2〜3回\n期間：8〜12週\nNNT ≈ 4〜5"]
+
+    S6["🏠 Step 6\n【ホーム移行】\n携帯型 EMG デバイスを使用\n毎日 15〜20分の自主練習\n（長期維持に必須）"]
+
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6
+</pre>
+  </div>
+
+  <h3>バイオフィードバック エビデンスサマリー</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究</th><th>主要知見</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>Nestoriuc Y &amp; Martin A. <em>Pain</em> 2007（メタ解析、55試験）</td><td>片頭痛に対し効果量 d = 0.58（中〜大）；薬物療法と同等</td><td><span class="bA">Grade A（片頭痛）</span></td></tr>
+        <tr><td>Nestoriuc Y et al. <em>J Consult Clin Psychol</em> 2008（メタ解析）</td><td>緊張型頭痛での EMG バイオフィードバック：頻度・強度・持続時間すべてで有意改善</td><td><span class="bA">Grade A（TTH）</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong><br>
+      Nestoriuc Y &amp; Martin A. <em>Pain</em> 2007: <a href="https://pubmed.ncbi.nlm.nih.gov/17097218/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/17097218</a><br>
+      Nestoriuc Y et al. <em>J Consult Clin Psychol</em> 2008: <a href="https://pubmed.ncbi.nlm.nih.gov/18426234/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/18426234</a><br>
+      AAN 2012 行動・理学療法ガイドライン: <a href="https://www.aan.com/guidelines/home/getguidelinecontent/383" target="_blank" rel="noopener noreferrer">aan.com/guidelines/…/383</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">STEP3 漸進的筋弛緩法（PMR）・自律訓練法（AT）</h1>
+  </div>
+
+  <p><span class="bB">Grade B — AAN / EHF</span></p>
+
+  <h2>A. 漸進的筋弛緩法（Progressive Muscle Relaxation: PMR）</h2>
+  <p><strong>原理</strong>：全身の筋肉グループを順番に「緊張させてから一気に脱力」する訓練。筋緊張の存在に気づく能力と、意識的に弛緩させる能力を同時に高めます。バイオフィードバックの「セルフ版」とも言えます。</p>
+  <div class="tbl th-teal">
+    <table>
+      <thead><tr><th>順序</th><th>筋肉グループ</th><th>緊張方法</th><th>緊張時間</th><th>弛緩時間</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>両手・前腕（利き手から）</td><td>強く握りしめる</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>2</td><td>二頭筋</td><td>力こぶを作る</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>3</td><td>三頭筋</td><td>肘を伸ばして後方に押す</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>4</td><td>肩・頸部</td><td>肩を耳に向けて引き上げる</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>5</td><td>顔（額）</td><td>眉を引き上げる</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>6</td><td>顔（目・頬）</td><td>目を強くつぶる</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>7</td><td>顎</td><td>歯を噛みしめる</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>8</td><td>胸・背中</td><td>深呼吸して胸を膨らませ背筋を緊張</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>9</td><td>腹部</td><td>腹筋を引き締める</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+        <tr><td>10</td><td>大腿〜ふくらはぎ〜足</td><td>足首を背屈し・つま先を引く</td><td>5〜7秒</td><td>20〜30秒</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-ok">
+    <div class="alert-i">⏱️</div>
+    <div><strong>実施目安</strong>：1セッション20〜30分 / 1日1〜2回 / 週5回以上が理想</div>
+  </div>
+
+  <h2>B. 自律訓練法（Autogenic Training: AT） <span class="bB">Grade B — EHF</span></h2>
+  <p>J.H. Schultz が開発した自己暗示技法。以下の6段階を順に習得します。<strong>特に「第6公式（頭部涼感）」が頭痛患者に重要</strong>です。</p>
+  <div class="tbl th-purple">
+    <table>
+      <thead><tr><th>段階</th><th>内容</th><th>練習フレーズ例</th></tr></thead>
+      <tbody>
+        <tr><td>第1公式</td><td>重感訓練</td><td>「両腕が非常に重い」</td></tr>
+        <tr><td>第2公式</td><td>温感訓練</td><td>「両腕が非常に温かい」</td></tr>
+        <tr><td>第3公式</td><td>心臓調整</td><td>「心臓が静かに規則正しく打っている」</td></tr>
+        <tr><td>第4公式</td><td>呼吸調整</td><td>「呼吸が自然に楽に行われている」</td></tr>
+        <tr><td>第5公式</td><td>腹部温感</td><td>「お腹が温かい」</td></tr>
+        <tr><td><strong>第6公式</strong></td><td><strong>頭部涼感</strong></td><td><strong>「頭が涼しく清々しい」</strong>← 頭痛患者に特に重要</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-ok">
+    <div class="alert-i">⏱️</div>
+    <div><strong>実施目安</strong>：1回10〜20分 / 1日2〜3回 / 継続6週間で効果を評価</div>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong><br>
+      AAN 2012 ガイドライン（リラクゼーション）: <a href="https://www.aan.com/guidelines/home/getguidelinecontent/383" target="_blank" rel="noopener noreferrer">aan.com/guidelines/…/383</a><br>
+      EHF 片頭痛予防ガイドライン 2022（PMC全文）: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov/pmc/articles/PMC9188162</a>
+    </div>
+  </div>
+</section>
 
 </main>
 </div><!-- end layout -->
