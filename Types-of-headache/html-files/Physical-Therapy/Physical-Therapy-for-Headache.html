@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🏃 頭痛に対する理学療法 完全ガイド</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{
+  --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
+  --orange:#e65100;--red:#c62828;--green:#2e7d32;--purple:#6a1b9a;
+  --red-l:#ffebee;--orange-l:#fff3e0;--green-l:#e8f5e9;
+  --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
+  --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
+  --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  /* ページ固有：理学療法 amber→coral */
+  --pt1:#e65100;--pt2:#f57c00;--pt3:#ff7043;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--pt1),var(--pt2) 50%,var(--pt3));color:#fff;padding:52px 28px 40px;text-align:center}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
+.hero-sub{font-size:14px;color:#fafafa;margin-bottom:22px}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Disclaimer */
+.disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
+.disclaimer strong{color:var(--orange)}
+
+/* Layout */
+.layout{display:flex;max-width:1360px;margin:0 auto}
+
+/* Sidebar */
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
+.s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
+.nav-a:hover,.nav-a.active{background:#fff3e0;border-left-color:var(--pt2);color:var(--pt1)}
+.nav-a.active{font-weight:600}
+.n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Main */
+.main{flex:1;padding:28px 32px 80px;min-width:0}
+
+/* Section */
+.sec{margin:40px 0;scroll-margin-top:12px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-num{background:var(--pt2);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--pt1)}
+h2{font-size:16px;font-weight:700;color:var(--pt1);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--pt3)}
+h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
+p{margin-bottom:10px;color:var(--g8)}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px}
+a{color:var(--blue)}
+a:hover{text-decoration:underline}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+
+/* Alerts */
+.alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.alert-i{font-size:20px;flex-shrink:0}
+.a-danger{background:var(--red-l);border-left:4px solid var(--red)}
+.a-warn{background:var(--orange-l);border-left:4px solid var(--orange)}
+.a-info{background:var(--blue-l);border-left:4px solid var(--blue)}
+.a-ok{background:var(--green-l);border-left:4px solid var(--green)}
+.a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+thead th{background:var(--pt2);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:#fff8f3}
+tbody tr:hover{background:#ffeede}
+tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
+.th-teal thead th{background:var(--teal)}
+.th-red thead th{background:var(--red)}
+.th-orange thead th{background:var(--orange)}
+.th-purple thead th{background:var(--purple)}
+.th-navy thead th{background:var(--navy)}
+
+/* Evidence badges */
+.bA{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.bB{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
+.bC{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
+.bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+.bRed{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a}
+.bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
+.bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
+
+/* Color text */
+.tR{color:var(--red);font-weight:700}
+.tG{color:var(--green);font-weight:700}
+.tO{color:var(--orange);font-weight:700}
+.tB{color:var(--blue);font-weight:700}
+.tN{color:var(--pt1);font-weight:700}
+
+/* Mermaid */
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--pt2);display:inline-block}
+pre.mermaid{text-align:center}
+
+/* Step list（手順表現／ASCII 代替） */
+.steps{counter-reset:st;margin:14px 0}
+.step{position:relative;background:#fff;border-radius:var(--rs);box-shadow:var(--sh);padding:12px 16px 12px 52px;margin-bottom:10px;border-left:4px solid var(--pt2)}
+.step::before{counter-increment:st;content:counter(st);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--pt2);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+.step-t{font-weight:700;color:var(--pt1);font-size:13px;margin-bottom:2px}
+.step-d{font-size:12.5px;color:var(--g8);line-height:1.6}
+
+/* Phase cards */
+.phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+@media(max-width:700px){.phase-grid{grid-template-columns:repeat(2,1fr)}}
+.ph{border-radius:var(--rs);padding:16px;text-align:center}
+.ph1{background:#fff8e1;border:2px solid #ffc107}
+.ph2{background:#e3f2fd;border:2px solid #2196f3}
+.ph3{background:#ffebee;border:2px solid #ef5350}
+.ph4{background:#e8f5e9;border:2px solid #66bb6a}
+.ph-icon{font-size:28px;margin-bottom:6px}
+.ph-title{font-weight:700;font-size:13.5px;margin-bottom:2px}
+.ph-time{font-size:11px;color:var(--g6);margin-bottom:6px}
+.ph-desc{font-size:12px;line-height:1.5;text-align:left}
+
+/* SNOOP4 cards */
+.snoop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:16px 0}
+.sn{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh);border-top:4px solid var(--red)}
+.sn-letter{font-size:32px;font-weight:800;color:var(--red);line-height:1}
+.sn-title{font-size:13px;font-weight:700;color:var(--g8);margin:3px 0 5px}
+.sn-symp{font-size:12px;color:var(--g6);line-height:1.5}
+.sn-dx{font-size:11px;color:var(--red);font-weight:600;margin-top:7px;background:var(--red-l);padding:2px 7px;border-radius:4px;display:inline-block}
+
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--blue)}
+.src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:2px}
+.src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
+.src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
+.src-sep{font-size:13px;font-weight:700;color:var(--pt1);margin:18px 0 4px}
+
+/* Quick ref */
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
+.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.qr-t{font-size:13px;font-weight:700;color:var(--pt1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
+
+/* Footer */
+.footer{background:var(--pt1);color:rgba(255,255,255,.8);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer strong{color:#fff}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size:34px">🏃‍♀️</div>
+  <h1>頭痛に対する理学療法 完全ガイド</h1>
+  <p class="hero-sub">国際エビデンス（ICHD-3 / AAN / EHF / NICE CG150 / Cochrane）に基づく包括的解説 — 初学者向けステップバイステップ</p>
+  <div class="hero-tags">
+    <span class="hero-tag">ICHD-3 準拠</span>
+    <span class="hero-tag">Grade A〜U エビデンス表記</span>
+    <span class="hero-tag">SNOOP4 スクリーニング</span>
+    <span class="hero-tag">非薬物療法の中核</span>
+    <span class="hero-tag">頸因性頭痛 第一選択</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての臨床的判断・治療介入は資格を有する医療専門家による評価・監督のもとで実施してください。個人的な医療アドバイス・診断・処方を提供するものではありません。
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="s-hdr">目次</div>
+  <a class="nav-a" href="#s1"><span class="n-num">1</span>はじめに — なぜ理学療法か</a>
+  <a class="nav-a" href="#s2"><span class="n-num">2</span>頭痛の分類と PT 適応</a>
+  <a class="nav-a" href="#s3"><span class="n-num">3</span>病態生理学的根拠</a>
+  <a class="nav-a" href="#s4"><span class="n-num">4</span>SNOOP4 スクリーニング</a>
+  <a class="nav-a" href="#s5"><span class="n-num">5</span>エビデンス評価システム</a>
+  <a class="nav-a" href="#s6"><span class="n-num">6</span>適応フローチャート</a>
+  <a class="nav-a" href="#s7"><span class="n-num">7</span>主要モダリティ詳細</a>
+  <a class="nav-a" href="#s8"><span class="n-num">8</span>臨床プロトコル</a>
+  <a class="nav-a" href="#s9"><span class="n-num">9</span>エビデンス比較表</a>
+  <a class="nav-a" href="#s10"><span class="n-num">10</span>特殊集団への適用</a>
+  <a class="nav-a" href="#s11"><span class="n-num">11</span>マルチモーダル統合</a>
+  <a class="nav-a" href="#s12"><span class="n-num">12</span>アウトカム評価ツール</a>
+  <a class="nav-a" href="#s13"><span class="n-num">13</span>患者教育・セルフケア</a>
+  <a class="nav-a" href="#s14"><span class="n-num">14</span>禁忌・安全管理</a>
+  <a class="nav-a" href="#s15"><span class="n-num">15</span>参考文献・ソース</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<!-- ============================================================ SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">はじめに — なぜ頭痛に理学療法が必要か</h1>
+  </div>
+
+  <p>頭痛は世界で最も有病率の高い神経疾患の一つです。理学療法（Physical Therapy）は、薬物療法の限界を補完する<strong>非薬物療法の中核</strong>として国際的に位置づけられています。</p>
+
+  <h2>1.1 頭痛の世界的疾病負担</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>疫学指標</th><th>データ</th><th>出典</th></tr></thead>
+      <tbody>
+        <tr><td>成人の頭痛有病率（過去1年）</td><td>約 <strong>52%</strong></td><td>WHO Global Burden</td></tr>
+        <tr><td>片頭痛の生涯有病率</td><td>約 14–16%（女性：男性 = 3:1）</td><td>GBD 2019</td></tr>
+        <tr><td>慢性頭痛（≥15日/月）の有病率</td><td>成人の約 1.7–4%</td><td>Stovner et al., 2007</td></tr>
+        <tr><td>疾病負担ランキング（世界・YLD）</td><td><strong class="tO">第2位</strong>（生活機能障害年数）</td><td>GBD 2019</td></tr>
+        <tr><td>経済的損失（米国のみ）</td><td>年間約 360億ドル（労働損失）</td><td>Lipton et al.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1.2 薬物療法だけでは不十分な理由</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>限界</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>薬物過用性頭痛（MOH）リスク</td><td>急性期薬を月 8–10 日以上使用で慢性化（ICHD-3: 8.2）</td></tr>
+        <tr><td>副作用・禁忌</td><td>妊娠・心血管疾患・腎疾患で薬物選択が制限</td></tr>
+        <tr><td>奏効率の上限</td><td>トリプタンでも 2 時間以内の頭痛消失は約 60–70%</td></tr>
+        <tr><td>慢性化予防の限界</td><td>薬物のみでは神経感作（central sensitization）に十分に対処できない</td></tr>
+        <tr><td>QOL 包括的改善の困難</td><td>睡眠・ストレス・姿勢・体力など生活習慣全体への介入が薬物では不可能</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1.3 本ガイドの読み進め方</h2>
+  <div class="steps">
+    <div class="step"><div class="step-t">🔴 神経学的緊急事態を最初に除外</div><div class="step-d">Section 4（SNOOP4）で赤旗症状をスクリーニング。陽性なら PT を開始しない。</div></div>
+    <div class="step"><div class="step-t">🟡 頭痛タイプを分類</div><div class="step-d">Section 2 で ICHD-3 に基づき一次性／二次性、頭痛タイプを確定。</div></div>
+    <div class="step"><div class="step-t">🟢 理学療法の適応を判断</div><div class="step-d">Section 6 のフローチャートでタイプ別の PT 適応とモダリティを選択。</div></div>
+    <div class="step"><div class="step-t">🔵 具体的プロトコルを実施</div><div class="step-d">Section 7–8 で各モダリティ・頭痛タイプ別プロトコルを選択・実施。</div></div>
+    <div class="step"><div class="step-t">⚪ 定期的にアウトカム評価</div><div class="step-d">Section 12 で 3 ヶ月ごとに HIT-6 / MIDAS 等を再評価し、効果を客観化。</div></div>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">WHO</div>
+      <div class="src-t">Headache Disorders Fact Sheet</div>
+      <a class="src-url" href="https://www.who.int/news-room/fact-sheets/detail/headache-disorders" target="_blank" rel="noopener noreferrer">who.int/…/headache-disorders</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">頭痛の分類と理学療法の適応（ICHD-3）</h1>
+  </div>
+
+  <h2>2.1 ICHD-3 主要分類と理学療法適応性</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ICHD-3</th><th>頭痛タイプ</th><th>PT 適応度</th><th>推奨グレード</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>1.1</td><td>片頭痛（前兆なし）</td><td>✅ 高</td><td><span class="bB">Grade B</span></td><td>予防的 PT が中核</td></tr>
+        <tr><td>1.2</td><td>片頭痛（前兆あり）</td><td>✅ 高</td><td><span class="bB">Grade B</span></td><td>前兆中の強度運動は禁忌</td></tr>
+        <tr><td>1.3</td><td>慢性片頭痛</td><td>✅ 最高</td><td><span class="bA">Grade A/B</span></td><td>薬物療法との並行が必須</td></tr>
+        <tr><td>2.1</td><td>非頻発性緊張型頭痛</td><td>✅ 高</td><td><span class="bA">Grade A</span></td><td>セルフケアが主</td></tr>
+        <tr><td>2.2</td><td>頻発性緊張型頭痛</td><td>✅ 非常に高</td><td><span class="bA">Grade A</span></td><td>積極的 PT 介入</td></tr>
+        <tr><td>2.3</td><td>慢性緊張型頭痛</td><td>✅ 非常に高</td><td><span class="bA">Grade A</span></td><td>マルチモーダル必須</td></tr>
+        <tr><td>3.1</td><td>群発頭痛（エピソード型）</td><td>⚠️ 補完的</td><td><span class="bC">Grade C</span></td><td>急性期は高流量 O₂ が第一</td></tr>
+        <tr><td>11.2</td><td>頸因性頭痛</td><td>✅ 最優先</td><td><span class="bA">Grade A</span></td><td><strong class="tG">PT が第一選択治療</strong></td></tr>
+        <tr><td>8.2</td><td>薬物過用性頭痛（MOH）</td><td>✅ 中断支援</td><td><span class="bB">Grade B</span></td><td>過用中断の補助として</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2.2 一次性頭痛 vs 二次性頭痛の鑑別</h2>
+  <p>理学療法開始前に、<strong>一次性頭痛</strong>（脳器質的病変なし）か<strong>二次性頭痛</strong>（基礎疾患起因）かを必ず鑑別してください。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>区分</th><th>代表疾患</th><th>理学療法の役割</th></tr></thead>
+      <tbody>
+        <tr><td><strong>一次性頭痛</strong></td><td>片頭痛・緊張型頭痛・群発頭痛</td><td><strong class="tG">主要治療手段</strong>として積極的に活用</td></tr>
+        <tr><td><strong>二次性頭痛</strong></td><td>くも膜下出血・脳腫瘍・感染症・静脈洞血栓症</td><td><strong class="tR">⛔ 原因疾患の治療が最優先</strong>；PT は補完的かつ医師指示下のみ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">ICHD-3 公式サイト（全文閲覧可）</div>
+      <a class="src-url" href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ichd-3.org</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">ICHD-3 全文 PDF（2018年版）</div>
+      <a class="src-url" href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf" target="_blank" rel="noopener noreferrer">ichd-3.org/…ICHD-3rd-Edition-2018.pdf</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">病態生理学的根拠 — なぜ理学療法は効くのか</h1>
+  </div>
+
+  <h2>3.1 三叉神経頸部複合体（Trigeminocervical Complex: TCC）</h2>
+  <div class="alert a-info">
+    <div class="alert-i">🔑</div>
+    <div><strong>Key Concept:</strong> 上位頸髄（C1–C3）後角ニューロンと三叉神経脊髄路核（Nucleus caudalis）は<strong>解剖学的・機能的に収束（convergence）</strong>しています。この収束こそが、頸部への理学療法が頭痛を軽減できる最も重要な科学的根拠です。</div>
+  </div>
+  <ul>
+    <li>頸椎・頸部筋・関節の痛み信号が脳によって「頭痛」として認識される（→ 頸因性頭痛の発生機序）</li>
+    <li>片頭痛発作中に頸部硬直・圧痛が生じる（頸部 ↔ 三叉神経系の双方向性）</li>
+    <li>頸部への理学療法が三叉神経系を介して頭痛を軽減できる</li>
+  </ul>
+
+  <h2>3.2 中枢感作と末梢感作</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>感作レベル</th><th>病態</th><th>理学療法の介入ポイント</th></tr></thead>
+      <tbody>
+        <tr><td><strong>中枢感作</strong></td><td>疼痛閾値の低下・アロディニア・時間的加重</td><td>バイオフィードバック / 有酸素運動 / CBT</td></tr>
+        <tr><td><strong>末梢感作</strong></td><td>硬膜・頭頸部筋の CGRP 放出・神経原性炎症</td><td>徒手療法 / トリガーポイント療法</td></tr>
+        <tr><td><strong>筋筋膜トリガーポイント</strong></td><td>頭頸部筋の局所過緊張帯（Hyperirritable spot）</td><td>トリガーポイント療法 / ドライニードリング</td></tr>
+        <tr><td><strong>自律神経失調</strong></td><td>交感神経過活動・副交感神経機能低下</td><td>呼吸法 / HRV バイオフィードバック / リラクゼーション</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3.3 内因性疼痛抑制系の活性化</h2>
+  <p>理学療法（特に有酸素運動）は、脳内の<strong>内因性疼痛抑制メカニズム</strong>を活性化します。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>神経生物学的変化</th><th>メカニズム</th><th>頭痛への効果</th></tr></thead>
+      <tbody>
+        <tr><td>β-エンドルフィン ↑</td><td>下降性疼痛抑制系（PAG → 延髄）の賦活</td><td>鎮痛閾値の上昇</td></tr>
+        <tr><td>セロトニン（5-HT）↑</td><td>中縫線核からの放出促進</td><td>片頭痛の発作頻度低下</td></tr>
+        <tr><td>BDNF ↑</td><td>神経可塑性の促進・慢性痛回路の再編</td><td>中枢感作の軽減</td></tr>
+        <tr><td>CGRP 産生の長期的調節</td><td>運動による末梢・中枢 CGRP 動態の正常化</td><td>片頭痛頻度・強度の低下</td></tr>
+        <tr><td>炎症性サイトカイン ↓</td><td>IL-6・TNF-α の産生抑制</td><td>神経炎症の軽減</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Cephalalgia 2000</div>
+      <div class="src-t">Bendtsen L. 緊張型頭痛における中枢感作</div>
+      <a class="src-url" href="https://journals.sagepub.com/doi/10.1046/j.1468-2982.2000.00053.x" target="_blank" rel="noopener noreferrer">journals.sagepub.com/…1468-2982.2000.00053.x</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">赤旗症状スクリーニング（SNOOP4）— 最優先確認事項</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">⛔</div>
+    <div><strong>絶対原則:</strong> 理学療法を開始する前に、必ず SNOOP4 基準を確認してください。赤旗症状が陽性の場合は、<strong>緊急神経学的評価</strong>（CT/MRI/腰椎穿刺）を優先し、PT の開始を延期します。</div>
+  </div>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — SNOOP4 赤旗スクリーニング</div>
+<pre class="mermaid">
+flowchart TD
+START(["🟦 患者が頭痛を訴えている\nPT 開始評価を行う前に確認"])
+START --> S
+
+S{"🔴 S — Systemic symptoms\n全身症状:\n発熱・髄膜刺激症状\n原因不明の体重減少\n免疫抑制状態・既知の悪性腫瘍"}
+S -->|"🚨 該当あり"| URGENT
+S -->|"✅ 該当なし"| N
+
+N{"🔴 N — Neurological deficits\n神経学的異常:\n片麻痺・感覚障害\n失語・複視・乳頭浮腫\n意識変容・認知変化"}
+N -->|"🚨 該当あり"| URGENT
+N -->|"✅ 該当なし"| O1
+
+O1{"🔴 O — Onset sudden\n突発性発症:\n人生最悪の頭痛\n雷鳴頭痛（thunderclap）\n→ くも膜下出血（SAH）を除外"}
+O1 -->|"🚨 該当あり"| URGENT
+O1 -->|"✅ 該当なし"| O2
+
+O2{"🟡 O — Onset after age 50\n50歳以降の新規発症:\n→ 側頭動脈炎\n→ 頭蓋内腫瘍を疑う"}
+O2 -->|"⚠️ 該当あり"| CAUTION
+O2 -->|"✅ 該当なし"| P
+
+P{"🟡 P — Pattern change\nパターン変化:\n進行性悪化・外傷後\n体位依存性"}
+P -->|"⚠️ 該当あり"| CAUTION
+P -->|"✅ 該当なし"| FOUR
+
+FOUR{"🟡 4 — 以下いずれかに該当:\nPapilledema（乳頭浮腫）\nPostdural puncture（硬膜穿刺後）\nPost-seizure（痙攣後）\nPregnancy / Postpartum（妊娠・産後）"}
+FOUR -->|"⚠️ 該当あり"| CAUTION
+FOUR -->|"✅ 該当なし"| CLEAR
+
+URGENT["🚨 緊急神経学的評価\nCT / MRI / 腰椎穿刺\n⛔ PT は絶対に開始しない\n神経内科 / 脳神経外科へ即座に紹介"]
+CAUTION["⚠️ 精密検査・医師連携が必要\nMRI / CT の実施を推奨\n医師の許可と診断確定後に PT 開始"]
+CLEAR["✅ SNOOP4 クリア\n一次性頭痛の可能性が高い\n→ Section 6 フローチャートへ進む"]
+
+style URGENT fill:#C0392B,color:#fff,stroke:#922B21
+style CAUTION fill:#E67E22,color:#fff,stroke:#CA6F1E
+style CLEAR fill:#1E8449,color:#fff,stroke:#196F3D
+style START fill:#2980B9,color:#fff,stroke:#2471A3
+</pre>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">NICE</div>
+      <div class="src-t">Headache Guidelines CG150（英国）</div>
+      <a class="src-url" href="https://www.nice.org.uk/guidance/cg150" target="_blank" rel="noopener noreferrer">nice.org.uk/guidance/cg150</a>
+    </div>
+    <div class="src">
+      <div class="src-org">AAN</div>
+      <div class="src-t">Headache Guidelines</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">aan.com/guidelines</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">エビデンス評価システム（AAN/EHF 標準）</h1>
+  </div>
+
+  <p>本ガイドのすべての推奨は、以下の国際標準グレードで分類されています。</p>
+
+  <h2>推奨グレード</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>グレード</th><th>基準</th><th>臨床的意義</th></tr></thead>
+      <tbody>
+        <tr><td><span class="bA">Grade A</span></td><td>≥2 件の一致した Class I RCT / 低異質性 Cochrane SR</td><td><strong>強く推奨</strong> — 実施すべきエビデンスが確立</td></tr>
+        <tr><td><span class="bB">Grade B</span></td><td>1 件の Class I RCT または ≥2 件の Class II 研究</td><td><strong>推奨</strong> — 有効である可能性が高い</td></tr>
+        <tr><td><span class="bC">Grade C</span></td><td>1 件の Class II または ≥2 件の Class III 研究</td><td><strong>考慮可能</strong> — 有効である可能性がある</td></tr>
+        <tr><td><span class="bU">Grade U</span></td><td>不十分・相反するエビデンス</td><td><strong>推奨不可</strong> — 現時点では判断困難</td></tr>
+        <tr><td>Expert</td><td>RCT なし・ガイドラインコンセンサスのみ</td><td><strong>専門家合意</strong> — 臨床経験に基づく</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>研究クラス定義</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>クラス</th><th>定義</th></tr></thead>
+      <tbody>
+        <tr><td>Class I</td><td>適切にマスクされた（盲検化された）高質な RCT</td></tr>
+        <tr><td>Class II</td><td>コホート研究・非盲検 RCT・症例対照研究（質の高いもの）</td></tr>
+        <tr><td>Class III</td><td>ケースコントロール・症例シリーズ</td></tr>
+        <tr><td>Class IV</td><td>専門家意見・ケースレポート・生理学的研究</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">AAN</div>
+      <div class="src-t">Clinical Practice Guideline Process Manual</div>
+      <a class="src-url" href="https://www.aan.com/Guidelines/Home/Development" target="_blank" rel="noopener noreferrer">aan.com/Guidelines/Home/Development</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">頭痛タイプ別 理学療法 適応フローチャート</h1>
+  </div>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 頭痛タイプ別 PT 適応判断</div>
+<pre class="mermaid">
+flowchart TD
+START(["✅ SNOOP4 クリア\nICHD-3 診断の確認へ"])
+START --> DX
+
+DX{"ICHD-3 診断分類"}
+DX -->|"片頭痛\n1.1 / 1.2"| MIG
+DX -->|"慢性片頭痛\n1.3"| CMIG
+DX -->|"緊張型頭痛\n2.1 / 2.2 / 2.3"| TTH
+DX -->|"頸因性頭痛\n11.2"| CEH
+DX -->|"群発頭痛\n3.1 / 3.2"| CH
+
+MIG{"頭痛頻度\n≥ 4日/月?"}
+MIG -->|"YES → 予防的PT"| MIG_H["予防プログラム（Priority）\n✅ 有酸素運動 Grade B\n✅ バイオフィードバック Grade A\n✅ 鍼療法 Grade B\n✅ 徒手療法 Grade B\n✅ リラクゼーション Grade B"]
+MIG -->|"NO → セルフケア主体"| MIG_L["セルフケア + 急性期対策\n✅ トリガー管理・日誌\n✅ リラクゼーション習得\n✅ ホーム有酸素運動"]
+
+CMIG["慢性片頭痛 — 包括的マルチモーダルPT\n✅ 有酸素運動 Grade B（必須）\n✅ バイオフィードバック Grade A（必須）\n✅ 認知行動療法 Grade B\n✅ 徒手療法 Grade B\n⚠️ 薬物療法（CGRP mAbs等）との並行が必須"]
+
+TTH{"慢性化?\n≥ 15日/月"}
+TTH -->|"YES → 慢性TTH"| CTTH["慢性緊張型頭痛 プロトコル\n✅ EMGバイオフィードバック Grade A\n✅ 徒手療法 Grade A\n✅ トリガーポイント療法 Grade B\n✅ 心理療法（CBT）Grade B\n✅ TENS Grade B"]
+TTH -->|"NO → エピソード性TTH"| ETTH["エピソード性TTH プロトコル\n✅ 徒手療法 Grade A\n✅ トリガーポイント療法 Grade B\n✅ 姿勢矯正 Expert\n✅ ホームストレッチ Expert"]
+
+CEH["頸因性頭痛 — PT が第一選択治療\n✅ 頸椎徒手療法 Grade A（最重要）\n✅ 特定頸部運動（深頸屈筋強化）Grade A\n✅ SNAG 手技 Grade A\n✅ 姿勢矯正 Grade B\n✅ エルゴノミクス介入 Grade B"]
+
+CH["群発頭痛 — PT は補完的役割\n⚠️ 急性期: 高流量酸素療法（第一選択）\n✅ ストレス・睡眠管理 Grade C\n✅ トリガー（アルコール・高度）回避\n✅ 生活リズム正常化 Expert"]
+
+style CMIG fill:#C0392B,color:#fff
+style CEH fill:#1E8449,color:#fff
+style CH fill:#7F8C8D,color:#fff
+style MIG_H fill:#2980B9,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">主要理学療法モダリティ 詳細解説</h1>
+  </div>
+
+  <h2>7-1. 徒手療法（Manual Therapy）</h2>
+  <p>徒手療法は、理学療法士・整骨医が手技によって頸椎・頭蓋周囲構造・軟組織に直接介入する方法です。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>手技名</th><th>対象部位</th><th>作用機序</th><th>主な適応頭痛</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>頸椎モビライゼーション</td><td>C1–C7 関節</td><td>関節受容器賦活・疼痛抑制</td><td>頸因性・TTH・片頭痛</td><td><span class="bA">A/B</span></td></tr>
+        <tr><td>高速低振幅テクニック（HVLA）</td><td>C1/C2 環軸関節</td><td>急速伸張による筋緊張緩和・オピオイド放出</td><td>頸因性頭痛</td><td><span class="bA">A</span></td></tr>
+        <tr><td>後頭下筋群抑制手技</td><td>後頭骨–環椎（C0–C1）</td><td>副交感神経賦活・局所虚血解除</td><td>片頭痛・TTH</td><td><span class="bB">B</span></td></tr>
+        <tr><td>SNAG（持続的自然椎間孔滑動）</td><td>頸椎各レベル</td><td>動的関節内圧変化・疼痛抑制</td><td>頸因性頭痛</td><td><span class="bA">A</span></td></tr>
+        <tr><td>筋エネルギー技法（MET）</td><td>頸椎・胸椎</td><td>交互抑制による筋緊張低下</td><td>TTH・頸因性</td><td><span class="bC">C</span></td></tr>
+        <tr><td>頭蓋仙骨療法（CST）</td><td>頭蓋縫合・仙骨</td><td>⚠️ 機序未確立</td><td>一部症例</td><td><span class="bU">U</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>ステップバイステップ: 後頭下筋群抑制手技（Suboccipital Inhibition）</h3>
+  <div class="steps">
+    <div class="step"><div class="step-t">患者を仰臥位に配置</div><div class="step-d">仰向けでリラックスした状態を確認する。</div></div>
+    <div class="step"><div class="step-t">術者の手を後頭骨下縁へ</div><div class="step-d">術者は患者の頭側に座り、両手第 2–4 指を後頭骨下縁に配置する。</div></div>
+    <div class="step"><div class="step-t">垂直方向に軽く圧迫</div><div class="step-d">C1–C2 後弓に向けて指の腹で垂直に軽く圧迫（5–8N 程度）。</div></div>
+    <div class="step"><div class="step-t">組織が緩むのを待つ</div><div class="step-d">「組織が緩むのを待つ」感覚で 4–8 分間保持する（強制しない）。</div></div>
+    <div class="step"><div class="step-t">徐々に圧力を解放・再評価</div><div class="step-d">圧力を徐々に解放し、頸部 ROM と圧痛を再評価する。</div></div>
+    <div class="step"><div class="step-t">コースで実施</div><div class="step-d">週 1–2 回 × 6–8 週のコースで実施する。</div></div>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">PubMed 2006</div>
+      <div class="src-t">Fernández-de-Las-Peñas C, et al. 虚血性圧迫・横断摩擦の即時効果</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/16533614/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/16533614</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane 2015</div>
+      <div class="src-t">Gross A, et al. 頸椎徒手療法レビュー</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004249.pub4" target="_blank" rel="noopener noreferrer">…CD004249.pub4</a>
+    </div>
+  </div>
+
+  <h2>7-2. 有酸素運動療法（Aerobic Exercise Therapy）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 有酸素運動が頭痛に効く神経生物学的機序</div>
+<pre class="mermaid">
+flowchart LR
+EX["🏃 有酸素運動\nの実施"]
+
+EX --> A["β-エンドルフィン ↑\n下降性疼痛抑制系の賦活"]
+EX --> B["セロトニン（5-HT）↑\n中縫線核からの放出"]
+EX --> C["CGRP産生の長期的正常化\n末梢・中枢 CGRP 動態"]
+EX --> D["BDNF ↑\n神経可塑性促進"]
+EX --> E["炎症性サイトカイン ↓\nIL-6 / TNF-α 抑制"]
+
+A & B & C & D & E --> EFFECT["✅ 片頭痛頻度の低下\n✅ 頭痛強度の軽減\n✅ 生活の質（QOL）の改善\n✅ 薬物使用量の減少"]
+
+style EX fill:#2980B9,color:#fff
+style EFFECT fill:#1E8449,color:#fff
+</pre>
+  </div>
+
+  <h3>国際標準 推奨プロトコル（AAN/EHF 準拠）</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>パラメータ</th><th>推奨値</th><th>根拠</th></tr></thead>
+      <tbody>
+        <tr><td>頻度</td><td>週 3 回</td><td>Varkey et al., 2011 RCT</td></tr>
+        <tr><td>強度</td><td>最大心拍数（HRmax）の 60–80%（中等度）</td><td>低強度では効果不十分</td></tr>
+        <tr><td>時間</td><td>45–60 分/セッション（有酸素フェーズ最低 30 分）</td><td>Cochrane SR</td></tr>
+        <tr><td>種類</td><td>自転車エルゴメータ・ウォーキング・水泳を優先</td><td>頭部への振動が少ない種目</td></tr>
+        <tr><td>継続期間</td><td><strong>最低 12 週間</strong>（効果発現に 8–12 週）</td><td>Varkey et al., 2011</td></tr>
+        <tr><td>開始前</td><td>安静時心電図・内科的リスク評価</td><td>AHA 運動ガイドライン</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>最大心拍数（HRmax）の計算</h3>
+  <div class="alert a-info">
+    <div class="alert-i">🧮</div>
+    <div><strong>HRmax（推定）= 220 − 年齢（歳）</strong>　例: 35 歳 → HRmax = 220 − 35 = <strong>185 bpm</strong>。これに目標強度（%）を掛けて運動ゾーンを算出します。</div>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ゾーン</th><th>%HRmax</th><th>35歳の目安</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>適応期</td><td>60%</td><td>約 111 bpm</td><td>開始期（適応）</td></tr>
+        <tr><td>維持期</td><td>70%</td><td>約 130 bpm</td><td>標準</td></tr>
+        <tr><td>上限</td><td>80%</td><td>約 148 bpm</td><td>慣れた患者</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>12 週間段階的プログラム</h3>
+  <div class="phase-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="ph ph1">
+      <div class="ph-icon">🟡</div>
+      <div class="ph-title">適応期</div>
+      <div class="ph-time">1–3 週 / 50–60% HRmax</div>
+      <div class="ph-desc">ウォーキング 20 分 × 週 3 回</div>
+    </div>
+    <div class="ph ph2">
+      <div class="ph-icon">🔵</div>
+      <div class="ph-title">漸増期</div>
+      <div class="ph-time">4–8 週 / 60–70% HRmax</div>
+      <div class="ph-desc">有酸素運動 30–45 分 × 週 3 回</div>
+    </div>
+    <div class="ph ph4">
+      <div class="ph-icon">🟢</div>
+      <div class="ph-title">維持期</div>
+      <div class="ph-time">9–12 週〜 / 70–80% HRmax</div>
+      <div class="ph-desc">有酸素運動 45–60 分 × 週 3 回</div>
+    </div>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Cephalalgia 2011</div>
+      <div class="src-t">Varkey E, et al. 運動 vs トピラマート vs リラクゼーション RCT</div>
+      <a class="src-url" href="https://journals.sagepub.com/doi/10.1177/0333102411412385" target="_blank" rel="noopener noreferrer">journals.sagepub.com/…0333102411412385</a>
+    </div>
+    <div class="src">
+      <div class="src-org">PubMed 2011</div>
+      <div class="src-t">Darabaneanu S, et al. 有酸素運動と片頭痛</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/21328195/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/21328195</a>
+    </div>
+  </div>
+
+  <h2>7-3. バイオフィードバック（Biofeedback）</h2>
+  <p>バイオフィードバックとは、通常意識できない体の生理的信号をリアルタイムで視覚化・聴覚化し、それを意識的にコントロールする訓練法です。</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — バイオフィードバックの作用ループ</div>
+<pre class="mermaid">
+flowchart TD
+A["体の生理信号\n（筋電図・皮膚温・心拍変動）"] --> B["センサーで計測\nモニター / 音でリアルタイム表示"]
+B --> C["患者が意識的に調整\n自律神経・筋緊張の自己制御"]
+C --> D["繰り返し訓練で\n制御能力が向上"]
+D --> E["✅ ストレス反応・筋緊張・血管収縮の低下\n→ 頭痛軽減"]
+E -.継続フィードバック.-> C
+
+style A fill:#fff3e0,stroke:#f57c00
+style E fill:#1E8449,color:#fff
+</pre>
+  </div>
+
+  <h3>主要な種類と適応</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>種類</th><th>計測パラメータ</th><th>主な適応</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td><strong>EMG バイオフィードバック</strong></td><td>前頭筋・僧帽筋の筋電図</td><td>緊張型頭痛（第一選択）</td><td><span class="bA">A</span></td></tr>
+        <tr><td><strong>熱（皮膚温）バイオフィードバック</strong></td><td>指先皮膚温（自律神経機能）</td><td>片頭痛</td><td><span class="bA">A</span></td></tr>
+        <tr><td><strong>HRV バイオフィードバック</strong></td><td>心拍変動（迷走神経機能）</td><td>慢性頭痛・片頭痛</td><td><span class="bB">B</span></td></tr>
+        <tr><td><strong>EEG ニューロフィードバック</strong></td><td>α/θ 波パターン</td><td>慢性頭痛（一部）</td><td><span class="bC">C</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>ステップバイステップ: EMG バイオフィードバック セッション手順</h3>
+  <div class="steps">
+    <div class="step"><div class="step-t">評価（ベースライン記録）</div><div class="step-d">電極を前頭筋（Fp1-Fp2）または僧帽筋上部に装着し、安静時筋電図を 3 分間記録（μV 単位）。</div></div>
+    <div class="step"><div class="step-t">フィードバック開始</div><div class="step-d">音または数値としてリアルタイム提示。音が低くなる（＝筋緊張が下がる）方向へ自発的に調整。</div></div>
+    <div class="step"><div class="step-t">技法の組み合わせ</div><div class="step-d">腹式呼吸（4-7-8 法）と視覚化（暖かく穏やかな場面の想像）を同時に実施。</div></div>
+    <div class="step"><div class="step-t">セッション管理</div><div class="step-d">1 セッション 20–30 分、頻度は週 2–3 回 × 8–12 週。</div></div>
+    <div class="step"><div class="step-t">ホームプラクティスへ移行</div><div class="step-d">携帯型 EMG デバイスで毎日 15–20 分の自主練習を推奨。</div></div>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Pain 2007</div>
+      <div class="src-t">Nestoriuc Y & Martin A. 片頭痛バイオフィードバック メタ解析</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/17097218/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/17097218</a>
+    </div>
+    <div class="src">
+      <div class="src-org">J Consult Clin Psychol 2008</div>
+      <div class="src-t">Nestoriuc Y, et al. 緊張型頭痛バイオフィードバック メタ解析</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/18426234/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/18426234</a>
+    </div>
+    <div class="src">
+      <div class="src-org">AAN 2012</div>
+      <div class="src-t">行動・理学療法ガイドライン</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/home/getguidelinecontent/383" target="_blank" rel="noopener noreferrer">aan.com/…getguidelinecontent/383</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane</div>
+      <div class="src-t">CBT/バイオフィードバック — 片頭痛予防</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2" target="_blank" rel="noopener noreferrer">…CD012295.pub2</a>
+    </div>
+  </div>
+
+  <h2>7-4. 経皮的電気神経刺激（TENS / Cefaly Device）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>機序</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ゲートコントロール理論</strong></td><td>Aβ 繊維の刺激が脊髄後角で痛み信号（Aδ/C 繊維）の伝達をブロック</td></tr>
+        <tr><td><strong>内因性オピオイド放出</strong></td><td>長時間刺激で β-エンドルフィン・エンケファリンの産生増加</td></tr>
+        <tr><td><strong>三叉神経調節（Cefaly）</strong></td><td>眼窩上神経（V1）の経皮的脱感作 → 三叉神経系の過活動を抑制</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Cefaly Device（眼窩上 TENS / FDA 承認デバイス）</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>FDA 承認年</td><td>2014年（急性期治療）/ 2020年（予防）</td></tr>
+        <tr><td>電極位置</td><td>前額部中央（眼窩上神経 / 三叉神経第1枝）</td></tr>
+        <tr><td>急性期使用</td><td>60 分/回（発作時）</td></tr>
+        <tr><td>予防的使用</td><td>20 分/日（毎日）</td></tr>
+        <tr><td>エビデンス</td><td><span class="bB">Grade B</span>（予防）/ <span class="bB">Grade B</span>（急性）</td></tr>
+        <tr><td>利点</td><td>副作用なし・在宅使用可能・MOH リスクゼロ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Neurology 2013</div>
+      <div class="src-t">Schoenen J, et al. 眼窩上 TENS による片頭痛予防 RCT</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/23401045/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/23401045</a>
+    </div>
+    <div class="src">
+      <div class="src-org">FDA</div>
+      <div class="src-t">医療機器データベース</div>
+      <a class="src-url" href="https://www.fda.gov/medical-devices" target="_blank" rel="noopener noreferrer">fda.gov/medical-devices</a>
+    </div>
+  </div>
+
+  <h2>7-5. 鍼療法（Acupuncture）</h2>
+  <p>鍼療法は東洋医学の枠を超えた科学的機序が解明されています。Cochrane Library の最新レビュー（Linde et al., 2016）では、鍼療法は片頭痛予防において予防薬（プロプラノロール／トピラマート）と<strong>同等以上の効果</strong>を示し、真の鍼療法は偽鍼より有意に優れていました。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>対象頭痛</th><th>グレード</th><th>NNT</th><th>主要研究</th></tr></thead>
+      <tbody>
+        <tr><td>片頭痛（予防）</td><td><span class="bB">B</span></td><td>約 5</td><td>Linde et al., Cochrane 2016</td></tr>
+        <tr><td>緊張型頭痛（予防）</td><td><span class="bB">B</span></td><td>約 6</td><td>Linde et al., Cochrane 2016</td></tr>
+        <tr><td>慢性頭痛（統合解析）</td><td><span class="bB">B</span></td><td>—</td><td>Acupuncture Trialists' Collaboration, 2017</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Cochrane 2016</div>
+      <div class="src-t">Linde K, et al. 鍼療法 — エピソード性片頭痛予防</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001218.pub3" target="_blank" rel="noopener noreferrer">…CD001218.pub3</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane 2016</div>
+      <div class="src-t">Linde K, et al. 鍼療法 — 緊張型頭痛予防</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007587.pub2" target="_blank" rel="noopener noreferrer">…CD007587.pub2</a>
+    </div>
+  </div>
+
+  <h2>7-6. 筋筋膜トリガーポイント療法</h2>
+  <p><strong>筋筋膜トリガーポイント（MTrP）</strong>とは、骨格筋の筋束内に存在する過敏な局所収縮帯（hyperirritable spot）です。頭痛患者では特定の頭頸部筋に活性型 MTrP が集中します。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>筋肉</th><th>関連する頭痛タイプ</th><th>典型的な関連痛パターン</th></tr></thead>
+      <tbody>
+        <tr><td>僧帽筋上部</td><td>TTH・片頭痛</td><td>こめかみ・側頭部</td></tr>
+        <tr><td>胸鎖乳突筋（SCM）</td><td>TTH・頸因性</td><td>前頭部・眼窩周囲・耳後</td></tr>
+        <tr><td>後頭下筋群</td><td>片頭痛・頸因性</td><td>後頭部 → 頭頂部 → 前頭部</td></tr>
+        <tr><td>咬筋</td><td>TTH（顎関節関連）</td><td>頬骨弓・こめかみ</td></tr>
+        <tr><td>側頭筋</td><td>TTH</td><td>側頭部・歯痛様</td></tr>
+        <tr><td>斜角筋群</td><td>頸因性</td><td>後頭部・肩甲骨間</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>手技</th><th>内容</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>虚血性圧迫法</td><td>指でトリガーポイントを 30–90 秒間持続圧迫</td><td><span class="bB">B</span></td></tr>
+        <tr><td>横断的摩擦マッサージ</td><td>筋繊維に直交する方向で摩擦刺激</td><td><span class="bC">C</span></td></tr>
+        <tr><td>ドライニードリング</td><td>鍼でトリガーポイントを刺激（局所攣縮反応 LTR 誘発）</td><td><span class="bB">B</span></td></tr>
+        <tr><td>スプレー＆ストレッチ</td><td>寒冷スプレー後に筋肉を伸張</td><td><span class="bC">C</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Headache 2006</div>
+      <div class="src-t">Fernández-de-Las-Peñas C, et al. MTrP と慢性 TTH の臨床パラメータ</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/16942467/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/16942467</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cephalalgia 2007</div>
+      <div class="src-t">Fernández-de-Las-Peñas C, et al. MTrP と感作 — TTH 統合疼痛モデル</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/17359516/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/17359516</a>
+    </div>
+  </div>
+
+  <h2>7-7. 姿勢矯正・エルゴノミクス</h2>
+  <div class="alert a-warn">
+    <div class="alert-i">📐</div>
+    <div><strong>前方頭位姿勢（FHP）の負荷:</strong> 頭部が 1 cm 前方にずれるごとに頸椎の有効負荷が約 <strong>2.2 kg</strong> 増加します。通常の頭部重量 ≒ 5 kg ですが、スマートフォンを見る際（45° 前屈）の有効負荷は <strong class="tR">約 22 kg</strong> に達します。この慢性的な過負荷が後頭下筋・僧帽筋の緊張亢進と TCC 感作を促進します。</div>
+  </div>
+  <h3>ワークステーション評価チェックリスト</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>評価項目</th><th>推奨設定</th></tr></thead>
+      <tbody>
+        <tr><td>モニター高さ</td><td>視線より僅かに下（視線 5–15° 下向き）</td></tr>
+        <tr><td>モニター距離</td><td>50–70 cm（腕を伸ばした距離）</td></tr>
+        <tr><td>椅子の高さ</td><td>膝 90°・大腿が水平・足底が床に接地</td></tr>
+        <tr><td>キーボード位置</td><td>肘が 90–110° に屈曲する高さ</td></tr>
+        <tr><td>頸部中立位</td><td>耳孔が肩峰の直上になるよう</td></tr>
+        <tr><td>スマートフォン</td><td>視線の高さに近づける（うつむき姿勢を回避）</td></tr>
+        <tr><td>定期的な休憩</td><td>30–60 分ごとに立位・頸部ストレッチ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>7-8. 温熱・寒冷療法（Thermal Therapy）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>種類</th><th>適応</th><th>方法</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td><strong>温熱</strong></td><td>筋緊張性頭痛・TTH</td><td>頸部後面に温湿布 15–20 分</td><td><span class="bC">C</span> / Expert</td></tr>
+        <tr><td><strong>寒冷</strong></td><td>片頭痛急性期</td><td>側頭部・頸部に ice pack 10–15 分</td><td><span class="bC">C</span></td></tr>
+        <tr><td><strong>温冷交互浴</strong></td><td>頸部循環改善</td><td>3 分温 → 1 分冷 × 3 サイクル</td><td>Expert</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-danger">
+    <div class="alert-i">⚠️</div>
+    <div>急性炎症期・皮膚感覚障害・末梢循環障害がある場合は<strong>禁忌</strong>です。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">ステップバイステップ 臨床プロトコル（頭痛タイプ別）</h1>
+  </div>
+
+  <h2>8-1. 片頭痛（ICHD-3: 1.1 / 1.2）プロトコル</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 片頭痛 理学療法プロトコル</div>
+<pre class="mermaid">
+flowchart TD
+START(["片頭痛患者\nSNOOP4 クリア確認済み"])
+START --> ASSESS
+
+ASSESS{"障害度・頻度の評価\n（ベースライン30日間の頭痛日誌）"}
+ASSESS --> HIGH["高障害度 / 高頻度\nHIT-6 ≥ 60 または MIDAS ≥ 21\nまたは ≥ 4 頭痛日/月\n→ 予防的PTプログラム（必須）"]
+ASSESS --> LOW["低障害度 / 低頻度\nHIT-6 &lt; 60 かつ MIDAS &lt; 21\nかつ &lt; 4 頭痛日/月\n→ セルフケア主体"]
+
+HIGH --> P1["Phase 1: 評価・基盤形成\n週 1–2 回 × 4 週"]
+P1 --> P1A["ベースライン評価\nHIT-6 / MIDAS / VAS を記録\n頭痛日誌 30 日間継続"]
+P1A --> P1B["主要トリガーの同定\n環境・食事・睡眠・ストレス・ホルモン"]
+P1B --> P1C["有酸素運動を開始\nウォーキング 20 分 × 週 3 回\n（HRmax の 50–60%）"]
+P1C --> P2
+
+P2["Phase 2: 積極的 PT 介入\n週 2–3 回 × 8 週"]
+P2 --> P2A["バイオフィードバック\n熱 or EMG / Grade A"]
+P2 --> P2B["有酸素運動 漸増\n30–45 分 × 週 3 回（60–70%）"]
+P2 --> P2C["後頭下筋群 徒手療法\n週 1–2 回（Grade B）"]
+P2 --> P2D["リラクゼーション訓練\n腹式呼吸 / PMR / マインドフルネス"]
+P2A & P2B & P2C & P2D --> P3
+
+P3["Phase 3: 維持・自己管理\n月 2–4 回 × 継続"]
+P3 --> P3A["ホームエクササイズ完全確立\n有酸素運動 45–60 分 × 週 3 回"]
+P3A --> P3B["3 ヶ月評価\nHIT-6 / MIDAS / 頭痛日誌を再評価"]
+
+P3B --> OUTCOME{"目標達成?\n頭痛日数 ≥ 50% 減少"}
+OUTCOME -->|"✅ YES"| SUCCESS["維持プログラムへ移行\n3–6 ヶ月ごとに再評価"]
+OUTCOME -->|"❌ NO"| ADJUST["プログラム調整\nCGRP mAbs / トピラマート等を追加\n神経内科専門医へ紹介"]
+
+LOW --> LA["セルフケア指導\nトリガー管理・日誌継続\nホーム有酸素運動の習慣化\nリラクゼーション習得"]
+
+style SUCCESS fill:#1E8449,color:#fff
+style ADJUST fill:#C0392B,color:#fff
+style HIGH fill:#E67E22,color:#fff
+style LOW fill:#2980B9,color:#fff
+</pre>
+  </div>
+
+  <h3>週次スケジュール例（Phase 2）</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>曜日</th><th>内容</th><th>時間</th></tr></thead>
+      <tbody>
+        <tr><td>月</td><td>有酸素運動（自転車エルゴメータ／ウォーキング）</td><td>45 分</td></tr>
+        <tr><td>火</td><td>バイオフィードバック（クリニック）＋ 頸部徒手療法</td><td>60 分</td></tr>
+        <tr><td>水</td><td>有酸素運動</td><td>45 分</td></tr>
+        <tr><td>木</td><td>リラクゼーション訓練（腹式呼吸・PMR）</td><td>20 分</td></tr>
+        <tr><td>金</td><td>バイオフィードバック（クリニック／ホームデバイス）</td><td>30 分</td></tr>
+        <tr><td>土</td><td>有酸素運動（やや長め）</td><td>60 分</td></tr>
+        <tr><td>日</td><td>休息 ＋ 頭痛日誌の記録・振り返り</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8-2. 緊張型頭痛（ICHD-3: 2.1–2.3）プロトコル</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 緊張型頭痛 理学療法プロトコル</div>
+<pre class="mermaid">
+flowchart TD
+START(["緊張型頭痛患者\nSNOOP4 クリア確認済み"])
+START --> TYPE
+
+TYPE{"ICHD-3 頻度分類"}
+TYPE -->|"&lt; 1 日/月\n2.1"| INFREQ["非頻発性 TTH\nセルフケア主体で十分"]
+TYPE -->|"1–14 日/月\n2.2"| FREQ["頻発性 TTH\n積極的 PT 介入"]
+TYPE -->|"≥ 15 日/月\n2.3"| CHRONIC["慢性 TTH\n包括的マルチモーダル介入"]
+
+INFREQ --> INF1["セルフケア指導\n✅ 姿勢矯正と意識化\n✅ 頸部ストレッチ\n✅ 睡眠衛生の改善\n✅ ストレス管理の基礎"]
+
+FREQ --> F1["Step 1: 初期評価\n頸椎 ROM 測定\nMTrP マッピング\nFHP 角度の評価"]
+F1 --> F2["Step 2: トリガーポイント療法\n僧帽筋上部・SCM・側頭筋・後頭下筋群\n虚血性圧迫法 週 2–3 回 × 6–8 週\nGrade B"]
+F2 --> F3["Step 3: 頸椎徒手療法\nモビライゼーション\n週 1–2 回 × 6 週 / Grade A"]
+F3 --> F4["Step 4: EMG バイオフィードバック\n前頭筋・僧帽筋\n週 2–3 回 × 8 週 / Grade A"]
+F4 --> F5["Step 5: ホームプログラム確立\n頸部ストレッチ × 3 回/日\n姿勢チェック × 1 時間ごと\nリラクゼーション × 毎日 20 分"]
+
+CHRONIC --> CH1["多専門チームアプローチ\n理学療法 + 心理療法（CBT）+ 薬物療法\nアミトリプチリン等の予防薬を検討"]
+
+style CHRONIC fill:#C0392B,color:#fff
+style FREQ fill:#E67E22,color:#fff
+style INFREQ fill:#1E8449,color:#fff
+</pre>
+  </div>
+
+  <h3>ホームストレッチプログラム（毎日実施）</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ストレッチ名</th><th>対象筋</th><th>方法</th><th>回数/日</th></tr></thead>
+      <tbody>
+        <tr><td>頸部側屈ストレッチ</td><td>胸鎖乳突筋・斜角筋</td><td>耳を肩に近づけ 20 秒保持</td><td>3 回 × 3 セット</td></tr>
+        <tr><td>頸部前屈ストレッチ</td><td>後頭下筋群</td><td>顎を胸に近づけ 20 秒保持</td><td>3 回 × 3 セット</td></tr>
+        <tr><td>肩甲骨後退運動</td><td>僧帽筋中部・菱形筋</td><td>肩甲骨を中央に引き寄せ 10 秒</td><td>10 回 × 3 セット</td></tr>
+        <tr><td>胸椎伸展（タオルロール）</td><td>脊柱起立筋・大胸筋</td><td>胸椎下にタオルを置き仰向けで伸展</td><td>5 分</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8-3. 頸因性頭痛（ICHD-3: 11.2）プロトコル</h2>
+  <div class="alert a-ok">
+    <div class="alert-i">💡</div>
+    <div><strong>重要:</strong> 頸因性頭痛において、理学療法は薬物療法と<strong>同等以上の主要治療手段</strong>です（Jull et al., 2002）。</div>
+  </div>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 頸因性頭痛 理学療法プロトコル</div>
+<pre class="mermaid">
+flowchart TD
+START(["頸因性頭痛 ICHD-3: 11.2\nSNOOP4 クリア確認済み"])
+START --> DIAG
+
+DIAG["診断確認基準\n✅ 頸椎・頸部構造に起因\n✅ 頸部運動／圧迫で頭痛が誘発\n✅ 頸部への介入で頭痛が軽減\n✅ 通常は一側性"]
+DIAG --> EVAL
+
+EVAL["Step 1: 包括的頸椎評価"]
+EVAL --> E1["頸椎 ROM（屈曲/伸展/回旋/側屈）\nPPIVM テスト\n頸部深部屈筋の筋力・持久力\nFHP 角度の計測"]
+E1 --> MANUAL
+
+MANUAL["Step 2: 徒手療法（最重要介入）"]
+MANUAL --> M1["頸椎モビライゼーション\nC2–C3 中心 / Grade A"]
+MANUAL --> M2["SNAG 手技（Mulligan Concept）\n自動運動＋術者の滑動補助 / Grade A"]
+MANUAL --> M3["HVLA マニピュレーション\nC1–C2 / ⚠️ VAT 実施後にのみ / Grade A"]
+M1 & M2 & M3 --> EXERCISE
+
+EXERCISE["Step 3: 特定頸部運動療法"]
+EXERCISE --> EX1["深頸屈筋強化\nCCFT で評価 / 漸進的抵抗運動"]
+EXERCISE --> EX2["頸椎固有感覚訓練\n目標追跡・頭部リポジショニング"]
+EXERCISE --> EX3["肩甲骨安定化運動\n前鋸筋・菱形筋・ローテーターカフ"]
+EX1 & EX2 & EX3 --> POSTURE
+
+POSTURE["Step 4: 姿勢矯正 + エルゴノミクス"]
+POSTURE --> PO1["FHP 修正プログラム\n胸椎伸展 / チン・タック運動"]
+PO1 --> OUTCOME
+
+OUTCOME["Step 5: アウトカム評価（3–6 週ごと）"]
+OUTCOME --> RESULT
+
+RESULT{"治療効果（6 週後）"}
+RESULT -->|"✅ 良好"| MAINTAIN["維持プログラムへ移行\nホームエクササイズ確立\n3 ヶ月ごとフォローアップ"]
+RESULT -->|"❌ 不十分"| REFER["⚠️ 神経ブロック療法を検討\n後頭神経/第3後頭神経ブロック\nペインクリニックへ紹介\n画像再評価（MRI）"]
+
+style MAINTAIN fill:#1E8449,color:#fff
+style REFER fill:#C0392B,color:#fff
+</pre>
+  </div>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Spine 2002</div>
+      <div class="src-t">Jull G, et al. 頸因性頭痛への運動＋徒手療法 RCT</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/12529905/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/12529905</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h1 class="sec-title">全モダリティ エビデンスサマリー比較表</h1>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>モダリティ</th><th>片頭痛</th><th>緊張型</th><th>頸因性</th><th>慢性頭痛</th><th>主要ガイドライン</th></tr></thead>
+      <tbody>
+        <tr><td>徒手療法（モビライゼーション）</td><td><span class="bB">B</span></td><td><span class="bA">A</span></td><td><span class="bA">A</span></td><td><span class="bB">B</span></td><td>AAN / EHF / NICE</td></tr>
+        <tr><td>頸椎マニピュレーション（HVLA）</td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td><span class="bA">A</span></td><td><span class="bC">C</span></td><td>Cochrane</td></tr>
+        <tr><td>有酸素運動療法</td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td>AAN 2012</td></tr>
+        <tr><td>EMG バイオフィードバック</td><td><span class="bB">B</span></td><td><span class="bA">A</span></td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td>AAN 2012</td></tr>
+        <tr><td>熱バイオフィードバック</td><td><span class="bA">A</span></td><td><span class="bC">C</span></td><td><span class="bU">U</span></td><td><span class="bB">B</span></td><td>AAN 2012</td></tr>
+        <tr><td>リラクゼーション療法</td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td>AAN 2012</td></tr>
+        <tr><td>認知行動療法（CBT）</td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td>Cochrane</td></tr>
+        <tr><td>鍼療法</td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td>Cochrane</td></tr>
+        <tr><td>TENS（Cefaly 眼窩上）</td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bU">U</span></td><td><span class="bC">C</span></td><td>FDA / Schoenen 2013</td></tr>
+        <tr><td>トリガーポイント療法</td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bC">C</span></td><td>PubMed SR</td></tr>
+        <tr><td>ドライニードリング</td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td><span class="bB">B</span></td><td><span class="bC">C</span></td><td>EHF</td></tr>
+        <tr><td>温熱・寒冷療法</td><td><span class="bC">C</span></td><td><span class="bC">C</span></td><td><span class="bC">C</span></td><td><span class="bU">U</span></td><td>Expert</td></tr>
+        <tr><td>姿勢矯正・エルゴノミクス</td><td>Expert</td><td><span class="bC">C</span></td><td><span class="bB">B</span></td><td>Expert</td><td>Expert</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">AAN 2012</div>
+      <div class="src-t">ガイドライン一覧（頭痛）</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">aan.com/guidelines</a>
+    </div>
+    <div class="src">
+      <div class="src-org">EHF</div>
+      <div class="src-t">ガイドライン（PMC）</div>
+      <a class="src-url" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov/pmc/articles/PMC9188162</a>
+    </div>
+    <div class="src">
+      <div class="src-org">NICE</div>
+      <div class="src-t">頭痛ガイドライン CG150</div>
+      <a class="src-url" href="https://www.nice.org.uk/guidance/cg150" target="_blank" rel="noopener noreferrer">nice.org.uk/guidance/cg150</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane</div>
+      <div class="src-t">Cochrane Library</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/" target="_blank" rel="noopener noreferrer">cochranelibrary.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 10 -->
+<section id="s10" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">10</div>
+    <h1 class="sec-title">特殊集団への適用</h1>
+  </div>
+
+  <h2>10.1 小児・思春期（&lt; 18 歳）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>モダリティ</th><th>推奨・注意事項</th></tr></thead>
+      <tbody>
+        <tr><td>有酸素運動</td><td>✅ 強く推奨 / 年齢・発達段階に応じて強度・時間を調整</td></tr>
+        <tr><td>バイオフィードバック</td><td>✅ 非常に有効（Grade A）/ 薬物の代替として優先（10歳以上）</td></tr>
+        <tr><td>徒手療法</td><td>⚠️ HVLA は慎重に / モビライゼーションを優先</td></tr>
+        <tr><td>TENS</td><td>⚠️ 12 歳未満は安全性データ限定的 / 医師判断のもとで</td></tr>
+        <tr><td>スクリーンタイム管理</td><td>✅ 重要なトリガー介入（1日2時間以内を推奨）</td></tr>
+        <tr><td>睡眠衛生</td><td>✅ 特に重要 / 規則的な就寝・起床時間の確立</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>10.2 妊娠・授乳期</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>モダリティ</th><th>推奨・注意事項</th></tr></thead>
+      <tbody>
+        <tr><td>有酸素運動</td><td>✅ 軽–中等度（ウォーキング・水中運動）/ 産科医と連携</td></tr>
+        <tr><td>バイオフィードバック</td><td>✅ <strong>第一選択の非薬物療法</strong>として最優先</td></tr>
+        <tr><td>徒手療法</td><td>⚠️ 仰臥位での子宮圧迫を避ける / 腰椎への圧迫は注意</td></tr>
+        <tr><td>鍼療法</td><td>⚠️ 禁忌ツボ（LI4 合谷・SP6 三陰交）を厳守</td></tr>
+        <tr><td>温熱療法</td><td>⚠️ 体温上昇（&gt; 38.9°C）を回避 / 全身温浴・サウナは禁忌</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>10.3 高齢者（&gt; 65 歳）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>モダリティ</th><th>推奨・注意事項</th></tr></thead>
+      <tbody>
+        <tr><td>有酸素運動</td><td>✅ 低強度（HRmax 50–60%）から開始 / 転倒リスク評価を先行</td></tr>
+        <tr><td>徒手療法</td><td>⚠️ 骨粗鬆症の評価が必須 / HVLA は原則回避</td></tr>
+        <tr><td>TENS</td><td>✅ 比較的安全 / ペースメーカー・植込み型機器装着者は絶対禁忌</td></tr>
+        <tr><td>バランス訓練</td><td>✅ 前庭機能・固有感覚トレーニングを追加</td></tr>
+        <tr><td>認知機能評価</td><td>✅ MoCA 等で評価後にプログラム設定</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>10.4 薬物過用性頭痛（MOH）からの回復期</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>段階</th><th>PT の役割</th><th>注意点</th></tr></thead>
+      <tbody>
+        <tr><td>過用薬物中断期（1–2 週）</td><td>⚠️ 離脱症状のモニタリング / 支持的ケアのみ</td><td>急性痛の増悪が一時的に起こりうる</td></tr>
+        <tr><td>回復初期（2–8 週）</td><td>✅ バイオフィードバック・リラクゼーション優先</td><td>依存衝動への行動支援</td></tr>
+        <tr><td>安定期（8 週–）</td><td>✅ 有酸素運動・徒手療法・完全な PT プログラム</td><td>全モダリティの段階的導入</td></tr>
+        <tr><td>再発予防（長期）</td><td>✅ 薬物使用日数の継続モニタリング教育</td><td>頭痛日誌を永続的に継続</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 11 -->
+<section id="s11" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">11</div>
+    <h1 class="sec-title">マルチモーダル統合アプローチ</h1>
+  </div>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 慢性／高頻度頭痛への統合アプローチ</div>
+<pre class="mermaid">
+flowchart TD
+CORE["慢性片頭痛 / 高頻度頭痛\n包括的マルチモーダルアプローチ"]
+
+CORE --> PHARMA["💊 薬物療法"]
+CORE --> PT["🏃 理学療法"]
+CORE --> PSYCH["🧠 心理・行動療法"]
+CORE --> NUTR["🌿 栄養・サプリメント"]
+CORE --> LIFE["⏰ ライフスタイル管理"]
+
+PHARMA --> P1["急性期: トリプタン / ゲパント\nGrade A"]
+PHARMA --> P2["予防: β遮断薬 / CGRP mAbs\nGrade A"]
+
+PT --> PT1["有酸素運動 Grade B"]
+PT --> PT2["バイオフィードバック Grade A"]
+PT --> PT3["徒手療法 Grade B"]
+
+PSYCH --> PS1["認知行動療法（CBT）Grade B"]
+PSYCH --> PS3["ストレス管理 Grade B"]
+
+NUTR --> N1["マグネシウム 400–600 mg/日\nGrade A（AAN/EHF 推奨）"]
+NUTR --> N2["リボフラビン（B2）400 mg/日\nGrade B"]
+NUTR --> N3["CoQ10 300 mg/日\nGrade B"]
+
+LIFE --> L1["睡眠衛生 7–8 時間"]
+LIFE --> L2["水分補給 1.5–2L/日"]
+LIFE --> L3["食事トリガー管理"]
+
+PT1 & PS3 & N1 & L1 --> SYNERGY["✨ 相乗効果（Synergistic Effect）\n単剤アプローチより優れた転帰\n頭痛頻度 ≥ 50% 減少の達成"]
+
+style CORE fill:#2C3E50,color:#fff
+style SYNERGY fill:#F39C12,color:#fff
+</pre>
+  </div>
+
+  <h3>統合アプローチのエビデンス</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>比較</th><th>効果</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>薬物 + PT vs 薬物単独</td><td>頭痛頻度 30–40% の追加減少</td><td><span class="bB">B</span></td></tr>
+        <tr><td>バイオフィードバック + 薬物 vs 薬物単独</td><td>薬物使用量の有意な減少</td><td><span class="bA">A</span></td></tr>
+        <tr><td>有酸素運動 + トピラマート vs 単独</td><td>同等以上の予防効果・副作用減少</td><td><span class="bB">B</span></td></tr>
+        <tr><td>CBT + 薬物 vs 薬物単独</td><td>再発防止・QOL 改善</td><td><span class="bB">B</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">JAMA 2001</div>
+      <div class="src-t">Holroyd KA, et al. 慢性 TTH — 三環系＋ストレス管理 RCT</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/11325323/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/11325323</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 12 -->
+<section id="s12" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">12</div>
+    <h1 class="sec-title">アウトカム評価ツール</h1>
+  </div>
+  <h2>12.1 主要評価ツール一覧</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ツール</th><th>評価内容</th><th>スコア解釈</th><th>実施タイミング</th></tr></thead>
+      <tbody>
+        <tr><td><strong>HIT-6</strong></td><td>頭痛による日常生活への影響</td><td>≥60 重篤 / 50–59 実質的 / 36–49 中等度 / &lt;36 軽微</td><td>開始時 / 3 ヶ月ごと</td></tr>
+        <tr><td><strong>MIDAS</strong></td><td>仕事・家事・社会活動の損失日数（3ヶ月）</td><td>≥21 GradeIV / 11–20 III / 6–10 II / 0–5 I</td><td>開始時 / 3 ヶ月ごと</td></tr>
+        <tr><td><strong>VAS / NRS</strong></td><td>疼痛強度（0–10）</td><td>0 無痛 / 1–3 軽度 / 4–6 中等度 / 7–10 重篤</td><td>毎回の治療前後</td></tr>
+        <tr><td><strong>PGIC</strong></td><td>患者の全体的改善印象</td><td>7段階（著明改善→著明悪化）</td><td>8 週後 / 治療終了時</td></tr>
+        <tr><td><strong>MSQ v2.1</strong></td><td>片頭痛特異的 QOL（4 ドメイン）</td><td>0–100（高値＝良好）</td><td>開始時 / 3 ヶ月ごと</td></tr>
+        <tr><td><strong>頭痛日誌</strong></td><td>頻度・強度・持続・トリガー・薬物</td><td>月次で集計・グラフ化</td><td>毎日継続</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h2>12.2 Evidence-Based 治療目標</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>評価指標</th><th>最低成功基準（MCID）</th><th>優良基準</th></tr></thead>
+      <tbody>
+        <tr><td>頭痛日数/月</td><td><strong>≥ 50% 減少</strong></td><td>≥ 75% 減少</td></tr>
+        <tr><td>HIT-6 スコア</td><td>≥ 6 点改善（MCID）</td><td>&lt; 50 点（正常域）</td></tr>
+        <tr><td>MIDAS スコア</td><td>グレード 1 段階以上の改善</td><td>Grade I / II への移行</td></tr>
+        <tr><td>薬物使用日数</td><td>MOH 閾値以下（&lt; 8–10 日/月）</td><td>≤ 4 日/月</td></tr>
+        <tr><td>VAS ピーク強度</td><td>≥ 30% 低下</td><td>≥ 50% 低下</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Qual Life Res 2003</div>
+      <div class="src-t">Kosinski M, et al. HIT-6 の MCID 検証</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/12789668/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/12789668</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 13 -->
+<section id="s13" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">13</div>
+    <h1 class="sec-title">患者教育・セルフケアプログラム</h1>
+  </div>
+
+  <h2>13.1 頭痛日誌の使い方</h2>
+  <p>頭痛日誌は、治療介入前の <strong>30 日間ベースライン</strong>の客観的確立、トリガーパターンの同定、薬物使用日数のモニタリング（MOH の早期発見）に不可欠です。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>記録項目</th><th>記録内容</th></tr></thead>
+      <tbody>
+        <tr><td>発症日時</td><td>発症時刻・終了時刻・持続時間</td></tr>
+        <tr><td>痛みの強度</td><td>VAS / NRS 0–10（発症時・ピーク・2時間後）</td></tr>
+        <tr><td>痛みの部位</td><td>左/右/両側/前頭/後頭/こめかみ</td></tr>
+        <tr><td>痛みの性質</td><td>拍動性 / 圧迫感 / 刺すような</td></tr>
+        <tr><td>随伴症状</td><td>悪心・嘔吐・光過敏・音過敏・前兆</td></tr>
+        <tr><td>推定トリガー</td><td>食事・睡眠変化・ストレス・天気・月経</td></tr>
+        <tr><td>使用薬物</td><td>薬剤名・用量・使用時刻・効果（0–10）</td></tr>
+        <tr><td>日常活動への影響</td><td>仕事・家事・社会活動の支障度</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">📱</div>
+    <div>推奨デジタルツール: <strong>Migraine Buddy</strong>（頭痛専用 iOS/Android アプリ）、<strong>N1-Headache</strong>（機械学習によるトリガー分析）</div>
+  </div>
+
+  <h2>13.2 腹式呼吸法（4-7-8 法）— 副交感神経賦活</h2>
+  <p>腹式呼吸は迷走神経（副交感神経）を賦活し、頭痛の誘発因子となる交感神経過活動を直接抑制します。</p>
+  <div class="steps">
+    <div class="step"><div class="step-t">姿勢をとる</div><div class="step-d">仰臥位または椅座位でリラックスした姿勢をとる。</div></div>
+    <div class="step"><div class="step-t">4 秒で吸う</div><div class="step-d">鼻から 4 秒かけてゆっくり息を吸う（腹部を膨らませる）。</div></div>
+    <div class="step"><div class="step-t">7 秒止める</div><div class="step-d">息を止めて 7 秒間保持する。</div></div>
+    <div class="step"><div class="step-t">8 秒で吐く</div><div class="step-d">口から 8 秒かけてゆっくり息を吐く（腹部をへこませる）。</div></div>
+    <div class="step"><div class="step-t">4 サイクル繰り返す</div><div class="step-d">これを 1 サイクルとして 4 サイクル。1 日 2 回（朝＋就寝前）毎日継続。</div></div>
+  </div>
+
+  <h2>13.3 段階的セルフケア（患者向け 5 ステップ）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 患者向けセルフケア 5 ステップ</div>
+<pre class="mermaid">
+flowchart TD
+S1["① 頭痛日誌を開始\n最低 30 日間のベースライン収集"]
+S2["② 主要トリガーを 2–3 個同定\n排除または管理戦略を立てる"]
+S3["③ 生活リズムの確立\n規則的な睡眠・欠食なし・水分 1.5–2L/日"]
+S4["④ 有酸素運動の習慣化\n週 3 回（ウォーキング 20 分から開始）"]
+S5["⑤ リラクゼーションの実践\n腹式呼吸・PMR を毎日 15–20 分"]
+
+S1 --> S2 --> S3 --> S4 --> S5
+
+style S1 fill:#fff3e0,stroke:#f57c00
+style S5 fill:#1E8449,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 14 -->
+<section id="s14" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">14</div>
+    <h1 class="sec-title">禁忌・注意事項・安全管理</h1>
+  </div>
+
+  <h2>14.1 頸椎徒手療法（特に HVLA）の禁忌</h2>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>カテゴリ</th><th>具体的禁忌</th></tr></thead>
+      <tbody>
+        <tr><td><strong class="tR">絶対禁忌 ⛔</strong></td><td>椎骨動脈解離（VAD）の疑いまたは確定診断</td></tr>
+        <tr><td><strong class="tR">絶対禁忌 ⛔</strong></td><td>脊髄症（myelopathy）/ 頸椎骨折・脱臼</td></tr>
+        <tr><td><strong class="tR">絶対禁忌 ⛔</strong></td><td>頸椎腫瘍（原発性・転移性）</td></tr>
+        <tr><td><strong class="tR">絶対禁忌 ⛔</strong></td><td>頸椎手術後早期（術後 3–6 ヶ月 / 医師の許可まで）</td></tr>
+        <tr><td><strong class="tO">相対禁忌 ⚠️</strong></td><td>重度骨粗鬆症（T スコア &lt; −2.5）</td></tr>
+        <tr><td><strong class="tO">相対禁忌 ⚠️</strong></td><td>リウマチ性関節炎（C1–C2 不安定性）</td></tr>
+        <tr><td><strong class="tO">相対禁忌 ⚠️</strong></td><td>大量抗凝固薬使用 / 凝固障害</td></tr>
+        <tr><td>要確認</td><td>椎骨動脈検査（VAT）を HVLA 前に必ず実施</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-danger">
+    <div class="alert-i">🧠</div>
+    <div><strong>頸椎マニピュレーションと脳卒中リスク:</strong> HVLA 後の椎骨動脈解離（VAD）は稀ですが報告されています（推定頻度: 約 1/100万回）。リスク最小化のため HVLA 前に必ず<strong>椎骨動脈スクリーニングテスト</strong>を実施してください。</div>
+  </div>
+
+  <h2>14.2 有酸素運動の禁忌・注意事項</h2>
+  <div class="tbl th-orange">
+    <table>
+      <thead><tr><th>状態</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr><td>急性片頭痛発作中</td><td>⚠️ 激しい運動は症状悪化の可能性 / 軽歩行は許容</td></tr>
+        <tr><td>未治療・管理不十分な心血管疾患</td><td>⛔ 循環器内科の評価・許可を得てから開始</td></tr>
+        <tr><td>重篤な貧血（Hb &lt; 8 g/dL）</td><td>⚠️ 貧血自体が頭痛の原因となりうる / 補正後に開始</td></tr>
+        <tr><td>重篤な起立性低血圧</td><td>⚠️ 段階的な強度増加・監視下での実施</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>14.3 TENS の禁忌</h2>
+  <div class="tbl th-orange">
+    <table>
+      <thead><tr><th>禁忌</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>心臓ペースメーカー装着</td><td>電気干渉による誤作動リスク</td></tr>
+        <tr><td>妊娠（腹部・腰部への使用）</td><td>子宮収縮誘発の懸念</td></tr>
+        <tr><td>皮膚感覚障害部位への貼付</td><td>熱傷・電気損傷リスク</td></tr>
+        <tr><td>活動性皮膚炎・皮膚病変部</td><td>電極貼付不可</td></tr>
+        <tr><td>てんかん（頭部近傍への使用）</td><td>発作誘発リスク</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 15 -->
+<section id="s15" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">15</div>
+    <h1 class="sec-title">参考文献・エビデンスソース一覧</h1>
+  </div>
+
+  <p class="src-sep">🏛️ 国際診断基準</p>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">ICHD-3 公式サイト（全文閲覧可）</div>
+      <a class="src-url" href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ichd-3.org</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">ICHD-3 全文 PDF（2018年版）</div>
+      <a class="src-url" href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf" target="_blank" rel="noopener noreferrer">ichd-3.org/…ICHD-3rd-Edition-2018.pdf</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS</div>
+      <div class="src-t">分類委員会（ICHD-4 最新動向含む）</div>
+      <a class="src-url" href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/" target="_blank" rel="noopener noreferrer">ihs-headache.org/…/classification</a>
+    </div>
+  </div>
+
+  <p class="src-sep">📋 臨床ガイドライン</p>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">AAN</div>
+      <div class="src-t">ガイドライン一覧（頭痛）</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">aan.com/guidelines</a>
+    </div>
+    <div class="src">
+      <div class="src-org">AAN 2012</div>
+      <div class="src-t">行動・理学療法ガイドライン</div>
+      <a class="src-url" href="https://www.aan.com/guidelines/home/getguidelinecontent/383" target="_blank" rel="noopener noreferrer">aan.com/…getguidelinecontent/383</a>
+    </div>
+    <div class="src">
+      <div class="src-org">EHF 2022</div>
+      <div class="src-t">CGRP mAbs 予防療法ガイドライン</div>
+      <a class="src-url" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov/pmc/articles/PMC9188162</a>
+    </div>
+    <div class="src">
+      <div class="src-org">NICE</div>
+      <div class="src-t">頭痛ガイドライン CG150（英国）</div>
+      <a class="src-url" href="https://www.nice.org.uk/guidance/cg150" target="_blank" rel="noopener noreferrer">nice.org.uk/guidance/cg150</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS 2024 / Cephalalgia</div>
+      <div class="src-t">急性期治療推奨 2024</div>
+      <a class="src-url" href="https://journals.sagepub.com/doi/10.1177/03331024241252666" target="_blank" rel="noopener noreferrer">journals.sagepub.com/…03331024241252666</a>
+    </div>
+  </div>
+
+  <p class="src-sep">🔬 Cochrane エビデンスレビュー</p>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Cochrane 2016</div>
+      <div class="src-t">鍼療法 — 片頭痛予防（Linde et al.）</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD001218.pub3" target="_blank" rel="noopener noreferrer">…CD001218.pub3</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane 2016</div>
+      <div class="src-t">鍼療法 — 緊張型頭痛予防（Linde et al.）</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007587.pub2" target="_blank" rel="noopener noreferrer">…CD007587.pub2</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane</div>
+      <div class="src-t">心理療法（CBT/バイオフィードバック）— 片頭痛予防</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2" target="_blank" rel="noopener noreferrer">…CD012295.pub2</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane 2025</div>
+      <div class="src-t">マグネシウム補充 — 片頭痛予防（最新）</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD016307" target="_blank" rel="noopener noreferrer">…CD016307</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane 2015</div>
+      <div class="src-t">頸椎徒手療法 — 頸痛・関連頭痛（Gross et al.）</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004249.pub4" target="_blank" rel="noopener noreferrer">…CD004249.pub4</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cochrane</div>
+      <div class="src-t">頭痛・片頭痛 全レビュー検索</div>
+      <a class="src-url" href="https://www.cochranelibrary.com/search?query=headache+migraine&searchBy=3&type=cdsr" target="_blank" rel="noopener noreferrer">cochranelibrary.com/…headache+migraine</a>
+    </div>
+  </div>
+
+  <p class="src-sep">📄 主要原著論文（PubMed）</p>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">Spine 2002</div>
+      <div class="src-t">Jull G, et al. 頸因性頭痛 徒手＋運動療法 RCT</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/12529905/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/12529905</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cephalalgia 2011</div>
+      <div class="src-t">Varkey E, et al. 運動 vs トピラマート vs リラクゼーション</div>
+      <a class="src-url" href="https://journals.sagepub.com/doi/10.1177/0333102411412385" target="_blank" rel="noopener noreferrer">journals.sagepub.com/…0333102411412385</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Pain 2007</div>
+      <div class="src-t">Nestoriuc Y & Martin A. 片頭痛バイオフィードバック メタ解析</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/17097218/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/17097218</a>
+    </div>
+    <div class="src">
+      <div class="src-org">J Consult Clin Psychol 2008</div>
+      <div class="src-t">Nestoriuc Y, et al. 緊張型頭痛バイオフィードバック メタ解析</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/18426234/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/18426234</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Int J Sports Med 2011</div>
+      <div class="src-t">Darabaneanu S, et al. 有酸素運動と片頭痛</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/21328195/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/21328195</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Neurology 2013</div>
+      <div class="src-t">Schoenen J, et al. 眼窩上 TENS 片頭痛予防 RCT</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/23401045/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/23401045</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Headache 2006</div>
+      <div class="src-t">Fernández-de-Las-Peñas C, et al. MTrP と慢性 TTH</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/16942467/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/16942467</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cephalalgia 2007</div>
+      <div class="src-t">Fernández-de-Las-Peñas C, et al. MTrP と感作 — TTH 統合モデル</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/17359516/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/17359516</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Cephalalgia 2000</div>
+      <div class="src-t">Bendtsen L. 慢性 TTH における中枢感作</div>
+      <a class="src-url" href="https://journals.sagepub.com/doi/10.1046/j.1468-2982.2000.00053.x" target="_blank" rel="noopener noreferrer">journals.sagepub.com/…1468-2982.2000.00053.x</a>
+    </div>
+    <div class="src">
+      <div class="src-org">JAMA 2001</div>
+      <div class="src-t">Holroyd KA, et al. 慢性 TTH — 三環系＋ストレス管理 RCT</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/11325323/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/11325323</a>
+    </div>
+    <div class="src">
+      <div class="src-org">Qual Life Res 2003</div>
+      <div class="src-t">Kosinski M, et al. HIT-6 の MCID 検証</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/12789668/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/12789668</a>
+    </div>
+  </div>
+
+  <p class="src-sep">📚 継続リサーチ用データベース</p>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">EHF 公式誌（OA）</div>
+      <div class="src-t">Journal of Headache and Pain</div>
+      <a class="src-url" href="https://thejournalofheadacheandpain.biomedcentral.com/" target="_blank" rel="noopener noreferrer">thejournalofheadacheandpain.biomedcentral.com</a>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS 公式誌</div>
+      <div class="src-t">Cephalalgia（ICHD 改訂・臨床試験）</div>
+      <a class="src-url" href="https://journals.sagepub.com/home/cep" target="_blank" rel="noopener noreferrer">journals.sagepub.com/home/cep</a>
+    </div>
+    <div class="src">
+      <div class="src-org">PubMed</div>
+      <div class="src-t">頭痛 RCT 専用検索</div>
+      <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/?term=headache+migraine&filter=pubt.clinicaltrial" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/…clinicaltrial</a>
+    </div>
+    <div class="src">
+      <div class="src-org">ClinicalTrials.gov</div>
+      <div class="src-t">進行中・完了試験の確認</div>
+      <a class="src-url" href="https://clinicaltrials.gov/search?term=headache+migraine" target="_blank" rel="noopener noreferrer">clinicaltrials.gov/…headache+migraine</a>
+    </div>
+  </div>
+</section>
+
+</main>
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>頭痛に対する理学療法 完全ガイド</strong> — 国際エビデンス（ICHD-3 / AAN / EHF / IHS 2024 / NICE CG150 / Cochrane）に基づく<br>
+  📅 作成年: 2026年 | 次回レビュー推奨: ICHD-4 正式発行時・AAN/IHS 年次ガイドライン更新時<br>
+  ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#fff3e0',
+    primaryTextColor: '#e65100',
+    primaryBorderColor: '#f57c00',
+    lineColor: '#8d6e63',
+    secondaryColor: '#fff8e1',
+    tertiaryColor: '#fbe9e7',
+    edgeLabelBackground: '#ffffff',
+    fontSize: '13px'
+  },
+  flowchart: { curve: 'linear', padding: 20 }
+});
+
+const navAs = document.querySelectorAll('.nav-a');
+navAs.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+const secs = document.querySelectorAll('.sec');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const id = en.target.id;
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {threshold: 0.25});
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>

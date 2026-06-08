@@ -13,20 +13,11 @@
   --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
   --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
   --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  --onb1:#00363a;--onb2:#006064;--onb3:#0097a7;
+  --onb-shadow:0 4px 20px rgba(0,0,0,.08);
 }
 .occipital-accent{
-  --onb1:#00363a;--onb2:#006064;--onb3:#0097a7;
-  --navy2:#0d1b2a;
-  --teal:#00695c;
-  --orange:#ef6c00;
-  --blue-l:#e1f5fe;
-  --g1:#ffffff;
-  --g2:#fcfcfd;
-  --g3:#f5f5f7;
-  --g6:#8e8e93;
-  --g8:#1c1c1e;
-  --g9:#000000;
-  --sh:0 4px 20px rgba(0,0,0,.08);
+  /* ページ固有色は :root で定義された --onb1, --onb2, --onb3 を参照 */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -73,7 +64,7 @@ a{color:var(--blue)}
 a:hover{text-decoration:underline}
 
 /* Cards */
-.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--onb-shadow);margin-bottom:18px}
 
 /* Alerts */
 .alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
@@ -85,7 +76,7 @@ a:hover{text-decoration:underline}
 .a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
 
 /* Tables */
-.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--onb-shadow);margin:14px 0}
 table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
 thead th{background:var(--onb2);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
 tbody tr:nth-child(even){background:#eef6f6}
@@ -113,7 +104,7 @@ tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
 .tN{color:var(--onb1);font-weight:700}
 
 /* Mermaid */
-.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--onb-shadow);margin:18px 0;overflow-x:auto}
 .mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
 .mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--onb2);display:inline-block}
 pre.mermaid{text-align:center}
@@ -133,7 +124,7 @@ pre.mermaid{text-align:center}
 
 /* SNOOP4-style cards */
 .snoop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:16px 0}
-.sn{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh);border-top:4px solid var(--onb2)}
+.sn{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--onb-shadow);border-top:4px solid var(--onb2)}
 .sn-letter{font-size:32px;font-weight:800;color:var(--onb2);line-height:1}
 .sn-title{font-size:13px;font-weight:700;color:var(--g8);margin:3px 0 5px}
 .sn-symp{font-size:12px;color:var(--g6);line-height:1.5}
@@ -141,21 +132,21 @@ pre.mermaid{text-align:center}
 
 /* Drug cards */
 .drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
-.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--onb2)}
+.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--onb-shadow);border-top:4px solid var(--onb2)}
 .drug-nm{font-size:13.5px;font-weight:700;color:var(--onb2);margin-bottom:2px}
 .drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
 .drug-tx{font-size:12px;line-height:1.6}
 
 /* Source cards */
 .src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
-.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--onb2)}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--onb-shadow);border-left:4px solid var(--onb2)}
 .src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--onb2);margin-bottom:2px}
 .src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
 .src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
 
 /* Quick ref */
 .qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
-.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--onb-shadow)}
 .qr-t{font-size:13px;font-weight:700;color:var(--onb1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
 
 /* Footer */
@@ -170,11 +161,11 @@ pre.mermaid{text-align:center}
 
 /* ONB page-specific: anatomy landmark callout & summary key-point list */
 .onb-key-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin:16px 0}
-.onb-key{background:#fff;border-radius:var(--rs);padding:14px 16px;box-shadow:var(--sh);border-left:4px solid var(--onb3);display:flex;gap:12px;align-items:flex-start}
+.onb-key{background:#fff;border-radius:var(--rs);padding:14px 16px;box-shadow:var(--onb-shadow);border-left:4px solid var(--onb3);display:flex;gap:12px;align-items:flex-start}
 .onb-key-n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--onb2);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
 .onb-key-tx{font-size:12.5px;line-height:1.6;color:var(--g8)}
 .onb-role-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0}
-.onb-role{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh);border-top:4px solid var(--onb3)}
+.onb-role{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--onb-shadow);border-top:4px solid var(--onb3)}
 .onb-role-t{font-size:14px;font-weight:700;color:var(--onb1);margin-bottom:6px;display:flex;align-items:center;gap:6px}
 .onb-role-d{font-size:12.5px;line-height:1.6;color:var(--g8)}
 </style>
