@@ -208,7 +208,663 @@ pre.mermaid{text-align:center}
 <!-- MAIN -->
 <main class="main">
 
-<!-- ====== SECTIONS (Phase 2-3) ====== -->
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">はじめに — なぜ栄養が頭痛に影響するのか？</h1>
+  </div>
+
+  <h2>1-1. 片頭痛の病態生理学と栄養の接点</h2>
+  <p>片頭痛（Migraine）は単なる「頭の痛み」ではなく、<strong>脳の神経代謝障害・三叉神経血管系の活性化・中枢感作</strong>が複雑に絡み合う慢性神経疾患です。栄養素は、これらの病態メカニズムの複数の段階に介入できます。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 片頭痛の病態メカニズムと栄養素の作用点</div>
+<pre class="mermaid">
+flowchart TD
+    TRIGGER["⚡ トリガー因子\n（ストレス・睡眠不足・ホルモン変動・食事）"]
+
+    TRIGGER --> MITO["🔋 ミトコンドリア機能低下\nATP産生障害\n酸化ストレス増大"]
+    TRIGGER --> ION["⚡ イオンチャネル異常\nMg²⁺欠乏 → NMDA受容体過活動\nCSD（皮質拡延性抑制）促進"]
+    TRIGGER --> NEURO["🧠 神経炎症\nCGRP放出増加\n三叉神経節活性化"]
+
+    MITO --> ATTACK["🔴 片頭痛発作\nCGRP主導の神経血管性炎症\n三叉神経痛覚過敏"]
+    ION --> ATTACK
+    NEURO --> ATTACK
+
+    B2["💊 リボフラビン（B2）400mg/日\n→ ETC Complex I 最適化"] -.->|補正| MITO
+    CoQ10["💊 CoQ10 300mg/日\n→ Complex I/III 電子伝達"] -.->|補正| MITO
+    Mg["💊 マグネシウム 400-600mg/日\n→ NMDA受容体調節・CSD抑制"] -.->|補正| ION
+    Omega3["💊 オメガ3脂肪酸 1-3g/日\n→ プロスタグランジン調節"] -.->|抑制| NEURO
+    ALA["💊 α-リポ酸 600mg/日\n→ 酸化ストレス軽減"] -.->|補正| MITO
+
+    style ATTACK fill:#c0392b,color:#fff
+    style MITO fill:#e74c3c,color:#fff
+    style ION fill:#e67e22,color:#fff
+    style NEURO fill:#8e44ad,color:#fff
+    style Mg fill:#27ae60,color:#fff
+    style B2 fill:#27ae60,color:#fff
+    style CoQ10 fill:#27ae60,color:#fff
+    style Omega3 fill:#2980b9,color:#fff
+    style ALA fill:#2980b9,color:#fff
+</pre>
+  </div>
+
+  <h2>1-2. なぜサプリメントが「補助的」位置づけなのか</h2>
+  <p>栄養補助療法は強力な補完手段ですが、以下の理由から<strong>薬物療法の代替にはなりません</strong>：</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>観点</th><th>薬物療法</th><th>栄養補助療法</th></tr></thead>
+      <tbody>
+        <tr><td>作用の速度</td><td>急速（急性期：30〜120分）</td><td>緩徐（予防的：4〜12週）</td></tr>
+        <tr><td>エビデンスの質</td><td>RCT多数、Grade A多</td><td>RCT限定的、Grade C多</td></tr>
+        <tr><td>即効性</td><td>高い</td><td>低い（蓄積効果）</td></tr>
+        <tr><td>副作用プロファイル</td><td>明確（禁忌あり）</td><td>一般的に良好</td></tr>
+        <tr><td>最適な役割</td><td>急性期 + 予防</td><td><strong>予防補助 + ライフスタイル基盤</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-ok">
+    <div class="alert-i">📌</div>
+    <div><strong>結論</strong>：栄養補助療法は「薬物療法の効果を最大化するための土台づくり」として位置づける。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">エビデンスの読み方 — グレーディングシステム</h1>
+  </div>
+
+  <p>本ガイドでは、<strong>AAN（米国神経学会）/ EHF（欧州頭痛連盟）</strong>の標準的なエビデンスグレーディングを使用します。</p>
+
+  <h2>2-1. グレーディング基準</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>グレード</th><th>定義</th><th>実際の意味</th></tr></thead>
+      <tbody>
+        <tr><td><span class="bA">Grade A</span></td><td>2つ以上の一貫したClass I RCT または Cochrane SRで低ヘテロジェニティ</td><td>使用を強く支持する — 最も信頼できる</td></tr>
+        <tr><td><span class="bB">Grade B</span></td><td>1つのClass I RCT または 2つ以上のClass II研究</td><td>使用を支持する — 相当の根拠あり</td></tr>
+        <tr><td><span class="bC">Grade C</span></td><td>1つのClass II または 2つ以上のClass III研究</td><td>使用を考慮できる — 限定的根拠</td></tr>
+        <tr><td><span class="bU">Grade U</span></td><td>不十分または相反するエビデンス</td><td>推奨不可（中立）</td></tr>
+        <tr><td><span class="bOra">Expert Opinion</span></td><td>RCTなし、ガイドラインコンセンサスのみ</td><td>専門家の意見として参考</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2-2. 栄養補助療法の全体エビデンスマップ</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — エビデンスグレード別サプリメント分類</div>
+<pre class="mermaid">
+flowchart LR
+    subgraph A["🟢 Grade A / B（AAN/EHF承認）"]
+        direction TB
+        Mg2["🧲 マグネシウム\n400–600mg/日\nGrade A/B"]
+        B22["🟡 リボフラビン（B2）\n400mg/日\nGrade A/B"]
+        CoQ["⚡ CoQ10（ユビキノール）\n300mg/日\nGrade B"]
+    end
+
+    subgraph B["🟡 Grade C（補助的使用可）"]
+        direction TB
+        Mel["🌙 メラトニン\n3mg/夜\nGrade C"]
+        ALA2["🔶 α-リポ酸\n600mg/日\nGrade C"]
+        Om["🐟 オメガ3脂肪酸\n1–3g/日\nGrade C"]
+        Gin["🌿 ショウガエキス\n250mg（急性補助）\nGrade C"]
+    end
+
+    subgraph C["⚠️ 要注意（慎重使用）"]
+        direction TB
+        FV["🌼 フィーバーフュー\n(MIG-99)\nGrade C＋要監視"]
+        BB["🌱 バターバー\nPA-free品のみ\nGrade C＋肝毒性注意"]
+        VD["☀️ ビタミンD\n欠乏確認後のみ\nGrade C"]
+    end
+
+    subgraph D["🔴 禁忌"]
+        direction TB
+        B6["❌ 高用量B6\n&gt;200mg/日\n末梢神経障害リスク"]
+    end
+
+    A --> B --> C --> D
+</pre>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">STEP 1 — 高エビデンスサプリメント（Grade A/B）</h1>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">🎓</div>
+    <div><strong>初学者へのガイド</strong>：Grade A/Bのサプリメントは国際ガイドライン（AAN・EHF）で正式に推奨されているものです。予防療法の補助として最初に検討すべき選択肢です。</div>
+  </div>
+
+  <h2>3-1. マグネシウム（Magnesium） <span class="bA">Grade A/B</span></h2>
+  <p><strong>片頭痛における「最も基盤的な」栄養素</strong></p>
+
+  <h3>なぜ重要か？（病態生理）</h3>
+  <p>片頭痛患者では健常者と比較して<strong>血清マグネシウム濃度が有意に低い</strong>ことが多くの研究で確認されています。マグネシウムは以下の複数の機序を通じて片頭痛病態に関与します：</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>機序</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NMDA受容体調節</strong></td><td>Mg²⁺はNMDA受容体チャネルを閉鎖し過剰な神経興奮を防ぐ（欠乏→ 中枢感作促進）</td></tr>
+        <tr><td><strong>CSD（皮質拡延性抑制）抑制</strong></td><td>低Mg状態でCSD閾値が低下し、前兆発生リスクが上昇</td></tr>
+        <tr><td><strong>血小板凝集抑制</strong></td><td>Mg²⁺欠乏でセロトニン放出を伴う血小板凝集が亢進</td></tr>
+        <tr><td><strong>ミトコンドリア機能</strong></td><td>ATP合成に必須の補因子として作用</td></tr>
+        <tr><td><strong>血管拡張調節</strong></td><td>血管平滑筋の調節に直接関与</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>製剤の選択と推奨用量</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>剤形</th><th>吸収率</th><th>推奨度</th><th>特記事項</th></tr></thead>
+      <tbody>
+        <tr><td><strong>グリシン酸マグネシウム</strong></td><td>⭐⭐⭐⭐⭐（最高）</td><td>第一選択</td><td>胃腸副作用が最小</td></tr>
+        <tr><td><strong>クエン酸マグネシウム</strong></td><td>⭐⭐⭐⭐</td><td>代替選択</td><td>水に溶けやすい</td></tr>
+        <tr><td><strong>マグネシウムL-スレオネート</strong></td><td>⭐⭐⭐⭐</td><td>血液脳関門通過性良好</td><td>神経系への移行性が高い可能性</td></tr>
+        <tr><td>酸化マグネシウム</td><td>⭐⭐（低）</td><td><strong>推奨しない</strong></td><td>便秘薬として一般的だが吸収率が低い</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nut-rx">
+    <div class="nut-rx-t">💊 推奨プロトコル（予防的補充）</div>
+    <dl>
+      <dt>用量</dt><dd>400–600 mg/日（2–3回に分割）</dd>
+      <dt>目標血清Mg濃度</dt><dd>≥ 0.85 mmol/L</dd>
+      <dt>開始用量</dt><dd>200mg/日（消化器症状軽減のため漸増）</dd>
+      <dt>評価時期</dt><dd>3ヶ月後に頭痛頻度を再評価</dd>
+    </dl>
+  </div>
+  <div class="nut-rx">
+    <div class="nut-rx-t">🏥 急性期（重症発作・来院時）</div>
+    <dl>
+      <dt>IV マグネシウム硫酸塩</dt><dd>1–2g を20分で点滴（病院内のみ）</dd>
+      <dt>妊娠中</dt><dd>重症発作でも使用可（要専門医管理）</dd>
+    </dl>
+  </div>
+
+  <h3>エビデンスサマリー</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究</th><th>結果</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>Peikert A, et al. <em>Cephalalgia</em> 1996</td><td>高用量Mg（600mg/日）で発作頻度41.6%減少</td><td><span class="bA">Grade A</span></td></tr>
+        <tr><td>Teigen L &amp; Boes CJ. <em>J Headache Pain</em> 2015</td><td>予防的Mg補充の系統的レビュー — 発作頻度低下を確認</td><td><span class="bA">Grade A/B</span></td></tr>
+        <tr><td>Cochrane SR 2025（マグネシウム補充・最新版）</td><td>推奨、発作頻度・重症度ともに改善</td><td><span class="bA">Grade A/B</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong>：
+      <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD016307" target="_blank" rel="noopener noreferrer">Cochrane マグネシウム補充 片頭痛予防 2025</a> ／
+      <a href="https://www.aan.com/siteassets/home-page/policy-and-guidelines/guidelines/guidelines-and-measures-open-for-public-comment/24-pharmacologic-treatment-for-migraine-prevention-in-adults_draft_08-14-2024.pdf" target="_blank" rel="noopener noreferrer">AAN/AHS 片頭痛予防ガイドライン 2024（草案）</a> ／
+      <a href="https://pubmed.ncbi.nlm.nih.gov/8734727/" target="_blank" rel="noopener noreferrer">PubMed: Peikert A, et al. 1996</a>
+    </div>
+  </div>
+
+  <h3>安全情報</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>主な副作用</td><td>軟便・下痢（用量依存性）→ 漸増で軽減</td></tr>
+        <tr><td>禁忌</td><td>重篤な腎機能低下（eGFR &lt;30）→ 慎重投与・定期モニタリング</td></tr>
+        <tr><td>薬物相互作用</td><td>カルシウムチャネル拮抗薬との相乗的降圧作用に注意</td></tr>
+        <tr><td>妊娠時</td><td>IV硫酸マグネシウムは専門医管理下で使用可</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3-2. リボフラビン（ビタミンB2 / Riboflavin） <span class="bA">Grade A</span></h2>
+  <p><strong>ミトコンドリアのエネルギー産生を根本から改善する</strong></p>
+
+  <h3>なぜ重要か？（病態生理）</h3>
+  <p>片頭痛患者の脳では、発作間欠期においても<strong>ミトコンドリア電子伝達系（ETC）のComplex Iの機能低下</strong>が観察されます。リボフラビン（B2）は以下の経路を通じてこの問題を修正します：</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — リボフラビンのミトコンドリア作用機序</div>
+<pre class="mermaid">
+flowchart LR
+    B2["💊 リボフラビン（B2）\n400mg/日"]
+
+    B2 --> FAD["FAD（フラビンアデニン\nジヌクレオチド）合成増加"]
+    B2 --> FMN["FMN（フラビンモノ\nヌクレオチド）合成増加"]
+
+    FAD --> ComplexI["⚡ ミトコンドリア\nETC Complex I\n（NADH脱水素酵素）"]
+    FMN --> ComplexI
+
+    ComplexI --> ATP["🔋 ATP産生効率改善"]
+    ATP --> Stabilize["脳エネルギー代謝安定化"]
+    Stabilize --> Prevent["💚 CSD閾値上昇\n→ 片頭痛発作抑制"]
+
+    style B2 fill:#f39c12,color:#fff
+    style Prevent fill:#27ae60,color:#fff
+    style ComplexI fill:#2980b9,color:#fff
+</pre>
+  </div>
+
+  <h3>推奨プロトコル</h3>
+  <div class="nut-rx">
+    <div class="nut-rx-t">💊 リボフラビン（B2）予防プロトコル</div>
+    <dl>
+      <dt>用量</dt><dd>400 mg/日（単回または2分割）</dd>
+      <dt>開始時期</dt><dd>4週間は効果発現しない（蓄積期間）</dd>
+      <dt>評価</dt><dd>3ヶ月後に頭痛頻度を再評価</dd>
+      <dt>特記事項</dt><dd>尿が黄色〜オレンジ色に変色 — 無害・正常反応（フラビンの尿中排泄）</dd>
+    </dl>
+  </div>
+
+  <h3>エビデンスサマリー</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究</th><th>結果</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>Schoenen J, et al. <em>Neurology</em> 1998</td><td>400mg/日で頭痛頻度59%減少（vs プラセボ15%）: n=55 RCT</td><td><span class="bA">Grade A</span></td></tr>
+        <tr><td>Boehnke C, et al. <em>Eur J Neurol</em> 2004</td><td>長期（6ヶ月）有効性・安全性の確認</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>MacLennan SC, et al. <em>J Child Neurol</em> 2008</td><td>小児（12歳以上）での有効性示唆（成人より弱いエビデンス）</td><td><span class="bC">Grade C</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong>：
+      <a href="https://pubmed.ncbi.nlm.nih.gov/9484373/" target="_blank" rel="noopener noreferrer">Schoenen J, et al. Neurology 1998 — PubMed</a> ／
+      <a href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">AAN 片頭痛予防ガイドライン（全リスト）</a> ／
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">EHF 片頭痛予防ガイドライン 2022 (PMC全文)</a>
+    </div>
+  </div>
+
+  <h3>安全情報</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>副作用</td><td>極めてまれ；高用量長期でも安全報告多数</td></tr>
+        <tr><td>禁忌</td><td>実質的なし（水溶性ビタミン、過剰分は尿中排泄）</td></tr>
+        <tr><td>薬物相互作用</td><td>三環系抗うつ薬（TCA）がリボフラビン吸収を軽度低下させる可能性（要注意、CI非）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3-3. コエンザイムQ10（CoQ10 / Ubiquinol） <span class="bB">Grade B</span></h2>
+  <p><strong>ミトコンドリア電子伝達の「電子シャトル」</strong></p>
+
+  <h3>なぜ重要か？（病態生理）</h3>
+  <p>CoQ10（ユビキノン/ユビキノール）はミトコンドリアのETC Complex I〜IIIの間で電子を受け渡す<strong>不可欠な補酵素</strong>です。片頭痛患者のCoQ10欠乏（血漿レベル低下）が複数の研究で確認されています。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>機序</th><th>説明</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ETC Complex I/III サポート</strong></td><td>電子伝達の効率化 → ATP産生量改善</td></tr>
+        <tr><td><strong>抗酸化作用</strong></td><td>活性酸素（ROS）を直接中和 → 神経炎症軽減</td></tr>
+        <tr><td><strong>膜安定化</strong></td><td>細胞膜とミトコンドリア膜の脂質過酸化を抑制</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>製剤の選択</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>剤形</th><th>特徴</th><th>推奨度</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ユビキノール（還元型CoQ10）</strong></td><td>吸収率が高い（特に高齢者・吸収障害例）</td><td>第一選択 ⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>ユビキノン（酸化型CoQ10）</td><td>標準剤形、RCTデータはこちらで多い</td><td>代替 ⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="nut-rx">
+    <div class="nut-rx-t">💊 CoQ10 推奨プロトコル</div>
+    <dl>
+      <dt>用量</dt><dd>300 mg/日（100mgを3回に分割 — 脂溶性のため食後推奨）／または 300mg単回（ユビキノール製剤なら吸収効率良好）</dd>
+      <dt>評価</dt><dd>3ヶ月後に頭痛頻度を再評価</dd>
+      <dt>スタチン服用者</dt><dd>CoQ10が枯渇しやすいため補充を特に推奨</dd>
+    </dl>
+  </div>
+
+  <h3>エビデンスサマリー</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究</th><th>結果</th><th>グレード</th></tr></thead>
+      <tbody>
+        <tr><td>Sándor PS, et al. <em>Neurology</em> 2005</td><td>300mg/日で頭痛頻度47.6%改善（vs プラセボ14.4%）: n=42 RCT</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>Hershey AD, et al. <em>Headache</em> 2007</td><td>小児・青年の片頭痛でCoQ10欠乏と頭痛頻度の相関</td><td><span class="bC">Grade C</span></td></tr>
+        <tr><td>Shoeibi A, et al. <em>Nutr Neurosci</em> 2017</td><td>トピラマートとCoQ10の比較RCT — 非劣性示唆</td><td><span class="bB">Grade B</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong>：
+      <a href="https://pubmed.ncbi.nlm.nih.gov/15728298/" target="_blank" rel="noopener noreferrer">Sándor PS, et al. Neurology 2005 — PubMed</a> ／
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">EHF CGRP mAbsガイドライン 2022</a> ／
+      <a href="https://thejournalofheadacheandpain.biomedcentral.com/" target="_blank" rel="noopener noreferrer">Journal of Headache and Pain</a>
+    </div>
+  </div>
+
+  <h3>安全情報</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>副作用</td><td>まれ；軽度の消化器症状（食後摂取で軽減）</td></tr>
+        <tr><td>スタチン服用者</td><td>スタチンはCoQ10産生を抑制 → 補充を特に推奨</td></tr>
+        <tr><td>抗凝固薬</td><td>ワルファリンとの相互作用報告あり（INRモニタリング）</td></tr>
+        <tr><td>妊娠</td><td>安全データ限定的 — 妊娠中は担当医に相談</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3-4. マグネシウム + B2 + CoQ10 三剤併用プロトコル</h2>
+  <p>この3剤はミトコンドリア代謝の<strong>異なる段階に作用する相補的な組み合わせ</strong>です。</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 三剤のミトコンドリア電子伝達系における作用点</div>
+<pre class="mermaid">
+flowchart TD
+    Input["🍎 食事摂取\nエネルギー基質（グルコース・脂肪酸）"]
+
+    Input --> Glycolysis["解糖系\nグルコース → ピルビン酸"]
+    Glycolysis --> TCA["TCAサイクル\nピルビン酸 → NADH / FADH₂"]
+
+    TCA --> C1["Complex I\nNADH脱水素酵素"]
+    TCA --> C2["Complex II\nコハク酸脱水素酵素"]
+    C1 --> CoQ10Chain["🔄 CoQ10 電子シャトル"]
+    C2 --> CoQ10Chain
+    CoQ10Chain --> C3["Complex III\nシトクロムbc₁複合体"]
+    C3 --> Cytc["シトクロムc"]
+    Cytc --> C4["Complex IV\nシトクロムcオキシダーゼ"]
+    C4 --> O2["O₂ → H₂O"]
+
+    C1 &amp; C2 &amp; C3 &amp; C4 --> ATP_Synth["Complex V（ATP合成酵素）"]
+    ATP_Synth --> ATP["⚡ ATP 産生"]
+
+    Mg_effect["🧲 Mg²⁺\n→ ATP合成酵素の補因子\n→ NMDA受容体チャネル調節"] -.->|補助| ATP_Synth
+    B2_effect["🟡 B2（リボフラビン）\n→ FAD/FMN供与\n→ Complex Iを直接活性化"] -.->|補助| C1
+    CoQ10_effect["⚡ CoQ10（ユビキノール）\n→ Complex I–III間\n電子伝達を仲介"] -.->|補助| CoQ10Chain
+
+    style ATP fill:#f39c12,color:#fff
+    style Mg_effect fill:#27ae60,color:#fff
+    style B2_effect fill:#f39c12,color:#fff
+    style CoQ10_effect fill:#2980b9,color:#fff
+</pre>
+  </div>
+
+  <h3>三剤の標準的な1日プロトコル例</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>時間帯</th><th>服用</th><th>用量</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>朝食後</td><td>リボフラビン（B2）</td><td>200mg</td><td>水溶性 — 食後推奨</td></tr>
+        <tr><td>昼食後</td><td>CoQ10（ユビキノール）</td><td>100mg</td><td>脂溶性 — 必ず食後</td></tr>
+        <tr><td>夕食後</td><td>CoQ10（ユビキノール）</td><td>100mg</td><td>脂溶性 — 必ず食後</td></tr>
+        <tr><td>夕食後</td><td>CoQ10（ユビキノール）</td><td>100mg（合計300mg）</td><td>分割で吸収効率改善</td></tr>
+        <tr><td>就寝前</td><td>リボフラビン（B2）</td><td>200mg（合計400mg）</td><td>夜間代謝をサポート</td></tr>
+        <tr><td>朝夜に分割</td><td>マグネシウム（グリシン酸塩）</td><td>各200–300mg（合計400–600mg）</td><td>食後推奨、消化器副作用↓</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>重要</strong>：この組み合わせは一般的に安全ですが、他の薬剤を服用している場合は必ず医師・薬剤師に相談してください。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">STEP 2 — 中等度エビデンスサプリメント（Grade C）</h1>
+  </div>
+
+  <h2>4-1. メラトニン（Melatonin） <span class="bC">Grade C</span></h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>推奨用量</strong></td><td>3mg（就寝30〜60分前）</td></tr>
+        <tr><td><strong>主な機序</strong></td><td>抗酸化作用 / 概日リズム調節 / 5-HT合成サポート / 内因性鎮痛</td></tr>
+        <tr><td><strong>最適な対象</strong></td><td>睡眠障害を合併する片頭痛患者 / 群発頭痛との共存例</td></tr>
+        <tr><td><strong>特記事項</strong></td><td>プロプラノロールと同等の予防効果を示したRCTあり（Gonçalves et al. 2016）</td></tr>
+        <tr><td><strong>副作用</strong></td><td>日中の眠気 / 起床困難 → 就寝直前に服用</td></tr>
+        <tr><td><strong>禁忌</strong></td><td>自己免疫疾患（潜在的免疫調節作用）/ 重篤な肝障害</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：<a href="https://pubmed.ncbi.nlm.nih.gov/26898255/" target="_blank" rel="noopener noreferrer">Gonçalves AL, et al. <em>J Neurol</em> 2016 — PubMed</a></div></div>
+
+  <h2>4-2. α-リポ酸（Alpha-Lipoic Acid / ALA） <span class="bC">Grade C</span></h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>推奨用量</strong></td><td>600mg/日（単回または分割）</td></tr>
+        <tr><td><strong>主な機序</strong></td><td>強力な抗酸化作用（水溶性・脂溶性双方）/ 神経保護 / ミトコンドリア機能改善</td></tr>
+        <tr><td><strong>主な副作用</strong></td><td>低血糖リスク（特に糖尿病患者）/ チアミン欠乏の潜在的リスク</td></tr>
+        <tr><td><strong>禁忌</strong></td><td>インスリン・血糖降下薬との相互作用（血糖モニタリング必須）</td></tr>
+        <tr><td><strong>チアミン注意</strong></td><td>高用量長期使用でビタミンB1欠乏を引き起こす可能性（B1補充を考慮）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：<a href="https://pubmed.ncbi.nlm.nih.gov/17355549/" target="_blank" rel="noopener noreferrer">Magis D, et al. <em>Eur J Neurol</em> 2007 — PubMed</a></div></div>
+
+  <h2>4-3. オメガ3脂肪酸（EPA + DHA） <span class="bC">Grade C</span></h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>推奨用量</strong></td><td>1〜3g/日（EPA + DHAの合計）</td></tr>
+        <tr><td><strong>主な機序</strong></td><td>プロスタグランジンE₂（炎症性）からEPAを経たエイコサノイドへのシフト / 神経炎症を抑制</td></tr>
+        <tr><td><strong>最適な対象</strong></td><td>食事でのオメガ3摂取が少ない患者 / 心血管リスクを持つ患者</td></tr>
+        <tr><td><strong>重要な相互作用</strong></td><td><strong>&gt;3g/日 + 抗凝固薬（ワルファリン等）→ 出血リスク↑ / INRモニタリング必須</strong></td></tr>
+        <tr><td><strong>副作用</strong></td><td>魚のげっぷ（腸溶性製剤で軽減）/ 胃腸不快感</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-ok"><div class="alert-i">✅</div><div><strong>MOH注意</strong>：オメガ3は急性鎮痛目的の薬剤ではないため、使用頻度制限の問題はありません。</div></div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：<a href="https://pubmed.ncbi.nlm.nih.gov/34112693/" target="_blank" rel="noopener noreferrer">Ramsden CE, et al. <em>BMJ</em> 2021 — PubMed</a></div></div>
+
+  <h2>4-4. ショウガエキス（Ginger Extract） <span class="bC">Grade C</span></h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>推奨用量</strong></td><td>250mg（急性発作の補助 / 制吐目的）</td></tr>
+        <tr><td><strong>主な機序</strong></td><td>5-HT₃拮抗作用（制吐）/ プロスタグランジン合成阻害</td></tr>
+        <tr><td><strong>最適な対象</strong></td><td>吐き気・嘔吐が前景症状の軽症〜中等症発作</td></tr>
+        <tr><td><strong>禁忌注意</strong></td><td>抗血小板薬 / ワルファリンとの出血リスク / 術前2週間は中止</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：<a href="https://pubmed.ncbi.nlm.nih.gov/24254706/" target="_blank" rel="noopener noreferrer">Maghbooli M, et al. <em>Phytother Res</em> 2014 — PubMed</a></div></div>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">STEP 3 — 要注意サプリメント — 正しく使わないと危険</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">⚠️</div>
+    <div><strong>このセクションは特に重要です。</strong> 以下のサプリメントは「自然由来＝安全」ではなく、<strong>適切なモニタリングと管理なしには重篤な副作用を引き起こす可能性があります。</strong></div>
+  </div>
+
+  <h2>5-1. フィーバーフュー（Feverfew / タナセタム・パルテニウム） <span class="bC">Grade C</span></h2>
+  <h3>概要と注意点</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>有効成分</strong></td><td>パルテノライド（セスキテルペンラクトン）</td></tr>
+        <tr><td><strong>推奨製剤</strong></td><td>MIG-99 標準化エキス（パルテノライド含量0.2%以上）</td></tr>
+        <tr><td><strong>エビデンスグレード</strong></td><td>Grade C（RCT結果が混在 — Cochrane SRで不一致）</td></tr>
+        <tr><td><strong>推奨用量</strong></td><td>50–100mg/日（MIG-99換算）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>重要な安全情報</h3>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>リスク</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>⚠️ 出血リスク</strong></td><td><strong>ワルファリン・抗血小板薬（アスピリン等）と併用 → 出血リスク大幅増加</strong></td></tr>
+        <tr><td><strong>術前中止</strong></td><td>手術2週間前には必ず中止</td></tr>
+        <tr><td><strong>肝毒性</strong></td><td>長期使用で肝酵素上昇の報告 → 定期的なLFT（肝機能検査）推奨</td></tr>
+        <tr><td><strong>突然中止禁忌</strong></td><td>"Feverfew Syndrome"（頭痛反跳・筋硬直・関節痛）→ 漸減すること</td></tr>
+        <tr><td><strong>妊婦禁忌</strong></td><td>子宮収縮促進作用の懸念</td></tr>
+        <tr><td><strong>アレルギー</strong></td><td>キク科アレルギー（カモミール・デイジー）との交差反応</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：<a href="https://www.cochranelibrary.com/search?query=feverfew+migraine&amp;searchBy=3&amp;type=cdsr" target="_blank" rel="noopener noreferrer">Pittler MH, et al. Cochrane Review 2004 — Cochrane Library</a></div></div>
+
+  <h2>5-2. バターバー（Butterbur / Petasites hybridus） <span class="bC">Grade C</span></h2>
+  <h3>概要</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>有効成分</strong></td><td>ペタシン / イソペタシン</td></tr>
+        <tr><td><strong>推奨製剤</strong></td><td><strong>PA-free（ピロリジジンアルカロイド除去）認定品のみ</strong> — 例: Petadolex®</td></tr>
+        <tr><td><strong>エビデンスグレード</strong></td><td>Grade C（過去Grade Bから格下げ — 安全懸念のため）</td></tr>
+        <tr><td><strong>推奨用量</strong></td><td>75mg 1日2回（PA-free製品使用時）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-danger">
+    <div class="alert-i">🚨</div>
+    <div><strong>⛔ 最重要警告：非認定品（PA含有）バターバーは絶対に使用してはならない。</strong><br>ピロリジジンアルカロイド（PA）は<strong>肝静脈閉塞症（VOD）や肝細胞障害</strong>を引き起こす可能性がある。複数の重篤肝障害症例が報告されており、欧州医薬品庁（EMA）はPA含有バターバー製品の販売禁止措置を複数国で実施している。</div>
+  </div>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>リスク</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>🔴 肝毒性（最重要）</strong></td><td>PA含有製品 → 肝静脈閉塞症 / 肝炎 / 肝不全リスク</td></tr>
+        <tr><td><strong>⚠️ PA-free品でも</strong></td><td>定期的LFT（肝機能検査）モニタリングを推奨（3ヶ月毎）</td></tr>
+        <tr><td><strong>妊婦禁忌</strong></td><td>妊娠・授乳中は絶対禁忌</td></tr>
+        <tr><td><strong>小児禁忌</strong></td><td>18歳未満への安全性データ不十分</td></tr>
+        <tr><td><strong>免疫抑制剤</strong></td><td>相互作用データ限定的 → 使用禁忌</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：
+    <a href="https://www.ema.europa.eu/en/medicines/herbal" target="_blank" rel="noopener noreferrer">EMA バターバー安全評価レポート</a> ／
+    <a href="https://pubmed.ncbi.nlm.nih.gov/15148345/" target="_blank" rel="noopener noreferrer">Lipton RB, et al. <em>Neurology</em> 2004 — PubMed</a>
+  </div></div>
+
+  <h2>5-3. ビタミンD <span class="bC">Grade C</span></h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>項目</th><th>詳細</th></tr></thead>
+      <tbody>
+        <tr><td><strong>推奨条件</strong></td><td><strong>血清ビタミンD濃度 &lt; 30 ng/mL（欠乏）の確認後のみ補充を考慮</strong></td></tr>
+        <tr><td><strong>エビデンスグレード</strong></td><td>Grade C — 頭痛への直接効果のエビデンスは限定的</td></tr>
+        <tr><td><strong>なぜ関連するか</strong></td><td>VDRが三叉神経・脊髄後角に発現 / 免疫調節 / 神経保護</td></tr>
+        <tr><td><strong>補充用量</strong></td><td>欠乏時: 1,000〜2,000 IU/日（医師の判断で高用量使用可）</td></tr>
+        <tr><td><strong>注意事項</strong></td><td>過剰補充 → <strong>高カルシウム血症</strong>（腎障害・血管石灰化）</td></tr>
+        <tr><td><strong>禁忌</strong></td><td>高カルシウム血症 / 原発性副甲状腺機能亢進症</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>5-4. 🚫 高用量ビタミンB6（&gt;200mg/日）— 禁忌 <span class="bRed">禁忌</span></h2>
+  <div class="alert a-danger"><div class="alert-i">⛔</div><div><strong>この用量は絶対に推奨しない。</strong></div></div>
+  <div class="tbl th-red">
+    <table>
+      <thead><tr><th>項目</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>リスク</strong></td><td>用量依存性の<strong>末梢神経障害（感覚神経優位の多発神経障害）</strong></td></tr>
+        <tr><td><strong>閾値</strong></td><td>一般的に &gt;200mg/日で発症リスク上昇（100mg/日でも長期連用は要注意）</td></tr>
+        <tr><td><strong>症状</strong></td><td>四肢の痺れ・感覚鈍麻・歩行障害</td></tr>
+        <tr><td><strong>回復</strong></td><td>中止後に改善するが、重篤例では不可逆</td></tr>
+        <tr><td><strong>適切な用量</strong></td><td>B6の頭痛効果のエビデンスは乏しい — 標準食事摂取量（1.3–1.7mg/日）で十分</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info"><div class="alert-i">📌</div><div><strong>ソース</strong>：<a href="https://www.who.int/" target="_blank" rel="noopener noreferrer">WHO ビタミンB6安全性評価</a></div></div>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">STEP 4 — 食事性トリガー管理</h1>
+  </div>
+
+  <h2>6-1. 主要な食事性トリガーの分類</h2>
+  <div class="alert a-info">
+    <div class="alert-i">ℹ️</div>
+    <div><strong>重要な前提</strong>：食事性トリガーは高度に個人差があります。特定食品を無闇に排除するのではなく、<strong>30日以上の頭痛日記</strong>でご自身のパターンを確認してから対応することが最も科学的です。</div>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>トリガー種別</th><th>主な食品</th><th>推定機序</th><th>証拠の質</th></tr></thead>
+      <tbody>
+        <tr><td><strong>チラミン</strong></td><td>熟成チーズ（パルメザン等）・ワイン・発酵食品・味噌・醤油</td><td>MAO阻害下でのカテコールアミン放出</td><td>中程度</td></tr>
+        <tr><td><strong>ヒスタミン</strong></td><td>赤ワイン・サバ等青魚・加工肉・缶詰</td><td>血管拡張・神経ペプチド放出</td><td>中程度</td></tr>
+        <tr><td><strong>亜硝酸塩</strong></td><td>ハム・ベーコン・ソーセージ・加工肉一般</td><td>一酸化窒素（NO）産生 → 血管拡張</td><td>中程度</td></tr>
+        <tr><td><strong>カフェイン</strong></td><td>コーヒー・紅茶・エナジードリンク・一部鎮痛薬</td><td><strong>離脱時のリバウンド頭痛</strong>が最大の問題</td><td>高い</td></tr>
+        <tr><td><strong>アスパルテーム</strong></td><td>ダイエット飲料・人工甘味料使用食品</td><td>フェニルアラニン / アスパラギン酸の神経興奮性</td><td>限定的</td></tr>
+        <tr><td><strong>MSG（グルタミン酸ナトリウム）</strong></td><td>加工食品・インスタント麺・中華料理</td><td>一過性の神経興奮作用</td><td>限定的</td></tr>
+        <tr><td><strong>アルコール一般</strong></td><td>特に赤ワイン・ビール</td><td>ヒスタミン・チラミン・血管拡張</td><td>高い</td></tr>
+        <tr><td><strong>スキップミール</strong></td><td>食事抜き・絶食</td><td>低血糖 → 交感神経系活性化</td><td>高い</td></tr>
+        <tr><td><strong>脱水</strong></td><td>水分不足（&lt; 1.5L/日）</td><td>脳容積減少 → 硬膜伸張</td><td>高い</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>6-2. カフェイン管理の重要性</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — カフェイン依存と離脱頭痛のサイクル</div>
+<pre class="mermaid">
+flowchart TD
+    Caffeine["☕ カフェイン常用\n（&gt;200mg/日）"]
+
+    Caffeine --> Tolerance["アデノシン受容体の上方制御\n（カフェイン耐性形成）"]
+    Tolerance --> Dependency["カフェイン依存状態"]
+    Dependency --> Withdrawal["⚠️ 急な摂取中断\n（&gt;24時間）"]
+    Withdrawal --> Rebound["🔴 カフェイン離脱頭痛\n（両側性・拍動性・悪心を伴う）\n通常12–24時間後に発症"]
+
+    Rebound --> MoreCaffeine["再びカフェイン摂取\n→ 一時的な緩和"]
+    MoreCaffeine --> Dependency
+
+    Solution["✅ 正しい対応\n段階的な減量（weekly 10–20%ずつ）\n急な中断は禁忌"]
+
+    style Rebound fill:#c0392b,color:#fff
+    style Solution fill:#27ae60,color:#fff
+    style Dependency fill:#e74c3c,color:#fff
+</pre>
+  </div>
+  <div class="card">
+    <h3>推奨カフェイン管理</h3>
+    <ul>
+      <li>目標摂取量: <strong>&lt; 200mg/日</strong>（コーヒー1〜2杯相当）</li>
+      <li>漸減ペース: 1〜2週ごとに現在量の10〜20%を減量</li>
+      <li>中断禁忌: 急激な中断は離脱頭痛を誘発</li>
+    </ul>
+  </div>
+
+  <h2>6-3. 頭痛トリガー日記（標準フォーマット）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>記録日時</th><th>発症時刻</th><th>強度(VAS 0-10)</th><th>直前12時間の食事</th><th>水分量</th><th>睡眠時間</th><th>推定トリガー</th><th>使用薬剤・効果</th></tr></thead>
+      <tbody>
+        <tr><td>〇月〇日</td><td>〇時〇分</td><td>/ 10</td><td>（具体的に記録）</td><td>L</td><td>時間</td><td></td><td></td></tr>
+        <tr><td>〇月〇日</td><td>〇時〇分</td><td>/ 10</td><td></td><td>L</td><td>時間</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-ok"><div class="alert-i">📝</div><div><strong>推奨記録期間</strong>：最低30日間（治療開始前のベースライン確立）</div></div>
+</section>
 
 </main>
 </div><!-- end layout -->
