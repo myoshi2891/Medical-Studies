@@ -7,7 +7,7 @@
 - **最新 HEAD**: `8bb9f6f` feat(Types-of-headache): Psychological-Behavioral-Therapy.html — Phase 4/4: finalize
 - **ビルド状態**: Mermaid 修正スクリプト pytest 4 passed / Mermaid 8図 / 外部リンク 51 件すべて rel 付与 / SRI 付与済 / HTMLパースエラー0 / ASCII 図解残存ゼロ
 - **次の作業**: `Cervical-Plexus-Block.html` 移行（作成）
-- **未移行 HTML 残数**: 1
+- **未移行 HTML 残数**: 7
 
 ## 移行ステータス
 
@@ -37,5 +37,5 @@
 進捗管理ファイルに基づき、次回セッションを再開します。
 - 最新 HEAD: 8bb9f6f
 - 次の作業: Cervical-Plexus-Block.html 移行
-- 未移行 HTML 残数: 1
+- 未移行 HTML 残数: 7
 ```

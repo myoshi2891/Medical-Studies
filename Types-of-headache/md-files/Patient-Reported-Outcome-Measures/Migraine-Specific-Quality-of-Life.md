@@ -1,5 +1,7 @@
 # MSQ v2.1（片頭痛特異的 QOL 質問票）完全リファレンスガイド
+
 ## Migraine-Specific Quality of Life Questionnaire Version 2.1
+
 ### 初学者から臨床研究者まで対応する段階的解説
 
 ---
