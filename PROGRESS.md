@@ -4,7 +4,7 @@
 
 ## 現在地
 
-- **最新 HEAD**: `f3ce7f9` feat(Headache-Diary): モバイルでスライドアウト目次ナビを実装
+- **最新 HEAD**: `53eed08` chore(rules): モバイルナビのスライドアウト方式を設計オプションに追加
 - **ビルド状態**: Mermaid 修正スクリプト正常 / Markdown Lint クリア / モバイルナビ実装検証済 / 外部リンク 46 件すべて rel="noopener noreferrer" 付与 / SRI 付与済
 - **次の作業**: `Headache-Impact-Test.html` 移行（作成）
 - **未移行 HTML 残数**: 5
@@ -35,7 +35,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: f3ce7f9
+- 最新 HEAD: 53eed08
 - 次の作業: Headache-Impact-Test.html 移行
 - 未移行 HTML 残数: 5
 ```
