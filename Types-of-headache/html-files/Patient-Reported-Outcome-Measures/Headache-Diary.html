@@ -658,7 +658,462 @@ flowchart LR
   </div>
 </section>
 
-<!-- ##SECTION_INSERT## -->
+<!-- ====================================================== SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h1 class="sec-title">STEP 6：データ解析とパターン認識</h1>
+  </div>
+
+  <h2>9.1 3ヶ月分の日誌から何がわかるか</h2>
+  <p>30〜90日分の記録が蓄積されたら、以下の観点から整理します。</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 月次集計から治療方針の判断へ</div>
+<pre class="mermaid">
+flowchart TD
+    A["3ヶ月分の頭痛日誌データ"] --> B["月次集計を行う"]
+    B --> C["①頭痛頻度<br/>（発作回数/月・頭痛日数/月）"]
+    B --> D["②月平均重症度<br/>（NRS ピーク値の平均）"]
+    B --> E["③薬剤使用日数/月<br/>（種類別）"]
+    B --> F["④誘発因子パターン<br/>（繰り返し出現するトリガー）"]
+    B --> G["⑤機能障害日数<br/>（MIDAS計算の素材）"]
+    C --> H{"頭痛日数 ≥8〜15日/月？"}
+    H -- "YES（≥8日）" --> I["予防療法の開始を検討<br/>（AAN/EHF基準）"]
+    H -- "YES（≥15日 × 3ヶ月）" --> J["慢性片頭痛（ICHD-3: 1.3）<br/>の評価"]
+    E --> K{"MOH閾値超過？"}
+    K -- "YES" --> L["MOH（8.2）の評価<br/>離脱療法の検討"]
+    G --> M["MIDAS スコア計算<br/>（3ヶ月データが必要）"]
+    M --> N{"MIDAS ≥21？"}
+    N -- "YES" --> O["Grade IV：重症<br/>CGRP製剤・ボツリヌス毒素の適応評価"]
+    style I fill:#2980b9,color:#fff
+    style J fill:#e67e22,color:#fff
+    style L fill:#e74c3c,color:#fff
+    style O fill:#8e44ad,color:#fff
+</pre>
+  </div>
+
+  <h2>9.2 治療開始の判断基準と頭痛日誌データの対応</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>治療変更の根拠</th><th>頭痛日誌での確認事項</th><th>参照ガイドライン</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>急性期治療の強化</strong></td><td>1回の発作でNRS ≥7が2時間以上持続・既存の急性期薬が無効（NRS改善&lt;30%）</td><td>AAN/AHS 急性期治療ガイドライン</td></tr>
+        <tr><td><strong>予防療法の開始</strong></td><td>発作回数 ≥4回/月、または頭痛日数 ≥8日/月、または機能障害が高度（MIDAS ≥11）</td><td>AAN/EHF 予防療法ガイドライン 2024ドラフト</td></tr>
+        <tr><td><strong>CGRP製剤への切り替え</strong></td><td>従来予防薬が2種類以上で無効（発作頻度50%減少なし）；MOH合併</td><td>AHS Position Statement 2024; EHF CGRP mAbs ガイドライン 2022</td></tr>
+        <tr><td><strong>MOH治療の開始</strong></td><td>薬剤使用日数が閾値超過 × 3ヶ月</td><td>ICHD-3 コード 8.2；NICE CG150</td></tr>
+        <tr><td><strong>ボツリヌス毒素の適応</strong></td><td>慢性片頭痛（≥15日/月 × 3ヶ月）かつ薬物療法が不十分</td><td>AAN <span class="bA">Grade A</span>；NICE CG150</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 10 -->
+<section id="s10" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">10</div>
+    <h1 class="sec-title">STEP 7：医師との効果的な情報共有</h1>
+  </div>
+
+  <h2>10.1 診察前準備チェックリスト</h2>
+  <p>診察の1週間前に以下をまとめておくことで、診察時間を最大限に活用できます。</p>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>準備内容</th><th>具体的に用意するもの</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>頭痛日誌の原本・印刷物</strong></td><td>最低3ヶ月分；デジタルアプリの場合はPDFレポートを印刷</td></tr>
+        <tr><td><strong>月次サマリーシート</strong></td><td>頭痛日数/月・薬剤使用日数/月・平均NRS・主要トリガーをA4 1枚に要約</td></tr>
+        <tr><td><strong>HIT-6スコア</strong></td><td>事前に記入して持参（≥60で重症）</td></tr>
+        <tr><td><strong>MIDAS スコア</strong></td><td>直近3ヶ月のデータから計算（≥21でGrade IV重症）</td></tr>
+        <tr><td><strong>薬剤リスト</strong></td><td>現在使用中の全薬剤（処方薬・OTC・サプリメント）の名称・用量・頻度</td></tr>
+        <tr><td><strong>質問リスト</strong></td><td>診察で聞きたい項目を箇条書きで準備</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>10.2 医師への伝達の優先順位</h2>
+  <div class="card">
+    <ol>
+      <li><strong>頭痛日数/月の変化</strong>（増加・減少・安定のトレンド）</li>
+      <li><strong>薬剤使用日数/月</strong>（MOH閾値との比較）</li>
+      <li><strong>最も日常生活を障害した頭痛のエピソード</strong></li>
+      <li><strong>新たに同定したトリガー</strong></li>
+      <li><strong>これまでの治療に対する反応</strong>（NRS変化、副作用）</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 11 -->
+<section id="s11" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">11</div>
+    <h1 class="sec-title">紙日誌 vs. デジタル日誌 — 比較と選択基準</h1>
+  </div>
+
+  <h2>11.1 紙 vs. 電子（e-diary）の比較</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>評価項目</th><th>紙の頭痛日誌</th><th>電子日誌（スマートフォンアプリ）</th><th>根拠</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>コンプライアンス率</strong></td><td>71〜77.5%（適切な指導を受けた場合）</td><td>94〜96.4%（vs. 紙の11%という報告も）</td><td>Stone et al.; van der Donckt et al. 2021 [PMC]</td></tr>
+        <tr><td><strong>リアルタイム記録</strong></td><td>記録が後回しになりやすい；ゲーミング（後からまとめて入力）の問題</td><td>発作時に即座に入力可能；タイムスタンプで入力時刻が確認可能</td><td>JMIR mHealth 2014</td></tr>
+        <tr><td><strong>データ分析</strong></td><td>手動集計が必要</td><td>自動グラフ化・PDFレポート生成</td><td>複数のアプリレビュー研究</td></tr>
+        <tr><td><strong>医師との共有</strong></td><td>紙を持参するか口頭で伝える</td><td>アプリ内レポートをメールやPDFで送信</td><td>ClinicalTrials NCT06532357</td></tr>
+        <tr><td><strong>アクセシビリティ</strong></td><td><span class="bGrn">✅</span> スマートフォン不要；ネット不要；高齢者でも使用可能</td><td>スマートフォン・インターネット環境が必要；高齢者には操作習得が必要</td><td>—</td></tr>
+        <tr><td><strong>プライバシー</strong></td><td>データは自己管理</td><td><span class="bOra">⚠️</span> アプリ会社へのデータ共有に注意；プライバシーポリシーの確認が必要</td><td>Minen MT et al., <em>Headache</em> 2019 [PMC6347475]</td></tr>
+        <tr><td><strong>コスト</strong></td><td><span class="bGrn">✅</span> 無料（VA/DoD テンプレートを印刷）</td><td>多くは無料（有料プレミアム版あり）</td><td>—</td></tr>
+        <tr><td><strong>IHS臨床試験における使用</strong></td><td>研究者主導試験での使用を許可</td><td>推奨される標準的手法</td><td>IHS 臨床試験ガイドライン第4版 2024</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>推奨原則：</strong>臨床の現場では、患者の年齢・デジタルリテラシー・アクセス環境に応じて柔軟に選択することが重要です。</div>
+  </div>
+
+  <h2>11.2 電子日誌選択時のチェックポイント</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>確認項目</th><th>詳細</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>ICHD-3準拠の記録項目</strong></td><td>部位・性状・随伴症状（悪心・光過敏・音過敏）・前兆が記録できるか</td></tr>
+        <tr><td><strong>薬剤使用の記録</strong></td><td>薬剤名・用量・時刻の記録とMOH閾値の警告機能</td></tr>
+        <tr><td><strong>レポート出力機能</strong></td><td>医師に共有できるPDF/グラフレポートの生成機能</td></tr>
+        <tr><td><strong>プライバシーポリシー</strong></td><td>データの第三者提供・売買に関する明記</td></tr>
+        <tr><td><strong>補助機能</strong></td><td>トリガー分析・月経周期記録・気象データ連携</td></tr>
+        <tr><td><strong>医師との連携</strong></td><td>ヘルスケアプロバイダーとのデータ共有機能</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 12 -->
+<section id="s12" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">12</div>
+    <h1 class="sec-title">推奨デジタルツールとアプリ</h1>
+  </div>
+
+  <h2>12.1 主要アプリの比較</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>アプリ名</th><th>開発元</th><th>主な特徴</th><th>エビデンス・根拠</th><th>プラットフォーム</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Migraine Buddy</strong></td><td>Healint（シンガポール）</td><td>ICHD-3準拠の記録；トリガー分析；医師共有レポート；世界190ヶ国370万以上のダウンロード</td><td>AAN 2024発表（HeAD-US研究）；Pfizer社Nurtec試験で利用（NCT06532357）</td><td>iOS / Android</td></tr>
+        <tr><td><strong>N1-Headache（Curelator）</strong></td><td>Curelator Inc.</td><td>機械学習による個人特有トリガー・プロテクター同定</td><td>MEDUSA試験（NCT05979285）；英国NHSプライマリケア試験（PubMed 35364371）</td><td>iOS / Android</td></tr>
+        <tr><td><strong>M-sense Migraine</strong></td><td>EarlySense（ドイツ）</td><td>ICHD-3準拠自動分類；気象データ連携；90日アドヒアランス解析に使用</td><td>Klan M et al., <em>JMIR mHealth</em> 2021；自動分類アルゴリズムの検証 kappa 0.74 [PubMed PMC7291668]</td><td>iOS / Android</td></tr>
+        <tr><td><strong>VA Headache Coach</strong></td><td>米国退役軍人省（VA）</td><td>頭痛日誌＋非薬物療法ツール（CBT・リラクゼーション）統合；VA医療サービスと連携</td><td>VA/DoD CPG 2023；VA News 2025</td><td>iOS / Android</td></tr>
+        <tr><td><strong>RELAXaHEAD</strong></td><td>NYU Langone</td><td>頭痛日誌＋漸進的筋弛緩法（PMR）の統合；ユーザビリティ検証済み</td><td>Minen MT et al. <em>Front Neurol</em> 2019 [PMC6374137]</td><td>iOS</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-warn">
+    <div class="alert-i">📌</div>
+    <div><strong>注意：</strong>アプリのプライバシーポリシーを事前に確認してください。ユーザーデータが第三者（広告主・製薬企業）と共有される可能性があります。参考：Minen MT et al. "Privacy Issues in Smartphone Applications" <em>Headache</em> 2019 — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6347475/" target="_blank" rel="noopener noreferrer">PMC6347475</a></div>
+  </div>
+
+  <h2>12.2 公式紙テンプレートリソース</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>資料</th><th>発行機関</th><th>URL</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>7日間頭痛日誌（2024年最新・PDF）</td><td>VA/DoD</td><td><a href="https://www.healthquality.va.gov/guidelines/pain/headache/HA-Diary-7-Day-Diary-Final-11Jan2024.pdf" target="_blank" rel="noopener noreferrer">healthquality.va.gov</a></td></tr>
+        <tr><td>3ヶ月頭痛日誌（2024年最新・PDF）</td><td>VA/DoD</td><td><a href="https://www.healthquality.va.gov/guidelines/Pain/headache/" target="_blank" rel="noopener noreferrer">healthquality.va.gov</a></td></tr>
+        <tr><td>患者向けリソース（日誌テンプレート含む）</td><td>IHS</td><td><a href="https://ihs-headache.org/en/resources/patient-resources/" target="_blank" rel="noopener noreferrer">ihs-headache.org</a></td></tr>
+        <tr><td>頭痛日誌セルフケアガイド</td><td>Migraine Trust</td><td><a href="https://migrainetrust.org/live-with-migraine/self-management/keeping-a-migraine-diary/" target="_blank" rel="noopener noreferrer">migrainetrust.org</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 13 -->
+<section id="s13" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">13</div>
+    <h1 class="sec-title">特殊集団への配慮</h1>
+  </div>
+
+  <h2>13.1 小児・青年期（12歳未満 / 12〜18歳）</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>配慮事項</th><th>推奨事項</th><th>エビデンス</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>日誌の記録様式</strong></td><td>絵や顔スケール（フェイシャルスケール）を組み合わせた簡略版</td><td>IHS小児臨床試験ガイドライン 2023（<em>Cephalalgia</em>）</td></tr>
+        <tr><td><strong>保護者との連携</strong></td><td>小学生以下は保護者が代理記録；思春期は本人が主体で保護者が補助</td><td>—</td></tr>
+        <tr><td><strong>学校欠席の記録</strong></td><td>欠席日数の記録は PedMIDAS のスコアリングに直結</td><td>Hershey AD et al., <em>Headache</em> 2004</td></tr>
+        <tr><td><strong>睡眠記録の重要性</strong></td><td>小児期は睡眠変動が強力なトリガー；就寝・起床時刻の記録を優先</td><td>—</td></tr>
+        <tr><td><strong>薬剤使用の閾値</strong></td><td>MOH閾値は成人と同じ基準が適用されるが、小児では特に慎重に監視</td><td>ICHD-3</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>13.2 妊娠・授乳中</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>配慮事項</th><th>推奨事項</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>薬剤使用の記録</strong></td><td>使用薬剤の安全性クラスを明記；すべての薬剤使用を産科医・神経内科医に報告</td></tr>
+        <tr><td><strong>安全な急性期薬</strong></td><td>アセトアミノフェン（第1選択）；IV硫酸マグネシウム1〜2g（重症例）</td></tr>
+        <tr><td><strong>避けるべき薬剤</strong></td><td>エルゴタミン（禁忌）・トリプタン（慎重使用）・バルプロ酸（禁忌）・トピラマート（禁忌）</td></tr>
+        <tr><td><strong>頭痛パターンの変化</strong></td><td>妊娠中（特に妊娠中期）に片頭痛が改善することがある → 日誌でモニター</td></tr>
+        <tr><td><strong>SNOOP4の強化</strong></td><td>妊娠・産後は4番目の「P（Pregnancy/Postpartum）」に相当 → 子癇前症・RCVS・CVSTを常に念頭に</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>13.3 高齢者（65歳以上）</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>配慮事項</th><th>推奨事項</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>記録様式の簡略化</strong></td><td>記録項目を最低限（頭痛の有無・NRS・薬剤使用）に絞ることも許容</td></tr>
+        <tr><td><strong>薬剤相互作用の監視</strong></td><td>多剤服用が多い → 日誌に全服薬情報を記載して医師と共有</td></tr>
+        <tr><td><strong>転倒リスク</strong></td><td>頭痛発作中の歩行困難・姿勢障害の記録 → 転倒予防計画に活用</td></tr>
+        <tr><td><strong>新規頭痛の評価</strong></td><td>65歳以降の新規頭痛はSNOOP4の「O（Onset after age 50）」に相当 → 必ず専門医評価</td></tr>
+        <tr><td><strong>認知機能への配慮</strong></td><td>デジタルアプリより紙の日誌が使いやすいケースが多い</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>13.4 月経関連片頭痛（Menstrual Migraine）</h2>
+  <p>月経周期と頭痛発作の関連を評価するためには、少なくとも3ヶ月分の日誌が必要です。</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 月経関連片頭痛の評価プロセス</div>
+<pre class="mermaid">
+flowchart LR
+    A["月経周期の記録<br/>（月経開始日を1日目）"] --> B["頭痛発作日との照合<br/>（3ヶ月分）"]
+    B --> C{"月経前2日〜月経3日以内に<br/>頭痛発作が集中しているか？"}
+    C -- "YES（2/3周期以上）" --> D["純粋月経時片頭痛<br/>または月経関連片頭痛<br/>の診断評価（ICHD-3 A1.1.1/A1.1.2）"]
+    C -- "NO" --> E["月経との関連は低い<br/>他のトリガーを探索"]
+    D --> F["月経前後のエストロゲン変動管理<br/>婦人科医との連携<br/>PCNSAIDs法・トリプタン短期予防療法"]
+    style D fill:#8e44ad,color:#fff
+    style F fill:#2980b9,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 14 -->
+<section id="s14" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">14</div>
+    <h1 class="sec-title">アウトカム測定との統合（HIT-6 / MIDAS / VAS）</h1>
+  </div>
+
+  <h2>14.1 頭痛日誌と主要アウトカム指標の関係</h2>
+  <p>頭痛日誌のデータは、標準化されたアウトカム指標の算出に直結します。</p>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>アウトカム指標</th><th>算出に必要な日誌データ</th><th>評価頻度</th><th>治療成功の閾値</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>HIT-6（Headache Impact Test）</strong></td><td>頭痛の強度・頻度・機能障害・日常活動への影響の記録</td><td>4週間ごと（想起期間4週）</td><td>5〜6点の改善（MCID）；目標&lt;50点（正常域）</td></tr>
+        <tr><td><strong>MIDAS（Migraine Disability Assessment）</strong></td><td>職業的・家事的・社会的活動の障害日数（3ヶ月分）</td><td>3ヶ月ごと（想起期間90日）</td><td>≥50%スコア減少；グレードI/IIへの移行</td></tr>
+        <tr><td><strong>NRS / VAS</strong></td><td>毎回の発作時に記録（発症時・ピーク・2時間後）</td><td>毎発作</td><td>≥50%の強度低下（2時間後）</td></tr>
+        <tr><td><strong>頭痛日数/月の変化</strong></td><td>月次集計</td><td>毎月</td><td>≥50%減少（主要エンドポイント：IHS基準）</td></tr>
+        <tr><td><strong>PGIC（患者全般印象変化）</strong></td><td>治療前後の総合的改善評価（7点尺度）</td><td>3〜6ヶ月ごと</td><td>「改善（5点）」以上</td></tr>
+        <tr><td><strong>50%レスポンダー率</strong></td><td>治療前後の頭痛日数比較</td><td>3ヶ月後</td><td>≥50%の患者が50%以上減少を達成</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>14.2 日誌データからHIT-6・MIDASを補完する</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 日誌データが各アウトカム指標へ集約される流れ</div>
+<pre class="mermaid">
+flowchart LR
+    A["頭痛日誌<br/>（毎日の記録）"] --> B["NRS × 持続時間<br/>→ 頭痛強度プロファイル"]
+    A --> C["機能障害日数の記録<br/>→ MIDAS素材"]
+    A --> D["薬剤使用の記録<br/>→ MOH評価"]
+    B --> E["HIT-6の<br/>精度向上"]
+    C --> F["MIDAS スコア<br/>（3ヶ月分で計算）"]
+    D --> G["MOH閾値<br/>超過の判定"]
+    E --> H["統合アウトカム評価<br/>（3ヶ月・6ヶ月・12ヶ月）"]
+    F --> H
+    G --> H
+    H --> I["治療方針の<br/>見直し・調整"]
+    style H fill:#27ae60,color:#fff
+    style I fill:#2980b9,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 15 -->
+<section id="s15" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">15</div>
+    <h1 class="sec-title">12週間モニタリングプロトコル</h1>
+  </div>
+
+  <h2>15.1 頭痛日誌を核とした12週間フレームワーク</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>時点</th><th>頭痛日誌の役割</th><th>医師との評価内容</th><th>判断基準</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>ベースライン（0週）</strong></td><td>最低30日間の記録収集；ICHD-3診断の根拠データ</td><td>SNOOP4評価・ICHD-3分類・HIT-6・MIDAS初回評価；MOH閾値確認</td><td>診断確定・治療計画策定</td></tr>
+        <tr><td><strong>4週（1ヶ月後）</strong></td><td>薬剤使用日数・頭痛日数の集計；トリガー候補の同定</td><td>HIT-6再評価（4週間想起期間に対応）；副作用確認</td><td>初期反応確認；治療アドヒアランス評価</td></tr>
+        <tr><td><strong>8週（2ヶ月後）</strong></td><td>トリガー回避戦略の効果確認；MOHリスクのモニター</td><td>HIT-6再評価；副作用・耐容性評価</td><td>中間評価；用量調整の判断</td></tr>
+        <tr><td><strong>12週（3ヶ月後）</strong></td><td>3ヶ月分データ完成；トリガープロファイル確立</td><td>MIDAS再評価・HIT-6・NRS変化・50%レスポンダー判定</td><td>正式アウトカム評価；治療継続/変更の根拠</td></tr>
+        <tr><td><strong>6ヶ月</strong></td><td>継続記録</td><td>MIDAS・HIT-6・日誌データの包括的レビュー</td><td>長期維持の確認；CGRP mAbsの継続可否</td></tr>
+        <tr><td><strong>12ヶ月</strong></td><td>年間記録のサマリー</td><td>年次評価；QOL評価（MSQ v2.1）</td><td>年間評価；予防薬漸減・中止の検討</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>15.2 治療成功の複合基準（頭痛日誌データに基づく）</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>指標</th><th>最小成功基準（MCID）</th><th>優秀な反応</th><th>評価のタイムポイント</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>頭痛日数/月</strong></td><td>≥50%減少</td><td>≥75%減少</td><td>12週以降</td></tr>
+        <tr><td><strong>HIT-6スコア</strong></td><td>≥5〜6点改善</td><td>&lt;50点（正常域）への移行</td><td>4週ごと</td></tr>
+        <tr><td><strong>MIDASスコア</strong></td><td>≥50%減少</td><td>Grade Iへの移行</td><td>12週ごと</td></tr>
+        <tr><td><strong>急性期薬使用日数</strong></td><td>MOH閾値以下</td><td>≤4日/月</td><td>毎月</td></tr>
+        <tr><td><strong>NRS ピーク強度</strong></td><td>≥30%低下</td><td>≥50%低下</td><td>毎発作</td></tr>
+        <tr><td><strong>機能障害日数（MIDAS素材）</strong></td><td>50%以上減少</td><td>Grade I（0〜5日）</td><td>3ヶ月ごと</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 16 -->
+<section id="s16" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">16</div>
+    <h1 class="sec-title">参考文献・ソースURL一覧</h1>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">🌐</div>
+    <div>以下はすべて<strong>国際的に認可された一次ソース</strong>（ICHD-3 / IHS / AAN / AHS / EHF / NICE / VA-DoD / Cochrane / PubMed）です。リンクは新しいタブで開きます。</div>
+  </div>
+
+  <h2>A. ICHD-3診断基準（最重要ソース）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>資料</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>ICHD-3 公式サイト（全文閲覧可・日本語あり）</td><td><a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ichd-3.org</a></td></tr>
+        <tr><td>ICHD-3 How to Use the Classification（頭痛日誌の推奨根拠）</td><td><a href="https://ichd-3.org/how-to-use-the-classification/" target="_blank" rel="noopener noreferrer">ichd-3.org/how-to-use-the-classification</a></td></tr>
+        <tr><td>ICHD-3 全文PDF（Cephalalgia 2018）</td><td><a href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf" target="_blank" rel="noopener noreferrer">ICHD-3 全文PDF</a></td></tr>
+        <tr><td>IHS 分類委員会（ICHD-4最新動向）</td><td><a href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/" target="_blank" rel="noopener noreferrer">ihs-headache.org/classification</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>B. 臨床ガイドライン</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>機関・資料</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>AAN 頭痛ガイドライン一覧</td><td><a href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">aan.com/guidelines</a></td></tr>
+        <tr><td>AAN/AHS 片頭痛予防ガイドライン（PDF）</td><td><a href="https://www.aan.com/guidelines/home/getguidelinecontent/545" target="_blank" rel="noopener noreferrer">aan.com（content/545）</a></td></tr>
+        <tr><td>AAN 2024年予防療法ドラフト（公開レビュー用）</td><td><a href="https://www.aan.com/siteassets/home-page/policy-and-guidelines/guidelines/guidelines-and-measures-open-for-public-comment/24-pharmacologic-treatment-for-migraine-prevention-in-adults_draft_08-14-2024.pdf" target="_blank" rel="noopener noreferrer">AAN 2024 予防療法ドラフト PDF</a></td></tr>
+        <tr><td>AHS CGRP第一選択化 Position Statement 2024</td><td><a href="https://americanheadachesociety.org/" target="_blank" rel="noopener noreferrer">americanheadachesociety.org</a></td></tr>
+        <tr><td>EHF CGRP mAbs 予防療法ガイドライン 2022（PMC全文）</td><td><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">PMC9188162</a></td></tr>
+        <tr><td>EHF トリプタン治療コンセンサス 2022</td><td><a href="https://link.springer.com/article/10.1186/s10194-022-01502-z" target="_blank" rel="noopener noreferrer">link.springer.com（10194-022-01502-z）</a></td></tr>
+        <tr><td>NICE 頭痛ガイドライン CG150（英国）</td><td><a href="https://www.nice.org.uk/guidance/cg150" target="_blank" rel="noopener noreferrer">nice.org.uk/guidance/cg150</a></td></tr>
+        <tr><td>IHS 急性期治療推奨 2024（Cephalalgia全文）</td><td><a href="https://journals.sagepub.com/doi/10.1177/03331024241252666" target="_blank" rel="noopener noreferrer">sagepub.com（03331024241252666）</a></td></tr>
+        <tr><td>IHS ガイドライン総覧（2024〜2025）</td><td><a href="https://ihs-headache.org/en/resources/guidelines/" target="_blank" rel="noopener noreferrer">ihs-headache.org/resources/guidelines</a></td></tr>
+        <tr><td>VA/DoD 頭痛管理 CPG 2023</td><td><a href="https://www.healthquality.va.gov/guidelines/Pain/headache/" target="_blank" rel="noopener noreferrer">healthquality.va.gov</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>C. 頭痛日誌の診断・評価エビデンス（一次文献）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>著者・年</th><th>主な知見</th><th>掲載誌・URL</th></tr></thead>
+      <tbody>
+        <tr><td>Valade D et al., 2008</td><td>頭痛日誌の診断感度92%（片頭痛）・75%（TTH・MOH）；コンプライアンス71%</td><td><em>Cephalalgia</em> — <a href="https://pubmed.ncbi.nlm.nih.gov/18624804/" target="_blank" rel="noopener noreferrer">PubMed: 18624804</a></td></tr>
+        <tr><td>Vandenbussche N et al., 2025</td><td>90日間スマートフォン日誌 vs. 臨床面接の比較；ICHD-3症状の新規同定</td><td><em>Neurol Int</em> — <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11944553/" target="_blank" rel="noopener noreferrer">PMC11944553</a></td></tr>
+        <tr><td>Klan M et al., 2021</td><td>M-sense アプリの自動分類アルゴリズム；神経内科医との一致度 kappa 0.74</td><td><em>JMIR mHealth</em> — <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7291668/" target="_blank" rel="noopener noreferrer">PMC7291668</a></td></tr>
+        <tr><td>Stone AA et al., 2002</td><td>電子日誌コンプライアンス94% vs. 紙日誌11%（ゲーミング問題）</td><td><em>BMJ</em> — 紙 vs. 電子比較</td></tr>
+        <tr><td>van der Donckt J et al., 2021</td><td>電子日誌コンプライアンス96.4%；医師満足度スコア8/10</td><td>ResearchGate — <a href="https://www.researchgate.net/publication/351331349" target="_blank" rel="noopener noreferrer">E-diary prospective study</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>D. デジタルアプリの検証研究</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究・ソース</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>JMIR mHealth — 商業ヘッドエイクアプリの系統的レビュー 2014</td><td><a href="https://mhealth.jmir.org/2014/3/e36/" target="_blank" rel="noopener noreferrer">mhealth.jmir.org/2014/3/e36</a></td></tr>
+        <tr><td>MEDUSA Study — N1-Headache App（ClinicalTrials）</td><td><a href="https://clinicaltrials.gov/study/NCT05979285" target="_blank" rel="noopener noreferrer">NCT05979285</a></td></tr>
+        <tr><td>HeAD-US Study — Migraine Buddy（AAN 2024）</td><td><a href="https://migrainebuddy.com/" target="_blank" rel="noopener noreferrer">migrainebuddy.com</a></td></tr>
+        <tr><td>Minen MT et al. — アプリのプライバシー問題（PMC）</td><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6347475/" target="_blank" rel="noopener noreferrer">PMC6347475</a></td></tr>
+        <tr><td>Minen MT et al. — RELAXaHEAD アプリ（PMC）</td><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6374137/" target="_blank" rel="noopener noreferrer">PMC6374137</a></td></tr>
+        <tr><td>NPP Digital Psychiatry — N1-Headacheアドヒアランス研究</td><td><a href="https://www.nature.com/articles/s44277-024-00021-w" target="_blank" rel="noopener noreferrer">nature.com（s44277-024-00021-w）</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>E. IHS臨床試験ガイドライン（日誌の標準的役割）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>資料</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>IHS 臨床試験ガイドライン（急性期治療・第4版）</td><td><a href="https://journals.sagepub.com/doi/10.1177/03331024241252666" target="_blank" rel="noopener noreferrer">sagepub.com（03331024241252666）</a></td></tr>
+        <tr><td>IHS 小児片頭痛予防臨床試験ガイドライン更新 2023</td><td><a href="https://journals.sagepub.com/doi/full/10.1177/03331024231178239" target="_blank" rel="noopener noreferrer">sagepub.com（03331024231178239）</a></td></tr>
+        <tr><td>IHS 頭痛・群発頭痛のリアルワールドエビデンス試験ガイドライン 2025</td><td><a href="https://ihs-headache.org/en/resources/guidelines/" target="_blank" rel="noopener noreferrer">ihs-headache.org/resources/guidelines</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>F. 専門誌・データベース（継続リサーチ用）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>名称</th><th>用途</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>Journal of Headache and Pain（EHF公式誌・OA）</td><td>最新EHF研究・ガイドライン更新</td><td><a href="https://thejournalofheadacheandpain.biomedcentral.com/" target="_blank" rel="noopener noreferrer">thejournalofheadacheandpain.biomedcentral.com</a></td></tr>
+        <tr><td>Cephalalgia（IHS公式誌）</td><td>ICHD改訂・臨床試験</td><td><a href="https://journals.sagepub.com/home/cep" target="_blank" rel="noopener noreferrer">sagepub.com/home/cep</a></td></tr>
+        <tr><td>PubMed 頭痛日誌関連研究</td><td>最新エビデンスの確認</td><td><a href="https://pubmed.ncbi.nlm.nih.gov/?term=headache+diary+validation" target="_blank" rel="noopener noreferrer">pubmed（headache diary validation）</a></td></tr>
+        <tr><td>Cochrane Library — 頭痛レビュー</td><td>系統的レビュー</td><td><a href="https://www.cochranelibrary.com/search?query=headache+migraine&searchBy=3&type=cdsr" target="_blank" rel="noopener noreferrer">cochranelibrary.com</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>G. 患者向け日誌テンプレート（無料ダウンロード）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>資料</th><th>提供機関</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>7日間頭痛日誌（2024年・PDF）</td><td>VA/DoD</td><td><a href="https://www.healthquality.va.gov/guidelines/pain/headache/HA-Diary-7-Day-Diary-Final-11Jan2024.pdf" target="_blank" rel="noopener noreferrer">healthquality.va.gov（7-Day-Diary PDF）</a></td></tr>
+        <tr><td>3ヶ月頭痛日誌（2024年）</td><td>VA/DoD</td><td><a href="https://www.healthquality.va.gov/guidelines/Pain/headache/" target="_blank" rel="noopener noreferrer">healthquality.va.gov</a></td></tr>
+        <tr><td>IHS患者リソース（日誌含む）</td><td>IHS</td><td><a href="https://ihs-headache.org/en/resources/patient-resources/" target="_blank" rel="noopener noreferrer">ihs-headache.org/resources/patient-resources</a></td></tr>
+        <tr><td>Migraine Trust 日誌ガイド</td><td>Migraine Trust（英国）</td><td><a href="https://migrainetrust.org/live-with-migraine/self-management/keeping-a-migraine-diary/" target="_blank" rel="noopener noreferrer">migrainetrust.org</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">📅</div>
+    <div><strong>作成年：</strong>2026年　|　<strong>次回レビュー推奨：</strong>ICHD-4 正式発行時 / AAN・IHS 年次ガイドライン更新時<br><strong>免責事項：</strong>本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。本資料は個人への医療アドバイス・診断・処方を提供するものではありません。</div>
+  </div>
+</section>
+
 
 </main>
 </div><!-- end layout -->
