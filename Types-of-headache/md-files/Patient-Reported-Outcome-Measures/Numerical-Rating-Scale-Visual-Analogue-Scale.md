@@ -467,7 +467,7 @@ flowchart TD
     K -->|"NRS ≥4<br>VAS ≥45mm<br>治療無効"| N["⚠️ 治療奏効なし<br>レスキュー療法 / MOH 評価<br>予防療法導入を検討"]
     L --> O["24時間後評価<br>Sustained Pain Freedom 確認"]
     M --> O
-    N --> P["MOH リスク評価<br>NSAIDs > 10日/月<br>トリプタン > 8日/月<br>→ ICHD-3 コード 8.2 を確認"]
+    N --> P["MOH リスク評価<br>NSAIDs ≥ 15日/月<br>トリプタン ≥ 10日/月<br>→ ICHD-3 コード 8.2 を確認"]
 
     style D fill:#ffcdd2,stroke:#C62828,stroke-width:2px
     style L fill:#c8e6c9,stroke:#1B5E20
@@ -481,8 +481,9 @@ flowchart TD
 NRS / VAS の記録は **MOH 予防の重要な監視ツール**です。
 
 > **⚠️ MOH（ICHD-3 コード 8.2）の閾値：**
-> - 単純鎮痛薬 / NSAIDs / 組み合わせ鎮痛薬：月10日以上 × 3ヶ月継続
-> - トリプタン / エルゴタミン / オピオイド：月8日以上 × 3ヶ月継続
+> - 単純鎮痛薬 / NSAIDs：月15日以上 × 3ヶ月継続
+> - 組み合わせ鎮痛薬：月10日以上 × 3ヶ月継続
+> - トリプタン / エルゴタミン / オピオイド：月10日以上 × 3ヶ月継続
 
 | NRS 記録の役割 | MOH 管理への貢献 |
 |------------|---------------|
@@ -633,7 +634,7 @@ flowchart TD
     S2 --> S3["STEP 3：ベースライン VAS / NRS 評価<br>・直近の典型的発作時のピーク NRS<br>・最終発作の NRS（発症時・ピーク・2h後）<br>・頭痛日誌を使用した30日間記録開始"]
     S3 --> S4["STEP 4：関連転帰指標の同時評価<br>・HIT-6（頭痛生活影響：≥60 = 重度）<br>・MIDAS（社会的障害：≥21 = Grade IV）<br>・MOH リスク評価（使用薬剤・使用頻度）"]
     S4 --> S5["STEP 5：治療計画立案<br>・NRS ≥4 で急性薬剤投与を基準とする<br>・NRS ≥7 または月4回以上で予防療法を検討<br>・エビデンスグレード [Grade A/B/C/U] を付記"]
-    S5 --> S6["STEP 6：患者教育<br>・NRS の使用方法と意味<br>・頭痛日誌への記録方法<br>・MOH 閾値（NSAIDs >10日/月等）の説明"]
+    S5 --> S6["STEP 6：患者教育<br>・NRS の使用方法と意味<br>・頭痛日誌への記録方法<br>・MOH 閾値（NSAIDs ≥15日/月等）の説明"]
     S6 --> End(["治療開始 / フォローアップへ"])
 
     style Start fill:#e3f2fd,stroke:#1565C0
