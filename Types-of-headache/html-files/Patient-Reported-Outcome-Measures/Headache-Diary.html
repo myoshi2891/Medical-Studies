@@ -160,14 +160,27 @@ pre.mermaid{text-align:center}
 .footer{background:var(--diary1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
 .footer strong{color:#fff}
 
+/* Mobile nav toggle（デスクトップでは非表示） */
+.menu-toggle{display:none;position:fixed;top:12px;left:12px;z-index:1002;align-items:center;gap:6px;background:var(--diary1);color:#fff;border:none;padding:9px 14px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:var(--sh)}
+.menu-toggle:focus-visible{outline:3px solid var(--diary-l);outline-offset:2px}
+.nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;z-index:1000}
+
 /* Responsive */
 @media(max-width:900px){
-  .sidebar{display:none}
-  .main{padding:16px 14px 60px}
+  /* サイドバーは DOM に残し、画面外へスライド退避（display:none にしない） */
+  .sidebar{position:fixed;top:0;left:0;transform:translateX(-100%);transition:transform .25s ease;z-index:1001;box-shadow:2px 0 14px rgba(0,0,0,.18)}
+  .sidebar.open{transform:translateX(0)}
+  .menu-toggle{display:inline-flex}
+  .nav-backdrop.open{opacity:1;visibility:visible}
+  .main{padding:64px 14px 60px}
 }
 </style>
 </head>
 <body>
+
+<!-- MOBILE NAV TOGGLE -->
+<button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true">☰</span> 目次</button>
+<div class="nav-backdrop" id="navBackdrop"></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -191,7 +204,7 @@ pre.mermaid{text-align:center}
 <div class="layout">
 
 <!-- SIDEBAR -->
-<nav class="sidebar">
+<nav class="sidebar" id="site-nav" aria-label="目次">
   <div class="s-hdr">目次</div>
   <a class="nav-a" href="#s1"><span class="n-num">1</span>SNOOP4 レッドフラッグ</a>
   <a class="nav-a" href="#s2"><span class="n-num">2</span>頭痛日誌とは</a>
@@ -1142,6 +1155,22 @@ mermaid.initialize({
   flowchart: { curve: 'linear', padding: 20 }
 });
 
+// モバイル目次トグル（スライドアウト式ナビ）
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.querySelector('.sidebar');
+const backdrop = document.getElementById('navBackdrop');
+
+function setMenu(open){
+  sidebar.classList.toggle('open', open);
+  backdrop.classList.toggle('open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+}
+menuToggle.addEventListener('click', () => setMenu(!sidebar.classList.contains('open')));
+backdrop.addEventListener('click', () => { setMenu(false); menuToggle.focus(); });
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape' && sidebar.classList.contains('open')){ setMenu(false); menuToggle.focus(); }
+});
+
 const navAs = document.querySelectorAll('.nav-a');
 navAs.forEach(a => {
   a.addEventListener('click', e => {
@@ -1149,6 +1178,7 @@ navAs.forEach(a => {
     const id = a.getAttribute('href').slice(1);
     const el = document.getElementById(id);
     if(el) el.scrollIntoView({behavior:'smooth'});
+    setMenu(false); // モバイルで選択後は目次を閉じる
   });
 });
 
