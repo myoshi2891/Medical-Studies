@@ -1,4 +1,5 @@
 # 頭痛日誌（Headache Diary）完全ガイド
+
 ## 初学者向けステップバイステップ解説 — 国際エビデンス準拠
 
 ---
@@ -668,7 +669,6 @@ flowchart LR
 | Cochrane Library — 頭痛レビュー | 系統的レビュー | https://www.cochranelibrary.com/search?query=headache+migraine&searchBy=3&type=cdsr |
 
 ### G. 患者向け日誌テンプレート（無料ダウンロード）
-
 
 | 資料 | 提供機関 | URL |
 |-----|---------|-----|
