@@ -332,9 +332,9 @@ style G fill:#27ae60,color:#fff
         <tr><th>薬剤種別</th><th>MOH閾値</th><th>日誌なしの検出率</th><th>日誌ありの検出率</th></tr>
       </thead>
       <tbody>
-        <tr><td>トリプタン・エルゴタミン・オピオイド</td><td><strong class="tR">&gt;8日/月</strong> × 3ヶ月</td><td>低い（患者自身も気づいていないことが多い）</td><td>スクリーニング感度95.2%（ICHD基準の自己報告版）[PubMed: PMC3850931]</td></tr>
-        <tr><td>単純鎮痛薬・NSAIDs</td><td><strong class="tR">&gt;10日/月</strong> × 3ヶ月</td><td>低い</td><td>高い</td></tr>
-        <tr><td>複合鎮痛薬</td><td><strong class="tR">&gt;10日/月</strong> × 3ヶ月</td><td>低い</td><td>高い</td></tr>
+        <tr><td>トリプタン・エルゴタミン・オピオイド</td><td><strong class="tR">≥10日/月</strong> × 3ヶ月</td><td>低い（患者自身も気づいていないことが多い）</td><td>スクリーニング感度95.2%（ICHD基準の自己報告版）[PubMed: PMC3850931]</td></tr>
+        <tr><td>単純鎮痛薬・NSAIDs</td><td><strong class="tR">≥15日/月</strong> × 3ヶ月</td><td>低い</td><td>高い</td></tr>
+        <tr><td>複合鎮痛薬</td><td><strong class="tR">≥10日/月</strong> × 3ヶ月</td><td>低い</td><td>高い</td></tr>
       </tbody>
     </table>
   </div>
@@ -463,7 +463,7 @@ mindmap
         <tr><td><strong>前兆（Aura）</strong></td><td>視覚性（閃輝暗点・暗点）・感覚性・言語性；持続時間</td><td>発作のたびに</td><td>ICHD-3コード1.2（前兆ありの片頭痛）の診断</td></tr>
         <tr><td><strong>予兆（Prodrome）</strong></td><td>情動変化・欠伸・頸部こわばり・倦怠感（発症前数時間〜数日）</td><td>毎日</td><td>早期介入のタイミング特定</td></tr>
         <tr><td><strong>後兆（Postdrome）</strong></td><td>集中力低下・倦怠感・頸部痛（発作後24h）</td><td>発作後</td><td>真の頭痛持続時間の把握</td></tr>
-        <tr><td><strong>薬剤使用</strong></td><td>薬剤名・用量・使用時刻・効果（NRS変化）・副作用</td><td>使用のたびに</td><td><strong class="tR">MOH検出の核心</strong>；トリプタン&gt;8日/月、鎮痛薬&gt;10日/月が閾値</td></tr>
+        <tr><td><strong>薬剤使用</strong></td><td>薬剤名・用量・使用時刻・効果（NRS変化）・副作用</td><td>使用のたびに</td><td><strong class="tR">MOH検出の核心</strong>；トリプタン≥10日/月、鎮痛薬≥15日/月が閾値</td></tr>
         <tr><td><strong>睡眠</strong></td><td>就寝時刻・起床時刻・睡眠時間・睡眠の質（0〜10）</td><td>毎日</td><td>睡眠変動は強力なトリガー（週末の寝坊→「週末片頭痛」）</td></tr>
         <tr><td><strong>食事・水分</strong></td><td>食事時刻・水分摂取量・アルコール・カフェイン量</td><td>毎日</td><td>食事スキップ・脱水・カフェイン離脱はトリガー</td></tr>
         <tr><td><strong>月経周期（女性）</strong></td><td>月経開始日を1日目として記録</td><td>毎日</td><td>月経前後のエストロゲン急落は強力なトリガー</td></tr>
@@ -567,9 +567,9 @@ A["月次集計：薬剤使用日数の確認"] --> B{"使用薬剤の種類"}
 B --> C["トリプタン<br/>エルゴタミン<br/>オピオイド"]
 B --> D["単純鎮痛薬<br/>NSAIDs<br/>アスピリン"]
 B --> E["複合鎮痛薬<br/>（カフェイン含有等）"]
-C --> F{"月あたり使用日数 &gt; 8日？"}
-D --> G{"月あたり使用日数 &gt; 10日？"}
-E --> H{"月あたり使用日数 &gt; 10日？"}
+C --> F{"月あたり使用日数 ≥ 10日？"}
+D --> G{"月あたり使用日数 ≥ 15日？"}
+E --> H{"月あたり使用日数 ≥ 10日？"}
 F -- "YES（≥3ヶ月継続）" --> I
 G -- "YES（≥3ヶ月継続）" --> I
 H -- "YES（≥3ヶ月継続）" --> I
