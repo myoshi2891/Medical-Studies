@@ -156,6 +156,34 @@ async function exists(p) {
   }
 }
 
+// hero 3 色を検証して正規化（小文字化）した配列を返す。不正なら exit。
+function parseHeroColors(heroOpt) {
+  const colors = heroOpt.split(",").map((s) => s.trim().toLowerCase());
+  if (colors.length !== 3) {
+    console.error("--hero must be 3 comma-separated hex colors");
+    exit(2);
+  }
+  const isHex = (v) => /^#([0-9a-f]{6}|[0-9a-f]{3})$/i.test(v);
+  if (!colors.every(isHex)) {
+    console.error(
+      "--hero colors must be valid hex values (e.g. '#1a237e,#283593,#0277bd')",
+    );
+    exit(2);
+  }
+  return colors;
+}
+
+// category/page から出力パスを解決し、HTML_ROOT 配下に収まることを検証。
+function resolveOutPath(category, page) {
+  const outDir = resolve(HTML_ROOT, category);
+  const outPath = resolve(outDir, `${page}.html`);
+  if (!outPath.startsWith(resolve(HTML_ROOT) + "/")) {
+    console.error("Output path must stay within Types-of-headache/html-files");
+    exit(2);
+  }
+  return { outDir, outPath };
+}
+
 async function main() {
   const opts = parseArgs(argv.slice(2));
   if (opts.help || opts.h) {
@@ -175,11 +203,7 @@ async function main() {
     "section-titles",
   ]);
 
-  const heroColors = opts.hero.split(",").map((s) => s.trim().toLowerCase());
-  if (heroColors.length !== 3) {
-    console.error("--hero must be 3 comma-separated hex colors");
-    exit(2);
-  }
+  const heroColors = parseHeroColors(opts.hero);
 
   const sections = parseInt(opts.sections, 10);
   if (!Number.isFinite(sections) || sections < 1) {
@@ -187,8 +211,7 @@ async function main() {
     exit(2);
   }
 
-  const outDir = join(HTML_ROOT, opts.category);
-  const outPath = join(outDir, `${opts.page}.html`);
+  const { outDir, outPath } = resolveOutPath(opts.category, opts.page);
 
   if (!opts.force && (await exists(outPath))) {
     console.error(`Refusing to overwrite ${outPath} (use --force)`);
