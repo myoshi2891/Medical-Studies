@@ -4,10 +4,10 @@
 
 ## 現在地
 
-- **最新 HEAD**: `4f5e230` feat(Types-of-headache): Cervical-Plexus-Block.html — Phase 3/4: sections 9-18
-- **ビルド状態**: Mermaid 修正スクリプト pytest 4 passed / Mermaid 12図（fix_mermaid: No issues）/ 外部リンク 15 件すべて rel 付与 / SRI 付与済 / 18セクション・18ナビリンク / ASCII 図解残存ゼロ
-- **次の作業**: `Headache-Diary.html` 移行（作成）
-- **未移行 HTML 残数**: 6
+- **最新 HEAD**: `3b76c47` feat(Types-of-headache): Headache-Diary.html — Phase 4/4: finalize
+- **ビルド状態**: Mermaid 修正スクリプト pytest 4 passed（python3.12）/ Mermaid 9図（flowchart 8 + mindmap 1, fix_mermaid 正常）/ 外部リンク 46 件すべて rel="noopener noreferrer" 付与 / SRI 付与済 / 16セクション・16ナビリンク / ASCII 図解残存ゼロ
+- **次の作業**: `Headache-Impact-Test.html` 移行（作成）
+- **未移行 HTML 残数**: 5
 
 ## 移行ステータス
 
@@ -22,7 +22,7 @@
 | Physical Therapy | 頭痛に対する理学療法 (PT) | [Physical Therapy-for-Headache.md](Types-of-headache/md-files/Physical-Therapy/Physical%20Therapy-for-Headache.md) | [Physical-Therapy-for-Headache.html](Types-of-headache/html-files/Physical-Therapy/Physical-Therapy-for-Headache.html) | ✅ 完了 | Amber→Coral ヒーロー / Mermaid 9図 / .steps で ASCII 代替 / 4フェーズ分割 |
 | Nutrition & Supplements | 頭痛と栄養・サプリメント療法 | [Nutrition-and-Supplements.md](Types-of-headache/md-files/Nutrition-and-Supplements/Nutrition-and-Supplements.md) | [Nutrition-and-Supplements.html](Types-of-headache/html-files/Nutrition-and-Supplements/Nutrition-and-Supplements.html) | ✅ 完了 | Jewel Emerald ヒーロー / Mermaid 8図 / .nut-rx 処方カード / 4フェーズ分割 |
 | Psychological & Behavioral | 頭痛の心理・行動療法 | [Psychological-Behavioral-Therapy.md](Types-of-headache/md-files/Psychological-Behavioral-Therapy/Psychological-Behavioral-Therapy.md) | [Psychological-Behavioral-Therapy.html](Types-of-headache/html-files/Psychological-Behavioral-Therapy/Psychological-Behavioral-Therapy.html) | ✅ 完了 | トワイライト藍紫ヒーロー / Mermaid 8図 / .snoop-grid・.therapy-grid / 14セクション / 4フェーズ分割 |
-| Patient Reported Outcome Measures | 頭痛ダイアリー | [Headache-Diary.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Headache-Diary.md) | - | ⏳ 未着手 | |
+| Patient Reported Outcome Measures | 頭痛ダイアリー | [Headache-Diary.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Headache-Diary.md) | [Headache-Diary.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Headache-Diary.html) | ✅ 完了 | セピア・ブロンズ系ヒーロー / Mermaid 9図（mindmap 含む）/ 16セクション / 外部リンク46 / 4フェーズ分割 |
 | Patient Reported Outcome Measures | Headache Impact Test (HIT-6) | [Headache-Impact-Test.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Headache-Impact-Test.md) | - | ⏳ 未着手 | |
 | Patient Reported Outcome Measures | Migraine Disability Assessment (MIDAS) | [Migraine-Disability-Assessment.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Migraine-Disability-Assessment.md) | - | ⏳ 未着手 | |
 | Patient Reported Outcome Measures | Migraine-Specific Quality of Life (MSQ) | [Migraine-Specific-Quality-of-Life.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Migraine-Specific-Quality-of-Life.md) | - | ⏳ 未着手 | |
@@ -35,7 +35,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 4f5e230
-- 次の作業: Headache-Diary.html 移行
-- 未移行 HTML 残数: 6
+- 最新 HEAD: 3b76c47
+- 次の作業: Headache-Impact-Test.html 移行
+- 未移行 HTML 残数: 5
 ```
