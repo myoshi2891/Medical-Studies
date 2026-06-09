@@ -208,7 +208,445 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
-<!-- SECTIONS INSERTED IN PHASE 2 & 3 -->
+<!-- ============================================================ SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">概論 — 頚神経叢ブロックとは</h1>
+  </div>
+
+  <p><strong>頚神経叢ブロック（Cervical Plexus Block; CPB）</strong>は、頸部前外側・耳垂・鎖骨・肩峰鎖骨関節の皮膚および深部組織に麻酔と鎮痛を提供する<strong>区域麻酔技術</strong>です。C2〜C4神経根の分布域に対して密度の高い麻酔・鎮痛効果を生みます。</p>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div>頚神経叢ブロックが麻酔する範囲は<strong>「ケープ状領域」</strong>と呼ばれ、耳垂の後端・鎖骨外側端・下顎骨内側面・鎖骨下面によって区切られる体表領域です。</div>
+  </div>
+
+  <h2>1-1. 歴史的背景</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>年代</th><th>出来事</th></tr></thead>
+      <tbody>
+        <tr><td>1914年</td><td>Heidenheit が外側アプローチを初めて記載</td></tr>
+        <tr><td>1920年</td><td>Victor Pauchet が外側アプローチを推奨（後方アプローチより優れると主張）</td></tr>
+        <tr><td>1975年</td><td>Winnie が単回注射による外側アプローチの簡略化手技を記載</td></tr>
+        <tr><td>2004年</td><td>中間（Intermediate）CPB の概念が導入</td></tr>
+        <tr><td>2008年</td><td>GALA トライアル（多施設RCT）が局所麻酔 vs 全身麻酔の成績を比較</td></tr>
+        <tr><td>2010年代〜</td><td>超音波ガイド下技術の普及により安全性が大幅向上</td></tr>
+        <tr><td>2023年</td><td>BJA Education（Jarvis et al.）が浅・中間・深の3層の筋膜標的を体系的に整理</td></tr>
+        <tr><td>2025年</td><td>Anesthesiology 誌にて術後慢性疼痛への予防効果が初のRCTで報告</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1-2. 全体像の把握</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 頚神経叢の構成と CPB の3タイプ</div>
+<pre class="mermaid">
+flowchart TD
+CP["🔵 頚神経叢\n（Cervical Plexus）\nC1〜C4前枝から形成"]
+
+CP --> Shallow["浅枝（感覚枝）\n4本の終末枝\n皮膚・浅層の知覚を支配"]
+CP --> Deep["深枝（主に運動枝）\n頸部深筋の運動支配\n横隔神経（C3-C5）を含む"]
+
+Shallow --> B1["小後頭神経 Lesser Occipital\nC2 → 後頭部外側・耳介後部"]
+Shallow --> B2["大耳介神経 Greater Auricular\nC2/C3 → 耳介・耳下腺部"]
+Shallow --> B3["頸横神経 Transverse Cervical\nC2/C3 → 頸部前面"]
+Shallow --> B4["鎖骨上神経 Supraclavicular\nC3/C4 → 鎖骨上・肩峰部"]
+
+Deep --> D1["頸神経ワナ Ansa Cervicalis\nC1-C3 → 舌骨下筋群"]
+Deep --> D2["横隔神経 Phrenic Nerve\nC3-C5 → 横隔膜（運動）"]
+
+CP --> Block["💉 CPBの3タイプ"]
+Block --> SCB["浅頚神経叢ブロック\nSuperficial CPB\n皮下注射/筋膜浅層"]
+Block --> ICB["中間頚神経叢ブロック\nIntermediate CPB\n深頸筋膜投資層と椎前筋膜の間"]
+Block --> DCB["深頚神経叢ブロック\nDeep CPB\n椎前筋膜深層/横突起傍"]
+
+style CP fill:#1565c0,color:#fff
+style Block fill:#e65100,color:#fff
+style SCB fill:#1b5e20,color:#fff
+style ICB fill:#4a148c,color:#fff
+style DCB fill:#b71c1c,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">解剖学的基礎 — 頚神経叢の構造</h1>
+  </div>
+
+  <div class="alert a-purple">
+    <div class="alert-i">🎯</div>
+    <div><strong>初学者へのポイント：</strong>CPB を安全に習得するには、<strong>胸鎖乳突筋（SCM）の後縁</strong>と<strong>頸部筋膜の層構造</strong>を体系的に理解することが最重要です。</div>
+  </div>
+
+  <h2>2-1. 頚神経叢の形成</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>構成要素</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>起源</strong></td><td>C1〜C4脊髄神経の<strong>腹側一次枝（前枝）</strong></td></tr>
+        <tr><td><strong>感覚ブロックの主標的</strong></td><td><strong>C2〜C4</strong>（浅枝4本）</td></tr>
+        <tr><td><strong>出現部位</strong></td><td>SCM後縁中点、甲状軟骨切痕レベル</td></tr>
+        <tr><td><strong>超音波での外観</strong></td><td>低エコーの卵形構造の集合体（ハニカム様）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2-2. 4本の浅枝（感覚枝）の支配域</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>神経名</th><th>起源</th><th>支配域</th><th>臨床的重要性</th></tr></thead>
+      <tbody>
+        <tr><td><strong>小後頭神経（Lesser Occipital N.）</strong></td><td>C2腹側枝</td><td>後頭部外側・耳介後部</td><td>乳様突起周囲手術</td></tr>
+        <tr><td><strong>大耳介神経（Greater Auricular N.）</strong></td><td>C2/C3腹側枝</td><td>耳介全体・耳下腺部・顎角下方</td><td>耳介・耳下腺手術</td></tr>
+        <tr><td><strong>頸横神経（Transverse Cervical N.）</strong></td><td>C2/C3腹側枝</td><td>頸部前面の皮膚</td><td>頸部前面手術</td></tr>
+        <tr><td><strong>鎖骨上神経（Supraclavicular N.）</strong></td><td>C3/C4腹側枝</td><td>鎖骨上・肩峰・上腕近位部皮膚</td><td>鎖骨手術・肩関節手術補助</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>これら4本はすべて<strong>SCM後縁の中点</strong>付近から皮下に出現します。この部位がランドマーク法の注射点となります。</div>
+  </div>
+
+  <h2>2-3. 神経の走行</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — C2〜C4前枝から皮下出現までの走行</div>
+<pre class="mermaid">
+flowchart LR
+A["🔵 C2〜C4\n脊髄神経前枝\n（椎間孔内）"]
+B["椎前筋膜（Prevertebral Fascia）\n深層を通って前方へ走行"]
+C["深頸筋膜の投資層\n（Investing Layer of\nDeep Cervical Fascia）\nを貫通"]
+D["SCM後縁の中点\n（甲状軟骨レベル）\n←4本が同時に出現する「ホットスポット」"]
+E["🔴 皮下組織へ\n各方向に扇状に走行\n→ 前外側頸部・耳介・鎖骨上・後頭部外側"]
+
+A --> B --> C --> D --> E
+
+style A fill:#1565c0,color:#fff
+style D fill:#e65100,color:#fff
+style E fill:#2e7d32,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">頸部筋膜の層構造（最重要コンセプト）</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">⚠️</div>
+    <div><strong>これが最重要です：</strong>CPB の3タイプ（浅・中間・深）は、それぞれ<strong>異なる筋膜層</strong>を標的とします。この概念を理解しないと3つのブロックの違いが把握できません。</div>
+  </div>
+
+  <h2>3-1. 頸部筋膜の3層と各ブロックの標的</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 表層から深層への筋膜と各 CPB の注入標的</div>
+<pre class="mermaid">
+flowchart TB
+subgraph Surface["表層 ← 皮膚"]
+SKIN["🟤 皮膚\n（Skin）"]
+SFC["浅頸筋膜\n（Superficial Cervical Fascia）\n広頸筋・浅静脈・リンパ節"]
+end
+
+subgraph DCF["深頸筋膜（Deep Cervical Fascia）"]
+IL["投資層\n（Investing Layer / 深頸筋膜固有層）\nSCM・僧帽筋を包む"]
+PCS["後頸部間隙\n（Posterior Cervical Space: PCS）\n← 中間CPBの標的空間"]
+PVF["椎前筋膜\n（Prevertebral Fascia）\n前・中斜角筋・頸長筋を包む"]
+end
+
+subgraph Deep["深層"]
+TP["頸椎横突起\n（Transverse Processes C2-C4）\n← 深CPBの針先目標"]
+VES["神経根・椎骨動脈"]
+end
+
+SKIN --> SFC --> IL --> PCS --> PVF --> TP
+
+SCB["💉 浅CPB\n注入：皮下組織〜投資層の浅層\n→ 主に感覚枝を遮断"]
+ICB["💉 中間CPB\n注入：投資層と椎前筋膜の間（PCS）\n→ 感覚枝＋一部深枝"]
+DCB["💉 深CPB\n注入：椎前筋膜深層〜横突起傍\n→ 感覚枝＋深枝（完全遮断）"]
+
+SFC -.-> SCB
+PCS -.-> ICB
+TP -.-> DCB
+
+style SCB fill:#1b5e20,color:#fff
+style ICB fill:#4a148c,color:#fff
+style DCB fill:#b71c1c,color:#fff
+style PCS fill:#f3e5f5,stroke:#6a1b9a
+style TP fill:#fce4ec,stroke:#c62828
+</pre>
+  </div>
+
+  <h2>3-2. 3タイプの比較一覧</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>比較項目</th><th>浅CPB（Superficial）</th><th>中間CPB（Intermediate）</th><th>深CPB（Deep）</th></tr></thead>
+      <tbody>
+        <tr><td><strong>注入標的</strong></td><td>皮下組織〜投資層の外側</td><td>投資層と椎前筋膜の間</td><td>椎前筋膜深層（横突起傍）</td></tr>
+        <tr><td><strong>遮断できる枝</strong></td><td>感覚枝（4枝）のみ</td><td>感覚枝＋一部深枝</td><td>感覚枝＋深枝（完全）</td></tr>
+        <tr><td><strong>運動ブロック</strong></td><td>なし</td><td>最小限</td><td>あり（横隔神経・深枝）</td></tr>
+        <tr><td><strong>技術的難易度</strong></td><td><span class="tG">易（★☆☆）</span></td><td>中（★★☆）</td><td><span class="tR">難（★★★）</span></td></tr>
+        <tr><td><strong>合併症リスク</strong></td><td><span class="tG">低</span></td><td>中〜低</td><td><span class="tR">高</span></td></tr>
+        <tr><td><strong>超音波の必要性</strong></td><td>推奨（安全性向上）</td><td>強く推奨</td><td><span class="tR">必須</span></td></tr>
+        <tr><td><strong>CEA麻酔への適用</strong></td><td>単独では不完全な場合あり</td><td>補助として有効</td><td>従来から使用</td></tr>
+        <tr><td><strong>甲状腺手術への適用</strong></td><td>両側で有効 ✅</td><td>単側で有効 ✅</td><td>通常は不要</td></tr>
+        <tr><td><strong>横隔膜麻痺リスク</strong></td><td><span class="tG">極めて低い</span></td><td>低〜中（濃度依存）</td><td><span class="tR">高（約50-80%）</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>BJA Education 2023（Jarvis et al.）の重要なメッセージ：</strong>中間CPB は浅CPB の鎮痛効果を保ちながら、深CPB のリスク（横隔膜麻痺・反回喉頭神経ブロック・高位脊髄麻酔）を回避できる「折衷案」として、多くの術式で深CPB の代替となり得る。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">ブロックの3分類と局所麻酔薬の注入部位</h1>
+  </div>
+
+  <h2>4-1. 注入部位の断面イメージ（C4レベル横断面）</h2>
+  <p>外側（皮膚側）から最深部（横突起側）へ向かう構造物と、各 CPB が薬液を置く層を順に示します。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>位置関係</th><th>構造物</th></tr></thead>
+      <tbody>
+        <tr><td>最表層（外側から）</td><td>皮膚 → 皮下組織 → 広頸筋</td></tr>
+        <tr><td><span class="tG">① 浅CPBの標的</span></td><td>SCM後縁付近の皮下組織（投資層の外）</td></tr>
+        <tr><td>SCMの厚さ</td><td>約1〜2 cm</td></tr>
+        <tr><td><span class="tB">② 中間CPBの標的</span></td><td>SCMと椎前筋膜の間の後頸部間隙（PCS）</td></tr>
+        <tr><td>椎前筋膜</td><td>前斜角筋・頸長筋を包む強靭な筋膜</td></tr>
+        <tr><td><span class="tR">③ 深CPBの標的</span></td><td>椎前筋膜深層（横突起の前外側）</td></tr>
+        <tr><td>最深部</td><td>頸椎横突起・椎骨動脈（横突孔内）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="phase-grid">
+    <div class="ph ph4">
+      <div class="ph-icon">①</div>
+      <div class="ph-title">浅CPB</div>
+      <div class="ph-time">最も浅い</div>
+      <div class="ph-desc">皮下組織〜投資層の外側。感覚枝（4枝）のみを遮断。最も安全で簡便。</div>
+    </div>
+    <div class="ph ph2">
+      <div class="ph-icon">②</div>
+      <div class="ph-title">中間CPB</div>
+      <div class="ph-time">中間層</div>
+      <div class="ph-desc">投資層と椎前筋膜の間（PCS）。感覚枝＋一部深枝。リスクと効果の最適バランス。</div>
+    </div>
+    <div class="ph ph3">
+      <div class="ph-icon">③</div>
+      <div class="ph-title">深CPB</div>
+      <div class="ph-time">最も深い</div>
+      <div class="ph-desc">椎前筋膜深層〜横突起傍。感覚枝＋深枝を完全遮断。横隔膜麻痺リスク高。</div>
+    </div>
+    <div class="ph ph1">
+      <div class="ph-icon">🎯</div>
+      <div class="ph-title">共通原則</div>
+      <div class="ph-time">全タイプ</div>
+      <div class="ph-desc">逆吸引（aspiration）必須・分割投与・総量管理。深いほど超音波の必要性が高まる。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">適応症とエビデンスグレード</h1>
+  </div>
+
+  <h2>5-1. 適応症一覧</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>術式・処置</th><th>推奨ブロックタイプ</th><th>エビデンスグレード</th></tr></thead>
+      <tbody>
+        <tr><td><strong>頸動脈内膜切除術（CEA）</strong></td><td>浅CPB＋中間CPB または 浅＋深CPB</td><td><span class="bA">Grade A</span> GALA Trial（Lancet 2008）</td></tr>
+        <tr><td><strong>甲状腺・副甲状腺手術</strong></td><td>両側浅CPBまたは両側中間CPB</td><td><span class="bA">Grade A</span> SR/MA（BJA 2018; Indian J Anaesth 2023）</td></tr>
+        <tr><td><strong>頸部リンパ節郭清術</strong></td><td>浅CPB ± 深CPB</td><td><span class="bB">Grade B</span> 複数のRCT</td></tr>
+        <tr><td><strong>鎖骨骨折・鎖骨手術</strong></td><td>浅CPB ± 鎖骨胸筋筋膜面ブロック</td><td><span class="bB">Grade B</span> RCT 2023-2025</td></tr>
+        <tr><td><strong>後頭下開頭術（慢性術後疼痛予防）</strong></td><td>浅CPB（術前）</td><td><span class="bA">Grade A</span> RCT（Anesthesiology 2025; n=292）</td></tr>
+        <tr><td><strong>頸部表在手術（リンパ節生検等）</strong></td><td>浅CPB</td><td><span class="bB">Grade B</span> 観察研究多数</td></tr>
+        <tr><td><strong>耳介・外耳道手術</strong></td><td>浅CPB</td><td><span class="bB">Grade B</span> 症例シリーズ</td></tr>
+        <tr><td><strong>肩関節手術（補助）</strong></td><td>浅CPB ± 斜角筋間ブロック</td><td><span class="bB">Grade B</span> 観察研究</td></tr>
+        <tr><td><strong>内頸静脈CVCカテーテル挿入（救急）</strong></td><td>浅CPB</td><td><span class="bC">Grade C</span> 症例シリーズ</td></tr>
+        <tr><td><strong>顎口腔外科手術</strong></td><td>浅CPB ± 局所浸潤麻酔</td><td><span class="bC">Grade C</span> Frontiers Oncol 2024</td></tr>
+        <tr><td><strong>頸原性頭痛（診断・治療）</strong></td><td>深CPB（診断的ブロック）</td><td><span class="bC">Grade C</span> 症例シリーズ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>5-2. 患者選択フローチャート</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 侵襲深度・呼吸予備能・術式に基づくブロック選択</div>
+<pre class="mermaid">
+flowchart TD
+START(["🩺 CPB候補患者\n評価開始"])
+START --> Q1{"手術の侵襲深度は？"}
+
+Q1 -->|"皮膚・皮下組織のみ\n（表在手術）"| SCB_ONLY["✅ 浅CPB単独\nシンプル・安全"]
+Q1 -->|"頸部深層・甲状腺\n（中等度侵襲）"| Q2
+
+Q2{"呼吸予備能は？"}
+Q2 -->|"正常"| Q3
+Q2 -->|"重篤なCOPD\n対側横隔膜麻痺など"| CAUTION["⚠️ 深CPBは禁忌\n浅CPBまたは中間CPBを\n慎重に選択"]
+
+Q3{"CEAで神経学的\nモニタリングが必要か？"}
+Q3 -->|"Yes（覚醒下）"| CEA_CHOICE["CEA: 浅CPB＋中間CPB（推奨）\nまたは 浅CPB＋深CPB（従来法）"]
+Q3 -->|"No（甲状腺・頸部）"| THYROID["甲状腺：両側浅CPBまたは中間CPB\n頸部郭清：浅＋中間CPBの組み合わせ"]
+
+SCB_ONLY --> PROCEED["🟢 手技実施へ\n（禁忌確認後）"]
+CEA_CHOICE --> PROCEED
+THYROID --> PROCEED
+CAUTION --> PROCEED
+
+style CAUTION fill:#e65100,color:#fff
+style PROCEED fill:#1b5e20,color:#fff
+style START fill:#1565c0,color:#fff
+</pre>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">禁忌と注意事項</h1>
+  </div>
+
+  <h2>6-1. 絶対禁忌</h2>
+  <div class="tbl">
+    <table class="th-red">
+      <thead><tr><th>禁忌事項</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr><td><strong>患者の同意が得られない</strong></td><td>倫理的・法的義務</td></tr>
+        <tr><td><strong>注射部位の局所感染</strong></td><td>感染播種・深部感染のリスク</td></tr>
+        <tr><td><strong>局所麻酔薬（アミド系・エステル系）アレルギーの既往</strong></td><td>アナフィラキシーショック</td></tr>
+        <tr><td><strong>対側横隔膜麻痺（深CPBの場合）</strong></td><td>両側横隔膜麻痺 → 呼吸停止</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>6-2. 相対禁忌（特に深CPBで問題となる）</h2>
+  <div class="tbl">
+    <table class="th-orange">
+      <thead><tr><th>条件</th><th>リスク</th><th>対応</th></tr></thead>
+      <tbody>
+        <tr><td>重篤なCOPD（FEV1 &lt; 1.0 L）</td><td>片側横隔膜麻痺でも呼吸不全悪化</td><td>浅CPBに切り替え、または全身麻酔を選択</td></tr>
+        <tr><td>頸部手術既往・頸部放射線照射歴</td><td>解剖構造の変化により合併症リスク増大</td><td>超音波ガイド下で慎重に判断</td></tr>
+        <tr><td>重篤な凝固障害（INR &gt; 1.5）</td><td>血腫による気道圧迫リスク</td><td>凝固能改善後に実施</td></tr>
+        <tr><td>対側声帯麻痺の既往</td><td>反回喉頭神経ブロックで気道確保困難</td><td>耳鼻咽喉科評価後に判断</td></tr>
+        <tr><td>妊娠（特に第1三半期）</td><td>局所麻酔薬の胎児への影響</td><td>リスクベネフィットを慎重に評価</td></tr>
+        <tr><td>未治療の対側気胸</td><td>同側横隔膜麻痺 → 換気不全</td><td>気胸治療後に実施</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>注意：</strong>最近の前向き研究では、浅CPB での横隔膜麻痺リスクは従来考えられていたより低いことが示唆されています。ただし、<strong>深CPB では依然としてリスクが有意に高い</strong>点に注意してください。</div>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">必要物品</h1>
+  </div>
+
+  <h2>7-1. 標準物品チェックリスト</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>カテゴリー</th><th>必要物品</th><th>仕様</th></tr></thead>
+      <tbody>
+        <tr><td><strong>穿刺針</strong></td><td>25G短斜面針（浅CPB）</td><td>長さ 25 mm</td></tr>
+        <tr><td><strong>穿刺針</strong></td><td>22G針（深CPB/中間CPB）</td><td>長さ 50〜75 mm</td></tr>
+        <tr><td><strong>局所麻酔薬</strong></td><td>ロピバカイン0.5%、ブピバカイン0.25〜0.5%、リドカイン1〜2%</td><td>用量は §13 参照</td></tr>
+        <tr><td><strong>注射器</strong></td><td>10 mL または 20 mL</td><td>ルアーロック型推奨</td></tr>
+        <tr><td><strong>超音波機器</strong></td><td>高周波リニアプローブ（10〜15 MHz）</td><td>浅CPBに最適</td></tr>
+        <tr><td><strong>皮膚消毒薬</strong></td><td>クロルヘキシジンアルコール</td><td>ポビドンヨードも可</td></tr>
+        <tr><td><strong>滅菌手袋・ドレープ</strong></td><td>標準的無菌操作に準じる</td><td>—</td></tr>
+        <tr><td><strong>緊急薬品</strong></td><td>20%脂肪乳剤（LAST対応）・エピネフリン</td><td><span class="tR">必須</span></td></tr>
+        <tr><td><strong>モニタリング</strong></td><td>パルスオキシメーター・心電図・血圧計</td><td>施術前から装着</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">手技① — 浅頚神経叢ブロック（ランドマーク法）</h1>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>以下は教育目的の解説です。実際の施術は<strong>専門トレーニングを受けた医師のみ</strong>が実施できます。</div>
+  </div>
+
+  <h2>8-1. ランドマークの同定と手順</h2>
+  <h3>ステップ 1：ランドマークのマーキング</h3>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 浅CPB ランドマーク法の注射点同定</div>
+<pre class="mermaid">
+flowchart LR
+A["乳様突起（Mastoid Process）\nを触診・マーク"]
+B["鎖骨中点（Midclavicle）\nをマーク"]
+C["SCM後縁を触診\n乳様突起〜鎖骨中点\nを結ぶ線上"]
+D["🎯 SCM後縁の中点\n甲状軟骨切痕レベル\n← 浅CPBの注射点"]
+E["皮膚消毒・局所浸潤麻酔\n（任意）"]
+F["💉 注射：\n25G針で皮下組織に扇状に注入\n上方・後方・下方へ各2〜3 cm"]
+
+A --> B --> C --> D --> E --> F
+
+style D fill:#e65100,color:#fff
+style F fill:#1b5e20,color:#fff
+</pre>
+  </div>
+
+  <h3>ステップ 2：「ニードルファニング」技術</h3>
+  <ol>
+    <li>針の刺入点：SCM後縁の中点</li>
+    <li>皮膚を穿刺後、皮下組織に針先を到達させる</li>
+    <li>上方（頭側）・後方（背側）・下方（尾側）へ針を扇状に再刺入</li>
+    <li>各方向に 2〜3 mL ずつ局所麻酔薬を注入（<strong>総量 10〜15 mL</strong>）</li>
+    <li>注入前に必ず<strong>逆吸引（Aspiration test）</strong>を実施</li>
+  </ol>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ポイント：</strong>SCM後縁の皮下組織に<strong>「ソーセージ状」</strong>に局所麻酔薬が広がるイメージで注入します。</div>
+  </div>
+
+  <h2>8-2. ランドマーク法の注射点（深CPBとの比較）</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>解剖学的指標</th><th>浅CPB注射点</th><th>深CPB注射点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>乳様突起</strong></td><td>参照点</td><td>基準点（上端）</td></tr>
+        <tr><td><strong>シャセニャック結節（C6前結節）</strong></td><td>参照点</td><td>基準点（下端）</td></tr>
+        <tr><td><strong>C2横突起</strong></td><td>—</td><td>乳様突起から2 cm下</td></tr>
+        <tr><td><strong>C3横突起</strong></td><td>—</td><td>乳様突起から4 cm下</td></tr>
+        <tr><td><strong>C4横突起</strong></td><td>—</td><td>乳様突起から6 cm下</td></tr>
+        <tr><td><strong>注射の深さ</strong></td><td>皮下（数mm〜1 cm）</td><td>2〜3 cm（横突起に触れるまで）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 </main>
 </div><!-- end layout -->
