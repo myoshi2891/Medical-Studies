@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 import { readFile, writeFile, readdir, access } from "node:fs/promises";
-import { resolve, dirname, join } from "node:path";
+import { resolve, dirname, join, relative, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 import { exit, argv } from "node:process";
 
@@ -177,7 +177,10 @@ function parseHeroColors(heroOpt) {
 function resolveOutPath(category, page) {
   const outDir = resolve(HTML_ROOT, category);
   const outPath = resolve(outDir, `${page}.html`);
-  if (!outPath.startsWith(resolve(HTML_ROOT) + "/")) {
+  // path.relative で境界判定（OS の区切り文字に依存しない）。
+  // 結果が ".." 始まり、または絶対パスなら HTML_ROOT の外を指している。
+  const rel = relative(resolve(HTML_ROOT), outPath);
+  if (rel === "" || rel.startsWith("..") || isAbsolute(rel)) {
     console.error("Output path must stay within Types-of-headache/html-files");
     exit(2);
   }
