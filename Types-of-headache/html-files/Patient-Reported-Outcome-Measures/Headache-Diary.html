@@ -214,6 +214,450 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">SNOOP4 レッドフラッグスクリーニング（最優先評価）</h1>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">⛔</div>
+    <div>以下の兆候がある場合は、<strong>頭痛日誌の開始より前に緊急医療評価（CT/MRI）が必要</strong>です。頭痛日誌はあくまでも一次性頭痛の管理ツールであり、二次性頭痛の除外は医師が行います。</div>
+  </div>
+
+  <div class="tbl th-red">
+    <table>
+      <thead>
+        <tr><th>記号</th><th>意味</th><th>具体的な警戒徴候</th><th>鑑別すべき緊急疾患</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong class="tR">S</strong></td><td>Systemic symptoms</td><td>発熱・項部硬直・体重減少・免疫不全・悪性腫瘍既往</td><td>細菌性髄膜炎・脳炎・悪性腫瘍</td></tr>
+        <tr><td><strong class="tR">N</strong></td><td>Neurological deficits</td><td>麻痺・感覚障害・失語・複視・意識障害・認知変化</td><td>脳卒中・脳腫瘍・硬膜下血腫</td></tr>
+        <tr><td><strong class="tR">O</strong></td><td>Onset sudden</td><td>「人生最悪の頭痛」・雷鳴頭痛（thunderclap headache）</td><td>くも膜下出血（SAH）</td></tr>
+        <tr><td><strong class="tR">O</strong></td><td>Onset after age 50</td><td>50歳以降の新規頭痛</td><td>側頭動脈炎・頭蓋内病変</td></tr>
+        <tr><td><strong class="tR">P</strong></td><td>Pattern change</td><td>進行性の悪化・外傷後・体位依存性（臥位悪化→ICP↑、立位悪化→ICP↓）</td><td>頭蓋内圧亢進症・低髄液圧症</td></tr>
+        <tr><td><strong class="tR">4</strong></td><td>4つのP</td><td>Papilledema（乳頭浮腫）/ Postdural（硬膜穿刺後）/ Post-seizure（痙攣後）/ Pregnancy・Postpartum（妊娠・産後）</td><td>各病態に応じた緊急評価</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong>：ICHD-3 How to Use the Classification — <a href="https://ichd-3.org/how-to-use-the-classification/" target="_blank" rel="noopener noreferrer">ichd-3.org</a></div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">頭痛日誌とは何か — 定義と意義</h1>
+  </div>
+
+  <h2>2.1 定義</h2>
+  <div class="card">
+    <p><strong>頭痛日誌（Headache Diary）</strong> とは、患者が頭痛発作ごとに症状・随伴症状・薬剤使用・誘発因子・日常機能への影響を体系的に記録する<strong>プロスペクティブ（前向き）</strong>な自己記録ツールです。</p>
+    <p>ICHD-3（国際頭痛分類第3版）は、複数の頭痛タイプが疑われる患者に対して、診断精度の向上と薬剤消費量の正確な把握のために頭痛日誌の使用を<strong>明示的に推奨</strong>しています。</p>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📖</div>
+    <div><em>「患者が2種類以上の頭痛タイプまたはサブタイプを有すると疑われる場合、各頭痛エピソードの重要な特徴を記録した診断的頭痛日誌を記載することを強く推奨する。頭痛日誌が診断精度を向上させ、薬剤消費量のより正確な評価を可能にすることが示されている」</em><br>— ICHD-3 How to Use the Classification, ichd-3.org</div>
+  </div>
+
+  <h2>2.2 頭痛日誌の5つの核心的役割</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>役割</th><th>具体的機能</th><th>対応するエビデンス</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>①診断精度の向上</strong></td><td>主観的症状を客観的データに変換 → ICHD-3診断基準との照合</td><td>感度92%（片頭痛）、87%（MOH）[PubMed: 18624804]</td></tr>
+        <tr><td><strong>②薬剤過用頭痛（MOH）の早期検出</strong></td><td>月あたり使用日数のリアルタイム監視 → 8〜10日/月の閾値超過を可視化</td><td>ICHD-3 コード 8.2 準拠</td></tr>
+        <tr><td><strong>③トリガーの同定</strong></td><td>発症前24〜48時間の環境・食事・睡眠・ホルモン変化との相関分析</td><td>N1-Headache App: 個人特有トリガー同定 [ClinicalTrials NCT05979285]</td></tr>
+        <tr><td><strong>④治療効果の定量化</strong></td><td>ベースライン比較による50%改善基準の客観的評価</td><td>IHS臨床試験ガイドライン準拠</td></tr>
+        <tr><td><strong>⑤医師との情報共有</strong></td><td>記憶依存バイアスの排除 → 診察時の正確なデータ提示</td><td>VA/DoD CPG 2023</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">なぜ頭痛日誌が必要なのか — エビデンスの全体像</h1>
+  </div>
+
+  <h2>3.1 診断精度の向上</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>研究</th><th>対象</th><th>主な知見</th><th>エビデンスレベル</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Valade D et al., 2008 (<em>Cephalalgia</em>)</td><td>頭痛センター初診患者 n=76</td><td>片頭痛感度92%・TTH感度75%・MOH感度75%（臨床面接との比較）；コンプライアンス71%</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>Vandenbussche N et al., 2025 (<em>Neurol Int</em>)</td><td>27名・90日間スマートフォン日誌</td><td>「確実な片頭痛」の新規ICHD-3症状を患者の97%以上で追加検出</td><td><span class="bB">Grade B</span></td></tr>
+        <tr><td>Peng KP et al., 2024 (<em>J Headache Pain</em>)</td><td>AI診断モデル 59名（多施設前向き）</td><td>最低1ヶ月の頭痛日誌が正解診断のゴールドスタンダードとして機能</td><td><span class="bB">Grade B</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3.2 診断における「記憶バイアス」の問題</h2>
+  <p>後ろ向き（回顧的）なデータ収集は、以下の理由で不正確です。</p>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 記憶バイアスが診断を歪めるメカニズム</div>
+<pre class="mermaid">
+flowchart LR
+    A["患者の記憶"] --> B["頭痛頻度の<br/>過大評価"]
+    A --> C["頭痛頻度の<br/>過小評価"]
+    A --> D["薬剤使用量の<br/>不正確な報告"]
+    A --> E["トリガー同定の<br/>失敗"]
+    B --> F["診断エラー<br/>治療選択の誤り"]
+    C --> F
+    D --> F
+    E --> F
+    F --> G["頭痛日誌による<br/>リアルタイム記録で解決"]
+    style F fill:#e74c3c,color:#fff
+    style G fill:#27ae60,color:#fff
+</pre>
+  </div>
+
+  <h2>3.3 MOH検出における決定的役割</h2>
+  <p><strong>薬剤過用頭痛（MOH, ICHD-3コード8.2）</strong> の診断は、月あたりの薬剤使用日数の客観的記録なしには確定できません。</p>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>薬剤種別</th><th>MOH閾値</th><th>日誌なしの検出率</th><th>日誌ありの検出率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>トリプタン・エルゴタミン・オピオイド</td><td><strong class="tR">&gt;8日/月</strong> × 3ヶ月</td><td>低い（患者自身も気づいていないことが多い）</td><td>スクリーニング感度95.2%（ICHD基準の自己報告版）[PubMed: PMC3850931]</td></tr>
+        <tr><td>単純鎮痛薬・NSAIDs</td><td><strong class="tR">&gt;10日/月</strong> × 3ヶ月</td><td>低い</td><td>高い</td></tr>
+        <tr><td>複合鎮痛薬</td><td><strong class="tR">&gt;10日/月</strong> × 3ヶ月</td><td>低い</td><td>高い</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>3.4 IHS臨床試験ガイドラインにおける中心的役割</h2>
+  <p>国際頭痛学会（IHS）の臨床試験ガイドライン（第4版, <em>Cephalalgia</em> 2024）は、すべての片頭痛予防・急性期治療試験において<strong>電子頭痛日誌（e-diary）を標準的な主要エンドポイント収集ツール</strong>として指定しています。</p>
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>ソース</strong>：IHS Guidelines — <a href="https://ihs-headache.org/en/resources/guidelines/" target="_blank" rel="noopener noreferrer">ihs-headache.org/en/resources/guidelines/</a></div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">STEP 1：記録の準備</h1>
+  </div>
+
+  <h2>4.1 日誌開始の適応フローチャート</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 頭痛日誌を開始すべきか判断する</div>
+<pre class="mermaid">
+flowchart TD
+    A["頭痛症状の初診・評価"] --> B{"SNOOP4 レッドフラッグ評価"}
+    B -- "いずれかに該当" --> C["⛔ 緊急神経学的評価へ<br/>CT/MRI を優先実施"]
+    B -- "該当なし" --> D{"頭痛の特徴"}
+    D -- "1ヶ月に1〜2回未満・軽度" --> E["経過観察<br/>（日誌は推奨だが任意）"]
+    D -- "1ヶ月に2回以上<br/>または日常生活に支障" --> F["✅ 頭痛日誌の開始を強く推奨"]
+    D -- "診断が不明確<br/>または複数の頭痛タイプの疑い" --> F
+    D -- "薬剤使用頻度が高い" --> F
+    F --> G["最低30日間の<br/>ベースライン記録を開始"]
+    G --> H["ICHD-3診断基準との照合<br/>（専門医との共同評価）"]
+    H --> I["治療計画の策定"]
+    style C fill:#e74c3c,color:#fff
+    style F fill:#27ae60,color:#fff
+    style G fill:#2980b9,color:#fff
+</pre>
+  </div>
+
+  <h2>4.2 必要なもの（紙版の場合）</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>アイテム</th><th>推奨仕様</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>記録ノートまたは印刷用紙</strong></td><td>A4またはA5；月ごとの一覧表形式が望ましい</td></tr>
+        <tr><td><strong>ペン</strong></td><td>素早く記入できる油性ボールペン</td></tr>
+        <tr><td><strong>定規・カレンダー</strong></td><td>月・日の確認用</td></tr>
+        <tr><td><strong>NRSカード</strong></td><td>0〜10の数値評価スケールのリファレンスカード（オプション）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-ok">
+    <div class="alert-i">📌</div>
+    <div><strong>推奨テンプレート（PDF・無料）</strong>：
+      <ul>
+        <li>VA/DoD 7日間頭痛日誌（2024年最新版）：<a href="https://www.healthquality.va.gov/guidelines/pain/headache/HA-Diary-7-Day-Diary-Final-11Jan2024.pdf" target="_blank" rel="noopener noreferrer">healthquality.va.gov</a></li>
+        <li>VA/DoD 3ヶ月頭痛日誌（2024年最新版）：<a href="https://www.healthquality.va.gov/guidelines/Pain/headache/" target="_blank" rel="noopener noreferrer">healthquality.va.gov</a></li>
+        <li>IHS患者リソース：<a href="https://ihs-headache.org/en/resources/patient-resources/" target="_blank" rel="noopener noreferrer">ihs-headache.org</a></li>
+        <li>Migraine Trust 日誌リソース：<a href="https://migrainetrust.org/live-with-migraine/self-management/keeping-a-migraine-diary/" target="_blank" rel="noopener noreferrer">migrainetrust.org</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">STEP 2：記録項目の全体理解</h1>
+  </div>
+
+  <h2>5.1 記録項目マップ（全体像）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">マインドマップ — 頭痛日誌で記録する6カテゴリー</div>
+<pre class="mermaid">
+mindmap
+  root((頭痛日誌<br/>記録項目))
+    A[頭痛の特性]
+      A1[発症日時・終了時刻]
+      A2[持続時間]
+      A3[痛みの部位]
+      A4[痛みの性状]
+    B[重症度]
+      B1[NRS 0-10 発症時]
+      B2[NRS 0-10 ピーク時]
+      B3[NRS 0-10 2時間後]
+    C[随伴症状]
+      C1[悪心・嘔吐]
+      C2[光過敏・音過敏]
+      C3[前兆の有無・種類]
+      C4[予兆・後兆]
+    D[薬剤・治療]
+      D1[使用薬剤名・用量]
+      D2[使用時刻]
+      D3[効果の評価]
+      D4[副作用の有無]
+    E[誘発因子候補]
+      E1[睡眠時間・質]
+      E2[食事・水分摂取]
+      E3[ストレスレベル]
+      E4[月経周期]
+      E5[天候・気圧]
+    F[機能障害]
+      F1[仕事・学業への影響]
+      F2[家事への影響]
+      F3[社会活動への影響]
+</pre>
+  </div>
+
+  <h2>5.2 必須記録項目の詳細一覧</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>カテゴリー</th><th>記録項目</th><th>記録の頻度</th><th>なぜ重要か</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>頭痛の時間的特徴</strong></td><td>発症日時・終了時刻・持続時間</td><td>発作のたびに</td><td>ICHD-3診断基準（片頭痛：4〜72h、TTH：30min〜7日）の判定に必須</td></tr>
+        <tr><td><strong>痛みの強度（NRS）</strong></td><td>0〜10の数値（発症時・ピーク・2時間後の3点）</td><td>発作のたびに</td><td>治療効果の定量評価；IHS臨床試験標準エンドポイント</td></tr>
+        <tr><td><strong>痛みの部位</strong></td><td>片側/両側・前頭/側頭/後頭/眼窩周囲</td><td>発作のたびに</td><td>ICHD-3分類の判定（片頭痛：通常片側、TTH：通常両側）</td></tr>
+        <tr><td><strong>痛みの性状</strong></td><td>拍動性/圧迫性/締め付け感/刺すような</td><td>発作のたびに</td><td>ICHD-3診断基準の直接項目</td></tr>
+        <tr><td><strong>随伴症状</strong></td><td>悪心・嘔吐・光過敏・音過敏・臭い過敏</td><td>発作のたびに</td><td>ICHD-3片頭痛基準の必須項目（悪心または光+音過敏）</td></tr>
+        <tr><td><strong>前兆（Aura）</strong></td><td>視覚性（閃輝暗点・暗点）・感覚性・言語性；持続時間</td><td>発作のたびに</td><td>ICHD-3コード1.2（前兆ありの片頭痛）の診断</td></tr>
+        <tr><td><strong>予兆（Prodrome）</strong></td><td>情動変化・欠伸・頸部こわばり・倦怠感（発症前数時間〜数日）</td><td>毎日</td><td>早期介入のタイミング特定</td></tr>
+        <tr><td><strong>後兆（Postdrome）</strong></td><td>集中力低下・倦怠感・頸部痛（発作後24h）</td><td>発作後</td><td>真の頭痛持続時間の把握</td></tr>
+        <tr><td><strong>薬剤使用</strong></td><td>薬剤名・用量・使用時刻・効果（NRS変化）・副作用</td><td>使用のたびに</td><td><strong class="tR">MOH検出の核心</strong>；トリプタン&gt;8日/月、鎮痛薬&gt;10日/月が閾値</td></tr>
+        <tr><td><strong>睡眠</strong></td><td>就寝時刻・起床時刻・睡眠時間・睡眠の質（0〜10）</td><td>毎日</td><td>睡眠変動は強力なトリガー（週末の寝坊→「週末片頭痛」）</td></tr>
+        <tr><td><strong>食事・水分</strong></td><td>食事時刻・水分摂取量・アルコール・カフェイン量</td><td>毎日</td><td>食事スキップ・脱水・カフェイン離脱はトリガー</td></tr>
+        <tr><td><strong>月経周期（女性）</strong></td><td>月経開始日を1日目として記録</td><td>毎日</td><td>月経前後のエストロゲン急落は強力なトリガー</td></tr>
+        <tr><td><strong>ストレス</strong></td><td>ストレスレベル（NRS 0〜10）</td><td>毎日</td><td>慢性ストレスおよびストレス解放後頭痛の同定</td></tr>
+        <tr><td><strong>天候・気圧</strong></td><td>気圧・気温・天気（気象アプリと照合）</td><td>毎日（任意）</td><td>気象感受性の評価（約40%の片頭痛患者が気候変化に感受性あり）</td></tr>
+        <tr><td><strong>日常機能障害</strong></td><td>仕事・家事・社会活動への支障（0〜3段階）</td><td>発作のたびに</td><td>MIDAS計算の根拠データとなる</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">STEP 3：日々の記録手順</h1>
+  </div>
+
+  <h2>6.1 1日の記録フロー（初学者向け）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 起床から就寝までの1日の記録手順</div>
+<pre class="mermaid">
+flowchart TD
+    A["🌅 朝（起床時）"] --> B["睡眠データの記録<br/>・就寝時刻<br/>・起床時刻<br/>・睡眠時間・質(0-10)"]
+    B --> C{"本日、頭痛はあるか？"}
+    C -- "なし" --> D["✅ 頭痛なし → 1行で記録<br/>・日付<br/>・頭痛なし（0）<br/>・睡眠・ストレス・食事のみ"]
+    C -- "あり" --> E["🔴 頭痛発症を検知したら即座に記録"]
+    E --> F["発症時刻の記録（分単位）<br/>痛みの強度 NRS 0-10（発症時）<br/>部位・性状の記録<br/>前兆があれば詳細を記録"]
+    F --> G{"薬剤を使用したか？"}
+    G -- "使用" --> H["薬剤名・用量・使用時刻を記録"]
+    G -- "未使用" --> I["その旨を記録"]
+    H --> J["2時間後の痛みの強度を再評価 NRS 0-10"]
+    I --> J
+    J --> K["頭痛終了時刻を記録<br/>ピーク時 NRS 0-10 を追記"]
+    K --> L["推定トリガーを振り返る<br/>（発症前24-48時間の食事・睡眠・ストレス）"]
+    L --> M["機能障害の程度を記録<br/>（仕事・家事・社会活動 0-3）"]
+    D --> N["🌙 就寝前：<br/>月間サマリーの確認<br/>薬剤使用日数を月次集計"]
+    M --> N
+    style E fill:#e74c3c,color:#fff
+    style D fill:#27ae60,color:#fff
+    style N fill:#8e44ad,color:#fff
+</pre>
+  </div>
+
+  <h2>6.2 痛みの強度スケール（NRS）の使い方</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>NRS スコア</th><th>痛みの表現</th><th>日常生活への影響</th><th>典型的な対応</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>痛みなし</td><td>なし</td><td>記録のみ</td></tr>
+        <tr><td><strong class="tG">1〜3</strong></td><td>軽度の痛み</td><td>通常の活動が可能</td><td>安静・水分補給・必要なら鎮痛薬</td></tr>
+        <tr><td><strong class="tO">4〜6</strong></td><td>中等度の痛み</td><td>活動に支障、無理をすれば可能</td><td>急性期薬剤（第1選択）の使用を検討</td></tr>
+        <tr><td><strong class="tR">7〜9</strong></td><td>高度の痛み</td><td>通常の活動が困難</td><td>急性期薬剤（トリプタンなど）の使用</td></tr>
+        <tr><td><strong class="tR">10</strong></td><td>最大限の痛み（これ以上はない）</td><td>活動不能・暗室安静が必要</td><td>救急受診を検討；SNOOP4の再評価</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>NRS 10の突発性頭痛（雷鳴頭痛）は直ちにSNOOP4スクリーニングを行い、<strong>SAH（くも膜下出血）を除外</strong>してください。</div>
+  </div>
+
+  <h2>6.3 前兆（Aura）の記録方法</h2>
+  <p>前兆は多様な形で出現するため、以下のカテゴリー別に記録することが推奨されます。</p>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>前兆の種類</th><th>具体的症状</th><th>典型的持続時間</th><th>ICHD-3コード</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>視覚性（最多）</strong></td><td>閃輝暗点（キラキラ・ジグザグ光）・視野欠損（暗点）・光の線・視野全体の曇り</td><td>5〜60分</td><td>1.2.1</td></tr>
+        <tr><td><strong>感覚性</strong></td><td>手・腕・顔のチクチク感や麻痺感（ゆっくり進展する）</td><td>5〜60分</td><td>1.2.2</td></tr>
+        <tr><td><strong>言語性</strong></td><td>言葉が出にくい・聞き取りにくい・構音障害</td><td>5〜60分</td><td>1.2.3</td></tr>
+        <tr><td><strong>運動性</strong></td><td>筋力低下（片側）→ 片麻痺性片頭痛</td><td>5〜72時間</td><td>1.3</td></tr>
+        <tr><td><strong>脳幹性</strong></td><td>複視・耳鳴り・めまい・意識変容</td><td>5〜60分</td><td>1.2.6</td></tr>
+        <tr><td><strong>網膜性</strong></td><td>単眼の視覚症状（片目のみ）</td><td>5〜60分</td><td>1.2.7</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-danger">
+    <div class="alert-i">⚠️</div>
+    <div><strong>運動性前兆・脳幹性前兆・単眼視覚症状</strong>は、神経内科専門医への早急な相談が必要です。トリプタン投与は禁忌の可能性があります。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">STEP 4：MOH（薬剤過用頭痛）リスクの継続的監視</h1>
+  </div>
+
+  <h2>7.1 MOH監視フローチャート</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 月次集計から MOH リスクを判定する</div>
+<pre class="mermaid">
+flowchart TD
+    A["月次集計：薬剤使用日数の確認"] --> B{"使用薬剤の種類"}
+    B --> C["トリプタン<br/>エルゴタミン<br/>オピオイド"]
+    B --> D["単純鎮痛薬<br/>NSAIDs<br/>アスピリン"]
+    B --> E["複合鎮痛薬<br/>（カフェイン含有等）"]
+    C --> F{"月あたり使用日数 &gt; 8日？"}
+    D --> G{"月あたり使用日数 &gt; 10日？"}
+    E --> H{"月あたり使用日数 &gt; 10日？"}
+    F -- "YES（≥3ヶ月継続）" --> I
+    G -- "YES（≥3ヶ月継続）" --> I
+    H -- "YES（≥3ヶ月継続）" --> I
+    F -- "NO" --> J["✅ MOH閾値以下<br/>継続監視"]
+    G -- "NO" --> J
+    H -- "NO" --> J
+    I["🚨 MOH（薬剤過用頭痛）疑い<br/>ICHD-3コード 8.2<br/>専門医への早急な相談が必要"]
+    I --> K["同時に頭痛頻度を確認"]
+    K --> L{"頭痛日数 ≥15日/月<br/>（≥3ヶ月）?"}
+    L -- "YES" --> M["慢性片頭痛 + MOH の<br/>複合診断の可能性<br/>（ICHD-3: 1.3 + 8.2）"]
+    L -- "NO" --> N["エピソード性MOH<br/>の可能性"]
+    M --> O["離脱療法・予防薬療法の<br/>専門的評価へ"]
+    N --> O
+    style I fill:#e74c3c,color:#fff
+    style J fill:#27ae60,color:#fff
+    style M fill:#e67e22,color:#fff
+</pre>
+  </div>
+
+  <h2>7.2 月次薬剤使用記録シート（日誌への転記例）</h2>
+  <p>頭痛日誌の月末に、以下のサマリーを作成することを推奨します。</p>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>月</th><th>トリプタン使用日数</th><th>NSAIDs使用日数</th><th>複合鎮痛薬使用日数</th><th>頭痛発作日数</th><th>MOHリスク判定</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>例：4月</td><td>6日</td><td>4日</td><td>0日</td><td>9日</td><td><span class="bGrn">✅ 閾値以下</span></td></tr>
+        <tr><td>例：5月</td><td>9日</td><td>5日</td><td>0日</td><td>12日</td><td><span class="bRed">🚨 トリプタン閾値超過</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">STEP 5：トリガー（誘発因子）の同定と管理</h1>
+  </div>
+
+  <h2>8.1 トリガー同定のプロセス</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 30日分のデータからトリガーを確定するまで</div>
+<pre class="mermaid">
+flowchart LR
+    A["頭痛日誌の<br/>30日分データ"] --> B["発症前24〜48時間の<br/>要因を振り返る"]
+    B --> C["繰り返し出現する<br/>パターンを探す"]
+    C --> D{"同じ要因が<br/>3回以上登場するか？"}
+    D -- "YES" --> E["トリガー候補として<br/>リストアップ"]
+    D -- "NO" --> F["さらに記録を継続<br/>（追加の60日）"]
+    E --> G["試験的除去 or 回避<br/>（2〜4週間）"]
+    G --> H{"その期間の<br/>頭痛頻度は減少したか？"}
+    H -- "YES（≥50%減少）" --> I["✅ 確認されたトリガー<br/>管理戦略を確立"]
+    H -- "NO" --> J["トリガーの可能性は低い<br/>別の要因を検討"]
+    I --> K["トリガー管理計画を<br/>治療プランに統合"]
+    style I fill:#27ae60,color:#fff
+    style J fill:#95a5a6,color:#fff
+    style K fill:#2980b9,color:#fff
+</pre>
+  </div>
+
+  <h2>8.2 主要トリガー一覧と記録・管理戦略</h2>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>トリガーカテゴリー</th><th>具体的な要因</th><th>日誌への記録方法</th><th>管理戦略</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>食事性トリガー</strong></td><td>チラミン（熟成チーズ・赤ワイン・発酵食品）・亜硝酸塩（加工肉）・MSG・アスパルテーム・ヒスタミン（発酵食品・ワイン）</td><td>食事内容を具体的に記録</td><td>日誌で個人特有のトリガーを3週間以上確認後、試験的除去（2〜4週間）→ 再摂取テスト</td></tr>
+        <tr><td><strong>睡眠変動</strong></td><td>睡眠不足・過剰睡眠・就寝時刻の乱れ・週末の寝坊（&gt;2時間）</td><td>就寝・起床時刻と睡眠時間を毎日記録</td><td>平日・休日ともに就寝・起床時刻の変動を±30分以内に制限</td></tr>
+        <tr><td><strong>カフェイン</strong></td><td>摂取量の急増・急減（離脱頭痛は最終摂取の12〜24時間後に出現）</td><td>カフェイン摂取量（mg/日）を記録</td><td>漸減（週1〜2杯削減）；目標200mg/日未満；急激な断絶は避ける</td></tr>
+        <tr><td><strong>脱水・食事スキップ</strong></td><td>水分不足（1日1.5L未満）・食事間隔&gt;4〜5時間の空腹</td><td>水分摂取量・食事時刻を記録</td><td>1日1.5〜2Lの水分摂取；規則的な食事時間（欠食なし）</td></tr>
+        <tr><td><strong>ホルモン変動（女性）</strong></td><td>月経前後のエストロゲン急落；経口避妊薬の服用タイミング</td><td>月経周期日（開始日を1日目）を毎日記録</td><td>月経周期と頭痛日誌を照合；月経片頭痛は婦人科医との連携</td></tr>
+        <tr><td><strong>感覚環境トリガー</strong></td><td>強い光・チカチカする光・騒音・強い香り・揮発性有機化合物</td><td>発症前の環境をメモ欄に記録</td><td>偏光レンズ（FL-41フィルター）の使用；静音空間の確保；換気</td></tr>
+        <tr><td><strong>天候・気圧変動</strong></td><td>急な気圧変化（特に低気圧通過）・強風・温度変化</td><td>気象アプリのデータと照合（任意）</td><td>気象予報の確認；変化前日からの予防的マグネシウム補充（専門医相談後）</td></tr>
+        <tr><td><strong>ストレス</strong></td><td>急性ストレス・慢性ストレス蓄積；「ストレス解放後頭痛」（週末・休暇初日）</td><td>ストレスレベル（NRS 0〜10）を毎日記録</td><td>CBT（認知行動療法）・バイオフィードバック・マインドフルネス</td></tr>
+        <tr><td><strong>運動</strong></td><td>重激な運動（特に準備なしの高強度）；一方で有酸素運動は予防的</td><td>運動種類・強度・時間を記録</td><td>急激な高強度運動を避ける；中等度の有酸素運動を週3回 <span class="bB">Grade B</span></td></tr>
+        <tr><td><strong>睡眠時無呼吸</strong></td><td>睡眠中の呼吸停止・いびき・朝の頭痛（特に後頭部）</td><td>朝の頭痛パターンと睡眠の質を記録</td><td>睡眠時無呼吸の専門的評価（STOP-BANG質問票など）</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>重要：</strong>トリガー同定には個人差が大きく、ある人のトリガーが別の人には無関係なこともあります。日誌を通じた「自分のトリガープロファイル」の確立が必要です。また、「トリガー回避」が不安行動や回避行動の強化につながることもあるため、CBTなど行動療法との組み合わせを推奨します。</div>
+  </div>
+</section>
+
 <!-- ##SECTION_INSERT## -->
 
 </main>
