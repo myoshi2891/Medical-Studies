@@ -768,7 +768,7 @@ flowchart TD
 | 頭痛日数/月 | **≥ 50% 減少** | ≥ 75% 減少 |
 | HIT-6スコア | ≥ 6点改善 | < 50点（正常域）|
 | MIDASスコア | 1グレード以上の改善 | Grade I または II |
-| 急性期薬使用日数 | MOH閾値以下（< 8–10日/月）| ≤ 4日/月 |
+| 急性期薬使用日数 | MOH閾値以下（NSAIDs < 15日/月・トリプタン等 < 10日/月）| ≤ 4日/月 |
 | VASピーク強度 | ≥ 30% 低下 | ≥ 50% 低下 |
 
 > 📌 **ソース（HIT-6 MCID）**: [Kosinski M, et al. *Qual Life Res* 2003 — PubMed](https://pubmed.ncbi.nlm.nih.gov/12789668/)
