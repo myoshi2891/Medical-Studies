@@ -620,7 +620,7 @@ flowchart LR
 | 著者 | タイトル | 雑誌・年 | URL |
 |---|---|---|---|
 | Sauro KM, et al. | HIT-6 and MIDAS as Measures of Headache Disability in a Headache Referral Population | *Headache* 2010;50(3):383–395 | [PubMed: 19817883](https://pubmed.ncbi.nlm.nih.gov/19817883/) |
-| Thuriaisingham J, et al. | MIDAS and HIT-6 vs Headache Diaries for Monitoring Treatment Response to Erenumab: A REFORM Study | *Cephalalgia* 2026 | [ResearchGate](https://www.researchgate.net/publication/403234366) |
+| Thuraiaiyah J, et al. | MIDAS and HIT-6 Questionnaires Versus Headache Diaries for Monitoring Treatment Response to Erenumab in Migraine: A REFORM Study | *Eur J Neurol* 2026;33(4):e70542 | [PubMed: 41902353](https://pubmed.ncbi.nlm.nih.gov/41902353/) |
 
 ### 15.6 国際ガイドライン・分類基準
 
