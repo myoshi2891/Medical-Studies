@@ -854,11 +854,11 @@ style Dependency fill:#e74c3c,color:#fff
 flowchart TD
 START(["🔍 STEP 0: 急性期薬剤の使用歴を確認する\n（ICHD-3 MOH診断基準 8.2）"])
 
-START --> A{"💊 単純鎮痛薬 / NSAIDs\n（イブプロフェン・アセトアミノフェン等）\n≥ 10日/月 かつ ≥ 3ヶ月 継続？"}
+START --> A{"💊 単純鎮痛薬 / NSAIDs\n（イブプロフェン・アセトアミノフェン等）\n≥ 15日/月 かつ ≥ 3ヶ月 継続？"}
 A -->|"⚠️ はい"| MOH_FLAG
 A -->|"いいえ"| B
 
-B{"💊 トリプタン / エルゴタミン / オピオイド\n≥ 8日/月 かつ ≥ 3ヶ月 継続？"}
+B{"💊 トリプタン / エルゴタミン / オピオイド\n≥ 10日/月 かつ ≥ 3ヶ月 継続？"}
 B -->|"⚠️ はい"| MOH_FLAG
 B -->|"いいえ"| C
 
@@ -1087,7 +1087,7 @@ style Escalate fill:#c0392b,color:#fff
         <tr><td>頭痛日数/月</td><td><strong>≥ 50% 減少</strong></td><td>≥ 75% 減少</td></tr>
         <tr><td>HIT-6スコア</td><td>≥ 6点改善</td><td>&lt; 50点（正常域）</td></tr>
         <tr><td>MIDASスコア</td><td>1グレード以上の改善</td><td>Grade I または II</td></tr>
-        <tr><td>急性期薬使用日数</td><td>MOH閾値以下（&lt; 8–10日/月）</td><td>≤ 4日/月</td></tr>
+        <tr><td>急性期薬使用日数</td><td>MOH閾値以下（NSAIDs &lt; 15日/月・トリプタン等 &lt; 10日/月）</td><td>≤ 4日/月</td></tr>
         <tr><td>VASピーク強度</td><td>≥ 30% 低下</td><td>≥ 50% 低下</td></tr>
       </tbody>
     </table>

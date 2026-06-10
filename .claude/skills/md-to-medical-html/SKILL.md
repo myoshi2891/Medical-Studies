@@ -30,175 +30,139 @@ allowed-tools:
 
 ## ✅ 事前チェック（Pre-flight）
 
-作業開始前に以下を必ず Read する。スキップ禁止。
+作業開始前に以下を Read する:
 
 ```
 1. Read: 入力 MD ファイル（全体）
-2. Read: Migraine.html（先頭200行でCSS変数・コンポーネントクラスを把握）
-3. Read: Migraine.htmlの末尾60行（JS初期化ブロックの確認）
-4. Read: .claude/plans/{対象}.md（存在する場合）
+2. Read: .claude/plans/{対象}.md（存在する場合）
+3. Read: .claude/skills/css-design-system/SKILL.md（初回セッションのみ）
 ```
+
+**Migraine.html を直接読む必要はない**: Phase 1 のスケルトンは `scripts/build-html-skeleton.mjs` がテンプレート（`templates/skeleton.html.tmpl`）から自動生成する。CSS 変数・コンポーネントクラス・JS 初期化テンプレートはすべてテンプレートに保存済み。
 
 ---
 
-## 🎨 デザインシステム（Migraine.html から継承）
+## 🎨 デザインシステム
 
-### 継承するもの（変更禁止）
+CSS 変数・共通コンポーネントクラス・JS 初期化テンプレートの完全仕様は `.claude/skills/css-design-system/SKILL.md` を権威ソースとする。**本ファイルでは重複定義しない**。
 
-| 要素 | 詳細 |
-|------|------|
-| CSS 変数 | `--navy`, `--blue`, `--teal`, `--orange`, `--red`, `--green`, `--purple` 等 |
-| コンポーネント | `.card`, `.alert(.a-danger/.a-warn/.a-info/.a-ok/.a-purple)`, `.tbl`, `.mmd`, `.src-grid`, `.snoop-grid/.sn`, `.moh-grid/.moh`, `.phase-grid/.ph` |
-| エビデンスバッジ | `.bA`, `.bB`, `.bC`, `.bU`, `.bRed`, `.bGrn`, `.bOra` |
-| レイアウト | hero → disclaimer → `.layout`(sidebar + main) → footer |
-| Mermaid CDN | `https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js` |
-| JavaScript | Mermaid 初期化 + IntersectionObserver ナビゲーション |
+### ページ固有で変える要素（テンプレート引数として渡す）
 
-### ページ固有で変える要素
+| 要素 | スクリプト引数 |
+|------|--------------|
+| **ヒーローグラジエント 3 色** | `--hero='c1,c2,c3'` |
+| **ページ固有 CSS 変数の接頭辞** | `--prefix=xxx`（例: `cpb`, `hdy`, `mig`） |
+| **ヒーロー emoji** | `--emoji='🧠'` |
+| **hero-tags** | `--tags='tag1,tag2,tag3'` |
+| **タイトル・サブタイトル** | `--title=… --subtitle=…` |
+| **セクション数・タイトル** | `--sections=N --section-titles='t1,t2,…'` |
 
-| 要素 | 方針 |
-|------|------|
-| **ヒーローグラジエント** | 疾患ごとに異なる色（下表参照） |
-| **`.sec-num` 丸の色** | ヒーローのアクセントカラーを使用（例：TTH は `var(--forest2)`） |
-| **`.nav-a.active` の色** | 同上 |
-| **ヒーロー emoji** | 疾患イメージに合ったもの |
-| **hero-tags** | その疾患固有のキーワード |
+### ヒーローカラー重複防止
 
-### 疾患別ヒーローカラー早見表
-
-| 疾患 | グラジエント | 追加 CSS 変数 |
-|------|------------|-------------|
-| Migraine | `#1a237e → #0277bd`（ブルー系）| なし（既存変数を使用）|
-| **Tension-Type Headache** | `#1b4332 → #40916c`（フォレストグリーン）| `--forest1/#1b4332`, `--forest2/#2d6a4f`, `--forest3/#40916c` |
-| Cluster Headache | `#4a0000 → #b71c1c`（深紅）| 要追加 |
-| 次の疾患 | 上記と被らない色を選択 | 要追加 |
+`scripts/build-html-skeleton.mjs` は既存 HTML 全ファイルの hero gradient を解析し、3 色すべてが一致する場合はエラーで終了する。**手動チェック不要**。使用済みカラーの確認は `PROGRESS.md` または `rg -n '\.hero\{background:linear-gradient' Types-of-headache/html-files`（globstar 設定に依存しない再帰検索）で可能。
 
 ---
 
 ## 🔒 Mermaid 必須ルール
 
-### 1. `<pre class="mermaid">` 内の HTML エンティティエスケープ
+Mermaid 構文・HTML エンティティエスケープ・SRI ハッシュ・v10 固有ルールの**完全仕様は `.claude/skills/fix-mermaid/SKILL.md` を権威ソースとする**。本ファイルでは重複定義しない。
 
-`<pre>` 内でも `<` と `>` は HTML タグとして解析される。**必ずエスケープすること。**
+要点（早見）:
 
-```html
-<!-- ❌ そのまま書くと HTML として解析される -->
-<pre class="mermaid">
-E -->|低頻度 < 1日/月| F[...]
-</pre>
-
-<!-- ✅ エスケープが必須 -->
-<pre class="mermaid">
-E -->|低頻度 &lt; 1日/月| F[...]
-</pre>
-```
-
-**MD ファイルから移植する際に確認すべき文字:**
-
-- `<` → `&lt;`（分類コードの `< 1日/月`, `< 12日` など）
-- `>` → `&gt;`（`> 3ヶ月` など）
-- `&` → `&amp;`（稀だが参照文献名に含まれる場合あり）
-
-`≥`, `≤`, `→`, `⇒`, `✅`, `🚨` などの Unicode 文字はそのまま使用可能。
-
-### 2. Mermaid v10 の追加ルール（fix-mermaid スキルより）
-
-| ルール | 詳細 |
-|--------|------|
-| カラム0 配置 | `<pre>` 内のコンテンツの先頭空白は問題なし（`pre` タグが空白を保持するため） |
-| `**bold**` サポート | v10 はノードラベル内の `**text**` でボールドをサポート |
-| 絵文字 | ノードラベル内の絵文字は動作するが複雑なフローでは避ける |
-| `block-beta` 禁止 | v10 で全体クラッシュの原因。使用しない |
-| Prettier 問題 | VSCode 保存時に `<pre>` 内のインデントが壊れることがある。将来 JS テンプレートリテラルへの移行を検討 |
-
-### 3. Mermaid CDN の SRI ハッシュ
-
-外部スクリプトには必ず `integrity` と `crossorigin` を付ける（セキュリティフック要件）。
-
-```html
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"
-  integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer">
-</script>
-```
-
-バージョンを変更する場合は cdnjs API でハッシュを取得する:
-
-```
-GET https://api.cdnjs.com/libraries/mermaid/{VERSION}?fields=sri
-```
+- `<pre class="mermaid">` 内の `<`, `>`, `&` は HTML エンティティエスケープ必須（`&lt;`, `&gt;`, `&amp;`）
+- `≥`, `≤`, `→`, `⇒`, `✅`, `🚨` 等の Unicode はそのまま使用可
+- SRI ハッシュ・初期化 JS は **テンプレートが自動生成** するため手動編集不要
+- Mermaid 構文エラーが疑われたら `python3 .claude/skills/fix-mermaid/scripts/fix_mermaid.py <file>` で自動修正
 
 ---
 
-## 📝 Mermaid 初期化 JS（テンプレート固定）
+## 🔄 コミット戦略（4 フェーズ分割）
 
-テーマ変数はデザインシステムに合わせる。グリーン系ページの例:
+大規模 HTML ファイル（1000 行超）は 4 フェーズに分割してコミットする。各 Phase は新スクリプト経由で実行することで、モデルが巨大ファイル全体を Read/Write することを回避する。
 
-```js
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#e8f5e9',
-    primaryTextColor: '#1b4332',
-    primaryBorderColor: '#40916c',
-    lineColor: '#546e7a',
-    secondaryColor: '#e0f2f1',
-    tertiaryColor: '#e8f5e9',
-    edgeLabelBackground: '#ffffff',
-    fontSize: '13px'
-  },
-  flowchart: { curve: 'linear', padding: 20 }
-});
+### Phase 1: スケルトン（自動生成）
+
+```bash
+bun scripts/build-html-skeleton.mjs \
+  --page=<PageName> \
+  --category=<Headaches|Blocks|Physical-Therapy|...> \
+  --emoji='<emoji>' \
+  --hero='<c1>,<c2>,<c3>' \
+  --prefix=<page-prefix> \
+  --sections=<N> \
+  --title='<full title>' \
+  --subtitle='<hero sub>' \
+  --tags='<t1>,<t2>,...' \
+  --section-titles='<sec1>,<sec2>,...'
 ```
 
----
+→ 出力: `Types-of-headache/html-files/<category>/<page>.html`
+→ コミット: `feat(Types-of-headache): <page>.html — Phase 1/4: skeleton`
 
-## 🔄 コミット戦略（重要）
+スクリプトは以下を自動で行う:
 
-大規模 HTML ファイル（1000行超）は一度に Write するとトークンを大量消費する。
-以下のフェーズに分割してコミットすることで中断リスクを低減する。
+- ヒーロー色重複チェック（既存全ページと照合）
+- CSS 変数・コンポーネントクラス・JS 初期化の埋め込み（テンプレートから）
+- ページ固有色変数（`--<prefix>1/2/3`）の生成
+- サイドバーナビゲーション全リンクの生成
+- `<!-- ##SECTION_INSERT## -->` マーカーを `<main>` 直下に配置（Phase 2/3 用）
 
-### フェーズ分割
+### Phase 2: 前半セクション
 
-| フェーズ | 内容 | 推奨コミットタイミング |
-|---------|------|---------------------|
-| **Phase 1: スケルトン** | `<head>`, CSS 全体, hero, disclaimer, sidebar（ナビリンクのみ）, footer, `<script>` | ファイル作成直後 |
-| **Phase 2: 前半セクション** | 全セクション数の前半（例：15セクションなら §1〜§7）| 前半完了後 |
-| **Phase 3: 後半セクション** | 残りセクション（§8〜§15）| 後半完了後 |
-| **Phase 4: 修正・仕上げ** | SRI 追加、対比チェック、リンク確認 | 最終確認後 |
+1. モデルは前半セクション（例: §1〜§N/2）の HTML 断片だけを **新規ファイル** に書き出す:
+
+   ```
+   tmp/<page>-phase2.html
+   ```
+
+2. マーカー位置に挿入:
+
+   ```bash
+   bun scripts/insert-sections.mjs \
+     Types-of-headache/html-files/<category>/<page>.html \
+     tmp/<page>-phase2.html
+   ```
+
+3. コミット: `feat(Types-of-headache): <page>.html — Phase 2/4: sections 1-N`
+
+**Edit ツールによる事前 Read（1000 行超）が不要になる**ため、Phase 2/3 のトークン消費が劇的に削減される。
+
+### Phase 3: 後半セクション
+
+Phase 2 と同じ手順で `tmp/<page>-phase3.html` を作成 → 挿入 → コミット。
+
+### Phase 4: 最終化と検証
+
+```bash
+# マーカー除去（残っている場合）— 最終フラグメントを最後に注入する場合は --final を付ける
+# マーカーが既に存在しなければスキップ可
+
+# Mermaid 構文の自動修正
+python3 .claude/skills/fix-mermaid/scripts/fix_mermaid.py \
+  Types-of-headache/html-files/<category>/<page>.html
+
+# Mermaid 修正スクリプトのテスト
+python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py
+```
+
+最終チェックリスト（完成確認）を確認 → コミット: `feat(Types-of-headache): <page>.html — Phase 4/4: finalize`
 
 ### コミットメッセージフォーマット
 
 ```
-feat(Types-of-headache): {HeadacheName}.html — Phase {N}/4: {内容}
+feat(Types-of-headache): <page>.html — Phase <N>/4: <内容>
 
-Progress: {完了セクション}/{全セクション数} sections complete
-- {このフェーズで完了した主な要素の箇条書き}
+Progress: <完了セクション>/<全セクション数> sections complete
+- <このフェーズで完了した主な要素の箇条書き>
 
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
-```
-
-**例（Phase 2 完了時）:**
-
-```
-feat(Types-of-headache): Tension-Type-Headache.html — Phase 2/4: sections 1-7
-
-Progress: 7/15 sections complete
-- 疾患概要・疫学・病態生理（Mermaid 統合モデル）
-- ICHD-3 分類ツリー + phase-grid カード
-- 診断基準フロー・SNOOP4 スクリーニング + SNOOP4 カード
-- 鑑別診断テーブル（TTH/片頭痛/群発/頸原性）
-
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
 ```
 
 ### Write vs Edit の判断
 
-- **Write**: ファイルが存在しない場合（Phase 1 のみ）
-- **Edit**: 以降のフェーズはすべて **Edit** を使い、既存コンテンツを壊さない差分を当てる
+- **Phase 1**: スクリプトが Write を実行（モデルは直接 Write しない）
+- **Phase 2/3**: モデルは `tmp/<page>-phase<N>.html` を Write（小さいファイル）。`insert-sections.mjs` が target を更新（モデルは target を Read/Write しない）
+- **Phase 4**: 軽微な修正のみ `Edit` を使用
 
 ---
 
@@ -264,7 +228,7 @@ flowchart TD
 ```
 [ ] ブラウザで開き、Mermaid 図が全てレンダリングされる
 [ ] サイドバーのスクロールリンクが全て機能する
-[ ] モバイル幅（<900px）でサイドバーが非表示になりコンテンツが読める
+[ ] モバイル幅（<900px）でナビがアクセス可能（(a)サイドバー非表示でコンテンツが読める / (b)トグル付きスライドアウトで目次に到達できる のいずれか）
 [ ] 全ての外部リンクが target="_blank" かつ rel="noopener noreferrer" で開く
 [ ] <script> タグに integrity + crossorigin が付いている
 [ ] ヒーローグラジエントが他ページと重複していない

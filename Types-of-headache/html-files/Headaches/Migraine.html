@@ -531,9 +531,9 @@ style OK fill:#1b5e20,color:#ffffff
     <table>
       <thead><tr><th>薬剤クラス</th><th>代表薬（用量）</th><th>機序</th><th>エビデンス</th><th>MOH リスク</th><th>心血管禁忌</th></tr></thead>
       <tbody>
-        <tr><td>NSAIDs</td><td>イブプロフェン 400〜800mg</td><td>COX-1/2 阻害</td><td><span class="bA">Grade A</span></td><td class="tO">&gt;10日/月</td><td class="tG">なし</td></tr>
-        <tr><td>単純鎮痛薬</td><td>アセトアミノフェン 1000mg</td><td>中枢性 COX 阻害</td><td><span class="bB">Grade B</span></td><td class="tO">&gt;10日/月</td><td class="tG">なし</td></tr>
-        <tr><td>トリプタン</td><td>スマトリプタン 50〜100mg</td><td>5-HT₁B/₁D 作動</td><td><span class="bA">Grade A</span></td><td class="tR">&gt;8日/月</td><td class="tR">⚠️ CAD・高血圧・脳卒中既往</td></tr>
+        <tr><td>NSAIDs</td><td>イブプロフェン 400〜800mg</td><td>COX-1/2 阻害</td><td><span class="bA">Grade A</span></td><td class="tO">≥15日/月</td><td class="tG">なし</td></tr>
+        <tr><td>単純鎮痛薬</td><td>アセトアミノフェン 1000mg</td><td>中枢性 COX 阻害</td><td><span class="bB">Grade B</span></td><td class="tO">≥15日/月</td><td class="tG">なし</td></tr>
+        <tr><td>トリプタン</td><td>スマトリプタン 50〜100mg</td><td>5-HT₁B/₁D 作動</td><td><span class="bA">Grade A</span></td><td class="tR">≥10日/月</td><td class="tR">⚠️ CAD・高血圧・脳卒中既往</td></tr>
         <tr><td>ゲパント</td><td>ウブロゲパント 50〜100mg</td><td>CGRP 受容体拮抗</td><td><span class="bA">Grade A</span></td><td class="tG">低リスク</td><td class="tG">✅ なし</td></tr>
         <tr><td>ゲパント</td><td>リメゲパント 75mg ODT</td><td>CGRP 受容体拮抗</td><td><span class="bA">Grade A</span></td><td class="tG">低リスク</td><td class="tG">✅ なし</td></tr>
         <tr><td>ゲパント（点鼻）</td><td>ザベゲパント 10mg</td><td>CGRP 受容体拮抗</td><td><span class="bA">Grade A</span></td><td class="tG">低リスク</td><td class="tG">✅ なし</td></tr>
@@ -770,7 +770,7 @@ style Gep fill:#e3f2fd,stroke:#1565c0,color:#0d2f6b
         <tr><td>主な用途</td><td>急性期</td><td>急性期（一部予防）</td><td>急性期</td><td><strong>予防</strong></td></tr>
         <tr><td>血管収縮</td><td class="tR">あり</td><td class="tG">なし</td><td class="tG">なし</td><td class="tG">なし</td></tr>
         <tr><td>心血管禁忌</td><td class="tR">⚠️ あり</td><td class="tG">✅ なし</td><td class="tG">✅ なし</td><td class="tG">✅ なし</td></tr>
-        <tr><td>MOH リスク</td><td class="tR">高（&gt;8日/月）</td><td class="tG">低（データ蓄積中）</td><td>未確定</td><td class="tG">なし（予防薬）</td></tr>
+        <tr><td>MOH リスク</td><td class="tR">高（≥10日/月）</td><td class="tG">低（データ蓄積中）</td><td>未確定</td><td class="tG">なし（予防薬）</td></tr>
         <tr><td>2h 無痛率（急性）</td><td>約25〜40%</td><td>約20〜25%</td><td>約28〜38%</td><td>N/A</td></tr>
       </tbody>
     </table>
@@ -1011,19 +1011,19 @@ style G fill:#e65100,color:#ffffff
   <h2>MOH リスク閾値（ICHD-3 基準）</h2>
   <div class="moh-grid">
     <div class="moh moh-h">
-      <div class="moh-day tR">&gt;8日/月</div>
+      <div class="moh-day tR">≥10日/月</div>
       <div class="moh-unit">≥3ヶ月で乱用成立</div>
       <div class="moh-drug">🔴 高リスク</div>
       <p style="font-size:12px;margin-top:6px">トリプタン・エルゴタミン・オピオイド</p>
     </div>
     <div class="moh moh-m">
-      <div class="moh-day tO">&gt;10日/月</div>
+      <div class="moh-day tO">≥15日/月</div>
       <div class="moh-unit">≥3ヶ月で乱用成立</div>
       <div class="moh-drug">🟡 中リスク</div>
       <p style="font-size:12px;margin-top:6px">単純鎮痛薬・NSAIDs（単剤）</p>
     </div>
     <div class="moh moh-m">
-      <div class="moh-day tO">&gt;10日/月</div>
+      <div class="moh-day tO">≥10日/月</div>
       <div class="moh-unit">≥3ヶ月で乱用成立</div>
       <div class="moh-drug">🔴 非常に高リスク</div>
       <p style="font-size:12px;margin-top:6px">複合鎮痛薬（カフェイン・コデイン含有）</p>
@@ -1055,7 +1055,7 @@ Ok["✅ 予防療法継続\nMOH 再発防止教育\n6ヶ月毎フォロー"]
 Ref["頭痛専門医へ\n紹介または入院管理"]
 
 A --> B
-B -- "トリプタン等 &gt;10日/月\nまたは NSAIDs &gt;15日/月" --> C
+B -- "トリプタン等 ≥10日/月\nまたは NSAIDs ≥15日/月" --> C
 B -- "閾値以下" --> D
 C --> S1
 S1 --> S2 --> S3 --> S4 --> Ev
