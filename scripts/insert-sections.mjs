@@ -19,6 +19,16 @@ Exits non-zero if the marker is not found, so a missing or already-finalized
 target fails loudly rather than silently appending nothing.
 `;
 
+/**
+ * Insert the contents of a fragment HTML file into a target HTML file at the SECTION_INSERT marker.
+ *
+ * Parses CLI arguments from `argv` (expects `<target> <fragment>`), supports `--final` to remove the marker after insertion and `--help`/`-h` to print usage. Reads both files, locates a single occurrence of the marker (`<!-- ##SECTION_INSERT## -->`), replaces that marker with the fragment (trimming trailing whitespace from the fragment), writes the updated target file, and logs the number of lines inserted and whether the marker was preserved.
+ *
+ * Exits the process with non-zero codes on error:
+ * - 2 for insufficient or invalid arguments,
+ * - 3 if the marker is not found in the target,
+ * - 4 if the marker appears multiple times.
+ */
 async function main() {
   const args = argv.slice(2);
   if (args.length < 2 || args.includes("--help") || args.includes("-h")) {
