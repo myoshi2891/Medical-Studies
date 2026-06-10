@@ -62,9 +62,17 @@ Optional:
 `;
 
 function lightenHex(hex, amount = 0.8) {
-  const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim());
+  const m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(hex.trim());
   if (!m) return "#f5f5f5";
-  const n = parseInt(m[1], 16);
+  // 3 桁表記（#abc）は各桁を 2 倍に展開して 6 桁へ正規化してから解析する。
+  const hex6 =
+    m[1].length === 3
+      ? m[1]
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : m[1];
+  const n = parseInt(hex6, 16);
   const r = (n >> 16) & 0xff;
   const g = (n >> 8) & 0xff;
   const b = n & 0xff;
@@ -175,6 +183,11 @@ function parseHeroColors(heroOpt) {
 
 // category/page から出力パスを解決し、HTML_ROOT 配下に収まることを検証。
 function resolveOutPath(category, page) {
+  // 空カテゴリは HTML_ROOT 直下への書き込みを許してしまうため明示的に拒否する。
+  if (!category) {
+    console.error("Output path must stay within Types-of-headache/html-files");
+    exit(2);
+  }
   const outDir = resolve(HTML_ROOT, category);
   const outPath = resolve(outDir, `${page}.html`);
   // path.relative で境界判定（OS の区切り文字に依存しない）。
