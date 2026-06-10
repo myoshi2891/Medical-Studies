@@ -12,6 +12,15 @@ const TEMPLATE_PATH = join(
 );
 const HTML_ROOT = join(ROOT, "Types-of-headache/html-files");
 
+/**
+ * Parse command-line style arguments into a plain options object.
+ *
+ * Processes only arguments that start with `--`. An argument of the form
+ * `--key` becomes `opts.key = true`; `--key=value` becomes `opts.key = "value"`.
+ *
+ * @param {string[]} args - Array of command-line arguments (e.g. process.argv.slice(2)).
+ * @return {Object<string, string|true>} An object mapping option names to their values (`true` for flags, string for `--key=value`).
+ */
 function parseArgs(args) {
   const opts = {};
   for (const a of args) {
@@ -26,6 +35,15 @@ function parseArgs(args) {
   return opts;
 }
 
+/**
+ * Ensure that the given option keys are present in the opts object and abort if any are missing.
+ *
+ * If one or more keys are missing, prints an error listing the missing options and the usage,
+ * then exits the process with code 2.
+ *
+ * @param {Object} opts - Mapping of option names to their values.
+ * @param {string[]} keys - List of option names that must be defined on `opts`.
+ */
 function required(opts, keys) {
   const missing = keys.filter((k) => opts[k] === undefined);
   if (missing.length > 0) {
@@ -61,6 +79,13 @@ Optional:
   --dry-run                    Print to stdout instead of writing
 `;
 
+/**
+ * Produce a lighter hex color by mixing the input color toward white.
+ *
+ * @param {string} hex - Input hex color in 3- or 6-digit form, with or without a leading `#` (e.g. `#abc` or `aabbcc`). If the input is not a valid 3- or 6-digit hex, the function returns `#f5f5f5`.
+ * @param {number} [amount=0.8] - Mix factor in the range 0–1 that determines how far each RGB channel moves toward 255; `0` leaves the color unchanged, `1` turns it white.
+ * @returns {string} A 6-digit lowercase hex color string prefixed with `#` representing the lightened color, or `#f5f5f5` for invalid input.
+ */
 function lightenHex(hex, amount = 0.8) {
   const m = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(hex.trim());
   if (!m) return "#f5f5f5";
@@ -82,6 +107,14 @@ function lightenHex(hex, amount = 0.8) {
     .join("")}`;
 }
 
+/**
+ * Scan the HTML output root and collect hero-gradient hex colors found in existing pages.
+ *
+ * Recursively searches HTML_ROOT for .html files and, for each file containing a
+ * `.hero{background:linear-gradient(135deg,...)}` fragment, extracts hex tokens
+ * matching `#[0-9a-fA-F]{3,8}` from the gradient and records them.
+ *
+ * @returns {Array<{file: string, hexes: string[]}>} An array of objects where `file` is the file path and `hexes` is the list of extracted hex color strings in lowercase.
 async function collectExistingHeroColors() {
   const collected = [];
   async function walk(dir) {
@@ -111,6 +144,11 @@ async function collectExistingHeroColors() {
   return collected;
 }
 
+/**
+ * Render a comma-separated list of tags as newline-separated `<span class="hero-tag">` elements indented by four spaces.
+ * @param {string} tagsCsv - Comma-separated tag values; may contain extra whitespace.
+ * @returns {string} A string containing one `<span class="hero-tag">TAG</span>` per non-empty tag, joined with `\n`. An empty string if `tagsCsv` is falsy or contains no tags.
+ */
 function renderHeroTags(tagsCsv) {
   if (!tagsCsv) return "";
   return tagsCsv
@@ -121,6 +159,13 @@ function renderHeroTags(tagsCsv) {
     .join("\n");
 }
 
+/**
+ * Render sidebar navigation links from a comma-separated titles string or generate default section labels.
+ *
+ * @param {string|undefined} titles - Comma-separated section titles; if falsy, default labels "セクション 1" … are used.
+ * @param {number} count - Number of section links to produce; the list is padded with or truncated to this length.
+ * @returns {string} Newline-separated HTML anchor elements like `<a class="nav-a" href="#sN"><span class="n-num">N</span>Title</a>` for each section.
+ */
 function renderSidebarLinks(titles, count) {
   const list = titles
     ? titles
@@ -145,6 +190,18 @@ function renderSidebarLinks(titles, count) {
     .join("\n");
 }
 
+/**
+ * Substitute template placeholders with values from a mapping.
+ *
+ * Placeholders must be of the form `{{KEY}}` where `KEY` contains only
+ * uppercase letters, digits, and underscores. Every placeholder found in
+ * `tpl` must have a corresponding property in `vars`; if a placeholder is
+ * missing, the function logs an error and exits the process with code 3.
+ *
+ * @param {string} tpl - Template string containing `{{KEY}}` placeholders.
+ * @param {Object.<string, string>} vars - Mapping from placeholder keys to replacement strings.
+ * @returns {string} The template with all placeholders replaced by their corresponding values.
+ */
 function substitute(tpl, vars) {
   return tpl.replace(/\{\{([A-Z_0-9]+)\}\}/g, (m, k) => {
     if (!(k in vars)) {
@@ -155,6 +212,11 @@ function substitute(tpl, vars) {
   });
 }
 
+/**
+ * Determines whether a filesystem path is accessible.
+ * @param {string} p - Path to check.
+ * @returns {boolean} `true` if the path is accessible, `false` otherwise.
+ */
 async function exists(p) {
   try {
     await access(p);
@@ -164,7 +226,17 @@ async function exists(p) {
   }
 }
 
-// hero 3 色を検証して正規化（小文字化）した配列を返す。不正なら exit。
+/**
+ * Validate and normalize a comma-separated trio of hero hex colors.
+ *
+ * Parses `heroOpt` as three comma-separated hex color tokens, trims and lowercases each,
+ * validates they are `#rrggbb` or `#rgb` hex formats, and returns the normalized array.
+ *
+ * @param {string} heroOpt - Comma-separated list of three hex colors (e.g. "#1a237e,#283593,#0277bd").
+ * @returns {string[]} An array of three normalized lowercase hex color strings.
+ * Logs an error and exits the process with code `2` if the input does not contain exactly three colors
+ * or if any color is not a valid hex value.
+ */
 function parseHeroColors(heroOpt) {
   const colors = heroOpt.split(",").map((s) => s.trim().toLowerCase());
   if (colors.length !== 3) {
@@ -181,7 +253,15 @@ function parseHeroColors(heroOpt) {
   return colors;
 }
 
-// category/page から出力パスを解決し、HTML_ROOT 配下に収まることを検証。
+/**
+ * Resolve the output directory and HTML file path for a given category and page, ensuring the result stays under HTML_ROOT.
+ *
+ * @param {string} category - Category subdirectory name; must be a non-empty string.
+ * @param {string} page - Page base name (without the `.html` extension).
+ * @returns {{outDir: string, outPath: string}} An object where `outDir` is the absolute directory path for the category and `outPath` is the absolute path to the generated `<page>.html`.
+ *
+ * On invalid input (empty category) or if the resolved `outPath` would lie outside HTML_ROOT, the function logs an error and terminates the process with exit code 2.
+ */
 function resolveOutPath(category, page) {
   // 空カテゴリは HTML_ROOT 直下への書き込みを許してしまうため明示的に拒否する。
   if (!category) {
@@ -200,6 +280,20 @@ function resolveOutPath(category, page) {
   return { outDir, outPath };
 }
 
+/**
+ * Generate an HTML skeleton from CLI options and write it to the resolved output path.
+ *
+ * Parses command-line options, validates required fields (including `--hero` colors and that
+ * `--sections` is a positive integer), resolves and sanitizes the output path, and enforces
+ * overwrite and hero-color-collision policies. Renders the skeleton template with derived
+ * variables (hero colors, mermaid colors, sidebar links, etc.). If `--dry-run` is set the
+ * rendered HTML is written to stdout; otherwise the category directory is created (if needed)
+ * and the file is written to disk, with a console message reporting the written path and line count.
+ *
+ * Exits the process with code 2 for validation errors (missing/invalid options), 4 when refusing
+ * to overwrite an existing file without `--force`, and 5 when the new hero gradient exactly
+ * duplicates an existing file's hero colors (unless `--force` is used).
+ */
 async function main() {
   const opts = parseArgs(argv.slice(2));
   if (opts.help || opts.h) {
