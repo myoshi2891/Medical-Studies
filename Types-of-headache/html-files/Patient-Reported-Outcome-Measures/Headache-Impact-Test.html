@@ -214,6 +214,617 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
+<!-- §1 HIT-6とは何か -->
+<section class="sec" id="s1">
+  <div class="sec-hd">
+    <span class="sec-num">1</span>
+    <span class="sec-title">HIT-6とは何か</span>
+  </div>
+
+  <div class="card">
+    <h2>1.1 開発の背景</h2>
+    <p><strong>HIT-6（Headache Impact Test）</strong> は、2003年に Kosinski ら（QualityMetric Incorporated）によって開発された、頭痛が患者の日常生活に与える影響（インパクト）を定量的に評価するための <strong>6項目自己記入式短縮調査票（Short-Form Self-Administered Questionnaire）</strong> です。</p>
+    <p>従来の頭痛評価は頭痛の<strong>頻度（frequency）</strong>や<strong>持続時間（duration）</strong>のみに焦点を当てていましたが、片頭痛患者の実際の苦しみは「頭痛のない時間も含めた生活全体への影響」にあります。HIT-6 はこの視点から設計されました。</p>
+    <div class="alert a-info">
+      <span class="alert-i">📘</span>
+      <div>
+        <strong>出典：</strong> Kosinski M, et al. <em>A six-item short-form survey for measuring headache impact: The HIT-6™.</em> <em>Qual Life Res</em> 2003;12(8):963–974.<br>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/14651415/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/14651415/</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1.2 開発プロセス</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>ステップ</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>候補項目プール</strong></td><td>既存インパクト項目54問＋臨床家推薦35問＝<strong>計89項目</strong></td></tr>
+          <tr><td><strong>選別基準</strong></td><td>内容妥当性・IRT情報量関数・項目内部一貫性・スコア分布・臨床妥当性・言語分析</td></tr>
+          <tr><td><strong>検証サンプル</strong></td><td>インターネット調査・頭痛患者 <em>n</em> = 1,103（America Online 会員）、14日後に <em>n</em> = 540 が追跡調査</td></tr>
+          <tr><td><strong>最終形式</strong></td><td><strong>6項目</strong>、5段階リッカートスケール、記入所要時間：<strong>約5分</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1.3 HIT-6 が測定する6つのドメイン</h2>
+    <p>HIT-6 は単なる「痛みの強さ」ではなく、頭痛が生活に与える <strong>多次元的インパクト（Multidimensional Impact）</strong> を測定します。</p>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead><tr><th>ドメイン（Domain）</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. 疼痛強度（Pain Severity）</strong></td><td>激しい頭痛が起こる頻度</td></tr>
+          <tr><td><strong>2. 役割機能（Role Functioning）</strong></td><td>仕事・学業・家事・社会活動の制限頻度</td></tr>
+          <tr><td><strong>3. 活力（Vitality）</strong></td><td>疲労感のため日常活動ができない頻度</td></tr>
+          <tr><td><strong>4. 認知機能（Cognitive Functioning）</strong></td><td>集中力や思考力の低下頻度</td></tr>
+          <tr><td><strong>5. 心理的苦痛（Psychological Distress）</strong></td><td>苛立ちや不快感の頻度</td></tr>
+          <tr><td><strong>6. 重症度感（Symptom Severity）</strong></td><td>横になりたいほどの頭痛の頻度</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-ok">
+      <span class="alert-i">✅</span>
+      <div><strong>臨床的ポイント：</strong>これらのドメインは ICHD-3（国際頭痛分類第3版）の機能障害基準と対応しており、診断から治療効果判定まで一貫して使用できます。<br>
+      ICHD-3 全文：<a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">https://ichd-3.org/</a></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>付録：HIT-6 クイックリファレンス</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ツール名</strong></td><td>Headache Impact Test-6（HIT-6™）</td></tr>
+          <tr><td><strong>著作権</strong></td><td>© 2001, 2015 QualityMetric Incorporated</td></tr>
+          <tr><td><strong>開発年</strong></td><td>2003年（Kosinski M, et al.）</td></tr>
+          <tr><td><strong>質問数</strong></td><td>6項目</td></tr>
+          <tr><td><strong>回答形式</strong></td><td>5段階（6 / 8 / 10 / 11 / 13 点）</td></tr>
+          <tr><td><strong>スコア範囲</strong></td><td>36〜78点</td></tr>
+          <tr><td><strong>想起期間</strong></td><td>Q1〜Q3：なし ／ Q4〜Q6：過去4週間</td></tr>
+          <tr><td><strong>記入時間</strong></td><td>約5分</td></tr>
+          <tr><td><strong>グレード分類</strong></td><td>≤49：軽微 ／ 50〜55：一部 ／ 56〜59：相当 ／ ≥60：重度</td></tr>
+          <tr><td><strong>臨床試験認定</strong></td><td>EMA（欧州医薬品庁）が適合性を認定</td></tr>
+          <tr><td><strong>言語対応</strong></td><td>27言語以上（日本語版検証済）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- §2 SNOOP4 レッドフラッグスクリーニング -->
+<section class="sec" id="s2">
+  <div class="sec-hd">
+    <span class="sec-num">2</span>
+    <span class="sec-title">SNOOP4 レッドフラッグスクリーニング</span>
+  </div>
+
+  <div class="alert a-danger">
+    <span class="alert-i">🚨</span>
+    <div>
+      <strong>重要：HIT-6 を使用する前に SNOOP4 スクリーニングを必ず完了すること。</strong><br>
+      二次性頭痛（Secondary Headache）が疑われる場合、先に CT/MRI 等の画像診断を行い、原疾患を除外した後にのみ HIT-6 によるインパクト評価を実施する。
+    </div>
+  </div>
+
+  <div class="snoop-grid">
+    <div class="sn">
+      <div class="sn-letter">S</div>
+      <div class="sn-title">Systemic symptoms</div>
+      <div class="sn-symp">発熱・髄膜刺激症状・体重減少・免疫抑制状態・悪性腫瘍既往</div>
+      <span class="sn-dx">→ 緊急画像診断</span>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">N</div>
+      <div class="sn-title">Neurological deficits</div>
+      <div class="sn-symp">運動麻痺・感覚障害・失語・複視・意識変容・認知変化</div>
+      <span class="sn-dx">→ 緊急神経学的精査</span>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">Onset sudden（雷鳴頭痛）</div>
+      <div class="sn-symp">「生涯最悪の頭痛」として突然発症 → くも膜下出血除外</div>
+      <span class="sn-dx">→ 緊急 CT</span>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">Onset after 50</div>
+      <div class="sn-symp">50歳以降の新規頭痛 → 側頭動脈炎・頭蓋内病変除外</div>
+      <span class="sn-dx">→ 緊急画像診断</span>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">P</div>
+      <div class="sn-title">Pattern change</div>
+      <div class="sn-symp">増悪傾向・外傷後新規発症・体位依存性（仰臥位悪化→ICP↑、立位悪化→ICP↓）</div>
+      <span class="sn-dx">→ 画像診断</span>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">4</div>
+      <div class="sn-title">4つの追加基準</div>
+      <div class="sn-symp">乳頭浮腫 ／ 硬膜穿刺後 ／ 痙攣後 ／ 妊娠・産後</div>
+      <span class="sn-dx">→ それぞれ専門的評価</span>
+    </div>
+  </div>
+
+  <div class="alert a-warn">
+    <span class="alert-i">⚠️</span>
+    <div>
+      <strong>SNOOP4 レッドフラッグが1つでも該当する場合</strong>：HIT-6 評価を一時停止し、二次性頭痛の除外を優先する。<br>
+      参考：<a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ICHD-3 国際頭痛分類</a> ／ <a href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">AAN 頭痛ガイドライン</a>
+    </div>
+  </div>
+</section>
+
+<!-- §3 HIT-6の構造——6つの質問項目 -->
+<section class="sec" id="s3">
+  <div class="sec-hd">
+    <span class="sec-num">3</span>
+    <span class="sec-title">HIT-6の構造——6つの質問項目</span>
+  </div>
+
+  <div class="card">
+    <h2>3.1 6つの質問項目（英語・日本語対訳）</h2>
+    <p>以下の各質問に対し、過去 <strong>4週間（Q4〜Q6）</strong> または現在の状態（Q1〜Q3）を5段階で回答します。</p>
+    <div class="tbl">
+      <table class="th-purple">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>英語原文（要旨）</th>
+            <th>日本語概訳</th>
+            <th>評価ドメイン</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Q1</strong></td>
+            <td>How often do you have severe headache pain?</td>
+            <td>激しい頭痛はどのくらい起こりますか？</td>
+            <td>疼痛強度</td>
+          </tr>
+          <tr>
+            <td><strong>Q2</strong></td>
+            <td>How often does headache limit your ability to do daily activities?</td>
+            <td>頭痛のために日常活動（仕事・学業・家事・社会活動）が制限されますか？</td>
+            <td>役割機能</td>
+          </tr>
+          <tr>
+            <td><strong>Q3</strong></td>
+            <td>When you have a headache, how often do you wish you could lie down?</td>
+            <td>頭痛があるとき、横になりたいと感じますか？</td>
+            <td>重症度感</td>
+          </tr>
+          <tr>
+            <td><strong>Q4</strong></td>
+            <td>In the past 4 weeks, how often did you feel too tired to work/do daily activities because of headache?</td>
+            <td>過去4週間で、頭痛のために疲れて仕事や日常活動ができなかったことはありますか？</td>
+            <td>活力</td>
+          </tr>
+          <tr>
+            <td><strong>Q5</strong></td>
+            <td>In the past 4 weeks, how often did you feel irritated/fed up because of headache?</td>
+            <td>過去4週間で、頭痛のために気分が落ち込んだり、うんざりしましたか？</td>
+            <td>心理的苦痛</td>
+          </tr>
+          <tr>
+            <td><strong>Q6</strong></td>
+            <td>In the past 4 weeks, how often did headache limit your ability to concentrate on work/daily activities?</td>
+            <td>過去4週間で、頭痛のために集中力が低下しましたか？</td>
+            <td>認知機能</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-info">
+      <span class="alert-i">📅</span>
+      <div>
+        <strong>記憶帰還期間（Recall Period）：</strong><br>
+        Q1〜Q3：特定の想起期間なし（現在の状態を反映）<br>
+        Q4〜Q6：<strong>過去4週間（28日間）</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §4 スコアリング方法（IRT非線形採点） -->
+<section class="sec" id="s4">
+  <div class="sec-hd">
+    <span class="sec-num">4</span>
+    <span class="sec-title">スコアリング方法（IRT非線形採点）</span>
+  </div>
+
+  <div class="card">
+    <h2>4.1 回答と点数の対応</h2>
+    <p>各質問への回答は以下の点数に変換されます。この <strong>非線形スコアリング（Non-linear Scoring）</strong> は、項目反応理論（IRT: Item Response Theory）に基づいて設計されており、重篤な影響を示す回答により高い重みを持たせています。</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>回答選択肢</th><th>英語</th><th>点数</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>まったくない</td><td>Never</td><td class="tG"><strong>6点</strong></td><td>最低点</td></tr>
+          <tr><td>めったにない</td><td>Rarely</td><td class="tG"><strong>8点</strong></td><td></td></tr>
+          <tr><td>ときどき</td><td>Sometimes</td><td class="tO"><strong>10点</strong></td><td></td></tr>
+          <tr><td>非常によく</td><td>Very Often</td><td class="tO"><strong>11点</strong></td><td>※ 1点刻みにジャンプ（IRT設計）</td></tr>
+          <tr><td>いつも</td><td>Always</td><td class="tR"><strong>13点</strong></td><td>最高点；重篤影響に最高重み</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-warn">
+      <span class="alert-i">💡</span>
+      <div>
+        <strong>初学者向け解説（IRT非線形採点）：</strong><br>
+        「Sometimes → Very Often」が1点差（10→11点）なのに対し、「Very Often → Always」も1点差（11→13点）ではなく2点差になっています。これは IRT によって、重篤側の変化（Very Often→Always）に大きい重みを与えるよう設計されています。6項目の合計で計算することで、この差が累積的に影響します。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4.2 IRT採点スケール — 視覚的理解</h2>
+    <div class="mmd">
+      <div class="mmd-lbl">📊 IRT非線形スコアリング（応答→点数マッピング）</div>
+      <pre class="mermaid">
+flowchart LR
+  A["まったくない<br/>Never"] -->|6点| S1["合計スコア<br/>36〜78点"]
+  B["めったにない<br/>Rarely"] -->|8点| S1
+  C["ときどき<br/>Sometimes"] -->|10点| S1
+  D["非常によく<br/>Very Often"] -->|11点| S1
+  E["いつも<br/>Always"] -->|13点| S1
+  style D fill:#fff3e0,color:#e65100,stroke:#e65100
+  style E fill:#ffebee,color:#c62828,stroke:#c62828
+      </pre>
+    </div>
+    <p style="font-size:12px;color:var(--g6);margin-top:4px;">※ 上図で D・E（Very Often / Always）がオレンジ・赤で強調されているのは、これらの回答に IRT による大きな重みが設定されているためです。</p>
+  </div>
+
+  <div class="card">
+    <h2>4.3 段階的計算例（初学者向け）</h2>
+    <p><strong>例：ある重度頭痛患者の回答</strong></p>
+    <div class="tbl">
+      <table class="th-orange">
+        <thead><tr><th>質問</th><th>回答</th><th>点数</th></tr></thead>
+        <tbody>
+          <tr><td>Q1</td><td>非常によく</td><td class="tO">11</td></tr>
+          <tr><td>Q2</td><td>いつも</td><td class="tR">13</td></tr>
+          <tr><td>Q3</td><td>非常によく</td><td class="tO">11</td></tr>
+          <tr><td>Q4</td><td>ときどき</td><td>10</td></tr>
+          <tr><td>Q5</td><td>いつも</td><td class="tR">13</td></tr>
+          <tr><td>Q6</td><td>非常によく</td><td class="tO">11</td></tr>
+          <tr><td><strong>合計</strong></td><td></td><td class="tR"><strong>69点</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-danger">
+      <span class="alert-i">📊</span>
+      <div>→ <strong>グレード4：重度インパクト（Severe Impact）≥60点</strong> — 積極的な治療介入が必要</div>
+    </div>
+    <p>
+      <strong>計算式：</strong>
+      <code>HIT-6合計 = Q1 + Q2 + Q3 + Q4 + Q5 + Q6</code><br>
+      最小スコア: 6 × 6 = <strong>36点</strong>（全項目「まったくない」）<br>
+      最大スコア: 6 × 13 = <strong>78点</strong>（全項目「いつも」）
+    </p>
+  </div>
+</section>
+
+<!-- §5 スコア解釈——4段階グレード分類 -->
+<section class="sec" id="s5">
+  <div class="sec-hd">
+    <span class="sec-num">5</span>
+    <span class="sec-title">スコア解釈——4段階グレード分類</span>
+  </div>
+
+  <div class="card">
+    <h2>5.1 4段階グレード分類</h2>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr>
+            <th>HIT-6スコア</th>
+            <th>グレード</th>
+            <th>英語</th>
+            <th>臨床的意味</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>36〜49点</strong></td>
+            <td><span class="bGrn">グレード1</span></td>
+            <td>Little or No Impact</td>
+            <td class="tG">頭痛による生活への影響は軽微または皆無</td>
+          </tr>
+          <tr>
+            <td><strong>50〜55点</strong></td>
+            <td><span class="bOra">グレード2</span></td>
+            <td>Some Impact</td>
+            <td class="tO">日常活動にある程度の影響あり</td>
+          </tr>
+          <tr>
+            <td><strong>56〜59点</strong></td>
+            <td><span class="bOra">グレード3</span></td>
+            <td>Substantial Impact</td>
+            <td class="tO">相当な機能障害；予防療法の適応を検討</td>
+          </tr>
+          <tr>
+            <td><strong>≥60点</strong></td>
+            <td><span class="bRed">グレード4</span></td>
+            <td>Severe Impact</td>
+            <td class="tR">重度の機能障害；積極的な治療介入が必要</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5.2 グレード分類 — 視覚的フローチャート</h2>
+    <div class="mmd">
+      <div class="mmd-lbl">📊 HIT-6スコア → グレード分類</div>
+      <pre class="mermaid">
+flowchart LR
+  SC["HIT-6<br/>スコア"] --> G1["グレード1<br/>36〜49点<br/>軽微・なし"]
+  SC --> G2["グレード2<br/>50〜55点<br/>一部インパクト"]
+  SC --> G3["グレード3<br/>56〜59点<br/>相当なインパクト"]
+  SC --> G4["グレード4<br/>≥60点<br/>重度インパクト"]
+  style G1 fill:#e8f5e9,color:#1b5e20,stroke:#66bb6a
+  style G2 fill:#fff8e1,color:#f57f17,stroke:#ffc107
+  style G3 fill:#fff3e0,color:#e65100,stroke:#ff9800
+  style G4 fill:#ffebee,color:#c62828,stroke:#ef5350
+      </pre>
+    </div>
+  </div>
+
+  <div class="alert a-warn">
+    <span class="alert-i">🎯</span>
+    <div>
+      <strong>臨床的判断基準：</strong><br>
+      ・<strong>HIT-6 ≥ 56点</strong> → 頭痛が日常生活に有意なインパクトを与えていることを示す臨床的閾値<br>
+      ・<strong>HIT-6 ≥ 60点</strong> → 重度インパクト：片頭痛の予防療法開始基準（月4回以上の発作または著明な機能障害）と重複評価を推奨<br>
+      ・<strong>HIT-6 &lt; 50点</strong> → 過剰治療・過剰診断のリスクを考慮
+    </div>
+  </div>
+</section>
+
+<!-- §6 心理測定特性 -->
+<section class="sec" id="s6">
+  <div class="sec-hd">
+    <span class="sec-num">6</span>
+    <span class="sec-title">心理測定特性（Psychometric Properties）</span>
+  </div>
+
+  <div class="card">
+    <h2>6.1 信頼性（Reliability） <span class="bA">Grade A</span></h2>
+    <p><strong>信頼性</strong>とは「同じ状態の患者を測定した場合、毎回同じ結果が得られるか」を示す指標です。</p>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead>
+          <tr><th>指標</th><th>値</th><th>解釈基準</th><th>出典</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>内的一貫性（Cronbach's α）</strong></td>
+            <td class="tG"><strong>0.82〜0.92</strong></td>
+            <td>α ≥ 0.70 = 良好</td>
+            <td>Yang et al. 2011; Rendas-Baum et al. 2014</td>
+          </tr>
+          <tr>
+            <td><strong>検査再検査信頼性（Test-retest ICC）</strong></td>
+            <td class="tG"><strong>0.77〜0.89</strong></td>
+            <td>ICC ≥ 0.70 = 良好</td>
+            <td>Kosinski et al. 2003（原版 ICC = 0.80）</td>
+          </tr>
+          <tr>
+            <td><strong>代替形式信頼性（Alternate Forms）</strong></td>
+            <td class="tG"><strong>0.90</strong></td>
+            <td>—</td>
+            <td>Kosinski et al. 2003</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-info">
+      <span class="alert-i">📘</span>
+      <div>
+        <strong>初学者向け解説：</strong><br>
+        <strong>Cronbach's α（クロンバックのアルファ）</strong>は「6つの質問が同じ概念（頭痛インパクト）を測っているか」の一貫性指標です。0.82〜0.92という値は <strong>「非常に良好」</strong>を意味します。<br>
+        <strong>ICC（級内相関係数）</strong>は「2週間後に同じ患者に再測定しても結果が安定しているか」を示します。0.77〜0.89は <strong>「良好〜優秀」</strong>の範囲です。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6.2 妥当性（Validity） <span class="bA">Grade A</span></h2>
+    <p><strong>妥当性</strong>とは「測りたいものを正しく測れているか」を示す概念です。</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>妥当性の種類</th><th>結果</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>構成概念妥当性（Construct Validity）</strong></td>
+            <td><span class="tG">確認</span></td>
+            <td>確認的因子分析（CFA）で1因子構造が支持</td>
+          </tr>
+          <tr>
+            <td><strong>収束妥当性（Convergent Validity）</strong></td>
+            <td><span class="tG">r = 0.52（p &lt; 0.001）</span></td>
+            <td>MIDAS と有意相関（Sauro et al. 2010、CHORD研究、<em>n</em> = 798）</td>
+          </tr>
+          <tr>
+            <td><strong>弁別妥当性（Discriminant Validity）</strong></td>
+            <td><span class="tG">F = 488.02, p &lt; 0.0001</span></td>
+            <td>慢性片頭痛・発作性片頭痛・非片頭痛間で有意差</td>
+          </tr>
+          <tr>
+            <td><strong>内容妥当性（Content Validity）</strong></td>
+            <td><span class="tG">確認</span></td>
+            <td>患者インタビューと専門家レビューによる（Houts et al. 2020）</td>
+          </tr>
+          <tr>
+            <td><strong>反応性（Responsiveness）</strong></td>
+            <td><span class="tG">確認</span></td>
+            <td>予防療法介入前後で有意な変化を検出</td>
+          </tr>
+          <tr>
+            <td><strong>異文化間等価性（Cross-cultural Equivalence）</strong></td>
+            <td><span class="tG">確認（27言語）</span> <span class="bA">Grade A</span></td>
+            <td>Martin et al. 2004; DIF 分析で支持</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6.3 多言語・多集団での検証 <span class="bA">Grade A</span></h2>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead>
+          <tr><th>検証集団・言語</th><th>主な結果</th><th>出典</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>発作性・慢性片頭痛（英語圏）</td>
+            <td>良好な信頼性・妥当性（<em>n</em> = 2,049）</td>
+            <td>Yang et al. 2011（<em>Cephalalgia</em>）<br><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057423/" target="_blank" rel="noopener noreferrer">PMC3057423</a></td>
+          </tr>
+          <tr>
+            <td>慢性片頭痛（PREEMPT試験）</td>
+            <td>良好な心理測定特性（<em>n</em> = 1,384）</td>
+            <td>Rendas-Baum et al. 2014（<em>HQLO</em>）<br><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4243819/" target="_blank" rel="noopener noreferrer">PMC4243819</a></td>
+          </tr>
+          <tr>
+            <td>慢性片頭痛（PROMISE-2試験）</td>
+            <td>IRT 解析で単次元性確認（<em>n</em> = 1,072）</td>
+            <td>Houts et al. 2021（<em>Qual Life Res</em>）<br><a href="https://link.springer.com/article/10.1007/s11136-020-02668-2" target="_blank" rel="noopener noreferrer">SpringerLink</a></td>
+          </tr>
+          <tr>
+            <td>9言語（多言語検証）</td>
+            <td>等価性確認</td>
+            <td>Martin et al. 2004（<em>J Clin Epidemiol</em>）<br><a href="https://pubmed.ncbi.nlm.nih.gov/15617954/" target="_blank" rel="noopener noreferrer">PubMed: 15617954</a></td>
+          </tr>
+          <tr>
+            <td>27言語（翻訳プロジェクト）</td>
+            <td>概念的・言語的等価性を確認</td>
+            <td>Gandek et al. 2003（<em>Qual Life Res</em>）</td>
+          </tr>
+          <tr>
+            <td>日本語版（邦文）</td>
+            <td>信頼性・妥当性を確認（日本国内）</td>
+            <td>Sakai et al. 2004（<em>Rinsho Iyaku</em>）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-ok">
+      <span class="alert-i">🇯🇵</span>
+      <div><strong>臨床的意義：</strong>HIT-6 は日本語版が正式に検証されており（Sakai et al. 2004）、Eli Lilly Japan によって日本語使用が公式に認可されています。日本人患者への適用は科学的に裏付けられています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- §7 MCID——最小臨床重要差 -->
+<section class="sec" id="s7">
+  <div class="sec-hd">
+    <span class="sec-num">7</span>
+    <span class="sec-title">MCID——最小臨床重要差（Minimally Clinically Important Difference）</span>
+  </div>
+
+  <div class="card">
+    <h2>7.1 MCID とは何か</h2>
+    <p><strong>MCID（Minimally Clinically Important Difference）</strong>または <strong>MIC（Minimally Important Change）</strong>とは、「統計的に有意な変化」ではなく「患者が実際に感じ取れる最小の変化量」を指します。</p>
+    <div class="alert a-info">
+      <span class="alert-i">💡</span>
+      <div>
+        <strong>具体例：</strong> HIT-6 が 65点 → 63点 に変化した場合（2点減少）、統計的には改善を示すかもしれませんが、患者の実感として「良くなった」と感じる閾値に達しているかどうかを判断するのが MCID です。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7.2 HIT-6 の MCID 推定値（文献別） <span class="bB">Grade B</span></h2>
+    <div class="tbl">
+      <table class="th-purple">
+        <thead>
+          <tr><th>研究</th><th>対象集団</th><th>推定 MCID</th><th>推定方法</th><th>出典</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Smelt et al. 2014</td>
+            <td>発作性片頭痛（プライマリケア、<em>n</em> = 490）</td>
+            <td class="tO"><strong>−2.5〜−6点</strong>（範囲）</td>
+            <td>Mean change法 / ROC曲線法</td>
+            <td><em>Cephalalgia</em> 34(1):29–36<br><a href="https://pubmed.ncbi.nlm.nih.gov/23843470/" target="_blank" rel="noopener noreferrer">PubMed: 23843470</a></td>
+          </tr>
+          <tr>
+            <td>Coeytaux et al. 2005</td>
+            <td>頭痛専門外来患者</td>
+            <td class="tO"><strong>−1.5〜−2.3点</strong></td>
+            <td>アンカーベース法</td>
+            <td><em>Headache</em> 45:638–643</td>
+          </tr>
+          <tr>
+            <td>Houts et al. 2020</td>
+            <td>慢性片頭痛（PROMISE-2）</td>
+            <td class="tR"><strong>≥6点減少</strong> <span class="bA">Grade A</span></td>
+            <td>多段階統計法</td>
+            <td><em>Headache</em> 60(9):2003–2013<br><a href="https://pubmed.ncbi.nlm.nih.gov/32862469/" target="_blank" rel="noopener noreferrer">PubMed: 32862469</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7.3 臨床推奨 MCID の解釈</h2>
+    <div class="alert a-purple">
+      <span class="alert-i">📊</span>
+      <div>
+        <strong>発作性片頭痛（Episodic Migraine）における目安：</strong><br>
+        　HIT-6 ≥ 2〜3点の減少 → 個人レベルでの最小改善<br>
+        　HIT-6 ≥ 5点の減少 → 臨床的に意味のある改善<br><br>
+        <strong>慢性片頭痛（Chronic Migraine）における目安：</strong><br>
+        　HIT-6 <strong>≥ 6点の減少</strong> → 臨床的に意味のある改善（推奨閾値）<br>
+        　（Houts et al. 2020; PROMISE-2 研究に基づく）
+      </div>
+    </div>
+    <div class="alert a-warn">
+      <span class="alert-i">⚠️</span>
+      <div>
+        <strong>注意：</strong>MCID はグループ間比較（between-group MID）と個人内変化（within-person MIC）では異なる値を取ります。臨床試験では前者、個別患者評価では後者を参照することが一般的です。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7.4 CGRP モノクローナル抗体試験での HIT-6 変化例（参照値）</h2>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead>
+          <tr><th>薬剤・試験</th><th>治療群変化（3ヵ月時点）</th><th>プラセボ群変化</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>エレヌマブ 140 mg</strong>（発作性片頭痛）</td>
+            <td class="tG"><strong>−9.34点</strong>（p &lt; 0.001）<span class="bA">Grade A</span></td>
+            <td>−6.62点</td>
+          </tr>
+          <tr>
+            <td><strong>エレヌマブ 70 mg</strong></td>
+            <td class="tG"><strong>−8.39点</strong>（p = 0.004）<span class="bA">Grade A</span></td>
+            <td>−6.62点</td>
+          </tr>
+          <tr>
+            <td>日本人発作性片頭痛（Sakai et al. 2019）</td>
+            <td>ベースライン 57.4〜58.9点</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- ##SECTION_INSERT## -->
 
 </main>
