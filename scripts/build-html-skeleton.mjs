@@ -115,6 +115,7 @@ function lightenHex(hex, amount = 0.8) {
  * matching `#[0-9a-fA-F]{3,8}` from the gradient and records them.
  *
  * @returns {Array<{file: string, hexes: string[]}>} An array of objects where `file` is the file path and `hexes` is the list of extracted hex color strings in lowercase.
+ */
 async function collectExistingHeroColors() {
   const collected = [];
   async function walk(dir) {
