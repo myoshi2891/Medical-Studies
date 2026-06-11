@@ -466,13 +466,13 @@ pre.mermaid{text-align:center}
       <div class="mmd-lbl">📊 IRT非線形スコアリング（応答→点数マッピング）</div>
       <pre class="mermaid">
 flowchart LR
-  A["まったくない<br/>Never"] -->|6点| S1["合計スコア<br/>36〜78点"]
-  B["めったにない<br/>Rarely"] -->|8点| S1
-  C["ときどき<br/>Sometimes"] -->|10点| S1
-  D["非常によく<br/>Very Often"] -->|11点| S1
-  E["いつも<br/>Always"] -->|13点| S1
-  style D fill:#fff3e0,color:#e65100,stroke:#e65100
-  style E fill:#ffebee,color:#c62828,stroke:#c62828
+A["まったくない<br/>Never"] -->|6点| S1["合計スコア<br/>36〜78点"]
+B["めったにない<br/>Rarely"] -->|8点| S1
+C["ときどき<br/>Sometimes"] -->|10点| S1
+D["非常によく<br/>Very Often"] -->|11点| S1
+E["いつも<br/>Always"] -->|13点| S1
+style D fill:#fff3e0,color:#e65100,stroke:#e65100
+style E fill:#ffebee,color:#c62828,stroke:#c62828
       </pre>
     </div>
     <p style="font-size:12px;color:var(--g6);margin-top:4px;">※ 上図で D・E（Very Often / Always）がオレンジ・赤で強調されているのは、これらの回答に IRT による大きな重みが設定されているためです。</p>
@@ -563,14 +563,14 @@ flowchart LR
       <div class="mmd-lbl">📊 HIT-6スコア → グレード分類</div>
       <pre class="mermaid">
 flowchart LR
-  SC["HIT-6<br/>スコア"] --> G1["グレード1<br/>36〜49点<br/>軽微・なし"]
-  SC --> G2["グレード2<br/>50〜55点<br/>一部インパクト"]
-  SC --> G3["グレード3<br/>56〜59点<br/>相当なインパクト"]
-  SC --> G4["グレード4<br/>≥60点<br/>重度インパクト"]
-  style G1 fill:#e8f5e9,color:#1b5e20,stroke:#66bb6a
-  style G2 fill:#fff8e1,color:#f57f17,stroke:#ffc107
-  style G3 fill:#fff3e0,color:#e65100,stroke:#ff9800
-  style G4 fill:#ffebee,color:#c62828,stroke:#ef5350
+SC["HIT-6<br/>スコア"] --> G1["グレード1<br/>36〜49点<br/>軽微・なし"]
+SC --> G2["グレード2<br/>50〜55点<br/>一部インパクト"]
+SC --> G3["グレード3<br/>56〜59点<br/>相当なインパクト"]
+SC --> G4["グレード4<br/>≥60点<br/>重度インパクト"]
+style G1 fill:#e8f5e9,color:#1b5e20,stroke:#66bb6a
+style G2 fill:#fff8e1,color:#f57f17,stroke:#ffc107
+style G3 fill:#fff3e0,color:#e65100,stroke:#ff9800
+style G4 fill:#ffebee,color:#c62828,stroke:#ef5350
       </pre>
     </div>
   </div>
@@ -1016,36 +1016,36 @@ flowchart LR
       <div class="mmd-lbl">📊 HIT-6 臨床使用フローチャート（SNOOP4 → スコア分類 → 12週プロトコル）</div>
       <pre class="mermaid">
 flowchart TD
-    A[患者が頭痛を主訴として来院] --> B{SNOOP4<br/>レッドフラッグスクリーニング}
-    B -->|フラグあり| C[緊急画像診断<br/>CT / MRI<br/>二次性頭痛を除外]
-    C --> D{画像・検査<br/>結果}
-    D -->|二次性頭痛が判明| E[原疾患の治療<br/>専門科紹介]
-    D -->|異常なし| F
-    B -->|フラグなし| F[HIT-6 実施<br/>記入所要時間：約5分]
-    F --> G[スコア計算<br/>6項目合計：36〜78点]
-    G --> H{スコア分類}
-    H -->|36〜49点| I[グレード1<br/>軽微・なし<br/>経過観察・生活指導]
-    H -->|50〜55点| J[グレード2<br/>一部インパクト<br/>急性期治療の見直し<br/>頭痛日誌開始]
-    H -->|56〜59点| K[グレード3<br/>相当なインパクト<br/>予防療法の適応検討<br/>MIDAS 併用評価]
-    H -->|≥60点| L[グレード4<br/>重度インパクト<br/>予防療法開始<br/>多モーダル治療計画]
-    I --> M[3ヵ月後に再評価]
-    J --> M
-    K --> N[12週間治療プロトコル<br/>開始]
-    L --> N
-    N --> O{12週後<br/>HIT-6 再評価}
-    O -->|≥5〜6点改善<br/>慢性片頭痛では≥6点| P[治療継続・維持]
-    O -->|改善不十分| Q[治療計画の見直し<br/>MOH評価<br/>CGRP mAb 検討]
-    P --> R[6ヵ月・1年後の<br/>長期フォロー]
-    Q --> R
-    style A fill:#4a90d9,color:#ffffff
-    style C fill:#e74c3c,color:#ffffff
-    style E fill:#e74c3c,color:#ffffff
-    style I fill:#2ecc71,color:#ffffff
-    style J fill:#f39c12,color:#ffffff
-    style K fill:#e67e22,color:#ffffff
-    style L fill:#c0392b,color:#ffffff
-    style P fill:#27ae60,color:#ffffff
-    style Q fill:#8e44ad,color:#ffffff
+A[患者が頭痛を主訴として来院] --> B{SNOOP4<br/>レッドフラッグスクリーニング}
+B -->|フラグあり| C[緊急画像診断<br/>CT / MRI<br/>二次性頭痛を除外]
+C --> D{画像・検査<br/>結果}
+D -->|二次性頭痛が判明| E[原疾患の治療<br/>専門科紹介]
+D -->|異常なし| F
+B -->|フラグなし| F[HIT-6 実施<br/>記入所要時間：約5分]
+F --> G[スコア計算<br/>6項目合計：36〜78点]
+G --> H{スコア分類}
+H -->|36〜49点| I[グレード1<br/>軽微・なし<br/>経過観察・生活指導]
+H -->|50〜55点| J[グレード2<br/>一部インパクト<br/>急性期治療の見直し<br/>頭痛日誌開始]
+H -->|56〜59点| K[グレード3<br/>相当なインパクト<br/>予防療法の適応検討<br/>MIDAS 併用評価]
+H -->|≥60点| L[グレード4<br/>重度インパクト<br/>予防療法開始<br/>多モーダル治療計画]
+I --> M[3ヵ月後に再評価]
+J --> M
+K --> N[12週間治療プロトコル<br/>開始]
+L --> N
+N --> O{12週後<br/>HIT-6 再評価}
+O -->|≥5〜6点改善<br/>慢性片頭痛では≥6点| P[治療継続・維持]
+O -->|改善不十分| Q[治療計画の見直し<br/>MOH評価<br/>CGRP mAb 検討]
+P --> R[6ヵ月・1年後の<br/>長期フォロー]
+Q --> R
+style A fill:#4a90d9,color:#ffffff
+style C fill:#e74c3c,color:#ffffff
+style E fill:#e74c3c,color:#ffffff
+style I fill:#2ecc71,color:#ffffff
+style J fill:#f39c12,color:#ffffff
+style K fill:#e67e22,color:#ffffff
+style L fill:#c0392b,color:#ffffff
+style P fill:#27ae60,color:#ffffff
+style Q fill:#8e44ad,color:#ffffff
       </pre>
     </div>
     <div class="alert a-info">
