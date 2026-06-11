@@ -4,10 +4,10 @@
 
 ## 現在地
 
-- **最新 HEAD**: `f00217f` feat(Types-of-headache): Migraine-Disability-Assessment.html — Phase 4/4: finalize — Progress: 15/15 sections complete
-- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス / Mermaid 3図（臨床フロー/予防療法選択/MOH回復）/ 外部リンク 25 件すべて target="_blank" rel="noopener noreferrer" 付与 / SRI 付与済 / ASCII図→HTMLコンポーネント化済
+- **最新 HEAD**: `c19da0b` feat(Types-of-headache): Patient-Global-Impression-of-Change.html — Phase 4/4: finalize — Progress: 14/14 sections complete
+- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス / Mermaid 8図（概念ブリッジ/timeline/2バージョン/MCID算出/gantt/解釈フロー/多軸評価/治療フロー）/ 外部リンクすべて target="_blank" rel="noopener noreferrer" 付与 / SRI 付与済
 - **次の作業**: `Migraine-Specific-Quality-of-Life.html` 移行（作成）
-- **未移行 HTML 残数**: 3
+- **未移行 HTML 残数**: 2
 
 ## 移行ステータス
 
@@ -27,7 +27,7 @@
 | Patient Reported Outcome Measures | Migraine Disability Assessment (MIDAS) | [Migraine-Disability-Assessment.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Migraine-Disability-Assessment.md) | [Migraine-Disability-Assessment.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Migraine-Disability-Assessment.html) | ✅ 完了 | ボルドー→ローズ ヒーロー / Mermaid 3図 / 15セクション＋付録 / ASCII図3箇所をHTML化 / 参考文献25リンク / 4フェーズ分割 |
 | Patient Reported Outcome Measures | Migraine-Specific Quality of Life (MSQ) | [Migraine-Specific-Quality-of-Life.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Migraine-Specific-Quality-of-Life.md) | - | ⏳ 未着手 | |
 | Patient Reported Outcome Measures | NRS / VAS | [Numerical-Rating-Scale-Visual-Analogue-Scale.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Numerical-Rating-Scale-Visual-Analogue-Scale.md) | - | ⏳ 未着手 | |
-| Patient Reported Outcome Measures | Patient Global Impression of Change (PGIC) | [Patient-Global-Impression-of-Change.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Patient-Global-Impression-of-Change.md) | - | ⏳ 未着手 | |
+| Patient Reported Outcome Measures | Patient Global Impression of Change (PGIC) | [Patient-Global-Impression-of-Change.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Patient-Global-Impression-of-Change.md) | [Patient-Global-Impression-of-Change.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Patient-Global-Impression-of-Change.html) | ✅ 完了 | ペトロール→ティール→アクアマリン ヒーロー / Mermaid 8図（timeline・gantt 含む）/ 14セクション / .src-grid 参考文献16リンク / 4フェーズ分割 |
 
 ---
 
@@ -35,7 +35,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: f00217f
+- 最新 HEAD: c19da0b
 - 次の作業: Migraine-Specific-Quality-of-Life.html 移行
-- 未移行 HTML 残数: 3
+- 未移行 HTML 残数: 2
 ```
