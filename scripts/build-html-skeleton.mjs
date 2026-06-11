@@ -108,15 +108,22 @@ function lightenHex(hex, amount = 0.8) {
 }
 
 /**
- * Scan the HTML output root and collect hero-gradient hex colors found in existing pages.
+ * Collect hero-gradient hex colors from existing HTML files under HTML_ROOT.
  *
- * Recursively searches HTML_ROOT for .html files and, for each file containing a
- * `.hero{background:linear-gradient(135deg,...)}` fragment, extracts hex tokens
- * matching `#[0-9a-fA-F]{3,8}` from the gradient and records them.
+ * Recursively scans HTML_ROOT for `.html` files; for files that contain a hero
+ * background gradient it extracts the hex color tokens and records them. If a
+ * directory cannot be read it is skipped.
  *
- * @returns {Array<{file: string, hexes: string[]}>} An array of objects where `file` is the file path and `hexes` is the list of extracted hex color strings in lowercase.
+ * @returns {Array<{file: string, hexes: string[]}>} Array of objects where `file` is the file path and `hexes` is an array of extracted hex color strings in lowercase.
+ */
 async function collectExistingHeroColors() {
   const collected = [];
+  /**
+   * Recursively traverses a directory tree, finds `.html` files containing a `.hero{background:linear-gradient(135deg,...)` fragment, extracts hex color tokens from those gradients, and appends entries to the outer `collected` array.
+   *
+   * The function silently skips directories it cannot read.
+   * @param {string} dir - Path of the directory to walk.
+   */
   async function walk(dir) {
     let entries;
     try {

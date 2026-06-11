@@ -4,10 +4,10 @@
 
 ## 現在地
 
-- **最新 HEAD**: `53eed08` chore(rules): モバイルナビのスライドアウト方式を設計オプションに追加
-- **ビルド状態**: Mermaid 修正スクリプト正常 / Markdown Lint クリア / モバイルナビ実装検証済 / 外部リンク 46 件すべて rel="noopener noreferrer" 付与 / SRI 付与済
-- **次の作業**: `Headache-Impact-Test.html` 移行（作成）
-- **未移行 HTML 残数**: 5
+- **最新 HEAD**: `cb88560` feat(Types-of-headache): Numerical-Rating-Scale-Visual-Analogue-Scale.html — Phase 4/4: finalize — Progress: 15/15 sections complete
+- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス / Mermaid 8図（疼痛多次元/VAS手順/NRS手順/使い分け/MCID関係/急性期評価/多軸評価/初診ワークフロー）/ 外部リンク20件すべて target="_blank" rel="noopener noreferrer" 付与 / SRI 付与済
+- **次の作業**: `Migraine-Specific-Quality-of-Life.html` 移行（作成）
+- **未移行 HTML 残数**: 1
 
 ## 移行ステータス
 
@@ -23,11 +23,11 @@
 | Nutrition & Supplements | 頭痛と栄養・サプリメント療法 | [Nutrition-and-Supplements.md](Types-of-headache/md-files/Nutrition-and-Supplements/Nutrition-and-Supplements.md) | [Nutrition-and-Supplements.html](Types-of-headache/html-files/Nutrition-and-Supplements/Nutrition-and-Supplements.html) | ✅ 完了 | Jewel Emerald ヒーロー / Mermaid 8図 / .nut-rx 処方カード / 4フェーズ分割 |
 | Psychological & Behavioral | 頭痛の心理・行動療法 | [Psychological-Behavioral-Therapy.md](Types-of-headache/md-files/Psychological-Behavioral-Therapy/Psychological-Behavioral-Therapy.md) | [Psychological-Behavioral-Therapy.html](Types-of-headache/html-files/Psychological-Behavioral-Therapy/Psychological-Behavioral-Therapy.html) | ✅ 完了 | トワイライト藍紫ヒーロー / Mermaid 8図 / .snoop-grid・.therapy-grid / 14セクション / 4フェーズ分割 |
 | Patient Reported Outcome Measures | 頭痛ダイアリー | [Headache-Diary.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Headache-Diary.md) | [Headache-Diary.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Headache-Diary.html) | ✅ 完了 | セピア・ブロンズ系ヒーロー / Mermaid 9図（mindmap 含む）/ 16セクション / 外部リンク46 / 4フェーズ分割 |
-| Patient Reported Outcome Measures | Headache Impact Test (HIT-6) | [Headache-Impact-Test.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Headache-Impact-Test.md) | - | ⏳ 未着手 | |
-| Patient Reported Outcome Measures | Migraine Disability Assessment (MIDAS) | [Migraine-Disability-Assessment.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Migraine-Disability-Assessment.md) | - | ⏳ 未着手 | |
+| Patient Reported Outcome Measures | Headache Impact Test (HIT-6) | [Headache-Impact-Test.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Headache-Impact-Test.md) | [Headache-Impact-Test.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Headache-Impact-Test.html) | ✅ 完了 | Deep Amethyst ヒーロー / Mermaid 3図（IRT採点・グレード分類・臨床フロー）/ 14セクション / 参考文献34リンク / 4フェーズ分割 |
+| Patient Reported Outcome Measures | Migraine Disability Assessment (MIDAS) | [Migraine-Disability-Assessment.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Migraine-Disability-Assessment.md) | [Migraine-Disability-Assessment.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Migraine-Disability-Assessment.html) | ✅ 完了 | ボルドー→ローズ ヒーロー / Mermaid 3図 / 15セクション＋付録 / ASCII図3箇所をHTML化 / 参考文献25リンク / 4フェーズ分割 |
 | Patient Reported Outcome Measures | Migraine-Specific Quality of Life (MSQ) | [Migraine-Specific-Quality-of-Life.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Migraine-Specific-Quality-of-Life.md) | - | ⏳ 未着手 | |
-| Patient Reported Outcome Measures | NRS / VAS | [Numerical-Rating-Scale-Visual-Analogue-Scale.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Numerical-Rating-Scale-Visual-Analogue-Scale.md) | - | ⏳ 未着手 | |
-| Patient Reported Outcome Measures | Patient Global Impression of Change (PGIC) | [Patient-Global-Impression-of-Change.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Patient-Global-Impression-of-Change.md) | - | ⏳ 未着手 | |
+| Patient Reported Outcome Measures | NRS / VAS | [Numerical-Rating-Scale-Visual-Analogue-Scale.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Numerical-Rating-Scale-Visual-Analogue-Scale.md) | [Numerical-Rating-Scale-Visual-Analogue-Scale.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Numerical-Rating-Scale-Visual-Analogue-Scale.html) | ✅ 完了 | 疼痛スペクトラム配色（深緑→アンバー→深紅）/ Mermaid 8図 / 15セクション / 参考文献 .src-grid 20リンク / 4フェーズ分割 |
+| Patient Reported Outcome Measures | Patient Global Impression of Change (PGIC) | [Patient-Global-Impression-of-Change.md](Types-of-headache/md-files/Patient-Reported-Outcome-Measures/Patient-Global-Impression-of-Change.md) | [Patient-Global-Impression-of-Change.html](Types-of-headache/html-files/Patient-Reported-Outcome-Measures/Patient-Global-Impression-of-Change.html) | ✅ 完了 | ペトロール→ティール→アクアマリン ヒーロー / Mermaid 8図（timeline・gantt 含む）/ 14セクション / .src-grid 参考文献16リンク / 4フェーズ分割 |
 
 ---
 
@@ -35,7 +35,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 53eed08
-- 次の作業: Headache-Impact-Test.html 移行
-- 未移行 HTML 残数: 5
+- 最新 HEAD: cb88560
+- 次の作業: Migraine-Specific-Quality-of-Life.html 移行
+- 未移行 HTML 残数: 1
 ```
