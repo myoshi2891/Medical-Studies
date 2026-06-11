@@ -252,16 +252,16 @@ pre.mermaid{text-align:center}
       <div class="mmd-lbl">フローチャート — 客観指標と患者中心指標のギャップを橋渡しするPGIC</div>
 <pre class="mermaid">
 graph TD
-    A["従来の転帰測定<br/>（医師・研究者中心）"] --> B["客観的指標<br/>（頭痛日数・薬剤使用量・MRI所見）"]
-    C["患者中心転帰測定<br/>（PRO: Patient-Reported Outcome）"] --> D["主観的指標<br/>（PGIC, HIT-6, MIDAS, MSQ）"]
-    B --> E["測定可能だが<br/>患者の実感と乖離する可能性"]
-    D --> F["患者が実感する<br/>治療の価値を直接反映"]
-    E --> G{"臨床的意義の<br/>ギャップ"}
-    F --> G
-    G --> H["PGICはこのギャップを<br/>橋渡しするアンカー指標"]
-    style A fill:#e3f2fd,stroke:#0277bd
-    style C fill:#e8f5e9,stroke:#2e7d32
-    style H fill:#fff3e0,stroke:#e65100
+A["従来の転帰測定<br/>（医師・研究者中心）"] --> B["客観的指標<br/>（頭痛日数・薬剤使用量・MRI所見）"]
+C["患者中心転帰測定<br/>（PRO: Patient-Reported Outcome）"] --> D["主観的指標<br/>（PGIC, HIT-6, MIDAS, MSQ）"]
+B --> E["測定可能だが<br/>患者の実感と乖離する可能性"]
+D --> F["患者が実感する<br/>治療の価値を直接反映"]
+E --> G{"臨床的意義の<br/>ギャップ"}
+F --> G
+G --> H["PGICはこのギャップを<br/>橋渡しするアンカー指標"]
+style A fill:#e3f2fd,stroke:#0277bd
+style C fill:#e8f5e9,stroke:#2e7d32
+style H fill:#fff3e0,stroke:#e65100
 </pre>
     </div>
   </div>
@@ -297,13 +297,13 @@ graph TD
       <div class="mmd-lbl">タイムライン — PGICの歴史的発展</div>
 <pre class="mermaid">
 timeline
-    title PGICの歴史的発展タイムライン
-    1976 : Guy開発 CGI（Clinical Global Impression） : 精神科薬物試験での臨床医評価ツールとして確立
-    1990s : 慢性疼痛・神経疼痛領域への応用拡大 : 患者自己評価版（PGIC）の概念が登場
-    2001 : Farrar et al.（Pain誌） : PGICをアンカーとしたNRS-MCIDの定義 : 慢性疼痛研究での標準化
-    2006-2009 : FDA PRO ガイダンス（草案2006→最終版2009） : PGICが規制当局公認のアンカー指標として確立
-    2010s : CGRP関連片頭痛試験への導入 : エレヌマブ・フレマネズマブ・ガルカネズマブ試験で採用
-    2024-2025 : PGIC vs MMD比較研究（Romozzi et al.） : 抗CGRP mAbの治療継続判断指標として再評価
+title PGICの歴史的発展タイムライン
+1976 : Guy開発 CGI（Clinical Global Impression） : 精神科薬物試験での臨床医評価ツールとして確立
+1990s : 慢性疼痛・神経疼痛領域への応用拡大 : 患者自己評価版（PGIC）の概念が登場
+2001 : Farrar et al.（Pain誌） : PGICをアンカーとしたNRS-MCIDの定義 : 慢性疼痛研究での標準化
+2006-2009 : FDA PRO ガイダンス（草案2006→最終版2009） : PGICが規制当局公認のアンカー指標として確立
+2010s : CGRP関連片頭痛試験への導入 : エレヌマブ・フレマネズマブ・ガルカネズマブ試験で採用
+2024-2025 : PGIC vs MMD比較研究（Romozzi et al.） : 抗CGRP mAbの治療継続判断指標として再評価
 </pre>
     </div>
   </div>
@@ -390,18 +390,18 @@ timeline
       <div class="mmd-lbl">フローチャート — 昇順型 vs 降順型のスコア方向</div>
 <pre class="mermaid">
 graph LR
-    subgraph VER_A["バージョンA：昇順型（片頭痛mAb試験で多用）"]
-        A1["1<br/>変化なし/悪化"] --> A2["2<br/>ほぼ同じ"] --> A3["3<br/>少し良い"] --> A4["4<br/>やや良い"] --> A5["5<br/>中程度改善 ★閾値"] --> A6["6<br/>明確な改善"] --> A7["7<br/>大幅改善"]
-    end
-    subgraph VER_B["バージョンB：降順型（Guy原版・エプチネズマブ等）"]
-        B1["1<br/>大幅改善 ★閾値"] --> B2["2<br/>かなり改善"] --> B3["3<br/>最小限改善 ★閾値"] --> B4["4<br/>変化なし"] --> B5["5<br/>最小限悪化"] --> B6["6<br/>かなり悪化"] --> B7["7<br/>大幅悪化"]
-    end
-    style A5 fill:#c8e6c9,stroke:#2e7d32
-    style A6 fill:#a5d6a7,stroke:#2e7d32
-    style A7 fill:#81c784,stroke:#2e7d32
-    style B1 fill:#81c784,stroke:#2e7d32
-    style B2 fill:#a5d6a7,stroke:#2e7d32
-    style B3 fill:#c8e6c9,stroke:#2e7d32
+subgraph VER_A["バージョンA：昇順型（片頭痛mAb試験で多用）"]
+A1["1<br/>変化なし/悪化"] --> A2["2<br/>ほぼ同じ"] --> A3["3<br/>少し良い"] --> A4["4<br/>やや良い"] --> A5["5<br/>中程度改善 ★閾値"] --> A6["6<br/>明確な改善"] --> A7["7<br/>大幅改善"]
+end
+subgraph VER_B["バージョンB：降順型（Guy原版・エプチネズマブ等）"]
+B1["1<br/>大幅改善 ★閾値"] --> B2["2<br/>かなり改善"] --> B3["3<br/>最小限改善 ★閾値"] --> B4["4<br/>変化なし"] --> B5["5<br/>最小限悪化"] --> B6["6<br/>かなり悪化"] --> B7["7<br/>大幅悪化"]
+end
+style A5 fill:#c8e6c9,stroke:#2e7d32
+style A6 fill:#a5d6a7,stroke:#2e7d32
+style A7 fill:#81c784,stroke:#2e7d32
+style B1 fill:#81c784,stroke:#2e7d32
+style B2 fill:#a5d6a7,stroke:#2e7d32
+style B3 fill:#c8e6c9,stroke:#2e7d32
 </pre>
     </div>
     <div class="alert a-warn">
@@ -483,18 +483,18 @@ graph LR
       <div class="mmd-lbl">フローチャート — PGICアンカーベースのMCID算出プロセス</div>
 <pre class="mermaid">
 flowchart TD
-    A["ベースライン評価<br/>NRS / VAS / HIT-6 / MIDAS 等"] --> B["治療介入<br/>（薬物療法・神経ブロック・行動療法 等）"]
-    B --> C["フォローアップ評価<br/>同じ転帰尺度を再測定"]
-    C --> D["PGIC 評価<br/>患者が1〜7で自己評価"]
-    D --> E{"PGICスコアで<br/>患者を層別化"}
-    E --> F["改善群<br/>PGIC 5〜7（バージョンA）"]
-    E --> G["非改善群<br/>PGIC 1〜4（バージョンA）"]
-    F --> H["改善群の<br/>転帰尺度変化量を算出"]
-    G --> I["非改善群の<br/>転帰尺度変化量を算出"]
-    H --> J["ROC曲線解析"]
-    I --> J
-    J --> K["AUC最大化する<br/>カットオフ値 = MCID"]
-    style K fill:#fff3e0,stroke:#e65100
+A["ベースライン評価<br/>NRS / VAS / HIT-6 / MIDAS 等"] --> B["治療介入<br/>（薬物療法・神経ブロック・行動療法 等）"]
+B --> C["フォローアップ評価<br/>同じ転帰尺度を再測定"]
+C --> D["PGIC 評価<br/>患者が1〜7で自己評価"]
+D --> E{"PGICスコアで<br/>患者を層別化"}
+E --> F["改善群<br/>PGIC 5〜7（バージョンA）"]
+E --> G["非改善群<br/>PGIC 1〜4（バージョンA）"]
+F --> H["改善群の<br/>転帰尺度変化量を算出"]
+G --> I["非改善群の<br/>転帰尺度変化量を算出"]
+H --> J["ROC曲線解析"]
+I --> J
+J --> K["AUC最大化する<br/>カットオフ値 = MCID"]
+style K fill:#fff3e0,stroke:#e65100
 </pre>
     </div>
   </div>
@@ -553,20 +553,20 @@ flowchart TD
       <div class="mmd-lbl">ガントチャート — PGICを組み込んだ頭痛治療転帰評価タイムライン</div>
 <pre class="mermaid">
 gantt
-    title PGICを組み込んだ頭痛治療転帰評価タイムライン
-    dateFormat YYYY-MM
-    axisFormat %m月
-    section 前治療評価
-    ベースライン評価（HIT-6, MIDAS, VAS, 頭痛日記） :milestone, m1, 2024-01, 0d
-    30日間ベースライン頭痛日記記録 :a1, 2024-01, 30d
-    section 治療フェーズ
-    治療開始（薬物 / 神経ブロック / 行動療法） :milestone, m2, 2024-02, 0d
-    Month 1 評価（頭痛日記継続） :a2, 2024-02, 28d
-    Month 2 評価 :a3, 2024-03, 28d
-    Month 3 主要転帰評価（PGIC + HIT-6 + MIDAS） :crit, a4, 2024-04, 14d
-    section フォローアップ
-    Month 6 評価（PGIC + HIT-6） :a5, 2024-07, 14d
-    Month 12 最終評価（全転帰指標） :crit, a6, 2024-12, 14d
+title PGICを組み込んだ頭痛治療転帰評価タイムライン
+dateFormat YYYY-MM
+axisFormat %m月
+section 前治療評価
+ベースライン評価（HIT-6, MIDAS, VAS, 頭痛日記） :milestone, m1, 2024-01, 0d
+30日間ベースライン頭痛日記記録 :a1, 2024-01, 30d
+section 治療フェーズ
+治療開始（薬物 / 神経ブロック / 行動療法） :milestone, m2, 2024-02, 0d
+Month 1 評価（頭痛日記継続） :a2, 2024-02, 28d
+Month 2 評価 :a3, 2024-03, 28d
+Month 3 主要転帰評価（PGIC + HIT-6 + MIDAS） :crit, a4, 2024-04, 14d
+section フォローアップ
+Month 6 評価（PGIC + HIT-6） :a5, 2024-07, 14d
+Month 12 最終評価（全転帰指標） :crit, a6, 2024-12, 14d
 </pre>
     </div>
   </div>
@@ -600,20 +600,20 @@ gantt
       <div class="mmd-lbl">フローチャート — PGICスコア別の臨床的対応</div>
 <pre class="mermaid">
 flowchart TD
-    A["PGIC 評価実施"] --> B{"スコア確認"}
-    B --> C["スコア 1〜2<br/>変化なし・ほぼ同じ"]
-    B --> D["スコア 3〜4<br/>軽微〜一定の改善"]
-    B --> E["スコア 5〜7<br/>中程度〜大幅改善"]
-    C --> C1["治療再評価必須<br/>・MOHスクリーニング<br/>・診断再確認（SNOOP4）<br/>・薬剤変更 / 増量検討<br/>・神経ブロック追加を検討"]
-    D --> D1["部分奏効として評価<br/>・現治療を継続し観察<br/>・付加的アプローチ検討<br/>（CBT・生体FB・理学療法）<br/>・3ヶ月後に再評価"]
-    E --> E1["治療有効応答<br/>・現治療プランを継続<br/>・HIT-6・MIDASで改善確認<br/>・治療目標（≥50%削減）達成度確認<br/>・次の評価時期を設定"]
-    C1 --> F["SNOOP4 再確認<br/>（二次性頭痛を除外）"]
-    D1 --> G["3ヶ月フォローアップ"]
-    E1 --> G
-    F --> G
-    style E fill:#c8e6c9,stroke:#2e7d32
-    style D fill:#fff9c4,stroke:#f57f17
-    style C fill:#ffcdd2,stroke:#c62828
+A["PGIC 評価実施"] --> B{"スコア確認"}
+B --> C["スコア 1〜2<br/>変化なし・ほぼ同じ"]
+B --> D["スコア 3〜4<br/>軽微〜一定の改善"]
+B --> E["スコア 5〜7<br/>中程度〜大幅改善"]
+C --> C1["治療再評価必須<br/>・MOHスクリーニング<br/>・診断再確認（SNOOP4）<br/>・薬剤変更 / 増量検討<br/>・神経ブロック追加を検討"]
+D --> D1["部分奏効として評価<br/>・現治療を継続し観察<br/>・付加的アプローチ検討<br/>（CBT・生体FB・理学療法）<br/>・3ヶ月後に再評価"]
+E --> E1["治療有効応答<br/>・現治療プランを継続<br/>・HIT-6・MIDASで改善確認<br/>・治療目標（≥50%削減）達成度確認<br/>・次の評価時期を設定"]
+C1 --> F["SNOOP4 再確認<br/>（二次性頭痛を除外）"]
+D1 --> G["3ヶ月フォローアップ"]
+E1 --> G
+F --> G
+style E fill:#c8e6c9,stroke:#2e7d32
+style D fill:#fff9c4,stroke:#f57f17
+style C fill:#ffcdd2,stroke:#c62828
 </pre>
     </div>
   </div>
@@ -767,21 +767,21 @@ flowchart TD
       <div class="mmd-lbl">フローチャート — 複数転帰指標による多角的治療効果評価</div>
 <pre class="mermaid">
 graph TD
-    Patient["患者"] --> A["PGICで評価<br/>（全体的変化感）"]
-    Patient --> B["HIT-6で評価<br/>（日常機能への影響）"]
-    Patient --> C["MIDASで評価<br/>（社会・職業的損失）"]
-    Patient --> D["VAS/NRSで評価<br/>（疼痛強度）"]
-    Patient --> E["頭痛日記で評価<br/>（頭痛日数・急性薬剤使用）"]
-    A --> F["統合解釈<br/>治療効果の多角的評価"]
-    B --> F
-    C --> F
-    D --> F
-    E --> F
-    F --> G{"目標達成確認"}
-    G --> H["✅ PGIC ≥5<br/>✅ HIT-6 改善 ≥2.3点<br/>✅ MMD ≥50%削減<br/>✅ MIDAS 改善<br/>✅ 急性薬剤使用日数↓"]
-    G --> I["⚠️ 一部未達成<br/>治療プラン見直しを検討"]
-    style H fill:#c8e6c9,stroke:#2e7d32
-    style I fill:#ffcdd2,stroke:#c62828
+Patient["患者"] --> A["PGICで評価<br/>（全体的変化感）"]
+Patient --> B["HIT-6で評価<br/>（日常機能への影響）"]
+Patient --> C["MIDASで評価<br/>（社会・職業的損失）"]
+Patient --> D["VAS/NRSで評価<br/>（疼痛強度）"]
+Patient --> E["頭痛日記で評価<br/>（頭痛日数・急性薬剤使用）"]
+A --> F["統合解釈<br/>治療効果の多角的評価"]
+B --> F
+C --> F
+D --> F
+E --> F
+F --> G{"目標達成確認"}
+G --> H["✅ PGIC ≥5<br/>✅ HIT-6 改善 ≥2.3点<br/>✅ MMD ≥50%削減<br/>✅ MIDAS 改善<br/>✅ 急性薬剤使用日数↓"]
+G --> I["⚠️ 一部未達成<br/>治療プラン見直しを検討"]
+style H fill:#c8e6c9,stroke:#2e7d32
+style I fill:#ffcdd2,stroke:#c62828
 </pre>
     </div>
   </div>
@@ -816,26 +816,26 @@ graph TD
       <div class="mmd-lbl">フローチャート — SNOOP4 から PGIC 評価までの治療フロー</div>
 <pre class="mermaid">
 flowchart TD
-    Start(["新規頭痛患者 初診"]) --> S1["STEP 1：SNOOP4 スクリーニング<br/>🚨 二次性頭痛・神経学的緊急事態を除外"]
-    S1 --> S1_Check{"SNOOP4<br/>陽性？"}
-    S1_Check -->|"Yes"| S1_Ref["⚠️ 緊急画像検査（CT / MRI）<br/>専門医紹介"]
-    S1_Check -->|"No"| S2["STEP 2：ベースライン評価<br/>・ICHD-3 診断コード確定<br/>・HIT-6 スコア記録<br/>・MIDAS スコア記録<br/>・VAS/NRS ピーク・平均値<br/>・30日間頭痛日記開始"]
-    S2 --> S3["STEP 3：治療計画立案<br/>急性期 + 予防 + 非薬物療法<br/>（エビデンスグレードを付記）"]
-    S3 --> S4["STEP 4：治療開始<br/>MOHリスク閾値を患者教育"]
-    S4 --> S5["STEP 5：Month 1〜2 経過観察<br/>頭痛日記・急性薬剤使用日数モニタリング<br/>副作用チェック"]
-    S5 --> S6["STEP 6：3ヶ月時点 主要転帰評価<br/>★ PGIC 実施<br/>★ HIT-6 再測定<br/>★ MIDAS 再測定<br/>★ MMD/MHD 集計"]
-    S6 --> S7{"PGIC スコア<br/>評価"}
-    S7 -->|"スコア 5〜7 有効応答"| S8["✅ 治療継続<br/>6ヶ月評価へ進む"]
-    S7 -->|"スコア 3〜4 部分奏効"| S9["⚡ 治療強化検討<br/>・付加的介入<br/>・用量調整<br/>・CBT / 生体FB 追加<br/>・神経ブロック検討"]
-    S7 -->|"スコア 1〜2 無効"| S10["🔄 治療再評価<br/>・MOH確認<br/>・ICHD-3コード再確認<br/>・新規薬剤検討（CGRP mAb等）<br/>・専門医コンサルト"]
-    S8 --> S11["STEP 7：6ヶ月・12ヶ月フォローアップ<br/>PGIC + 全転帰指標再評価<br/>長期治療維持計画立案"]
-    S9 --> S5
-    S10 --> S3
-    style Start fill:#e3f2fd,stroke:#0277bd
-    style S1_Ref fill:#ffcdd2,stroke:#c62828
-    style S8 fill:#c8e6c9,stroke:#2e7d32
-    style S9 fill:#fff9c4,stroke:#f57f17
-    style S10 fill:#ffcdd2,stroke:#c62828
+Start(["新規頭痛患者 初診"]) --> S1["STEP 1：SNOOP4 スクリーニング<br/>🚨 二次性頭痛・神経学的緊急事態を除外"]
+S1 --> S1_Check{"SNOOP4<br/>陽性？"}
+S1_Check -->|"Yes"| S1_Ref["⚠️ 緊急画像検査（CT / MRI）<br/>専門医紹介"]
+S1_Check -->|"No"| S2["STEP 2：ベースライン評価<br/>・ICHD-3 診断コード確定<br/>・HIT-6 スコア記録<br/>・MIDAS スコア記録<br/>・VAS/NRS ピーク・平均値<br/>・30日間頭痛日記開始"]
+S2 --> S3["STEP 3：治療計画立案<br/>急性期 + 予防 + 非薬物療法<br/>（エビデンスグレードを付記）"]
+S3 --> S4["STEP 4：治療開始<br/>MOHリスク閾値を患者教育"]
+S4 --> S5["STEP 5：Month 1〜2 経過観察<br/>頭痛日記・急性薬剤使用日数モニタリング<br/>副作用チェック"]
+S5 --> S6["STEP 6：3ヶ月時点 主要転帰評価<br/>★ PGIC 実施<br/>★ HIT-6 再測定<br/>★ MIDAS 再測定<br/>★ MMD/MHD 集計"]
+S6 --> S7{"PGIC スコア<br/>評価"}
+S7 -->|"スコア 5〜7 有効応答"| S8["✅ 治療継続<br/>6ヶ月評価へ進む"]
+S7 -->|"スコア 3〜4 部分奏効"| S9["⚡ 治療強化検討<br/>・付加的介入<br/>・用量調整<br/>・CBT / 生体FB 追加<br/>・神経ブロック検討"]
+S7 -->|"スコア 1〜2 無効"| S10["🔄 治療再評価<br/>・MOH確認<br/>・ICHD-3コード再確認<br/>・新規薬剤検討（CGRP mAb等）<br/>・専門医コンサルト"]
+S8 --> S11["STEP 7：6ヶ月・12ヶ月フォローアップ<br/>PGIC + 全転帰指標再評価<br/>長期治療維持計画立案"]
+S9 --> S5
+S10 --> S3
+style Start fill:#e3f2fd,stroke:#0277bd
+style S1_Ref fill:#ffcdd2,stroke:#c62828
+style S8 fill:#c8e6c9,stroke:#2e7d32
+style S9 fill:#fff9c4,stroke:#f57f17
+style S10 fill:#ffcdd2,stroke:#c62828
 </pre>
     </div>
   </div>
