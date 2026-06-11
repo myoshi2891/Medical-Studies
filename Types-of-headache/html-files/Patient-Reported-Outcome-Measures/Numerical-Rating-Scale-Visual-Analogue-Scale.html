@@ -214,6 +214,487 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">はじめに — なぜ疼痛を「測定」するのか</h1>
+  </div>
+
+  <h2>1.1 疼痛評価の意義</h2>
+  <p>疼痛（Pain）は、<strong>国際疼痛学会（IASP: International Association for the Study of Pain）</strong> が 2020 年に改訂した定義によれば、本質的に<strong>主観的（subjective）</strong>かつ多次元的な現象です。</p>
+
+  <div class="alert a-info">
+    <div class="alert-i">📖</div>
+    <div>「実際のまたは潜在的な組織損傷に伴う、またはそれに類似した、不快な感覚的・情動的経験」<br>
+    <span style="font-size:12px;color:var(--g6)">— Raja SN, et al. <em>Pain</em>. 2020;161(9):1976–1982.</span></div>
+  </div>
+
+  <p>「痛みは測定できない」という直感を超えて、疼痛を定量化することは Evidence-Based Medicine（EBM）の礎石であり、以下の目的のために不可欠です。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>目的</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td><strong>診断支援</strong></td><td>疼痛特性の客観的記録（ICHD-3 診断基準への組み込み）</td></tr>
+        <tr><td><strong>治療効果判定</strong></td><td>ベースラインとの比較による奏効評価（MCID の達成確認）</td></tr>
+        <tr><td><strong>臨床試験エンドポイント</strong></td><td>FDA・EMA が求める PRO（患者報告アウトカム）の根幹</td></tr>
+        <tr><td><strong>多施設間比較</strong></td><td>標準化されたスケールによる国際的データ比較</td></tr>
+        <tr><td><strong>MOH リスク監視</strong></td><td>急性期薬剤の使用頻度と疼痛強度の経時的記録</td></tr>
+        <tr><td><strong>治療継続の根拠形成</strong></td><td>CGRP mAb 等の高額治療の継続適応評価</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>1.2 疼痛の多次元性と測定スケールの役割</h2>
+  <p>VAS / NRS が測定する「疼痛強度（pain intensity）」は疼痛の一側面に過ぎません。疼痛の多次元的構造と各評価指標の対応関係を以下に示します。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">概念図 — 疼痛の多次元構造と評価指標の対応</div>
+<pre class="mermaid">
+graph TD
+    A["疼痛&lt;br&gt;Pain"] --&gt; B["感覚的側面&lt;br&gt;Sensory Dimension&lt;br&gt;（強度・性質・部位）"]
+    A --&gt; C["情動的側面&lt;br&gt;Affective Dimension&lt;br&gt;（苦痛・不安・抑うつ）"]
+    A --&gt; D["認知的側面&lt;br&gt;Cognitive Dimension&lt;br&gt;（意味づけ・破局的思考）"]
+    A --&gt; E["行動的側面&lt;br&gt;Behavioral Dimension&lt;br&gt;（回避行動・機能障害）"]
+    B --&gt; F["🎯 VAS / NRS&lt;br&gt;疼痛強度を定量化&lt;br&gt;（本ガイドの主題）"]
+    C --&gt; G["PGIC&lt;br&gt;患者全般改善度"]
+    D --&gt; H["PHQ-9 / GAD-7&lt;br&gt;うつ・不安スクリーニング"]
+    E --&gt; I["HIT-6 / MIDAS&lt;br&gt;機能障害・障害評価"]
+    style F fill:#fff3e0,stroke:#FF9800,stroke-width:2px
+    style A fill:#e3f2fd,stroke:#1565C0
+</pre>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">歴史的背景</h1>
+  </div>
+
+  <h2>2.1 VAS の起源 — Huskisson (1974)</h2>
+  <p>疼痛評価への VAS の体系的導入は、英国のリウマチ科医 <strong>E.C. Huskisson</strong> が 1974 年 <em>The Lancet</em> に発表した論文に端を発します。この論文で Huskisson は、当時の疼痛測定法と比較して VAS が<strong>最も感度の高い（most sensitive）</strong>疼痛測定法であると結論づけました。</p>
+  <div class="alert a-info">
+    <div class="alert-i">📚</div>
+    <div>Huskisson EC. Measurement of pain. <em>The Lancet</em>. 1974;2(7889):1127–1131.<br>
+    <span style="font-size:12px;color:var(--g6)">線的アナログスケールの概念自体は Aitken（1969）の気分評価研究や Clarke &amp; Spear（1964）の精神医学的研究に源流があります。</span></div>
+  </div>
+
+  <h2>2.2 NRS の確立 — Jensen, Karoly &amp; Braver (1986)</h2>
+  <p>慢性疼痛患者 75 名を対象に 6 種のスケールを比較し、<strong>101 点 NRS（0〜100）が最も実用的な指標</strong>であることを示した比較研究の基盤です。</p>
+  <div class="alert a-info">
+    <div class="alert-i">📚</div>
+    <div>Jensen MP, Karoly P, Braver S. The measurement of clinical pain intensity: a comparison of six methods. <em>Pain</em>. 1986;27(1):117–126.</div>
+  </div>
+
+  <h2>2.3 VAS の比率尺度特性の検証 — Price et al. (1983)</h2>
+  <p>VAS が比率尺度（ratio scale）としての特性を有することを実証した基礎文献です。</p>
+  <div class="alert a-info">
+    <div class="alert-i">📚</div>
+    <div>Price DD, McGrath PA, Rafii A, Buckingham B. The validation of visual analogue scales as ratio scale measures for chronic and experimental pain. <em>Pain</em>. 1983;17(1):45–56.</div>
+  </div>
+
+  <h2>2.4 慢性疼痛 MCID の里程碑 — Farrar et al. (2001)</h2>
+  <p>10 のプレガバリン臨床試験データ（計 2,724 例）を統合解析し、NRS における <strong>MCID（最小臨床的重要差）</strong>を定量化した、慢性疼痛・頭痛研究の基盤となる研究（引用数 &gt; 5,000）です。</p>
+  <div class="alert a-info">
+    <div class="alert-i">📚</div>
+    <div>Farrar JT, Young JP Jr, LaMoreaux L, Werth JL, Poole RM. Clinical importance of changes in chronic pain intensity measured on an 11-point numerical pain rating scale. <em>Pain</em>. 2001;94(2):149–158.</div>
+  </div>
+
+  <h2>2.5 VAS MCID の急性疼痛での検証 — Gallagher et al. (2001)</h2>
+  <p>救急外来での急性疼痛における VAS MCID を確立した重要研究です。</p>
+  <div class="alert a-info">
+    <div class="alert-i">📚</div>
+    <div>Gallagher EJ, Liebman M, Bijur PE. Prospective validation of clinically important changes in pain severity measured on a visual analog scale. <em>Ann Emerg Med</em>. 2001;38(6):633–638.</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">VAS — 視覚的アナログスケール（Visual Analogue Scale）</h1>
+  </div>
+
+  <h2>3.1 定義と構造</h2>
+  <p><strong>VAS（Visual Analogue Scale）</strong>は、両端にアンカー（錨点）が記された<strong>通常 100mm（10cm）の連続した水平または垂直の線分</strong>を用いて、患者が自らの疼痛強度を直感的に表現するスケールです。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>要素</th><th>仕様</th></tr></thead>
+      <tbody>
+        <tr><td><strong>形式</strong></td><td>100mm 連続線分（水平方向が国際標準；垂直型も使用可）</td></tr>
+        <tr><td><strong>左端アンカー（0mm）</strong></td><td>「全く痛みなし（No pain at all）」</td></tr>
+        <tr><td><strong>右端アンカー（100mm）</strong></td><td>「想像しうる最悪の痛み（Worst pain imaginable）」</td></tr>
+        <tr><td><strong>中間目盛り</strong></td><td>原則として<strong>表示なし</strong>（連続スケールの特性を保つため）</td></tr>
+        <tr><td><strong>採点</strong></td><td>患者のマーク位置から左端までの距離を mm で計測</td></tr>
+        <tr><td><strong>計測ツール</strong></td><td>ミリ定規（紙媒体）/ デジタルスコアリングシステム（電子版）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div><strong>重要：</strong>中間に目盛りや数字を加えると連続スケールの特性が失われ、事実上 NRS に変容します。IHS ガイドラインに準拠した研究では、<strong>数字・目盛りなしの 100mm 線</strong>のみを使用してください。</div>
+  </div>
+
+  <h2>3.2 VAS の実施手順（ステップバイステップ）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — VAS 実施の 6 ステップ</div>
+<pre class="mermaid">
+flowchart TD
+    A(["VAS 実施開始"]) --&gt; B["STEP 1：環境整備&lt;br&gt;・静かで明るい環境&lt;br&gt;・患者が集中できる状態&lt;br&gt;・評価中は医療者が誘導しない"]
+    B --&gt; C["STEP 2：患者への説明（標準化テキスト）&lt;br&gt;「この直線は痛みの強さを表しています。&lt;br&gt;左端は全く痛みのない状態、右端はこれ以上&lt;br&gt;考えられないほどの最悪の痛みを表します。&lt;br&gt;今の痛みの強さに相当する位置に&lt;br&gt;縦線を引いてください」"]
+    C --&gt; D["STEP 3：標準化された用紙を提示&lt;br&gt;・100mm 水平線&lt;br&gt;・アンカー文言を両端に明示&lt;br&gt;・数字・目盛りは非表示&lt;br&gt;・前回の記録は患者に見せない"]
+    D --&gt; E["STEP 4：患者が自己マーキング&lt;br&gt;・現在の痛みの強さを表す点に&lt;br&gt;　縦線または印を記入&lt;br&gt;・時間制限なし（急かさない）"]
+    E --&gt; F["STEP 5：計測&lt;br&gt;・左端から印までの距離をミリ定規で測定&lt;br&gt;・0〜100mm の整数値で記録"]
+    F --&gt; G["STEP 6：記録&lt;br&gt;・測定値（mm）を記録&lt;br&gt;・評価時刻・評価状況&lt;br&gt;　（安静時 / 労作時 / 発作時）を付記"]
+    G --&gt; H(["終了 / 次回評価へ"])
+    style A fill:#e3f2fd,stroke:#1565C0
+    style H fill:#c8e6c9,stroke:#1B5E20
+</pre>
+  </div>
+
+  <h2>3.3 VAS スコアの解釈指針</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>VAS スコア（mm）</th><th>疼痛カテゴリー</th><th>臨床的意義</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0–4 mm</strong></td><td>無痛（None）</td><td>疼痛なし</td></tr>
+        <tr><td><strong>5–44 mm</strong></td><td>軽度（Mild）</td><td>日常活動にほぼ支障なし</td></tr>
+        <tr><td><strong>45–74 mm</strong></td><td>中等度（Moderate）</td><td>日常活動に支障あり</td></tr>
+        <tr><td><strong>75–100 mm</strong></td><td>重度（Severe）</td><td>活動不能 / 安静が必要</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">ℹ️</div>
+    <div><strong>頭痛研究における標準的カットオフ：</strong>VAS ≥45mm（中等度以上）で治療薬を投与することが IHS の急性期試験ガイドラインの標準とされています。</div>
+  </div>
+
+  <h2>3.4 VAS の利点と限界</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>利点</th><th>限界</th></tr></thead>
+      <tbody>
+        <tr><td>連続変量として高い統計解析感度</td><td>定規・計測器が必要（現場での煩雑さ）</td></tr>
+        <tr><td>言語的バリアが少ない</td><td>高齢者・認知機能低下患者には難しい</td></tr>
+        <tr><td>変化の検出感度（反応性）が高い</td><td>電話・音声によるリモート評価が困難</td></tr>
+        <tr><td>比率尺度特性を持つ（Price 1983）</td><td>理解不足によるアンカーへの集中（エンドスタッキング）</td></tr>
+        <tr><td>豊富な歴史的使用実績（1974 年〜）</td><td>採点の手間（mm 測定）</td></tr>
+        <tr><td>単語・数字不要で多言語対応</td><td>前回スコアの記憶による偏り（アンカリング効果）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">NRS — 数値評価スケール（Numerical Rating Scale）</h1>
+  </div>
+
+  <h2>4.1 定義と構造</h2>
+  <p><strong>NRS（Numerical Rating Scale）</strong>は、患者が自らの疼痛強度を <strong>0〜10（または 0〜100）の整数値</strong>で口頭または記述で表現するスケールです。臨床・研究の国際標準形は <strong>NRS-11（0〜10 の 11 点尺度）</strong>です。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>要素</th><th>仕様</th></tr></thead>
+      <tbody>
+        <tr><td><strong>形式</strong></td><td>0〜10 の 11 段階順序尺度（整数のみ）</td></tr>
+        <tr><td><strong>0 の意味</strong></td><td>「痛みなし（No pain）」</td></tr>
+        <tr><td><strong>10 の意味</strong></td><td>「想像しうる最悪の痛み（Worst possible pain）」</td></tr>
+        <tr><td><strong>採点</strong></td><td>患者が選択した整数値をそのまま記録</td></tr>
+        <tr><td><strong>実施方法</strong></td><td>口頭・紙媒体・電子 PRO（ePRO）・電話すべてに対応</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4.2 NRS の実施手順（ステップバイステップ）</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — NRS 実施手順（評価形式の分岐つき）</div>
+<pre class="mermaid">
+flowchart TD
+    A(["NRS 実施開始"]) --&gt; B["STEP 1：評価形式の選択&lt;br&gt;口頭 / 紙媒体 / 電子 PRO&lt;br&gt;（患者の識字能力・認知機能・評価状況に応じて）"]
+    B --&gt; C["STEP 2：患者への標準化説明&lt;br&gt;「0 から 10 の数字で今の痛みを教えてください。&lt;br&gt;0 は全く痛みがない状態、&lt;br&gt;10 はこれ以上考えられないほどの&lt;br&gt;最悪の痛みを表します。&lt;br&gt;今の痛みは何点ですか？」"]
+    C --&gt; D{"評価形式は？"}
+    D --&gt;|"口頭評価"| E["STEP 3a：口頭で整数を回答させる&lt;br&gt;（0, 1, 2...10 のみ）&lt;br&gt;小数・分数・範囲での回答は不可"]
+    D --&gt;|"紙媒体・電子 PRO"| F["STEP 3b：用紙 / 端末上で&lt;br&gt;数字を選択・記入させる"]
+    E --&gt; G["STEP 4：記録&lt;br&gt;・選択した整数（0〜10）を記録&lt;br&gt;・評価時刻・評価状況（安静時 / 発作時）&lt;br&gt;・推奨：発症時・ピーク時・治療 2 時間後の 3 点測定"]
+    F --&gt; G
+    G --&gt; H(["終了 / 次回評価へ"])
+    style A fill:#e3f2fd,stroke:#1565C0
+    style H fill:#c8e6c9,stroke:#1B5E20
+</pre>
+  </div>
+
+  <h2>4.3 NRS スコアの解釈指針</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>NRS スコア（0〜10）</th><th>疼痛カテゴリー</th><th>臨床的意義</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>無痛（None）</td><td>疼痛なし</td></tr>
+        <tr><td><strong>1–3</strong></td><td>軽度（Mild）</td><td>日常活動にほぼ支障なし</td></tr>
+        <tr><td><strong>4–6</strong></td><td>中等度（Moderate）</td><td>日常活動に支障あり</td></tr>
+        <tr><td><strong>7–10</strong></td><td>重度（Severe）</td><td>活動不能 / 安静が必要</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">ℹ️</div>
+    <div><strong>IHS 頭痛臨床試験標準：</strong>NRS ≥4（中等度以上）の頭痛を対象として治療薬を投与することが IHS の急性期試験ガイドラインの基準です。4 段階 VRS（0〜3）との対応は「軽度（NRS 1〜3）= VRS 1、中等度（NRS 4〜6）= VRS 2、重度（NRS 7〜10）= VRS 3」と近似されます。</div>
+  </div>
+
+  <h2>4.4 NRS の利点と限界</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>利点</th><th>限界</th></tr></thead>
+      <tbody>
+        <tr><td>口頭・電話・電子 PRO への高い汎用性</td><td>離散値（整数のみ）のため統計感度は VAS より若干劣る</td></tr>
+        <tr><td>計測器不要で即時に記録可能</td><td>比率尺度特性が VAS より弱い（零点の解釈が不明確）</td></tr>
+        <tr><td>高齢者・認知機能低下患者にも適用しやすい</td><td>低疼痛域でスコアが人為的に高めになる傾向（エンドスタッキング）</td></tr>
+        <tr><td>遠隔診療・電話評価での使用可</td><td>文化・言語によって数値の解釈が異なる可能性</td></tr>
+        <tr><td>患者コンプライアンスが高い</td><td>「最悪の痛み（10 点）」の概念が文化的に異なりうる</td></tr>
+        <tr><td>多数の臨床試験エビデンス蓄積</td><td>整数のみ → 微細な変化の検出が VAS に比べ困難</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">VRS — 言語評価スケール（Verbal Rating Scale）との比較</h1>
+  </div>
+
+  <p><strong>VRS（Verbal Rating Scale）</strong>は、疼痛を言語カテゴリーで表現するスケールです。</p>
+
+  <h2>5.1 代表的な VRS フォーマット</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>VRS 形式</th><th>カテゴリー</th></tr></thead>
+      <tbody>
+        <tr><td><strong>4 段階 VRS（IHS 標準・旧来型）</strong></td><td>0 = なし / 1 = 軽度 / 2 = 中等度 / 3 = 重度</td></tr>
+        <tr><td><strong>5 段階 VRS</strong></td><td>なし / 軽度 / 中等度 / 重度 / 激烈</td></tr>
+        <tr><td><strong>6 段階 VRS</strong></td><td>なし / ごく軽度 / 軽度 / 中等度 / 重度 / 激烈</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-info">
+    <div class="alert-i">🧠</div>
+    <div><strong>頭痛医学での特記事項：</strong>IHS の旧来のガイドライン（第 1〜3 版）では、片頭痛急性期試験において <strong>4 段階 VRS（0〜3）</strong>が主要エンドポイントの標準として使用されてきました（初期トリプタン試験の全てで使用）。現在の IHS ガイドライン（2024 年版）では VRS・VAS・NRS のいずれかの使用が認められており、NRS-11 の採用が増加しています。</div>
+  </div>
+
+  <h2>5.2 3 スケールの特性比較</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>特性</th><th>VAS（100mm）</th><th>NRS（0〜10）</th><th>VRS（4 段階）</th></tr></thead>
+      <tbody>
+        <tr><td><strong>尺度水準</strong></td><td>比率尺度（支持される証拠あり）</td><td>順序〜区間尺度</td><td>順序尺度</td></tr>
+        <tr><td><strong>変化検出感度</strong></td><td>◎ 最高</td><td>○ 高い</td><td>△ 限定的</td></tr>
+        <tr><td><strong>遠隔評価適性</strong></td><td>× 困難</td><td>◎ 最高</td><td>○ 適切</td></tr>
+        <tr><td><strong>高齢者への適用</strong></td><td>△ やや困難</td><td>○ 適切</td><td>◎ 最も簡便</td></tr>
+        <tr><td><strong>臨床試験実績</strong></td><td>◎ 豊富</td><td>◎ 豊富</td><td>◎ 最も豊富（頭痛領域）</td></tr>
+        <tr><td><strong>患者コンプライアンス</strong></td><td>△ やや低い</td><td>◎ 最高</td><td>◎ 高い</td></tr>
+        <tr><td><strong>統計解析の柔軟性</strong></td><td>◎ 連続変量</td><td>○ 連続変量に近似</td><td>△ カテゴリカル</td></tr>
+        <tr><td><strong>言語依存性</strong></td><td>低い</td><td>低い</td><td>高い</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">VAS vs NRS — 直接比較と使い分け</h1>
+  </div>
+
+  <h2>6.1 系統的レビューのエビデンス</h2>
+  <p><strong>Hjermstad MJ, et al. (2011)</strong> による系統的レビュー（<em>J Pain Symptom Manage</em>, 41(6):1073–1093）は VAS・NRS・VRS を直接比較し、以下の結論を提示しました。</p>
+  <div class="card">
+    <ul>
+      <li><strong>NRS-11</strong> は 3 スケールの中で患者コンプライアンス・識別能・再現性の観点から<strong>最も推奨される</strong></li>
+      <li>VAS・NRS・VRS のスコア間には高い相関があるが、<strong>高齢者（≥65 歳）では両スケールは互換的でない</strong>（後述）</li>
+      <li>NRS-11 は電話・電子 PRO・対面すべての評価形式に対応でき、最も汎用性が高い</li>
+    </ul>
+  </div>
+
+  <h2>6.2 頭痛特異的エビデンス</h2>
+  <p><strong>Loder &amp; Burch (2012)</strong>（<em>Cephalalgia</em>, 32(7):593–597）は、頭痛研究における疼痛測定の課題を詳細に分析しました。</p>
+  <div class="card">
+    <ul>
+      <li>初期トリプタン試験（1990 年代）が確立した 4 段階 VRS の伝統とその利点・限界</li>
+      <li>VAS は紙媒体での実施・計測の煩雑さから、頭痛日誌への組み込みに実務的課題がある</li>
+      <li><strong>NRS-11 の採用がゲパント・ジタン時代の試験で増加</strong>しており、IHS も現在は容認</li>
+    </ul>
+  </div>
+
+  <h2>6.3 使い分けの実践的指針</h2>
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 評価設定・患者特性に応じたスケール選択</div>
+<pre class="mermaid">
+graph TD
+    A["疼痛評価スケールの選択"] --&gt; B{"評価設定は？"}
+    B --&gt;|"電話・遠隔診療"| C["NRS-11 を選択&lt;br&gt;（口頭で即座に回答可）&lt;br&gt;✅ 国際推奨"]
+    B --&gt;|"電子 PRO・スマートフォン"| D["NRS または電子 VAS&lt;br&gt;（電子 VAS は 100mm アナログを再現可）&lt;br&gt;✅ FDA 推奨"]
+    B --&gt;|"入院・外来・対面"| E{"患者の特性は？"}
+    E --&gt;|"成人・認知機能正常"| F{"研究目的か？"}
+    E --&gt;|"高齢者（≥65 歳）"| G["NRS または VRS（4 段階）を優先&lt;br&gt;（VAS は誤用リスク高い）&lt;br&gt;⚠️ 互換性に注意"]
+    E --&gt;|"小児（8〜12 歳）"| H["Faces Pain Scale-Revised（FPS-R）&lt;br&gt;または NRS（11 歳以上）"]
+    E --&gt;|"小児（&lt;8 歳）"| I["FLACC スケール&lt;br&gt;（行動観察型）"]
+    F --&gt;|"臨床研究・RCT"| J["VAS（高感度な連続変量）&lt;br&gt;または NRS-11&lt;br&gt;IHS / FDA ガイドライン準拠"]
+    F --&gt;|"日常臨床・頭痛日誌"| K["NRS-11&lt;br&gt;（簡便・即時・口頭対応）"]
+    style C fill:#e8f5e9,stroke:#2E7D32
+    style D fill:#e8f5e9,stroke:#2E7D32
+    style G fill:#fff9c4,stroke:#F9A825
+    style H fill:#fff9c4,stroke:#F9A825
+    style I fill:#ffcdd2,stroke:#C62828
+    style J fill:#e3f2fd,stroke:#1565C0
+    style K fill:#e8f5e9,stroke:#2E7D32
+</pre>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">心理測定学的特性</h1>
+  </div>
+
+  <h2>7.1 信頼性（Reliability）</h2>
+  <p>信頼性とは「同じ状況で同じ測定を繰り返したときに一貫した結果を得られるか」を示す指標です。</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>信頼性の種類</th><th>VAS の実績</th><th>NRS の実績</th></tr></thead>
+      <tbody>
+        <tr><td><strong>再テスト信頼性</strong></td><td>r = 0.80〜0.99（病態安定時）</td><td>r = 0.67〜0.96（病態安定時）</td></tr>
+        <tr><td><strong>検者間信頼性</strong></td><td>高い（患者自己記入のため影響小）</td><td>高い（患者自己記入のため影響小）</td></tr>
+        <tr><td><strong>内的一貫性</strong></td><td>単一項目のため非該当</td><td>単一項目のため非該当</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>再テスト信頼性は「病態が変化していない期間」の測定を前提とします。頭痛研究では<strong>片頭痛発作間欠期と発作期</strong>を明確に区別して記録することが必須です。</div>
+  </div>
+
+  <h2>7.2 妥当性（Validity）</h2>
+  <h3>構成概念妥当性（Construct Validity）</h3>
+  <ul>
+    <li>VAS 疼痛スコアは、5 段階言語スケールおよび NRS と高い相関を示す（r = 0.62〜0.91）</li>
+    <li>NRS は 4 段階 VRS・VAS との相関が確認されており、同一の疼痛構成概念を測定していると考えられる</li>
+    <li>鎮痛薬投与・神経ブロック前後でのスコア低下が代理基準関連妥当性の根拠となる</li>
+  </ul>
+  <h3>基準関連妥当性（Criterion Validity）</h3>
+  <p>疼痛の「ゴールドスタンダード」は存在しないため（痛みは主観的現象）、厳密な基準関連妥当性は原理的に評価不能です。これは VAS/NRS の限界ではなく、疼痛という現象の本質的特性です。</p>
+  <h3>反応性（Responsiveness / 変化検出能）</h3>
+  <ul>
+    <li>VAS・NRS ともに治療前後の変化を検出する感度は十分に高い</li>
+    <li>NRS は離散値（整数のみ）のため、VAS よりわずかに検出感度が低い可能性があるが、臨床的影響は限定的</li>
+  </ul>
+
+  <h2>7.3 COSMIN フレームワークによる評価</h2>
+  <p><strong>COSMIN（COnsensus-based Standards for the selection of health Measurement INstruments）</strong>に基づく系統的評価（Wertli et al., <em>Pain</em>, 2018）では：</p>
+  <div class="card">
+    <ul>
+      <li>NRS の測定誤差に関する高品質エビデンス：<strong>「不十分」</strong> ——「不十分」の意味は「測定誤差が小さい」ではなく「測定誤差の研究が不十分」であることに注意</li>
+      <li>VAS の全測定特性：低〜超低品質のエビデンス（研究設計の問題）</li>
+      <li><strong>どちらが優れているかを明確に示すエビデンスは現時点では不十分</strong></li>
+    </ul>
+  </div>
+  <div class="alert a-ok">
+    <div class="alert-i">✅</div>
+    <div><strong>実践的結論：</strong>COSMIN レビューの指摘にもかかわらず、VAS/NRS は数十年の臨床使用実績・規制当局の承認・IHS ガイドラインへの組み込みから、<strong>疼痛強度の国際標準的測定法として確立</strong>されています。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">最小臨床的重要差（MCID）</h1>
+  </div>
+
+  <h2>8.1 MCID とは何か</h2>
+  <p><strong>MCID（Minimal Clinically Important Difference）</strong>は、患者が「本当に良くなった（または悪くなった）」と感じる最小限の変化量を定量化した値です。統計的有意差（p &lt; 0.05）が示されても、MCID を超えなければその変化は患者にとって意味がない可能性があります。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 統計的有意差と臨床的意義（MCID）の関係</div>
+<pre class="mermaid">
+flowchart LR
+    A["統計的有意差&lt;br&gt;（p &lt; 0.05）"] --&gt; C{"MCID を&lt;br&gt;超えているか？"}
+    B["臨床的意義&lt;br&gt;（患者の実感）"] --&gt; C
+    C --&gt;|"Yes"| D["✅ 臨床的に意義ある改善&lt;br&gt;治療の有効性が実証された"]
+    C --&gt;|"No — 統計的有意差あり&lt;br&gt;MCID 未達成"| E["⚠️ 統計的有意差のみ&lt;br&gt;患者は「良くなった」と感じていない可能性&lt;br&gt;治療の実臨床的価値に疑問"]
+    C --&gt;|"No — どちらも未達成"| F["❌ 無効&lt;br&gt;治療プランの見直しが必要"]
+    style D fill:#c8e6c9,stroke:#1B5E20
+    style E fill:#fff9c4,stroke:#F9A825
+    style F fill:#ffcdd2,stroke:#C62828
+</pre>
+  </div>
+
+  <h2>8.2 NRS における主要 MCID 参照値</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究 / 条件</th><th>MCID（絶対値）</th><th>MCID（% 変化）</th><th>アンカー指標</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Farrar et al. 2001（慢性疼痛）</strong></td><td>−2.0 点</td><td>−33%</td><td>PGIC「大幅改善」</td></tr>
+        <tr><td><strong>Farrar et al. 2001（最小改善）</strong></td><td>−1.0〜−1.5 点</td><td>−15〜−20%</td><td>PGIC「わずかに改善」</td></tr>
+        <tr><td><strong>Salaffi et al. 2004（慢性筋骨格痛）</strong></td><td>−1.74 点</td><td>約 30%</td><td>PGIC「最小改善」</td></tr>
+        <tr><td><strong>頭痛神経ブロック研究（臨床基準）</strong></td><td>−2.0 点</td><td>—</td><td>臨床的意義基準</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8.3 VAS における主要 MCID 参照値</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>研究 / 条件</th><th>MCID（絶対値 mm）</th><th>MCID（% 変化）</th><th>アンカー指標</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gallagher et al. 2001（急性疼痛）</strong></td><td><strong>−13mm</strong></td><td>—</td><td>臨床判断</td></tr>
+        <tr><td><strong>慢性疼痛一般（複数研究）</strong></td><td>−10〜−15mm</td><td>−15〜−30%</td><td>PGIC「改善」</td></tr>
+        <tr><td><strong>頭痛急性期試験（Pain Freedom 基準）</strong></td><td>−45mm（例：VAS 60 → 15）</td><td>≥50% 以上</td><td>「なし/軽度」への移行</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8.4 疼痛削減率の臨床的意義</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>削減率</th><th>意義</th><th>頭痛医学での位置づけ</th></tr></thead>
+      <tbody>
+        <tr><td><strong>≥15% 削減</strong></td><td>最小限改善（MCID 下限）</td><td>—</td></tr>
+        <tr><td><strong>≥30% 削減</strong></td><td>意味のある改善（standard responder）</td><td>NRS −2 点前後に相当</td></tr>
+        <tr><td><strong>≥50% 削減</strong></td><td>優れた治療反応（50% レスポンダー）</td><td>CGRP mAb 試験の主要エンドポイント基準</td></tr>
+        <tr><td><strong>100% 削減（NRS/VAS = 0）</strong></td><td>完全疼痛消失（Pain Freedom）</td><td>片頭痛急性期試験の重要エンドポイント</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>8.5 NRS と VAS の近似換算</h2>
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>NRS × 10mm ≈ VAS mm という近似式が文献で用いられますが、これは<strong>近似値</strong>に過ぎず、特に高齢者集団では両スケールの互換性が低いため、個々の患者において一方のスケールから他方への直接換算は推奨されません。</div>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>NRS（0〜10）</th><th>VAS 近似値（mm）</th><th>疼痛カテゴリー</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>0 mm</td><td>無痛</td></tr>
+        <tr><td>1〜3</td><td>10〜30 mm</td><td>軽度</td></tr>
+        <tr><td>4〜6</td><td>40〜60 mm</td><td>中等度</td></tr>
+        <tr><td>7〜10</td><td>70〜100 mm</td><td>重度</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <!-- ##SECTION_INSERT## -->
 
 </main>
