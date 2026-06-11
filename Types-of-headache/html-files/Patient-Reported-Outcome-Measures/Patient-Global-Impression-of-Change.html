@@ -213,6 +213,412 @@ pre.mermaid{text-align:center}
 <!-- MAIN CONTENT -->
 <main class="main">
 
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">PGICとは何か — 基本概念の理解</h1>
+  </div>
+
+  <div class="card">
+    <h2>1.1 定義</h2>
+    <p><strong>PGIC（Patient Global Impression of Change / 患者全般改善度）</strong> は、治療開始前のベースライン状態と比較して、患者自身が感じる全体的な病状の変化を主観的に評価するための<strong>単項目・7段階順序尺度（7-point Likert scale）</strong>です。</p>
+    <div class="alert a-purple">
+      <span class="alert-i">💡</span>
+      <div><strong>一言で言えば：</strong><br>「あなたは治療を始めてから、全体的にどのくらい良くなりましたか（あるいは悪くなりましたか）？」という問いに対して、患者自身が 1〜7 のスコアで答える尺度です。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1.2 PGICが評価する概念領域</h2>
+    <p>PGIC は単なる「痛みの軽減」だけでなく、以下を<strong>包括的（holistic）に</strong>捉えます：</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>評価領域</th><th>含まれる内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>活動制限（Activity Limitations）</strong></td><td>仕事・家事・余暇活動への支障</td></tr>
+          <tr><td><strong>症状（Symptoms）</strong></td><td>頭痛強度・頻度・随伴症状の変化</td></tr>
+          <tr><td><strong>感情（Emotions）</strong></td><td>不安・抑うつ・生活への影響</td></tr>
+          <tr><td><strong>全体的なQOL（Overall Quality of Life）</strong></td><td>健康関連生活の質全般</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>これが、PGIC を「痛みスケール（VAS/NRS）」や病態特異的尺度（HIT-6、MIDAS）と区別する最大の特徴です。</p>
+  </div>
+
+  <div class="card">
+    <h2>1.3 なぜPGICが重要なのか — 患者中心医療（Patient-Centered Care）の視点</h2>
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート — 客観指標と患者中心指標のギャップを橋渡しするPGIC</div>
+<pre class="mermaid">
+graph TD
+    A["従来の転帰測定<br/>（医師・研究者中心）"] --> B["客観的指標<br/>（頭痛日数・薬剤使用量・MRI所見）"]
+    C["患者中心転帰測定<br/>（PRO: Patient-Reported Outcome）"] --> D["主観的指標<br/>（PGIC, HIT-6, MIDAS, MSQ）"]
+    B --> E["測定可能だが<br/>患者の実感と乖離する可能性"]
+    D --> F["患者が実感する<br/>治療の価値を直接反映"]
+    E --> G{"臨床的意義の<br/>ギャップ"}
+    F --> G
+    G --> H["PGICはこのギャップを<br/>橋渡しするアンカー指標"]
+    style A fill:#e3f2fd,stroke:#0277bd
+    style C fill:#e8f5e9,stroke:#2e7d32
+    style H fill:#fff3e0,stroke:#e65100
+</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">歴史的背景 — Guy (1976) から現代へ</h1>
+  </div>
+
+  <div class="card">
+    <h2>2.1 起源：CGI スケール（Clinical Global Impression）</h2>
+    <p>PGIC の起源は、精神科領域における治療評価ツールとして <strong>William Guy（1976年）</strong> が開発した <strong>CGI（Clinical Global Impression / 臨床全般印象）</strong> スケールにあります。</p>
+    <div class="tbl">
+      <table class="th-purple">
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>開発年</strong></td><td>1976年</td></tr>
+          <tr><td><strong>開発者</strong></td><td>William Guy</td></tr>
+          <tr><td><strong>元の目的</strong></td><td>精神科薬物試験における治療効果評価</td></tr>
+          <tr><td><strong>原典</strong></td><td>ECDEU Assessment Manual for Psychopharmacology（改訂版）</td></tr>
+          <tr><td><strong>元の構成</strong></td><td>CGI-S（重症度）・CGI-I（改善度）・CGI-E（効果と副作用のバランス）の3要素</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2.2 PGICへの発展：医師評価 → 患者評価へのパラダイムシフト</h2>
+    <div class="mmd">
+      <div class="mmd-lbl">タイムライン — PGICの歴史的発展</div>
+<pre class="mermaid">
+timeline
+    title PGICの歴史的発展タイムライン
+    1976 : Guy開発 CGI（Clinical Global Impression） : 精神科薬物試験での臨床医評価ツールとして確立
+    1990s : 慢性疼痛・神経疼痛領域への応用拡大 : 患者自己評価版（PGIC）の概念が登場
+    2001 : Farrar et al.（Pain誌） : PGICをアンカーとしたNRS-MCIDの定義 : 慢性疼痛研究での標準化
+    2006-2009 : FDA PRO ガイダンス（草案2006→最終版2009） : PGICが規制当局公認のアンカー指標として確立
+    2010s : CGRP関連片頭痛試験への導入 : エレヌマブ・フレマネズマブ・ガルカネズマブ試験で採用
+    2024-2025 : PGIC vs MMD比較研究（Romozzi et al.） : 抗CGRP mAbの治療継続判断指標として再評価
+</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2.3 頭痛医学における採用の経緯</h2>
+    <p>PGIC が片頭痛・頭痛臨床試験に広く採用されるようになった背景には、以下の認識があります：</p>
+    <ol>
+      <li><strong>月間頭痛日数（MHD/MMD）の削減のみでは患者の実感を捉えきれない</strong></li>
+      <li><strong>慢性片頭痛では軽度の日数削減でも生活の質に大きな影響をもたらす</strong></li>
+      <li><strong>FDAが医薬品承認申請においてPROエビデンスを重視するようになった</strong></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">スケールの構造と採点方法</h1>
+  </div>
+
+  <div class="card">
+    <h2>3.1 質問の構造（標準フォーム）</h2>
+    <p>PGIC は<strong>たった1問</strong>で構成されます。これが最大の実用的強みです。</p>
+    <div class="alert a-info">
+      <span class="alert-i">🗣️</span>
+      <div>
+        <strong>標準的な問いかけ（英文）</strong><br>
+        <em>"Since beginning the treatment in this study, how would you describe the change (if any) in your headaches/migraines in terms of activity limitations, symptoms, emotions, and overall quality of life?"</em><br><br>
+        <strong>日本語訳（頭痛医学版）</strong><br>
+        「この治療を始めてから、活動制限・症状・気持ち・全体的な生活の質という観点で、あなたの頭痛はどのように変化しましたか？」
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3.2 採点方法（主要片頭痛試験で使用される標準バージョン）</h2>
+    <p>フレマネズマブ・エレヌマブ等の主要片頭痛試験で使用される昇順型バージョンの採点を示します。</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>スコア</th><th>英語表現</th><th>日本語訳</th><th>解釈</th></tr></thead>
+        <tbody>
+          <tr><td class="tN"><strong>1</strong></td><td>No change (or condition got worse)</td><td>変化なし（または悪化）</td><td>無効または悪化</td></tr>
+          <tr><td class="tN"><strong>2</strong></td><td>Almost the same, hardly any change at all</td><td>ほぼ同じ、ほとんど変化なし</td><td>変化なし</td></tr>
+          <tr><td class="tN"><strong>3</strong></td><td>A little better, but no noticeable change</td><td>少し良いが、気づける変化なし</td><td>軽微な改善</td></tr>
+          <tr><td class="tN"><strong>4</strong></td><td>Somewhat better, but the change has not made any real difference</td><td>やや良いが、実質的な差なし</td><td>有意でない改善</td></tr>
+          <tr><td class="tG"><strong>5</strong></td><td>Moderately better, and a slight but noticeable change</td><td>中程度に改善、わずかだが気づける変化あり</td><td><strong>最小有効閾値</strong></td></tr>
+          <tr><td class="tG"><strong>6</strong></td><td>Better, and a definite improvement that has made a real and worthwhile difference</td><td>改善し、真に価値ある確実な改善</td><td>明確な有効応答</td></tr>
+          <tr><td class="tG"><strong>7</strong></td><td>A great deal better, and a considerable improvement that has made all the difference</td><td>大幅に改善し、大きな変化</td><td>最大応答</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-ok">
+      <span class="alert-i">⭐</span>
+      <div><strong>臨床的解釈の閾値：スコア 5〜7 = 有意な改善（favorable response）</strong><br>主要RCTでは、スコア <strong>5・6・7</strong> を「有意な改善あり（Yes）」、スコア <strong>1〜4</strong> を「有意な改善なし（No）」と二値化して解析するのが標準的手法です。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">2つのバージョンと方向性の違い</h1>
+  </div>
+
+  <div class="card">
+    <h2>4.1 ⚠️ 重要：スコアの「向き」が逆転するバリアントに注意</h2>
+    <p>PGIC には採点方向が<strong>逆転した2つの主要バリアント</strong>が存在します。臨床研究のデータを比較・解釈する際は、どちらのバージョンが使用されているかを<strong>必ず確認</strong>してください。</p>
+    <div class="tbl">
+      <table class="th-orange">
+        <thead><tr><th>項目</th><th>バージョンA（昇順型）</th><th>バージョンB（降順型）</th></tr></thead>
+        <tbody>
+          <tr><td><strong>スコア1の意味</strong></td><td>変化なし・悪化</td><td>大幅に改善（Very much improved）</td></tr>
+          <tr><td><strong>スコア7の意味</strong></td><td>大幅に改善</td><td>大幅に悪化（Very much worse）</td></tr>
+          <tr><td><strong>スコアが高い = ?</strong></td><td>改善 ↑</td><td>悪化 ↑</td></tr>
+          <tr><td><strong>主な採用試験</strong></td><td>フレマネズマブ、エレヌマブ、ガルカネズマブ（片頭痛予防試験）</td><td>エプチネズマブ（RELIEF試験）、Guy原版に近い形式</td></tr>
+          <tr><td><strong>「改善」閾値</strong></td><td>5〜7</td><td>1〜3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート — 昇順型 vs 降順型のスコア方向</div>
+<pre class="mermaid">
+graph LR
+    subgraph VER_A["バージョンA：昇順型（片頭痛mAb試験で多用）"]
+        A1["1<br/>変化なし/悪化"] --> A2["2<br/>ほぼ同じ"] --> A3["3<br/>少し良い"] --> A4["4<br/>やや良い"] --> A5["5<br/>中程度改善 ★閾値"] --> A6["6<br/>明確な改善"] --> A7["7<br/>大幅改善"]
+    end
+    subgraph VER_B["バージョンB：降順型（Guy原版・エプチネズマブ等）"]
+        B1["1<br/>大幅改善 ★閾値"] --> B2["2<br/>かなり改善"] --> B3["3<br/>最小限改善 ★閾値"] --> B4["4<br/>変化なし"] --> B5["5<br/>最小限悪化"] --> B6["6<br/>かなり悪化"] --> B7["7<br/>大幅悪化"]
+    end
+    style A5 fill:#c8e6c9,stroke:#2e7d32
+    style A6 fill:#a5d6a7,stroke:#2e7d32
+    style A7 fill:#81c784,stroke:#2e7d32
+    style B1 fill:#81c784,stroke:#2e7d32
+    style B2 fill:#a5d6a7,stroke:#2e7d32
+    style B3 fill:#c8e6c9,stroke:#2e7d32
+</pre>
+    </div>
+    <div class="alert a-warn">
+      <span class="alert-i">⚠️</span>
+      <div><strong>実践的ポイント：</strong> 論文・プロトコルを読む際は、必ず "1 = no change/worse" か "1 = very much improved" かをファーストページで確認する習慣をつけてください。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">心理測定学的特性</h1>
+  </div>
+
+  <div class="card">
+    <h2>5.1 信頼性（Reliability）</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>特性</th><th>評価</th><th>根拠</th></tr></thead>
+        <tbody>
+          <tr><td><strong>内的整合性</strong></td><td>単項目のため非該当（Cronbach's α は適用不可）</td><td>単一質問</td></tr>
+          <tr><td><strong>検者内信頼性（test-retest）</strong></td><td>中程度〜高い</td><td>慢性疼痛研究群での繰り返し測定</td></tr>
+          <tr><td><strong>PGIC–CGIC 相関</strong></td><td class="tG"><strong>r = 0.87</strong>（非常に高い相関）</td><td>Farrar et al., 2001（Pain誌）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-info">
+      <span class="alert-i">ℹ️</span>
+      <div>PGIC（患者評価）と CGIC（臨床医評価）の相関係数が r=0.87 という極めて高い値を示すことは、患者の自己評価が臨床的実態を正確に反映していることを意味します。この知見が、PGIC を単独で主要転帰指標として用いることを正当化する重要な根拠となっています。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5.2 妥当性（Validity）</h2>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead><tr><th>妥当性の種類</th><th>内容</th><th>エビデンス</th></tr></thead>
+        <tbody>
+          <tr><td><strong>内容妥当性</strong></td><td>患者が重視する複数の健康ドメイン（活動・症状・感情・QOL）を包括</td><td>FDA PRO Guidance 2009; 各試験のPRO概念的枠組み</td></tr>
+          <tr><td><strong>構成概念妥当性</strong></td><td>HIT-6、NRS/VAS との中〜高相関</td><td>Farrar et al. 2001; RELIEF試験（eptinezumab, 2022）</td></tr>
+          <tr><td><strong>基準関連妥当性</strong></td><td>NRS変化量との ROC 曲線解析で高い判別能（AUC &gt; 0.75）</td><td>Salaffi et al., 2004</td></tr>
+          <tr><td><strong>収束妥当性</strong></td><td>MIDAS・MSQ v2.1 との相関確認</td><td>複数の片頭痛臨床試験</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5.3 反応性（Responsiveness）</h2>
+    <p>PGIC は治療による変化を検出する感度（反応性）が高いことが複数の慢性疼痛・頭痛試験で確認されています：</p>
+    <ul>
+      <li>プレガバリンを用いた10の慢性疼痛RCTにおいて、<strong>NRS変化量とPGICカテゴリーの間に一貫した高い関連性</strong>が示されました（Farrar et al., 2001）。</li>
+      <li>この関連性は、疾患の種類・投薬の有無・試験の成否・年齢・性別を問わず一貫して再現されました。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">最小臨床的重要差（MCID）の概念と頭痛医学への適用</h1>
+  </div>
+
+  <div class="card">
+    <h2>6.1 MCIDとは何か</h2>
+    <p><strong>MCID（Minimal Clinically Important Difference / 最小臨床的重要差）</strong> とは、患者が「実際に良くなった」と感じる最小限の変化量を定量化した値です。</p>
+    <div class="alert a-purple">
+      <span class="alert-i">💡</span>
+      <div><strong>なぜMCIDが重要か：</strong><br>統計的有意差（p &lt; 0.05）があっても、患者が「良くなった」と感じるほどの変化でなければ、その治療は臨床的に意味がない可能性があります。MCIDはこの「統計的有意性と臨床的意義のギャップ」を埋める概念です。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6.2 PGICをアンカーとするMCID算出法</h2>
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート — PGICアンカーベースのMCID算出プロセス</div>
+<pre class="mermaid">
+flowchart TD
+    A["ベースライン評価<br/>NRS / VAS / HIT-6 / MIDAS 等"] --> B["治療介入<br/>（薬物療法・神経ブロック・行動療法 等）"]
+    B --> C["フォローアップ評価<br/>同じ転帰尺度を再測定"]
+    C --> D["PGIC 評価<br/>患者が1〜7で自己評価"]
+    D --> E{"PGICスコアで<br/>患者を層別化"}
+    E --> F["改善群<br/>PGIC 5〜7（バージョンA）"]
+    E --> G["非改善群<br/>PGIC 1〜4（バージョンA）"]
+    F --> H["改善群の<br/>転帰尺度変化量を算出"]
+    G --> I["非改善群の<br/>転帰尺度変化量を算出"]
+    H --> J["ROC曲線解析"]
+    I --> J
+    J --> K["AUC最大化する<br/>カットオフ値 = MCID"]
+    style K fill:#fff3e0,stroke:#e65100
+</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6.3 慢性疼痛・頭痛領域のMCID参照値</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>転帰尺度</th><th>MCID閾値</th><th>対応するPGIC</th><th>文献</th></tr></thead>
+        <tbody>
+          <tr><td><strong>NRS（11点）</strong></td><td>−1.74点（または−15%）が「最小限改善」</td><td>PGIC "slightly better"</td><td>Salaffi et al., 2004</td></tr>
+          <tr><td><strong>NRS（11点）</strong></td><td>−2.0点（または−33%）が「かなり改善」</td><td>PGIC "much better"</td><td>Farrar et al., 2001</td></tr>
+          <tr><td><strong>HIT-6</strong></td><td><strong>−2.3点</strong>（MCID）；<strong>−6点</strong>以上が「実質的な改善」</td><td>PGIC 5〜7</td><td>Zencir et al.; RELIEF試験</td></tr>
+          <tr><td><strong>MIDAS</strong></td><td>≥50%削減が標準的な成功指標</td><td>PGIC 6〜7</td><td>頭痛ガイドライン横断的基準</td></tr>
+          <tr><td><strong>月間片頭痛日数（MMD）</strong></td><td>≥50%削減（50%レスポンダー率）が主要転帰</td><td>PGIC 5〜7 に相関</td><td>CGRP mAb 主要試験</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>6.4 頭痛医学特有の重要な知見（2025年最新エビデンス）</h2>
+    <div class="alert a-ok">
+      <span class="alert-i">🔬</span>
+      <div><strong>Romozzi et al., 2025（Annals of Clinical and Translational Neurology）：</strong><br>169名の抗CGRP mAb治療患者を対象とした研究で、治療継続の決定因子として <strong>PGIC が月間片頭痛日数（MMD）削減よりも強い予測因子</strong>である可能性が示されました。<br>→ 患者の治療継続意欲は、客観的な日数削減よりも「自分が良くなったと感じるか」という主観的変化感が主導する可能性があります。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">頭痛医学・片頭痛臨床試験における実践的応用</h1>
+  </div>
+
+  <div class="card">
+    <h2>7.1 PGIC が採用されている主要な頭痛RCT</h2>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead><tr><th>試験名</th><th>薬剤</th><th>PGICの役割</th><th>採用バージョン</th></tr></thead>
+        <tbody>
+          <tr><td><strong>HALO EM / HALO CM</strong></td><td>フレマネズマブ（Ajovy）</td><td>副次転帰</td><td>昇順型（1=悪化、7=大幅改善）</td></tr>
+          <tr><td><strong>ARISE / STRIVE / LIBERTY</strong></td><td>エレヌマブ（Aimovig）</td><td>副次転帰</td><td>昇順型</td></tr>
+          <tr><td><strong>EVOLVE-1 / EVOLVE-2 / REGAIN</strong></td><td>ガルカネズマブ（Emgality）</td><td>副次転帰</td><td>昇順型</td></tr>
+          <tr><td><strong>RELIEF</strong></td><td>エプチネズマブ（Vyepti）</td><td>副次転帰</td><td>降順型（1=大幅改善、7=大幅悪化）</td></tr>
+          <tr><td><strong>PROMISE-1 / PROMISE-2</strong></td><td>エプチネズマブ</td><td>副次転帰</td><td>降順型</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7.2 頭痛診療における PGIC 実施タイムライン</h2>
+    <div class="mmd">
+      <div class="mmd-lbl">ガントチャート — PGICを組み込んだ頭痛治療転帰評価タイムライン</div>
+<pre class="mermaid">
+gantt
+    title PGICを組み込んだ頭痛治療転帰評価タイムライン
+    dateFormat YYYY-MM
+    axisFormat %m月
+    section 前治療評価
+    ベースライン評価（HIT-6, MIDAS, VAS, 頭痛日記） :milestone, m1, 2024-01, 0d
+    30日間ベースライン頭痛日記記録 :a1, 2024-01, 30d
+    section 治療フェーズ
+    治療開始（薬物 / 神経ブロック / 行動療法） :milestone, m2, 2024-02, 0d
+    Month 1 評価（頭痛日記継続） :a2, 2024-02, 28d
+    Month 2 評価 :a3, 2024-03, 28d
+    Month 3 主要転帰評価（PGIC + HIT-6 + MIDAS） :crit, a4, 2024-04, 14d
+    section フォローアップ
+    Month 6 評価（PGIC + HIT-6） :a5, 2024-07, 14d
+    Month 12 最終評価（全転帰指標） :crit, a6, 2024-12, 14d
+</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7.3 頭痛特異的なPGIC評価フォーム（実践版）</h2>
+    <p>治療を開始してから、あなたの<strong>頭痛</strong>は活動の制限・症状・気持ち・全体的な生活の質という観点でどう変化しましたか？</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>選択</th><th>スコア</th><th>意味</th></tr></thead>
+        <tbody>
+          <tr><td>☐</td><td class="tN"><strong>1</strong></td><td>変化なし、または悪化している</td></tr>
+          <tr><td>☐</td><td class="tN"><strong>2</strong></td><td>ほぼ変わらない、ほとんど変化なし</td></tr>
+          <tr><td>☐</td><td class="tN"><strong>3</strong></td><td>少し良くなったが、はっきりした変化ではない</td></tr>
+          <tr><td>☐</td><td class="tN"><strong>4</strong></td><td>やや良くなったが、実生活での差は感じられない</td></tr>
+          <tr><td>☐</td><td class="tG"><strong>5 ★</strong></td><td>中程度に良くなり、わずかだが明らかな変化がある</td></tr>
+          <tr><td>☐</td><td class="tG"><strong>6 ★</strong></td><td>良くなり、実生活で確実に価値ある改善がある</td></tr>
+          <tr><td>☐</td><td class="tG"><strong>7 ★</strong></td><td>大幅に良くなり、生活が一変するほどの改善がある</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-ok">
+      <span class="alert-i">✅</span>
+      <div><strong>★ スコア5〜7 = 治療有効応答（clinically meaningful improvement）</strong></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>7.4 PGIC 結果の解釈と臨床的対応</h2>
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート — PGICスコア別の臨床的対応</div>
+<pre class="mermaid">
+flowchart TD
+    A["PGIC 評価実施"] --> B{"スコア確認"}
+    B --> C["スコア 1〜2<br/>変化なし・ほぼ同じ"]
+    B --> D["スコア 3〜4<br/>軽微〜一定の改善"]
+    B --> E["スコア 5〜7<br/>中程度〜大幅改善"]
+    C --> C1["治療再評価必須<br/>・MOHスクリーニング<br/>・診断再確認（SNOOP4）<br/>・薬剤変更 / 増量検討<br/>・神経ブロック追加を検討"]
+    D --> D1["部分奏効として評価<br/>・現治療を継続し観察<br/>・付加的アプローチ検討<br/>（CBT・生体FB・理学療法）<br/>・3ヶ月後に再評価"]
+    E --> E1["治療有効応答<br/>・現治療プランを継続<br/>・HIT-6・MIDASで改善確認<br/>・治療目標（≥50%削減）達成度確認<br/>・次の評価時期を設定"]
+    C1 --> F["SNOOP4 再確認<br/>（二次性頭痛を除外）"]
+    D1 --> G["3ヶ月フォローアップ"]
+    E1 --> G
+    F --> G
+    style E fill:#c8e6c9,stroke:#2e7d32
+    style D fill:#fff9c4,stroke:#f57f17
+    style C fill:#ffcdd2,stroke:#c62828
+</pre>
+    </div>
+  </div>
+</section>
+
 <!-- ##SECTION_INSERT## -->
 
 </main>
