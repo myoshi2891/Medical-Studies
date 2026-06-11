@@ -825,7 +825,719 @@ flowchart LR
   </div>
 </section>
 
-<!-- ##SECTION_INSERT## -->
+<!-- §8 頭痛タイプ別参照スコア -->
+<section class="sec" id="s8">
+  <div class="sec-hd">
+    <span class="sec-num">8</span>
+    <span class="sec-title">頭痛タイプ別参照スコア</span>
+  </div>
+
+  <div class="card">
+    <h2>8.1 疾患別 HIT-6 平均スコア</h2>
+    <div class="tbl">
+      <table class="th-purple">
+        <thead>
+          <tr><th>頭痛タイプ（ICHD-3）</th><th>平均 HIT-6（±SD）</th><th>臨床的解釈</th><th>出典</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>慢性片頭痛（≥15日/月）</strong></td>
+            <td class="tR"><strong>62.5 ± 7.8</strong></td>
+            <td><span class="bRed">重度インパクト</span></td>
+            <td>Yang et al. 2011</td>
+          </tr>
+          <tr>
+            <td><strong>発作性片頭痛（&lt;15日/月）</strong></td>
+            <td class="tR"><strong>60.2 ± 6.8</strong></td>
+            <td><span class="bRed">重度インパクト</span></td>
+            <td>Yang et al. 2011</td>
+          </tr>
+          <tr>
+            <td>非片頭痛頭痛</td>
+            <td class="tO"><strong>49.1 ± 8.7</strong></td>
+            <td><span class="bOra">一部インパクト</span></td>
+            <td>Yang et al. 2011</td>
+          </tr>
+          <tr>
+            <td>日本人・発作性片頭痛</td>
+            <td class="tO"><strong>57.4〜58.9</strong></td>
+            <td><span class="bOra">相当〜重度インパクト</span></td>
+            <td>Sakai et al. 2019</td>
+          </tr>
+          <tr>
+            <td>日本人・慢性片頭痛</td>
+            <td class="tR"><strong>62.7〜63.3</strong></td>
+            <td><span class="bRed">重度インパクト</span></td>
+            <td>Lipton et al. 2019</td>
+          </tr>
+          <tr>
+            <td>治療抵抗性慢性片頭痛</td>
+            <td class="tR"><strong>67.6</strong></td>
+            <td><span class="bRed">重度インパクト（最重症域）</span></td>
+            <td>Lambru et al. 2020</td>
+          </tr>
+          <tr>
+            <td>睡眠時無呼吸症候群関連頭痛</td>
+            <td class="tO"><strong>55.0</strong></td>
+            <td><span class="bOra">中等度インパクト</span></td>
+            <td>Nakayama et al. 2023<br><a href="https://sleep.biomedcentral.com/articles/10.1186/s41606-023-00084-2" target="_blank" rel="noopener noreferrer">BioMedCentral</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert a-info">
+      <span class="alert-i">📊</span>
+      <div>
+        <strong>疾患重症度の鑑別指標として：</strong>片頭痛患者（発作性・慢性）は典型的に 60点以上を示すのに対し、非片頭痛頭痛では 50点を下回る傾向があります（Yang et al. 2011, <em>n</em> = 2,049）。ただし HIT-6 単独での頭痛タイプ診断は不可能であることに注意。
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>8.2 ICHD-3 分類との対応</h2>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead><tr><th>ICHD-3 コード</th><th>診断名</th><th>典型的 HIT-6 範囲</th></tr></thead>
+        <tbody>
+          <tr><td>1.1</td><td>前兆なし片頭痛</td><td>56〜65点</td></tr>
+          <tr><td>1.2</td><td>前兆あり片頭痛</td><td>56〜65点</td></tr>
+          <tr><td>1.3</td><td>慢性片頭痛</td><td class="tR">60〜78点</td></tr>
+          <tr><td>2.1</td><td>低頻度発作性緊張型頭痛</td><td class="tG">36〜49点</td></tr>
+          <tr><td>2.2</td><td>高頻度発作性緊張型頭痛</td><td>50〜56点</td></tr>
+          <tr><td>2.3</td><td>慢性緊張型頭痛</td><td>55〜65点</td></tr>
+          <tr><td>3.1 / 3.2</td><td>群発頭痛</td><td class="tR">60〜75点（発作期）</td></tr>
+          <tr><td>8.2</td><td>薬剤乱用頭痛（MOH）</td><td class="tR">60〜75点（乱用期）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--g6)">出典：ICHD-3 <a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">https://ichd-3.org/</a> ／ Yang et al. 2011</p>
+  </div>
+</section>
+
+<!-- §9 HIT-6とMIDASの比較 -->
+<section class="sec" id="s9">
+  <div class="sec-hd">
+    <span class="sec-num">9</span>
+    <span class="sec-title">HIT-6とMIDASの比較・補完的使用</span>
+  </div>
+
+  <div class="card">
+    <h2>9.1 比較概要</h2>
+    <p>HIT-6 と MIDAS（Migraine Disability Assessment Scale）は、いずれも国際的に広く使用される頭痛インパクト評価ツールですが、<strong>測定する概念・時間軸・感受性</strong>に重要な違いがあります。</p>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr><th>比較項目</th><th>HIT-6</th><th>MIDAS</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>開発年</strong></td><td>2003年</td><td>2000年</td></tr>
+          <tr><td><strong>質問数</strong></td><td>6項目</td><td>5項目（＋補足2項目）</td></tr>
+          <tr><td><strong>回答形式</strong></td><td>5段階リッカートスケール</td><td>実損失日数（日数カウント）</td></tr>
+          <tr><td><strong>想起期間</strong></td><td>4週間（28日）</td><td>3ヵ月（90日）</td></tr>
+          <tr><td><strong>スコア範囲</strong></td><td>36〜78点</td><td>0〜∞点</td></tr>
+          <tr>
+            <td><strong>主な感受性</strong></td>
+            <td class="tN"><strong>頭痛強度・質の変化を捉えやすい</strong></td>
+            <td><strong>頭痛頻度の変化を捉えやすい</strong></td>
+          </tr>
+          <tr><td><strong>記入時間</strong></td><td>約5分</td><td>約5分</td></tr>
+          <tr><td><strong>MIDASとの相関</strong></td><td>r = 0.52（p &lt; 0.001）</td><td>—</td></tr>
+          <tr><td><strong>言語対応</strong></td><td>27言語以上</td><td>複数言語</td></tr>
+          <tr><td><strong>日本語版</strong></td><td>あり（検証済）</td><td>あり（検証済）</td></tr>
+          <tr><td><strong>臨床試験での採用</strong></td><td>多数の CGRP mAb 試験</td><td>多数の試験</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>9.2 使い分けの指針</h2>
+    <div class="phase-grid">
+      <div class="ph ph1">
+        <div class="ph-icon">📊</div>
+        <div class="ph-title">HIT-6 が優れる場面</div>
+        <div class="ph-desc">
+          頭痛の<strong>質・強度</strong>が問題の中心<br>
+          <strong>短期（1ヵ月単位）</strong>のモニタリング<br>
+          患者の<strong>主観的 QoL</strong> を多面的に評価<br>
+          頭痛種別を問わず全般的インパクトを把握
+        </div>
+      </div>
+      <div class="ph ph2">
+        <div class="ph-icon">📅</div>
+        <div class="ph-title">MIDAS が優れる場面</div>
+        <div class="ph-desc">
+          <strong>頭痛頻度・日数</strong>の変化が主要アウトカム<br>
+          <strong>生産性損失・経済的コスト</strong>の定量化<br>
+          <strong>3ヵ月単位</strong>の長期障害評価<br>
+          社会保障・労務管理的観点での評価
+        </div>
+      </div>
+      <div class="ph ph3">
+        <div class="ph-icon">🔗</div>
+        <div class="ph-title">補完的併用（推奨）</div>
+        <div class="ph-desc">
+          Sauro et al. 2010（CHORD研究）：<br>
+          <strong>HIT-6 と MIDAS の補完的使用</strong>で頭痛障害をより正確に評価できると結論。<br>
+          単独使用より補完的使用が推奨。
+        </div>
+      </div>
+      <div class="ph ph4">
+        <div class="ph-icon">📓</div>
+        <div class="ph-title">頭痛日誌との組み合わせ</div>
+        <div class="ph-desc">
+          REFORM 2026：HIT-6・MIDAS は<strong>頭痛日誌の代替にはならない</strong>。3者を組み合わせることで治療反応を包括的に把握。
+        </div>
+      </div>
+    </div>
+
+    <div class="alert a-warn">
+      <span class="alert-i">⚠️</span>
+      <div>
+        <strong>重要な注意（REFORM 研究、2026年）：</strong>HIT-6 および MIDAS は治療反応性評価において重要な側面を反映するものの、エレヌマブの治療反応を評価する際に前向き頭痛日誌を代替するには十分な精度を持たないことが示されました（Danish Headache Center）。<br>
+        出典：Thuraiaiyah J, et al. <em>Eur J Neurol</em> 2026;33(4):e70542.<br>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/41902353/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/41902353/</a>
+        <span class="bC">Grade C</span>（最新研究、今後のエビデンス蓄積を要する）
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §10 臨床使用フローチャート -->
+<section class="sec" id="s10">
+  <div class="sec-hd">
+    <span class="sec-num">10</span>
+    <span class="sec-title">臨床使用フローチャート</span>
+  </div>
+
+  <div class="card">
+    <p>以下のフローチャートは、患者が頭痛を主訴として来院した際の HIT-6 活用手順を示します。SNOOP4 スクリーニングから12週間モニタリングプロトコルまでを一連の流れとして表現しています。</p>
+    <div class="mmd">
+      <div class="mmd-lbl">📊 HIT-6 臨床使用フローチャート（SNOOP4 → スコア分類 → 12週プロトコル）</div>
+      <pre class="mermaid">
+flowchart TD
+    A[患者が頭痛を主訴として来院] --> B{SNOOP4<br/>レッドフラッグスクリーニング}
+    B -->|フラグあり| C[緊急画像診断<br/>CT / MRI<br/>二次性頭痛を除外]
+    C --> D{画像・検査<br/>結果}
+    D -->|二次性頭痛が判明| E[原疾患の治療<br/>専門科紹介]
+    D -->|異常なし| F
+    B -->|フラグなし| F[HIT-6 実施<br/>記入所要時間：約5分]
+    F --> G[スコア計算<br/>6項目合計：36〜78点]
+    G --> H{スコア分類}
+    H -->|36〜49点| I[グレード1<br/>軽微・なし<br/>経過観察・生活指導]
+    H -->|50〜55点| J[グレード2<br/>一部インパクト<br/>急性期治療の見直し<br/>頭痛日誌開始]
+    H -->|56〜59点| K[グレード3<br/>相当なインパクト<br/>予防療法の適応検討<br/>MIDAS 併用評価]
+    H -->|≥60点| L[グレード4<br/>重度インパクト<br/>予防療法開始<br/>多モーダル治療計画]
+    I --> M[3ヵ月後に再評価]
+    J --> M
+    K --> N[12週間治療プロトコル<br/>開始]
+    L --> N
+    N --> O{12週後<br/>HIT-6 再評価}
+    O -->|≥5〜6点改善<br/>慢性片頭痛では≥6点| P[治療継続・維持]
+    O -->|改善不十分| Q[治療計画の見直し<br/>MOH評価<br/>CGRP mAb 検討]
+    P --> R[6ヵ月・1年後の<br/>長期フォロー]
+    Q --> R
+    style A fill:#4a90d9,color:#ffffff
+    style C fill:#e74c3c,color:#ffffff
+    style E fill:#e74c3c,color:#ffffff
+    style I fill:#2ecc71,color:#ffffff
+    style J fill:#f39c12,color:#ffffff
+    style K fill:#e67e22,color:#ffffff
+    style L fill:#c0392b,color:#ffffff
+    style P fill:#27ae60,color:#ffffff
+    style Q fill:#8e44ad,color:#ffffff
+      </pre>
+    </div>
+    <div class="alert a-info">
+      <span class="alert-i">📘</span>
+      <div>
+        参考ガイドライン：<a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ICHD-3</a> ／ <a href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">AAN Migraine Prevention Guidelines</a> ／ <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">EHF CGRP mAbs Guidelines 2022</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §11 特殊集団への適用 -->
+<section class="sec" id="s11">
+  <div class="sec-hd">
+    <span class="sec-num">11</span>
+    <span class="sec-title">特殊集団への適用</span>
+  </div>
+
+  <div class="alert a-warn">
+    <span class="alert-i">⚠️</span>
+    <div><strong>特殊集団では HIT-6 の標準スコア解釈に追加の臨床判断が必要です。</strong>以下の各集団における注意点を確認してください。</div>
+  </div>
+
+  <div class="card">
+    <h2>11.1 小児・青年期（Pediatric ＆ Adolescent Population）<span class="bU">推奨未確立</span></h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>対象年齢</strong></td><td>標準的 HIT-6 は成人向けに開発・検証。12歳以上での使用が一般的</td></tr>
+          <tr><td><strong>小児適応の課題</strong></td><td>抽象的な概念（「集中力」「気分の落ち込み」）の理解に年齢依存性あり</td></tr>
+          <tr><td><strong>代替ツール</strong></td><td>PedMIDAS（小児用 MIDAS）との併用を検討</td></tr>
+          <tr><td><strong>臨床的閾値</strong></td><td>成人と同じ閾値の適用は<strong>慎重に行うこと</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>11.2 妊娠・授乳期（Pregnancy ＆ Lactation）</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ツールの使用</strong></td><td>HIT-6 評価自体は問題なく使用可能</td></tr>
+          <tr><td><strong>注意点</strong></td><td>スコアが高い場合でも、薬剤選択は妊娠安全性に基づいて行うこと</td></tr>
+          <tr><td><strong>禁忌薬</strong></td><td>バルプロ酸（Category X）・トピラマート（Category D）・エルゴタミン系 → 使用禁忌</td></tr>
+          <tr><td><strong>安全な選択</strong></td><td>アセトアミノフェン（急性期第一選択）・硫酸マグネシウム IV（重篤発作時）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>11.3 高齢者（Geriatric Population：65歳以上）</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>認知機能低下</strong></td><td>質問の理解・記憶への影響を考慮。補助者によるサポートが必要な場合あり</td></tr>
+          <tr><td><strong>スコア解釈</strong></td><td>高齢者では身体機能低下が HIT-6 スコアを過大評価させる可能性あり（多重疾患の影響）</td></tr>
+          <tr><td><strong>薬剤注意点</strong></td><td>TCA（アミトリプチリン）は低用量（10mg）から開始。β遮断薬による起立性低血圧・転倒リスク、トピラマートによる認知機能への影響に注意</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>11.4 薬剤乱用頭痛（MOH：ICHD-3 コード 8.2）</h2>
+    <div class="alert a-danger">
+      <span class="alert-i">🚨</span>
+      <div><strong>MOH 評価は HIT-6 使用前に必須チェック項目</strong></div>
+    </div>
+    <div class="tbl">
+      <table class="th-red">
+        <thead><tr><th>薬剤カテゴリ</th><th>乱用基準（月間）</th><th>リスク</th></tr></thead>
+        <tbody>
+          <tr><td>単純鎮痛薬・NSAIDs</td><td class="tR"><strong>月15日以上 × 3ヵ月以上</strong></td><td>MOH リスク</td></tr>
+          <tr><td>トリプタン・エルゴタミン・オピオイド</td><td class="tR"><strong>月10日以上 × 3ヵ月以上</strong></td><td>MOH リスク</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>MOH 患者では HIT-6 スコアが <strong>60〜75点</strong> と高値を示すことが多く、<strong>離脱療法後のスコア改善</strong>を治療目標の指標として活用可能です。</p>
+  </div>
+</section>
+
+<!-- §12 臨床応用の限界 -->
+<section class="sec" id="s12">
+  <div class="sec-hd">
+    <span class="sec-num">12</span>
+    <span class="sec-title">臨床応用の限界と注意点</span>
+  </div>
+
+  <div class="card">
+    <h2>12.1 HIT-6 の制限事項</h2>
+    <div class="tbl">
+      <table class="th-red">
+        <thead><tr><th>限界点</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>頭痛頻度の直接測定不可</strong></td>
+            <td>HIT-6 は頻度ではなく<em>インパクト</em>を測定。頭痛日誌との組み合わせが必要</td>
+          </tr>
+          <tr>
+            <td><strong>頭痛タイプの区別不可</strong></td>
+            <td>単一スコアは複数の頭痛タイプを混合して評価するため、タイプ別診断に使用不可</td>
+          </tr>
+          <tr>
+            <td><strong>想起バイアス</strong></td>
+            <td>4週間の回顧的評価であり、記憶の歪みが生じる可能性あり</td>
+          </tr>
+          <tr>
+            <td><strong>フロア・シーリング効果</strong></td>
+            <td>極めて軽症（36点付近）または最重症（78点付近）では変化の検出が困難</td>
+          </tr>
+          <tr>
+            <td><strong>頭痛以外の要因の影響</strong></td>
+            <td>抑うつ・睡眠障害・他疾患が HIT-6 スコアを独立して上昇させる可能性</td>
+          </tr>
+          <tr>
+            <td><strong>治療反応の単独代替不可</strong></td>
+            <td>REFORM 研究（2026）：治療反応評価において頭痛日誌の代替として使用不可 <span class="bC">Grade C</span></td>
+          </tr>
+          <tr>
+            <td><strong>ライセンス管理</strong></td>
+            <td>HIT-6™ は QualityMetric Incorporated の商標。臨床試験での使用にはライセンス取得が必要な場合あり（EMA が適合性を認定）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>12.2 HIT-6 単独使用が不十分な場面</h2>
+    <div class="alert a-warn">
+      <span class="alert-i">⛔</span>
+      <div>
+        <strong>以下の目的には HIT-6 単独使用は不十分です：</strong><br>
+        ✗ 新規頭痛の初期診断（ICHD-3 診断基準を使用すること）<br>
+        ✗ 薬剤選択の根拠としての単独使用（MIDAS・臨床評価を組み合わせること）<br>
+        ✗ CGRP mAb 治療反応の唯一の評価指標（頭痛日誌との組み合わせが必要）<br>
+        ✗ 緊急性の判断（SNOOP4 を使用すること）
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §13 統合モニタリングプロトコル（12週） -->
+<section class="sec" id="s13">
+  <div class="sec-hd">
+    <span class="sec-num">13</span>
+    <span class="sec-title">統合モニタリングプロトコル（12週間フレームワーク）</span>
+  </div>
+
+  <div class="card">
+    <h2>13.1 12週間フレームワーク</h2>
+    <p>HIT-6 は治療の「スナップショット」ではなく、<strong>継続的なモニタリングツール</strong>として機能します。以下は CGRP mAb ガイドライン・AAN 予防療法ガイドライン・EHF 推奨に基づいたプロトコルです。</p>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead>
+          <tr><th>時点</th><th>HIT-6 実施</th><th>MIDAS 実施</th><th>頭痛日誌</th><th>目標</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ベースライン（0週）</strong></td>
+            <td class="tG">✅ 必須</td>
+            <td class="tG">✅ 必須</td>
+            <td>最低30日間</td>
+            <td>治療前評価の確立</td>
+          </tr>
+          <tr>
+            <td><strong>4週（1ヵ月後）</strong></td>
+            <td class="tG">✅ 実施</td>
+            <td>—</td>
+            <td>継続</td>
+            <td>初期反応確認</td>
+          </tr>
+          <tr>
+            <td><strong>8週（2ヵ月後）</strong></td>
+            <td class="tG">✅ 実施</td>
+            <td>—</td>
+            <td>継続</td>
+            <td>中間評価</td>
+          </tr>
+          <tr>
+            <td><strong>12週（3ヵ月後）</strong></td>
+            <td class="tG">✅ 必須</td>
+            <td class="tG">✅ 必須</td>
+            <td>継続</td>
+            <td>正式アウトカム評価</td>
+          </tr>
+          <tr>
+            <td><strong>6ヵ月</strong></td>
+            <td class="tG">✅ 必須</td>
+            <td class="tG">✅ 必須</td>
+            <td>継続</td>
+            <td>長期維持の判断</td>
+          </tr>
+          <tr>
+            <td><strong>12ヵ月</strong></td>
+            <td class="tG">✅ 必須</td>
+            <td class="tG">✅ 必須</td>
+            <td>継続</td>
+            <td>年間評価</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>13.2 治療成功基準（複合アウトカム）</h2>
+    <div class="tbl">
+      <table class="th-purple">
+        <thead><tr><th>指標</th><th>成功の目安</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>HIT-6 改善</strong></td>
+            <td>ベースラインから <span class="tG"><strong>≥5〜6点減少</strong></span>（慢性片頭痛では <strong>≥6点</strong>）</td>
+          </tr>
+          <tr>
+            <td><strong>HIT-6 グレード改善</strong></td>
+            <td>例：グレード4（≥60点）→ グレード3（56〜59点）以下への移行</td>
+          </tr>
+          <tr>
+            <td><strong>頭痛日数減少</strong></td>
+            <td>≥50%減少（月間頭痛日数 responder definition）</td>
+          </tr>
+          <tr>
+            <td><strong>MIDAS 改善</strong></td>
+            <td>ベースラインから ≥50%減少</td>
+          </tr>
+          <tr>
+            <td><strong>PGIC</strong></td>
+            <td>7点尺度で「かなり改善」または「非常に改善」（5〜7点）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>13.3 治療プラン別 HIT-6 改善の期待値</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>治療介入</th><th>期待される HIT-6 改善幅</th><th>エビデンス</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>エレヌマブ 140 mg/月（発作性片頭痛）</td>
+            <td class="tG"><strong>−9.34点</strong>（プラセボ比有意）</td>
+            <td><span class="bA">Grade A</span></td>
+          </tr>
+          <tr>
+            <td>エレヌマブ 70 mg/月</td>
+            <td class="tG"><strong>−8.39点</strong></td>
+            <td><span class="bA">Grade A</span></td>
+          </tr>
+          <tr>
+            <td>オナボツリヌムトキシンA（慢性片頭痛）</td>
+            <td>有意な改善（PREEMPT試験）</td>
+            <td><span class="bA">Grade A</span></td>
+          </tr>
+          <tr>
+            <td>フレマネズマブ（予防）</td>
+            <td>有意な改善</td>
+            <td><span class="bA">Grade A</span></td>
+          </tr>
+          <tr>
+            <td>バイオフィードバック（Biofeedback）</td>
+            <td>臨床的意義のある改善</td>
+            <td><span class="bB">Grade B</span></td>
+          </tr>
+          <tr>
+            <td>認知行動療法（CBT）</td>
+            <td>臨床的意義のある改善</td>
+            <td><span class="bB">Grade B</span></td>
+          </tr>
+          <tr>
+            <td>マグネシウム補充（400〜600 mg/日）</td>
+            <td>補助的効果</td>
+            <td><span class="bB">Grade B</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--g6)">
+      参考：<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">EHF CGRP mAbs Guidelines 2022（PMC9188162）</a> ／
+      <a href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">AAN Migraine Prevention Guidelines</a>
+    </p>
+  </div>
+</section>
+
+<!-- §14 エビデンス要約と参考文献 -->
+<section class="sec" id="s14">
+  <div class="sec-hd">
+    <span class="sec-num">14</span>
+    <span class="sec-title">エビデンス要約と参考文献</span>
+  </div>
+
+  <div class="card">
+    <h2>14.1 エビデンス要約</h2>
+    <div class="tbl">
+      <table class="th-teal">
+        <thead><tr><th>カテゴリ</th><th>評価</th><th>根拠</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>信頼性</strong></td>
+            <td><span class="bA">Grade A（優秀）</span></td>
+            <td>複数の大規模 RCT・コホート研究で一貫して α &gt; 0.80、ICC &gt; 0.77</td>
+          </tr>
+          <tr>
+            <td><strong>妥当性</strong></td>
+            <td><span class="bA">Grade A（優秀）</span></td>
+            <td>構成概念・収束・弁別妥当性がすべて確認済み</td>
+          </tr>
+          <tr>
+            <td><strong>反応性</strong></td>
+            <td><span class="bA">Grade A（良好）</span></td>
+            <td>PREEMPT・PROMISE-2・CGRP mAb 複数試験で治療変化を検出</td>
+          </tr>
+          <tr>
+            <td><strong>異文化間等価性</strong></td>
+            <td><span class="bA">Grade A（優秀）</span></td>
+            <td>27言語で等価性確認、DIF 分析で支持</td>
+          </tr>
+          <tr>
+            <td><strong>MCID の明確性</strong></td>
+            <td><span class="bB">Grade B（良好）</span></td>
+            <td>複数の方法で推定値が示されているが、集団・疾患タイプにより幅あり</td>
+          </tr>
+          <tr>
+            <td><strong>頭痛日誌代替可能性</strong></td>
+            <td><span class="bC">否定的（Grade C）</span></td>
+            <td>REFORM 研究（2026）で単独使用の限界が示された</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>14.2 開発・バリデーション（原著）</h2>
+    <div class="src-grid">
+      <div class="src">
+        <div class="src-org">Development / Original Validation</div>
+        <div class="src-t">Kosinski M, et al. — A six-item short-form survey for measuring headache impact: The HIT-6™</div>
+        <div><em>Qual Life Res</em> 2003;12(8):963–974</div>
+        <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/14651415/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/14651415/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">IRT Calibration</div>
+        <div class="src-t">Bjorner JB, et al. — Calibration of an item pool for assessing the burden of headaches: An application of IRT to the HIT™</div>
+        <div><em>Qual Life Res</em> 2003;12:913–933</div>
+        <a class="src-url" href="https://link.springer.com/article/10.1023/A:1026119331193" target="_blank" rel="noopener noreferrer">https://link.springer.com/article/10.1023/A:1026119331193</a>
+      </div>
+      <div class="src">
+        <div class="src-org">Cross-cultural Equivalence</div>
+        <div class="src-t">Martin M, et al. — The short-form HIT-6 was psychometrically equivalent in nine languages</div>
+        <div><em>J Clin Epidemiol</em> 2004;57:1271–1278</div>
+        <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/15617954/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/15617954/</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>14.3 心理測定特性・バリデーション（追加研究）</h2>
+    <div class="src-grid">
+      <div class="src">
+        <div class="src-org">Episodic &amp; Chronic Migraine Validation</div>
+        <div class="src-t">Yang M, et al. — Validation of the HIT-6™ across episodic and chronic migraine</div>
+        <div><em>Cephalalgia</em> 2011;31(4):357–367</div>
+        <a class="src-url" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057423/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3057423/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">PREEMPT / Chronic Migraine</div>
+        <div class="src-t">Rendas-Baum R, et al. — Validation of the HIT-6 in patients with chronic migraine</div>
+        <div><em>HQLO</em> 2014;12:117</div>
+        <a class="src-url" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4243819/" target="_blank" rel="noopener noreferrer">https://pmc.ncbi.nlm.nih.gov/articles/PMC4243819/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">PROMISE-2 / IRT Analysis</div>
+        <div class="src-t">Houts CR, et al. — Reliability and validity of the HIT-6 in chronic migraine from the PROMISE-2 study</div>
+        <div><em>Qual Life Res</em> 2021;30:931–943</div>
+        <a class="src-url" href="https://link.springer.com/article/10.1007/s11136-020-02668-2" target="_blank" rel="noopener noreferrer">https://link.springer.com/article/10.1007/s11136-020-02668-2</a>
+      </div>
+      <div class="src">
+        <div class="src-org">Content Validity</div>
+        <div class="src-t">Houts CR, et al. — Content validity of HIT-6 as a measure of headache impact in people with migraine</div>
+        <div><em>Headache</em> 2020;60(1):28–39</div>
+        <a class="src-url" href="https://headachejournal.onlinelibrary.wiley.com/doi/full/10.1111/head.13701" target="_blank" rel="noopener noreferrer">https://headachejournal.onlinelibrary.wiley.com/doi/full/10.1111/head.13701</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>14.4 MCID・スコア解釈</h2>
+    <div class="src-grid">
+      <div class="src">
+        <div class="src-org">MCID — Episodic Migraine</div>
+        <div class="src-t">Smelt AF, et al. — What is a clinically relevant change on the HIT-6?</div>
+        <div><em>Cephalalgia</em> 2014;34(1):29–36</div>
+        <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/23843470/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/23843470/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">MCID — Chronic Migraine (PROMISE-2)</div>
+        <div class="src-t">Houts CR, et al. — Determining Thresholds for Meaningful Change for the HIT-6 in Chronic Migraine</div>
+        <div><em>Headache</em> 2020;60(9):2003–2013</div>
+        <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/32862469/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/32862469/</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>14.5 HIT-6 vs MIDAS 比較・REFORM 研究</h2>
+    <div class="src-grid">
+      <div class="src">
+        <div class="src-org">HIT-6 vs MIDAS — CHORD Study</div>
+        <div class="src-t">Sauro KM, et al. — HIT-6 and MIDAS as Measures of Headache Disability in a Headache Referral Population</div>
+        <div><em>Headache</em> 2010;50:383–395</div>
+        <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/19817883/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/19817883/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">REFORM Study 2026</div>
+        <div class="src-t">Thuraiaiyah J, et al. — MIDAS and HIT-6 Questionnaires Versus Headache Diaries for Monitoring Treatment Response to Erenumab in Migraine</div>
+        <div><em>Eur J Neurol</em> 2026;33(4):e70542</div>
+        <a class="src-url" href="https://pubmed.ncbi.nlm.nih.gov/41902353/" target="_blank" rel="noopener noreferrer">https://pubmed.ncbi.nlm.nih.gov/41902353/</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>14.6 日本語版・日本人データ</h2>
+    <div class="src-grid">
+      <div class="src">
+        <div class="src-org">Japanese Validation</div>
+        <div class="src-t">Sakai F, et al. — Evaluation of the reliability of the Japanese version of the HIT-6</div>
+        <div><em>Rinsho Iyaku</em> 2004;20:1045–1054</div>
+        <div class="src-url">（日本語文献 — PubMed未収載）</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Sleep Apnea &amp; Headache — Japan</div>
+        <div class="src-t">Nakayama H, et al. — Clinical application of HIT-6 and ESS for sleep apnea headache</div>
+        <div><em>Sleep Sci Pract</em> 2023</div>
+        <a class="src-url" href="https://sleep.biomedcentral.com/articles/10.1186/s41606-023-00084-2" target="_blank" rel="noopener noreferrer">https://sleep.biomedcentral.com/articles/10.1186/s41606-023-00084-2</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>14.7 国際ガイドライン・分類基準</h2>
+    <div class="src-grid">
+      <div class="src">
+        <div class="src-org">IHS / ICHD-3</div>
+        <div class="src-t">国際頭痛分類第3版（全文）</div>
+        <a class="src-url" href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">https://ichd-3.org/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">AAN Guidelines</div>
+        <div class="src-t">片頭痛予防ガイドライン（AAN/AHS）</div>
+        <a class="src-url" href="https://www.aan.com/guidelines/" target="_blank" rel="noopener noreferrer">https://www.aan.com/guidelines/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">EHF — CGRP mAbs 2022</div>
+        <div class="src-t">CGRP モノクローナル抗体予防療法ガイドライン（欧州頭痛連盟）</div>
+        <a class="src-url" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">Cephalalgia / IHS — Acute Treatment 2024</div>
+        <div class="src-t">IHS 急性期治療推奨 2024</div>
+        <a class="src-url" href="https://journals.sagepub.com/doi/10.1177/03331024241252666" target="_blank" rel="noopener noreferrer">https://journals.sagepub.com/doi/10.1177/03331024241252666</a>
+      </div>
+      <div class="src">
+        <div class="src-org">Cochrane Library</div>
+        <div class="src-t">頭痛・片頭痛 系統的レビュー総覧</div>
+        <a class="src-url" href="https://www.cochranelibrary.com/search?query=headache+migraine&searchBy=3&type=cdsr" target="_blank" rel="noopener noreferrer">https://www.cochranelibrary.com/</a>
+      </div>
+      <div class="src">
+        <div class="src-org">Physiopedia</div>
+        <div class="src-t">HIT-6 臨床解説（英語）</div>
+        <a class="src-url" href="https://www.physio-pedia.com/Headache_Impact_Test_(HIT-6)" target="_blank" rel="noopener noreferrer">https://www.physio-pedia.com/Headache_Impact_Test_(HIT-6)</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert a-info">
+    <span class="alert-i">📅</span>
+    <div>
+      本文書は2026年6月時点の国際的学術文献に基づいて作成されています。ICHD-4 作業版（2024年）の改訂動向を含む最新ガイドラインの更新については、IHS 分類委員会（<a href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/" target="_blank" rel="noopener noreferrer">IHS Headache Classification Committee</a>）を定期的に参照してください。
+    </div>
+  </div>
+</section>
+
 
 </main>
 </div><!-- end layout -->
