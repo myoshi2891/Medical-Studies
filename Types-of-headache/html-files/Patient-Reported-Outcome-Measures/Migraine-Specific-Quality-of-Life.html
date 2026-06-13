@@ -176,7 +176,11 @@ pre.mermaid{text-align:center}
 </style>
 </head>
 <body>
-<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰ 目次</button>
+<button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" onclick="
+  const nav = document.getElementById('site-nav');
+  const open = nav.classList.toggle('open');
+  this.setAttribute('aria-expanded', String(open));
+">☰ 目次</button>
 
 <!-- HERO -->
 <div class="hero">
@@ -201,7 +205,7 @@ pre.mermaid{text-align:center}
 <div class="layout">
 
 <!-- SIDEBAR -->
-<nav class="sidebar">
+<nav class="sidebar" id="site-nav">
   <div class="s-hdr">目次</div>
   <a class="nav-a" href="#s1"><span class="n-num">1</span>MSQ v2.1とは</a>
   <a class="nav-a" href="#s2"><span class="n-num">2</span>SNOOP4先行評価</a>
@@ -1316,12 +1320,15 @@ mermaid.initialize({
 });
 
 const navAs = document.querySelectorAll('.nav-a');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 navAs.forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const id = a.getAttribute('href').slice(1);
     const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:'smooth'});
+    if (el) {
+      el.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    }
   });
 });
 
