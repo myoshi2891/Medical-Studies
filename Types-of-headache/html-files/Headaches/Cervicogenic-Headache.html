@@ -304,21 +304,21 @@ pre.mermaid{text-align:center}
     <div class="mmd-lbl">フローチャート — 三叉神経頸髄複合体（TCC）への侵害情報の収束</div>
 <pre class="mermaid">
 flowchart TD
-    C1C3["上位頸髄神経根\nC1・C2・C3 求心性入力\n（椎間関節・筋・椎間板・靭帯）"]
-    TRIG["三叉神経 第1枝（眼神経）\n求心性入力\n（前頭・眼窩・側頭領域）"]
+C1C3["上位頸髄神経根\nC1・C2・C3 求心性入力\n（椎間関節・筋・椎間板・靭帯）"]
+TRIG["三叉神経 第1枝（眼神経）\n求心性入力\n（前頭・眼窩・側頭領域）"]
 
-    C1C3 --> TCC
-    TRIG --> TCC
+C1C3 --> TCC
+TRIG --> TCC
 
-    TCC["三叉神経頸髄複合体\nTrigeminocervical Complex\n（延髄〜上位頸髄の収束ニューロン）"]
+TCC["三叉神経頸髄複合体\nTrigeminocervical Complex\n（延髄〜上位頸髄の収束ニューロン）"]
 
-    TCC --> CONV["侵害情報の収束\n（Convergence）"]
-    CONV --> REF["関連痛として知覚\n頸部の病変 → 頭部の痛みとして認知"]
-    REF --> CLINIC["臨床像：\n後頭部から前頭・眼窩へ\n放散する一側性頭痛"]
+TCC --> CONV["侵害情報の収束\n（Convergence）"]
+CONV --> REF["関連痛として知覚\n頸部の病変 → 頭部の痛みとして認知"]
+REF --> CLINIC["臨床像：\n後頭部から前頭・眼窩へ\n放散する一側性頭痛"]
 
-    style TCC fill:#1565c0,color:#fff
-    style REF fill:#c0392b,color:#fff
-    style CLINIC fill:#1E8449,color:#fff
+style TCC fill:#1565c0,color:#fff
+style REF fill:#c0392b,color:#fff
+style CLINIC fill:#1E8449,color:#fff
 </pre>
   </div>
 
@@ -421,32 +421,32 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 頸原性頭痛 ICHD-3 診断アルゴリズム</div>
 <pre class="mermaid">
 flowchart TD
-    START(["頭痛患者の来院"]) --> SNOOP{"SNOOP4\nレッドフラッグ\nスクリーニング"}
-    SNOOP -->|"該当あり"| RED["🚨 二次性緊急疾患の検索\nCT/MRI・専門科コンサルト\n（§6参照）"]
-    SNOOP -->|"クリア"| B
+START(["頭痛患者の来院"]) --> SNOOP{"SNOOP4\nレッドフラッグ\nスクリーニング"}
+SNOOP -->|"該当あり"| RED["🚨 二次性緊急疾患の検索\nCT/MRI・専門科コンサルト\n（§6参照）"]
+SNOOP -->|"クリア"| B
 
-    B{"頸椎/頸部軟部組織の\n障害の臨床的・画像的証拠\n（基準B）"}
-    B -->|"なし"| OTHER["他の頭痛診断を検討\n（片頭痛・緊張型頭痛など）"]
-    B -->|"あり"| C
+B{"頸椎/頸部軟部組織の\n障害の臨床的・画像的証拠\n（基準B）"}
+B -->|"なし"| OTHER["他の頭痛診断を検討\n（片頭痛・緊張型頭痛など）"]
+B -->|"あり"| C
 
-    C{"因果関係の証拠\n（基準C）\n4項目中2項目以上"}
-    C -->|"1. 時間的関連"| COUNT
-    C -->|"2. 並行改善"| COUNT
-    C -->|"3. 可動域低下＋誘発増悪"| COUNT
-    C -->|"4. 診断的ブロックで消失"| COUNT
+C{"因果関係の証拠\n（基準C）\n4項目中2項目以上"}
+C -->|"1. 時間的関連"| COUNT
+C -->|"2. 並行改善"| COUNT
+C -->|"3. 可動域低下＋誘発増悪"| COUNT
+C -->|"4. 診断的ブロックで消失"| COUNT
 
-    COUNT{"2項目以上\n満たすか?"}
-    COUNT -->|"NO"| OTHER
-    COUNT -->|"YES"| D
+COUNT{"2項目以上\n満たすか?"}
+COUNT -->|"NO"| OTHER
+COUNT -->|"YES"| D
 
-    D{"他のICHD-3診断で\nよりよく説明されないか\n（基準D）"}
-    D -->|"説明される"| OTHER
-    D -->|"説明されない"| DX["✅ 頸原性頭痛\nICHD-3: 11.2.1 確定"]
+D{"他のICHD-3診断で\nよりよく説明されないか\n（基準D）"}
+D -->|"説明される"| OTHER
+D -->|"説明されない"| DX["✅ 頸原性頭痛\nICHD-3: 11.2.1 確定"]
 
-    style RED fill:#c0392b,color:#fff
-    style DX fill:#1E8449,color:#fff
-    style START fill:#2980b9,color:#fff
-    style SNOOP fill:#f39c12,color:#fff
+style RED fill:#c0392b,color:#fff
+style DX fill:#1E8449,color:#fff
+style START fill:#2980b9,color:#fff
+style SNOOP fill:#f39c12,color:#fff
 </pre>
   </div>
 
@@ -487,37 +487,37 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — SNOOP4 レッドフラッグ階層スクリーニング</div>
 <pre class="mermaid">
 flowchart TD
-    START(["頭痛患者\n問診開始"]) --> S
+START(["頭痛患者\n問診開始"]) --> S
 
-    S{"S — Systemic 全身症状\n発熱・項部硬直・体重減少\n免疫不全・既知の悪性腫瘍"}
-    S -->|該当あり| RED["🚨 EMERGENCY\n緊急 CT / MRI\n二次性頭痛を除外\n専門科緊急コンサルト"]
-    S -->|なし| N
+S{"S — Systemic 全身症状\n発熱・項部硬直・体重減少\n免疫不全・既知の悪性腫瘍"}
+S -->|該当あり| RED["🚨 EMERGENCY\n緊急 CT / MRI\n二次性頭痛を除外\n専門科緊急コンサルト"]
+S -->|なし| N
 
-    N{"N — Neurological deficits\n運動麻痺・感覚障害・失語\n複視・意識障害・認知変化"}
-    N -->|該当あり| RED
-    N -->|なし| O1
+N{"N — Neurological deficits\n運動麻痺・感覚障害・失語\n複視・意識障害・認知変化"}
+N -->|該当あり| RED
+N -->|なし| O1
 
-    O1{"O — Onset 突発性\n雷鳴頭痛\n生涯最悪の頭痛\n→ SAH・動脈解離除外"}
-    O1 -->|該当あり| RED
-    O1 -->|なし| O2
+O1{"O — Onset 突発性\n雷鳴頭痛\n生涯最悪の頭痛\n→ SAH・動脈解離除外"}
+O1 -->|該当あり| RED
+O1 -->|なし| O2
 
-    O2{"O — Onset after 50\n50歳以降の新規発症\n→ 側頭動脈炎・占拠性病変"}
-    O2 -->|該当あり| RED
-    O2 -->|なし| P
+O2{"O — Onset after 50\n50歳以降の新規発症\n→ 側頭動脈炎・占拠性病変"}
+O2 -->|該当あり| RED
+O2 -->|なし| P
 
-    P{"P — Pattern change\n進行性増悪・外傷後新規発症\n体位依存性"}
-    P -->|該当あり| RED
-    P -->|なし| FOUR
+P{"P — Pattern change\n進行性増悪・外傷後新規発症\n体位依存性"}
+P -->|該当あり| RED
+P -->|なし| FOUR
 
-    FOUR{"4 — 四つのP\nPapilledema 乳頭浮腫\nPostdural 硬膜穿刺後\nPost-seizure 痙攣後\nPregnancy/Postpartum 妊娠・産後"}
-    FOUR -->|該当あり| RED
-    FOUR -->|なし| CLEAR
+FOUR{"4 — 四つのP\nPapilledema 乳頭浮腫\nPostdural 硬膜穿刺後\nPost-seizure 痙攣後\nPregnancy/Postpartum 妊娠・産後"}
+FOUR -->|該当あり| RED
+FOUR -->|なし| CLEAR
 
-    CLEAR["✅ SNOOP4 クリア\n二次性頭痛の検索プロセスへ\n→ 頸原性頭痛の評価へ進む"]
+CLEAR["✅ SNOOP4 クリア\n二次性頭痛の検索プロセスへ\n→ 頸原性頭痛の評価へ進む"]
 
-    style RED fill:#c0392b,color:#fff
-    style CLEAR fill:#27ae60,color:#fff
-    style START fill:#2980b9,color:#fff
+style RED fill:#c0392b,color:#fff
+style CLEAR fill:#27ae60,color:#fff
+style START fill:#2980b9,color:#fff
 </pre>
   </div>
 
@@ -611,17 +611,17 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 頸原性頭痛 身体評価のステップ</div>
 <pre class="mermaid">
 flowchart LR
-    A["問診\n（側方固定性・誘発因子）"] --> B["姿勢・可動域評価\n（ROM・前方頭位）"]
-    B --> C["屈曲回旋テスト\nFRT"]
-    C --> D["上位頸椎触診\nPAIVMs"]
-    D --> E["深頸屈筋機能\nCCFT"]
-    E --> F["筋トリガーポイント\n評価"]
-    F --> G{"頸部由来の\n典型頭痛が\n再現されるか"}
-    G -->|"YES"| POS["頸原性頭痛を支持\n→ 必要に応じ診断的ブロック"]
-    G -->|"NO"| NEG["他病態を再検討"]
+A["問診\n（側方固定性・誘発因子）"] --> B["姿勢・可動域評価\n（ROM・前方頭位）"]
+B --> C["屈曲回旋テスト\nFRT"]
+C --> D["上位頸椎触診\nPAIVMs"]
+D --> E["深頸屈筋機能\nCCFT"]
+E --> F["筋トリガーポイント\n評価"]
+F --> G{"頸部由来の\n典型頭痛が\n再現されるか"}
+G -->|"YES"| POS["頸原性頭痛を支持\n→ 必要に応じ診断的ブロック"]
+G -->|"NO"| NEG["他病態を再検討"]
 
-    style POS fill:#1E8449,color:#fff
-    style NEG fill:#7F8C8D,color:#fff
+style POS fill:#1E8449,color:#fff
+style NEG fill:#7F8C8D,color:#fff
 </pre>
   </div>
 </section>
@@ -668,18 +668,18 @@ flowchart LR
     <div class="mmd-lbl">フローチャート — 診断的神経ブロックによる確証と治療標的の決定</div>
 <pre class="mermaid">
 flowchart TD
-    DX["頸原性頭痛 疑い\n（臨床・身体所見）"] --> BLOCK["診断的神経ブロック\nTON / 内側枝 / GON\n（透視・超音波ガイド下）"]
-    BLOCK --> RESULT{"典型頭痛が\n消失するか"}
-    RESULT -->|"消失（陽性）"| CONFIRM["✅ 頸原性頭痛を確証\nICHD-3 基準C-4 充足\n→ 治療標的が明確化"]
-    RESULT -->|"消失せず"| RECONSIDER["他の発生源/診断を再検討"]
+DX["頸原性頭痛 疑い\n（臨床・身体所見）"] --> BLOCK["診断的神経ブロック\nTON / 内側枝 / GON\n（透視・超音波ガイド下）"]
+BLOCK --> RESULT{"典型頭痛が\n消失するか"}
+RESULT -->|"消失（陽性）"| CONFIRM["✅ 頸原性頭痛を確証\nICHD-3 基準C-4 充足\n→ 治療標的が明確化"]
+RESULT -->|"消失せず"| RECONSIDER["他の発生源/診断を再検討"]
 
-    CONFIRM --> RFA{"反復ブロックで\n再現性のある\n良好な反応?"}
-    RFA -->|"YES"| ABLATION["高周波熱凝固術（RFA）\n等の介入を検討\n[Grade B〜C]"]
-    RFA -->|"NO"| CONSERV["保存的治療を継続"]
+CONFIRM --> RFA{"反復ブロックで\n再現性のある\n良好な反応?"}
+RFA -->|"YES"| ABLATION["高周波熱凝固術（RFA）\n等の介入を検討\n[Grade B〜C]"]
+RFA -->|"NO"| CONSERV["保存的治療を継続"]
 
-    style CONFIRM fill:#1E8449,color:#fff
-    style RECONSIDER fill:#7F8C8D,color:#fff
-    style ABLATION fill:#2980b9,color:#fff
+style CONFIRM fill:#1E8449,color:#fff
+style RECONSIDER fill:#7F8C8D,color:#fff
+style ABLATION fill:#2980b9,color:#fff
 </pre>
   </div>
 
@@ -731,24 +731,24 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 頸原性頭痛 マルチモーダル治療アルゴリズム</div>
 <pre class="mermaid">
 flowchart TD
-    START(["✅ 頸原性頭痛 確定\nICHD-3: 11.2.1"]) --> EDU["患者教育・姿勢/エルゴノミクス指導\n[Grade B]"]
-    EDU --> PT
+START(["✅ 頸原性頭痛 確定\nICHD-3: 11.2.1"]) --> EDU["患者教育・姿勢/エルゴノミクス指導\n[Grade B]"]
+EDU --> PT
 
-    PT["第一選択：理学療法（中核）\n✅ 頸椎徒手療法 [Grade A]\n✅ 深頸屈筋トレーニング/運動療法 [Grade A]\n✅ SNAG（Mulligan手技）[Grade A〜B]\n✅ 姿勢矯正・エルゴノミクス [Grade B]"]
+PT["第一選択：理学療法（中核）\n✅ 頸椎徒手療法 [Grade A]\n✅ 深頸屈筋トレーニング/運動療法 [Grade A]\n✅ SNAG（Mulligan手技）[Grade A〜B]\n✅ 姿勢矯正・エルゴノミクス [Grade B]"]
 
-    PT --> EVAL{"6〜8週で\n50%以上の\n改善?"}
-    EVAL -->|"YES"| MAINTAIN["維持期\nホームエクササイズ継続\n再発予防"]
-    EVAL -->|"NO / 不十分"| ADJUNCT
+PT --> EVAL{"6〜8週で\n50%以上の\n改善?"}
+EVAL -->|"YES"| MAINTAIN["維持期\nホームエクササイズ継続\n再発予防"]
+EVAL -->|"NO / 不十分"| ADJUNCT
 
-    ADJUNCT["補助・薬物療法を追加\n・短期NSAIDs（MOH注意）\n・筋弛緩薬（短期）\n・併存片頭痛/TTHの治療最適化"]
+ADJUNCT["補助・薬物療法を追加\n・短期NSAIDs（MOH注意）\n・筋弛緩薬（短期）\n・併存片頭痛/TTHの治療最適化"]
 
-    ADJUNCT --> INTERV{"難治性?\n発生源が明確?"}
-    INTERV -->|"YES"| BLOCK["インターベンション\n・診断的/治療的神経ブロック [Grade B]\n・第三後頭神経 RFA [Grade B〜C]"]
-    INTERV -->|"NO"| MULTI["集学的疼痛管理\n（心理療法・運動の継続）"]
+ADJUNCT --> INTERV{"難治性?\n発生源が明確?"}
+INTERV -->|"YES"| BLOCK["インターベンション\n・診断的/治療的神経ブロック [Grade B]\n・第三後頭神経 RFA [Grade B〜C]"]
+INTERV -->|"NO"| MULTI["集学的疼痛管理\n（心理療法・運動の継続）"]
 
-    style PT fill:#1E8449,color:#fff
-    style START fill:#2980b9,color:#fff
-    style BLOCK fill:#8e44ad,color:#fff
+style PT fill:#1E8449,color:#fff
+style START fill:#2980b9,color:#fff
+style BLOCK fill:#8e44ad,color:#fff
 </pre>
   </div>
 
