@@ -4,9 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `864cf0f` feat(Types-of-headache): Migraine-Specific-Quality-of-Life.html — Phase 4/4: finalize — Progress: 15/15 sections complete
-- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス（python3.12）/ Mermaid 6図（開発タイムライン/3ドメイン構造/スコアリング3ステップ/MWPC達成判定/多軸評価/臨床ワークフロー）/ 外部リンク26件すべて target="_blank" rel="noopener noreferrer" 付与 / SRI 付与済 / 国際公認ソース（ICHD-3/AAN/EHF/FDA/Mapi/Cochrane）.src-grid 明示
-- **次の作業**: 全 PRO ページ移行完了。新規コンテンツ待ち
+- **最新 HEAD**: `eec36e4` feat(Types-of-headache): Cervicogenic-Headache.html — Phase 4/4: finalize — Progress: 16/16 sections complete
+- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス（python3.12）/ Mermaid 6図（TCC収束/ICHD-3診断フロー/SNOOP4/身体評価フロー/神経ブロック確証/治療アルゴリズム）/ 外部リンク31件すべて target="_blank" rel="noopener noreferrer" 付与 / SRI 付与済 / 国際公認ソース（ICHD-3/IHS/NICE/AAN/Cochrane/PubMed）.src-grid 5群明示
+- **次の作業**: Headaches/Cervicogenic-Headache.html 完了。新規コンテンツ待ち
 - **未移行 HTML 残数**: 0
 
 ## 移行ステータス
@@ -16,6 +16,7 @@
 | Headaches | 片頭痛 (Migraine) | [Migraine.md](Types-of-headache/md-files/Headaches/Migraine.md) | [Migraine.html](Types-of-headache/html-files/Headaches/Migraine.html) | ✅ 完了 | デザインの権威ソース |
 | Headaches | 緊張型頭痛 (TTH) | [Tension-Type-Headache.md](Types-of-headache/md-files/Headaches/Tension-Type-Headache.md) | [Tension-Type-Headache.html](Types-of-headache/html-files/Headaches/Tension-Type-Headache.html) | ✅ 完了 | |
 | Headaches | 薬物乱用頭痛 (MOH) | [Medication-Overuse-Headache.md](Types-of-headache/md-files/Headaches/Medication-Overuse-Headache.md) | [Medication-Overuse-Headache.html](Types-of-headache/html-files/Headaches/Medication-Overuse-Headache.html) | ✅ 完了 | |
+| Headaches | 頸原性頭痛 (CEH) | [Cervicogenic-Headache.md](Types-of-headache/md-files/Headaches/Cervicogenic-Headache.md) | [Cervicogenic-Headache.html](Types-of-headache/html-files/Headaches/Cervicogenic-Headache.html) | ✅ 完了 | ディープ・スパイン ヒーロー（navy-slate→periwinkle→ice）/ Mermaid 6図 / 16セクション / .moh-grid・.src-grid 5群 / 参考文献31リンク / 4フェーズ分割 |
 | Blocks | 星状神経節ブロック (SGB) | [Stellate-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Stellate-Ganglion-Block.md) | [Stellate-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Stellate-Ganglion-Block.html) | ✅ 完了 | |
 | Blocks | 後頭神経ブロック (ONB) | [Occipital-Nerve-Block.md](Types-of-headache/md-files/Blocks/Occipital-Nerve-Block.md) | [Occipital-Nerve-Block.html](Types-of-headache/html-files/Blocks/Occipital-Nerve-Block.html) | ✅ 完了 | Deep Teal→Cyan ヒーロー / Mermaid 10図 / 4フェーズ分割 |
 | Blocks | 頸椎神経叢ブロック (CPB) | [Cervical-Plexus-Block.md](Types-of-headache/md-files/Blocks/Cervical-Plexus-Block.md) | [Cervical-Plexus-Block.html](Types-of-headache/html-files/Blocks/Cervical-Plexus-Block.html) | ✅ 完了 | ガーネット→ローズヒーロー / Mermaid 12図 / 18セクション / 4フェーズ分割 |
@@ -35,7 +36,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 864cf0f
-- 次の作業: 全 PRO ページ移行完了。新規コンテンツ待ち
+- 最新 HEAD: eec36e4
+- 次の作業: Headaches/Cervicogenic-Headache.html 完了。新規コンテンツ待ち
 - 未移行 HTML 残数: 0
 ```
