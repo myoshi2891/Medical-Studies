@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="auto">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="頭痛患者向けの患者報告アウトカム（PROM）統合チェッカー。HIT-6 / MIDAS / MSQ v2.1 / PGIC / NRS / VAS と頭痛日誌・SNOOP4 をローカルファーストで自己記録。" />
+<title>頭痛 PROM 統合チェッカー</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+/* ============================================================
+   頭痛 PROM 統合チェッカー — アプリ専用デザインシステム（設計書 第6章）
+   Slate / Indigo・Outfit / Inter・グラスモルフィズム・OS ダーク/ライト自動追従
+   ※ 教育用 HTML（Migraine.html 系）とは別系統。クラスは c-/app- で前置。
+   ============================================================ */
+
+/* ---- カラートークン: ライト（既定） ---- */
+:root {
+  --bg-main: #f8fafc;          /* Slate 50 */
+  --bg-main-2: #eef2ff;        /* Indigo 50 ぼかし用 */
+  --bg-card: #ffffff;
+  --bg-card-rgb: 255, 255, 255;
+  --text-primary: #0f172a;     /* Slate 900 */
+  --text-secondary: #475569;   /* Slate 600 */
+  --color-accent: #4f46e5;     /* Indigo 600 */
+  --color-accent-rgb: 79, 70, 229;
+  --color-accent-2: #7c3aed;   /* Violet 600（署名グラデ用） */
+  --color-danger: #ef4444;     /* Red 500 */
+  --color-danger-rgb: 239, 68, 68;
+  --color-success: #10b981;    /* Emerald 500 */
+  --color-warning: #d97706;    /* Amber 600 */
+  --border-color: #e2e8f0;     /* Slate 200 */
+  --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.25);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --tap: 44px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --maxw: 880px;
+}
+
+/* ---- 手動ダーク ---- */
+:root[data-theme="dark"] {
+  --bg-main: #0f172a;          /* Slate 900 */
+  --bg-main-2: #1e1b4b;        /* Indigo 950 */
+  --bg-card: #1e293b;          /* Slate 800 */
+  --bg-card-rgb: 30, 41, 59;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;   /* Slate 400 */
+  --color-accent: #6366f1;     /* Indigo 500 */
+  --color-accent-rgb: 99, 102, 241;
+  --color-accent-2: #a78bfa;
+  --color-danger: #f87171;     /* Red 400 */
+  --color-danger-rgb: 248, 113, 113;
+  --color-success: #34d399;    /* Emerald 400 */
+  --color-warning: #fbbf24;
+  --border-color: #334155;     /* Slate 700 */
+  --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- 自動（OS 追従）: data-theme="auto" のときのみダーク変数を適用 ---- */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] {
+    --bg-main: #0f172a;
+    --bg-main-2: #1e1b4b;
+    --bg-card: #1e293b;
+    --bg-card-rgb: 30, 41, 59;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --color-accent: #6366f1;
+    --color-accent-rgb: 99, 102, 241;
+    --color-accent-2: #a78bfa;
+    --color-danger: #f87171;
+    --color-danger-rgb: 248, 113, 113;
+    --color-success: #34d399;
+    --color-warning: #fbbf24;
+    --border-color: #334155;
+    --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: "Inter", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(900px 500px at 12% -8%, var(--bg-main-2), transparent 60%),
+    radial-gradient(800px 600px at 110% 0%, rgba(var(--color-accent-rgb), 0.10), transparent 55%),
+    var(--bg-main);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .c-brand, .c-tile-t, .c-num {
+  font-family: "Outfit", "Inter", system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--color-accent); }
+
+/* ---- スキップリンク ---- */
+.c-skip {
+  position: absolute; left: -999px; top: 0; z-index: 200;
+  background: var(--color-accent); color: #fff; padding: 10px 16px;
+  border-radius: 0 0 10px 0; font-weight: 600;
+}
+.c-skip:focus { left: 0; }
+
+/* ---- フォーカスリング（キーボード操作の明示） ---- */
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ============================== レイアウト ============================== */
+.app-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px clamp(14px, 4vw, 28px);
+  background: rgba(var(--bg-card-rgb), 0.72);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+.c-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.05rem; }
+.c-brand .c-dot {
+  width: 28px; height: 28px; border-radius: 9px; flex: 0 0 auto;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  box-shadow: 0 6px 16px -6px rgba(var(--color-accent-rgb), 0.7);
+}
+.app-header .c-spacer { flex: 1; }
+
+.c-iconbtn {
+  min-width: var(--tap); min-height: var(--tap);
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border: 1px solid var(--border-color); background: rgba(var(--bg-card-rgb), 0.6);
+  color: var(--text-primary); border-radius: 12px; cursor: pointer;
+  font-size: 0.9rem; padding: 0 12px; transition: all 0.3s var(--ease);
+}
+.c-iconbtn:hover { border-color: var(--color-accent); transform: translateY(-1px); }
+
+.app-main {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(16px, 4vw, 30px) clamp(14px, 4vw, 24px) 80px;
+}
+
+.app-footer {
+  max-width: var(--maxw); margin: 0 auto; padding: 24px clamp(14px, 4vw, 24px) 48px;
+  color: var(--text-secondary); font-size: 0.8rem; line-height: 1.7;
+}
+.app-footer button.c-link {
+  background: none; border: none; color: var(--text-secondary);
+  text-decoration: underline; cursor: pointer; font-size: 0.8rem; padding: 4px;
+}
+
+/* ---- セクション見出し / 戻る ---- */
+.c-viewhead { margin: 4px 0 18px; }
+.c-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "Outfit", sans-serif; font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent);
+}
+.c-viewhead h1 { font-size: clamp(1.5rem, 4vw, 2rem); margin: 8px 0 6px; }
+.c-viewhead p { margin: 0; color: var(--text-secondary); }
+.c-back {
+  display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap);
+  background: none; border: none; color: var(--color-accent); cursor: pointer;
+  font-weight: 600; padding: 6px 2px; font-size: 0.92rem;
+}
+
+/* ---- ガラスカード ---- */
+.c-card {
+  background: rgba(var(--bg-card-rgb), 0.75);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(16px, 3.5vw, 24px);
+  margin-bottom: 18px;
+}
+.c-card h2 { font-size: 1.15rem; margin: 0 0 4px; }
+.c-card h3 { font-size: 1rem; margin: 18px 0 8px; }
+.c-muted { color: var(--text-secondary); }
+.c-small { font-size: 0.82rem; }
+
+/* ---- ダッシュボード タイル ---- */
+.c-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+.c-tile {
+  display: flex; flex-direction: column; gap: 6px; text-align: left;
+  min-height: 116px; padding: 16px; cursor: pointer;
+  border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+  background: rgba(var(--bg-card-rgb), 0.6); color: var(--text-primary);
+  transition: all 0.3s var(--ease);
+}
+.c-tile:hover { transform: translateY(-3px); border-color: var(--color-accent); box-shadow: var(--shadow); }
+.c-tile .c-tile-ic { font-size: 1.5rem; }
+.c-tile-t { font-weight: 700; font-size: 1.02rem; }
+.c-tile-d { font-size: 0.8rem; color: var(--text-secondary); }
+
+/* ---- ボタン ---- */
+.c-btn {
+  min-height: var(--tap); display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 0 20px; border-radius: 12px; border: 1px solid transparent; cursor: pointer;
+  font-family: "Outfit", sans-serif; font-weight: 700; font-size: 0.95rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2)); color: #fff;
+  transition: all 0.3s var(--ease);
+}
+.c-btn:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 8px 20px -8px rgba(var(--color-accent-rgb), 0.7); }
+.c-btn[disabled] { opacity: 0.5; cursor: not-allowed; filter: none; transform: none; }
+.c-btn--ghost { background: transparent; color: var(--color-accent); border-color: var(--border-color); }
+.c-btn--ghost:hover { border-color: var(--color-accent); box-shadow: none; }
+.c-btn--danger { background: linear-gradient(135deg, var(--color-danger), #dc2626); }
+.c-btnrow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+/* ---- フォーム共通 ---- */
+.c-field { margin: 14px 0; }
+.c-field > label.c-flabel { display: block; font-weight: 600; margin-bottom: 8px; }
+.c-input, .c-select, .c-textarea {
+  width: 100%; min-height: var(--tap); padding: 10px 12px; font: inherit;
+  color: var(--text-primary); background: rgba(var(--bg-card-rgb), 0.7);
+  border: 1px solid var(--border-color); border-radius: 10px; transition: border-color 0.3s var(--ease);
+}
+.c-input:focus, .c-select:focus, .c-textarea:focus { border-color: var(--color-accent); outline: none; }
+.c-textarea { min-height: 84px; resize: vertical; }
+.c-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+fieldset.c-fs { border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px 16px; margin: 16px 0; }
+fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-accent); font-family: "Outfit", sans-serif; }
+
+/* ---- チップ選択（ラジオ/チェックを非表示にしてカスタム） ---- */
+.c-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.c-chip { position: relative; }
+.c-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.c-chip > span {
+  display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
+  padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border-color);
+  background: rgba(var(--bg-card-rgb), 0.6); color: var(--text-primary); cursor: pointer;
+  font-size: 0.9rem; transition: all 0.3s var(--ease); user-select: none;
+}
+.c-chip > span:hover { border-color: var(--color-accent); }
+.c-chip input:checked + span {
+  background: rgba(var(--color-accent-rgb), 0.14); border-color: var(--color-accent);
+  color: var(--color-accent); font-weight: 700;
+}
+.c-chip input:focus-visible + span { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+/* ---- カード選択（リッカート/PGIC） ---- */
+.c-opts { display: grid; gap: 8px; }
+.c-opt { position: relative; }
+.c-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.c-opt > span {
+  display: flex; align-items: center; gap: 12px; min-height: var(--tap);
+  padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border-color);
+  background: rgba(var(--bg-card-rgb), 0.6); cursor: pointer; transition: all 0.3s var(--ease);
+}
+.c-opt > span::before {
+  content: ""; width: 20px; height: 20px; flex: 0 0 auto; border-radius: 50%;
+  border: 2px solid var(--border-color); transition: all 0.3s var(--ease);
+}
+.c-opt input:checked + span { border-color: var(--color-accent); background: rgba(var(--color-accent-rgb), 0.12); }
+.c-opt input:checked + span::before { border-color: var(--color-accent); background: var(--color-accent); box-shadow: inset 0 0 0 3px var(--bg-card); }
+.c-opt input:focus-visible + span { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+/* ---- 質問項目ブロック ---- */
+.c-item { padding: 14px 0; border-top: 1px solid var(--border-color); }
+.c-item:first-of-type { border-top: none; }
+.c-item .c-qn { font-weight: 600; margin-bottom: 10px; display: flex; gap: 10px; }
+.c-item .c-qn .c-qi {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; font-size: 0.8rem;
+  display: inline-flex; align-items: center; justify-content: center; font-weight: 700;
+  background: rgba(var(--color-accent-rgb), 0.14); color: var(--color-accent); font-family: "Outfit", sans-serif;
+}
+
+/* ============================== 署名要素: VAS ペインスペクトラム ============================== */
+.c-vas { margin: 18px 0 8px; }
+.c-vas-anchors { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 8px; }
+.c-vas-track {
+  position: relative; height: 22px; border-radius: 999px;
+  background: linear-gradient(90deg, #15803d 0%, #65a30d 28%, #d97706 58%, #dc2626 82%, #7f1d1d 100%);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.25);
+}
+/* ネイティブ range をトラックに重ねる（キーボード操作・代替手段を担保） */
+.c-vas-track input[type="range"] {
+  position: absolute; inset: 0; width: 100%; height: 100%; margin: 0;
+  -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer;
+}
+.c-vas-track input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--color-accent); box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  margin-top: -2px; transition: opacity 0.2s var(--ease); opacity: 0;
+}
+.c-vas-track input[type="range"]::-moz-range-thumb {
+  width: 26px; height: 26px; border-radius: 50%; background: #fff;
+  border: 3px solid var(--color-accent); box-shadow: 0 2px 8px rgba(0,0,0,0.35); opacity: 0;
+}
+/* つまみはタップ/操作で初めて出現（アンカリング効果の回避） */
+.c-vas.is-touched .c-vas-track input[type="range"]::-webkit-slider-thumb { opacity: 1; }
+.c-vas.is-touched .c-vas-track input[type="range"]::-moz-range-thumb { opacity: 1; }
+.c-vas-readout { margin-top: 10px; font-size: 0.85rem; color: var(--text-secondary); min-height: 1.2em; }
+.c-vas-readout strong { color: var(--text-primary); font-family: "Outfit", sans-serif; }
+
+/* ---- NRS セグメント（0–10 整数） ---- */
+.c-nrs { display: grid; grid-template-columns: repeat(11, 1fr); gap: 6px; margin: 12px 0; }
+.c-nrs .c-chip > span { min-width: var(--tap); padding: 8px 0; border-radius: 12px; font-variant-numeric: tabular-nums; }
+.c-nrs-anchors { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); }
+@media (max-width: 560px) { .c-nrs { grid-template-columns: repeat(6, 1fr); } }
+
+/* ---- 結果カード ---- */
+.c-result { border-left: 4px solid var(--color-accent); padding: 14px 16px; border-radius: 12px; background: rgba(var(--color-accent-rgb), 0.08); margin-top: 16px; }
+.c-result .c-num { font-size: 2rem; font-weight: 800; line-height: 1; }
+.c-result.is-success { border-left-color: var(--color-success); background: rgba(16,185,129,0.10); }
+.c-result.is-warn { border-left-color: var(--color-warning); background: rgba(217,119,6,0.10); }
+.c-result.is-danger { border-left-color: var(--color-danger); background: rgba(var(--color-danger-rgb), 0.10); }
+
+/* ---- バッジ / アラート ---- */
+.c-badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+.c-badge--safe { background: rgba(16,185,129,0.16); color: var(--color-success); }
+.c-badge--caution { background: rgba(217,119,6,0.16); color: var(--color-warning); }
+.c-badge--over { background: rgba(var(--color-danger-rgb), 0.16); color: var(--color-danger); }
+.c-alert { border: 1px solid; border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-size: 0.9rem; }
+.c-alert--info { border-color: var(--color-accent); background: rgba(var(--color-accent-rgb), 0.08); }
+.c-alert--warn { border-color: var(--color-warning); background: rgba(217,119,6,0.10); }
+.c-alert--danger { border-color: var(--color-danger); background: rgba(var(--color-danger-rgb), 0.10); }
+
+/* ---- 出典 / 免責 ---- */
+.c-license { font-size: 0.78rem; color: var(--text-secondary); border-top: 1px dashed var(--border-color); margin-top: 16px; padding-top: 12px; }
+.c-license b { color: var(--text-primary); }
+
+/* ---- テーブル ---- */
+.c-tbl { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 8px 0; }
+.c-tbl th, .c-tbl td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+.c-tbl th { font-family: "Outfit", sans-serif; color: var(--text-secondary); font-weight: 700; }
+.c-tbl thead th { border-bottom: 2px solid var(--border-color); }
+
+/* ---- 推移 CSS バーチャート ---- */
+.c-trend { display: flex; align-items: flex-end; gap: 12px; height: 130px; padding: 8px 0; }
+.c-trend .c-bar { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+.c-trend .c-bar .c-barfill { width: 70%; max-width: 48px; border-radius: 8px 8px 0 0; background: linear-gradient(180deg, var(--color-accent), var(--color-accent-2)); transition: height 0.5s var(--ease); }
+.c-trend .c-bar .c-barv { font-size: 0.8rem; font-weight: 700; font-family: "Outfit", sans-serif; }
+.c-trend .c-bar .c-barx { font-size: 0.7rem; color: var(--text-secondary); }
+
+/* ---- Mermaid 図 ---- */
+.c-mmd { margin: 16px 0; padding: 14px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: rgba(var(--bg-card-rgb), 0.5); overflow-x: auto; }
+.c-mmd .c-mmd-lbl { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 8px; font-weight: 600; }
+.c-mmd pre.mermaid { margin: 0; text-align: center; background: transparent; }
+
+/* ---- SNOOP4 ゲート ---- */
+.c-gate { max-width: 760px; margin: 0 auto; }
+.c-gate-hero {
+  text-align: center; padding: 28px 18px 8px;
+}
+.c-gate-hero .c-shield { font-size: 2.6rem; }
+.c-gate-hero h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); margin: 10px 0 6px; }
+.c-snoop-item { display: flex; gap: 12px; padding: 14px 0; border-top: 1px solid var(--border-color); }
+.c-snoop-item:first-child { border-top: none; }
+.c-snoop-code {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 10px; font-family: "Outfit", sans-serif;
+  font-weight: 800; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(var(--color-accent-rgb), 0.14); color: var(--color-accent);
+}
+.c-snoop-body { flex: 1; }
+.c-snoop-name { font-weight: 700; }
+.c-snoop-check { color: var(--text-secondary); font-size: 0.9rem; margin: 4px 0 10px; }
+.c-toggle { display: inline-flex; gap: 8px; }
+
+/* ---- 緊急アラート オーバーレイ ---- */
+.c-urgent {
+  position: fixed; inset: 0; z-index: 999; display: none; place-items: center;
+  background: rgba(127, 29, 29, 0.55); backdrop-filter: blur(6px); padding: 18px;
+}
+.c-urgent[aria-hidden="false"] { display: grid; }
+.c-urgent-box {
+  max-width: 560px; width: 100%; background: var(--bg-card); border: 2px solid var(--color-danger);
+  border-radius: var(--radius); padding: 26px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+}
+.c-urgent-box h2 { color: var(--color-danger); display: flex; align-items: center; gap: 10px; font-size: 1.4rem; margin-top: 0; }
+.c-urgent-flags { margin: 14px 0; padding: 12px 14px; border-radius: 12px; background: rgba(var(--color-danger-rgb), 0.10); }
+.c-urgent-flags li { margin: 4px 0; }
+
+/* ---- トースト ---- */
+.c-toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px);
+  background: var(--text-primary); color: var(--bg-card); padding: 12px 18px; border-radius: 12px;
+  font-size: 0.9rem; font-weight: 600; opacity: 0; pointer-events: none; transition: all 0.3s var(--ease); z-index: 800;
+  box-shadow: var(--shadow); max-width: 90vw;
+}
+.c-toast.is-show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---- セルフテスト パネル ---- */
+.c-selftest { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82rem; }
+.c-selftest .ok { color: var(--color-success); }
+.c-selftest .ng { color: var(--color-danger); }
+
+/* ---- ヘルパー ---- */
+.is-hidden { display: none !important; }
+.c-scheduletable td .c-due { font-weight: 700; }
+
+/* ============================== 動きの抑制 ============================== */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* ============================== 印刷用 A4 レポート（設計書 第10章） ============================== */
+@media print {
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .no-print, .app-header, .app-footer, nav, button, form, input, select, textarea, .c-back, .c-btnrow, .c-toast, .c-urgent { display: none !important; }
+  .app-main { max-width: none; padding: 0; }
+  .print-container { width: 100%; margin: 0; padding: 0; box-shadow: none; }
+  .print-container .c-card { box-shadow: none; border: 1px solid #999; background: #fff; backdrop-filter: none; break-inside: avoid; }
+  .page-break { page-break-before: always; }
+  table, .c-tbl { border-collapse: collapse; width: 100%; }
+  th, td, .c-tbl th, .c-tbl td { border: 1px solid #000000; padding: 6px; color: #000; }
+  .c-trend .c-barfill { background: #555 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  a { color: #000; text-decoration: none; }
+  .print-only { display: block !important; }
+}
+.print-only { display: none; }
+</style>
+</head>
+<body>
+<a class="c-skip" href="#main">本文へスキップ</a>
+
+<header class="app-header no-print">
+  <div class="c-brand"><span class="c-dot" aria-hidden="true"></span><span>頭痛 PROM チェッカー</span></div>
+  <span class="c-spacer"></span>
+  <nav aria-label="主要ナビゲーション" id="topnav" style="display:flex; gap:8px;">
+    <button class="c-iconbtn" data-go="#/dashboard">ホーム</button>
+    <button class="c-iconbtn" data-go="#/report">レポート</button>
+  </nav>
+  <button class="c-iconbtn" id="themeBtn" aria-label="表示テーマを切り替え" title="テーマ: 自動 / ライト / ダーク">🌗 自動</button>
+</header>
+
+<main id="main" class="app-main" tabindex="-1">
+  <!-- ビューは JS が描画 -->
+</main>
+
+<footer class="app-footer">
+  <p><strong>共通免責:</strong> 本ツールは自己評価・記録支援を目的とし、医師の診断ではありません。スコアや解釈は参考情報であり、治療や緊急受診の判断は必ず医療従事者にご相談ください。質問票はそれぞれの権利者に帰属します。データは端末内にのみ保存され、外部へ送信されません（ローカルファースト）。</p>
+  <p>
+    <button class="c-link" id="selftestLink" type="button">開発者向け: スコアリング自己テストを実行</button>
+  </p>
+</footer>
+
+<!-- 緊急受診アラート（SNOOP4 陽性時に遷移をブロック） -->
+<div class="c-urgent" id="urgent" role="alertdialog" aria-modal="true" aria-labelledby="urgentTitle" aria-hidden="true">
+  <div class="c-urgent-box">
+    <h2 id="urgentTitle">⚠️ 至急、医療機関の受診を検討してください</h2>
+    <p>SNOOP4 スクリーニングで、重大な二次性頭痛を示唆する可能性のある項目に該当しました。これらは緊急の評価が必要な場合があります。頭痛の自己記録よりも<strong>受診を最優先</strong>してください。</p>
+    <div class="c-urgent-flags"><strong>該当した項目:</strong><ul id="urgentFlags" style="margin:6px 0 0; padding-left:18px;"></ul></div>
+    <div class="c-alert c-alert--danger" style="margin-top:14px;">
+      突然の激しい頭痛・意識障害・手足の麻痺・けいれんなどがある場合は、ためらわず<strong>救急要請（119）</strong>を検討してください。受診時には「いつから・どのように始まったか」「最も強い時の様子」「随伴症状」を伝えられるようにしてください。
+    </div>
+    <div class="c-btnrow">
+      <button class="c-btn c-btn--ghost" id="urgentRescreen" type="button">スクリーニングをやり直す</button>
+    </div>
+    <p class="c-small c-muted" style="margin-top:12px;">SNOOP4 はスコア化せず<strong>関門（ゲート）</strong>として機能します。該当がある限り、ダッシュボードへは進めません。</p>
+  </div>
+</div>
+
+<div class="c-toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+/* ================================================================================
+   頭痛 PROM 統合チェッカー — 単一 HTML 実装
+   設計書 docs/prom-patient-checker-design.md を唯一の仕様源とする。
+   構成（第8章）: Core（環境非依存）= ① 宣言的レジストリ + ② 純粋関数スコアリング
+                  Shell（差し替え可能）= ③a 描画レイヤ + ③b 永続化アダプタ（StorageAdapter）
+   ※ Core は Next.js(TS) へ 1:1 移植可能なよう純粋・自己完結に保つ。
+   ================================================================================ */
+
+/* ============================== 共通: 軽量型ガード & Result ============================== */
+const isObject = (v) => typeof v === "object" && v !== null;
+const isString = (v) => typeof v === "string";
+const isFiniteNumber = (v) => typeof v === "number" && Number.isFinite(v);
+const isInteger = (v) => isFiniteNumber(v) && Number.isInteger(v);
+const isArray = (v) => Array.isArray(v);
+const ok = (value) => ({ ok: true, value });
+const err = (error) => ({ ok: false, error });
+
+/* ============================== ① 宣言的レジストリ（質問票＝データ） ============================== */
+const COMMON_DISCLAIMER =
+  "本ツールは自己評価・記録支援を目的とし、医師の診断ではありません。スコアや解釈は参考情報であり、治療や緊急受診の判断は必ず医療従事者にご相談ください。";
+
+const REGISTRY = {
+  hit6: {
+    id: "hit6", version: "1.0", title: "HIT-6", fullName: "Headache Impact Test",
+    summary: "過去4週間の頭痛が日常生活へ与えた影響度（所要 約5分）",
+    recallPeriod: "P4W", recallLabel: "過去4週間", reassessEvery: "P1M", reassessLabel: "月次",
+    items: [
+      { id: "q1", label: "頭痛のとき、ひどい痛みを感じることはどのくらいありますか？" },
+      { id: "q2", label: "頭痛のために、日常生活（家事・仕事・学業・社会活動）が制限されることはどのくらいありますか？" },
+      { id: "q3", label: "頭痛のとき、横になりたくなることはどのくらいありますか？" },
+      { id: "q4", label: "過去4週間、頭痛のために疲れすぎて仕事や日常生活ができなかったことはどのくらいありますか？" },
+      { id: "q5", label: "過去4週間、頭痛のためにうんざりしたり、いらだったことはどのくらいありますか？" },
+      { id: "q6", label: "過去4週間、頭痛のために仕事や日常生活で集中できなかったことはどのくらいありますか？" }
+    ],
+    responseOptions: [
+      { label: "まったくない", value: 6 }, { label: "めったにない", value: 8 },
+      { label: "ときどき", value: 10 }, { label: "非常によく", value: 11 }, { label: "いつも", value: 13 }
+    ],
+    scoring: { method: "sum", reverseCoding: false, range: [36, 78] },
+    interpretationBands: [
+      { min: 36, max: 49, grade: "grade1", label: "グレード1：生活への影響は軽微または皆無", level: "success" },
+      { min: 50, max: 55, grade: "grade2", label: "グレード2：日常生活にある程度の影響あり", level: "info" },
+      { min: 56, max: 59, grade: "grade3", label: "グレード3：相当な影響あり（予防療法の検討推奨）", level: "warn" },
+      { min: 60, max: 78, grade: "grade4", label: "グレード4：重度の影響あり（積極的な専門的治療を推奨）", level: "danger" }
+    ],
+    mcid: { note: "反復性片頭痛 −2.5〜6点、慢性片頭痛 ≥6点の改善で臨床的に意味のある変化。", improveDelta: -6 },
+    license: { holder: "QualityMetric Incorporated（© 2001, 2015）", note: "学術利用は可、商用利用は要許諾。日本語版は検証済み（Sakai 2004）。", source: "ICHD-3 / QualityMetric" }
+  },
+
+  midas: {
+    id: "midas", version: "1.0", title: "MIDAS", fullName: "Migraine Disability Assessment Scale",
+    summary: "過去3ヶ月間の頭痛による支障日数（所要 約5分）。Q1〜Q5 の日数を合計します。",
+    recallPeriod: "P3M", recallLabel: "過去3ヶ月", reassessEvery: "P3M", reassessLabel: "四半期（3ヶ月ごと）",
+    inputType: "days",
+    items: [
+      { id: "q1", label: "頭痛のために仕事や学業を休んだ日数" },
+      { id: "q2", label: "頭痛のために仕事や学業の能率が半分以下になった日数（Q1で休んだ日は除く）" },
+      { id: "q3", label: "頭痛のために家事ができなかった日数" },
+      { id: "q4", label: "頭痛のために家事の能率が半分以下になった日数（Q3で出来なかった日は除く）" },
+      { id: "q5", label: "頭痛のために家族・社会・余暇の活動を休んだ日数" }
+    ],
+    contextItems: [
+      { id: "a", label: "補足A：過去3ヶ月の総頭痛日数（0〜90）", min: 0, max: 90 },
+      { id: "b", label: "補足B：頭痛の平均的な強さ NRS（0〜10）", min: 0, max: 10 }
+    ],
+    scoring: { method: "sum", range: [0, 270], inputMax: 90 },
+    interpretationBands: [
+      { min: 0, max: 5, grade: "I", label: "グレードI：支障なし、または極めて軽微", level: "success" },
+      { min: 6, max: 10, grade: "II", label: "グレードII：軽度の支障", level: "info" },
+      { min: 11, max: 20, grade: "III", label: "グレードIII：中等度の支障", level: "warn" },
+      { min: 21, max: 40, grade: "IV-A", label: "グレードIV-A：重度の支障", level: "danger" },
+      { min: 41, max: 270, grade: "IV-B", label: "グレードIV-B：最重度の支障", level: "danger" }
+    ],
+    mcid: { note: "MIC: グレードII〜III（6〜20点）で ≥−4点、グレードIV（≥21点）で ≥−30%。レスポンダー定義 ≥50% 改善。" },
+    license: { holder: "（明示的な著作権表記なし）", note: "日本語版は検証済み（Iigaya 2003, 北里大学）。補足A・Bはスコアに含めず臨床的文脈として保存。", source: "Stewart & Lipton" }
+  },
+
+  "msq-v2.1": {
+    id: "msq-v2.1", version: "2.1", title: "MSQ v2.1", fullName: "Migraine-Specific Quality of Life Questionnaire",
+    summary: "過去4週間の片頭痛に特化した QOL（14項目・6段階）。逆転後、3ドメインを 0〜100 に換算（高いほど良好）。",
+    recallPeriod: "P4W", recallLabel: "過去4週間", reassessEvery: "P4W", reassessLabel: "月次〜4週ごと",
+    items: [
+      { id: "q1", label: "片頭痛のために、仕事や日常の活動を中断したことがありましたか？" },
+      { id: "q2", label: "片頭痛のために、家族・友人との時間を妨げられましたか？" },
+      { id: "q3", label: "片頭痛のために、レジャーや余暇活動が困難でしたか？" },
+      { id: "q4", label: "片頭痛のために、仕事や日常の活動で生産性が落ちましたか？" },
+      { id: "q5", label: "片頭痛のために、集中するのが難しかったですか？" },
+      { id: "q6", label: "片頭痛のために、疲労を感じて仕事や活動が妨げられましたか？" },
+      { id: "q7", label: "片頭痛のために、やりたいこと（社会・余暇など）を制限しましたか？" },
+      { id: "q8", label: "片頭痛のために、予定をキャンセル・変更せざるを得なかったですか？" },
+      { id: "q9", label: "片頭痛のために、助けが必要になりましたか？" },
+      { id: "q10", label: "片頭痛のために、計画どおりに物事を進められませんでしたか？" },
+      { id: "q11", label: "片頭痛のために、対人関係に支障が出ましたか？" },
+      { id: "q12", label: "片頭痛のために、いらだちを感じましたか？" },
+      { id: "q13", label: "片頭痛のために、自分が重荷だと感じましたか？" },
+      { id: "q14", label: "片頭痛のために、再発への不安や恐れを感じましたか？" }
+    ],
+    responseOptions: [
+      { label: "まったくない", value: 1 }, { label: "ほとんどない", value: 2 }, { label: "ときどきある", value: 3 },
+      { label: "かなりある", value: 4 }, { label: "ほとんどいつもある", value: 5 }, { label: "いつもある", value: 6 }
+    ],
+    scoring: {
+      method: "domain-rescale", reverseCoding: true,
+      domains: [
+        { id: "rfr", label: "役割機能制限 (RFR)", items: [0,1,2,3,4,5,6], offset: 7, divisor: 35, mwpc: 25.71 },
+        { id: "rfp", label: "役割機能阻害 (RFP)", items: [7,8,9,10], offset: 4, divisor: 20, mwpc: 20.00 },
+        { id: "ef",  label: "感情機能 (EF)", items: [11,12,13], offset: 3, divisor: 15, mwpc: 26.67 }
+      ]
+    },
+    interpretationBands: [
+      { min: 0, max: 40, grade: "severe", label: "重度", level: "danger" },
+      { min: 40, max: 60, grade: "moderate", label: "中等度", level: "warn" },
+      { min: 60, max: 80, grade: "mild-moderate", label: "軽〜中等度", level: "info" },
+      { min: 80, max: 100, grade: "mild", label: "軽度〜良好", level: "success" }
+    ],
+    mcid: { note: "MWPC（意味のある変化, Speck 2021）: RFR ≥25.71 / RFP ≥20.00 / EF ≥26.67。絶対値より変化を主指標に。" },
+    license: { holder: "Mapi Research Trust（専有）", note: "事前の書面による許諾が必須（eprovide.mapi-trust.org）。ePRO版は検証済み（Speck 2019/2021）。公開配布時は許諾状況に注意。", source: "Mapi Research Trust" }
+  },
+
+  pgic: {
+    id: "pgic", version: "1.0", title: "PGIC", fullName: "Patient Global Impression of Change",
+    summary: "治療開始前と比べた総合的な改善度（1問・7段階）。本アプリは昇順版A（高スコア＝改善大）を既定とします。",
+    recallPeriod: "treatment-start", recallLabel: "治療開始から評価時点まで",
+    reassessEvery: "P4W", reassessLabel: "治療開始後 4 / 12 / 24 / 52 週", reassessWeeks: [4, 12, 24, 52],
+    items: [{ id: "q1", label: "治療を始める前と比べて、現在のあなたの状態は全体としてどのように変化しましたか？" }],
+    responseOptions: [
+      { label: "変化なし（または悪化）", value: 1 },
+      { label: "ほぼ同じ、ほとんど変化なし", value: 2 },
+      { label: "少し良いが、気づける変化なし", value: 3 },
+      { label: "やや良いが、実質的な差なし", value: 4 },
+      { label: "中程度に改善、わずかだが気づける変化あり", value: 5 },
+      { label: "改善し、真に価値ある確実な改善", value: 6 },
+      { label: "大幅に改善し、大きな変化", value: 7 }
+    ],
+    scoring: { method: "single-ordinal", variant: "ascending", favorableMin: 5 },
+    license: { holder: "パブリックドメイン（Guy 1976 の CGI 由来）", note: "自由利用可。降順版も存在するため pgicVariant 設定で解釈を切替可能。", source: "Guy 1976 / CGI" }
+  }
+};
+
+/* NRS / VAS は採点尺度ではなく入力プリミティブ（設計書 第3.3） */
+const PAIN_SCALES = {
+  nrs: {
+    id: "nrs", title: "NRS", fullName: "Numerical Rating Scale", range: [0, 10],
+    mcid: "MCID −2.0点（≈30%減）。最小改善 −1.0〜1.5点。強い反応 ≥50%減。",
+    license: { holder: "一般尺度（IHS / FDA が PRO エンドポイントとして承認）", note: "整数のみで記録。", source: "IHS / FDA" }
+  },
+  vas: {
+    id: "vas", title: "VAS", fullName: "Visual Analogue Scale", range: [0, 100],
+    mcid: "MCID 急性痛 −13mm（慢性痛 −10〜15mm, 15〜30%減）。痛みゼロ＝Pain Freedom。",
+    license: { holder: "一般尺度（IHS / FDA が PRO エンドポイントとして承認）", note: "目盛り・数値を表示しない連続尺度。0〜100mm の実数で記録。", source: "IHS / FDA" }
+  }
+};
+
+/* SNOOP4 ゲート定義（採点せず関門として機能, 設計書 第3.1） */
+const SNOOP4 = {
+  id: "snoop4", title: "SNOOP4 レッドフラッグ・スクリーニング",
+  groups: [
+    { code: "S", name: "全身の症状・兆候", check: "発熱、首の後ろが硬く曲がりにくい（項部硬直）、原因不明の体重減少、がんの既往・免疫不全のいずれかがある。", concern: "細菌性髄膜炎・脳炎・脳転移など" },
+    { code: "N", name: "神経の症状", check: "手足の麻痺やしびれ、言葉がうまく出ない、物が二重に見える、意識がぼんやりする、急な物忘れの進行のいずれかがある。", concern: "脳卒中・脳腫瘍・硬膜下血腫など" },
+    { code: "O", name: "突然の発症（雷鳴頭痛）", check: "「人生で最も激しい頭痛」である、または数秒〜数分で痛みのピークに達した。", concern: "くも膜下出血（SAH）など" },
+    { code: "O", name: "50歳以降の新規発症", check: "50歳を過ぎてから、これまで経験のない新しいタイプの頭痛が始まった。", concern: "側頭動脈炎・頭蓋内新生物など" },
+    { code: "P", name: "パターンの変化", check: "頻度や強さがどんどん悪化している、頭をぶつけた後に始まった、横になる/起き上がると悪化する。", concern: "頭蓋内圧亢進・低髄液圧症など" },
+    { code: "4", name: "4つの特殊病態", check: "「乳頭浮腫」を指摘された、腰椎穿刺の後・けいれん発作の後に始まった、妊娠中または出産直後である。", concern: "静脈洞血栓症・子癇前症など" }
+  ]
+};
+
+/* 既定の急性期薬リスト（MOH 判定の薬剤分類付き, 設計書 第3.2） */
+const DRUG_CLASS = {
+  "triptan-ergot-opioid-combo": { label: "トリプタン/エルゴタミン/オピオイド/複合鎮痛薬", threshold: 10 },
+  "simple-nsaid": { label: "単純鎮痛薬/NSAIDs", threshold: 15 }
+};
+const DEFAULT_MEDS = [
+  { name: "スマトリプタン", class: "triptan-ergot-opioid-combo" },
+  { name: "リザトリプタン", class: "triptan-ergot-opioid-combo" },
+  { name: "エルゴタミン製剤", class: "triptan-ergot-opioid-combo" },
+  { name: "コデイン配合鎮痛薬", class: "triptan-ergot-opioid-combo" },
+  { name: "ロキソプロフェン", class: "simple-nsaid" },
+  { name: "イブプロフェン", class: "simple-nsaid" },
+  { name: "アセトアミノフェン", class: "simple-nsaid" }
+];
+
+/* 再評価スケジュール（リコール期間・推奨周期, 設計書 第5章） */
+const SCHEDULE = [
+  { id: "hit6", title: "HIT-6", recall: "過去4週間", every: "月次", period: "P1M" },
+  { id: "msq-v2.1", title: "MSQ v2.1", recall: "過去4週間", every: "月次〜4週ごと", period: "P4W" },
+  { id: "midas", title: "MIDAS", recall: "過去3ヶ月", every: "四半期（3ヶ月ごと）", period: "P3M" },
+  { id: "pgic", title: "PGIC", recall: "治療開始から評価時点", every: "治療開始後 4 / 12 / 24 / 52 週", period: "P4W" },
+  { id: "diary", title: "頭痛日誌", recall: "日次（前向き）", every: "毎日（最低30日のベースライン、標準12週監視）", period: "P1D" }
+];
+
+/* ============================== ② スコアリングエンジン（純粋関数・副作用なし） ============================== */
+/* 入力は回答配列＋定義、出力は { total?, domains?, interpretation }。DOM/Storage/時刻に触れない。 */
+const SCORING = (() => {
+  function bandFor(value, bands) {
+    for (const b of bands) { if (value >= b.min && value <= b.max) return b; }
+    return null;
+  }
+
+  function scoreSum(answers, def) {
+    const expected = def.items.length;
+    if (!isArray(answers) || answers.length !== expected) {
+      return err("回答数が不正です（期待 " + expected + "）");
+    }
+    const allowed = def.responseOptions ? new Set(def.responseOptions.map((o) => o.value)) : null;
+    const inputMax = def.scoring.inputMax;
+    let total = 0;
+    for (let i = 0; i < answers.length; i++) {
+      const a = answers[i];
+      if (!isFiniteNumber(a)) return err("設問 " + (i + 1) + " の回答が数値ではありません");
+      if (allowed && !allowed.has(a)) return err("設問 " + (i + 1) + " の回答 " + a + " は選択肢にありません");
+      if (typeof inputMax === "number" && (!isInteger(a) || a < 0 || a > inputMax)) {
+        return err("設問 " + (i + 1) + " は 0〜" + inputMax + " の整数で入力してください");
+      }
+      total += a;
+    }
+    const band = bandFor(total, def.interpretationBands);
+    return ok({ total: total, interpretation: band ? band.grade : "unknown", band: band });
+  }
+
+  function scoreMsqDomains(answers, def) {
+    const expected = def.items.length;
+    if (!isArray(answers) || answers.length !== expected) {
+      return err("回答数が不正です（期待 " + expected + "）");
+    }
+    const allowed = new Set(def.responseOptions.map((o) => o.value));
+    const finals = [];
+    for (let i = 0; i < answers.length; i++) {
+      const a = answers[i];
+      if (!isInteger(a) || !allowed.has(a)) return err("設問 " + (i + 1) + " の回答が不正です");
+      finals.push(def.scoring.reverseCoding ? 7 - a : a);
+    }
+    const domains = {};
+    const domainInterp = {};
+    for (const d of def.scoring.domains) {
+      let sum = 0;
+      for (const idx of d.items) sum += finals[idx];
+      const score = ((sum - d.offset) * 100) / d.divisor;
+      domains[d.id] = Math.round(score * 100) / 100;
+      const band = bandFor(domains[d.id], def.interpretationBands);
+      domainInterp[d.id] = band ? band.grade : "unknown";
+    }
+    return ok({ domains: domains, domainInterp: domainInterp, interpretation: "domain" });
+  }
+
+  function scorePgic(answers, def) {
+    if (!isArray(answers) || answers.length !== 1) return err("PGIC は 1 問です");
+    const a = answers[0];
+    if (!isInteger(a) || a < 1 || a > 7) return err("PGIC は 1〜7 の整数です");
+    const variant = def.scoring.variant;
+    const favorable = variant === "ascending" ? a >= 5 : a <= 3;
+    return ok({ total: a, interpretation: favorable ? "favorable" : "non-favorable" });
+  }
+
+  function scoreInstrument(answers, def) {
+    const method = def.scoring.method;
+    if (method === "sum") return scoreSum(answers, def);
+    if (method === "domain-rescale") return scoreMsqDomains(answers, def);
+    if (method === "single-ordinal") return scorePgic(answers, def);
+    return err("未知のスコアリング方式: " + method);
+  }
+
+  function mohRiskFor(monthlyDays, drugClass) {
+    if (!isInteger(monthlyDays) || monthlyDays < 0) return err("服用日数は 0 以上の整数で指定してください");
+    const threshold = drugClass === "simple-nsaid" ? 15 : 10;
+    let level;
+    if (monthlyDays >= threshold) level = "overuse";
+    else if (monthlyDays >= threshold - 2) level = "caution";
+    else level = "safe";
+    return ok({ level: level, threshold: threshold });
+  }
+
+  /* ISO 8601 期間を加算（UTC 固定で純粋・タイムゾーン非依存。Date.now は使わない） */
+  function nextDueDate(lastDateISO, isoPeriod) {
+    if (!isString(lastDateISO)) return null;
+    const dm = /^(\d{4})-(\d{2})-(\d{2})$/.exec(lastDateISO);
+    if (!dm) return null;
+    const m = /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?$/.exec(isoPeriod);
+    if (!m) return null;
+    const r = new Date(Date.UTC(Number(dm[1]), Number(dm[2]) - 1, Number(dm[3])));
+    if (m[1]) r.setUTCFullYear(r.getUTCFullYear() + Number(m[1]));
+    if (m[2]) r.setUTCMonth(r.getUTCMonth() + Number(m[2]));
+    if (m[3]) r.setUTCDate(r.getUTCDate() + Number(m[3]) * 7);
+    if (m[4]) r.setUTCDate(r.getUTCDate() + Number(m[4]));
+    return r.toISOString().slice(0, 10);
+  }
+
+  return { bandFor, scoreInstrument, scoreSum, scoreMsqDomains, scorePgic, mohRiskFor, nextDueDate };
+})();
+
+/* ============================== ③b 永続化アダプタ（StorageAdapter インターフェース） ============================== */
+const SCHEMA_VERSION = "1.0";
+const KEYS = {
+  settings: "headache_prom_settings",
+  snoop: "headache_prom_snoop",
+  diary: "headache_prom_diary",
+  scores: "headache_prom_scores"
+};
+
+/* UI は具体実装を知らず StorageAdapter のみに依存（依存性逆転）。
+   load/save/exportAll/importAll は Promise を返し、TS 版 IF と整合させる。 */
+class LocalStorageAdapter {
+  constructor(storage) { this._s = storage; }
+  load(key) {
+    return new Promise((resolve, reject) => {
+      try {
+        const raw = this._s.getItem(key);
+        if (raw === null) { resolve(null); return; }
+        const parsed = JSON.parse(raw);
+        resolve(parsed);
+      } catch (e) {
+        reject(new Error("読み込みに失敗しました（" + key + "）: " + (e instanceof Error ? e.message : String(e))));
+      }
+    });
+  }
+  save(key, value) {
+    return new Promise((resolve, reject) => {
+      try {
+        this._s.setItem(key, JSON.stringify(value));
+        resolve();
+      } catch (e) {
+        reject(new Error("保存に失敗しました（" + key + "）: " + (e instanceof Error ? e.message : String(e))));
+      }
+    });
+  }
+  exportAll() {
+    return new Promise((resolve, reject) => {
+      try {
+        const settings = JSON.parse(this._s.getItem(KEYS.settings) || "null");
+        const snoop = JSON.parse(this._s.getItem(KEYS.snoop) || "null");
+        const diary = JSON.parse(this._s.getItem(KEYS.diary) || "null");
+        const scores = JSON.parse(this._s.getItem(KEYS.scores) || "null");
+        const payload = {
+          schemaVersion: SCHEMA_VERSION,
+          exportDate: new Date().toISOString(),
+          settings: settings || {},
+          snoopHistory: snoop && isArray(snoop.history) ? snoop.history : [],
+          diary: diary && isArray(diary.entries) ? diary.entries : [],
+          promScores: scores && isArray(scores.records) ? scores.records : []
+        };
+        resolve(JSON.stringify(payload, null, 2));
+      } catch (e) {
+        reject(new Error("エクスポートに失敗しました: " + (e instanceof Error ? e.message : String(e))));
+      }
+    });
+  }
+  importAll(json) {
+    return new Promise((resolve, reject) => {
+      let data;
+      try {
+        data = JSON.parse(json);
+      } catch (e) {
+        reject(new Error("JSON の解析に失敗しました（ファイル形式を確認してください）: " + (e instanceof Error ? e.message : String(e))));
+        return;
+      }
+      if (!isObject(data)) { reject(new Error("インポートデータの形式が不正です")); return; }
+      try {
+        const migrated = migrateImport(data);
+        this._s.setItem(KEYS.settings, JSON.stringify(migrated.settings));
+        this._s.setItem(KEYS.snoop, JSON.stringify({ schemaVersion: SCHEMA_VERSION, history: migrated.snoopHistory }));
+        this._s.setItem(KEYS.diary, JSON.stringify({ schemaVersion: SCHEMA_VERSION, entries: migrated.diary }));
+        this._s.setItem(KEYS.scores, JSON.stringify({ schemaVersion: SCHEMA_VERSION, records: migrated.promScores }));
+        resolve();
+      } catch (e) {
+        reject(new Error("インポートの保存に失敗しました: " + (e instanceof Error ? e.message : String(e))));
+      }
+    });
+  }
+}
+
+/* スキーマ versioning: 後方互換マイグレーションの足場（設計書 第8.4） */
+function migrateImport(data) {
+  const version = isString(data.schemaVersion) ? data.schemaVersion : "0";
+  /* 現行は 1.0 のみ。将来の版差はここで段階的に変換する。 */
+  const settings = isObject(data.settings) ? data.settings : {};
+  const snoopHistory = isArray(data.snoopHistory) ? data.snoopHistory : [];
+  const diary = isArray(data.diary) ? data.diary : [];
+  const promScores = isArray(data.promScores) ? data.promScores : [];
+  /* 例: version === "0" の旧形式が来た場合の補正ポイント（現状は素通し） */
+  if (version !== SCHEMA_VERSION) {
+    settings.migratedFrom = version;
+  }
+  return { settings, snoopHistory, diary, promScores };
+}
+
+/* ============================== ③a 描画レイヤ（Shell: 環境依存） ============================== */
+const store = new LocalStorageAdapter(window.localStorage);
+
+const state = { settings: null, snoop: null, diary: null, scores: null };
+
+function defaultSettings() {
+  return {
+    schemaVersion: SCHEMA_VERSION,
+    hasCompletedSnoop: false,
+    pgicVariant: "ascending",
+    scaleChoice: "nrs",
+    medicationList: DEFAULT_MEDS.slice(),
+    treatmentStartDate: "",
+    reminders: { enabled: false },
+    theme: "auto"
+  };
+}
+
+/* ---- DOM ヘルパー ---- */
+const $ = (sel, root) => (root || document).querySelector(sel);
+const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+const main = $("#main");
+
+function esc(v) {
+  const s = v === undefined || v === null ? "" : String(v);
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+let toastTimer = null;
+function toast(msg) {
+  const el = $("#toast");
+  el.textContent = msg;
+  el.classList.add("is-show");
+  if (toastTimer) window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => el.classList.remove("is-show"), 2600);
+}
+
+/* 当日（ローカル）の YYYY-MM-DD */
+function todayISO() {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return y + "-" + m + "-" + day;
+}
+
+/* ---- 永続化ラッパ ---- */
+async function persistAll() {
+  await store.save(KEYS.settings, state.settings);
+  await store.save(KEYS.snoop, state.snoop);
+  await store.save(KEYS.diary, state.diary);
+  await store.save(KEYS.scores, state.scores);
+}
+
+/* ============================== ルーター（ハッシュベース） ============================== */
+function navigate(hash) {
+  if (location.hash === hash) { route(); return; }
+  location.hash = hash;
+}
+
+function route() {
+  const raw = location.hash || "#/dashboard";
+  const parts = raw.replace(/^#\//, "").split("/");
+  const view = parts[0] || "dashboard";
+  const param = parts[1] || "";
+
+  /* SNOOP4 ゲート: 未完了なら必ずゲートへ（遷移をブロック） */
+  if (!state.settings.hasCompletedSnoop && view !== "snoop") {
+    location.hash = "#/snoop";
+    return;
+  }
+
+  closeUrgent();
+  main.scrollTo ? main.scrollTo(0, 0) : null;
+  window.scrollTo(0, 0);
+
+  if (view === "snoop") return renderSnoopGate();
+  if (view === "dashboard") return renderDashboard();
+  if (view === "diary") return renderDiary();
+  if (view === "prom") return renderProm(param);
+  if (view === "pain") return renderPain();
+  if (view === "report") return renderReport();
+  if (view === "data") return renderData();
+  if (view === "about") return renderAbout();
+  return renderDashboard();
+}
+
+window.addEventListener("hashchange", route);
+
+/* ============================== ビュー: SNOOP4 ゲート ============================== */
+function renderSnoopGate() {
+  const groups = SNOOP4.groups.map((g, i) => (
+    '<div class="c-snoop-item">' +
+      '<div class="c-snoop-code" aria-hidden="true">' + esc(g.code) + '</div>' +
+      '<div class="c-snoop-body">' +
+        '<div class="c-snoop-name">' + esc(g.name) + '</div>' +
+        '<div class="c-snoop-check">' + esc(g.check) + '</div>' +
+        '<div class="c-toggle">' +
+          '<label class="c-chip"><input type="checkbox" name="snoop" value="' + i + '" data-name="' + esc(g.name) + '" /><span>当てはまる</span></label>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
+  )).join("");
+
+  main.innerHTML =
+    '<section class="c-gate">' +
+      '<div class="c-gate-hero">' +
+        '<div class="c-shield" aria-hidden="true">🛡️</div>' +
+        '<div class="c-eyebrow">安全が先、測定は次</div>' +
+        '<h1>はじめに安全確認を</h1>' +
+        '<p class="c-muted">頭痛の記録を始める前に、緊急の対応が必要な「危険なサイン（レッドフラッグ）」がないかを確認します。当てはまるものがあればチェックしてください。<strong>1つでも該当する場合は、受診を最優先に案内します。</strong></p>' +
+      '</div>' +
+      '<form id="snoopForm" class="c-card">' +
+        groups +
+        '<div class="c-alert c-alert--info" style="margin-top:16px;">該当がない場合のみ、ダッシュボードへ進めます。SNOOP4 はスコア化せず<strong>関門（ゲート）</strong>として機能します。</div>' +
+        '<div class="c-btnrow">' +
+          '<button class="c-btn" type="submit">確認して次へ進む</button>' +
+        '</div>' +
+      '</form>' +
+      '<p class="c-license">出典: SNOOP4（二次性頭痛のレッドフラッグ）。' + esc(COMMON_DISCLAIMER) + '</p>' +
+    '</section>';
+
+  $("#snoopForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const checked = $$('input[name="snoop"]:checked', e.currentTarget);
+    const flags = checked.map((c) => c.getAttribute("data-name"));
+    const result = flags.length > 0;
+    state.snoop.history.push({ date: todayISO(), result: result, flags: flags });
+    if (result) {
+      persistAll().catch((err2) => toast(err2.message));
+      openUrgent(flags);
+      return;
+    }
+    state.settings.hasCompletedSnoop = true;
+    persistAll().then(() => {
+      toast("安全確認が完了しました");
+      navigate("#/dashboard");
+    }).catch((err2) => toast(err2.message));
+  });
+}
+
+function openUrgent(flags) {
+  const ul = $("#urgentFlags");
+  ul.innerHTML = (flags && flags.length ? flags : ["（詳細は再確認してください）"]).map((f) => "<li>" + esc(f) + "</li>").join("");
+  const ov = $("#urgent");
+  ov.setAttribute("aria-hidden", "false");
+  const btn = $("#urgentRescreen");
+  btn.focus();
+}
+function closeUrgent() {
+  const ov = $("#urgent");
+  if (ov) ov.setAttribute("aria-hidden", "true");
+}
+
+/* ============================== ビュー: ダッシュボード ============================== */
+function lastRecordDate(instrumentId) {
+  let latest = null;
+  for (const r of state.scores.records) {
+    if (r.instrumentId === instrumentId) {
+      if (latest === null || r.date > latest) latest = r.date;
+    }
+  }
+  return latest;
+}
+
+function renderDashboard() {
+  const lastSnoop = state.snoop.history.length ? state.snoop.history[state.snoop.history.length - 1] : null;
+
+  const tiles = [
+    { go: "#/diary", ic: "📓", t: "頭痛日誌", d: "日々の前向き記録・MOH 判定" },
+    { go: "#/prom/hit6", ic: "🧭", t: "PROM 評価", d: "HIT-6 / MIDAS / MSQ / PGIC" },
+    { go: "#/pain", ic: "🎚️", t: "疼痛強度", d: "NRS / VAS の記録" },
+    { go: "#/report", ic: "🖨️", t: "レポート出力", d: "医師共有用 A4（印刷/PDF）" },
+    { go: "#/data", ic: "🔒", t: "データ管理", d: "JSON エクスポート/インポート" },
+    { go: "#/about", ic: "ℹ️", t: "このアプリについて", d: "設計・出典・免責" }
+  ].map((x) => (
+    '<button class="c-tile" data-go="' + x.go + '">' +
+      '<span class="c-tile-ic" aria-hidden="true">' + x.ic + '</span>' +
+      '<span class="c-tile-t">' + esc(x.t) + '</span>' +
+      '<span class="c-tile-d">' + esc(x.d) + '</span>' +
+    '</button>'
+  )).join("");
+
+  const scheduleRows = SCHEDULE.map((s) => {
+    let due = "未評価";
+    if (s.id === "diary") {
+      const last = state.diary.entries.length ? state.diary.entries[state.diary.entries.length - 1].date : null;
+      due = last ? "前回 " + esc(last) + "（毎日）" : "記録なし（毎日）";
+    } else {
+      const last = lastRecordDate(s.id);
+      if (last) {
+        const next = SCORING.nextDueDate(last, s.period);
+        due = "次回 " + esc(next || "—") + "（前回 " + esc(last) + "）";
+      }
+    }
+    return '<tr><td>' + esc(s.title) + '</td><td>' + esc(s.recall) + '</td><td>' + esc(s.every) + '</td><td class="c-due">' + due + '</td></tr>';
+  }).join("");
+
+  main.innerHTML =
+    '<div class="c-viewhead">' +
+      '<div class="c-eyebrow">統合ダッシュボード</div>' +
+      '<h1>こんにちは。今日の記録を始めましょう</h1>' +
+      '<p>各機能はここから。すべての入力は端末内にのみ保存されます。</p>' +
+    '</div>' +
+    '<div class="c-card">' +
+      '<div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px; justify-content:space-between;">' +
+        '<div><strong>安全確認（SNOOP4）</strong><div class="c-small c-muted">' +
+          (lastSnoop ? "最終確認: " + esc(lastSnoop.date) + (lastSnoop.result ? "（要注意の該当あり）" : "（該当なし）") : "未実施") +
+        '</div></div>' +
+        '<button class="c-btn c-btn--ghost" data-go="#/snoop">再スクリーニング</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="c-tiles">' + tiles + '</div>' +
+    '<div class="c-card">' +
+      '<h2>再評価スケジュール</h2>' +
+      '<p class="c-small c-muted">尺度ごとにリコール期間（想起対象期間）と推奨再評価周期が異なります（設計書 第5章）。通知機能は将来拡張点です。</p>' +
+      '<table class="c-tbl"><thead><tr><th>尺度</th><th>リコール期間</th><th>推奨周期</th><th>次回の目安</th></tr></thead><tbody>' + scheduleRows + '</tbody></table>' +
+    '</div>';
+}
+
+/* ============================== ビュー: PROM（レジストリ駆動の汎用フォーム） ============================== */
+const PROM_IDS = ["hit6", "midas", "msq-v2.1", "pgic"];
+
+function renderProm(instrumentId) {
+  const id = PROM_IDS.indexOf(instrumentId) >= 0 ? instrumentId : "hit6";
+  const def = REGISTRY[id];
+
+  const tabs = PROM_IDS.map((pid) => (
+    '<label class="c-chip"><input type="radio" name="promtab" value="' + esc(pid) + '"' + (pid === id ? " checked" : "") + ' /><span>' + esc(REGISTRY[pid].title) + '</span></label>'
+  )).join("");
+
+  main.innerHTML =
+    '<button class="c-back" data-go="#/dashboard">← ダッシュボード</button>' +
+    '<div class="c-viewhead">' +
+      '<div class="c-eyebrow">定期 PROM 評価</div>' +
+      '<h1>' + esc(def.title) + '<span class="c-muted" style="font-size:1rem; font-weight:400;"> — ' + esc(def.fullName) + '</span></h1>' +
+      '<p>' + esc(def.summary) + '</p>' +
+    '</div>' +
+    '<div class="c-chips no-print" style="margin-bottom:16px;" role="tablist">' + tabs + '</div>' +
+    '<form id="promForm" class="c-card">' + renderInstrumentBody(def) + '</form>' +
+    '<div id="promResult"></div>' +
+    licenseBlock(def);
+
+  $$('input[name="promtab"]').forEach((r) => r.addEventListener("change", (e) => navigate("#/prom/" + e.target.value)));
+
+  $("#promForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    submitInstrument(def, e.currentTarget);
+  });
+}
+
+/* レジストリ駆動: 1 つの関数で 4 質問票を描画 */
+function renderInstrumentBody(def) {
+  const method = def.scoring.method;
+  if (method === "single-ordinal") {
+    const opts = def.responseOptions.map((o) => (
+      '<label class="c-opt"><input type="radio" name="' + def.id + '_q1" value="' + o.value + '" required /><span><strong style="font-family:Outfit;">' + o.value + '</strong> ' + esc(o.label) + (o.value >= 5 ? ' ★' : '') + '</span></label>'
+    )).join("");
+    return (
+      '<div class="c-item"><div class="c-qn">' + esc(def.items[0].label) + '</div><div class="c-opts">' + opts + '</div></div>' +
+      '<div class="c-alert c-alert--info">本アプリの既定は<strong>昇順版A</strong>（高スコア＝改善大、5〜7 を「臨床的に有意な改善あり」と判定）です。設定の <code>pgicVariant</code> で降順版へ切替可能です。</div>' +
+      '<div class="c-btnrow"><button class="c-btn" type="submit">回答を記録する</button></div>'
+    );
+  }
+  if (def.inputType === "days") {
+    const items = def.items.map((it, i) => (
+      '<div class="c-item"><label class="c-qn" for="' + def.id + '_q' + (i + 1) + '"><span class="c-qi">Q' + (i + 1) + '</span>' + esc(it.label) + '</label>' +
+      '<input class="c-input" type="number" inputmode="numeric" min="0" max="' + def.scoring.inputMax + '" step="1" id="' + def.id + '_q' + (i + 1) + '" name="' + def.id + '_q' + (i + 1) + '" placeholder="0〜' + def.scoring.inputMax + ' 日" required /></div>'
+    )).join("");
+    const ctx = def.contextItems.map((c) => (
+      '<div class="c-field"><label class="c-flabel" for="' + def.id + '_' + c.id + '">' + esc(c.label) + '</label>' +
+      '<input class="c-input" type="number" inputmode="numeric" min="' + c.min + '" max="' + c.max + '" step="1" id="' + def.id + '_' + c.id + '" name="ctx_' + c.id + '" placeholder="任意" /></div>'
+    )).join("");
+    return (
+      items +
+      '<fieldset class="c-fs"><legend>補足質問（スコアには加算しません）</legend><p class="c-small c-muted">補足A・Bは臨床的文脈として保存・表示のみ行います。</p>' + ctx + '</fieldset>' +
+      '<div class="c-btnrow"><button class="c-btn" type="submit">合計して記録する</button></div>'
+    );
+  }
+  // sum + responseOptions（HIT-6） / domain-rescale（MSQ）: チップで回答
+  const items = def.items.map((it, i) => {
+    const chips = def.responseOptions.map((o) => (
+      '<label class="c-chip"><input type="radio" name="' + def.id + '_q' + (i + 1) + '" value="' + o.value + '" required /><span>' + esc(o.label) + '</span></label>'
+    )).join("");
+    return '<div class="c-item"><div class="c-qn"><span class="c-qi">Q' + (i + 1) + '</span>' + esc(it.label) + '</div><div class="c-chips">' + chips + '</div></div>';
+  }).join("");
+  return items + '<div class="c-btnrow"><button class="c-btn" type="submit">' + (def.scoring.method === "domain-rescale" ? "換算して記録する" : "合計して記録する") + '</button></div>';
+}
+
+/* 回答収集 → 純粋関数で採点 → 保存 → 結果表示 */
+function submitInstrument(def, formEl) {
+  const answers = [];
+  for (let i = 0; i < def.items.length; i++) {
+    if (def.inputType === "days") {
+      const el = $('[name="' + def.id + '_q' + (i + 1) + '"]', formEl);
+      const v = el && el.value !== "" ? Number(el.value) : Number.NaN;
+      answers.push(v);
+    } else {
+      const sel = $('input[name="' + def.id + '_q' + (i + 1) + '"]:checked', formEl);
+      answers.push(sel ? Number(sel.value) : Number.NaN);
+    }
+  }
+
+  const result = SCORING.scoreInstrument(answers, def);
+  const box = $("#promResult");
+  if (!result.ok) {
+    box.innerHTML = '<div class="c-card"><div class="c-result is-danger"><strong>入力を確認してください</strong><div class="c-small">' + esc(result.error) + '</div></div></div>';
+    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return;
+  }
+
+  // 文脈（MIDAS 補足A/B）
+  const context = {};
+  if (def.contextItems) {
+    for (const c of def.contextItems) {
+      const el = $('[name="ctx_' + c.id + '"]', formEl);
+      if (el && el.value !== "") context[c.id] = Number(el.value);
+    }
+  }
+
+  const record = {
+    date: todayISO(),
+    createdAt: new Date().toISOString(),
+    instrumentId: def.id,
+    instrumentVersion: def.version,
+    raw: answers
+  };
+  const val = result.value;
+  if (typeof val.total === "number") record.total = val.total;
+  if (val.domains) record.domains = val.domains;
+  record.interpretation = val.interpretation;
+  if (Object.keys(context).length) record.context = context;
+
+  state.scores.records.push(record);
+  persistAll().then(() => toast(def.title + " を記録しました")).catch((e) => toast(e.message));
+
+  box.innerHTML = renderInstrumentResult(def, val, context);
+  box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function renderInstrumentResult(def, val, context) {
+  if (def.scoring.method === "domain-rescale") {
+    const rows = def.scoring.domains.map((d) => {
+      const score = val.domains[d.id];
+      const band = SCORING.bandFor(score, def.interpretationBands);
+      return '<tr><td>' + esc(d.label) + '</td><td class="c-due">' + score.toFixed(1) + ' / 100</td><td>' + esc(band ? band.label : "—") + '</td><td>MWPC ≥ ' + d.mwpc + '</td></tr>';
+    }).join("");
+    return '<div class="c-card"><h2>換算結果（高いほど QOL 良好）</h2>' +
+      '<table class="c-tbl"><thead><tr><th>ドメイン</th><th>スコア</th><th>解釈</th><th>意味のある変化</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+      '<div class="c-alert c-alert--info">' + esc(def.mcid.note) + ' 絶対値は病型・背景で変動するため、<strong>ベースラインからの変化</strong>を主指標としてください。</div></div>';
+  }
+  if (def.scoring.method === "single-ordinal") {
+    const favorable = val.interpretation === "favorable";
+    const opt = def.responseOptions.find((o) => o.value === val.total);
+    return '<div class="c-card"><div class="c-result ' + (favorable ? "is-success" : "") + '">' +
+      '<div class="c-num">' + val.total + ' / 7</div>' +
+      '<div style="margin-top:6px;"><strong>' + (favorable ? "臨床的に有意な改善あり（favorable）" : "明確な改善とは言えない") + '</strong></div>' +
+      '<div class="c-small c-muted">選択: ' + esc(opt ? opt.label : "") + '</div></div>' +
+      '<p class="c-small c-muted" style="margin-top:10px;">PGIC は他尺度（NRS / HIT-6 / MIDAS）の MCID を導くアンカー指標としても用いられます。</p></div>';
+  }
+  // sum
+  const band = val.band || SCORING.bandFor(val.total, def.interpretationBands);
+  const level = band ? band.level : "info";
+  const cls = level === "success" ? "is-success" : level === "warn" ? "is-warn" : level === "danger" ? "is-danger" : "";
+  let ctxHtml = "";
+  if (def.contextItems && context && Object.keys(context).length) {
+    ctxHtml = '<div class="c-small c-muted" style="margin-top:8px;">補足（非加算）: ' +
+      def.contextItems.filter((c) => context[c.id] !== undefined).map((c) => esc(c.label.split("：")[0]) + " = " + context[c.id]).join(" / ") + '</div>';
+  }
+  return '<div class="c-card"><div class="c-result ' + cls + '">' +
+    '<div class="c-num">' + val.total + (def.id === "hit6" ? " 点" : "") + '</div>' +
+    '<div style="margin-top:6px;"><strong>' + esc(band ? band.label : "判定不能") + '</strong></div>' +
+    (def.id === "hit6" ? '<div class="c-small c-muted">範囲 36〜78 点</div>' : '<div class="c-small c-muted">合計（Q1〜Q5、範囲 0〜270 日）</div>') +
+    ctxHtml +
+    '</div>' +
+    (def.mcid && def.mcid.note ? '<div class="c-alert c-alert--info">' + esc(def.mcid.note) + '</div>' : '') +
+    '</div>';
+}
+
+function licenseBlock(def) {
+  const l = def.license;
+  return '<div class="c-card"><div class="c-license">' +
+    '<b>出典・著作権:</b> ' + esc(l.holder) + '<br/>' +
+    '<b>利用条件:</b> ' + esc(l.note) + '<br/>' +
+    '<b>免責:</b> ' + esc(COMMON_DISCLAIMER) + ' 質問票は権利者（' + esc(l.source) + '）に帰属します。本実装は教育/個人利用の範囲で提供します。' +
+    '</div></div>';
+}
+
+/* ============================== ビュー: 疼痛強度（NRS / VAS） ============================== */
+function renderPain() {
+  const choice = state.settings.scaleChoice === "vas" ? "vas" : "nrs";
+  main.innerHTML =
+    '<button class="c-back" data-go="#/dashboard">← ダッシュボード</button>' +
+    '<div class="c-viewhead">' +
+      '<div class="c-eyebrow">疼痛強度の記録</div>' +
+      '<h1>いまの痛みの強さ</h1>' +
+      '<p>NRS と VAS は<strong>相互に直接変換しません</strong>。混乱を避けるため、患者ごとに 1 つの尺度を一貫して使用してください（設計書 第3.3③）。</p>' +
+    '</div>' +
+    '<div class="c-card no-print">' +
+      '<h2>使用する尺度</h2>' +
+      '<div class="c-chips">' +
+        '<label class="c-chip"><input type="radio" name="scale" value="nrs"' + (choice === "nrs" ? " checked" : "") + ' /><span>NRS（0〜10 整数）</span></label>' +
+        '<label class="c-chip"><input type="radio" name="scale" value="vas"' + (choice === "vas" ? " checked" : "") + ' /><span>VAS（連続スライダー）</span></label>' +
+      '</div>' +
+      '<p class="c-small c-muted" style="margin-top:8px;">この選択は設定として保存され、一貫性のため既定の尺度になります。</p>' +
+    '</div>' +
+    '<div id="painArea"></div>';
+
+  $$('input[name="scale"]').forEach((r) => r.addEventListener("change", (e) => {
+    state.settings.scaleChoice = e.target.value;
+    persistAll().catch((err2) => toast(err2.message));
+    renderPainArea(e.target.value);
+  }));
+  renderPainArea(choice);
+}
+
+function renderPainArea(scale) {
+  const area = $("#painArea");
+  if (scale === "vas") {
+    const s = PAIN_SCALES.vas;
+    area.innerHTML =
+      '<form id="painForm" class="c-card">' +
+        '<h2>VAS — ' + esc(s.fullName) + '</h2>' +
+        '<p class="c-small c-muted">目盛りや数値は表示しません。線上の位置をタップ／ドラッグして痛みの強さを示してください（つまみは触れて初めて現れます）。</p>' +
+        '<div class="c-vas" id="vasWrap">' +
+          '<div class="c-vas-anchors"><span>痛みなし</span><span>想像しうる最悪の痛み</span></div>' +
+          '<div class="c-vas-track">' +
+            '<input type="range" id="vasInput" min="0" max="100" step="1" value="50" aria-label="痛みの強さ（VAS、痛みなし〜想像しうる最悪の痛み）" />' +
+          '</div>' +
+          '<div class="c-vas-readout" id="vasReadout">まだ記録されていません</div>' +
+        '</div>' +
+        '<div class="c-btnrow"><button class="c-btn" type="submit" id="vasSave" disabled>この強さで記録する</button></div>' +
+      '</form>' +
+      '<div class="c-card"><div class="c-license"><b>出典:</b> ' + esc(s.license.holder) + '<br/><b>MCID:</b> ' + esc(s.mcid) + '<br/><b>免責:</b> ' + esc(COMMON_DISCLAIMER) + '</div></div>';
+
+    const wrap = $("#vasWrap");
+    const input = $("#vasInput");
+    const readout = $("#vasReadout");
+    const saveBtn = $("#vasSave");
+    let touched = false;
+    const reveal = () => {
+      if (touched) return;
+      touched = true;
+      wrap.classList.add("is-touched");
+      saveBtn.disabled = false;
+    };
+    const update = () => {
+      reveal();
+      readout.innerHTML = '記録される値: <strong>' + input.value + ' mm</strong> / 100（参考値・通常は患者に提示しません）';
+    };
+    input.addEventListener("pointerdown", reveal);
+    input.addEventListener("keydown", reveal);
+    input.addEventListener("input", update);
+    $("#painForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!touched) { toast("スライダーを操作して強さを示してください"); return; }
+      savePain("vas", Number(input.value));
+    });
+    return;
+  }
+
+  // NRS
+  const s = PAIN_SCALES.nrs;
+  const buttons = [];
+  for (let n = 0; n <= 10; n++) {
+    buttons.push('<label class="c-chip"><input type="radio" name="nrs" value="' + n + '" /><span>' + n + '</span></label>');
+  }
+  area.innerHTML =
+    '<form id="painForm" class="c-card">' +
+      '<h2>NRS — ' + esc(s.fullName) + '</h2>' +
+      '<p class="c-small c-muted">0（痛みなし）〜10（想像しうる最悪の痛み）の整数で選びます。NRS ≥ 4 は急性期薬投与の標準的な目安です。</p>' +
+      '<div class="c-nrs" role="radiogroup" aria-label="痛みの強さ（NRS 0〜10）">' + buttons.join("") + '</div>' +
+      '<div class="c-nrs-anchors"><span>0: 痛みなし</span><span>10: 最悪の痛み</span></div>' +
+      '<div class="c-btnrow"><button class="c-btn" type="submit">この強さで記録する</button></div>' +
+    '</form>' +
+    '<div class="c-card"><div class="c-license"><b>出典:</b> ' + esc(s.license.holder) + '<br/><b>MCID:</b> ' + esc(s.mcid) + '<br/><b>免責:</b> ' + esc(COMMON_DISCLAIMER) + '</div></div>';
+
+  $("#painForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const sel = $('input[name="nrs"]:checked', e.currentTarget);
+    if (!sel) { toast("0〜10 のいずれかを選んでください"); return; }
+    savePain("nrs", Number(sel.value));
+  });
+}
+
+function savePain(scaleId, value) {
+  const record = {
+    date: todayISO(),
+    createdAt: new Date().toISOString(),
+    instrumentId: scaleId,
+    instrumentVersion: "1.0",
+    value: value
+  };
+  state.scores.records.push(record);
+  persistAll().then(() => toast(scaleId.toUpperCase() + " を記録しました（" + value + (scaleId === "vas" ? " mm" : "") + "）")).catch((e) => toast(e.message));
+}
+
+/* ============================== ビュー: 頭痛日誌 ============================== */
+const DIARY_OPTS = {
+  sides: ["片側", "両側"],
+  locations: ["前頭", "側頭", "後頭", "目の周り"],
+  quality: ["拍動性（ズキズキ）", "非拍動性（締め付け・重い）", "刺すような"],
+  symptoms: ["吐き気・嘔吐", "光過敏", "音過敏", "匂い過敏"],
+  aura: ["閃輝暗点（キラキラ/ギザギザ）", "手足のしびれ", "言葉の出にくさ", "運動麻痺", "脳幹性前兆"],
+  prodrome: ["あくび", "首のこわばり", "異常な疲労感", "気分の変化"],
+  triggers: ["睡眠不足/寝すぎ", "ストレス/ストレス解放", "月経（Day1）", "特定の食べ物", "天候/気圧変化", "欠食・脱水", "カフェイン離脱"],
+  impact: ["0: 影響なし", "1: 軽度（仕事/家事は可能）", "2: 中等度（効率低下）", "3: 重度（寝込む）"]
+};
+
+function chipset(name, opts, type) {
+  return opts.map((o) => (
+    '<label class="c-chip"><input type="' + type + '" name="' + name + '" value="' + esc(o) + '" /><span>' + esc(o) + '</span></label>'
+  )).join("");
+}
+
+function renderDiary() {
+  const today = todayISO();
+  const recent = state.diary.entries.slice().reverse().slice(0, 8);
+  const recentRows = recent.length ? recent.map((en) => (
+    '<tr><td>' + esc(en.date) + '</td><td>' + esc((en.startTime || "—") + "〜" + (en.endTime || "—")) + '</td>' +
+    '<td>発症' + esc(num(en.nrs && en.nrs.onset)) + ' / ピーク' + esc(num(en.nrs && en.nrs.peak)) + ' / 2h後' + esc(num(en.nrs && en.nrs.post2h)) + '</td>' +
+    '<td>' + esc((en.drugs || []).map((d) => d.name).join("、") || "—") + '</td>' +
+    '<td>' + esc(impactLabel(en.impact)) + '</td></tr>'
+  )).join("") : '<tr><td colspan="5" class="c-muted">まだ記録がありません。</td></tr>';
+
+  main.innerHTML =
+    '<button class="c-back" data-go="#/dashboard">← ダッシュボード</button>' +
+    '<div class="c-viewhead">' +
+      '<div class="c-eyebrow">頭痛日誌（前向き記録）</div>' +
+      '<h1>今日の頭痛を記録</h1>' +
+      '<p>記録には自動でタイムスタンプが付き、<strong>過去日付での入力（バックデート）はできません</strong>（記録の遡及改変を防ぐデータ完全性の不変条件）。</p>' +
+    '</div>' +
+    renderMohPanel() +
+    '<form id="diaryForm" class="c-card">' +
+      '<div class="c-row">' +
+        '<div class="c-field"><label class="c-flabel" for="d_date">日付（本日固定）</label><input class="c-input" type="date" id="d_date" value="' + today + '" min="' + today + '" max="' + today + '" readonly /></div>' +
+        '<div class="c-field"><label class="c-flabel" for="d_start">開始時刻</label><input class="c-input" type="time" id="d_start" /></div>' +
+        '<div class="c-field"><label class="c-flabel" for="d_end">終了時刻</label><input class="c-input" type="time" id="d_end" /></div>' +
+      '</div>' +
+      '<div id="durHint" class="c-small c-muted"></div>' +
+
+      '<fieldset class="c-fs"><legend>痛みの部位</legend>' +
+        '<div class="c-field"><span class="c-flabel">左右</span><div class="c-chips">' + chipset("d_sides", DIARY_OPTS.sides, "checkbox") + '</div></div>' +
+        '<div class="c-field"><span class="c-flabel">場所（複数可）</span><div class="c-chips">' + chipset("d_loc", DIARY_OPTS.locations, "checkbox") + '</div></div>' +
+        '<div class="c-field"><span class="c-flabel">性質</span><div class="c-chips">' + chipset("d_quality", DIARY_OPTS.quality, "checkbox") + '</div></div>' +
+      '</fieldset>' +
+
+      '<fieldset class="c-fs"><legend>痛みの強度（NRS 0〜10・3時点, IHS標準）</legend>' +
+        '<div class="c-row">' +
+          '<div class="c-field"><label class="c-flabel" for="d_nrs_onset">発症時</label><input class="c-input" type="number" min="0" max="10" step="1" id="d_nrs_onset" /></div>' +
+          '<div class="c-field"><label class="c-flabel" for="d_nrs_peak">ピーク時</label><input class="c-input" type="number" min="0" max="10" step="1" id="d_nrs_peak" /></div>' +
+          '<div class="c-field"><label class="c-flabel" for="d_nrs_post">服薬2時間後</label><input class="c-input" type="number" min="0" max="10" step="1" id="d_nrs_post" /></div>' +
+        '</div>' +
+        '<p class="c-small c-muted">NRS ≥ 4 は急性期薬投与の標準的な目安です。</p>' +
+      '</fieldset>' +
+
+      '<fieldset class="c-fs"><legend>随伴症状・前兆・予兆/後兆</legend>' +
+        '<div class="c-field"><span class="c-flabel">随伴症状（複数可）</span><div class="c-chips">' + chipset("d_sym", DIARY_OPTS.symptoms, "checkbox") + '</div></div>' +
+        '<div class="c-field"><span class="c-flabel">前兆（複数可）</span><div class="c-chips">' + chipset("d_aura", DIARY_OPTS.aura, "checkbox") + '</div>' +
+          '<div class="c-alert c-alert--warn" style="margin-top:8px;">運動麻痺・脳幹性前兆がある場合は神経内科への相談が必要で、トリプタン禁忌の可能性があります。</div></div>' +
+        '<div class="c-field"><span class="c-flabel">予兆・後兆（複数可）</span><div class="c-chips">' + chipset("d_prod", DIARY_OPTS.prodrome, "checkbox") + '</div></div>' +
+      '</fieldset>' +
+
+      '<fieldset class="c-fs"><legend>使用した薬剤（MOH 検出の基礎データ）</legend>' +
+        '<div id="drugRows"></div>' +
+        '<div class="c-btnrow"><button class="c-btn c-btn--ghost" type="button" id="addDrug">＋ 薬剤を追加</button></div>' +
+      '</fieldset>' +
+
+      '<fieldset class="c-fs"><legend>誘発因子（トリガー・複数可）</legend>' +
+        '<div class="c-chips">' + chipset("d_trig", DIARY_OPTS.triggers, "checkbox") + '</div>' +
+      '</fieldset>' +
+
+      '<fieldset class="c-fs"><legend>睡眠・生活</legend>' +
+        '<div class="c-row">' +
+          '<div class="c-field"><label class="c-flabel" for="d_bed">就寝時刻</label><input class="c-input" type="time" id="d_bed" /></div>' +
+          '<div class="c-field"><label class="c-flabel" for="d_wake">起床時刻</label><input class="c-input" type="time" id="d_wake" /></div>' +
+          '<div class="c-field"><label class="c-flabel" for="d_sleepq">睡眠の質 NRS(0〜10)</label><input class="c-input" type="number" min="0" max="10" step="1" id="d_sleepq" /></div>' +
+          '<div class="c-field"><label class="c-flabel" for="d_stress">ストレス NRS(0〜10)</label><input class="c-input" type="number" min="0" max="10" step="1" id="d_stress" /></div>' +
+        '</div>' +
+      '</fieldset>' +
+
+      '<fieldset class="c-fs"><legend>日常生活への影響（MIDAS 算出の基礎）</legend>' +
+        '<div class="c-chips">' + chipset("d_impact", DIARY_OPTS.impact, "radio") + '</div>' +
+      '</fieldset>' +
+
+      '<div class="c-btnrow"><button class="c-btn" type="submit">日誌を保存する</button></div>' +
+    '</form>' +
+
+    '<div class="c-card"><h2>最近の記録</h2><table class="c-tbl"><thead><tr><th>日付</th><th>時間</th><th>NRS（発症/ピーク/2h後）</th><th>薬剤</th><th>影響</th></tr></thead><tbody>' + recentRows + '</tbody></table></div>';
+
+  // 薬剤行の追加
+  const drugRows = $("#drugRows");
+  const medOptions = state.settings.medicationList.map((m) => '<option value="' + esc(m.name) + '" data-class="' + esc(m.class) + '">' + esc(m.name) + '</option>').join("");
+  function addDrugRow() {
+    const div = document.createElement("div");
+    div.className = "c-row";
+    div.style.marginBottom = "8px";
+    div.innerHTML =
+      '<div class="c-field"><label class="c-flabel">薬剤名</label><select class="c-select d-drug-name"><option value="">選択または自由記入</option>' + medOptions + '</select>' +
+        '<input class="c-input d-drug-free" type="text" placeholder="自由記入（任意）" style="margin-top:6px;" /></div>' +
+      '<div class="c-field"><label class="c-flabel">分類（MOH判定）</label><select class="c-select d-drug-class">' +
+        '<option value="simple-nsaid">単純鎮痛薬/NSAIDs（月15日）</option>' +
+        '<option value="triptan-ergot-opioid-combo">トリプタン等/複合（月10日）</option></select></div>' +
+      '<div class="c-field"><label class="c-flabel">用量</label><input class="c-input d-drug-dose" type="text" placeholder="例: 50mg" /></div>' +
+      '<div class="c-field"><label class="c-flabel">服用時刻</label><input class="c-input d-drug-time" type="time" /></div>' +
+      '<div class="c-field"><label class="c-flabel">2時間後の効果 NRS</label><input class="c-input d-drug-eff" type="number" min="0" max="10" step="1" /></div>';
+    drugRows.appendChild(div);
+    // 選択時に分類を自動補完
+    const nameSel = $(".d-drug-name", div);
+    nameSel.addEventListener("change", () => {
+      const opt = nameSel.options[nameSel.selectedIndex];
+      const cls = opt ? opt.getAttribute("data-class") : null;
+      if (cls) $(".d-drug-class", div).value = cls;
+    });
+  }
+  $("#addDrug").addEventListener("click", addDrugRow);
+
+  // 持続時間ヒント
+  function updateDur() {
+    const st = $("#d_start").value, en = $("#d_end").value;
+    const hint = $("#durHint");
+    if (st && en) {
+      const mins = timeDiffMins(st, en);
+      if (mins !== null && mins >= 0) {
+        const h = Math.floor(mins / 60), m = mins % 60;
+        let note = "";
+        if (mins >= 240 && mins <= 4320) note = "（片頭痛の診断基準 4〜72 時間に合致）";
+        else if (mins >= 30 && mins <= 10080) note = "（緊張型頭痛の範囲 30分〜7日に合致）";
+        hint.textContent = "持続時間: " + h + "時間" + m + "分 " + note;
+      } else hint.textContent = "";
+    } else hint.textContent = "";
+  }
+  $("#d_start").addEventListener("input", updateDur);
+  $("#d_end").addEventListener("input", updateDur);
+
+  $("#diaryForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    saveDiary();
+  });
+}
+
+function saveDiary() {
+  const getChecked = (name) => $$('input[name="' + name + '"]:checked').map((c) => c.value);
+  const getRadio = (name) => { const el = $('input[name="' + name + '"]:checked'); return el ? el.value : ""; };
+  const numOrNull = (id) => { const el = $("#" + id); if (!el || el.value === "") return null; const n = Number(el.value); return Number.isFinite(n) ? n : null; };
+
+  const drugs = $$("#drugRows .c-row").map((row) => {
+    const sel = $(".d-drug-name", row).value;
+    const free = $(".d-drug-free", row).value.trim();
+    const name = sel || free;
+    if (!name) return null;
+    return {
+      name: name,
+      class: $(".d-drug-class", row).value,
+      dose: $(".d-drug-dose", row).value.trim(),
+      time: $(".d-drug-time", row).value,
+      effectNrs2h: $(".d-drug-eff", row).value === "" ? null : Number($(".d-drug-eff", row).value)
+    };
+  }).filter((d) => d !== null);
+
+  const impactRaw = getRadio("d_impact");
+  const entry = {
+    id: "diary_" + Date.now(),
+    createdAt: new Date().toISOString(),
+    date: todayISO(),
+    startTime: $("#d_start").value,
+    endTime: $("#d_end").value,
+    sides: getChecked("d_sides"),
+    locations: getChecked("d_loc"),
+    quality: getChecked("d_quality"),
+    nrs: { onset: numOrNull("d_nrs_onset"), peak: numOrNull("d_nrs_peak"), post2h: numOrNull("d_nrs_post") },
+    symptoms: getChecked("d_sym"),
+    aura: getChecked("d_aura"),
+    prodrome: getChecked("d_prod"),
+    drugs: drugs,
+    triggers: getChecked("d_trig"),
+    sleep: { bedtime: $("#d_bed").value, waketime: $("#d_wake").value, quality: numOrNull("d_sleepq"), stress: numOrNull("d_stress") },
+    impact: impactRaw === "" ? null : Number(impactRaw.charAt(0))
+  };
+
+  state.diary.entries.push(entry);
+  persistAll().then(() => { toast("日誌を保存しました"); renderDiary(); }).catch((e) => toast(e.message));
+}
+
+/* MOH パネル（当月の薬剤分類別 服用日数 → 純粋関数 mohRiskFor で判定） */
+function renderMohPanel() {
+  const ym = todayISO().slice(0, 7);
+  const counts = monthlyDrugDayCounts(ym);
+  const rows = Object.keys(DRUG_CLASS).map((cls) => {
+    const days = counts[cls] || 0;
+    const r = SCORING.mohRiskFor(days, cls);
+    const level = r.ok ? r.value.level : "safe";
+    const badge = level === "overuse" ? '<span class="c-badge c-badge--over">乱用超過</span>' :
+                  level === "caution" ? '<span class="c-badge c-badge--caution">注意</span>' :
+                  '<span class="c-badge c-badge--safe">安全域</span>';
+    return '<tr><td>' + esc(DRUG_CLASS[cls].label) + '</td><td class="c-due">' + days + ' 日 / 月</td><td>閾値 ' + DRUG_CLASS[cls].threshold + ' 日</td><td>' + badge + '</td></tr>';
+  }).join("");
+  return '<div class="c-card"><h2>MOH リスク（' + esc(ym) + ' の当月集計）</h2>' +
+    '<p class="c-small c-muted">薬剤の使用過多による頭痛（ICHD-3 8.2）の自動判定。確定診断には「3ヶ月継続」が必要です。</p>' +
+    '<table class="c-tbl"><thead><tr><th>薬剤分類</th><th>当月の服用日数</th><th>基準</th><th>判定</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+}
+
+function monthlyDrugDayCounts(ym) {
+  const byClass = {};
+  for (const cls of Object.keys(DRUG_CLASS)) byClass[cls] = new Set();
+  for (const en of state.diary.entries) {
+    if (!isString(en.date) || en.date.slice(0, 7) !== ym) continue;
+    for (const d of (en.drugs || [])) {
+      if (byClass[d.class]) byClass[d.class].add(en.date);
+    }
+  }
+  const out = {};
+  for (const cls of Object.keys(byClass)) out[cls] = byClass[cls].size;
+  return out;
+}
+
+/* ============================== ビュー: レポート（印刷用 A4） ============================== */
+function num(v) { return v === null || v === undefined ? "—" : v; }
+function impactLabel(v) {
+  if (v === null || v === undefined) return "—";
+  return DIARY_OPTS.impact[v] || String(v);
+}
+
+function latestRecord(instrumentId) {
+  let latest = null;
+  for (const r of state.scores.records) {
+    if (r.instrumentId === instrumentId) {
+      if (latest === null || r.createdAt > latest.createdAt) latest = r;
+    }
+  }
+  return latest;
+}
+function lastN(instrumentId, n) {
+  return state.scores.records.filter((r) => r.instrumentId === instrumentId)
+    .sort((a, b) => (a.createdAt < b.createdAt ? -1 : 1)).slice(-n);
+}
+
+function renderReport() {
+  const ym = todayISO().slice(0, 7);
+  // 基本サマリー
+  const monthEntries = state.diary.entries.filter((e) => isString(e.date) && e.date.slice(0, 7) === ym);
+  const headacheDays = new Set(monthEntries.map((e) => e.date)).size;
+  const medDaysSet = new Set();
+  monthEntries.forEach((e) => { if ((e.drugs || []).length) medDaysSet.add(e.date); });
+  const counts = monthlyDrugDayCounts(ym);
+  const mohRows = Object.keys(DRUG_CLASS).map((cls) => {
+    const days = counts[cls] || 0;
+    const r = SCORING.mohRiskFor(days, cls);
+    const level = r.ok ? r.value.level : "safe";
+    const txt = level === "overuse" ? "乱用超過" : level === "caution" ? "注意" : "安全域";
+    return '<tr><td>' + esc(DRUG_CLASS[cls].label) + '</td><td>' + days + ' 日</td><td>' + DRUG_CLASS[cls].threshold + ' 日</td><td>' + txt + '</td></tr>';
+  }).join("");
+
+  // 最新 PROM
+  const promCards = [];
+  ["hit6", "midas", "msq-v2.1", "pgic"].forEach((id) => {
+    const def = REGISTRY[id];
+    const rec = latestRecord(id);
+    if (!rec) { promCards.push('<tr><td>' + esc(def.title) + '</td><td>未評価</td><td>—</td></tr>'); return; }
+    let scoreText = "", interp = "";
+    if (rec.domains) {
+      scoreText = "RFR " + fmt(rec.domains.rfr) + " / RFP " + fmt(rec.domains.rfp) + " / EF " + fmt(rec.domains.ef);
+      interp = "（高いほど良好）";
+    } else if (typeof rec.total === "number") {
+      scoreText = String(rec.total) + (id === "hit6" ? " 点" : id === "midas" ? " 日" : id === "pgic" ? " / 7" : "");
+      const band = SCORING.bandFor(rec.total, def.interpretationBands);
+      interp = id === "pgic" ? (rec.interpretation === "favorable" ? "改善あり" : "明確な改善なし") : (band ? band.label : "");
+    }
+    promCards.push('<tr><td>' + esc(def.title) + '<div class="c-small c-muted">' + esc(rec.date) + '</div></td><td>' + esc(scoreText) + '</td><td>' + esc(interp) + '</td></tr>');
+  });
+
+  // 推移（HIT-6 直近3回）＋ MCID 判定
+  const hit6Series = lastN("hit6", 3);
+  const trend = hit6Series.length
+    ? renderTrend(hit6Series.map((r) => ({ x: r.date, v: r.total })), 78)
+    : '<p class="c-muted">HIT-6 の記録が不足しています（推移には2回以上が必要）。</p>';
+  let mcidNote = "";
+  if (hit6Series.length >= 2) {
+    const delta = hit6Series[hit6Series.length - 1].total - hit6Series[hit6Series.length - 2].total;
+    const meaningful = delta <= -6;
+    mcidNote = '<div class="c-alert ' + (meaningful ? "c-alert--info" : "c-alert--warn") + '">前回比 ' + (delta > 0 ? "+" : "") + delta + ' 点 — ' +
+      (meaningful ? "慢性片頭痛の MCID（≥6点改善）を満たす臨床的に意味のある改善。" : "MCID（≥6点改善）には未到達。") + '</div>';
+  }
+
+  // 日誌サマリー（直近2週間）
+  const recent = state.diary.entries.filter((e) => withinDays(e.date, 14)).slice().reverse();
+  const diaryRows = recent.length ? recent.map((en) => (
+    '<tr><td>' + esc(en.date) + '</td><td>' + esc((en.startTime || "—") + "〜" + (en.endTime || "—")) + '</td>' +
+    '<td>' + esc(num(en.nrs && en.nrs.onset) + "/" + num(en.nrs && en.nrs.peak) + "/" + num(en.nrs && en.nrs.post2h)) + '</td>' +
+    '<td>' + esc((en.drugs || []).map((d) => d.name + (d.time ? "(" + d.time + ")" : "")).join("、") || "—") + '</td>' +
+    '<td>' + esc(drugEffectText(en)) + '</td></tr>'
+  )).join("") : '<tr><td colspan="5" class="c-muted">直近2週間の記録がありません。</td></tr>';
+
+  main.innerHTML =
+    '<button class="c-back no-print" data-go="#/dashboard">← ダッシュボード</button>' +
+    '<div class="c-btnrow no-print" style="margin-bottom:8px;"><button class="c-btn" id="printBtn">🖨️ 印刷 / PDF 保存</button></div>' +
+    '<div class="print-container">' +
+      '<div class="c-card"><div class="c-eyebrow">医師共有用レポート</div>' +
+        '<h1 style="margin:6px 0;">頭痛評価レポート</h1>' +
+        '<p class="c-small c-muted">出力日: ' + esc(todayISO()) + ' ／ 評価対象期間: ' + esc(ym) + '（当月）・日誌は直近2週間</p>' +
+      '</div>' +
+
+      '<div class="c-card"><h2>基本サマリー</h2>' +
+        '<table class="c-tbl"><tbody>' +
+          '<tr><th>当月の総頭痛日数</th><td>' + headacheDays + ' 日</td></tr>' +
+          '<tr><th>当月の急性期薬 服用日数</th><td>' + medDaysSet.size + ' 日</td></tr>' +
+        '</tbody></table>' +
+        '<h3>MOH リスク判定（ICHD-3 8.2）</h3>' +
+        '<table class="c-tbl"><thead><tr><th>薬剤分類</th><th>服用日数</th><th>閾値</th><th>判定</th></tr></thead><tbody>' + mohRows + '</tbody></table>' +
+      '</div>' +
+
+      '<div class="c-card"><h2>最新 PROM スコア</h2>' +
+        '<table class="c-tbl"><thead><tr><th>尺度</th><th>スコア</th><th>臨床判定</th></tr></thead><tbody>' + promCards.join("") + '</tbody></table>' +
+      '</div>' +
+
+      '<div class="c-card"><h2>推移と臨床的変化（HIT-6 直近3回）</h2>' + trend + mcidNote + '</div>' +
+
+      '<div class="c-card page-break"><h2>頭痛日誌サマリー（直近2週間）</h2>' +
+        '<table class="c-tbl"><thead><tr><th>日付</th><th>時間</th><th>NRS<br/>発症/ピーク/2h後</th><th>薬剤（時刻）</th><th>服薬2h後の変化</th></tr></thead><tbody>' + diaryRows + '</tbody></table>' +
+      '</div>' +
+
+      '<div class="c-card"><h3>免責・出典</h3>' +
+        '<p class="c-small">' + esc(COMMON_DISCLAIMER) + ' HIT-6/MIDAS/MSQ などの質問票は前向き頭痛日誌を代替しません（REFORM 2026）。</p>' +
+        '<p class="c-small c-muted">出典: HIT-6 © QualityMetric（学術可・商用要許諾, Sakai 2004）／ MSQ v2.1 Mapi Research Trust（要許諾, Speck 2019/2021）／ MIDAS（Iigaya 2003）／ PGIC パブリックドメイン（Guy 1976）／ NRS・VAS（IHS / FDA）。</p>' +
+      '</div>' +
+    '</div>';
+
+  $("#printBtn").addEventListener("click", () => window.print());
+}
+
+function fmt(v) { return typeof v === "number" ? v.toFixed(1) : "—"; }
+function withinDays(dateISO, days) {
+  if (!isString(dateISO)) return false;
+  const target = SCORING.nextDueDate(dateISO, "P" + days + "D");
+  return target !== null && target >= todayISO();
+}
+function drugEffectText(en) {
+  const ds = (en.drugs || []).filter((d) => typeof d.effectNrs2h === "number");
+  if (!ds.length) return "—";
+  const peak = en.nrs && typeof en.nrs.peak === "number" ? en.nrs.peak : null;
+  return ds.map((d) => {
+    if (peak !== null) return "ピーク" + peak + "→2h後" + d.effectNrs2h;
+    return "2h後 NRS " + d.effectNrs2h;
+  }).join("、");
+}
+function renderTrend(series, maxV) {
+  const bars = series.map((p) => {
+    const pct = Math.max(4, Math.round((p.v / maxV) * 100));
+    return '<div class="c-bar"><div class="c-barv">' + p.v + '</div><div class="c-barfill" style="height:' + pct + '%"></div><div class="c-barx">' + esc(p.x) + '</div></div>';
+  }).join("");
+  return '<div class="c-trend">' + bars + '</div>';
+}
+
+/* ============================== ビュー: データ管理（JSON エクスポート/インポート） ============================== */
+function renderData() {
+  main.innerHTML =
+    '<button class="c-back" data-go="#/dashboard">← ダッシュボード</button>' +
+    '<div class="c-viewhead">' +
+      '<div class="c-eyebrow">データ管理</div>' +
+      '<h1>エクスポート / インポート</h1>' +
+      '<p>機種変更やキャッシュ消去に備え、すべてのデータを JSON ファイルとして保存・復元できます。データは外部に送信されません。</p>' +
+    '</div>' +
+    '<div class="c-card">' +
+      '<h2>エクスポート</h2>' +
+      '<p class="c-small c-muted">設定・SNOOP 履歴・頭痛日誌・PROM スコアを <code>schemaVersion ' + SCHEMA_VERSION + '</code> 付きで書き出します。</p>' +
+      '<div class="c-btnrow"><button class="c-btn" id="exportBtn">⬇️ JSON をダウンロード</button></div>' +
+    '</div>' +
+    '<div class="c-card">' +
+      '<h2>インポート</h2>' +
+      '<p class="c-small c-muted">既存データは置き換えられます。' + '<code>schemaVersion</code> 不一致時はマイグレーションを適用します。</p>' +
+      '<div class="c-field"><input class="c-input" type="file" id="importFile" accept="application/json,.json" /></div>' +
+      '<div class="c-btnrow"><button class="c-btn c-btn--ghost" id="importBtn">⬆️ 選択したファイルを読み込む</button></div>' +
+    '</div>' +
+    '<div class="c-card">' +
+      '<h2>設定</h2>' +
+      '<div class="c-field"><label class="c-flabel" for="setVariant">PGIC バージョン</label>' +
+        '<select class="c-select" id="setVariant"><option value="ascending"' + (state.settings.pgicVariant === "ascending" ? " selected" : "") + '>昇順版A（高スコア＝改善大・既定）</option><option value="descending"' + (state.settings.pgicVariant === "descending" ? " selected" : "") + '>降順版（低スコア＝改善大）</option></select></div>' +
+      '<div class="c-field"><label class="c-flabel" for="setStart">治療開始日（PGIC の基準）</label><input class="c-input" type="date" id="setStart" value="' + esc(state.settings.treatmentStartDate || "") + '" /></div>' +
+      '<div class="c-btnrow"><button class="c-btn" id="saveSettings">設定を保存</button> <button class="c-btn c-btn--danger" id="wipeBtn">すべてのデータを削除</button></div>' +
+    '</div>';
+
+  $("#exportBtn").addEventListener("click", () => {
+    store.exportAll().then((json) => {
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "headache-prom-export-" + todayISO() + ".json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      toast("エクスポートしました");
+    }).catch((e) => toast(e.message));
+  });
+
+  $("#importBtn").addEventListener("click", () => {
+    const file = $("#importFile").files[0];
+    if (!file) { toast("ファイルを選択してください"); return; }
+    const reader = new FileReader();
+    reader.onload = () => {
+      const text = typeof reader.result === "string" ? reader.result : "";
+      store.importAll(text).then(() => boot(true)).then(() => {
+        toast("インポートしました");
+        navigate("#/dashboard");
+      }).catch((e) => toast(e.message));
+    };
+    reader.onerror = () => toast("ファイルの読み込みに失敗しました");
+    reader.readAsText(file);
+  });
+
+  $("#saveSettings").addEventListener("click", () => {
+    state.settings.pgicVariant = $("#setVariant").value;
+    REGISTRY.pgic.scoring.variant = state.settings.pgicVariant; // レジストリへ反映
+    state.settings.treatmentStartDate = $("#setStart").value;
+    persistAll().then(() => toast("設定を保存しました")).catch((e) => toast(e.message));
+  });
+
+  $("#wipeBtn").addEventListener("click", () => {
+    if (!window.confirm("すべてのローカルデータを削除します。元に戻せません。よろしいですか？")) return;
+    window.localStorage.removeItem(KEYS.settings);
+    window.localStorage.removeItem(KEYS.snoop);
+    window.localStorage.removeItem(KEYS.diary);
+    window.localStorage.removeItem(KEYS.scores);
+    boot(true).then(() => { toast("削除しました"); navigate("#/snoop"); });
+  });
+}
+
+/* ============================== ビュー: About（Mermaid 図） ============================== */
+function renderAbout() {
+  main.innerHTML =
+    '<button class="c-back" data-go="#/dashboard">← ダッシュボード</button>' +
+    '<div class="c-viewhead">' +
+      '<div class="c-eyebrow">このアプリについて</div>' +
+      '<h1>設計・アーキテクチャ・出典</h1>' +
+      '<p>ローカルファースト（端末内完結）。コアロジックは Next.js への 1:1 移植を前提に「質問票＝データ」「スコアリング＝純粋関数」「描画/永続化＝差し替え可能なシェル」の 3 層に分離しています（設計書 第8章）。</p>' +
+    '</div>' +
+    '<div class="c-card"><h2>アプリ構成フロー（設計書 第2章）</h2>' +
+      '<div class="c-mmd"><div class="c-mmd-lbl">起動から記録・出力までの基本フロー</div>' +
+        '<pre class="mermaid">' + "\n" +
+'flowchart TD' + "\n" +
+'  Start(["アプリ起動"]) --> Setup{"保存データが\\n存在するか？"}' + "\n" +
+'  Setup -- "いいえ（初回）" --> Snoop["SNOOP4 レッドフラッグ\\nスクリーニング（必須）"]' + "\n" +
+'  Setup -- "はい（再起動）" --> Dash["統合ダッシュボード"]' + "\n" +
+'  Snoop --> Check{"レッドフラッグに\\n該当するか？"}' + "\n" +
+'  Check -- "はい" --> Alert["緊急受診アラート\\n（遷移をブロック）"]' + "\n" +
+'  Check -- "いいえ" --> Dash' + "\n" +
+'  Dash --> D1["頭痛日誌"]' + "\n" +
+'  Dash --> D2["定期PROM評価\\nHIT-6 / MIDAS / MSQ / PGIC"]' + "\n" +
+'  Dash --> D3["疼痛強度\\nNRS / VAS"]' + "\n" +
+'  Dash --> D4["レポート出力 / データ管理"]' + "\n" +
+        '</pre></div>' +
+    '</div>' +
+    '<div class="c-card"><h2>アーキテクチャ（設計書 第8章）</h2>' +
+      '<div class="c-mmd"><div class="c-mmd-lbl">コア（移植対象）とシェル（差し替え可能）の分離</div>' +
+        '<pre class="mermaid">' + "\n" +
+'flowchart LR' + "\n" +
+'  subgraph Core["コア（環境非依存・移植対象）"]' + "\n" +
+'    R["① 宣言的レジストリ\\n質問票定義（JSON）"]' + "\n" +
+'    E["② スコアリングエンジン\\n純粋関数（副作用なし）"]' + "\n" +
+'  end' + "\n" +
+'  subgraph Shell["シェル（環境ごとに差し替え）"]' + "\n" +
+'    U["③a 描画レイヤ\\nHTML/JS → React/TSX"]' + "\n" +
+'    S["③b 永続化アダプタ\\nLocalStorage → IndexedDB → 同期"]' + "\n" +
+'  end' + "\n" +
+'  R --> E' + "\n" +
+'  R --> U' + "\n" +
+'  E --> U' + "\n" +
+'  U --> S' + "\n" +
+'  S --> U' + "\n" +
+        '</pre></div>' +
+    '</div>' +
+    '<div class="c-card"><h2>収録尺度と出典・著作権</h2>' +
+      '<table class="c-tbl"><thead><tr><th>尺度</th><th>著作権 / ライセンス</th><th>リコール期間</th></tr></thead><tbody>' +
+        licenseRow("hit6") + licenseRow("midas") + licenseRow("msq-v2.1") + licenseRow("pgic") +
+        '<tr><td>NRS / VAS</td><td>一般尺度（IHS / FDA が PRO エンドポイントとして承認）</td><td>随時</td></tr>' +
+      '</tbody></table>' +
+      '<div class="c-license" style="margin-top:14px;">' + esc(COMMON_DISCLAIMER) + '</div>' +
+    '</div>';
+
+  runMermaid();
+}
+
+function licenseRow(id) {
+  const d = REGISTRY[id];
+  return '<tr><td>' + esc(d.title) + '</td><td>' + esc(d.license.holder) + '<div class="c-small c-muted">' + esc(d.license.note) + '</div></td><td>' + esc(d.recallLabel) + '</td></tr>';
+}
+
+/* Mermaid を現在のテーマで（再）描画。隠れ要素の 0 幅描画を避けるため表示後に run。 */
+let mermaidReady = false;
+function runMermaid() {
+  if (typeof window.mermaid === "undefined") return;
+  const dark = isDarkActive();
+  try {
+    window.mermaid.initialize({
+      startOnLoad: false,
+      theme: dark ? "dark" : "base",
+      themeVariables: dark ? {} : {
+        primaryColor: "#e8eaf6", primaryTextColor: "#1a237e", primaryBorderColor: "#5c6bc0",
+        lineColor: "#64748b", secondaryColor: "#ede9fe", tertiaryColor: "#eef2ff",
+        edgeLabelBackground: "#ffffff", fontSize: "13px"
+      },
+      flowchart: { curve: "linear", padding: 18 },
+      securityLevel: "strict"
+    });
+    const nodes = $$("#main pre.mermaid");
+    window.mermaid.run({ nodes: nodes });
+    mermaidReady = true;
+  } catch (e) {
+    // Mermaid 描画失敗時もアプリ全体は機能させる（図のみ欠落）
+    const lbl = $(".c-mmd .c-mmd-lbl");
+    if (lbl) lbl.textContent = "（図の描画に失敗しました。ネットワークまたは CDN を確認してください）";
+  }
+}
+
+/* ============================== テーマ切替 ============================== */
+function isDarkActive() {
+  const t = document.documentElement.getAttribute("data-theme");
+  if (t === "dark") return true;
+  if (t === "light") return false;
+  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  const btn = $("#themeBtn");
+  btn.textContent = theme === "auto" ? "🌗 自動" : theme === "light" ? "☀️ ライト" : "🌙 ダーク";
+}
+function cycleTheme() {
+  const order = ["auto", "light", "dark"];
+  const cur = state.settings.theme || "auto";
+  const next = order[(order.indexOf(cur) + 1) % order.length];
+  state.settings.theme = next;
+  applyTheme(next);
+  persistAll().catch((e) => toast(e.message));
+  if ($("#main pre.mermaid")) runMermaid();
+}
+
+/* ============================== セルフテスト（設計書 第11章: 純粋関数の AAA テスト） ============================== */
+function runSelfTests() {
+  const results = [];
+  const t = (name, fn) => {
+    try { const detail = fn(); results.push({ name: name, pass: true, detail: detail || "" }); }
+    catch (e) { results.push({ name: name, pass: false, detail: e instanceof Error ? e.message : String(e) }); }
+  };
+  const assert = (cond, msg) => { if (!cond) throw new Error(msg || "assertion failed"); };
+  const unwrap = (r) => { if (!r.ok) throw new Error("予期せぬエラー: " + r.error); return r.value; };
+
+  t("SNOOP4: 未チェック=遷移可 / 1項目該当=ブロック（判定ロジック）", () => {
+    const positive = (flags) => flags.length > 0;
+    assert(positive([]) === false, "未チェックでブロックされた");
+    assert(positive(["突然の発症"]) === true, "1項目該当でブロックされない");
+    return "0件→通過 / 1件→ブロック";
+  });
+  t("HIT-6 全『まったくない』=36 grade1", () => {
+    const r = unwrap(SCORING.scoreInstrument([6,6,6,6,6,6], REGISTRY.hit6));
+    assert(r.total === 36 && r.interpretation === "grade1", "total=" + r.total);
+    return "36 / grade1";
+  });
+  t("HIT-6 全『いつも』=78 grade4", () => {
+    const r = unwrap(SCORING.scoreInstrument([13,13,13,13,13,13], REGISTRY.hit6));
+    assert(r.total === 78 && r.interpretation === "grade4", "total=" + r.total);
+    return "78 / grade4";
+  });
+  t("MIDAS 91以上/非整数を拒否, A/B非加算", () => {
+    assert(SCORING.scoreInstrument([91,0,0,0,0], REGISTRY.midas).ok === false, "91 を許容");
+    assert(SCORING.scoreInstrument([1.5,0,0,0,0], REGISTRY.midas).ok === false, "非整数を許容");
+    const r = unwrap(SCORING.scoreInstrument([10,20,5,8,2], REGISTRY.midas));
+    assert(r.total === 45, "5問合計が不一致");
+    return "範囲/型検証 OK・合計=45";
+  });
+  t("MSQ 全code1→100 / 全code6→0", () => {
+    const hi = unwrap(SCORING.scoreInstrument(Array(14).fill(1), REGISTRY["msq-v2.1"]));
+    assert(hi.domains.rfr === 100 && hi.domains.rfp === 100 && hi.domains.ef === 100, "上限不一致");
+    const lo = unwrap(SCORING.scoreInstrument(Array(14).fill(6), REGISTRY["msq-v2.1"]));
+    assert(lo.domains.rfr === 0 && lo.domains.rfp === 0 && lo.domains.ef === 0, "下限不一致");
+    return "100/100/100 ↔ 0/0/0";
+  });
+  t("PGIC 昇順5–7=favorable / variant切替で反転", () => {
+    assert(unwrap(SCORING.scoreInstrument([5], REGISTRY.pgic)).interpretation === "favorable", "昇順5");
+    assert(unwrap(SCORING.scoreInstrument([4], REGISTRY.pgic)).interpretation === "non-favorable", "昇順4");
+    const desc = { scoring: { method: "single-ordinal", variant: "descending" } };
+    assert(unwrap(SCORING.scoreInstrument([2], desc)).interpretation === "favorable", "降順2");
+    return "昇順5–7 / 降順1–3";
+  });
+  t("MOH トリプタン10日・NSAIDs15日=乱用超過", () => {
+    assert(unwrap(SCORING.mohRiskFor(10, "triptan-ergot-opioid-combo")).level === "overuse", "トリプタン10");
+    assert(unwrap(SCORING.mohRiskFor(15, "simple-nsaid")).level === "overuse", "NSAIDs15");
+    assert(unwrap(SCORING.mohRiskFor(9, "triptan-ergot-opioid-combo")).level === "caution", "トリプタン9");
+    return "閾値 10 / 15";
+  });
+  t("nextDueDate: P4W=+28日 / P3M=+3ヶ月（UTC固定）", () => {
+    assert(SCORING.nextDueDate("2026-06-01", "P4W") === "2026-06-29", SCORING.nextDueDate("2026-06-01","P4W"));
+    assert(SCORING.nextDueDate("2026-06-01", "P3M") === "2026-09-01", SCORING.nextDueDate("2026-06-01","P3M"));
+    return "+28d / +3mo";
+  });
+
+  return results;
+}
+
+function showSelfTest() {
+  const results = runSelfTests();
+  const passed = results.filter((r) => r.pass).length;
+  const rows = results.map((r) => (
+    '<div><span class="' + (r.pass ? "ok" : "ng") + '">' + (r.pass ? "✅" : "❌") + '</span> ' + esc(r.name) + (r.detail ? ' <span class="c-muted">— ' + esc(r.detail) + '</span>' : '') + '</div>'
+  )).join("");
+  main.innerHTML =
+    '<button class="c-back" data-go="#/dashboard">← ダッシュボード</button>' +
+    '<div class="c-viewhead"><div class="c-eyebrow">開発者向け</div><h1>スコアリング自己テスト</h1>' +
+    '<p>設計書 第11章のシナリオを純粋関数に対して実行（AAA パターン）。</p></div>' +
+    '<div class="c-card"><div class="c-result ' + (passed === results.length ? "is-success" : "is-danger") + '"><div class="c-num">' + passed + ' / ' + results.length + '</div><div>テスト合格</div></div>' +
+    '<div class="c-selftest" style="margin-top:14px; line-height:2;">' + rows + '</div></div>';
+  // コンソールにも出力
+  results.forEach((r) => console.log((r.pass ? "PASS" : "FAIL") + " — " + r.name + (r.detail ? " : " + r.detail : "")));
+  console.log(passed + "/" + results.length + " self-tests passed");
+}
+
+/* ============================== グローバル イベント委譲 ============================== */
+document.addEventListener("click", (e) => {
+  const goEl = e.target.closest ? e.target.closest("[data-go]") : null;
+  if (goEl) { e.preventDefault(); navigate(goEl.getAttribute("data-go")); }
+});
+$("#themeBtn").addEventListener("click", cycleTheme);
+$("#selftestLink").addEventListener("click", showSelfTest);
+$("#urgentRescreen").addEventListener("click", () => { closeUrgent(); navigate("#/snoop"); });
+// 緊急オーバーレイ表示中の Escape では閉じない（ゲートの性質を維持）。背景クリックも無効。
+
+/* ============================== 起動 ============================== */
+async function boot(reload) {
+  state.settings = (await store.load(KEYS.settings)) || defaultSettings();
+  state.snoop = (await store.load(KEYS.snoop)) || { schemaVersion: SCHEMA_VERSION, history: [] };
+  state.diary = (await store.load(KEYS.diary)) || { schemaVersion: SCHEMA_VERSION, entries: [] };
+  state.scores = (await store.load(KEYS.scores)) || { schemaVersion: SCHEMA_VERSION, records: [] };
+
+  // 構造の健全化（型ガード）
+  if (!isArray(state.snoop.history)) state.snoop.history = [];
+  if (!isArray(state.diary.entries)) state.diary.entries = [];
+  if (!isArray(state.scores.records)) state.scores.records = [];
+  if (!isArray(state.settings.medicationList)) state.settings.medicationList = DEFAULT_MEDS.slice();
+
+  // レジストリへ PGIC variant を反映
+  REGISTRY.pgic.scoring.variant = state.settings.pgicVariant === "descending" ? "descending" : "ascending";
+
+  applyTheme(state.settings.theme || "auto");
+
+  if (!reload) {
+    // 初回保存（設定が無ければ作る）
+    await persistAll();
+  }
+}
+
+// OS テーマ変更に追従（自動モード時）
+if (window.matchMedia) {
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
+  const onChange = () => { if ((state.settings && state.settings.theme || "auto") === "auto") { if ($("#main pre.mermaid")) runMermaid(); } };
+  if (mq.addEventListener) mq.addEventListener("change", onChange);
+}
+
+// クエリ ?selftest=1 で自己テストを直接表示
+boot(false).then(() => {
+  if (/[?&]selftest=1/.test(location.search)) { showSelfTest(); return; }
+  route();
+}).catch((e) => {
+  main.innerHTML = '<div class="c-card"><div class="c-result is-danger"><strong>起動に失敗しました</strong><div class="c-small">' + esc(e.message) + '</div></div></div>';
+});
+</script>
+</body>
+</html>
