@@ -86,8 +86,10 @@ describe("LocalStorageAdapter: exportAll / importAll", () => {
     };
     await adapter.importAll(JSON.stringify(payload));
 
+    const settings = await adapter.load(KEYS.settings);
     const snoop = await adapter.load(KEYS.snoop);
     const scores = await adapter.load(KEYS.scores);
+    expect(settings).toMatchObject({ schemaVersion: SCHEMA_VERSION, theme: "dark" });
     expect(snoop).toMatchObject({ history: [{ result: true }] });
     expect(scores).toMatchObject({ records: [{ instrumentId: "midas" }] });
   });

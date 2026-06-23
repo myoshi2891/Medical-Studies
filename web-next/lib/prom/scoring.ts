@@ -106,6 +106,9 @@ export function mohRiskFor(monthlyDays: number, drugClass: string): Result<MohRe
   if (!isInteger(monthlyDays) || monthlyDays < 0) {
     return err("服用日数は 0 以上の整数で指定してください");
   }
+  if (drugClass !== "simple-nsaid" && drugClass !== "triptan-ergot-opioid-combo") {
+    return err(`未定義の薬剤分類です: ${drugClass}`);
+  }
   const threshold = drugClass === "simple-nsaid" ? 15 : 10;
   let level: MohResult["level"];
   if (monthlyDays >= threshold) level = "overuse";
@@ -119,9 +122,18 @@ export function nextDueDate(lastDateISO: string, isoPeriod: string): string | nu
   if (typeof lastDateISO !== "string") return null;
   const dm = /^(\d{4})-(\d{2})-(\d{2})$/.exec(lastDateISO);
   if (!dm) return null;
+  const year = Number(dm[1]);
+  const month = Number(dm[2]);
+  const day = Number(dm[3]);
+  const r = new Date(Date.UTC(year, month - 1, day));
+  if (r.getUTCFullYear() !== year || r.getUTCMonth() !== month - 1 || r.getUTCDate() !== day) {
+    return null;
+  }
   const m = /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?$/.exec(isoPeriod);
   if (!m) return null;
-  const r = new Date(Date.UTC(Number(dm[1]), Number(dm[2]) - 1, Number(dm[3])));
+  if (!m[1] && !m[2] && !m[3] && !m[4]) {
+    return null;
+  }
   if (m[1]) r.setUTCFullYear(r.getUTCFullYear() + Number(m[1]));
   if (m[2]) r.setUTCMonth(r.getUTCMonth() + Number(m[2]));
   if (m[3]) r.setUTCDate(r.getUTCDate() + Number(m[3]) * 7);

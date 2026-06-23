@@ -97,6 +97,10 @@ describe("mohRiskFor", () => {
     expect(mohRiskFor(-1, "simple-nsaid").ok).toBe(false);
     expect(mohRiskFor(2.5, "simple-nsaid").ok).toBe(false);
   });
+
+  it("未知の薬剤分類は ok:false", () => {
+    expect(mohRiskFor(10, "unknown-class").ok).toBe(false);
+  });
 });
 
 describe("nextDueDate (UTC 固定・純粋)", () => {
@@ -108,6 +112,8 @@ describe("nextDueDate (UTC 固定・純粋)", () => {
   it("不正な日付・期間は null", () => {
     expect(nextDueDate("2026/06/01", "P4W")).toBeNull();
     expect(nextDueDate("2026-06-01", "XYZ")).toBeNull();
+    expect(nextDueDate("2026-02-31", "P4W")).toBeNull();
+    expect(nextDueDate("2026-06-01", "P")).toBeNull();
   });
 });
 
