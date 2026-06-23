@@ -1,13 +1,18 @@
 ---
 name: nextjs-page-migration
 description: >
-  Migrate static HTML guide pages (Types-of-headache/html-files/**/*.html) to a
-  web-next/ Next.js App Router project using TDD.
+  Migrate HTML pages to a web-next/ Next.js App Router project using TDD.
+  Handles two archetypes: A = static educational guide pages
+  (Types-of-headache/html-files/**/*.html, Server Component, faithful transcription),
+  B = interactive single-page apps (prom-checker/index.html, client state + hash router,
+  pure-function core extraction + StorageAdapter).
   TRIGGER when the user says any of the following (Japanese or English):
   - "新規ガイドページを追加" / "ガイドページを移行" / "HTMLをNext.jsに移行"
   - "add new guide page" / "migrate guide page" / "nextjs page migration"
-  Applies this repo's patterns: globals.css scoped class styling, hand-written span
-  syntax highlighting via dangerouslySetInnerHTML, @tabler/icons-react, lazy Mermaid.
+  - "インタラクティブHTMLを移行" / "SPAをNext.jsに移行" / "migrate interactive HTML"
+  Applies this repo's patterns: globals.css / scoped-class styling, hand-written span
+  syntax highlighting via dangerouslySetInnerHTML, @tabler/icons-react, lazy Mermaid,
+  declarative registry + pure-function scoring core, StorageAdapter persistence.
 invocation: explicit
 allowed-tools:
   - Read
@@ -18,12 +23,36 @@ allowed-tools:
   - Bash
 ---
 
-# Next.js ガイドページ移行スキル
+# Next.js ページ移行スキル
 
 ## 概要
 
-`Types-of-headache/html-files/` 配下の静的 HTML ページを
-`web-next/`（Next.js App Router）へ TDD で移行する。
+HTML ページを `web-next/`（Next.js App Router）へ TDD で移行する。移行対象は
+**2 つのアーキタイプ**に大別され、手順が分岐する。
+
+- **アーキタイプ A — 静的教育ページ**: `Types-of-headache/html-files/` 配下のガイド HTML。
+  Server Component として**忠実転記**する。本スキルの大半（「新規ページ追加の標準手順」）は A 用。
+- **アーキタイプ B — インタラクティブ SPA**: `prom-checker/index.html` のような状態・ルーティング・
+  永続化を持つ単一 HTML アプリ。**コア（データ + 純粋関数）を抽出**し、シェル（描画 + 永続化）を
+  クライアントコンポーネントへ移植する。詳細は「アーキタイプ B: インタラクティブ SPA の移行」節。
+
+## アーキタイプ判定（最初に必ず行う）
+
+ソース HTML の `<script>` を確認し、次のいずれかがあれば **B**、なければ **A**:
+
+| 判定シグナル（B の兆候） | 例 |
+| --- | --- |
+| アプリ状態を保持する変数・更新 | `const state = {…}`、`state.x = …` |
+| クライアントルーター | `location.hash` / `hashchange` / `route()` |
+| 永続化 | `localStorage` / `IndexedDB` / `StorageAdapter` |
+| フォーム送信ハンドラ | `addEventListener("submit", …)` で値を収集・保存 |
+| 宣言的データ + 純粋関数ロジック | `REGISTRY` / スコアリング / 自己テスト（self-test） |
+
+> `<script>` が Mermaid 初期化・スムーズスクロール・scroll-spy のみ（状態も永続化も無い）なら **A**。
+> 迷ったら `grep -nE 'localStorage|location.hash|addEventListener\("submit"' source.html` で確認する。
+
+**B の参照実装**: `prom-checker/index.html` → `web-next/`（`lib/prom/` コア +
+`components/prom/` シェル）。新規 B 移行はこの構成に倣う。
 
 > [!IMPORTANT]
 > **このスキルは移行開始前（`web-next/` ディレクトリ未作成の段階）での準備スキルです。**
@@ -78,7 +107,9 @@ allowed-tools:
 
 ---
 
-## 新規ページ追加の標準手順
+## アーキタイプ A: 新規ページ追加の標準手順
+
+> 静的教育ページ（Server Component・忠実転記）の手順。B の場合は次の大節へ。
 
 ### Step 1: [Red] 契約テストの作成
 
@@ -239,6 +270,119 @@ bun run build       # Next.js production build
 
 ---
 
+## アーキタイプ B: インタラクティブ SPA の移行
+
+`prom-checker/index.html` を参照実装とする。設計の核心は**コアとシェルの分離**:
+
+- **コア（環境非依存・TDD 対象）** = ① 宣言的レジストリ（質問票＝データ） + ② 純粋関数（スコアリング）。
+  DOM / Storage / 時刻に触れない。HTML 版と TS 版で **1:1 移植可能**。
+- **シェル（差し替え可能）** = ③a 描画レイヤ（HTML/JS → React/TSX） + ③b 永続化アダプタ（StorageAdapter）。
+
+### B-0: ブートストラップ（`web-next/` 未作成時のみ・`chore`）
+
+- 配置先はリポジトリルートの **`web-next/`**（`.gitignore` が `web-next/coverage/` を予約済み）。
+- `create-next-app` は**使わない**（最新版を引き決定論を損なう）。設定ファイルを手書きで複製する。
+  確定スタック（参照 `package.json` を複製）: next `16.2.6` / react・react-dom `19.2.4` /
+  mermaid `10.9.6` / @tabler/icons-react `^3.34.0` / typescript `^5` /
+  tailwindcss `^4` + @tailwindcss/postcss `^4` / @biomejs/biome `^2.5.0` /
+  vitest `^4.1.4` + @vitest/coverage-v8 `4.1.4` / jsdom `^25` / @testing-library/{react,dom,jest-dom}。
+- スクリプト: `dev/build/start/lint(biome check .)/lint:fix/format/test(vitest run)/test:coverage/test:watch/typecheck`。
+- `tsconfig`: `strict: true` + paths `@/*`。`vitest.config`: `environment: "jsdom"` + setup（jest-dom）。
+
+> **スタイルと Tailwind の共存（重要・preflight 競合回避）**: Tailwind v4 は依存に含めるが、
+> 完結したカスタム CSS デザインシステムを持つページでは **`@import "tailwindcss"` を行わない**。
+> preflight（リセット）が独自リセット・リスト表示・フォームスタイルを上書きして崩すため。
+> ページ固有 CSS は**スコープクラス配下に別ファイル**（例 `app/<app>/<app>.css`）へ置き、
+> その**クライアントコンポーネントから `import`** する（`globals.css` は最小トークンのみ）。
+
+### B-1: [Red] コアの契約テスト → [Green] コア移植（最初の論理フェーズ）
+
+1. `lib/<app>/types.ts`: `Result<T>` 型（`{ ok:true; value } | { ok:false; error }`）と
+   レジストリ/レコードの型を定義。`any` 禁止 → `unknown` + 型ガード。
+2. `lib/<app>/*.test.ts`: **HTML 埋め込み self-test → Vitest 単体テスト**へ変換（下記パターン）。
+   実装前に `bun run test` で**失敗確認** → commit（`test(web-next): add failing … contract tests`）。
+3. `lib/<app>/registry.ts`（宣言的データを `as const` + 型注釈で TS 化）と
+   `lib/<app>/scoring.ts`（純粋関数を named export。`Result` で返す）を実装 → 緑 → commit（`feat`）。
+
+#### 「HTML 埋め込み self-test → Vitest」変換パターン（B の TDD 起点）
+
+多くの SPA は `runSelfTests()` のような自己診断を内蔵する。これが**移植のゴールデンテスト**になる。
+
+| 元（HTML 内 IIFE/関数） | 変換後（Vitest） |
+| --- | --- |
+| `const assert = (c,m) => { if(!c) throw … }` | `expect(...).toBe(...)` |
+| `t("name", () => {…})` の各シナリオ | `it("name", () => {…})` |
+| `SCORING.scoreInstrument(...)`（IIFE 名前空間） | `scoreInstrument(...)`（named import） |
+| 戻り値 `{ok,value}` の `unwrap` | `expect(r.ok).toBe(true); if (r.ok) …` で型を絞る |
+| 異常系（範囲外・非整数・未知 method） | `expect(fn(...).ok).toBe(false)` を明示的に追加 |
+
+> self-test は画面にも残す場合がある（`?selftest=1`）。その場合**ロジックは純粋関数に集約**し
+> （例 `components/<app>/self-tests.ts`）、Vitest と画面表示の両方から呼ぶ。重複実装しない。
+
+### B-2: [Red] → [Green] 永続化アダプタ（StorageAdapter）
+
+- `StorageAdapter` interface（`load/save/exportAll/importAll`）に UI を依存させる（**依存性逆転**）。
+  具体実装 `LocalStorageAdapter` は `StorageLike`（`getItem/setItem/removeItem`）を注入で受ける。
+- テストは**インメモリ Storage モック**を注入して往復（save→load）と
+  `schemaVersion` 不一致時のマイグレーション（`migratedFrom` 付与）を検証。
+- 将来 IndexedDB / 同期へ差し替え可能なことを担保する。
+
+### B-3: シェル（描画レイヤ）をクライアントコンポーネントへ
+
+#### ハッシュ SPA → 単一 `"use client"` ルート + 内部ルーター
+
+元のハッシュ/状態ベースのビュー切替を**そのまま忠実移植**する（最も低リスク・共有 state が単純）:
+
+- `app/<app>/page.tsx`（Server Component）は `<XxxApp />` を描画するだけ。
+- `XxxApp.tsx`（`"use client"`）: `useState` で状態、`useEffect` で起動ロード（`boot()` 相当）+
+  `hashchange` リスナ。`currentHash` を state に持ち、`#/...` をパースして view/param を導出して切替。
+- **ゲート不変条件**（例: SNOOP4 未完了なら遷移ブロック）は描画分岐で保持し、URL も effect で同期。
+- 状態更新は**不変更新** + `commit(next)`（setState → StorageAdapter へ全キー保存）に集約。
+  元の「`state` を mutate → `persistAll()`」を、`commit` 一本へ変換する。
+- 共有状態・操作は **React Context** で各ビューへ配布（`navigate` / `toast` / `commit` / `openUrgent` 等）。
+
+#### テーマ（ダーク/ライト/自動）
+
+- `data-theme` を `<html>` ではなく**ラッパ `<div className="<app>">` へ宣言的付与**する。
+  サーバ/クライアントのハイドレーション不一致を避けつつ、`.<app>[data-theme="dark"]` が
+  全子孫へカスケードする。OS 追従は `matchMedia` を**必ず `typeof` ガード**（jsdom 非実装）。
+
+#### モジュール共有オブジェクトを mutate しない
+
+元実装が `REGISTRY.x.scoring.variant = …` のように共有データを書き換えていても、React では
+**派生オブジェクト**（`{ ...def, scoring: { ...def.scoring, variant } }`）を採点関数へ渡す。
+モジュールスコープの import を mutate すると全レンダーに波及して不具合になる。
+
+#### `innerHTML` 文字列組立 → JSX 変換（A の Pitfalls 表に加えて）
+
+| 問題 | NG（元 JS） | OK（JSX） |
+|------|-------|-------|
+| HTML エスケープ関数 | `esc(v)` で手動エスケープ | **不要**（JSX が自動エスケープ） |
+| 文字列連結組立 | `'<div>' + esc(x) + '</div>'` | `<div>{x}</div>` |
+| `element.innerHTML = html` | 動的文字列を代入 | コンポーネント + state で再描画 |
+| フォーム値収集 | `$('[name=…]').value` を querySelector | `new FormData(form)` を submit 時に読む |
+| 動的行（薬剤追加等） | DOM ノード生成 + 値の手動読取 | 行を **state 配列**で管理（controlled） |
+
+> **`dangerouslySetInnerHTML` は使わない**（動的文字列のため）。Mermaid は A と同じく
+> `pre.mermaid` + `mermaid.run({ nodes })` の in-place 変換で SVG を注入せず描画する。
+
+### B-4: 検証とコミット分割
+
+- 各コミット前に `bun run lint <変更ファイル>` / `typecheck` / `test` / `build` 全通過。
+- コミット順: `chore`(bootstrap) → `test`/`feat`(core) → `test`/`feat`(storage) →
+  `test`(shell 契約) → `feat`(shell) → `docs`。**テスト・実装・ドキュメントを 1 コミットにまとめない。**
+- シェルは router が全ビューを束ねる密結合ユニットになりやすい。機能境界で割れない場合は
+  契約テスト（ゲート→緊急 / ゲート→ダッシュボード等）を Red 起点に、シェルを 1 つの `feat` で確定してよい。
+
+### B 関連スキルとの関係
+
+- `html-to-nextjs-migration`: `<pre>` 改行消失・Tailwind v4 preflight 競合・`class→className`・
+  HTML エンティティの落とし穴（A/B 共通の低レベル変換）。
+- `md-to-nextjs-migration`: Markdown 由来コンテンツの JSX 化（主に A の本文生成）。
+- 本スキルの B 節は上記を前提に、**コア抽出 + StorageAdapter + ハッシュ SPA 移植**の上位手順を定義する。
+
+---
+
 ## 判定基準
 
 | 結果 | アクション |
@@ -262,6 +406,10 @@ bun run build       # Next.js production build
 - **`bun run lint:fix`（引数なし）を実行しない** — 変更ファイル単位でパス指定
 - **外部フォントを `<link>` で読み込まない** — `next/font/google` のみ（`layout.tsx`）
 - **コミット対象に絶対パス / ユーザー名を含めない** — `.claude/rules/no-absolute-paths.md`
+- **（B）コアに副作用を持ち込まない** — `lib/<app>/` は DOM / Storage / 時刻に触れない純粋層
+- **（B）モジュール共有 import を mutate しない** — 派生オブジェクトを渡す
+- **（B）self-test を二重実装しない** — 純粋関数に集約し Vitest と画面で共用
+- **（B）`@import "tailwindcss"` でデザインシステム CSS を上書きしない** — preflight 競合回避
 
 ---
 
