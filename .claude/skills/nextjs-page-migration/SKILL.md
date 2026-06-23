@@ -194,6 +194,10 @@ vi.mock("@/components/MermaidDiagram", () => ({
 `<pre>` 内に span とテキストが混在し JSX では空白が畳まれるため、
 **`dangerouslySetInnerHTML` でテンプレートリテラルとして渡す**（静的文字列のみ・XSS リスクなし）:
 
+> [!WARNING]
+> `dangerouslySetInnerHTML` の `__html` プロパティには、ユーザー入力、外部APIからのレスポンス、データベースの値、あるいは動的に生成されたテンプレートなどを絶対に渡してはいけません。
+> `__html` に渡す値は、ソースコード上にハードコードされた静的文字列のみでなければなりません。この制約に違反した場合、クロスサイトスクリプティング（XSS）の脆弱性リスクが生じるため、AIエージェントによる自動生成時も含め、動的なコンテンツ生成は厳禁とします。
+
 ```tsx
 <pre
   dangerouslySetInnerHTML={{
