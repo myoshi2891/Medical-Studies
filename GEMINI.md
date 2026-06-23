@@ -1,4 +1,4 @@
-# CLAUDE.md
+# GEMINI.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -12,26 +12,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## コマンド
 
-```bash
-# Markdown の自動整形（MD012/MD022/MD047 を修正）
-bun scripts/format-markdown.mjs <ファイルパス>
-
-# Markdown Lint 検証
-npx markdownlint-cli -c .markdownlint.json <ファイルパス>
-
-# Mermaid 構文の自動修正（HTML ファイル用）
-python3 .claude/skills/fix-mermaid/scripts/fix_mermaid.py <HTMLファイルパス>
-
-# Mermaid 修正スクリプトのテスト
-python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py
-
-# 新規 HTML ページのスケルトン生成（Phase 1）
-# 詳細仕様は .claude/skills/md-to-medical-html/SKILL.md 参照
-bun scripts/build-html-skeleton.mjs --help
-
-# Phase 2/3 — セクション HTML 断片をマーカー位置に挿入
-bun scripts/insert-sections.mjs <target-html> <fragment-html> [--final]
-```
+- **Markdown の自動整形（MD012/MD022/MD047 を修正）**:
+  `scripts/format-markdown.mjs` スクリプトを用いて、Markdownファイルを自動整形します。
+- **Markdown Lint 検証**:
+  `npx markdownlint-cli -c .markdownlint.json <ファイルパス>`
+- **Mermaid 構文の自動修正（HTML ファイル用）**:
+  `python3 .claude/skills/fix-mermaid/scripts/fix_mermaid.py <HTMLファイルパス>`
+- **Mermaid 修正スクリプトのテスト**:
+  `python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py`
+- **新規 HTML ページのスケルトン生成（Phase 1）**:
+  `scripts/build-html-skeleton.mjs` スクリプトを用いて、新規HTMLページのスケルトンを生成します。詳細は `.claude/skills/md-to-medical-html/SKILL.md` を参照してください。
+- **Phase 2/3 — セクション HTML 断片をマーカー位置に挿入**:
+  `scripts/insert-sections.mjs` スクリプトを用いて、セクションHTML断片をマーカー位置に挿入します。
 
 ## HTML デザインシステム
 
