@@ -98,23 +98,49 @@ export class LocalStorageAdapter implements StorageAdapter {
         reject(new Error("インポートデータの形式が不正です"));
         return;
       }
+
+      // トランザクション性（アトミック書き込み）の確保のため、現在の値をバックアップ
+      const backupSettings = this.storage.getItem(KEYS.settings);
+      const backupSnoop = this.storage.getItem(KEYS.snoop);
+      const backupDiary = this.storage.getItem(KEYS.diary);
+      const backupScores = this.storage.getItem(KEYS.scores);
+
       try {
         const migrated = migrateImport(data);
-        this.storage.setItem(KEYS.settings, JSON.stringify(migrated.settings));
-        this.storage.setItem(
-          KEYS.snoop,
-          JSON.stringify({ schemaVersion: SCHEMA_VERSION, history: migrated.snoopHistory })
-        );
-        this.storage.setItem(
-          KEYS.diary,
-          JSON.stringify({ schemaVersion: SCHEMA_VERSION, entries: migrated.diary })
-        );
-        this.storage.setItem(
-          KEYS.scores,
-          JSON.stringify({ schemaVersion: SCHEMA_VERSION, records: migrated.promScores })
-        );
+        // 書き込むデータを事前にシリアライズ（JSON.stringify の例外を事前に検知するため）
+        const settingsStr = JSON.stringify({ schemaVersion: SCHEMA_VERSION, ...migrated.settings });
+        const snoopStr = JSON.stringify({
+          schemaVersion: SCHEMA_VERSION,
+          history: migrated.snoopHistory,
+        });
+        const diaryStr = JSON.stringify({ schemaVersion: SCHEMA_VERSION, entries: migrated.diary });
+        const scoresStr = JSON.stringify({
+          schemaVersion: SCHEMA_VERSION,
+          records: migrated.promScores,
+        });
+
+        this.storage.setItem(KEYS.settings, settingsStr);
+        this.storage.setItem(KEYS.snoop, snoopStr);
+        this.storage.setItem(KEYS.diary, diaryStr);
+        this.storage.setItem(KEYS.scores, scoresStr);
         resolve();
       } catch (e) {
+        // ロールバック処理
+        try {
+          if (backupSettings !== null) this.storage.setItem(KEYS.settings, backupSettings);
+          else this.storage.removeItem(KEYS.settings);
+
+          if (backupSnoop !== null) this.storage.setItem(KEYS.snoop, backupSnoop);
+          else this.storage.removeItem(KEYS.snoop);
+
+          if (backupDiary !== null) this.storage.setItem(KEYS.diary, backupDiary);
+          else this.storage.removeItem(KEYS.diary);
+
+          if (backupScores !== null) this.storage.setItem(KEYS.scores, backupScores);
+          else this.storage.removeItem(KEYS.scores);
+        } catch (rollbackErr) {
+          console.error("ロールバック中にエラーが発生しました:", rollbackErr);
+        }
         reject(new Error(`インポートの保存に失敗しました: ${messageOf(e)}`));
       }
     });
