@@ -1,4 +1,6 @@
-// Phase 0 プレースホルダ。Phase 3 で <PromApp /> に置き換える（Server Component のまま）。
+import { PromApp } from "@/components/prom/PromApp";
+
+// Server Component。クライアント完結の PromApp を描画するだけ（元 index.html の Shell を内包）。
 export default function PromCheckerPage() {
-  return <main id="main">頭痛 PROM 統合チェッカー（移行作業中）</main>;
+  return <PromApp />;
 }
