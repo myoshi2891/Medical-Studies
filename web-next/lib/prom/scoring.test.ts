@@ -1,11 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { REGISTRY } from "./registry";
-import {
-  bandFor,
-  mohRiskFor,
-  nextDueDate,
-  scoreInstrument,
-} from "./scoring";
+import { bandFor, mohRiskFor, nextDueDate, scoreInstrument } from "./scoring";
 import type { Instrument, OrdinalScoring, Result, ScoreValue } from "./types";
 
 /**
