@@ -165,3 +165,109 @@ export interface ScheduleRow {
   every: string;
   period: string;
 }
+
+/* ============================== 永続化・アプリ状態 ============================== */
+
+export interface ReminderSettings {
+  enabled: boolean;
+}
+
+export interface Settings {
+  schemaVersion: string;
+  hasCompletedSnoop: boolean;
+  pgicVariant: "ascending" | "descending";
+  scaleChoice: "nrs" | "vas";
+  medicationList: Medication[];
+  treatmentStartDate: string;
+  reminders: ReminderSettings;
+  theme: "auto" | "light" | "dark";
+  /** インポート時にスキーマ版が異なった場合の移行元（マイグレーションの足場）。 */
+  migratedFrom?: string;
+}
+
+export interface SnoopEntry {
+  date: string;
+  result: boolean;
+  flags: string[];
+}
+
+export interface SnoopState {
+  schemaVersion: string;
+  history: SnoopEntry[];
+}
+
+export interface DiaryDrug {
+  name: string;
+  class: string;
+  dose: string;
+  time: string;
+  effectNrs2h: number | null;
+}
+
+export interface DiaryEntry {
+  id: string;
+  createdAt: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  sides: string[];
+  locations: string[];
+  quality: string[];
+  nrs: { onset: number | null; peak: number | null; post2h: number | null };
+  symptoms: string[];
+  aura: string[];
+  prodrome: string[];
+  drugs: DiaryDrug[];
+  triggers: string[];
+  sleep: { bedtime: string; waketime: string; quality: number | null; stress: number | null };
+  impact: number | null;
+}
+
+export interface DiaryState {
+  schemaVersion: string;
+  entries: DiaryEntry[];
+}
+
+export interface ScoreRecord {
+  date: string;
+  createdAt: string;
+  instrumentId: string;
+  instrumentVersion: string;
+  raw?: number[];
+  total?: number;
+  domains?: Record<string, number>;
+  interpretation?: string;
+  context?: Record<string, number>;
+  /** NRS / VAS の記録値（疼痛強度）。 */
+  value?: number;
+}
+
+export interface ScoresState {
+  schemaVersion: string;
+  records: ScoreRecord[];
+}
+
+/** エクスポート / インポートの JSON ペイロード（設計書 第7.2章）。 */
+export interface ExportPayload {
+  schemaVersion: string;
+  exportDate: string;
+  settings: Partial<Settings>;
+  snoopHistory: SnoopEntry[];
+  diary: DiaryEntry[];
+  promScores: ScoreRecord[];
+}
+
+/** 同期や IndexedDB へ差し替え可能な永続化アダプタの契約（設計書 第8.3章）。 */
+export interface StorageAdapter {
+  load(key: string): Promise<unknown>;
+  save(key: string, value: unknown): Promise<void>;
+  exportAll(): Promise<string>;
+  importAll(json: string): Promise<void>;
+}
+
+/** localStorage / sessionStorage 等が満たす最小インターフェース。 */
+export interface StorageLike {
+  getItem(key: string): string | null;
+  setItem(key: string, value: string): void;
+  removeItem(key: string): void;
+}
