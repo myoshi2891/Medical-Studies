@@ -1,0 +1,21 @@
+/*
+ * web-next グローバルスタイル。
+ * Tailwind v4 は postcss に配線済みだが、本リポジトリのページは完結したカスタム CSS
+ * デザインシステムを持ち、preflight（リセット）が独自リセット・リスト表示と競合するため
+ * `@import "tailwindcss"` は行わない（将来ユーティリティが必要なページで個別に検討する）。
+ *
+ * ページ別スタイルはスコープクラス配下に記述する:
+ *   - prom-checker: `app/prom-checker/prom-checker.css`（PromApp が import）
+ */
+
+:root {
+  --font-sans: var(--font-inter), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    system-ui, sans-serif;
+  --font-display: var(--font-outfit), var(--font-inter), system-ui, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
