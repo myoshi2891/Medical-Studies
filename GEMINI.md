@@ -69,7 +69,7 @@ bun scripts/insert-sections.mjs <target-html> <fragment-html> [--final]
 | `check-docs-sync` | "ドキュメントを同期して", "docs sync", "/check-docs-sync" | git push 後にドキュメント（GEMINI.md・PROGRESS.md 等）の更新漏れを検出・修正 |
 | `pre-commit-check` | "/pre-commit-check", "コミット前チェック" | コミット前の Markdown Lint・Mermaid テスト・フロントエンドビルド/テスト（条件付き）を検証（手動呼び出しのみ） |
 | `spec-sync` | "仕様書同期", "ドキュメント同期", "仕様同期" | GEMINI.md / CLAUDE.md / PROGRESS.md とコード実態の乖離を検出・修正 |
-| `nextjs-page-migration` | "/nextjs-page-migration", "HTMLをNext.jsに移行", "ガイドページを移行" | `html-files/` の静的 HTML を `web-next/` Next.js App Router へ TDD で移行（移行開始後に使用） |
+| `nextjs-page-migration` | "/nextjs-page-migration", "HTMLをNext.jsに移行", "ガイドページを移行", "SPAをNext.jsに移行" | HTML を `web-next/` Next.js App Router へ TDD 移行。2 アーキタイプ対応: A=静的教育ページ（`html-files/`・Server Component）/ B=インタラクティブ SPA（`prom-checker/index.html`・コア抽出 + StorageAdapter、参照実装は `lib/prom/`・`components/prom/`） |
 
 > [!NOTE]
 > `GEMINI.md` と `CLAUDE.md` は**同一内容**（`GEMINI.md` が SSoT）。一方を更新したら `spec-sync` スキルで他方も同期すること。
