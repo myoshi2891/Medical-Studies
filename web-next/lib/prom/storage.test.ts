@@ -57,9 +57,15 @@ describe("LocalStorageAdapter: exportAll / importAll", () => {
 
   it("4 つのキーを schemaVersion 付きペイロードへ集約する", async () => {
     await adapter.save(KEYS.settings, { theme: "light" });
-    await adapter.save(KEYS.snoop, { schemaVersion: SCHEMA_VERSION, history: [{ date: "2026-06-01", result: false, flags: [] }] });
+    await adapter.save(KEYS.snoop, {
+      schemaVersion: SCHEMA_VERSION,
+      history: [{ date: "2026-06-01", result: false, flags: [] }],
+    });
     await adapter.save(KEYS.diary, { schemaVersion: SCHEMA_VERSION, entries: [{ id: "d1" }] });
-    await adapter.save(KEYS.scores, { schemaVersion: SCHEMA_VERSION, records: [{ instrumentId: "hit6" }] });
+    await adapter.save(KEYS.scores, {
+      schemaVersion: SCHEMA_VERSION,
+      records: [{ instrumentId: "hit6" }],
+    });
 
     const json = await adapter.exportAll();
     const payload = JSON.parse(json);
