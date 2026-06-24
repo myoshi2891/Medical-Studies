@@ -1,0 +1,418 @@
+/* ============================================================
+   頭痛 PROM 統合チェッカー — アプリ専用デザインシステム（設計書 第6章）
+   元 prom-checker/index.html の <style> を忠実移植。
+   グローバル要素セレクタ（body・ユニバーサル・h1-h4・a・:root）のみ .prom-app スコープへ退避し、
+   他ページ（Types-of-headache）への波及を防ぐ。c-/app- クラスは一意接頭辞のため不変。
+   フォントは next/font の CSS 変数（--font-outfit / --font-inter）を参照する。
+   ============================================================ */
+
+/* ---- カラートークン: ライト（既定） ---- */
+.prom-app {
+  --bg-main: #f8fafc;          /* Slate 50 */
+  --bg-main-2: #eef2ff;        /* Indigo 50 ぼかし用 */
+  --bg-card: #ffffff;
+  --bg-card-rgb: 255, 255, 255;
+  --text-primary: #0f172a;     /* Slate 900 */
+  --text-secondary: #475569;   /* Slate 600 */
+  --color-accent: #4f46e5;     /* Indigo 600 */
+  --color-accent-rgb: 79, 70, 229;
+  --color-accent-2: #7c3aed;   /* Violet 600（署名グラデ用） */
+  --color-danger: #ef4444;     /* Red 500 */
+  --color-danger-rgb: 239, 68, 68;
+  --color-success: #10b981;    /* Emerald 500 */
+  --color-warning: #d97706;    /* Amber 600 */
+  --border-color: #e2e8f0;     /* Slate 200 */
+  --shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.25);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --tap: 44px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --maxw: 880px;
+
+  font-family: var(--font-inter), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+    system-ui, sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(900px 500px at 12% -8%, var(--bg-main-2), transparent 60%),
+    radial-gradient(800px 600px at 110% 0%, rgba(var(--color-accent-rgb), 0.10), transparent 55%),
+    var(--bg-main);
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- 手動ダーク ---- */
+.prom-app[data-theme="dark"] {
+  --bg-main: #0f172a;          /* Slate 900 */
+  --bg-main-2: #1e1b4b;        /* Indigo 950 */
+  --bg-card: #1e293b;          /* Slate 800 */
+  --bg-card-rgb: 30, 41, 59;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;   /* Slate 400 */
+  --color-accent: #6366f1;     /* Indigo 500 */
+  --color-accent-rgb: 99, 102, 241;
+  --color-accent-2: #a78bfa;
+  --color-danger: #f87171;     /* Red 400 */
+  --color-danger-rgb: 248, 113, 113;
+  --color-success: #34d399;    /* Emerald 400 */
+  --color-warning: #fbbf24;
+  --border-color: #334155;     /* Slate 700 */
+  --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- 自動（OS 追従）: data-theme="auto" のときのみダーク変数を適用 ---- */
+@media (prefers-color-scheme: dark) {
+  .prom-app[data-theme="auto"] {
+    --bg-main: #0f172a;
+    --bg-main-2: #1e1b4b;
+    --bg-card: #1e293b;
+    --bg-card-rgb: 30, 41, 59;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --color-accent: #6366f1;
+    --color-accent-rgb: 99, 102, 241;
+    --color-accent-2: #a78bfa;
+    --color-danger: #f87171;
+    --color-danger-rgb: 248, 113, 113;
+    --color-success: #34d399;
+    --color-warning: #fbbf24;
+    --border-color: #334155;
+    --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.prom-app *,
+.prom-app *::before,
+.prom-app *::after { box-sizing: border-box; }
+
+.prom-app :is(h1, h2, h3, h4),
+.prom-app .c-brand,
+.prom-app .c-tile-t,
+.prom-app .c-num {
+  font-family: var(--font-outfit), var(--font-inter), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.prom-app a { color: var(--color-accent); }
+
+/* ---- スキップリンク ---- */
+.c-skip {
+  position: absolute; left: -999px; top: 0; z-index: 200;
+  background: var(--color-accent); color: #fff; padding: 10px 16px;
+  border-radius: 0 0 10px 0; font-weight: 600;
+}
+.c-skip:focus { left: 0; }
+
+/* ---- フォーカスリング（キーボード操作の明示） ---- */
+.prom-app :where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ============================== レイアウト ============================== */
+.app-header {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px clamp(14px, 4vw, 28px);
+  background: rgba(var(--bg-card-rgb), 0.72);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+.c-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.05rem; }
+.c-brand .c-dot {
+  width: 28px; height: 28px; border-radius: 9px; flex: 0 0 auto;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  box-shadow: 0 6px 16px -6px rgba(var(--color-accent-rgb), 0.7);
+}
+.app-header .c-spacer { flex: 1; }
+
+.c-iconbtn {
+  min-width: var(--tap); min-height: var(--tap);
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border: 1px solid var(--border-color); background: rgba(var(--bg-card-rgb), 0.6);
+  color: var(--text-primary); border-radius: 12px; cursor: pointer;
+  font-size: 0.9rem; padding: 0 12px; transition: all 0.3s var(--ease);
+}
+.c-iconbtn:hover { border-color: var(--color-accent); transform: translateY(-1px); }
+
+.app-main {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(16px, 4vw, 30px) clamp(14px, 4vw, 24px) 80px;
+}
+
+.app-footer {
+  max-width: var(--maxw); margin: 0 auto; padding: 24px clamp(14px, 4vw, 24px) 48px;
+  color: var(--text-secondary); font-size: 0.8rem; line-height: 1.7;
+}
+.app-footer button.c-link {
+  background: none; border: none; color: var(--text-secondary);
+  text-decoration: underline; cursor: pointer; font-size: 0.8rem; padding: 4px;
+}
+
+/* ---- セクション見出し / 戻る ---- */
+.c-viewhead { margin: 4px 0 18px; }
+.c-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-outfit), sans-serif; font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent);
+}
+.c-viewhead h1 { font-size: clamp(1.5rem, 4vw, 2rem); margin: 8px 0 6px; }
+.c-viewhead p { margin: 0; color: var(--text-secondary); }
+.c-back {
+  display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap);
+  background: none; border: none; color: var(--color-accent); cursor: pointer;
+  font-weight: 600; padding: 6px 2px; font-size: 0.92rem;
+}
+
+/* ---- ガラスカード ---- */
+.c-card {
+  background: rgba(var(--bg-card-rgb), 0.75);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(16px, 3.5vw, 24px);
+  margin-bottom: 18px;
+}
+.c-card h2 { font-size: 1.15rem; margin: 0 0 4px; }
+.c-card h3 { font-size: 1rem; margin: 18px 0 8px; }
+.c-muted { color: var(--text-secondary); }
+.c-small { font-size: 0.82rem; }
+
+/* ---- ダッシュボード タイル ---- */
+.c-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+.c-tile {
+  display: flex; flex-direction: column; gap: 6px; text-align: left;
+  min-height: 116px; padding: 16px; cursor: pointer;
+  border: 1px solid var(--border-color); border-radius: var(--radius-sm);
+  background: rgba(var(--bg-card-rgb), 0.6); color: var(--text-primary);
+  transition: all 0.3s var(--ease);
+}
+.c-tile:hover { transform: translateY(-3px); border-color: var(--color-accent); box-shadow: var(--shadow); }
+.c-tile .c-tile-ic { font-size: 1.5rem; }
+.c-tile-t { font-weight: 700; font-size: 1.02rem; }
+.c-tile-d { font-size: 0.8rem; color: var(--text-secondary); }
+
+/* ---- ボタン ---- */
+.c-btn {
+  min-height: var(--tap); display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 0 20px; border-radius: 12px; border: 1px solid transparent; cursor: pointer;
+  font-family: var(--font-outfit), sans-serif; font-weight: 700; font-size: 0.95rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2)); color: #fff;
+  transition: all 0.3s var(--ease);
+}
+.c-btn:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 8px 20px -8px rgba(var(--color-accent-rgb), 0.7); }
+.c-btn[disabled] { opacity: 0.5; cursor: not-allowed; filter: none; transform: none; }
+.c-btn--ghost { background: transparent; color: var(--color-accent); border-color: var(--border-color); }
+.c-btn--ghost:hover { border-color: var(--color-accent); box-shadow: none; }
+.c-btn--danger { background: linear-gradient(135deg, var(--color-danger), #dc2626); }
+.c-btnrow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+/* ---- フォーム共通 ---- */
+.c-field { margin: 14px 0; }
+.c-field > label.c-flabel { display: block; font-weight: 600; margin-bottom: 8px; }
+.c-input, .c-select, .c-textarea {
+  width: 100%; min-height: var(--tap); padding: 10px 12px; font: inherit;
+  color: var(--text-primary); background: rgba(var(--bg-card-rgb), 0.7);
+  border: 1px solid var(--border-color); border-radius: 10px; transition: border-color 0.3s var(--ease);
+}
+.c-input:focus, .c-select:focus, .c-textarea:focus { border-color: var(--color-accent); outline: none; }
+.c-textarea { min-height: 84px; resize: vertical; }
+.c-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+fieldset.c-fs { border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 14px 16px; margin: 16px 0; }
+fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-accent); font-family: var(--font-outfit), sans-serif; }
+
+/* ---- チップ選択（ラジオ/チェックを非表示にしてカスタム） ---- */
+.c-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.c-chip { position: relative; }
+.c-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.c-chip > span {
+  display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap);
+  padding: 8px 16px; border-radius: 999px; border: 1px solid var(--border-color);
+  background: rgba(var(--bg-card-rgb), 0.6); color: var(--text-primary); cursor: pointer;
+  font-size: 0.9rem; transition: all 0.3s var(--ease); user-select: none;
+}
+.c-chip > span:hover { border-color: var(--color-accent); }
+.c-chip input:checked + span {
+  background: rgba(var(--color-accent-rgb), 0.14); border-color: var(--color-accent);
+  color: var(--color-accent); font-weight: 700;
+}
+.c-chip input:focus-visible + span { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+/* ---- カード選択（リッカート/PGIC） ---- */
+.c-opts { display: grid; gap: 8px; }
+.c-opt { position: relative; }
+.c-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.c-opt > span {
+  display: flex; align-items: center; gap: 12px; min-height: var(--tap);
+  padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border-color);
+  background: rgba(var(--bg-card-rgb), 0.6); cursor: pointer; transition: all 0.3s var(--ease);
+}
+.c-opt > span::before {
+  content: ""; width: 20px; height: 20px; flex: 0 0 auto; border-radius: 50%;
+  border: 2px solid var(--border-color); transition: all 0.3s var(--ease);
+}
+.c-opt input:checked + span { border-color: var(--color-accent); background: rgba(var(--color-accent-rgb), 0.12); }
+.c-opt input:checked + span::before { border-color: var(--color-accent); background: var(--color-accent); box-shadow: inset 0 0 0 3px var(--bg-card); }
+.c-opt input:focus-visible + span { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+
+/* ---- 質問項目ブロック ---- */
+.c-item { padding: 14px 0; border-top: 1px solid var(--border-color); }
+.c-item:first-of-type { border-top: none; }
+.c-item .c-qn { font-weight: 600; margin-bottom: 10px; display: flex; gap: 10px; }
+.c-item .c-qn .c-qi {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; font-size: 0.8rem;
+  display: inline-flex; align-items: center; justify-content: center; font-weight: 700;
+  background: rgba(var(--color-accent-rgb), 0.14); color: var(--color-accent); font-family: var(--font-outfit), sans-serif;
+}
+
+/* ============================== 署名要素: VAS ペインスペクトラム ============================== */
+.c-vas { margin: 18px 0 8px; }
+.c-vas-anchors { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 8px; }
+.c-vas-track {
+  position: relative; height: 22px; border-radius: 999px;
+  background: linear-gradient(90deg, #15803d 0%, #65a30d 28%, #d97706 58%, #dc2626 82%, #7f1d1d 100%);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.25);
+}
+/* ネイティブ range をトラックに重ねる（キーボード操作・代替手段を担保） */
+.c-vas-track input[type="range"] {
+  position: absolute; inset: 0; width: 100%; height: 100%; margin: 0;
+  -webkit-appearance: none; appearance: none; background: transparent; cursor: pointer;
+}
+.c-vas-track input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 26px; height: 26px; border-radius: 50%;
+  background: #fff; border: 3px solid var(--color-accent); box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  margin-top: -2px; transition: opacity 0.2s var(--ease); opacity: 0;
+}
+.c-vas-track input[type="range"]::-moz-range-thumb {
+  width: 26px; height: 26px; border-radius: 50%; background: #fff;
+  border: 3px solid var(--color-accent); box-shadow: 0 2px 8px rgba(0,0,0,0.35); opacity: 0;
+}
+/* つまみはタップ/操作で初めて出現（アンカリング効果の回避） */
+.c-vas.is-touched .c-vas-track input[type="range"]::-webkit-slider-thumb { opacity: 1; }
+.c-vas.is-touched .c-vas-track input[type="range"]::-moz-range-thumb { opacity: 1; }
+.c-vas-readout { margin-top: 10px; font-size: 0.85rem; color: var(--text-secondary); min-height: 1.2em; }
+.c-vas-readout strong { color: var(--text-primary); font-family: var(--font-outfit), sans-serif; }
+
+/* ---- NRS セグメント（0–10 整数） ---- */
+.c-nrs { display: grid; grid-template-columns: repeat(11, 1fr); gap: 6px; margin: 12px 0; }
+.c-nrs .c-chip > span { min-width: var(--tap); padding: 8px 0; border-radius: 12px; font-variant-numeric: tabular-nums; }
+.c-nrs-anchors { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); }
+@media (max-width: 560px) { .c-nrs { grid-template-columns: repeat(6, 1fr); } }
+
+/* ---- 結果カード ---- */
+.c-result { border-left: 4px solid var(--color-accent); padding: 14px 16px; border-radius: 12px; background: rgba(var(--color-accent-rgb), 0.08); margin-top: 16px; }
+.c-result .c-num { font-size: 2rem; font-weight: 800; line-height: 1; }
+.c-result.is-success { border-left-color: var(--color-success); background: rgba(16,185,129,0.10); }
+.c-result.is-warn { border-left-color: var(--color-warning); background: rgba(217,119,6,0.10); }
+.c-result.is-danger { border-left-color: var(--color-danger); background: rgba(var(--color-danger-rgb), 0.10); }
+
+/* ---- バッジ / アラート ---- */
+.c-badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+.c-badge--safe { background: rgba(16,185,129,0.16); color: var(--color-success); }
+.c-badge--caution { background: rgba(217,119,6,0.16); color: var(--color-warning); }
+.c-badge--over { background: rgba(var(--color-danger-rgb), 0.16); color: var(--color-danger); }
+.c-alert { border: 1px solid; border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-size: 0.9rem; }
+.c-alert--info { border-color: var(--color-accent); background: rgba(var(--color-accent-rgb), 0.08); }
+.c-alert--warn { border-color: var(--color-warning); background: rgba(217,119,6,0.10); }
+.c-alert--danger { border-color: var(--color-danger); background: rgba(var(--color-danger-rgb), 0.10); }
+
+/* ---- 出典 / 免責 ---- */
+.c-license { font-size: 0.78rem; color: var(--text-secondary); border-top: 1px dashed var(--border-color); margin-top: 16px; padding-top: 12px; }
+.c-license b { color: var(--text-primary); }
+
+/* ---- テーブル ---- */
+.c-tbl { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 8px 0; }
+.c-tbl th, .c-tbl td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+.c-tbl th { font-family: var(--font-outfit), sans-serif; color: var(--text-secondary); font-weight: 700; }
+.c-tbl thead th { border-bottom: 2px solid var(--border-color); }
+
+/* ---- 推移 CSS バーチャート ---- */
+.c-trend { display: flex; align-items: flex-end; gap: 12px; height: 130px; padding: 8px 0; }
+.c-trend .c-bar { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+.c-trend .c-bar .c-barfill { width: 70%; max-width: 48px; border-radius: 8px 8px 0 0; background: linear-gradient(180deg, var(--color-accent), var(--color-accent-2)); transition: height 0.5s var(--ease); }
+.c-trend .c-bar .c-barv { font-size: 0.8rem; font-weight: 700; font-family: var(--font-outfit), sans-serif; }
+.c-trend .c-bar .c-barx { font-size: 0.7rem; color: var(--text-secondary); }
+
+/* ---- Mermaid 図 ---- */
+.c-mmd { margin: 16px 0; padding: 14px; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: rgba(var(--bg-card-rgb), 0.5); overflow-x: auto; }
+.c-mmd .c-mmd-lbl { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 8px; font-weight: 600; }
+.c-mmd .mermaid { margin: 0; text-align: center; background: transparent; }
+
+/* ---- SNOOP4 ゲート ---- */
+.c-gate { max-width: 760px; margin: 0 auto; }
+.c-gate-hero {
+  text-align: center; padding: 28px 18px 8px;
+}
+.c-gate-hero .c-shield { font-size: 2.6rem; }
+.c-gate-hero h1 { font-size: clamp(1.6rem, 5vw, 2.2rem); margin: 10px 0 6px; }
+.c-snoop-item { display: flex; gap: 12px; padding: 14px 0; border-top: 1px solid var(--border-color); }
+.c-snoop-item:first-child { border-top: none; }
+.c-snoop-code {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 10px; font-family: var(--font-outfit), sans-serif;
+  font-weight: 800; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(var(--color-accent-rgb), 0.14); color: var(--color-accent);
+}
+.c-snoop-body { flex: 1; }
+.c-snoop-name { font-weight: 700; }
+.c-snoop-check { color: var(--text-secondary); font-size: 0.9rem; margin: 4px 0 10px; }
+.c-toggle { display: inline-flex; gap: 8px; }
+
+/* ---- 緊急アラート オーバーレイ ---- */
+.c-urgent {
+  position: fixed; inset: 0; z-index: 999; display: none; place-items: center;
+  background: rgba(127, 29, 29, 0.55); backdrop-filter: blur(6px); padding: 18px;
+}
+.c-urgent[aria-hidden="false"] { display: grid; }
+.c-urgent-box {
+  max-width: 560px; width: 100%; background: var(--bg-card); border: 2px solid var(--color-danger);
+  border-radius: var(--radius); padding: 26px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+}
+.c-urgent-box h2 { color: var(--color-danger); display: flex; align-items: center; gap: 10px; font-size: 1.4rem; margin-top: 0; }
+.c-urgent-flags { margin: 14px 0; padding: 12px 14px; border-radius: 12px; background: rgba(var(--color-danger-rgb), 0.10); }
+.c-urgent-flags li { margin: 4px 0; }
+
+/* ---- トースト ---- */
+.c-toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px);
+  background: var(--text-primary); color: var(--bg-card); padding: 12px 18px; border-radius: 12px;
+  font-size: 0.9rem; font-weight: 600; opacity: 0; pointer-events: none; transition: all 0.3s var(--ease); z-index: 800;
+  box-shadow: var(--shadow); max-width: 90vw;
+}
+.c-toast.is-show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---- セルフテスト パネル ---- */
+.c-selftest { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.82rem; }
+.c-selftest .ok { color: var(--color-success); }
+.c-selftest .ng { color: var(--color-danger); }
+
+/* ---- ヘルパー ---- */
+.prom-app .is-hidden { display: none !important; }
+.c-scheduletable td .c-due { font-weight: 700; }
+
+/* ============================== 動きの抑制 ============================== */
+@media (prefers-reduced-motion: reduce) {
+  .prom-app * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* ============================== 印刷用 A4 レポート（設計書 第10章） ============================== */
+@media print {
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .prom-app {
+    background: #ffffff; color: #000000;
+    background-attachment: initial; min-height: auto;
+  }
+  .no-print, .app-header, .app-footer, nav, button, form, input, select, textarea, .c-back, .c-btnrow, .c-toast, .c-urgent { display: none !important; }
+  .app-main { max-width: none; padding: 0; }
+  .print-container { width: 100%; margin: 0; padding: 0; box-shadow: none; }
+  .print-container .c-card { box-shadow: none; border: 1px solid #999; background: #fff; backdrop-filter: none; break-inside: avoid; }
+  .page-break { break-before: page; }
+  table, .c-tbl { border-collapse: collapse; width: 100%; }
+  th, td, .c-tbl th, .c-tbl td { border: 1px solid #000000; padding: 6px; color: #000; }
+  .c-trend .c-barfill { background: #555 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .prom-app a { color: #000; text-decoration: none; }
+  .print-only { display: block !important; }
+}
+.print-only { display: none; }

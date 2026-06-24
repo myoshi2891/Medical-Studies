@@ -32,6 +32,28 @@
 
 ---
 
+## web-next（Next.js アプリ移行・別系統）
+
+`prom-checker/index.html`（患者向け PROM 統合チェッカー・単一 HTML SPA）を
+`web-next/`（Next.js App Router）へ TDD 移行。`nextjs-page-migration` スキルの
+**アーキタイプ B（インタラクティブ SPA）参照実装**。
+
+| フェーズ | 内容 | ステータス |
+|---|---|---|
+| Phase 0 | bootstrap（手書き設定・空 app） | ✅ 完了 |
+| Phase 1 | コア: registry + scoring（環境非依存の純粋関数） | ✅ 完了 |
+| Phase 2 | 永続化: StorageAdapter + schema migration | ✅ 完了 |
+| Phase 3 | シェル: prom-checker.css + PromApp（ハッシュルーター）+ 全ビュー + Mermaid | ✅ 完了 |
+| Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
+
+- **テスト**: 36 passed（コア 33 + シェル契約 3）。lint / typecheck / build 全通過。
+- **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
+  `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid）+
+  `app/prom-checker/`（page + scoped CSS）。
+- **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/prom-checker`。
+
+---
+
 ## 次回セッションでの再開プロンプト
 
 ```text
