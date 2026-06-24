@@ -163,18 +163,23 @@ export function PromApp() {
     }
   }, []);
 
+  const commitQueueRef = useRef(Promise.resolve());
+
   const commit = useCallback(async (next: AppData | ((prev: AppData) => AppData)) => {
-    const prev = dataRef.current;
-    if (!prev) return;
-    const nextData = typeof next === "function" ? next(prev) : next;
-    setData(nextData);
-    dataRef.current = nextData;
-    const store = storeRef.current;
-    if (!store) return;
-    await store.save(KEYS.settings, nextData.settings);
-    await store.save(KEYS.snoop, nextData.snoop);
-    await store.save(KEYS.diary, nextData.diary);
-    await store.save(KEYS.scores, nextData.scores);
+    const run = async () => {
+      const prev = dataRef.current;
+      const store = storeRef.current;
+      if (!prev || !store) return;
+      const nextData = typeof next === "function" ? next(prev) : next;
+      await store.save(KEYS.settings, nextData.settings);
+      await store.save(KEYS.snoop, nextData.snoop);
+      await store.save(KEYS.diary, nextData.diary);
+      await store.save(KEYS.scores, nextData.scores);
+      dataRef.current = nextData;
+      setData(nextData);
+    };
+    commitQueueRef.current = commitQueueRef.current.then(run, run);
+    return commitQueueRef.current;
   }, []);
 
   const reload = useCallback(async () => {
