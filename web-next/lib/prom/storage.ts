@@ -145,6 +145,20 @@ export class LocalStorageAdapter implements StorageAdapter {
       }
     });
   }
+
+  clearAll(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      try {
+        this.storage.removeItem(KEYS.settings);
+        this.storage.removeItem(KEYS.snoop);
+        this.storage.removeItem(KEYS.diary);
+        this.storage.removeItem(KEYS.scores);
+        resolve();
+      } catch (e) {
+        reject(new Error(`データの削除に失敗しました: ${messageOf(e)}`));
+      }
+    });
+  }
 }
 
 interface MigratedData {

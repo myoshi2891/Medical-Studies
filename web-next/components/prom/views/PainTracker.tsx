@@ -18,9 +18,10 @@ export function PainTracker() {
 
   function changeScale(next: "nrs" | "vas") {
     setScale(next);
-    commit({ ...data, settings: { ...data.settings, scaleChoice: next } }).catch((err) =>
-      toast(err.message)
-    );
+    commit((prev) => ({
+      ...prev,
+      settings: { ...prev.settings, scaleChoice: next },
+    })).catch((err) => toast(err.message));
   }
 
   function savePain(scaleId: "nrs" | "vas", value: number) {
@@ -31,7 +32,10 @@ export function PainTracker() {
       instrumentVersion: "1.0",
       value,
     };
-    commit({ ...data, scores: { ...data.scores, records: [...data.scores.records, record] } })
+    commit((prev) => ({
+      ...prev,
+      scores: { ...prev.scores, records: [...prev.scores.records, record] },
+    }))
       .then(() =>
         toast(
           `${scaleId.toUpperCase()} を記録しました（${value}${scaleId === "vas" ? " mm" : ""}）`

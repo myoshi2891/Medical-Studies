@@ -62,11 +62,15 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
     record.interpretation = val.interpretation;
     if (Object.keys(context).length) record.context = context;
 
-    commit({ ...data, scores: { ...data.scores, records: [...data.scores.records, record] } })
-      .then(() => toast(`${def.title} を記録しました`))
+    commit((prev) => ({
+      ...prev,
+      scores: { ...prev.scores, records: [...prev.scores.records, record] },
+    }))
+      .then(() => {
+        toast(`${def.title} を記録しました`);
+        setSubmitState({ kind: "result", val, context, def });
+      })
       .catch((err) => toast(err.message));
-
-    setSubmitState({ kind: "result", val, context, def });
   }
 
   return (

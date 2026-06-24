@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { KEYS, SCHEMA_VERSION } from "@/lib/prom/storage";
+import { SCHEMA_VERSION } from "@/lib/prom/storage";
 import type { Settings } from "@/lib/prom/types";
 import { usePromContext } from "../PromContext";
 import { todayISO } from "../state";
@@ -68,14 +68,14 @@ export function DataManager() {
     if (!window.confirm("すべてのローカルデータを削除します。元に戻せません。よろしいですか？")) {
       return;
     }
-    window.localStorage.removeItem(KEYS.settings);
-    window.localStorage.removeItem(KEYS.snoop);
-    window.localStorage.removeItem(KEYS.diary);
-    window.localStorage.removeItem(KEYS.scores);
-    reload().then(() => {
-      toast("削除しました");
-      navigate("#/snoop");
-    });
+    store
+      .clearAll()
+      .then(() => reload())
+      .then(() => {
+        toast("削除しました");
+        navigate("#/snoop");
+      })
+      .catch((e) => toast(e.message));
   }
 
   return (
@@ -108,7 +108,16 @@ export function DataManager() {
           不一致時はマイグレーションを適用します。
         </p>
         <div className="c-field">
-          <input className="c-input" type="file" ref={fileRef} accept="application/json,.json" />
+          <label className="c-flabel" htmlFor="importFile">
+            インポートファイルを選択
+          </label>
+          <input
+            className="c-input"
+            type="file"
+            id="importFile"
+            ref={fileRef}
+            accept="application/json,.json"
+          />
         </div>
         <div className="c-btnrow">
           <button type="button" className="c-btn c-btn--ghost" onClick={onImport}>

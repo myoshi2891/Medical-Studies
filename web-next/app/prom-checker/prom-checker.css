@@ -408,7 +408,7 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
   .app-main { max-width: none; padding: 0; }
   .print-container { width: 100%; margin: 0; padding: 0; box-shadow: none; }
   .print-container .c-card { box-shadow: none; border: 1px solid #999; background: #fff; backdrop-filter: none; break-inside: avoid; }
-  .page-break { page-break-before: always; }
+  .page-break { break-before: page; }
   table, .c-tbl { border-collapse: collapse; width: 100%; }
   th, td, .c-tbl th, .c-tbl td { border: 1px solid #000000; padding: 6px; color: #000; }
   .c-trend .c-barfill { background: #555 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }

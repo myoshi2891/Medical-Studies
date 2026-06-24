@@ -16,15 +16,52 @@ export function UrgentDialog({
   onRescreen: () => void;
 }) {
   const btnRef = useRef<HTMLButtonElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (open) btnRef.current?.focus();
+    if (open) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
+      btnRef.current?.focus();
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key !== "Tab") return;
+        if (!containerRef.current) return;
+
+        const focusableElements = containerRef.current.querySelectorAll(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      };
+
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+        previousFocusRef.current?.focus();
+      };
+    }
   }, [open]);
 
   const items = flags.length > 0 ? flags : ["（詳細は再確認してください）"];
 
   return (
     <div
+      ref={containerRef}
       className="c-urgent"
       role="alertdialog"
       aria-modal="true"

@@ -75,6 +75,12 @@ export function PromApp() {
     flags: [],
   });
   const [systemDark, setSystemDark] = useState(false);
+  const [routeNonce, setRouteNonce] = useState(0);
+
+  const dataRef = useRef<AppData | null>(null);
+  useEffect(() => {
+    dataRef.current = data;
+  }, [data]);
 
   // 起動: ストア生成 → ロード → ?selftest=1 / 現在のハッシュで初期ビュー決定。
   useEffect(() => {
@@ -100,7 +106,16 @@ export function PromApp() {
         }
         setReady(true);
       })
-      .catch(() => setReady(true));
+      .catch(() => {
+        if (cancelled) return;
+        setData({
+          settings: defaultSettings(),
+          snoop: { schemaVersion: SCHEMA_VERSION, history: [] },
+          diary: { schemaVersion: SCHEMA_VERSION, entries: [] },
+          scores: { schemaVersion: SCHEMA_VERSION, records: [] },
+        });
+        setReady(true);
+      });
     return () => {
       cancelled = true;
     };
@@ -137,20 +152,24 @@ export function PromApp() {
 
   const navigate = useCallback((hash: string) => {
     if (window.location.hash === hash) {
-      setCurrentHash(hash);
+      setRouteNonce((n) => n + 1);
     } else {
       window.location.hash = hash;
     }
   }, []);
 
-  const commit = useCallback(async (next: AppData) => {
-    setData(next);
+  const commit = useCallback(async (next: AppData | ((prev: AppData) => AppData)) => {
+    const prev = dataRef.current;
+    if (!prev) return;
+    const nextData = typeof next === "function" ? next(prev) : next;
+    setData(nextData);
+    dataRef.current = nextData;
     const store = storeRef.current;
     if (!store) return;
-    await store.save(KEYS.settings, next.settings);
-    await store.save(KEYS.snoop, next.snoop);
-    await store.save(KEYS.diary, next.diary);
-    await store.save(KEYS.scores, next.scores);
+    await store.save(KEYS.settings, nextData.settings);
+    await store.save(KEYS.snoop, nextData.snoop);
+    await store.save(KEYS.diary, nextData.diary);
+    await store.save(KEYS.scores, nextData.scores);
   }, []);
 
   const reload = useCallback(async () => {
@@ -217,6 +236,7 @@ export function PromApp() {
     <PromProvider
       value={{
         data,
+        routeNonce,
         commit,
         navigate,
         toast,
@@ -227,7 +247,15 @@ export function PromApp() {
       }}
     >
       <div className="prom-app" data-theme={theme}>
-        <a className="c-skip" href="#main">
+        {/* biome-ignore lint/a11y/useValidAnchor: スキップリンクはキーボード操作用で href を持つ必要があるが、ルーター競合を防ぐため preventDefault する */}
+        <a
+          className="c-skip"
+          href="#main"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("main")?.focus();
+          }}
+        >
           本文へスキップ
         </a>
         <Header theme={theme} onCycleTheme={cycleTheme} />
