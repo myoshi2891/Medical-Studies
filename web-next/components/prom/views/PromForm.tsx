@@ -13,7 +13,11 @@ type SubmitState =
   | { kind: "error"; message: string }
   | null;
 
-/** ビュー: 定期 PROM 評価（元 renderProm / renderInstrumentBody / submitInstrument）。 */
+/**
+ * Renders the PROM evaluation view for the selected instrument.
+ *
+ * Displays the questionnaire, scores submitted responses, stores the score record, and shows either an error state or the computed result.
+ */
 export function PromForm({ instrumentId }: { instrumentId: string }) {
   const { data, commit, navigate, toast } = usePromContext();
   const [submitState, setSubmitState] = useState<SubmitState>(null);
@@ -26,6 +30,11 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
       ? { ...base, scoring: { ...base.scoring, variant: data.settings.pgicVariant } }
       : base;
 
+  /**
+   * Submits the current PROM answers, records the score, and updates the result state.
+   *
+   * @param e - The form submission event
+   */
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
@@ -126,7 +135,11 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
   );
 }
 
-/** レジストリ駆動: 1 つの関数で 4 質問票のフォーム本体を描画。 */
+/**
+ * Renders the input controls for an instrument definition.
+ *
+ * @param def - The instrument definition that determines the question layout and submit label.
+ */
 function InstrumentBody({ def }: { def: Instrument }) {
   if (def.scoring.method === "single-ordinal") {
     return (
@@ -247,7 +260,13 @@ function InstrumentBody({ def }: { def: Instrument }) {
   );
 }
 
-/** 採点結果カード（元 renderInstrumentResult）。 */
+/**
+ * Renders the scored result card for an instrument.
+ *
+ * @param def - The instrument definition used to format the result
+ * @param val - The computed score value
+ * @param context - Additional contextual values entered with the score
+ */
 function InstrumentResult({
   def,
   val,
@@ -360,7 +379,11 @@ function InstrumentResult({
   );
 }
 
-/** 出典・著作権・免責ブロック（元 licenseBlock）。 */
+/**
+ * Displays the instrument's source, copyright, license terms, and disclaimer.
+ *
+ * @param def - The instrument definition containing license information
+ */
 function LicenseBlock({ def }: { def: Instrument }) {
   const l = def.license;
   return (

@@ -33,7 +33,12 @@ const PromContext = createContext<PromContextValue | null>(null);
 
 export const PromProvider = PromContext.Provider;
 
-/** シェル内からコンテキストを取得する。Provider 外で呼ぶと例外。 */
+/**
+ * Gets the shared PROM context.
+ *
+ * @returns The current `PromContextValue`.
+ * @throws Error if called outside `PromProvider`.
+ */
 export function usePromContext(): PromContextValue {
   const ctx = useContext(PromContext);
   if (ctx === null) {

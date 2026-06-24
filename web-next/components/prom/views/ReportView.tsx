@@ -9,6 +9,13 @@ import { BackButton } from "./BackButton";
 
 const fmt = (v: number | undefined): string => (typeof v === "number" ? v.toFixed(1) : "—");
 
+/**
+ * Finds the most recent score record for an instrument.
+ *
+ * @param records - The score records to search
+ * @param instrumentId - The instrument identifier to match
+ * @returns The newest matching score record, or `null` if none exists
+ */
 function latestRecord(records: ScoreRecord[], instrumentId: string): ScoreRecord | null {
   let latest: ScoreRecord | null = null;
   for (const r of records) {
@@ -19,6 +26,14 @@ function latestRecord(records: ScoreRecord[], instrumentId: string): ScoreRecord
   return latest;
 }
 
+/**
+ * Gets the most recent score records for a specific instrument.
+ *
+ * @param records - The score records to search
+ * @param instrumentId - The instrument identifier to match
+ * @param n - The maximum number of records to return
+ * @returns The latest matching records ordered from oldest to newest
+ */
 function lastN(records: ScoreRecord[], instrumentId: string, n: number): ScoreRecord[] {
   return records
     .filter((r) => r.instrumentId === instrumentId)
@@ -26,12 +41,25 @@ function lastN(records: ScoreRecord[], instrumentId: string, n: number): ScoreRe
     .slice(-n);
 }
 
+/**
+ * Determines whether a date falls within the last given number of days.
+ *
+ * @param dateISO - An ISO date string to test
+ * @param days - The number of days in the lookback window
+ * @returns `true` if `dateISO` is a string and the date is within the last `days` days, `false` otherwise.
+ */
 function withinDays(dateISO: string, days: number): boolean {
   if (typeof dateISO !== "string") return false;
   const target = nextDueDate(dateISO, `P${days}D`);
   return target !== null && target >= todayISO();
 }
 
+/**
+ * Summarizes the 2-hour post-dose NRS effect for drugs recorded in a diary entry.
+ *
+ * @param en - The diary entry to summarize
+ * @returns A joined effect summary for drugs with a numeric 2-hour NRS value, or `—` when none are available
+ */
 function drugEffectText(en: DiaryEntry): string {
   const ds = (en.drugs ?? []).filter((d) => typeof d.effectNrs2h === "number");
   if (!ds.length) return "—";
@@ -43,7 +71,12 @@ function drugEffectText(en: DiaryEntry): string {
     .join("、");
 }
 
-/** HIT-6 推移の CSS バーチャート（元 renderTrend）。 */
+/**
+ * Renders a HIT-6 trend chart as vertical bars.
+ *
+ * @param series - Chart points with a label and value
+ * @param maxV - Maximum value used to scale the bar heights
+ */
 function Trend({ series, maxV }: { series: { x: string; v: number }[]; maxV: number }) {
   return (
     <div className="c-trend">
@@ -61,7 +94,12 @@ function Trend({ series, maxV }: { series: { x: string; v: number }[]; maxV: num
   );
 }
 
-/** ビュー: 医師共有用レポート（印刷用 A4）。元 renderReport。 */
+/**
+ * Renders a printable physician-facing headache evaluation report.
+ *
+ * The report summarizes the current month’s headache and acute medication days, MOH risk by drug class,
+ * the latest PROM scores, recent HIT-6 trend and MCID change, and a two-week headache diary summary.
+ */
 export function ReportView() {
   const { data } = usePromContext();
   const ym = todayISO().slice(0, 7);

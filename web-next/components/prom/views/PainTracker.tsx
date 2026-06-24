@@ -9,13 +9,22 @@ import { BackButton } from "./BackButton";
 
 const NRS_VALUES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as const;
 
-/** ビュー: 疼痛強度（NRS / VAS）の記録（元 renderPain / renderPainArea / savePain）。 */
+/**
+ * Renders the pain intensity recording view.
+ *
+ * Lets the user choose between NRS and VAS, saves the selected scale as a setting, and records pain scores.
+ */
 export function PainTracker() {
   const { data, commit, toast } = usePromContext();
   const [scale, setScale] = useState<"nrs" | "vas">(
     data.settings.scaleChoice === "vas" ? "vas" : "nrs"
   );
 
+  /**
+   * Updates the selected pain scale and saves the preference.
+   *
+   * @param next - The pain scale to select
+   */
   function changeScale(next: "nrs" | "vas") {
     setScale(next);
     commit((prev) => ({
@@ -24,6 +33,12 @@ export function PainTracker() {
     })).catch((err) => toast(err.message));
   }
 
+  /**
+   * Saves a pain score record and shows a confirmation or error message.
+   *
+   * @param scaleId - The pain scale to record.
+   * @param value - The recorded pain score.
+   */
   function savePain(scaleId: "nrs" | "vas", value: number) {
     const record: ScoreRecord = {
       date: todayISO(),
@@ -88,13 +103,22 @@ export function PainTracker() {
   );
 }
 
-/** VAS ペインスペクトラム（つまみは操作して初めて出現＝アンカリング回避）。 */
+/**
+ * Renders the VAS pain entry form.
+ *
+ * @param onSave - Called with the selected VAS scale identifier and value when the form is submitted.
+ */
 function VasArea({ onSave }: { onSave: (scale: "vas", value: number) => void }) {
   const s = PAIN_SCALES.vas;
   const { toast } = usePromContext();
   const [touched, setTouched] = useState(false);
   const [value, setValue] = useState(50);
 
+  /**
+   * Submits the VAS value when the slider has been interacted with.
+   *
+   * @param e - The form submission event.
+   */
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!touched) {
@@ -161,11 +185,23 @@ function VasArea({ onSave }: { onSave: (scale: "vas", value: number) => void }) 
   );
 }
 
-/** NRS セグメント（0〜10 整数）。 */
+/**
+ * Captures an NRS pain score and submits the selected value.
+ *
+ * @param onSave - Called with the NRS scale key and selected score.
+ */
 function NrsArea({ onSave }: { onSave: (scale: "nrs", value: number) => void }) {
   const s = PAIN_SCALES.nrs;
   const { toast } = usePromContext();
 
+  /**
+   * Submits the selected NRS pain score.
+   *
+   * Prevents the default form submission, reads the chosen value from the form, and saves it.
+   * Shows a prompt if no score has been selected.
+   *
+   * @param e - The form submission event.
+   */
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const raw = new FormData(e.currentTarget).get("nrs");

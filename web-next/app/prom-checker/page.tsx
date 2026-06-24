@@ -1,6 +1,10 @@
 import { PromApp } from "@/components/prom/PromApp";
 
-// Server Component。クライアント完結の PromApp を描画するだけ（元 index.html の Shell を内包）。
+/**
+ * Renders the Prom checker page.
+ *
+ * @returns The `PromApp` page content.
+ */
 export default function PromCheckerPage() {
   return <PromApp />;
 }

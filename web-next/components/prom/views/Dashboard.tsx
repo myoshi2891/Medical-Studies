@@ -13,7 +13,13 @@ const TILES = [
   { go: "#/about", ic: "ℹ️", t: "このアプリについて", d: "設計・出典・免責" },
 ] as const;
 
-/** ビュー: 統合ダッシュボード（元 renderDashboard）。 */
+/**
+ * Renders the integrated dashboard view.
+ *
+ * Shows the latest SNOOP4 status, navigation tiles to core sections, and a
+ * re-evaluation schedule table with the most recent recorded dates and next due
+ * estimates.
+ */
 export function Dashboard() {
   const { data, navigate } = usePromContext();
   const { snoop, scores, diary } = data;
