@@ -2,7 +2,11 @@
 
 import { usePromContext } from "../PromContext";
 
-/** ダッシュボードへ戻る共通ボタン（元 各ビュー冒頭の c-back）。 */
+/**
+ * Renders a button that navigates back to the dashboard.
+ *
+ * @param noPrint - Adds the `no-print` class when set to `true`.
+ */
 export function BackButton({ noPrint = false }: { noPrint?: boolean }) {
   const { navigate } = usePromContext();
   return (

@@ -15,7 +15,11 @@ export interface AppData {
   scores: ScoresState;
 }
 
-/** 初回起動時の既定設定（元 defaultSettings）。 */
+/**
+ * Creates the initial application settings.
+ *
+ * @returns The default `Settings` object for a fresh install.
+ */
 export function defaultSettings(): Settings {
   return {
     schemaVersion: SCHEMA_VERSION,
@@ -29,7 +33,11 @@ export function defaultSettings(): Settings {
   };
 }
 
-/** 当日（ローカル）の YYYY-MM-DD（元 todayISO）。 */
+/**
+ * Gets today's local date in `YYYY-MM-DD` format.
+ *
+ * @returns Today's date as a `YYYY-MM-DD` string.
+ */
 export function todayISO(): string {
   const d = new Date();
   const y = d.getFullYear();
@@ -38,7 +46,12 @@ export function todayISO(): string {
   return `${y}-${m}-${day}`;
 }
 
-/** null/undefined を「—」に変換（表示用, 元 num）。 */
+/**
+ * Formats a number for display.
+ *
+ * @param v - The value to format
+ * @returns `"—"` if `v` is `null` or `undefined`, otherwise the string form of `v`
+ */
 export function num(v: number | null | undefined): string {
   return v === null || v === undefined ? "—" : String(v);
 }
@@ -74,13 +87,24 @@ export const DIARY_OPTS = {
   ],
 } as const;
 
-/** impact の数値→ラベル（元 impactLabel）。 */
+/**
+ * Converts an impact value to its display label.
+ *
+ * @param v - The impact value to format
+ * @returns The matching label, or `—` when `v` is `null` or `undefined`
+ */
 export function impactLabel(v: number | null | undefined): string {
   if (v === null || v === undefined) return "—";
   return DIARY_OPTS.impact[v] ?? String(v);
 }
 
-/** "HH:MM" 形式の開始・終了から経過分を返す（元 timeDiffMins 相当・日跨ぎ補正なし）。 */
+/**
+ * Calculates the minute difference between two times in `HH:MM` format.
+ *
+ * @param start - The start time string
+ * @param end - The end time string
+ * @returns The number of minutes from `start` to `end`, or `null` if either time is invalid
+ */
 export function timeDiffMins(start: string, end: string): number | null {
   const ps = /^(\d{2}):(\d{2})$/.exec(start);
   const pe = /^(\d{2}):(\d{2})$/.exec(end);
@@ -97,8 +121,11 @@ export function timeDiffMins(start: string, end: string): number | null {
 }
 
 /**
- * 当月（YYYY-MM）の薬剤分類別「服用日数」を集計（元 monthlyDrugDayCounts）。
- * 1 日に同一分類を複数回使っても 1 日として数える（Set で日付を一意化）。MOH 判定の基礎。
+ * Counts unique medication days per drug class for a given month.
+ *
+ * @param entries - Diary entries to aggregate
+ * @param ym - Target month in `YYYY-MM` format
+ * @returns A map from each drug class to the number of distinct days it appears in that month
  */
 export function monthlyDrugDayCounts(entries: DiaryEntry[], ym: string): Record<string, number> {
   const byClass: Record<string, Set<string>> = {};

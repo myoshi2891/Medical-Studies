@@ -168,7 +168,12 @@ interface MigratedData {
   promScores: ScoreRecord[];
 }
 
-/** スキーマ versioning: 後方互換マイグレーションの足場（設計書 第8.4章）。 */
+/**
+ * Normalizes imported storage data for migration.
+ *
+ * @param data - Parsed import data.
+ * @returns The normalized settings and entry collections, with `migratedFrom` set when the input schema version differs from the current version.
+ */
 export function migrateImport(data: Record<string, unknown>): MigratedData {
   const version = isStringValue(data.schemaVersion) ? data.schemaVersion : "0";
   const settings: Partial<Settings> = isObject(data.settings)

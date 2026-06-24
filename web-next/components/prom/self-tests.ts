@@ -13,16 +13,34 @@ export interface SelfTestResult {
   detail: string;
 }
 
+/**
+ * Extracts a score value from a successful result.
+ *
+ * @param r - The scoring result to unwrap
+ * @returns The contained score value
+ * @throws Error when the result is not successful
+ */
 function unwrap(r: Result<ScoreValue>): ScoreValue {
   if (!r.ok) throw new Error(`予期せぬエラー: ${r.error}`);
   return r.value;
 }
 
+/**
+ * Throws an error when the condition is false.
+ *
+ * @param cond - Condition to verify
+ * @param msg - Error message to throw
+ * @throws Error when `cond` is false
+ */
 function assert(cond: boolean, msg: string): void {
   if (!cond) throw new Error(msg);
 }
 
-/** 8 シナリオを実行し、各テストの合否と詳細を返す。 */
+/**
+ * Runs eight predefined self-test scenarios and returns their results.
+ *
+ * @returns The per-scenario test outcomes.
+ */
 export function runSelfTests(): SelfTestResult[] {
   const results: SelfTestResult[] = [];
   const t = (name: string, fn: () => string): void => {
