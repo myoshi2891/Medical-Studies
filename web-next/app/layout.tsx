@@ -15,10 +15,9 @@ export const viewport: Viewport = {
 };
 
 /**
- * アプリ全体のルートレイアウト。`<html lang="ja">` にフォント変数を適用する。
- * テーマ（data-theme）はクライアント側（PromApp）で localStorage に基づき設定する。
+ * Renders the application's root layout.
  *
- * @param children - body 内に描画する React ノード
+ * @param children - React nodes to render inside the document body
  */
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

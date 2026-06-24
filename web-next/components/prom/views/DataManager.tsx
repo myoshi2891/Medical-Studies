@@ -7,13 +7,18 @@ import { usePromContext } from "../PromContext";
 import { todayISO } from "../state";
 import { BackButton } from "./BackButton";
 
-/** ビュー: データ管理（JSON エクスポート/インポート・設定・全削除）。元 renderData。 */
+/**
+ * Renders the data management view for exporting, importing, saving settings, and clearing local data.
+ */
 export function DataManager() {
   const { data, commit, navigate, toast, store, reload } = usePromContext();
   const fileRef = useRef<HTMLInputElement>(null);
   const variantRef = useRef<HTMLSelectElement>(null);
   const startRef = useRef<HTMLInputElement>(null);
 
+  /**
+   * Exports all local data as a JSON file.
+   */
   function onExport() {
     store
       .exportAll()
@@ -32,6 +37,11 @@ export function DataManager() {
       .catch((e) => toast(e.message));
   }
 
+  /**
+   * Imports application data from the selected JSON file.
+   *
+   * Shows a message if no file is selected or the file cannot be read.
+   */
   function onImport() {
     const file = fileRef.current?.files?.[0];
     if (!file) {
@@ -54,6 +64,9 @@ export function DataManager() {
     reader.readAsText(file);
   }
 
+  /**
+   * Saves the selected PGIC variant and treatment start date.
+   */
   function onSaveSettings() {
     const variant = (
       variantRef.current?.value === "descending" ? "descending" : "ascending"
@@ -67,6 +80,9 @@ export function DataManager() {
       .catch((e) => toast(e.message));
   }
 
+  /**
+   * Clears all stored local data after user confirmation.
+   */
   function onWipe() {
     if (!window.confirm("すべてのローカルデータを削除します。元に戻せません。よろしいですか？")) {
       return;

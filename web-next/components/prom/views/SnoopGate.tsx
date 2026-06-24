@@ -6,12 +6,18 @@ import { usePromContext } from "../PromContext";
 import { todayISO } from "../state";
 
 /**
- * ビュー: SNOOP4 ゲート（元 renderSnoopGate）。
- * レッドフラッグに 1 つでも該当すれば緊急ダイアログでブロックし、ダッシュボードへ進ませない。
+ * SNOOP4 の安全確認ゲート画面を表示します。
+ *
+ * レッドフラッグに該当する項目をチェックしてから、頭痛記録を開始します。
  */
 export function SnoopGate() {
   const { commit, navigate, toast, openUrgent } = usePromContext();
 
+  /**
+   * Handles submission of the SNOOP4 gate form.
+   *
+   * @param e - The form submission event.
+   */
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;

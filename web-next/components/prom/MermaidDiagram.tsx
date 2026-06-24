@@ -3,9 +3,11 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Mermaid 図を遅延 import で描画（元 runMermaid）。テーマ変更で再描画する。
- * pre.mermaid にグラフ定義をテキストで置き mermaid.run で in-place 変換するため
- * dangerouslySetInnerHTML を使わない。securityLevel: "strict" を堅持。
+ * Renders a Mermaid diagram and redraws it when the diagram text or theme changes.
+ *
+ * @param chart - Mermaid graph definition to render.
+ * @param isDark - Controls whether the dark theme is applied.
+ * @returns A Mermaid diagram rendered inside a `<pre>` element.
  */
 export function MermaidDiagram({ chart, isDark }: { chart: string; isDark: boolean }) {
   const ref = useRef<HTMLPreElement>(null);

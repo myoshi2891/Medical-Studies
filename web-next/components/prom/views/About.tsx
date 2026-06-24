@@ -34,6 +34,11 @@ const FLOW_ARCH = `flowchart LR
   U --> S
   S --> U`;
 
+/**
+ * Renders a license table row for a registered scale.
+ *
+ * @param id - Registry key for the scale entry to display
+ */
 function LicenseRow({ id }: { id: string }) {
   const d = REGISTRY[id];
   return (
@@ -48,7 +53,9 @@ function LicenseRow({ id }: { id: string }) {
   );
 }
 
-/** ビュー: このアプリについて（設計・アーキテクチャ・出典／Mermaid 図）。元 renderAbout。 */
+/**
+ * Renders the About view with design notes, architecture diagrams, and source and license information.
+ */
 export function About() {
   const { isDark } = usePromContext();
   return (

@@ -9,7 +9,9 @@ const THEME_LABEL: Record<Settings["theme"], string> = {
   dark: "🌙 ダーク",
 };
 
-/** 上部固定ヘッダ（ブランド・主要ナビ・テーマ切替）。元 index.html の app-header。 */
+/**
+ * Displays the fixed top header with branding, primary navigation, and theme switching.
+ */
 export function Header({
   theme,
   onCycleTheme,
