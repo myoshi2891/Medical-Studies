@@ -59,7 +59,10 @@ export function DataManager() {
       variantRef.current?.value === "descending" ? "descending" : "ascending"
     ) as Settings["pgicVariant"];
     const treatmentStartDate = startRef.current?.value ?? "";
-    commit({ ...data, settings: { ...data.settings, pgicVariant: variant, treatmentStartDate } })
+    commit((prev) => ({
+      ...prev,
+      settings: { ...prev.settings, pgicVariant: variant, treatmentStartDate },
+    }))
       .then(() => toast("設定を保存しました"))
       .catch((e) => toast(e.message));
   }

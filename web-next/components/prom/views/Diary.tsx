@@ -136,7 +136,10 @@ export function Diary() {
       impact: impactRaw === null ? null : Number(String(impactRaw).charAt(0)),
     };
 
-    commit({ ...data, diary: { ...data.diary, entries: [...data.diary.entries, entry] } })
+    commit((prev) => ({
+      ...prev,
+      diary: { ...prev.diary, entries: [...prev.diary.entries, entry] },
+    }))
       .then(() => {
         toast("日誌を保存しました");
         setStart("");
