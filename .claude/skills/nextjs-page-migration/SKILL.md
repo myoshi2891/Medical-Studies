@@ -27,6 +27,10 @@ allowed-tools:
 
 ## 概要
 
+> [!IMPORTANT]
+> **本プロジェクトのパッケージ管理およびコマンド実行には `bun` が必須です。**
+> パッケージの追加やスクリプトの実行（`bun run test`, `bun run dev` など）には必ず `bun` を使用してください。
+
 HTML ページを `web-next/`（Next.js App Router）へ TDD で移行する。移行対象は
 **2 つのアーキタイプ**に大別され、手順が分岐する。
 
