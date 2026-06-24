@@ -108,7 +108,7 @@ export class LocalStorageAdapter implements StorageAdapter {
       try {
         const migrated = migrateImport(data);
         // 書き込むデータを事前にシリアライズ（JSON.stringify の例外を事前に検知するため）
-        const settingsStr = JSON.stringify({ schemaVersion: SCHEMA_VERSION, ...migrated.settings });
+        const settingsStr = JSON.stringify({ ...migrated.settings, schemaVersion: SCHEMA_VERSION });
         const snoopStr = JSON.stringify({
           schemaVersion: SCHEMA_VERSION,
           history: migrated.snoopHistory,
