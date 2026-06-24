@@ -29,7 +29,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 すべての `.html` ページは `Migraine.html` の CSS 変数とコンポーネントクラスを継承する。
 
-- **CSS 変数・共通コンポーネントクラス（`.card`/`.alert`/`.tbl`/`.mmd`/`.bA`〜`.bU`/`.phase-grid`/`.snoop-grid`/`.moh-grid`/`.src-grid` 等）の完全定義**: `.claude/skills/css-design-system/SKILL.md` を権威ソースとする（**重複定義禁止**）。
+- **CSS 変数・共通コンポーネントクラス（`.card`/`.alert`/`.tbl`/`.mmd`/`.bA`〜`.bU`/`.phase-grid`/`.snoop-grid`/`.moh-grid`/`.src-grid` 等）の完全定義**: `Types-of-headache/html-files/Headaches/Migraine.html` を権威ソースとする。`.claude/skills/css-design-system/SKILL.md` は運用ガイドとして参照する（**重複定義禁止**）。
 - **ページ別ヒーローカラー使用済み一覧**: `PROGRESS.md` および新規生成時の `scripts/build-html-skeleton.mjs` が機械的に重複検出する。手動チェック不要。
 
 ## Mermaid（HTML 内）必須ルール
