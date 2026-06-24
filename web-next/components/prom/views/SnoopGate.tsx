@@ -10,7 +10,7 @@ import { todayISO } from "../state";
  * レッドフラッグに 1 つでも該当すれば緊急ダイアログでブロックし、ダッシュボードへ進ませない。
  */
 export function SnoopGate() {
-  const { data, commit, navigate, toast, openUrgent } = usePromContext();
+  const { commit, navigate, toast, openUrgent } = usePromContext();
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -20,15 +20,14 @@ export function SnoopGate() {
       .map((g, i) => (fd.get(`snoop_${i}`) !== null ? g.name : null))
       .filter((n): n is string => n !== null);
     const result = flags.length > 0;
-    const nextSnoop = {
-      ...data.snoop,
-      history: [...data.snoop.history, { date: todayISO(), result, flags }],
-    };
 
     if (result) {
       commit((prev) => ({
         ...prev,
-        snoop: nextSnoop,
+        snoop: {
+          ...prev.snoop,
+          history: [...prev.snoop.history, { date: todayISO(), result, flags }],
+        },
         settings: { ...prev.settings, hasCompletedSnoop: false },
       })).catch((err) => toast(err.message));
       openUrgent(flags);
@@ -36,7 +35,10 @@ export function SnoopGate() {
     }
     commit((prev) => ({
       ...prev,
-      snoop: nextSnoop,
+      snoop: {
+        ...prev.snoop,
+        history: [...prev.snoop.history, { date: todayISO(), result, flags }],
+      },
       settings: { ...prev.settings, hasCompletedSnoop: true },
     }))
       .then(() => {

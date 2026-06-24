@@ -114,6 +114,11 @@ export function PromApp() {
           diary: { schemaVersion: SCHEMA_VERSION, entries: [] },
           scores: { schemaVersion: SCHEMA_VERSION, records: [] },
         });
+        if (/[?&]selftest=1/.test(window.location.search)) {
+          setCurrentHash("#/selftest");
+        } else {
+          setCurrentHash(window.location.hash || "#/dashboard");
+        }
         setReady(true);
       });
     return () => {
