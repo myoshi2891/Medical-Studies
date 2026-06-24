@@ -263,6 +263,7 @@ export interface StorageAdapter {
   save(key: string, value: unknown): Promise<void>;
   exportAll(): Promise<string>;
   importAll(json: string): Promise<void>;
+  clearAll(): Promise<void>;
 }
 
 /** localStorage / sessionStorage 等が満たす最小インターフェース。 */

@@ -191,12 +191,7 @@ vi.mock("@/components/MermaidDiagram", () => ({
 #### コードブロック（手書き span ハイライト）
 
 ソースは手書き `<span class="kw|cm|st|fn|nu">` でハイライトしている。**shiki は使わない。**
-`<pre>` 内に span とテキストが混在し JSX では空白が畳まれるため、
-**`dangerouslySetInnerHTML` でテンプレートリテラルとして渡す**（静的文字列のみ・XSS リスクなし）:
-
-> [!WARNING]
-> `dangerouslySetInnerHTML` の `__html` プロパティには、ユーザー入力、外部APIからのレスポンス、データベースの値、あるいは動的に生成されたテンプレートなどを絶対に渡してはいけません。
-> `__html` に渡す値は、ソースコード上にハードコードされた静的文字列のみでなければなりません。この制約に違反した場合、クロスサイトスクリプティング（XSS）の脆弱性リスクが生じるため、AIエージェントによる自動生成時も含め、動的なコンテンツ生成は厳禁とします。
+`<pre>` 内に span とテキストが混在し JSX では空白が畳まれるため、**`dangerouslySetInnerHTML` でテンプレートリテラルとして渡す**:
 
 ```tsx
 <pre
@@ -208,14 +203,9 @@ vi.mock("@/components/MermaidDiagram", () => ({
 />
 ```
 
-- biome の `noDangerouslySetInnerHtml` は `biome.json` の `overrides` で**当該ページのみ off** にする:
+> [!WARNING]
+> Do not pass user input, API responses, database content, or generated/dynamic templates to the `__html` property. Using `dangerouslySetInnerHTML` with non-static content introduces a severe Cross-Site Scripting (XSS) vulnerability. The value passed to `__html` must be a static string literal hardcoded in the source code.
 
-```jsonc
-"overrides": [
-  { "includes": ["app/<category>/<slug>/page.tsx"],
-    "linter": { "rules": { "security": { "noDangerouslySetInnerHtml": "off" } } } }
-]
-```
 
 ハイライト用クラス（`globals.css` に定義）: `kw`（キーワード）/ `cm`（コメント・斜体）/
 `st`（文字列）/ `fn`（関数名）/ `nu`（数値）。

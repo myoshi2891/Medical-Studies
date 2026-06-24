@@ -26,15 +26,19 @@ export function SnoopGate() {
     };
 
     if (result) {
-      commit({ ...data, snoop: nextSnoop }).catch((err) => toast(err.message));
+      commit((prev) => ({
+        ...prev,
+        snoop: nextSnoop,
+        settings: { ...prev.settings, hasCompletedSnoop: false },
+      })).catch((err) => toast(err.message));
       openUrgent(flags);
       return;
     }
-    commit({
-      ...data,
+    commit((prev) => ({
+      ...prev,
       snoop: nextSnoop,
-      settings: { ...data.settings, hasCompletedSnoop: true },
-    })
+      settings: { ...prev.settings, hasCompletedSnoop: true },
+    }))
       .then(() => {
         toast("安全確認が完了しました");
         navigate("#/dashboard");

@@ -54,7 +54,6 @@ function ChipSet({
 /** ビュー: 頭痛日誌（前向き記録）。元 renderDiary / saveDiary / renderMohPanel。 */
 export function Diary() {
   const { data, commit, toast } = usePromContext();
-  const today = todayISO();
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [rowSeq, setRowSeq] = useState(0);
@@ -112,7 +111,7 @@ export function Diary() {
     const entry: DiaryEntry = {
       id: `diary_${Date.now()}`,
       createdAt: new Date().toISOString(),
-      date: today,
+      date: todayISO(),
       startTime: start,
       endTime: end,
       sides: getChecked("d_sides"),
@@ -173,9 +172,9 @@ export function Diary() {
               className="c-input"
               type="date"
               id="d_date"
-              defaultValue={today}
-              min={today}
-              max={today}
+              defaultValue={todayISO()}
+              min={todayISO()}
+              max={todayISO()}
               readOnly
             />
           </div>

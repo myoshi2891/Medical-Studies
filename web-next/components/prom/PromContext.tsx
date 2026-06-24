@@ -11,8 +11,10 @@ import type { AppData } from "./state";
 export interface PromContextValue {
   /** 現在のアプリ状態（settings/snoop/diary/scores）。 */
   data: AppData;
+  /** ルーティング更新を強制トリガーするための nonce。 */
+  routeNonce: number;
   /** 次状態を確定し全 4 キーを永続化する（元 persistAll 相当）。 */
-  commit: (next: AppData) => Promise<void>;
+  commit: (next: AppData | ((prev: AppData) => AppData)) => Promise<void>;
   /** ハッシュルーティング遷移（元 navigate）。同一ハッシュでも再描画する。 */
   navigate: (hash: string) => void;
   /** 一時通知（元 toast）。 */

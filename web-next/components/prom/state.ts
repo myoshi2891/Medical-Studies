@@ -85,8 +85,14 @@ export function timeDiffMins(start: string, end: string): number | null {
   const ps = /^(\d{2}):(\d{2})$/.exec(start);
   const pe = /^(\d{2}):(\d{2})$/.exec(end);
   if (!ps || !pe) return null;
-  const s = Number(ps[1]) * 60 + Number(ps[2]);
-  const e = Number(pe[1]) * 60 + Number(pe[2]);
+  const sh = Number(ps[1]);
+  const sm = Number(ps[2]);
+  const eh = Number(pe[1]);
+  const em = Number(pe[2]);
+  if (sh < 0 || sh > 23 || sm < 0 || sm > 59) return null;
+  if (eh < 0 || eh > 23 || em < 0 || em > 59) return null;
+  const s = sh * 60 + sm;
+  const e = eh * 60 + em;
   return e - s;
 }
 
