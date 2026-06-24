@@ -25,11 +25,23 @@ interface DrugRow {
   eff: string;
 }
 
+/**
+ * Creates a new drug row with default values.
+ *
+ * @param id - The row identifier
+ * @returns A new `DrugRow` initialized with empty fields and the `simple-nsaid` class
+ */
 function newDrugRow(id: number): DrugRow {
   return { id, name: "", free: "", cls: "simple-nsaid", dose: "", time: "", eff: "" };
 }
 
-/** チップ群（チェックボックス/ラジオ）を描画。元 chipset。 */
+/**
+ * Renders a group of chip-style checkbox or radio inputs.
+ *
+ * @param name - The form field name shared by the inputs.
+ * @param opts - The option labels and values to render.
+ * @param type - The input type to use for each chip.
+ */
 function ChipSet({
   name,
   opts,
@@ -51,7 +63,11 @@ function ChipSet({
   );
 }
 
-/** ビュー: 頭痛日誌（前向き記録）。元 renderDiary / saveDiary / renderMohPanel。 */
+/**
+ * Renders the headache diary entry view.
+ *
+ * @returns The diary form, MOH panel, and recent entry table.
+ */
 export function Diary() {
   const { data, commit, toast } = usePromContext();
   const [start, setStart] = useState("");
@@ -61,14 +77,28 @@ export function Diary() {
 
   const recent = data.diary.entries.slice().reverse().slice(0, 8);
 
+  /**
+   * Adds a new medication row to the form.
+   */
   function addDrugRow() {
     setDrugRows((prev) => [...prev, newDrugRow(rowSeq)]);
     setRowSeq((n) => n + 1);
   }
+  /**
+   * Updates a drug row by its identifier.
+   *
+   * @param id - The identifier of the row to update
+   * @param patch - The fields to merge into the matching row
+   */
   function updateRow(id: number, patch: Partial<DrugRow>) {
     setDrugRows((prev) => prev.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   }
 
+  /**
+   * Formats the headache duration from the selected start and end times.
+   *
+   * @returns A formatted duration string, or an empty string when the time range is incomplete or invalid.
+   */
   function durationHint(): string {
     if (!start || !end) return "";
     const mins = timeDiffMins(start, end);
@@ -81,6 +111,11 @@ export function Diary() {
     return `持続時間: ${h}時間${m}分 ${note}`;
   }
 
+  /**
+   * Saves the current diary entry from the form.
+   *
+   * @param e - The form submission event.
+   */
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
@@ -478,7 +513,9 @@ export function Diary() {
   );
 }
 
-/** MOH リスクパネル（当月の薬剤分類別 服用日数 → 純粋関数 mohRiskFor で判定）。 */
+/**
+ * Displays the current month's MOH risk summary by drug class.
+ */
 function MohPanel() {
   const { data } = usePromContext();
   const ym = todayISO().slice(0, 7);

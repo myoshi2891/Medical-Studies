@@ -28,7 +28,12 @@ import { SnoopGate } from "./views/SnoopGate";
 
 const isObject = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null;
 
-/** ストアから 4 キーを読み込み、配列構造を健全化する（元 boot のロード/サニタイズ）。 */
+/**
+ * Loads persisted app data from storage and normalizes list fields.
+ *
+ * @param store - Storage adapter used to read the persisted records
+ * @returns The loaded app data with default values applied for missing or invalid records
+ */
 async function loadData(store: StorageAdapter): Promise<AppData> {
   const rawSettings = await store.load(KEYS.settings);
   const settings: Settings = isObject(rawSettings)
@@ -58,9 +63,10 @@ async function loadData(store: StorageAdapter): Promise<AppData> {
 }
 
 /**
- * 描画レイヤのルート（元 index.html の Shell 全体）。
- * 単一クライアントページ + ハッシュ内部ルーターでビューを切り替える（忠実移植）。
- * 状態は useState、永続化は StorageAdapter 経由。テーマは .prom-app の data-theme に宣言的付与。
+ * Renders the Prom app shell and routes the active view from the current hash.
+ *
+ * Initializes persisted app data, keeps the hash route and OS color scheme in sync, and provides
+ * navigation, persistence, toast, and urgent-dialog controls through `PromProvider`.
  */
 export function PromApp() {
   const storeRef = useRef<StorageAdapter | null>(null);
@@ -214,6 +220,9 @@ export function PromApp() {
   const theme = appData.settings.theme || "auto";
   const isDark = theme === "dark" ? true : theme === "light" ? false : systemDark;
 
+  /**
+   * Cycles the app theme to the next setting and saves it.
+   */
   function cycleTheme() {
     const order: Settings["theme"][] = ["auto", "light", "dark"];
     const next = order[(order.indexOf(theme) + 1) % order.length];

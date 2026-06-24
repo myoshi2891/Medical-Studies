@@ -17,7 +17,13 @@ import {
 const isFiniteNumber = (v: number): boolean => Number.isFinite(v);
 const isInteger = (v: number): boolean => Number.isInteger(v);
 
-/** 値が属する解釈バンドを返す（見つからなければ null）。 */
+/**
+ * Finds the first interpretation band that contains a value.
+ *
+ * @param value - The score to evaluate
+ * @param bands - The interpretation bands to search
+ * @returns The first band whose range includes `value`, or `null` if none matches
+ */
 export function bandFor(value: number, bands: InterpretationBand[]): InterpretationBand | null {
   for (const b of bands) {
     if (value >= b.min && value <= b.max) return b;
@@ -25,7 +31,13 @@ export function bandFor(value: number, bands: InterpretationBand[]): Interpretat
   return null;
 }
 
-/** 合計方式（HIT-6 / MIDAS）。 */
+/**
+ * Scores an instrument by summing all answers.
+ *
+ * @param answers - The answer values for each item.
+ * @param def - The instrument definition.
+ * @returns A score value with the total, interpretation, and matching interpretation band.
+ */
 function scoreSum(answers: number[], def: Instrument): Result<ScoreValue> {
   if (def.scoring.method !== "sum") return err("スコアリング方式が sum ではありません");
   const scoring = def.scoring;
@@ -50,7 +62,13 @@ function scoreSum(answers: number[], def: Instrument): Result<ScoreValue> {
   return ok({ total, interpretation: band ? band.grade : "unknown", band });
 }
 
-/** ドメイン換算方式（MSQ v2.1）。逆転後 0〜100 へ換算。 */
+/**
+ * Scores MSQ domains and maps each domain to an interpretation grade.
+ *
+ * @param answers - Item responses in item order
+ * @param def - Instrument definition with domain scoring settings
+ * @returns A score value containing per-domain scores, per-domain interpretation grades, and `interpretation` set to `"domain"`
+ */
 function scoreMsqDomains(answers: number[], def: Instrument): Result<ScoreValue> {
   if (def.scoring.method !== "domain-rescale")
     return err("スコアリング方式が domain-rescale ではありません");
@@ -80,7 +98,13 @@ function scoreMsqDomains(answers: number[], def: Instrument): Result<ScoreValue>
   return ok({ domains, domainInterp, interpretation: "domain" });
 }
 
-/** 単一順序尺度方式（PGIC）。variant により favorable の向きが反転。 */
+/**
+ * Scores a PGIC response and classifies it by favorability.
+ *
+ * @param answers - The single PGIC answer.
+ * @param def - The instrument definition that specifies the PGIC variant.
+ * @returns A score result with the raw response value and a `favorable` or `non-favorable` interpretation.
+ */
 function scorePgic(answers: number[], def: Instrument): Result<ScoreValue> {
   if (def.scoring.method !== "single-ordinal")
     return err("スコアリング方式が single-ordinal ではありません");
@@ -92,7 +116,13 @@ function scorePgic(answers: number[], def: Instrument): Result<ScoreValue> {
   return ok({ total: a, interpretation: favorable ? "favorable" : "non-favorable" });
 }
 
-/** スコアリング方式に応じて適切な純粋関数へディスパッチする。 */
+/**
+ * Scores answers using the method defined in the instrument.
+ *
+ * @param answers - The response values to score.
+ * @param def - The instrument definition that selects the scoring method.
+ * @returns A scoring result produced by the configured method, or an error if the method is unknown.
+ */
 export function scoreInstrument(answers: number[], def: Instrument): Result<ScoreValue> {
   const method = def.scoring.method;
   if (method === "sum") return scoreSum(answers, def);
@@ -101,7 +131,12 @@ export function scoreInstrument(answers: number[], def: Instrument): Result<Scor
   return err(`未知のスコアリング方式: ${method}`);
 }
 
-/** 当月の薬剤分類別 服用日数から MOH（薬剤の使用過多による頭痛）リスクを判定。 */
+/**
+ * 判定の対象となる月間服用日数と薬剤分類から MOH リスクを判定します。
+ *
+ * @param drugClass - 判定に使う薬剤分類
+ * @returns `level` と `threshold` を含む判定結果
+ */
 export function mohRiskFor(monthlyDays: number, drugClass: string): Result<MohResult> {
   if (!isInteger(monthlyDays) || monthlyDays < 0) {
     return err("服用日数は 0 以上の整数で指定してください");
@@ -117,7 +152,13 @@ export function mohRiskFor(monthlyDays: number, drugClass: string): Result<MohRe
   return ok({ level, threshold });
 }
 
-/** ISO 8601 期間を加算（UTC 固定で純粋・タイムゾーン非依存。Date.now は使わない）。 */
+/**
+ * Calculates the next due date by adding an ISO 8601 period to a calendar date in UTC.
+ *
+ * @param lastDateISO - The starting date in `YYYY-MM-DD` format
+ * @param isoPeriod - The ISO 8601 period to add
+ * @returns The resulting date in `YYYY-MM-DD` format, or `null` if either input is invalid
+ */
 export function nextDueDate(lastDateISO: string, isoPeriod: string): string | null {
   if (typeof lastDateISO !== "string") return null;
   const dm = /^(\d{4})-(\d{2})-(\d{2})$/.exec(lastDateISO);

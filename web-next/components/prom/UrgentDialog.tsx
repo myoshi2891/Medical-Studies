@@ -3,8 +3,11 @@
 import { useEffect, useRef } from "react";
 
 /**
- * 緊急受診アラート（SNOOP4 陽性時に遷移をブロックするゲート）。元 index.html の c-urgent。
- * Escape・背景クリックでは閉じない（ゲートの性質を維持）。再スクリーニングのみ脱出口。
+ * Displays the urgent referral gate for SNOOP4-positive screening results.
+ *
+ * @param open - Controls whether the dialog is exposed and focus is trapped inside it.
+ * @param flags - Matching screening items to list in the dialog.
+ * @param onRescreen - Handles the rescreening action.
  */
 export function UrgentDialog({
   open,

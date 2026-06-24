@@ -4,7 +4,11 @@ import { useMemo } from "react";
 import { runSelfTests } from "../self-tests";
 import { BackButton } from "./BackButton";
 
-/** ビュー: スコアリング自己テスト（元 showSelfTest）。?selftest=1 でも到達。 */
+/**
+ * スコアリング自己テストの結果画面を表示します。
+ *
+ * @returns スコアリング自己テストの実行結果を表示する要素。
+ */
 export function SelfTestPanel() {
   const results = useMemo(() => runSelfTests(), []);
   const passed = results.filter((r) => r.pass).length;
