@@ -14,7 +14,8 @@
       "!next-env.d.ts",
       "!app/globals.css",
       "!app/prom-checker/prom-checker.css",
-      "!app/blocks/cervical-plexus-block/cervical-plexus-block.css"
+      "!app/blocks/cervical-plexus-block/cervical-plexus-block.css",
+      "!app/blocks/occipital-nerve-block/occipital-nerve-block.css"
     ]
   },
   "formatter": {
