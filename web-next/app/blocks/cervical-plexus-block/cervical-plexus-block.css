@@ -5,7 +5,7 @@
  * globals.css の共通トークンを汚染しない。
  */
 
-/* スムーズスクロール（このページの import 時のみ適用される） */
+/* スムーズスクロール（グローバル適用 — html セレクターはページスコープ外） */
 html {
   scroll-behavior: smooth;
 }
@@ -42,7 +42,7 @@ html {
   --cpb-even: #fdf2f6;
   --cpb-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
-  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", "Segoe UI",
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans JP", "Segoe UI",
     Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
