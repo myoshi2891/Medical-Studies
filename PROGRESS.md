@@ -52,6 +52,21 @@
   `app/prom-checker/`（page + scoped CSS）。
 - **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/prom-checker`。
 
+### アーキタイプ A（静的教育ガイドページ）
+
+`Types-of-headache/html-files/**/*.html` の教育ページを Server Component として忠実転記する系統。
+
+| ページ | ルート | ステータス | 備考 |
+|---|---|---|---|
+| Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
+
+- **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
+  lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
+- **chrome のみクライアント化**: `components/blocks/CpbSidebar.tsx`（scroll-spy = IntersectionObserver）。
+  本文は Server Component のまま。スタイルは `app/blocks/<slug>/<slug>.css` に `.cervical-accent` でスコープ。
+- **テスト**: 計 49 passed（B 系 + A 契約 8）。lint / typecheck / build 全通過。
+- **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/blocks/cervical-plexus-block`。
+
 ---
 
 ## 次回セッションでの再開プロンプト
