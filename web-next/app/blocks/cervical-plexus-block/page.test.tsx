@@ -51,7 +51,7 @@ describe("CervicalPlexusBlockPage: 契約（忠実転記）", () => {
   it("外部リンク（http 始まり）はすべて target=_blank と rel=noopener noreferrer を持つ", () => {
     const { container } = render(<CervicalPlexusBlockPage />);
     const externals = Array.from(container.querySelectorAll("a")).filter((a) =>
-      /^https?:\/\//.test(a.getAttribute("href") ?? ""),
+      /^https?:\/\//.test(a.getAttribute("href") ?? "")
     );
     expect(externals.length).toBeGreaterThan(0);
     for (const a of externals) {
@@ -63,7 +63,7 @@ describe("CervicalPlexusBlockPage: 契約（忠実転記）", () => {
   it("内部リンク（# 始まり）に .html を含まない", () => {
     const { container } = render(<CervicalPlexusBlockPage />);
     const internals = Array.from(container.querySelectorAll("a")).filter((a) =>
-      (a.getAttribute("href") ?? "").startsWith("#"),
+      (a.getAttribute("href") ?? "").startsWith("#")
     );
     expect(internals.length).toBeGreaterThan(0);
     for (const a of internals) {
