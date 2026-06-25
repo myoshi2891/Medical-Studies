@@ -24,6 +24,22 @@ if (typeof window !== "undefined") {
   Element.prototype.scrollIntoView = vi.fn();
 }
 
+// jsdom は IntersectionObserver を実装しない。ガイドページの scroll-spy（CpbSidebar）が
+// マウント時に参照するため、最小の no-op スタブを注入する。
+if (typeof globalThis.IntersectionObserver !== "function") {
+  class IntersectionObserverStub implements IntersectionObserver {
+    readonly root: Element | null = null;
+    readonly rootMargin: string = "";
+    readonly thresholds: ReadonlyArray<number> = [];
+    observe = vi.fn();
+    unobserve = vi.fn();
+    disconnect = vi.fn();
+    takeRecords = vi.fn(() => []);
+  }
+  globalThis.IntersectionObserver =
+    IntersectionObserverStub as unknown as typeof IntersectionObserver;
+}
+
 // 各テスト後に DOM をクリーンアップ（RTL のデフォルト動作を明示化）
 afterEach(() => {
   cleanup();
