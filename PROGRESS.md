@@ -4,9 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `eec36e4` feat(Types-of-headache): Cervicogenic-Headache.html — Phase 4/4: finalize — Progress: 16/16 sections complete
-- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス（python3.12）/ Mermaid 6図（TCC収束/ICHD-3診断フロー/SNOOP4/身体評価フロー/神経ブロック確証/治療アルゴリズム）/ 外部リンク31件すべて target="_blank" rel="noopener noreferrer" 付与 / SRI 付与済 / 国際公認ソース（ICHD-3/IHS/NICE/AAN/Cochrane/PubMed）.src-grid 5群明示
-- **次の作業**: Headaches/Cervicogenic-Headache.html 完了。新規コンテンツ待ち
+- **最新 HEAD**: `55e4653` feat(web-next): implement OccipitalNerveBlockPage content
+- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス（python3.12）/ Mermaid 6図 / 外部リンク31件 / SRI 付与済 / 国際公認ソース明示
+- **次の作業**: Blocks/Occipital-Nerve-Block.html の Next.js 移行完了。新規コンテンツ・移行待ち
 - **未移行 HTML 残数**: 0
 
 ## 移行ステータス
@@ -59,12 +59,13 @@
 | ページ | ルート | ステータス | 備考 |
 |---|---|---|---|
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
+| Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
 - **chrome のみクライアント化**: `components/blocks/CpbSidebar.tsx`（scroll-spy = IntersectionObserver）。
   本文は Server Component のまま。スタイルは `app/blocks/<slug>/<slug>.css` に `.cervical-accent` でスコープ。
-- **テスト**: 計 49 passed（B 系 + A 契約 8）。lint / typecheck / build 全通過。
+- **テスト**: 計 57 passed（B 系 33 + A 契約 16 + その他）。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/blocks/cervical-plexus-block`。
 
 ---
