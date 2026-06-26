@@ -224,7 +224,7 @@ flowchart LR
 |---|---|---|---|
 | 単体 | `validateManifest` / 構造マッピング | Vitest | 正常系＋異常系（不正データ例外）。純粋関数として先行テスト |
 | 契約 | `app/anatomy/page.tsx` | Vitest + RTL | hero・6 セクション・ディスクレーマー・md リンク・外部リンク属性。重いビューアは `vi.mock` |
-| 視覚 | `/anatomy` 全体 | 手動（`bun run dev`） | 3D 回転・MRI スクラブ・リンク遷移を目視 |
+| 視覚 | `/anatomy` 全体 | 手動（開発サーバで起動し目視） | 3D 回転・MRI スクラブ・リンク遷移を目視 |
 
 既存 `app/blocks/occipital-nerve-block/page.test.tsx` の契約テスト様式に準拠する。
 

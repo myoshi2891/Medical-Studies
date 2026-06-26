@@ -68,7 +68,7 @@
 - **chrome のみクライアント化**: `components/blocks/CpbSidebar.tsx`（scroll-spy = IntersectionObserver）/ `components/headaches/CehSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/blocks/<slug>/<slug>.css` に `.cervical-accent` や `.ceh-accent` でスコープ。
 - **テスト**: 計 103 passed。lint / typecheck 全通過。
-- **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/headaches/cervicogenic-headache`。
+- **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
 
