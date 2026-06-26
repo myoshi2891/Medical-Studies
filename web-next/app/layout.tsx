@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { DisclaimerBanner } from "@/components/site/DisclaimerBanner";
+import { SiteHeader } from "@/components/site/SiteHeader";
 import { inter, outfit } from "@/lib/fonts";
 import "./globals.css";
 
@@ -22,7 +24,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ja" className={`${outfit.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body className="has-common-header">
+        <SiteHeader />
+        <DisclaimerBanner />
+        {children}
+      </body>
     </html>
   );
 }
