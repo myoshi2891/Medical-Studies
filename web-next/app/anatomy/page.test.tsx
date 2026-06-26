@@ -41,7 +41,7 @@ describe("AnatomyPage: 契約", () => {
   it("manifest の全 md リンクを内部リンクとして描画する（.html を含まない）", () => {
     const { container } = render(<AnatomyPage />);
     const hrefs = Array.from(container.querySelectorAll("a")).map(
-      (a) => a.getAttribute("href") ?? "",
+      (a) => a.getAttribute("href") ?? ""
     );
     const expectedHrefs = ANATOMY_MANIFEST.flatMap((s) => s.links.map((l) => l.href));
     for (const href of expectedHrefs) {
