@@ -37,7 +37,10 @@ export function isSafeHref(href: string): boolean {
   if (href.length === 0) return false;
   if (href.startsWith("//")) return false;
   if (!href.startsWith("/")) return false;
-  if (href.includes("javascript:")) return false;
+  // 危険スキームは大文字小文字・前後空白を正規化してから検出する
+  // （`JavaScript:` や ` javascript:` 等の変種を取りこぼさない）。
+  const normalized = href.trim().toLowerCase();
+  if (normalized.includes("javascript:")) return false;
   return true;
 }
 

@@ -38,7 +38,9 @@ body {
  * ────────────────────────────────────────────────────────────── */
 
 body.has-common-header {
-  margin-top: calc(var(--ch-height) + var(--ch-disclaimer-height, 0px) + 10px);
+  /* 初回ペイント時は DisclaimerBanner が高さを測る前なので、保守的な既定値（44px）で
+     本文がバナー下に隠れるのを防ぐ。マウント後に --ch-disclaimer-height が実測値で上書きされる。 */
+  margin-top: calc(var(--ch-height) + var(--ch-disclaimer-height, 44px) + 10px);
 }
 
 .ch-disclaimer {
