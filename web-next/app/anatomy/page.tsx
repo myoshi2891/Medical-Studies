@@ -1,7 +1,6 @@
 import "./anatomy.css";
 import type { Metadata } from "next";
-import ModelViewer from "@/components/anatomy/ModelViewer";
-import MriSliceViewer from "@/components/anatomy/MriSliceViewer";
+import { AnatomyViewers } from "@/components/anatomy/AnatomyViewers";
 import { ANATOMY_MANIFEST } from "@/lib/anatomy/manifest";
 
 export const metadata: Metadata = {
@@ -42,10 +41,12 @@ export default function AnatomyPage() {
             <h2 className="anatomy-sec-title">{s.title}</h2>
             <p className="anatomy-sec-summary">{s.summary}</p>
 
-            <div className="anatomy-viewers">
-              <ModelViewer src={s.modelSrc} hotspots={s.hotspots} title={s.title} />
-              <MriSliceViewer mri={s.mri} title={s.title} />
-            </div>
+            <AnatomyViewers
+              modelSrc={s.modelSrc}
+              hotspots={s.hotspots}
+              mri={s.mri}
+              title={s.title}
+            />
 
             <nav className="anatomy-links" aria-label={`${s.title} の関連教育ページ`}>
               {s.links.map((l) => (
