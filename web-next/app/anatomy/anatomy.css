@@ -1,0 +1,258 @@
+/* /anatomy 頭痛 3D 解剖アトラス scoped CSS（接頭辞 .anatomy-）。
+   配色は Migraine.html デザインシステムに整合（ティール×スレート）。 */
+
+.anatomy-accent {
+  --atl1: #0f3d3e;
+  --atl2: #11716e;
+  --atl3: #16a394;
+  --ink: #1f2933;
+  --muted: #5b6770;
+  --line: #d7dee3;
+  --surface: #ffffff;
+  --bg: #eef3f5;
+  --r: 14px;
+  --rs: 10px;
+  --sh: 0 4px 20px rgba(15, 61, 62, 0.08);
+
+  font-family: var(--font-sans, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.anatomy-accent * {
+  box-sizing: border-box;
+}
+
+/* Hero */
+.anatomy-hero {
+  background: linear-gradient(135deg, var(--atl1), var(--atl2) 55%, var(--atl3));
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+
+.anatomy-hero-emoji {
+  font-size: 34px;
+}
+
+.anatomy-hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+
+.anatomy-hero-sub {
+  font-size: 14px;
+  color: #f1f5f4;
+}
+
+/* Disclaimer */
+.anatomy-disclaimer {
+  max-width: 980px;
+  margin: 18px auto 0;
+  padding: 14px 18px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: var(--rs);
+  font-size: 13.5px;
+  color: #5d4037;
+}
+
+/* Sections */
+.anatomy-main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 18px 64px;
+  display: grid;
+  gap: 28px;
+}
+
+.anatomy-sec {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  padding: 22px 22px 18px;
+  scroll-margin-top: 16px;
+}
+
+.anatomy-sec-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--atl1);
+  margin: 0 0 6px;
+  border-left: 5px solid var(--atl3);
+  padding-left: 12px;
+}
+
+.anatomy-sec-summary {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+/* Viewers */
+.anatomy-viewers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .anatomy-viewers {
+    grid-template-columns: 1fr;
+  }
+}
+
+.anatomy-viewer {
+  border: 1px solid var(--line);
+  border-radius: var(--rs);
+  background: #f7fafb;
+  padding: 14px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.anatomy-viewer-stage,
+.anatomy-mri-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px dashed var(--line);
+  border-radius: var(--rs);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(22, 163, 148, 0.05),
+      rgba(22, 163, 148, 0.05) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  color: var(--muted);
+  text-align: center;
+}
+
+.anatomy-viewer-badge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: var(--atl2);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.anatomy-viewer-note {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* Hotspot legend */
+.anatomy-hotspots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.anatomy-hotspot {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.anatomy-hotspot-label {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--atl1);
+}
+
+.anatomy-hotspot-plain {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* MRI scrubber */
+.anatomy-mri-img {
+  width: 100%;
+  border-radius: var(--rs);
+  background: #000;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+
+.anatomy-mri-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.anatomy-mri-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--atl1);
+}
+
+.anatomy-mri-btn:hover {
+  background: var(--atl3);
+  color: #fff;
+}
+
+.anatomy-mri-range {
+  flex: 1;
+  accent-color: var(--atl3);
+}
+
+.anatomy-mri-count {
+  font-variant-numeric: tabular-nums;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.anatomy-mri-note {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* Related links */
+.anatomy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.anatomy-link {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--atl1);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.anatomy-link:hover {
+  background: var(--atl3);
+}
