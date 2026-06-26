@@ -1,7 +1,10 @@
 /* スムーズスクロール（グローバル適用 — ハッシュ遷移はビューポートをスクロールするため
-   ページスコープ外の html セレクターに置く）。 */
-html {
-  scroll-behavior: smooth;
+   ページスコープ外の html セレクターに置く）。
+   動作軽減を希望するユーザー（prefers-reduced-motion: reduce）には適用しない。 */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .occipital-accent {
