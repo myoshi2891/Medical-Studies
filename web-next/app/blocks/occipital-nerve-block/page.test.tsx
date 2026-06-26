@@ -9,8 +9,11 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** ソース HTML（Occipital-Nerve-Block.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 17 }, (_, i) => `s${i + 1}`);
-// 42 = ソース小見出し + 17 section タイトル（見出し階層維持のため h1→h2 化）。
-const H2_COUNT = 59;
+// h2 = 17 section タイトルのみ（見出し階層維持のため h1→h2 化）。
+// 小見出しは階層を正しく保つため h3 に降格（下の H3_COUNT で検証）。
+const H2_COUNT = 17;
+// 44 = 降格した 42 小見出し + 既存 2（絶対/相対禁忌）。
+const H3_COUNT = 44;
 const MERMAID_COUNT = 10;
 const TABLE_COUNT = 24;
 const NAV_COUNT = 17;
@@ -29,9 +32,14 @@ describe("OccipitalNerveBlockPage: 契約（忠実転記）", () => {
     expect(ids).toEqual(SECTION_IDS);
   });
 
-  it("<h2> の個数がソースと一致する", () => {
+  it("<h2> の個数が section タイトル数と一致する", () => {
     const { container } = render(<OccipitalNerveBlockPage />);
     expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
+  });
+
+  it("<h3> の個数が降格後の小見出し数と一致する", () => {
+    const { container } = render(<OccipitalNerveBlockPage />);
+    expect(container.querySelectorAll("h3")).toHaveLength(H3_COUNT);
   });
 
   it("Mermaid 図の個数がソースと一致する", () => {

@@ -9,8 +9,11 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** ソース HTML（Cervicogenic-Headache.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 16 }, (_, i) => `s${i + 1}`);
-// 23 = ソース小見出し + 16 section タイトル（見出し階層維持のため h1→h2 化）。
-const H2_COUNT = 39;
+// h2 = 16 section タイトルのみ（見出し階層維持のため h1→h2 化）。
+// 小見出しは階層を正しく保つため h3 に降格（下の H3_COUNT で検証）。
+const H2_COUNT = 16;
+// 24 = 降格した 23 小見出し + 既存 1（文書管理情報）。
+const H3_COUNT = 24;
 const MERMAID_COUNT = 6;
 const TABLE_COUNT = 19;
 const NAV_COUNT = 16;
@@ -29,9 +32,14 @@ describe("CervicogenicHeadachePage: 契約（忠実転記）", () => {
     expect(ids).toEqual(SECTION_IDS);
   });
 
-  it("<h2> の個数がソースと一致する", () => {
+  it("<h2> の個数が section タイトル数と一致する", () => {
     const { container } = render(<CervicogenicHeadachePage />);
     expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
+  });
+
+  it("<h3> の個数が降格後の小見出し数と一致する", () => {
+    const { container } = render(<CervicogenicHeadachePage />);
+    expect(container.querySelectorAll("h3")).toHaveLength(H3_COUNT);
   });
 
   it("Mermaid 図の個数がソースと一致する", () => {
