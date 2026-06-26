@@ -72,7 +72,7 @@ export default function OccipitalNerveBlockPage() {
               </div>
             </div>
 
-            <h2>GON ブロックの双対的役割</h2>
+            <h3>GON ブロックの双対的役割</h3>
             <div className="onb-role-grid">
               <div className="onb-role">
                 <div className="onb-role-t">🔍 診断的役割</div>
@@ -90,7 +90,7 @@ export default function OccipitalNerveBlockPage() {
               </div>
             </div>
 
-            <h2>効果の持続時間 — 「麻酔」を超える鎮痛</h2>
+            <h3>効果の持続時間 — 「麻酔」を超える鎮痛</h3>
             <div className="alert a-info">
               <div className="alert-i">⏳</div>
               <div>
@@ -113,7 +113,7 @@ export default function OccipitalNerveBlockPage() {
               <strong>大後頭神経（GON）</strong>です。
             </p>
 
-            <h2>後頭部の3神経</h2>
+            <h3>後頭部の3神経</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -159,7 +159,7 @@ export default function OccipitalNerveBlockPage() {
               </table>
             </div>
 
-            <h2>大後頭神経（GON）の走行 — ステップごとに理解する</h2>
+            <h3>大後頭神経（GON）の走行 — ステップごとに理解する</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — GON の起源から皮下出現までの走行</div>
               <MermaidDiagram
@@ -189,7 +189,7 @@ style F fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>体表ランドマークとブロック注入点の関係</h2>
+            <h3>体表ランドマークとブロック注入点の関係</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -257,7 +257,7 @@ style F fill:#2e7d32,color:#fff`}
               <strong>中枢レベルの痛覚調節</strong>が起きているためと考えられています。
             </p>
 
-            <h2>三叉頸椎複合体（Trigeminocervical Complex, TCC）とは</h2>
+            <h3>三叉頸椎複合体（Trigeminocervical Complex, TCC）とは</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — TCC における三叉神経系と後頭神経系の収束
@@ -285,7 +285,7 @@ style F fill:#1b5e20,color:#fff`}
               />
             </div>
 
-            <h2>作用機序の仮説（現在の理解）— 4ステップ</h2>
+            <h3>作用機序の仮説（現在の理解）— 4ステップ</h3>
             <div className="phase-grid">
               <div className="ph ph2">
                 <div className="ph-icon">①</div>
@@ -351,7 +351,7 @@ style F fill:#1b5e20,color:#fff`}
               </div>
             </div>
 
-            <h2>SNOOP4 — 6つの危険サイン</h2>
+            <h3>SNOOP4 — 6つの危険サイン</h3>
             <div className="snoop-grid">
               <div className="sn">
                 <div className="sn-letter">S</div>
@@ -395,7 +395,7 @@ style F fill:#1b5e20,color:#fff`}
               </div>
             </div>
 
-            <h2>SNOOP4 判定フロー</h2>
+            <h3>SNOOP4 判定フロー</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — SNOOP4 による二次性頭痛スクリーニング</div>
               <MermaidDiagram
@@ -571,7 +571,7 @@ style START fill:#1565c0,color:#fff`}
               <h2 className="sec-title">患者選択基準と禁忌</h2>
             </div>
 
-            <h2>ONB が特に有効な患者プロファイル</h2>
+            <h3>ONB が特に有効な患者プロファイル</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -613,7 +613,7 @@ style START fill:#1565c0,color:#fff`}
               </table>
             </div>
 
-            <h2>患者選択フローチャート</h2>
+            <h3>患者選択フローチャート</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — SNOOP4 → 適応 → 禁忌確認 → 同意取得の流れ
@@ -640,7 +640,7 @@ style H fill:#1b5e20,color:#fff`}
               />
             </div>
 
-            <h2>禁忌一覧</h2>
+            <h3>禁忌一覧</h3>
             <h3>絶対禁忌（Absolute Contraindications）</h3>
             <div className="tbl">
               <table className="th-red">
@@ -715,7 +715,7 @@ style H fill:#1b5e20,color:#fff`}
               <h2 className="sec-title">必要物品・使用薬剤</h2>
             </div>
 
-            <h2>標準的な必要物品リスト</h2>
+            <h3>標準的な必要物品リスト</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -757,7 +757,7 @@ style H fill:#1b5e20,color:#fff`}
               </table>
             </div>
 
-            <h2>局所麻酔薬（必須）</h2>
+            <h3>局所麻酔薬（必須）</h3>
             <div className="drug-grid">
               <div className="drug">
                 <div className="drug-nm">リドカイン（Lidocaine）</div>
@@ -791,7 +791,7 @@ style H fill:#1b5e20,color:#fff`}
               </div>
             </div>
 
-            <h2>コルチコステロイド（任意・疾患により使い分け）</h2>
+            <h3>コルチコステロイド（任意・疾患により使い分け）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -852,7 +852,7 @@ style H fill:#1b5e20,color:#fff`}
               </div>
             </div>
 
-            <h2>片頭痛 vs. 群発頭痛でのステロイド使用の判断</h2>
+            <h3>片頭痛 vs. 群発頭痛でのステロイド使用の判断</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -925,7 +925,7 @@ style H fill:#1b5e20,color:#fff`}
               <strong>外来・救急での迅速な実施</strong>に適しています。
             </p>
 
-            <h2>ランドマーク法の7ステップ</h2>
+            <h3>ランドマーク法の7ステップ</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — ランドマーク法の手技ステップ</div>
               <MermaidDiagram
@@ -951,7 +951,7 @@ style S7 fill:#2e7d32,color:#fff`}
               />
             </div>
 
-            <h2>逆吸引（Aspiration）が特に重要な理由</h2>
+            <h3>逆吸引（Aspiration）が特に重要な理由</h3>
             <div className="alert a-danger">
               <div className="alert-i">🩸</div>
               <div>
@@ -999,7 +999,7 @@ style S7 fill:#2e7d32,color:#fff`}
               で、解剖学的変異がある症例や「ランドマーク法が失敗した症例」に特に有用です。
             </p>
 
-            <h2>ランドマーク法 vs. エコーガイド下法</h2>
+            <h3>ランドマーク法 vs. エコーガイド下法</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1071,7 +1071,7 @@ style S7 fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>エコーガイド下法の2つのアプローチ</h2>
+            <h3>エコーガイド下法の2つのアプローチ</h3>
             <div className="onb-role-grid">
               <div className="onb-role">
                 <div className="onb-role-t">① 上項線レベル（古典的）</div>
@@ -1109,7 +1109,7 @@ style C2Level fill:#e8f5e9,stroke:#2e7d32`}
               />
             </div>
 
-            <h2>エコーガイド下法のステップ（上項線レベル）</h2>
+            <h3>エコーガイド下法のステップ（上項線レベル）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1164,7 +1164,7 @@ style C2Level fill:#e8f5e9,stroke:#2e7d32`}
               <h2 className="sec-title">術後ケアと効果の評価</h2>
             </div>
 
-            <h2>術後即時管理</h2>
+            <h3>術後即時管理</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1194,7 +1194,7 @@ style C2Level fill:#e8f5e9,stroke:#2e7d32`}
               </table>
             </div>
 
-            <h2>効果の時間軸</h2>
+            <h3>効果の時間軸</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 注入直後から数ヶ月までの効果の推移</div>
               <MermaidDiagram
@@ -1210,7 +1210,7 @@ style T3m fill:#e8f5e9,stroke:#1b5e20`}
               />
             </div>
 
-            <h2>再投与の基準</h2>
+            <h3>再投与の基準</h3>
             <div className="alert a-ok">
               <div className="alert-i">🔁</div>
               <div>
@@ -1229,7 +1229,7 @@ style T3m fill:#e8f5e9,stroke:#1b5e20`}
               <h2 className="sec-title">適応疾患別エビデンスレビュー</h2>
             </div>
 
-            <h2>後頭神経痛（ICHD-3: 13.1）— 最も強い適応</h2>
+            <h3>後頭神経痛（ICHD-3: 13.1）— 最も強い適応</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1265,7 +1265,7 @@ style T3m fill:#e8f5e9,stroke:#1b5e20`}
               </table>
             </div>
 
-            <h2>片頭痛（Migraine）</h2>
+            <h3>片頭痛（Migraine）</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 片頭痛における GON ブロックの活用シーン
@@ -1317,7 +1317,7 @@ style E2 fill:#e8f5e9,stroke:#2e7d32`}
               </table>
             </div>
 
-            <h2>群発頭痛（ICHD-3: 3.1/3.2）</h2>
+            <h3>群発頭痛（ICHD-3: 3.1/3.2）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1365,7 +1365,7 @@ style E2 fill:#e8f5e9,stroke:#2e7d32`}
               </div>
             </div>
 
-            <h2>頸原性頭痛（ICHD-3: 11.2）</h2>
+            <h3>頸原性頭痛（ICHD-3: 11.2）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1401,7 +1401,7 @@ style E2 fill:#e8f5e9,stroke:#2e7d32`}
               </table>
             </div>
 
-            <h2>硬膜穿刺後頭痛（PDPH）</h2>
+            <h3>硬膜穿刺後頭痛（PDPH）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1503,7 +1503,7 @@ style E2 fill:#e8f5e9,stroke:#2e7d32`}
               </table>
             </div>
 
-            <h2>ステロイド選択のアルゴリズム（使用する場合）</h2>
+            <h3>ステロイド選択のアルゴリズム（使用する場合）</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — ステロイド選択（粒子性・皮膚副作用リスクで判断）
@@ -1541,7 +1541,7 @@ style E fill:#b71c1c,color:#fff`}
 
             <p>GON ブロックは一般的に安全性が高く、重篤な合併症はまれです。</p>
 
-            <h2>合併症の全体像</h2>
+            <h3>合併症の全体像</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1617,7 +1617,7 @@ style E fill:#b71c1c,color:#fff`}
               </table>
             </div>
 
-            <h2>特に注意：脱毛と皮膚萎縮</h2>
+            <h3>特に注意：脱毛と皮膚萎縮</h3>
             <div className="alert a-warn">
               <div className="alert-i">💈</div>
               <div>
@@ -1637,7 +1637,7 @@ style E fill:#b71c1c,color:#fff`}
               </div>
             </div>
 
-            <h2>LAST への備え</h2>
+            <h3>LAST への備え</h3>
             <div className="alert a-danger">
               <div className="alert-i">🧯</div>
               <div>
@@ -1714,7 +1714,7 @@ style E fill:#b71c1c,color:#fff`}
               </table>
             </div>
 
-            <h2>治療成功の定義と再評価</h2>
+            <h3>治療成功の定義と再評価</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 4〜6週後の再評価と次のアクション</div>
               <MermaidDiagram
@@ -1756,7 +1756,7 @@ style H fill:#e65100,color:#fff`}
               で得られます。
             </p>
 
-            <h2>慢性片頭痛（ICHD-3: 1.3）の統合プロトコル</h2>
+            <h3>慢性片頭痛（ICHD-3: 1.3）の統合プロトコル</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1806,7 +1806,7 @@ style H fill:#e65100,color:#fff`}
               </table>
             </div>
 
-            <h2>群発頭痛（3.1/3.2）の群発期管理</h2>
+            <h3>群発頭痛（3.1/3.2）の群発期管理</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1849,7 +1849,7 @@ style H fill:#e65100,color:#fff`}
               </table>
             </div>
 
-            <h2>後頭神経痛の難治性症例 — ステップアップ</h2>
+            <h3>後頭神経痛の難治性症例 — ステップアップ</h3>
             <div className="phase-grid">
               <div className="ph ph2">
                 <div className="ph-icon">1</div>
@@ -1875,7 +1875,7 @@ style H fill:#e65100,color:#fff`}
               </div>
             </div>
 
-            <h2>GONブロックと他治療の相互作用</h2>
+            <h3>GONブロックと他治療の相互作用</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1913,7 +1913,7 @@ style H fill:#e65100,color:#fff`}
               <h2 className="sec-title">参考文献・公式リソース</h2>
             </div>
 
-            <h2>最重要一次文献・ガイドライン</h2>
+            <h3>最重要一次文献・ガイドライン</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">StatPearls / NCBI</div>
@@ -1982,7 +1982,7 @@ style H fill:#e65100,color:#fff`}
               </div>
             </div>
 
-            <h2>GONブロック専門文献（PubMed）</h2>
+            <h3>GONブロック専門文献（PubMed）</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Med Clin (Barc) 2023</div>
@@ -2062,7 +2062,7 @@ style H fill:#e65100,color:#fff`}
               </div>
             </div>
 
-            <h2>エコーガイド下法・解剖学リソース</h2>
+            <h3>エコーガイド下法・解剖学リソース</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">NYSORA</div>
@@ -2106,7 +2106,7 @@ style H fill:#e65100,color:#fff`}
               </div>
             </div>
 
-            <h2>継続的情報更新リソース</h2>
+            <h3>継続的情報更新リソース</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">PubMed</div>
