@@ -53,7 +53,7 @@ export default function OccipitalNerveBlockPage() {
           <section id="s1" className="sec">
             <div className="sec-hd">
               <div className="sec-num">1</div>
-              <h1 className="sec-title">後頭神経ブロックとは — 基礎概念</h1>
+              <h2 className="sec-title">後頭神経ブロックとは — 基礎概念</h2>
             </div>
 
             <p>
@@ -105,7 +105,7 @@ export default function OccipitalNerveBlockPage() {
           <section id="s2" className="sec">
             <div className="sec-hd">
               <div className="sec-num">2</div>
-              <h1 className="sec-title">解剖学 — 後頭部の神経構造</h1>
+              <h2 className="sec-title">解剖学 — 後頭部の神経構造</h2>
             </div>
 
             <p>
@@ -248,7 +248,7 @@ style F fill:#2e7d32,color:#fff`}
           <section id="s3" className="sec">
             <div className="sec-hd">
               <div className="sec-num">3</div>
-              <h1 className="sec-title">作用機序 — 三叉頸椎複合体（TCC）</h1>
+              <h2 className="sec-title">作用機序 — 三叉頸椎複合体（TCC）</h2>
             </div>
 
             <p>
@@ -339,7 +339,7 @@ style F fill:#1b5e20,color:#fff`}
           <section id="s4" className="sec">
             <div className="sec-hd">
               <div className="sec-num">4</div>
-              <h1 className="sec-title">SNOOP4 レッドフラグスクリーニング</h1>
+              <h2 className="sec-title">SNOOP4 レッドフラグスクリーニング</h2>
             </div>
 
             <div className="alert a-danger">
@@ -448,7 +448,7 @@ style START fill:#1565c0,color:#fff`}
           <section id="s5" className="sec">
             <div className="sec-hd">
               <div className="sec-num">5</div>
-              <h1 className="sec-title">ICHD-3 適応疾患</h1>
+              <h2 className="sec-title">ICHD-3 適応疾患</h2>
             </div>
 
             <p>
@@ -568,7 +568,7 @@ style START fill:#1565c0,color:#fff`}
           <section id="s6" className="sec">
             <div className="sec-hd">
               <div className="sec-num">6</div>
-              <h1 className="sec-title">患者選択基準と禁忌</h1>
+              <h2 className="sec-title">患者選択基準と禁忌</h2>
             </div>
 
             <h2>ONB が特に有効な患者プロファイル</h2>
@@ -712,7 +712,7 @@ style H fill:#1b5e20,color:#fff`}
           <section id="s7" className="sec">
             <div className="sec-hd">
               <div className="sec-num">7</div>
-              <h1 className="sec-title">必要物品・使用薬剤</h1>
+              <h2 className="sec-title">必要物品・使用薬剤</h2>
             </div>
 
             <h2>標準的な必要物品リスト</h2>
@@ -917,7 +917,7 @@ style H fill:#1b5e20,color:#fff`}
           <section id="s8" className="sec">
             <div className="sec-hd">
               <div className="sec-num">8</div>
-              <h1 className="sec-title">手技① — ランドマーク法（体表指標法）</h1>
+              <h2 className="sec-title">手技① — ランドマーク法（体表指標法）</h2>
             </div>
 
             <p>
@@ -991,7 +991,7 @@ style S7 fill:#2e7d32,color:#fff`}
           <section id="s9" className="sec">
             <div className="sec-hd">
               <div className="sec-num">9</div>
-              <h1 className="sec-title">手技② — エコーガイド下法（超音波ガイド法）</h1>
+              <h2 className="sec-title">手技② — エコーガイド下法（超音波ガイド法）</h2>
             </div>
 
             <p>
@@ -1161,7 +1161,7 @@ style C2Level fill:#e8f5e9,stroke:#2e7d32`}
           <section id="s10" className="sec">
             <div className="sec-hd">
               <div className="sec-num">10</div>
-              <h1 className="sec-title">術後ケアと効果の評価</h1>
+              <h2 className="sec-title">術後ケアと効果の評価</h2>
             </div>
 
             <h2>術後即時管理</h2>
@@ -1226,7 +1226,7 @@ style T3m fill:#e8f5e9,stroke:#1b5e20`}
           <section id="s11" className="sec">
             <div className="sec-hd">
               <div className="sec-num">11</div>
-              <h1 className="sec-title">適応疾患別エビデンスレビュー</h1>
+              <h2 className="sec-title">適応疾患別エビデンスレビュー</h2>
             </div>
 
             <h2>後頭神経痛（ICHD-3: 13.1）— 最も強い適応</h2>
@@ -1438,7 +1438,7 @@ style E2 fill:#e8f5e9,stroke:#2e7d32`}
           <section id="s12" className="sec">
             <div className="sec-hd">
               <div className="sec-num">12</div>
-              <h1 className="sec-title">ステロイド併用 vs. 局所麻酔薬単独</h1>
+              <h2 className="sec-title">ステロイド併用 vs. 局所麻酔薬単独</h2>
             </div>
 
             <p>
@@ -1536,7 +1536,7 @@ style E fill:#b71c1c,color:#fff`}
           <section id="s13" className="sec">
             <div className="sec-hd">
               <div className="sec-num">13</div>
-              <h1 className="sec-title">合併症・安全プロファイル</h1>
+              <h2 className="sec-title">合併症・安全プロファイル</h2>
             </div>
 
             <p>GON ブロックは一般的に安全性が高く、重篤な合併症はまれです。</p>
@@ -1652,7 +1652,7 @@ style E fill:#b71c1c,color:#fff`}
           <section id="s14" className="sec">
             <div className="sec-hd">
               <div className="sec-num">14</div>
-              <h1 className="sec-title">アウトカム評価指標</h1>
+              <h2 className="sec-title">アウトカム評価指標</h2>
             </div>
 
             <p>以下の標準化ツールを用いて GON ブロックの効果を定量的に評価します。</p>
@@ -1747,7 +1747,7 @@ style H fill:#e65100,color:#fff`}
           <section id="s15" className="sec">
             <div className="sec-hd">
               <div className="sec-num">15</div>
-              <h1 className="sec-title">多モーダル統合アプローチ</h1>
+              <h2 className="sec-title">多モーダル統合アプローチ</h2>
             </div>
 
             <p>
@@ -1910,7 +1910,7 @@ style H fill:#e65100,color:#fff`}
           <section id="s16" className="sec">
             <div className="sec-hd">
               <div className="sec-num">16</div>
-              <h1 className="sec-title">参考文献・公式リソース</h1>
+              <h2 className="sec-title">参考文献・公式リソース</h2>
             </div>
 
             <h2>最重要一次文献・ガイドライン</h2>
@@ -2155,7 +2155,7 @@ style H fill:#e65100,color:#fff`}
           <section id="s17" className="sec">
             <div className="sec-hd">
               <div className="sec-num">★</div>
-              <h1 className="sec-title">まとめ — 初学者が押さえるべき10のポイント</h1>
+              <h2 className="sec-title">まとめ — 初学者が押さえるべき10のポイント</h2>
             </div>
 
             <div className="onb-key-grid">

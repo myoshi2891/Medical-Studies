@@ -1,3 +1,9 @@
+/* スムーズスクロール（グローバル適用 — ハッシュ遷移はビューポートをスクロールするため
+   ページスコープ外の html セレクターに置く）。 */
+html {
+  scroll-behavior: smooth;
+}
+
 .occipital-accent {
   --navy: #1a237e;
   --navy2: #283593;
@@ -27,12 +33,11 @@
   --onb3: #0097a7;
   --onb-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
-  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
   color: var(--g9);
   background: #eef2f7;
-  scroll-behavior: smooth;
 }
 
 .occipital-accent * {
@@ -191,6 +196,11 @@
   font-size: clamp(17px, 2.5vw, 24px);
   font-weight: 700;
   color: var(--onb1);
+  /* h2 化に伴い汎用 .occipital-accent h2 ルールの margin/border/padding が
+     leak するのを打ち消し、従来の見た目を維持する。 */
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
 }
 .occipital-accent h2 {
   font-size: 16px;
