@@ -40,18 +40,29 @@ export function CehSidebar() {
     );
     if (sections.length === 0) return;
 
+    // 全 section の最新 intersectionRatio を永続的に保持する。
+    // callback の entries は「変化したターゲット」しか含まないため、
+    // entries 単体で max を取ると active が誤って飛ぶ。可視集合全体から選ぶ。
+    const ratios = new Map<string, number>();
     const observer = new IntersectionObserver(
       (entries) => {
-        // 1 バッチにつき可視 section を 1 つだけ選ぶ（最大 intersectionRatio）。
-        // entries の順序に依存せず決定論的に active を更新する。
-        let best: IntersectionObserverEntry | null = null;
         for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          if (best === null || entry.intersectionRatio > best.intersectionRatio) {
-            best = entry;
+          if (entry.isIntersecting) {
+            ratios.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            ratios.delete(entry.target.id);
           }
         }
-        if (best !== null) setActiveId(best.target.id);
+        // 現在交差中の全 section から最大 intersectionRatio を決定論的に選ぶ。
+        let bestId: string | null = null;
+        let bestRatio = -1;
+        for (const [id, ratio] of ratios) {
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestId = id;
+          }
+        }
+        if (bestId !== null) setActiveId(bestId);
       },
       { threshold: 0.25 }
     );
