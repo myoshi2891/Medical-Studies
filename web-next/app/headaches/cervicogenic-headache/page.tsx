@@ -98,7 +98,7 @@ export default function CervicogenicHeadachePage() {
               </div>
             </div>
 
-            <h2>1.1 最重要ポイント（初学者向け）</h2>
+            <h3>1.1 最重要ポイント（初学者向け）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -142,7 +142,7 @@ export default function CervicogenicHeadachePage() {
               </table>
             </div>
 
-            <h2>1.2 典型的臨床像</h2>
+            <h3>1.2 典型的臨床像</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -271,7 +271,7 @@ export default function CervicogenicHeadachePage() {
               という関連痛のメカニズムです。
             </p>
 
-            <h2>3.1 中核機序：三叉神経頸髄複合体（Trigeminocervical Complex: TCC）</h2>
+            <h3>3.1 中核機序：三叉神経頸髄複合体（Trigeminocervical Complex: TCC）</h3>
             <p>
               上位頸髄（C1〜C3）から入る感覚神経と、顔面・頭部を支配する三叉神経（特に第1枝）の侵害情報が、延髄〜上位頸髄の同一ニューロンプール（
               <strong>三叉神経頸髄複合体</strong>
@@ -304,7 +304,7 @@ style CLINIC fill:#1E8449,color:#fff`}
               />
             </div>
 
-            <h2>3.2 主要な痛みの発生源（pain generators）</h2>
+            <h3>3.2 主要な痛みの発生源（pain generators）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -393,7 +393,7 @@ style CLINIC fill:#1E8449,color:#fff`}
               <h2 className="sec-title">ICHD-3 診断分類</h2>
             </div>
 
-            <h2>4.1 第11章内の位置づけ</h2>
+            <h3>4.1 第11章内の位置づけ</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -453,7 +453,7 @@ style CLINIC fill:#1E8449,color:#fff`}
               <h2 className="sec-title">診断基準 ステップバイステップ</h2>
             </div>
 
-            <h2>5.1 ICHD-3 11.2.1 頸原性頭痛 公式診断基準（原文準拠）</h2>
+            <h3>5.1 ICHD-3 11.2.1 頸原性頭痛 公式診断基準（原文準拠）</h3>
             <div className="card">
               <p>
                 <strong className="tN">A.</strong> 基準C を満たす任意の頭痛
@@ -528,7 +528,7 @@ style CLINIC fill:#1E8449,color:#fff`}
               </div>
             </div>
 
-            <h2>5.2 診断フローチャート</h2>
+            <h3>5.2 診断フローチャート</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 頸原性頭痛 ICHD-3 診断アルゴリズム</div>
               <MermaidDiagram
@@ -563,7 +563,7 @@ style SNOOP fill:#f39c12,color:#fff`}
               />
             </div>
 
-            <h2>5.3 Sjaastad / CHISG 基準（補助的）</h2>
+            <h3>5.3 Sjaastad / CHISG 基準（補助的）</h3>
             <p>
               ICHD-3 とは別に、頸原性頭痛国際研究会（CHISG）による <strong>Sjaastad 基準</strong>
               が臨床研究で広く用いられてきました。主要項目：
@@ -672,7 +672,7 @@ style START fill:#2980b9,color:#fff`}
               />
             </div>
 
-            <h2>6.1 頸原性頭痛で特に注意すべき&quot;なりすまし&quot;病態</h2>
+            <h3>6.1 頸原性頭痛で特に注意すべき&quot;なりすまし&quot;病態</h3>
             <div className="tbl">
               <table className="th-red">
                 <thead>
@@ -868,7 +868,7 @@ style START fill:#2980b9,color:#fff`}
               <h2 className="sec-title">身体所見・誘発テスト</h2>
             </div>
 
-            <h2>8.1 主要な徒手評価テスト</h2>
+            <h3>8.1 主要な徒手評価テスト</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -937,7 +937,7 @@ style START fill:#2980b9,color:#fff`}
               </div>
             </div>
 
-            <h2>8.2 評価の流れ</h2>
+            <h3>8.2 評価の流れ</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 頸原性頭痛 身体評価のステップ</div>
               <MermaidDiagram
@@ -965,7 +965,7 @@ style NEG fill:#7F8C8D,color:#fff`}
               <h2 className="sec-title">画像・診断的神経ブロック</h2>
             </div>
 
-            <h2>9.1 画像検査の位置づけ</h2>
+            <h3>9.1 画像検査の位置づけ</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1010,7 +1010,7 @@ style NEG fill:#7F8C8D,color:#fff`}
               </div>
             </div>
 
-            <h2>9.2 診断的神経ブロック（基準C-4の要）</h2>
+            <h3>9.2 診断的神経ブロック（基準C-4の要）</h3>
             <p>
               診断的ブロックによる頭痛消失は、ICHD-3基準C-4を満たし、
               <strong>最も確実な因果関係の証拠</strong>
@@ -1186,7 +1186,7 @@ style ABLATION fill:#2980b9,color:#fff`}
               <strong>徒手療法＋運動療法の併用</strong>が最も強いエビデンスをもちます。
             </p>
 
-            <h2>11.1 治療アルゴリズム</h2>
+            <h3>11.1 治療アルゴリズム</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 頸原性頭痛 マルチモーダル治療アルゴリズム
@@ -1215,7 +1215,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               />
             </div>
 
-            <h2>11.2 理学療法（中核治療）の詳細</h2>
+            <h3>11.2 理学療法（中核治療）の詳細</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1314,7 +1314,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               </div>
             </div>
 
-            <h2>11.3 薬物療法・インターベンションの位置づけ</h2>
+            <h3>11.3 薬物療法・インターベンションの位置づけ</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1629,7 +1629,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               <h2 className="sec-title">エビデンス階層サマリー</h2>
             </div>
 
-            <h2>15.1 推奨グレード定義（AAN標準）</h2>
+            <h3>15.1 推奨グレード定義（AAN標準）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1677,7 +1677,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               </table>
             </div>
 
-            <h2>15.2 頸原性頭痛 主要治療のエビデンス一覧</h2>
+            <h3>15.2 頸原性頭痛 主要治療のエビデンス一覧</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1771,7 +1771,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               を補足として明示します。
             </p>
 
-            <h2>16.1 国際診断基準</h2>
+            <h3>16.1 国際診断基準</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">IHS / ICHD-3</div>
@@ -1809,7 +1809,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               </div>
             </div>
 
-            <h2>16.2 臨床ガイドライン</h2>
+            <h3>16.2 臨床ガイドライン</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">NICE（英国）</div>
@@ -1838,7 +1838,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               </div>
             </div>
 
-            <h2>16.3 Cochrane エビデンスレビュー</h2>
+            <h3>16.3 Cochrane エビデンスレビュー</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Cochrane</div>
@@ -1860,7 +1860,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               </div>
             </div>
 
-            <h2>16.4 主要原著・レビュー（PubMed / 専門誌）</h2>
+            <h3>16.4 主要原著・レビュー（PubMed / 専門誌）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1963,7 +1963,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
               </table>
             </div>
 
-            <h2>16.5 継続リサーチ用データベース</h2>
+            <h3>16.5 継続リサーチ用データベース</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">EHF 公式誌（OA）</div>
