@@ -82,6 +82,10 @@ function assertMdLink(value: unknown, ctx: string): MdLink {
   const { label, href } = value;
   if (!isNonEmptyString(label)) throw new Error(`${ctx}: link.label が不正です`);
   if (!isNonEmptyString(href)) throw new Error(`${ctx}: link.href が不正です`);
+  // 内部ルート（/...）またはアンカー（#...）のみ許可。<a href> へ渡す前に弾く。
+  if (!href.startsWith("/") && !href.startsWith("#")) {
+    throw new Error(`${ctx}: link.href は / または # 始まりである必要があります`);
+  }
   return { label, href };
 }
 
