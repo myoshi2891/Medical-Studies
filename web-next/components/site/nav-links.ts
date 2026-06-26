@@ -66,7 +66,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "頸原性頭痛 (CEH)",
         href: "/headaches/cervicogenic-headache",
-        disabled: true,
       },
     ],
   },
