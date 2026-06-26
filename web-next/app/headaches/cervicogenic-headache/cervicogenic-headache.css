@@ -39,7 +39,7 @@ html {
   --ceh3: #a3c4e0;
   --ceh-l: #edf3f9;
 
-  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
   color: var(--g9);
@@ -205,6 +205,11 @@ html {
   font-size: clamp(17px, 2.5vw, 24px);
   font-weight: 700;
   color: var(--ceh1);
+  /* h2 化に伴い汎用 .ceh-accent h2 ルールの margin/border/padding が
+     leak するのを打ち消し、従来の見た目を維持する。 */
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
 }
 .ceh-accent h2 {
   font-size: 16px;
