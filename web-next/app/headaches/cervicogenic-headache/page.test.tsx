@@ -9,7 +9,8 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** ソース HTML（Cervicogenic-Headache.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 16 }, (_, i) => `s${i + 1}`);
-const H2_COUNT = 23;
+// 23 = ソース小見出し + 16 section タイトル（見出し階層維持のため h1→h2 化）。
+const H2_COUNT = 39;
 const MERMAID_COUNT = 6;
 const TABLE_COUNT = 19;
 const NAV_COUNT = 16;

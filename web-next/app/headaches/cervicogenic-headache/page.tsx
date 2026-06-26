@@ -62,7 +62,7 @@ export default function CervicogenicHeadachePage() {
           <section id="s1" className="sec">
             <div className="sec-hd">
               <div className="sec-num">1</div>
-              <h1 className="sec-title">疾患概要・定義</h1>
+              <h2 className="sec-title">疾患概要・定義</h2>
             </div>
 
             <p>
@@ -199,7 +199,7 @@ export default function CervicogenicHeadachePage() {
           <section id="s2" className="sec">
             <div className="sec-hd">
               <div className="sec-num">2</div>
-              <h1 className="sec-title">疫学</h1>
+              <h2 className="sec-title">疫学</h2>
             </div>
 
             <div className="tbl">
@@ -262,7 +262,7 @@ export default function CervicogenicHeadachePage() {
           <section id="s3" className="sec">
             <div className="sec-hd">
               <div className="sec-num">3</div>
-              <h1 className="sec-title">関連解剖と病態生理学（三叉神経頸髄複合体）</h1>
+              <h2 className="sec-title">関連解剖と病態生理学（三叉神経頸髄複合体）</h2>
             </div>
 
             <p>
@@ -390,7 +390,7 @@ style CLINIC fill:#1E8449,color:#fff`}
           <section id="s4" className="sec">
             <div className="sec-hd">
               <div className="sec-num">4</div>
-              <h1 className="sec-title">ICHD-3 診断分類</h1>
+              <h2 className="sec-title">ICHD-3 診断分類</h2>
             </div>
 
             <h2>4.1 第11章内の位置づけ</h2>
@@ -450,7 +450,7 @@ style CLINIC fill:#1E8449,color:#fff`}
           <section id="s5" className="sec">
             <div className="sec-hd">
               <div className="sec-num">5</div>
-              <h1 className="sec-title">診断基準 ステップバイステップ</h1>
+              <h2 className="sec-title">診断基準 ステップバイステップ</h2>
             </div>
 
             <h2>5.1 ICHD-3 11.2.1 頸原性頭痛 公式診断基準（原文準拠）</h2>
@@ -617,7 +617,7 @@ style SNOOP fill:#f39c12,color:#fff`}
           <section id="s6" className="sec">
             <div className="sec-hd">
               <div className="sec-num">6</div>
-              <h1 className="sec-title">SNOOP4 レッドフラッグスクリーニング</h1>
+              <h2 className="sec-title">SNOOP4 レッドフラッグスクリーニング</h2>
             </div>
 
             <div className="alert a-danger">
@@ -730,7 +730,7 @@ style START fill:#2980b9,color:#fff`}
           <section id="s7" className="sec">
             <div className="sec-hd">
               <div className="sec-num">7</div>
-              <h1 className="sec-title">鑑別診断</h1>
+              <h2 className="sec-title">鑑別診断</h2>
             </div>
 
             <p>頸原性頭痛は、片頭痛・緊張型頭痛・後頭神経痛との鑑別が最も重要かつ困難です。</p>
@@ -865,7 +865,7 @@ style START fill:#2980b9,color:#fff`}
           <section id="s8" className="sec">
             <div className="sec-hd">
               <div className="sec-num">8</div>
-              <h1 className="sec-title">身体所見・誘発テスト</h1>
+              <h2 className="sec-title">身体所見・誘発テスト</h2>
             </div>
 
             <h2>8.1 主要な徒手評価テスト</h2>
@@ -962,7 +962,7 @@ style NEG fill:#7F8C8D,color:#fff`}
           <section id="s9" className="sec">
             <div className="sec-hd">
               <div className="sec-num">9</div>
-              <h1 className="sec-title">画像・診断的神経ブロック</h1>
+              <h2 className="sec-title">画像・診断的神経ブロック</h2>
             </div>
 
             <h2>9.1 画像検査の位置づけ</h2>
@@ -1096,7 +1096,7 @@ style ABLATION fill:#2980b9,color:#fff`}
           <section id="s10" className="sec">
             <div className="sec-hd">
               <div className="sec-num">10</div>
-              <h1 className="sec-title">評価ツール・アウトカム指標</h1>
+              <h2 className="sec-title">評価ツール・アウトカム指標</h2>
             </div>
 
             <div className="tbl">
@@ -1177,7 +1177,7 @@ style ABLATION fill:#2980b9,color:#fff`}
           <section id="s11" className="sec">
             <div className="sec-hd">
               <div className="sec-num">11</div>
-              <h1 className="sec-title">治療戦略（マルチモーダル）</h1>
+              <h2 className="sec-title">治療戦略（マルチモーダル）</h2>
             </div>
 
             <p>
@@ -1379,7 +1379,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
           <section id="s12" className="sec">
             <div className="sec-hd">
               <div className="sec-num">12</div>
-              <h1 className="sec-title">薬剤過用頭痛（MOH）リスク評価</h1>
+              <h2 className="sec-title">薬剤過用頭痛（MOH）リスク評価</h2>
             </div>
 
             <p>
@@ -1425,7 +1425,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
           <section id="s13" className="sec">
             <div className="sec-hd">
               <div className="sec-num">13</div>
-              <h1 className="sec-title">特殊集団への対応</h1>
+              <h2 className="sec-title">特殊集団への対応</h2>
             </div>
 
             <div className="tbl">
@@ -1494,7 +1494,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
           <section id="s14" className="sec">
             <div className="sec-hd">
               <div className="sec-num">14</div>
-              <h1 className="sec-title">標準化ケーススタディ</h1>
+              <h2 className="sec-title">標準化ケーススタディ</h2>
             </div>
 
             <div className="alert a-info">
@@ -1626,7 +1626,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
           <section id="s15" className="sec">
             <div className="sec-hd">
               <div className="sec-num">15</div>
-              <h1 className="sec-title">エビデンス階層サマリー</h1>
+              <h2 className="sec-title">エビデンス階層サマリー</h2>
             </div>
 
             <h2>15.1 推奨グレード定義（AAN標準）</h2>
@@ -1762,7 +1762,7 @@ style BLOCK fill:#8e44ad,color:#fff`}
           <section id="s16" className="sec">
             <div className="sec-hd">
               <div className="sec-num">16</div>
-              <h1 className="sec-title">参考文献・URLリソース</h1>
+              <h2 className="sec-title">参考文献・URLリソース</h2>
             </div>
 
             <p>
