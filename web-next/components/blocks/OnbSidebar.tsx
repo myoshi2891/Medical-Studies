@@ -43,11 +43,16 @@ export function OnbSidebar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // 1 バッチにつき可視 section を 1 つだけ選ぶ（最大 intersectionRatio）。
+        // entries の順序に依存せず決定論的に active を更新する。
+        let best: IntersectionObserverEntry | null = null;
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+          if (!entry.isIntersecting) continue;
+          if (best === null || entry.intersectionRatio > best.intersectionRatio) {
+            best = entry;
           }
         }
+        if (best !== null) setActiveId(best.target.id);
       },
       { threshold: 0.25 }
     );
@@ -62,13 +67,14 @@ export function OnbSidebar() {
   }, []);
 
   return (
-    <nav className="sidebar">
+    <nav className="sidebar" aria-label="後頭神経ブロックガイド目次">
       <div className="s-hdr">目次</div>
       {NAV_ITEMS.map((item) => (
         <a
           key={item.id}
           className={item.id === activeId ? "nav-a active" : "nav-a"}
           href={`#${item.id}`}
+          aria-current={item.id === activeId ? "location" : undefined}
         >
           <span className="n-num">{item.num}</span>
           {item.label}
