@@ -85,7 +85,13 @@ export function SiteHeaderClient({ children }: { children: ReactNode }) {
 
     // ナビ内リンク遷移時はルート変更前にドロワー（と dropdown）を閉じ、
     // 開いた状態が次ページへ持ち越されないようにする。
-    const links = Array.from(linksList.querySelectorAll<HTMLAnchorElement>("a"));
+    // .ch-brand は .ch-links の外（兄弟）にあるため、ブランドリンクも含めて
+    // ナビ全体の a を対象にする。
+    const brand = nav.querySelector<HTMLAnchorElement>(".ch-brand");
+    const links = [
+      ...(brand ? [brand] : []),
+      ...Array.from(linksList.querySelectorAll<HTMLAnchorElement>("a")),
+    ];
     const handleLinkClick = () => closeMenu();
 
     hamburger.addEventListener("click", handleHamburger);
