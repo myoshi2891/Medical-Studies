@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `d42912a` chore(web-next): scaffold public/models and public/mri assets
-- **ビルド状態**: web-next 75 tests pass / typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
+- **最新 HEAD**: `c71bab2` test(web-next): update heading contracts for h2 to h3 demotion
+- **ビルド状態**: 計 105 passed。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
 - **次の作業**: `/anatomy` 3D解剖アトラス雛形（Phase 0）完了。Phase 1（匿名化済みMRI投入）/ Phase 2（オープンソースglTFモデル投入）待ち。設計書: `docs/architecture.md`
 - **未移行 HTML 残数**: 0
 
