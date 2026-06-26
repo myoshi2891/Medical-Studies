@@ -36,6 +36,9 @@ export function SiteHeaderClient({ children }: { children: ReactNode }) {
       linksList.classList.remove("ch-open");
       hamburger.classList.remove("ch-open");
       hamburger.setAttribute("aria-expanded", "false");
+      // ドロワーを閉じる際は dropdown 開閉状態も必ずクリアし、
+      // ch-open / ch-dropdown-open が次ページへ持ち越されないようにする。
+      closeAllDropdowns();
     };
 
     const openMenu = () => {
@@ -80,18 +83,25 @@ export function SiteHeaderClient({ children }: { children: ReactNode }) {
       }
     };
 
+    // ナビ内リンク遷移時はルート変更前にドロワー（と dropdown）を閉じ、
+    // 開いた状態が次ページへ持ち越されないようにする。
+    const links = Array.from(linksList.querySelectorAll<HTMLAnchorElement>("a"));
+    const handleLinkClick = () => closeMenu();
+
     hamburger.addEventListener("click", handleHamburger);
     const toggleHandlers = toggles.map((t) => {
       const h = makeToggleHandler(t);
       t.addEventListener("click", h);
       return { t, h };
     });
+    for (const a of links) a.addEventListener("click", handleLinkClick);
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("click", handleOutsideClick);
 
     return () => {
       hamburger.removeEventListener("click", handleHamburger);
       for (const { t, h } of toggleHandlers) t.removeEventListener("click", h);
+      for (const a of links) a.removeEventListener("click", handleLinkClick);
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("click", handleOutsideClick);
     };
