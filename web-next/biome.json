@@ -16,7 +16,8 @@
       "!app/prom-checker/prom-checker.css",
       "!app/blocks/cervical-plexus-block/cervical-plexus-block.css",
       "!app/blocks/occipital-nerve-block/occipital-nerve-block.css",
-      "!app/anatomy/anatomy.css"
+      "!app/anatomy/anatomy.css",
+      "!app/headaches/cervicogenic-headache/cervicogenic-headache.css"
     ]
   },
   "formatter": {
