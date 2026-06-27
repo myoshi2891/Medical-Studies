@@ -3,8 +3,11 @@
  * 元 HTML の <style> を `.migraine-accent` スコープ配下へ忠実移植。
  */
 
-html {
-  scroll-behavior: smooth;
+/* reduced-motion を希望しないユーザーにのみ滑らかスクロールを適用する */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .migraine-accent {
@@ -32,7 +35,7 @@ html {
   --r: 12px;
   --rs: 8px;
 
-  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
   color: var(--g9);

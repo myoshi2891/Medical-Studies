@@ -12,8 +12,10 @@ const SECTION_IDS = Array.from({ length: 17 }, (_, i) => `s${i + 1}`);
 // h2 = 17 section タイトルのみ（見出し階層維持のため h1→h2 化）。
 // 小見出しは階層を正しく保つため h3 に降格（下の H3_COUNT で検証）。
 const H2_COUNT = 17;
-// 44 = 降格した 42 小見出し + 既存 2（絶対/相対禁忌）。
-const H3_COUNT = 44;
+// 42 = 降格した小見出し（絶対/相対禁忌は親「禁忌一覧」の下位として h4 に是正）。
+const H3_COUNT = 42;
+// 2 = 「禁忌一覧」配下の絶対禁忌 / 相対禁忌（階層を 1 段深くした小見出し）。
+const H4_COUNT = 2;
 const MERMAID_COUNT = 10;
 const TABLE_COUNT = 24;
 const NAV_COUNT = 17;
@@ -40,6 +42,11 @@ describe("OccipitalNerveBlockPage: 契約（忠実転記）", () => {
   it("<h3> の個数が降格後の小見出し数と一致する", () => {
     const { container } = render(<OccipitalNerveBlockPage />);
     expect(container.querySelectorAll("h3")).toHaveLength(H3_COUNT);
+  });
+
+  it("<h4> の個数が禁忌一覧配下の小見出し数と一致する", () => {
+    const { container } = render(<OccipitalNerveBlockPage />);
+    expect(container.querySelectorAll("h4")).toHaveLength(H4_COUNT);
   });
 
   it("Mermaid 図の個数がソースと一致する", () => {

@@ -67,8 +67,11 @@
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
-- **chrome のみクライアント化**: `components/blocks/CpbSidebar.tsx`（scroll-spy = IntersectionObserver）/ `components/headaches/CehSidebar.tsx`。
-  本文は Server Component のまま。スタイルは `app/blocks/<slug>/<slug>.css` に `.cervical-accent` や `.ceh-accent` でスコープ。
+- **chrome のみクライアント化**: 各ページのサイドバー（scroll-spy = IntersectionObserver）を Client Component 化。
+  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/headaches/CehSidebar.tsx` /
+  `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx`。
+  本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
+  `.moh-accent` / `.migraine-accent` などでスコープ。
 - **テスト**: 計 123 passed。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 

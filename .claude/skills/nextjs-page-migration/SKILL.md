@@ -151,6 +151,7 @@ vi.mock("@/components/MermaidDiagram", () => ({
 4. 外部リンク（href が `http` 始まり）すべてに `target="_blank"` と `rel="noopener noreferrer"`
 5. 内部リンク（`#`・相対パス）に `.html` を含まない（外部リンクは除外）
 6. Mermaid 図・table・コードブロック（`pre`）の個数
+7. **見出し階層の各レベル個数**（`h3` / `h4` …）を固定する。後述の「見出し階層を飛ばさない」を満たす値にする
 
 `bun run test` で**失敗を確認**してから commit（`test(web-next): add failing contract tests …`）。
 
@@ -181,8 +182,53 @@ vi.mock("@/components/MermaidDiagram", () => ({
   `page.tsx` の先頭で `import "./<slug>.css"` する。`:root` のページ固有トークンは `.<scope>` 配下の
   ローカル変数へ移す（`globals.css` の共通トークンへ強制リマップしない）
 - `<scope> *{ … }` のような全称リセットは**スコープを必ず前置**（`.cervical-accent *`）し、ページ外へ波及させない
-- ドキュメント全体のスムーズスクロールが必要なら `html{ scroll-behavior:smooth }` を当該 CSS に置く
-  （この CSS を import するルートでのみ適用される）
+- ドキュメント全体のスムーズスクロールが必要でも `html{ scroll-behavior:smooth }` を**無条件で置かない**。
+  必ず `prefers-reduced-motion` ガード配下に入れる（アクセシビリティ要件。レビューで必ず指摘される）:
+
+  ```css
+  /* reduced-motion を希望しないユーザーにのみ滑らかスクロールを適用する */
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  ```
+
+- **font-family の単語フォント名は引用符を付けない**。空白・キーワード衝突のある名前のみ引用符を付ける
+  （Stylelint `font-family-name-quotes`）。例: `'Yu Gothic', Meiryo, 'Noto Sans JP'`（`Meiryo` は無引用符）
+
+#### 見出し階層を飛ばさない（h2 → h3 → h4）
+
+faithful 転記でも**見出しレベルを 1 段ずつ下げる一律変換は階層スキップを生む**。元 HTML が
+`section h2` の直下で小見出しに `h3` を飛ばして `h4` を使っている（または親ラベル h3 と
+子ラベル h3 が同階層）場合、移行先では**論理階層に合わせて是正する**:
+
+- セクション本文の小見出しは `h2 → h3 → h4 …` と**段飛ばしせず**配置する
+  （例: §3 の `Step 1〜6` が `h2` 直下なら `h4` ではなく `h3`）
+- 親ラベル（例「禁忌一覧」h3）の配下に来る子見出し（「絶対禁忌」「相対禁忌」）は**1 段深く**する（h4）
+- 是正したら **`page.test.tsx` の `H3_COUNT` / `H4_COUNT` を実態に合わせて更新**し、コメントに理由を残す
+
+#### 公開文面の衛生（内部メモ・誤字を持ち込まない）
+
+ソースに紛れ込んだ**内部メモ・誤字を公開ページにそのまま転記しない**。faithful 転記の例外として除去・修正する:
+
+- **内部生成メモを除去**: 「（Claude知識カットオフ）」のような AI 生成の注記は利用者に見せない。
+  公開すべき出典・最終更新日のみ残す
+- **重複文字・誤変換を修正**: 転記時に生じやすい二重文字（`〜を対象としてとして` / `嗜嗜好` / `エビエビデンス` /
+  `準准`（正: 準拠）/ `脱顆黎`（正: 脱顆粒））を検出する。Mermaid ノードラベル内も対象。
+  検出グレップ例:
+
+  ```bash
+  # 同一日本語文字の不自然な連続（誤った二重文字）を機械検出
+  grep -nE '(.)\1' app/<category>/<slug>/page.tsx | grep -E '[ぁ-んァ-ヶ一-龠]'
+  # 内部メモの混入チェック
+  grep -nE 'カットオフ|TODO|FIXME|知識.*?202' app/<category>/<slug>/page.tsx
+  ```
+
+#### Mermaid 決定分岐の論理的正しさ
+
+フローチャートの判断ノードで**異なる禁忌・条件を 1 ノードに混在させない**。混在は誤った経路へ
+ルーティングする原因になる（例: 「心血管禁忌 または 妊婦？」を 1 ノードにし Yes を両方 CGRP へ送ると、
+妊婦が禁忌薬へ誘導される）。**独立した条件は独立ノードに分け**、各分岐先がページ本文の禁忌記述と
+矛盾しないことを確認する。
 
 #### インタラクティブ chrome（固定サイドバー・進捗バー・scroll-spy）
 
@@ -451,6 +497,12 @@ bun run build       # Next.js production build
 ## Constraints（禁止事項）
 
 - **要約・省略しない** — faithful 転写を最優先
+- **見出し階層を段飛ばししない** — `h2 → h3 → h4`。是正したら test の `H3_COUNT`/`H4_COUNT` も更新
+- **公開文面に内部メモを残さない** — 「（Claude知識カットオフ）」等の AI 生成注記は除去
+- **転記由来の二重文字・誤変換を残さない** — `を対象としてとして` / `嗜嗜好` / `準准` 等を grep で検出・修正
+- **`scroll-behavior:smooth` を無条件で置かない** — `@media (prefers-reduced-motion: no-preference)` で囲う
+- **単語フォント名に引用符を付けない** — `font-family-name-quotes`（例: `Meiryo` は無引用符）
+- **Mermaid 判断ノードに異なる条件を混在させない** — 独立条件は独立ノードに分け、本文の禁忌記述と整合させる
 - **`"use client"` を不必要に使わない** — Server Component デフォルト
 - **shiki / CSS Modules を導入しない** — 手書き span + globals.css スコープ方式
 - **`<i class="ti …">` を残さない** — `@tabler/icons-react` へ変換
