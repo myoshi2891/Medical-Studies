@@ -16,6 +16,11 @@ const H2_COUNT = 17;
 const H3_COUNT = 42;
 // 2 = 「禁忌一覧」配下の絶対禁忌 / 相対禁忌（階層を 1 段深くした小見出し）。
 const H4_COUNT = 2;
+// h4 の見出しテキストは「絶対禁忌」「相対禁忌」の順で固定する（個数だけでなく内容も契約に縛る）。
+const H4_TEXTS = [
+  "絶対禁忌（Absolute Contraindications）",
+  "相対禁忌（Relative Contraindications）",
+];
 const MERMAID_COUNT = 10;
 const TABLE_COUNT = 24;
 const NAV_COUNT = 17;
@@ -44,9 +49,11 @@ describe("OccipitalNerveBlockPage: 契約（忠実転記）", () => {
     expect(container.querySelectorAll("h3")).toHaveLength(H3_COUNT);
   });
 
-  it("<h4> の個数が禁忌一覧配下の小見出し数と一致する", () => {
+  it("<h4> の個数と見出しテキスト列（絶対禁忌→相対禁忌）がソースと一致する", () => {
     const { container } = render(<OccipitalNerveBlockPage />);
-    expect(container.querySelectorAll("h4")).toHaveLength(H4_COUNT);
+    const h4s = Array.from(container.querySelectorAll("h4"));
+    expect(h4s).toHaveLength(H4_COUNT);
+    expect(h4s.map((h) => h.textContent)).toEqual(H4_TEXTS);
   });
 
   it("Mermaid 図の個数がソースと一致する", () => {

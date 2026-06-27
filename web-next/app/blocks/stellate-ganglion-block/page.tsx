@@ -7,7 +7,7 @@ import "./stellate-ganglion-block.css";
 export const metadata: Metadata = {
   title: "星状神経節ブロック（Stellate Ganglion Block: SGB）完全ガイド",
   description:
-    "国際エビデンス（2025年12月時点）に基づく星状神経節ブロック（SGB）の包括的解説。超音波ガイド下技術、適応・禁忌・手技・局所麻酔薬・合併症・安全管理を初学者向けに整理。",
+    "国際エビデンス（2026年時点）に基づく星状神経節ブロック（SGB）の包括的解説。超音波ガイド下技術、適応・禁忌・手技・局所麻酔薬・合併症・安全管理を初学者向けに整理。",
 };
 
 /** SGB ページの Mermaid テーマ。 */
@@ -36,7 +36,7 @@ export default function StellateGanglionBlockPage() {
         <div style={{ fontSize: 34 }}>⭐</div>
         <h1>星状神経節ブロック（Stellate Ganglion Block: SGB）完全ガイド</h1>
         <p className="hero-sub">
-          国際エビデンス（2025年12月時点）に基づく包括的解説 — 初学者向けステップバイステップ
+          国際エビデンス（2026年時点）に基づく包括的解説 — 初学者向けステップバイステップ
         </p>
         <div className="hero-tags">
           <span className="hero-tag">超音波ガイド下技術</span>
@@ -64,7 +64,7 @@ export default function StellateGanglionBlockPage() {
           <section id="s1" className="sec">
             <div className="sec-hd">
               <div className="sec-num">1</div>
-              <h1 className="sec-title">概論 — 星状神経節ブロックとは</h1>
+              <h2 className="sec-title">概論 — 星状神経節ブロックとは</h2>
             </div>
 
             <p>
@@ -153,7 +153,7 @@ style Effect4 fill:#fff8e1,stroke:#f57f17`}
           <section id="s2" className="sec">
             <div className="sec-hd">
               <div className="sec-num">2</div>
-              <h1 className="sec-title">解剖学的基礎</h1>
+              <h2 className="sec-title">解剖学的基礎</h2>
             </div>
 
             <div className="alert a-purple">
@@ -365,7 +365,7 @@ style RL fill:#fce4ec,stroke:#c62828`}
           <section id="s3" className="sec">
             <div className="sec-hd">
               <div className="sec-num">3</div>
-              <h1 className="sec-title">作用機序</h1>
+              <h2 className="sec-title">作用機序</h2>
             </div>
 
             <h2>基本的な交感神経遮断機序</h2>
@@ -474,7 +474,7 @@ style QT_norm fill:#e8f5e9,stroke:#2e7d32`}
           <section id="s4" className="sec">
             <div className="sec-hd">
               <div className="sec-num">4</div>
-              <h1 className="sec-title">適応症とエビデンスグレード</h1>
+              <h2 className="sec-title">適応症とエビデンスグレード</h2>
             </div>
 
             <h2>適応症一覧</h2>
@@ -673,7 +673,7 @@ style START fill:#2e7d32,color:#fff`}
           <section id="s5" className="sec">
             <div className="sec-hd">
               <div className="sec-num">5</div>
-              <h1 className="sec-title">禁忌と注意事項</h1>
+              <h2 className="sec-title">禁忌と注意事項</h2>
             </div>
 
             <h2>絶対禁忌</h2>
@@ -762,7 +762,7 @@ style START fill:#2e7d32,color:#fff`}
           <section id="s6" className="sec">
             <div className="sec-hd">
               <div className="sec-num">6</div>
-              <h1 className="sec-title">施術プロトコル — ステップバイステップ</h1>
+              <h2 className="sec-title">施術プロトコル — ステップバイステップ</h2>
             </div>
 
             <div className="alert a-warn">
@@ -936,7 +936,7 @@ style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
           <section id="s7" className="sec">
             <div className="sec-hd">
               <div className="sec-num">7</div>
-              <h1 className="sec-title">使用薬剤と用量</h1>
+              <h2 className="sec-title">使用薬剤と用量</h2>
             </div>
 
             <h2>局所麻酔薬の選択</h2>
@@ -1111,7 +1111,7 @@ style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
           <section id="s8" className="sec">
             <div className="sec-hd">
               <div className="sec-num">8</div>
-              <h1 className="sec-title">ブロック成功の確認 — ホルネル症候群</h1>
+              <h2 className="sec-title">ブロック成功の確認 — ホルネル症候群</h2>
             </div>
 
             <p>
@@ -1184,7 +1184,7 @@ style DURATION fill:#f3e5f5,stroke:#6a1b9a`}
           <section id="s9" className="sec">
             <div className="sec-hd">
               <div className="sec-num">9</div>
-              <h1 className="sec-title">合併症と安全管理</h1>
+              <h2 className="sec-title">合併症と安全管理</h2>
             </div>
 
             <h2>軽微な副作用（ほぼ全例で一時的に出現）</h2>
@@ -1339,7 +1339,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
           <section id="s10" className="sec">
             <div className="sec-hd">
               <div className="sec-num">10</div>
-              <h1 className="sec-title">エビデンスサマリーと最新知見</h1>
+              <h2 className="sec-title">エビデンスサマリーと最新知見</h2>
             </div>
 
             <h2>ホットフラッシュ（更年期症状・乳がん治療後）</h2>
@@ -1659,7 +1659,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
           <section id="s11" className="sec">
             <div className="sec-hd">
               <div className="sec-num">11</div>
-              <h1 className="sec-title">参考文献・エビデンスソース</h1>
+              <h2 className="sec-title">参考文献・エビデンスソース</h2>
             </div>
 
             <p>
@@ -1947,7 +1947,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
       {/* FOOTER */}
       <div className="footer">
         <strong>星状神経節ブロック（SGB）完全ガイド</strong> —
-        国際エビデンス（2025年12月時点）に基づく学術資料
+        国際エビデンス（2026年時点）に基づく学術資料
         <br />📅 作成年: 2025年 | 次回レビュー推奨: 重要RCT（GANGSTER Trial 等）の公開時
         <br />
         ⚠️

@@ -147,7 +147,7 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 1. `<h1>` テキスト一致
 2. `<h2>`（主要セクション）の個数
-3. `section.section` の `id` 配列がソースと一致
+3. `section.sec` の `id` 配列がソースと一致（参照実装の `page.test.tsx` / `page.tsx` が使う実セレクタ。`section.section` ではない）
 4. 外部リンク（href が `http` 始まり）すべてに `target="_blank"` と `rel="noopener noreferrer"`
 5. 内部リンク（`#`・相対パス）に `.html` を含まない（外部リンクは除外）
 6. Mermaid 図・table・コードブロック（`pre`）の個数

@@ -71,8 +71,9 @@
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
 - **chrome のみクライアント化**: 各ページのサイドバー（scroll-spy = IntersectionObserver）を Client Component 化。
-  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/headaches/CehSidebar.tsx` /
-  `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx` / `components/headaches/TthSidebar.tsx`。
+  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` /
+  `components/headaches/CehSidebar.tsx` / `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx` /
+  `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` などでスコープ。
 - **テスト**: 計 133 passed。lint / typecheck 全通過。
