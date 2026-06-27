@@ -1,5 +1,5 @@
 {
-  "note": "匿名化チェックリスト（docs/architecture.md §5.3）の完了後に、images/ から curate した代表スライスを web-next/public/mri/<series>/ へ配置し、本ファイルの series に追記すること。",
+  "note": "匿名化チェックリスト（docs/architecture.md §5.3）完了済み。images/ から scripts/curate-mri.mjs で代表スライスを等間隔抽出し、sanitizePng で ancillary チャンク（PHI）を除去のうえ中立連番で配置。再生成は web-next で `bun scripts/curate-mri.mjs`。",
   "schema": {
     "series[]": {
       "id": "string",
@@ -8,5 +8,36 @@
       "note": "string?"
     }
   },
-  "series": []
+  "series": [
+    {
+      "id": "brain",
+      "bodyPart": "brain",
+      "slices": [
+        "/mri/brain/01.png",
+        "/mri/brain/02.png",
+        "/mri/brain/03.png",
+        "/mri/brain/04.png",
+        "/mri/brain/05.png",
+        "/mri/brain/06.png",
+        "/mri/brain/07.png",
+        "/mri/brain/08.png"
+      ],
+      "note": "頭部 T2 軸位の代表スライス（教育用・正常解剖中心）"
+    },
+    {
+      "id": "cervical",
+      "bodyPart": "cervical",
+      "slices": [
+        "/mri/cervical/01.png",
+        "/mri/cervical/02.png",
+        "/mri/cervical/03.png",
+        "/mri/cervical/04.png",
+        "/mri/cervical/05.png",
+        "/mri/cervical/06.png",
+        "/mri/cervical/07.png",
+        "/mri/cervical/08.png"
+      ],
+      "note": "頚椎 矢状断の代表スライス（教育用）"
+    }
+  ]
 }
