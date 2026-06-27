@@ -19,7 +19,8 @@
       "!app/anatomy/anatomy.css",
       "!app/headaches/cervicogenic-headache/cervicogenic-headache.css",
       "!app/headaches/medication-overuse-headache/medication-overuse-headache.css",
-      "!app/headaches/migraine/migraine.css"
+      "!app/headaches/migraine/migraine.css",
+      "!app/headaches/tension-type-headache/tension-type-headache.css"
     ]
   },
   "formatter": {
