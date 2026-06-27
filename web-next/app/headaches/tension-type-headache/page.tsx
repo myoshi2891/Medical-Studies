@@ -1,6 +1,6 @@
-import MermaidDiagram from "@/components/MermaidDiagram";
 import { Ext } from "@/components/Ext";
 import { TthSidebar } from "@/components/headaches/TthSidebar";
+import MermaidDiagram from "@/components/MermaidDiagram";
 import "./tension-type-headache.css";
 
 // ページ別配色 (元HTMLの themeVariables に準拠)
@@ -254,7 +254,10 @@ export default function TensionTypeHeadachePage() {
       <div className="hero">
         <div style={{ fontSize: 48, marginBottom: 6 }}>💆</div>
         <h1>緊張型頭痛（Tension-Type Headache）完全ガイド</h1>
-        <p className="hero-sub">初学者から臨床家まで ─ 国際標準エビデンス（ICHD-3 / EFNS 2010 / AAN / Cochrane）に基づく包括的解説</p>
+        <p className="hero-sub">
+          初学者から臨床家まで ─ 国際標準エビデンス（ICHD-3 / EFNS 2010 / AAN /
+          Cochrane）に基づく包括的解説
+        </p>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3 準拠</span>
           <span className="hero-tag">Grade A〜U エビデンス表記</span>
@@ -267,7 +270,9 @@ export default function TensionTypeHeadachePage() {
 
       {/* DISCLAIMER */}
       <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong> 本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong> 本資料は
+        <strong>学術・教育・研究目的のみ</strong>
+        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
       </div>
 
       {/* LAYOUT */}
@@ -283,15 +288,23 @@ export default function TensionTypeHeadachePage() {
               <h2 className="sec-title">疾患概要・定義</h2>
             </div>
 
-            <p>緊張型頭痛（Tension-Type Headache: TTH）は、世界で<strong>最も有病率の高い一次性頭痛疾患</strong>であり、IHS（国際頭痛学会）が発行する<strong>ICHD-3（国際頭痛分類第3版）</strong>において第2章に分類されます。</p>
-            <p>かつては「筋収縮性頭痛」「心因性頭痛」「ストレス頭痛」とも呼ばれていましたが、ICHD-3では<strong>神経生物学的基盤を持つ疾患</strong>として再定義されています。</p>
+            <p>
+              緊張型頭痛（Tension-Type Headache: TTH）は、世界で
+              <strong>最も有病率の高い一次性頭痛疾患</strong>であり、IHS（国際頭痛学会）が発行する
+              <strong>ICHD-3（国際頭痛分類第3版）</strong>において第2章に分類されます。
+            </p>
+            <p>
+              かつては「筋収縮性頭痛」「心因性頭痛」「ストレス頭痛」とも呼ばれていましたが、ICHD-3では
+              <strong>神経生物学的基盤を持つ疾患</strong>として再定義されています。
+            </p>
 
             <div className="alert a-info">
               <div className="alert-i">📖</div>
               <div>
                 <strong>出典：ICHD-3（Cephalalgia 2018; 38(1): 1–211）</strong>
                 <br />
-                「以前は主に心因性と考えられていたが、ICHD-I 以降の研究は、少なくとも重症型においては神経生物学的基盤の存在を強く示唆している」
+                「以前は主に心因性と考えられていたが、ICHD-I
+                以降の研究は、少なくとも重症型においては神経生物学的基盤の存在を強く示唆している」
               </div>
             </div>
 
@@ -333,13 +346,17 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <strong>体動による変化</strong>
                     </td>
-                    <td>日常的な身体活動で<strong>悪化しない</strong></td>
+                    <td>
+                      日常的な身体活動で<strong>悪化しない</strong>
+                    </td>
                   </tr>
                   <tr>
                     <td>
                       <strong>随伴症状</strong>
                     </td>
-                    <td>悪心・嘔吐<strong>なし</strong>；光過敏または音過敏は一方のみ許容</td>
+                    <td>
+                      悪心・嘔吐<strong>なし</strong>；光過敏または音過敏は一方のみ許容
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -347,7 +364,11 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-ok">
               <div className="alert-i">💡</div>
-              <div><strong>片頭痛との最重要鑑別ポイント：</strong>「非拍動性」「体動で悪化しない」「悪心なし」の3点が TTH の特徴です。詳細な鑑別は Section 7 を参照。</div>
+              <div>
+                <strong>片頭痛との最重要鑑別ポイント：</strong>
+                「非拍動性」「体動で悪化しない」「悪心なし」の3点が TTH の特徴です。詳細な鑑別は
+                Section 7 を参照。
+              </div>
             </div>
           </section>
 
@@ -422,7 +443,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <strong>社会経済的影響</strong>
                     </td>
-                    <td>慢性型はQOLと労働生産性に甚大な影響；GBD 2016で「世界第2位の障害原因疾患」</td>
+                    <td>
+                      慢性型はQOLと労働生産性に甚大な影響；GBD 2016で「世界第2位の障害原因疾患」
+                    </td>
                   </tr>
                   <tr>
                     <td>
@@ -438,12 +461,12 @@ export default function TensionTypeHeadachePage() {
               <div className="alert-i">📊</div>
               <div>
                 <strong>主要疫学データソース：</strong>
-                <br />
-                • Rasmussen BK et al. <em>J Clin Epidemiol</em> 1991; 44: 1147–1157
-                <br />
-                • Jensen R &amp; Stovner LJ. <em>Lancet Neurol</em> 2008; 7: 354–361
-                <br />
-                • <Ext href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(18)30499-X/fulltext">Global Burden of Disease 2016（Lancet Neurol）</Ext>
+                <br />• Rasmussen BK et al. <em>J Clin Epidemiol</em> 1991; 44: 1147–1157
+                <br />• Jensen R &amp; Stovner LJ. <em>Lancet Neurol</em> 2008; 7: 354–361
+                <br />•{" "}
+                <Ext href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(18)30499-X/fulltext">
+                  Global Burden of Disease 2016（Lancet Neurol）
+                </Ext>
               </div>
             </div>
           </section>
@@ -455,7 +478,11 @@ export default function TensionTypeHeadachePage() {
               <h2 className="sec-title">病態生理学</h2>
             </div>
 
-            <p>TTHの病態生理は完全には解明されていませんが、ICHD-3は「<strong>末梢性機序と中枢性機序の両方が関与する</strong>」ことを明記しています。型によって主要な機序が異なる点が重要です。</p>
+            <p>
+              TTHの病態生理は完全には解明されていませんが、ICHD-3は「
+              <strong>末梢性機序と中枢性機序の両方が関与する</strong>
+              」ことを明記しています。型によって主要な機序が異なる点が重要です。
+            </p>
 
             <h3>病態生理学の統合モデル</h3>
             <div className="mmd">
@@ -498,7 +525,8 @@ export default function TensionTypeHeadachePage() {
             <div className="alert a-teal">
               <div className="alert-i">📄</div>
               <div>
-                <strong>根拠文献：</strong> Bendtsen L. <em>Cephalalgia</em> 2000; 20: 486–508 / Ashina M et al. <em>Lancet</em> 1999; 353: 287–289
+                <strong>根拠文献：</strong> Bendtsen L. <em>Cephalalgia</em> 2000; 20: 486–508 /
+                Ashina M et al. <em>Lancet</em> 1999; 353: 287–289
               </div>
             </div>
 
@@ -529,7 +557,10 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <strong>構造的変化</strong>
                     </td>
-                    <td>慢性型（CTTH）での灰白質体積減少（Schmidt-Wilcke et al. <em>Neurology</em> 2005）</td>
+                    <td>
+                      慢性型（CTTH）での灰白質体積減少（Schmidt-Wilcke et al. <em>Neurology</em>{" "}
+                      2005）
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -561,7 +592,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <strong>うつ病・不安障害</strong>
                     </td>
-                    <td>双方向関連性（うつ病は TTH 発症リスクを増加させ、CTTH はうつ病を促進する）</td>
+                    <td>
+                      双方向関連性（うつ病は TTH 発症リスクを増加させ、CTTH はうつ病を促進する）
+                    </td>
                   </tr>
                   <tr>
                     <td>
@@ -575,7 +608,8 @@ export default function TensionTypeHeadachePage() {
             <div className="alert a-teal">
               <div className="alert-i">📄</div>
               <div>
-                <strong>根拠文献：</strong> Holroyd KA et al. <em>JAMA</em> 2001; 285: 2208–2215 / Janke EA et al. <em>Pain</em> 2004; 111: 230–238
+                <strong>根拠文献：</strong> Holroyd KA et al. <em>JAMA</em> 2001; 285: 2208–2215 /
+                Janke EA et al. <em>Pain</em> 2004; 111: 230–238
               </div>
             </div>
           </section>
@@ -587,7 +621,10 @@ export default function TensionTypeHeadachePage() {
               <h2 className="sec-title">ICHD-3 診断分類</h2>
             </div>
 
-            <p>ICHD-3（2018年版）における緊張型頭痛の完全な分類体系です。<strong>頻度</strong>によって4つの大分類に分けられ、さらに頭蓋周囲圧痛の有無により細分類されます。</p>
+            <p>
+              ICHD-3（2018年版）における緊張型頭痛の完全な分類体系です。<strong>頻度</strong>
+              によって4つの大分類に分けられ、さらに頭蓋周囲圧痛の有無により細分類されます。
+            </p>
 
             <h3>4型の直感的理解</h3>
             <div className="phase-grid">
@@ -683,9 +720,13 @@ export default function TensionTypeHeadachePage() {
             <div className="alert a-info">
               <div className="alert-i">🔗</div>
               <div>
-                <strong>公式出典：</strong> <Ext href="https://ichd-3.org/2-tension-type-headache/">ICHD-3 公式サイト — 第2章 緊張型頭痛</Ext>
+                <strong>公式出典：</strong>{" "}
+                <Ext href="https://ichd-3.org/2-tension-type-headache/">
+                  ICHD-3 公式サイト — 第2章 緊張型頭痛
+                </Ext>
                 <br />
-                頭蓋周囲圧痛による細分類（.1 vs .2）は、主に研究目的のため ICHD-3 で維持されています。
+                頭蓋周囲圧痛による細分類（.1 vs .2）は、主に研究目的のため ICHD-3
+                で維持されています。
               </div>
             </div>
           </section>
@@ -749,7 +790,11 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-warn">
               <div className="alert-i">⚠️</div>
-              <div><strong>重要：</strong>慢性型（2.3）では「<strong>軽度の悪心</strong>」が許容されますが、エピソード型（2.1/2.2）では悪心は<strong>一切許容されません</strong>。</div>
+              <div>
+                <strong>重要：</strong>慢性型（2.3）では「<strong>軽度の悪心</strong>
+                」が許容されますが、エピソード型（2.1/2.2）では悪心は
+                <strong>一切許容されません</strong>。
+              </div>
             </div>
 
             <h3>頭蓋周囲圧痛の評価方法</h3>
@@ -800,7 +845,12 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-danger">
               <div className="alert-i">🚨</div>
-              <div><strong>すべての頭痛患者において、いかなる治療プロトコル開始前にも SNOOP4 基準を確認すること。一項目でも該当すれば神経学的緊急症として対処する。</strong></div>
+              <div>
+                <strong>
+                  すべての頭痛患者において、いかなる治療プロトコル開始前にも SNOOP4
+                  基準を確認すること。一項目でも該当すれば神経学的緊急症として対処する。
+                </strong>
+              </div>
             </div>
 
             <h3>SNOOP4 スクリーニングフロー</h3>
@@ -814,37 +864,67 @@ export default function TensionTypeHeadachePage() {
               <div className="sn">
                 <div className="sn-letter">S</div>
                 <div className="sn-title">Systemic — 全身症状</div>
-                <div className="sn-symp">• 発熱 + 項部硬直（髄膜刺激症状）<br />• 体重減少・倦怠感<br />• 免疫不全状態（HIV・ステロイド等）<br />• 悪性腫瘍の既往</div>
+                <div className="sn-symp">
+                  • 発熱 + 項部硬直（髄膜刺激症状）
+                  <br />• 体重減少・倦怠感
+                  <br />• 免疫不全状態（HIV・ステロイド等）
+                  <br />• 悪性腫瘍の既往
+                </div>
                 <div className="sn-dx">細菌性髄膜炎 / 脳炎 / CNSリンパ腫</div>
               </div>
               <div className="sn">
                 <div className="sn-letter">N</div>
                 <div className="sn-title">Neurological — 神経学的欠損</div>
-                <div className="sn-symp">• 片麻痺・感覚障害<br />• 失語・構音障害<br />• 複視・視野欠損<br />• 意識障害・認知機能変化</div>
+                <div className="sn-symp">
+                  • 片麻痺・感覚障害
+                  <br />• 失語・構音障害
+                  <br />• 複視・視野欠損
+                  <br />• 意識障害・認知機能変化
+                </div>
                 <div className="sn-dx">脳卒中 / TIA / 脳腫瘍</div>
               </div>
               <div className="sn">
                 <div className="sn-letter">O</div>
                 <div className="sn-title">Onset — 突発性発症</div>
-                <div className="sn-symp">• 「生涯で最悪の頭痛」<br />• 雷鳴頭痛（Thunderclap）<br />• 秒〜分単位での急激な増悪<br />• 運動・性行為・Valsalvaで誘発</div>
+                <div className="sn-symp">
+                  • 「生涯で最悪の頭痛」
+                  <br />• 雷鳴頭痛（Thunderclap）
+                  <br />• 秒〜分単位での急激な増悪
+                  <br />• 運動・性行為・Valsalvaで誘発
+                </div>
                 <div className="sn-dx">くも膜下出血（致死率高）</div>
               </div>
               <div className="sn">
                 <div className="sn-letter">O</div>
                 <div className="sn-title">Onset after 50 — 50歳以降の新規</div>
-                <div className="sn-symp">• 50歳以降の初発頭痛<br />• 側頭部疼痛 + 顎跛行<br />• ESR・CRP 上昇<br />• 視力障害の合併</div>
+                <div className="sn-symp">
+                  • 50歳以降の初発頭痛
+                  <br />• 側頭部疼痛 + 顎跛行
+                  <br />• ESR・CRP 上昇
+                  <br />• 視力障害の合併
+                </div>
                 <div className="sn-dx">側頭動脈炎（失明リスク）/ 頭蓋内病変</div>
               </div>
               <div className="sn">
                 <div className="sn-letter">P</div>
                 <div className="sn-title">Pattern Change — パターン変化</div>
-                <div className="sn-symp">• 進行性増悪（週〜月単位）<br />• 外傷後の新規発症<br />• 仰臥位で悪化 → ICP 亢進<br />• 起立位で悪化 → 低髄液圧</div>
+                <div className="sn-symp">
+                  • 進行性増悪（週〜月単位）
+                  <br />• 外傷後の新規発症
+                  <br />• 仰臥位で悪化 → ICP 亢進
+                  <br />• 起立位で悪化 → 低髄液圧
+                </div>
                 <div className="sn-dx">脳腫瘍 / 水頭症 / 低髄液圧症候群</div>
               </div>
               <div className="sn">
                 <div className="sn-letter">4</div>
                 <div className="sn-title">四つのP — 特殊状況</div>
-                <div className="sn-symp">• <strong>P</strong>apilledema 乳頭浮腫<br />• <strong>P</strong>ostdural 硬膜穿刺後<br />• <strong>P</strong>ost-seizure 痙攣後<br />• <strong>P</strong>regnancy / Postpartum 妊娠・産後</div>
+                <div className="sn-symp">
+                  • <strong>P</strong>apilledema 乳頭浮腫
+                  <br />• <strong>P</strong>ostdural 硬膜穿刺後
+                  <br />• <strong>P</strong>ost-seizure 痙攣後
+                  <br />• <strong>P</strong>regnancy / Postpartum 妊娠・産後
+                </div>
                 <div className="sn-dx">ICP亢進疾患 / CVST（妊娠・産後）</div>
               </div>
             </div>
@@ -1080,7 +1160,11 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-purple">
               <div className="alert-i">💡</div>
-              <div><strong>最重要鑑別：</strong> TTH と片頭痛は<strong>同一患者に共存することが多い</strong>（両方の診断が成立し得る）。頭痛日誌による区別が不可欠です（Section 8 参照）。</div>
+              <div>
+                <strong>最重要鑑別：</strong> TTH と片頭痛は
+                <strong>同一患者に共存することが多い</strong>
+                （両方の診断が成立し得る）。頭痛日誌による区別が不可欠です（Section 8 参照）。
+              </div>
             </div>
           </section>
 
@@ -1110,7 +1194,9 @@ export default function TensionTypeHeadachePage() {
                     <td>頭痛の生活影響度</td>
                     <td>≥ 60点：重篤な障害；36〜49：軽微</td>
                     <td>
-                      <Ext href="https://headachejournal.onlinelibrary.wiley.com/">Headache Journal</Ext>
+                      <Ext href="https://headachejournal.onlinelibrary.wiley.com/">
+                        Headache Journal
+                      </Ext>
                     </td>
                   </tr>
                   <tr>
@@ -1168,7 +1254,11 @@ export default function TensionTypeHeadachePage() {
             <h3>頭痛日誌の活用</h3>
             <div className="alert a-ok">
               <div className="alert-i">📓</div>
-              <div><strong>治療開始前に最低30日間のベースライン記録を取得することを推奨する（ICHD-3準拠）。</strong></div>
+              <div>
+                <strong>
+                  治療開始前に最低30日間のベースライン記録を取得することを推奨する（ICHD-3準拠）。
+                </strong>
+              </div>
             </div>
 
             <div className="tbl">
@@ -1226,7 +1316,10 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-warn">
               <div className="alert-i">⚠️</div>
-              <div>急性期治療においては常に<strong>MOHリスク（Section 11 参照）</strong>を評価すること。</div>
+              <div>
+                急性期治療においては常に<strong>MOHリスク（Section 11 参照）</strong>
+                を評価すること。
+              </div>
             </div>
 
             <div className="mmd">
@@ -1294,7 +1387,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <span className="bB">Grade B</span>
                     </td>
-                    <td>Lange et al. <em>Cephalalgia</em> 2004</td>
+                    <td>
+                      Lange et al. <em>Cephalalgia</em> 2004
+                    </td>
                   </tr>
                   <tr>
                     <td>
@@ -1304,7 +1399,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <span className="bB">Grade B</span>
                     </td>
-                    <td>Diener et al. <em>Cephalalgia</em> 2005</td>
+                    <td>
+                      Diener et al. <em>Cephalalgia</em> 2005
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -1312,14 +1409,20 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-warn">
               <div className="alert-i">☕</div>
-              <div><strong>カフェインの注意点：</strong>鎮痛増強効果がある一方で、過剰摂取または離脱により頭痛を引き起こすリスクがあります。</div>
+              <div>
+                <strong>カフェインの注意点：</strong>
+                鎮痛増強効果がある一方で、過剰摂取または離脱により頭痛を引き起こすリスクがあります。
+              </div>
             </div>
 
             <h3>9.2 予防療法</h3>
 
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 予防療法の適応判断</div>
-              <MermaidDiagram themeVariables={TTH_MERMAID_THEME} chart={CHART_PREVENTIVE_DECISION} />
+              <MermaidDiagram
+                themeVariables={TTH_MERMAID_THEME}
+                chart={CHART_PREVENTIVE_DECISION}
+              />
             </div>
 
             <h4>予防薬剤エビデンステーブル</h4>
@@ -1412,19 +1515,29 @@ export default function TensionTypeHeadachePage() {
             <div className="alert a-ok">
               <div className="alert-i">⭐</div>
               <div>
-                <strong>エビデンスの最重要ポイント：</strong>アミトリプチリンは40年以上の使用歴と多数のRCTに裏付けられた<strong>唯一の Grade A 予防薬</strong>です。
+                <strong>エビデンスの最重要ポイント：</strong>
+                アミトリプチリンは40年以上の使用歴と多数のRCTに裏付けられた
+                <strong>唯一の Grade A 予防薬</strong>です。
                 <br />
-                根拠：Bendtsen L &amp; Jensen R. <em>Cephalalgia</em> 2000 / Holroyd KA et al. <em>JAMA</em> 2001; <Ext href="https://pubmed.ncbi.nlm.nih.gov/11325323/">PubMed 11325323</Ext>
+                根拠：Bendtsen L &amp; Jensen R. <em>Cephalalgia</em> 2000 / Holroyd KA et al.{" "}
+                <em>JAMA</em> 2001;{" "}
+                <Ext href="https://pubmed.ncbi.nlm.nih.gov/11325323/">PubMed 11325323</Ext>
               </div>
             </div>
 
             <h3>9.3 非薬物療法（ノンファーマコロジカル治療）</h3>
 
-            <p>TTHにおいて非薬物療法は薬物療法と<strong>同等以上</strong>のエビデンスを示すことがあり、統合的アプローチとして積極的に推奨されます。</p>
+            <p>
+              TTHにおいて非薬物療法は薬物療法と<strong>同等以上</strong>
+              のエビデンスを示すことがあり、統合的アプローチとして積極的に推奨されます。
+            </p>
 
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 非薬物療法の全体像</div>
-              <MermaidDiagram themeVariables={TTH_MERMAID_THEME} chart={CHART_NON_PHARMACOLOGICAL} />
+              <MermaidDiagram
+                themeVariables={TTH_MERMAID_THEME}
+                chart={CHART_NON_PHARMACOLOGICAL}
+              />
             </div>
 
             <h4>非薬物療法エビデンステーブル</h4>
@@ -1447,7 +1560,9 @@ export default function TensionTypeHeadachePage() {
                       <span className="bB">Grade B</span>
                     </td>
                     <td>
-                      <Ext href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2">Cochrane 2017 SR</Ext>
+                      <Ext href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2">
+                        Cochrane 2017 SR
+                      </Ext>
                     </td>
                     <td>頭痛頻度 30〜50% 低下</td>
                   </tr>
@@ -1458,7 +1573,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <span className="bB">Grade B</span>
                     </td>
-                    <td>Nestoriuc Y et al. <em>J Consult Clin Psychol</em> 2008</td>
+                    <td>
+                      Nestoriuc Y et al. <em>J Consult Clin Psychol</em> 2008
+                    </td>
                     <td>効果量 d = 0.73</td>
                   </tr>
                   <tr>
@@ -1478,7 +1595,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <span className="bB">Grade B</span>
                     </td>
-                    <td>Fernández-de-las-Peñas et al. <em>Headache</em> 2007</td>
+                    <td>
+                      Fernández-de-las-Peñas et al. <em>Headache</em> 2007
+                    </td>
                     <td>頸部機能障害合併例で特に有効</td>
                   </tr>
                   <tr>
@@ -1489,7 +1608,9 @@ export default function TensionTypeHeadachePage() {
                       <span className="bB">Grade B</span>
                     </td>
                     <td>
-                      <Ext href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007587.pub2">Linde K et al. Cochrane 2016</Ext>
+                      <Ext href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007587.pub2">
+                        Linde K et al. Cochrane 2016
+                      </Ext>
                     </td>
                     <td>偽鍼より有意な頻度低下</td>
                   </tr>
@@ -1500,7 +1621,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <span className="bA">Grade A</span>
                     </td>
-                    <td>Holroyd KA et al. <em>JAMA</em> 2001</td>
+                    <td>
+                      Holroyd KA et al. <em>JAMA</em> 2001
+                    </td>
                     <td>単独療法より優れた効果</td>
                   </tr>
                   <tr>
@@ -1510,7 +1633,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <span className="bC">Grade C</span>
                     </td>
-                    <td>Varkey E et al. <em>Cephalalgia</em> 2011</td>
+                    <td>
+                      Varkey E et al. <em>Cephalalgia</em> 2011
+                    </td>
                     <td>頻度・強度低下</td>
                   </tr>
                 </tbody>
@@ -1519,7 +1644,11 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-ok">
               <div className="alert-i">🏆</div>
-              <div><strong>統合療法の特筆事項：</strong>Holroyd et al.（JAMA 2001）のRCTは、<strong>アミトリプチリン + ストレス管理療法の併用</strong>が各単独療法より優れることを示した唯一の Grade A RCT です。</div>
+              <div>
+                <strong>統合療法の特筆事項：</strong>Holroyd et al.（JAMA 2001）のRCTは、
+                <strong>アミトリプチリン + ストレス管理療法の併用</strong>
+                が各単独療法より優れることを示した唯一の Grade A RCT です。
+              </div>
             </div>
           </section>
 
@@ -1532,7 +1661,10 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-warn">
               <div className="alert-i">⚠️</div>
-              <div>以下はすべて<strong>補助的位置づけ</strong>です。単独では一次治療として推奨できません。TTHに特化したエビデンスは片頭痛と比較して限定的です。</div>
+              <div>
+                以下はすべて<strong>補助的位置づけ</strong>
+                です。単独では一次治療として推奨できません。TTHに特化したエビデンスは片頭痛と比較して限定的です。
+              </div>
             </div>
 
             <div className="tbl">
@@ -1717,7 +1849,10 @@ export default function TensionTypeHeadachePage() {
             <div className="alert a-info">
               <div className="alert-i">🔗</div>
               <div>
-                <strong>ICHD-3 コード 8.2：</strong> <Ext href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/">薬剤過用頭痛（MOH）公式診断基準</Ext>
+                <strong>ICHD-3 コード 8.2：</strong>{" "}
+                <Ext href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/">
+                  薬剤過用頭痛（MOH）公式診断基準
+                </Ext>
               </div>
             </div>
           </section>
@@ -1811,14 +1946,12 @@ export default function TensionTypeHeadachePage() {
               <div className="alert-i">🚫</div>
               <div>
                 <strong>バルプロ酸を生殖可能年齢の女性に処方する場合：</strong>
-                <br />
-                • 米国では <strong>REMS（Risk Evaluation and Mitigation Strategy）登録必須</strong>
-                <br />
-                • 確実な避妊の確認
-                <br />
-                • 計画外妊娠時の対応方針を事前に説明
-                <br />
-                • TTH への Grade C エビデンスしかなく、リスクベネフィット比を慎重に検討すること
+                <br />• 米国では{" "}
+                <strong>REMS（Risk Evaluation and Mitigation Strategy）登録必須</strong>
+                <br />• 確実な避妊の確認
+                <br />• 計画外妊娠時の対応方針を事前に説明
+                <br />• TTH への Grade C
+                エビデンスしかなく、リスクベネフィット比を慎重に検討すること
               </div>
             </div>
           </section>
@@ -1832,7 +1965,9 @@ export default function TensionTypeHeadachePage() {
 
             <div className="alert a-warn">
               <div className="alert-i">📋</div>
-              <div><strong>教育目的の架空症例です。実際の患者診療には適用しないこと。</strong></div>
+              <div>
+                <strong>教育目的の架空症例です。実際の患者診療には適用しないこと。</strong>
+              </div>
             </div>
 
             <div className="case-step">
@@ -2000,7 +2135,8 @@ export default function TensionTypeHeadachePage() {
                     <tr>
                       <td>4 — 四つのP</td>
                       <td>
-                        <span className="bGrn">クリア</span> 乳頭浮腫・硬膜穿刺後・痙攣後・妊産婦 すべてなし
+                        <span className="bGrn">クリア</span> 乳頭浮腫・硬膜穿刺後・痙攣後・妊産婦
+                        すべてなし
                       </td>
                     </tr>
                   </tbody>
@@ -2008,7 +2144,9 @@ export default function TensionTypeHeadachePage() {
               </div>
               <div className="alert a-ok" style={{ marginTop: 10 }}>
                 <div className="alert-i">✅</div>
-                <div><strong>SNOOP4 クリア</strong> → ICHD-3 一次性頭痛の診断へ進行可能</div>
+                <div>
+                  <strong>SNOOP4 クリア</strong> → ICHD-3 一次性頭痛の診断へ進行可能
+                </div>
               </div>
             </div>
 
@@ -2035,7 +2173,8 @@ export default function TensionTypeHeadachePage() {
                     <tr>
                       <td>薬剤過用頭痛（同時診断）</td>
                       <td>
-                        <strong>8.2.3.2</strong>（NSAIDs過用：イブプロフェン ≥ 15日/月 かつ ≥ 3ヶ月）
+                        <strong>8.2.3.2</strong>（NSAIDs過用：イブプロフェン ≥ 15日/月 かつ ≥
+                        3ヶ月）
                       </td>
                     </tr>
                   </tbody>
@@ -2099,32 +2238,42 @@ export default function TensionTypeHeadachePage() {
 
               <h4>急性期治療（Step-down 戦略）</h4>
               <ul>
-                <li>イブプロフェン使用を月 <strong>9日以下</strong>に制限（MOH 回避の閾値）</li>
+                <li>
+                  イブプロフェン使用を月 <strong>9日以下</strong>に制限（MOH 回避の閾値）
+                </li>
                 <li>アセトアミノフェンとの交互使用を指導（同一薬剤への依存回避）</li>
                 <li>非薬物療法を優先し、薬剤使用頻度を積極的に低減する</li>
               </ul>
 
-              <h4>予防療法 <span className="bA">Grade A</span></h4>
+              <h4>
+                予防療法 <span className="bA">Grade A</span>
+              </h4>
               <ul>
                 <li>アミトリプチリン 10mg/夜から開始 → 4週ごとに 10mg 増量 → 目標 25〜50mg</li>
                 <li>効果判定：3ヶ月後に頭痛日数 50%以上の減少を目標</li>
               </ul>
 
-              <h4>理学療法 <span className="bB">Grade B</span></h4>
+              <h4>
+                理学療法 <span className="bB">Grade B</span>
+              </h4>
               <ul>
                 <li>頸部モビライゼーション 週2回</li>
                 <li>姿勢矯正プログラム（デスクワーク姿勢の評価・指導）</li>
                 <li>肩甲帯ストレッチ・等尺性運動 セルフケア指導</li>
               </ul>
 
-              <h4>心理・行動療法 <span className="bB">Grade B</span></h4>
+              <h4>
+                心理・行動療法 <span className="bB">Grade B</span>
+              </h4>
               <ul>
                 <li>CBT（認知行動療法）+ バイオフィードバック（EMG）6週間プログラム</li>
                 <li>睡眠衛生指導（目標：7〜8時間、規則的就寝）</li>
                 <li>ストレスマネジメント：職場環境のエルゴノミクス評価</li>
               </ul>
 
-              <h4>栄養プロトコル <span className="bB">Grade B</span></h4>
+              <h4>
+                栄養プロトコル <span className="bB">Grade B</span>
+              </h4>
               <ul>
                 <li>マグネシウム グリシン酸塩 400mg/日</li>
                 <li>カフェイン摂取量を週1杯ずつ漸減（離脱頭痛予防のため段階的に）</li>
@@ -2251,7 +2400,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <span className="bA">Grade A</span>
                     </td>
-                    <td>Holroyd <em>JAMA</em> 2001</td>
+                    <td>
+                      Holroyd <em>JAMA</em> 2001
+                    </td>
                   </tr>
                   <tr>
                     <td>バイオフィードバック（EMG）</td>
@@ -2403,27 +2554,46 @@ export default function TensionTypeHeadachePage() {
               <div className="src">
                 <div className="src-org">IHS / ICHD-3</div>
                 <div className="src-t">ICHD-3 公式サイト（全文閲覧可）</div>
-                <Ext className="src-url" href="https://ichd-3.org/">https://ichd-3.org/</Ext>
+                <Ext className="src-url" href="https://ichd-3.org/">
+                  https://ichd-3.org/
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">IHS / ICHD-3</div>
                 <div className="src-t">ICHD-3 第2章 — 緊張型頭痛</div>
-                <Ext className="src-url" href="https://ichd-3.org/2-tension-type-headache/">https://ichd-3.org/2-tension-type-headache/</Ext>
+                <Ext className="src-url" href="https://ichd-3.org/2-tension-type-headache/">
+                  https://ichd-3.org/2-tension-type-headache/
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">IHS / Cephalalgia 2018</div>
                 <div className="src-t">ICHD-3 全文 PDF（Cephalalgia 2018; 38(1): 1–211）</div>
-                <Ext className="src-url" href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf">ICHD-3 全文 PDF</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf"
+                >
+                  ICHD-3 全文 PDF
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">IHS</div>
                 <div className="src-t">IHS 分類委員会（ICHD-4 最新動向）</div>
-                <Ext className="src-url" href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/">ihs-headache.org / classification</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/"
+                >
+                  ihs-headache.org / classification
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">IHS / ICHD-3</div>
                 <div className="src-t">薬剤過用頭痛 MOH — ICHD-3 コード 8.2</div>
-                <Ext className="src-url" href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/">ICHD-3 8.2 MOH</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/"
+                >
+                  ICHD-3 8.2 MOH
+                </Ext>
               </div>
             </div>
 
@@ -2432,22 +2602,36 @@ export default function TensionTypeHeadachePage() {
               <div className="src">
                 <div className="src-org">EHF / EFNS 2010</div>
                 <div className="src-t">EFNS Guideline on Treatment of Tension-Type Headache</div>
-                <Ext className="src-url" href="https://onlinelibrary.wiley.com/doi/10.1111/j.1468-1331.2010.03070.x">Eur J Neurol 2010; 17: 1318–1325</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://onlinelibrary.wiley.com/doi/10.1111/j.1468-1331.2010.03070.x"
+                >
+                  Eur J Neurol 2010; 17: 1318–1325
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">NICE (UK)</div>
                 <div className="src-t">Headache in over 12s — NICE Clinical Guideline CG150</div>
-                <Ext className="src-url" href="https://www.nice.org.uk/guidance/cg150">https://www.nice.org.uk/guidance/cg150</Ext>
+                <Ext className="src-url" href="https://www.nice.org.uk/guidance/cg150">
+                  https://www.nice.org.uk/guidance/cg150
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">AAN</div>
                 <div className="src-t">AAN Guidelines ホーム（頭痛全ガイドライン一覧）</div>
-                <Ext className="src-url" href="https://www.aan.com/guidelines/">https://www.aan.com/guidelines/</Ext>
+                <Ext className="src-url" href="https://www.aan.com/guidelines/">
+                  https://www.aan.com/guidelines/
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">IHS / Cephalalgia 2024</div>
                 <div className="src-t">IHS 急性期治療推奨 2024</div>
-                <Ext className="src-url" href="https://journals.sagepub.com/doi/10.1177/03331024241252666">Cephalalgia 2024（Sage Journals）</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://journals.sagepub.com/doi/10.1177/03331024241252666"
+                >
+                  Cephalalgia 2024（Sage Journals）
+                </Ext>
               </div>
             </div>
 
@@ -2456,22 +2640,42 @@ export default function TensionTypeHeadachePage() {
               <div className="src">
                 <div className="src-org">Cochrane Library</div>
                 <div className="src-t">鍼治療 — 緊張型頭痛予防（Linde K 2016）</div>
-                <Ext className="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007587.pub2">CD007587.pub2</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007587.pub2"
+                >
+                  CD007587.pub2
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Cochrane Library</div>
                 <div className="src-t">CBT / バイオフィードバック — 頭痛予防</div>
-                <Ext className="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2">CD012295.pub2</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD012295.pub2"
+                >
+                  CD012295.pub2
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Cochrane Library</div>
                 <div className="src-t">抗うつ薬 TTH 予防（Banzi 2015）</div>
-                <Ext className="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004533.pub3">CD004533.pub3</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD004533.pub3"
+                >
+                  CD004533.pub3
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Cochrane Library</div>
                 <div className="src-t">マグネシウム — 頭痛予防（2025年最新）</div>
-                <Ext className="src-url" href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD016307">CD016307</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD016307"
+                >
+                  CD016307
+                </Ext>
               </div>
             </div>
 
@@ -2479,48 +2683,90 @@ export default function TensionTypeHeadachePage() {
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Bendtsen L. 2000 / Cephalalgia</div>
-                <div className="src-t">Central sensitization in TTH — Possible pathophysiological mechanisms</div>
-                <Ext className="src-url" href="https://journals.sagepub.com/doi/10.1046/j.1468-2982.2000.00053.x">Cephalalgia 20: 486–508</Ext>
+                <div className="src-t">
+                  Central sensitization in TTH — Possible pathophysiological mechanisms
+                </div>
+                <Ext
+                  className="src-url"
+                  href="https://journals.sagepub.com/doi/10.1046/j.1468-2982.2000.00053.x"
+                >
+                  Cephalalgia 20: 486–508
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Bendtsen L &amp; Jensen R. 2004 / Neurology</div>
-                <div className="src-t">Mirtazapine is effective in the prophylactic treatment of CTTH</div>
-                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/15159484/">PubMed 15159484</Ext>
+                <div className="src-t">
+                  Mirtazapine is effective in the prophylactic treatment of CTTH
+                </div>
+                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/15159484/">
+                  PubMed 15159484
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Bendtsen L et al. 2010 / Eur J Neurol</div>
-                <div className="src-t">EFNS guideline on the treatment of tension-type headache</div>
-                <Ext className="src-url" href="https://onlinelibrary.wiley.com/doi/10.1111/j.1468-1331.2010.03070.x">Eur J Neurol 17: 1318–1325</Ext>
+                <div className="src-t">
+                  EFNS guideline on the treatment of tension-type headache
+                </div>
+                <Ext
+                  className="src-url"
+                  href="https://onlinelibrary.wiley.com/doi/10.1111/j.1468-1331.2010.03070.x"
+                >
+                  Eur J Neurol 17: 1318–1325
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Fernández-de-las-Peñas et al. 2007 / Cephalalgia</div>
-                <div className="src-t">Myofascial trigger points and sensitization: Updated pain model for TTH</div>
-                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/17359516/">PubMed 17359516</Ext>
+                <div className="src-t">
+                  Myofascial trigger points and sensitization: Updated pain model for TTH
+                </div>
+                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/17359516/">
+                  PubMed 17359516
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Holroyd KA et al. 2001 / JAMA</div>
-                <div className="src-t">Management of CTTH with TCA, stress management, and combination: A RCT</div>
-                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/11325323/">JAMA 285: 2208–2215</Ext>
+                <div className="src-t">
+                  Management of CTTH with TCA, stress management, and combination: A RCT
+                </div>
+                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/11325323/">
+                  JAMA 285: 2208–2215
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Jensen R &amp; Stovner LJ. 2008 / Lancet Neurol</div>
                 <div className="src-t">Epidemiology and comorbidity of headache</div>
-                <Ext className="src-url" href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(08)70062-0/abstract">Lancet Neurol 7: 354–361</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(08)70062-0/abstract"
+                >
+                  Lancet Neurol 7: 354–361
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Nestoriuc Y et al. 2008 / J Consult Clin Psychol</div>
                 <div className="src-t">Meta-analysis of biofeedback for tension-type headache</div>
-                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/18426234/">PubMed 18426234</Ext>
+                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/18426234/">
+                  PubMed 18426234
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Rasmussen BK et al. 1991 / J Clin Epidemiol</div>
                 <div className="src-t">Epidemiology of headache in a general population</div>
-                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/1941010/">PubMed 1941010</Ext>
+                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/1941010/">
+                  PubMed 1941010
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Stovner LJ et al. 2022 / Cephalalgia</div>
-                <div className="src-t">Global, regional, and national burden of migraine and TTH</div>
-                <Ext className="src-url" href="https://journals.sagepub.com/doi/10.1177/03331024221097313">Cephalalgia 42: 1160–1196</Ext>
+                <div className="src-t">
+                  Global, regional, and national burden of migraine and TTH
+                </div>
+                <Ext
+                  className="src-url"
+                  href="https://journals.sagepub.com/doi/10.1177/03331024221097313"
+                >
+                  Cephalalgia 42: 1160–1196
+                </Ext>
               </div>
             </div>
 
@@ -2529,22 +2775,39 @@ export default function TensionTypeHeadachePage() {
               <div className="src">
                 <div className="src-org">EHF 公式誌（OA）</div>
                 <div className="src-t">Journal of Headache and Pain</div>
-                <Ext className="src-url" href="https://thejournalofheadacheandpain.biomedcentral.com/">BioMed Central / JHAP</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://thejournalofheadacheandpain.biomedcentral.com/"
+                >
+                  BioMed Central / JHAP
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">IHS 公式誌</div>
                 <div className="src-t">Cephalalgia（ICHD 改訂・主要臨床試験）</div>
-                <Ext className="src-url" href="https://journals.sagepub.com/home/cep">Sage Journals / Cephalalgia</Ext>
+                <Ext className="src-url" href="https://journals.sagepub.com/home/cep">
+                  Sage Journals / Cephalalgia
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">PubMed / NLM</div>
                 <div className="src-t">PubMed — TTH 臨床試験専用検索</div>
-                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/?term=tension+type+headache&filter=pubt.clinicaltrial">pubmed.ncbi.nlm.nih.gov (TTH RCTs)</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://pubmed.ncbi.nlm.nih.gov/?term=tension+type+headache&filter=pubt.clinicaltrial"
+                >
+                  pubmed.ncbi.nlm.nih.gov (TTH RCTs)
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">ClinicalTrials.gov</div>
                 <div className="src-t">進行中・完了試験の確認</div>
-                <Ext className="src-url" href="https://clinicaltrials.gov/search?cond=tension+type+headache">clinicaltrials.gov / TTH</Ext>
+                <Ext
+                  className="src-url"
+                  href="https://clinicaltrials.gov/search?cond=tension+type+headache"
+                >
+                  clinicaltrials.gov / TTH
+                </Ext>
               </div>
             </div>
 
@@ -2553,11 +2816,18 @@ export default function TensionTypeHeadachePage() {
               <div>
                 <strong>更新情報：</strong>
                 <br />
-                本資料の準拠基準：ICHD-3（2018）/ EFNS TTH 治療ガイドライン 2010 / AAN 2024 ドラフト / Cochrane SR 最新版
+                本資料の準拠基準：ICHD-3（2018）/ EFNS TTH 治療ガイドライン 2010 / AAN 2024 ドラフト
+                / Cochrane SR 最新版
                 <br />
-                <strong>ICHD-4 動向：</strong>2024年に作業進行版が一部公開。TTH 分類への大幅変更は現時点では報告されていないが、診断閾値の精緻化が継続検討中。定期的に <Ext href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/">IHS 分類委員会サイト</Ext>を参照すること。
+                <strong>ICHD-4 動向：</strong>2024年に作業進行版が一部公開。TTH
+                分類への大幅変更は現時点では報告されていないが、診断閾値の精緻化が継続検討中。定期的に{" "}
+                <Ext href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/">
+                  IHS 分類委員会サイト
+                </Ext>
+                を参照すること。
                 <br />
-                <strong>免責事項：</strong>本資料に含まれる薬剤情報は各国の承認状況・薬価・保険適用が異なる。臨床応用前に各国の規制機関（日本：PMDA、米国：FDA、欧州：EMA）の最新承認情報を確認すること。
+                <strong>免責事項：</strong>
+                本資料に含まれる薬剤情報は各国の承認状況・薬価・保険適用が異なる。臨床応用前に各国の規制機関（日本：PMDA、米国：FDA、欧州：EMA）の最新承認情報を確認すること。
               </div>
             </div>
           </section>
@@ -2566,11 +2836,13 @@ export default function TensionTypeHeadachePage() {
 
       {/* FOOTER */}
       <div className="footer">
-        <strong>緊張型頭痛（TTH）完全ガイド</strong> — 国際標準エビデンス（ICHD-3 / EFNS 2010 / AAN / Cochrane）に基づく
+        <strong>緊張型頭痛（TTH）完全ガイド</strong> — 国際標準エビデンス（ICHD-3 / EFNS 2010 / AAN
+        / Cochrane）に基づく
+        <br />📅 作成年: 2026年 | 次回レビュー推奨: ICHD-4 正式発行時・AAN / IHS
+        年次ガイドライン更新時
         <br />
-        📅 作成年: 2026年 | 次回レビュー推奨: ICHD-4 正式発行時・AAN / IHS 年次ガイドライン更新時
-        <br />
-        ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+        ⚠️
+        本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
       </div>
     </div>
   );
