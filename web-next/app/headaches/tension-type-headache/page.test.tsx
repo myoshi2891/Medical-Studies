@@ -17,7 +17,7 @@ const H3_COUNT = 34;
 const H4_COUNT = 8;
 const MERMAID_COUNT = 8;
 const TABLE_COUNT = 29;
-const HERO_H1 = "緊張型頭痛（TTH）完全ガイド";
+const HERO_H1 = "緊張型頭痛（Tension-Type Headache）完全ガイド";
 
 describe("TensionTypeHeadachePage: 契約（忠実転記）", () => {
   it("hero の <h1> がソースのページタイトルと一致する", () => {
