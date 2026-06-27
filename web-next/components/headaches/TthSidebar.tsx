@@ -24,12 +24,12 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
-  * 緊張型頭痛（TTH）ガイドの固定サイドバー目次。
-  *
-  * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
-  * 元コードに倣い `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
-  * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
-  */
+ * 緊張型頭痛（TTH）ガイドの固定サイドバー目次。
+ *
+ * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
+ * 元コードに倣い `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
+ * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
+ */
 export function TthSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
 
