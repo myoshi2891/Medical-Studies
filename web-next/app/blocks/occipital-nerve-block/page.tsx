@@ -641,7 +641,7 @@ style H fill:#1b5e20,color:#fff`}
             </div>
 
             <h3>禁忌一覧</h3>
-            <h3>絶対禁忌（Absolute Contraindications）</h3>
+            <h4>絶対禁忌（Absolute Contraindications）</h4>
             <div className="tbl">
               <table className="th-red">
                 <thead>
@@ -671,7 +671,7 @@ style H fill:#1b5e20,color:#fff`}
               </table>
             </div>
 
-            <h3>相対禁忌（Relative Contraindications）</h3>
+            <h4>相対禁忌（Relative Contraindications）</h4>
             <div className="tbl">
               <table className="th-orange">
                 <thead>
@@ -2209,7 +2209,7 @@ style H fill:#e65100,color:#fff`}
                 <div className="onb-key-n">8</div>
                 <div className="onb-key-tx">
                   エコーガイド下法（C2レベル）は<strong>100%の標的特異性</strong>
-                  を持ち、難治例・解剖変変異例に推奨。
+                  を持ち、難治例・解剖変異例に推奨。
                 </div>
               </div>
               <div className="onb-key">

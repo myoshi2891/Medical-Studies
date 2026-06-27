@@ -11,10 +11,10 @@ vi.mock("@/components/MermaidDiagram", () => ({
 const SECTION_IDS = Array.from({ length: 18 }, (_, i) => `s${i + 1}`);
 // h2 = 18 section タイトルのみ（見出し階層維持のため h1→h2 化）。
 const H2_COUNT = 18;
-// h3 = 32 （元の h2 → h3 化）
-const H3_COUNT = 32;
-// h4 = 8 （元の h3 → h4 化）
-const H4_COUNT = 8;
+// h3 = 38 （元の h2 → h3 化 32 件 ＋ §3 Step 1–6 を h4 から h3 に是正した 6 件）
+const H3_COUNT = 38;
+// h4 = 2 （元の h3 → h4 化 8 件のうち §3 Step 1–6 を h3 へ昇格した残り 2 件）
+const H4_COUNT = 2;
 const MERMAID_COUNT = 5;
 const TABLE_COUNT = 24;
 const NAV_COUNT = 18;
