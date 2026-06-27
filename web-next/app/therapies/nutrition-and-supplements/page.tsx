@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
+import { NutritionSidebar } from "@/components/therapies/NutritionSidebar";
 import "./nutrition-and-supplements.css";
 
 export const metadata: Metadata = {
@@ -53,46 +54,7 @@ export default function NutritionAndSupplementsPage() {
 
       {/* LAYOUT */}
       <div className="layout">
-        {/* SIDEBAR (仮置き) */}
-        <nav className="sidebar">
-          <div className="s-hdr">目次</div>
-          <a className="nav-a active" href="#s1">
-            <span className="n-num">1</span>なぜ栄養が頭痛に影響するのか
-          </a>
-          <a className="nav-a" href="#s2">
-            <span className="n-num">2</span>エビデンスの読み方
-          </a>
-          <a className="nav-a" href="#s3">
-            <span className="n-num">3</span>STEP 1 — 高エビデンス（A/B）
-          </a>
-          <a className="nav-a" href="#s4">
-            <span className="n-num">4</span>STEP 2 — 中等度（Grade C）
-          </a>
-          <a className="nav-a" href="#s5">
-            <span className="n-num">5</span>STEP 3 — 要注意サプリメント
-          </a>
-          <a className="nav-a" href="#s6">
-            <span className="n-num">6</span>STEP 4 — 食事性トリガー管理
-          </a>
-          <a className="nav-a" href="#s7">
-            <span className="n-num">7</span>STEP 5 — MOH リスク統合
-          </a>
-          <a className="nav-a" href="#s8">
-            <span className="n-num">8</span>STEP 6 — 相互作用チェック
-          </a>
-          <a className="nav-a" href="#s9">
-            <span className="n-num">9</span>STEP 7 — 特別集団への配慮
-          </a>
-          <a className="nav-a" href="#s10">
-            <span className="n-num">10</span>STEP 8 — 統合プロトコル
-          </a>
-          <a className="nav-a" href="#s11">
-            <span className="n-num">11</span>STEP 9 — アウトカム評価
-          </a>
-          <a className="nav-a" href="#s12">
-            <span className="n-num">12</span>参考文献・ソース URL
-          </a>
-        </nav>
+        <NutritionSidebar />
 
         {/* MAIN */}
         <main className="main">
