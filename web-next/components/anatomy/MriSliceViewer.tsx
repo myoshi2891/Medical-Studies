@@ -7,7 +7,8 @@ import type { MriSeries } from "@/lib/anatomy/types";
  * 既存 MRI PNG の 2D スライス・スクラバ（クライアントアイランド）。
  *
  * `mri` が null（Phase 0）の場合はプレースホルダを表示。Phase 1 で匿名化済み
- * スライスを wiring すると、スライダー・前後ボタンでスクラブできる。
+ * スライスを wiring すると、スライダー（矢印キーでネイティブにスクラブ可）・
+ * 前後ボタンで操作できる。表示は放射線読影風の暗いステージ＋等幅オーバーレイ。
  *
  * @param mri - 対応 MRI シリーズ（未投入時は null）。
  * @param title - 構造名（alt テキスト用）。
@@ -27,16 +28,26 @@ export default function MriSliceViewer({ mri, title }: { mri: MriSeries | null; 
   const last = mri.slices.length - 1;
   const clamped = Math.min(Math.max(index, 0), last);
   const src = mri.slices[clamped];
+  const total = mri.slices.length;
 
   return (
     <div className="anatomy-viewer anatomy-mri">
-      {/* biome-ignore lint/performance/noImgElement: 静的スライス PNG のスクラブ表示で next/image の最適化は不要 */}
-      <img
-        className="anatomy-mri-img"
-        src={src}
-        alt={`${title} の MRI スライス ${clamped + 1}/${mri.slices.length}`}
-        loading="lazy"
-      />
+      <div className="anatomy-mri-stage">
+        {/* biome-ignore lint/performance/noImgElement: 静的スライス PNG のスクラブ表示で next/image の最適化は不要 */}
+        <img
+          className="anatomy-mri-img"
+          src={src}
+          alt={`${title} の MRI スライス ${clamped + 1}/${total}`}
+          loading="lazy"
+        />
+        {/* 放射線読影風オーバーレイ（装飾・AT には alt とカウンタで伝達） */}
+        <div className="anatomy-mri-overlay" aria-hidden="true">
+          <span className="anatomy-mri-ov anatomy-mri-ov-series">{mri.id.toUpperCase()}</span>
+          <span className="anatomy-mri-ov anatomy-mri-ov-index">
+            {clamped + 1}/{total}
+          </span>
+        </div>
+      </div>
       <div className="anatomy-mri-controls">
         <button
           type="button"
