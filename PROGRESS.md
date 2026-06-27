@@ -59,6 +59,7 @@
 | ページ | ルート | ステータス | 備考 |
 |---|---|---|---|
 | Cervicogenic-Headache | `/headaches/cervicogenic-headache` | ✅ 完了 | 16 section / Mermaid 6図 / table 19 / 外部リンク 31 |
+| Medication-Overuse-Headache | `/headaches/medication-overuse-headache` | ✅ 完了 | 18 section / Mermaid 5図 / table 24 / 外部リンク 18 |
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
 | 3D解剖アトラス | `/anatomy` | 🟡 Phase 0（雛形） | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（3Dプレースホルダ＋ホットスポット凡例）/ MriSliceViewer（2Dスクラバ）をクライアントアイランド遅延配置。設計書 `docs/architecture.md`。Phase1=匿名化MRI投入 / Phase2=glTFモデル投入 |
