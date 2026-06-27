@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `7bffb9a` feat(web-next): implement Tension-Type Headache page component
-- **ビルド状態**: 計 133 passed。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
+- **最新 HEAD**: `7e6b109` test(web-next): update active and disabled links count in SiteHeader tests
+- **ビルド状態**: 計 141 passed。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
 - **次の作業**: `/anatomy` 3D解剖アトラス雛形（Phase 0）完了。Phase 1（匿名化済みMRI投入）/ Phase 2（オープンソースglTFモデル投入）待ち。設計書: `docs/architecture.md`
 - **未移行 HTML 残数**: 0
 
@@ -62,6 +62,7 @@
 | Medication-Overuse-Headache | `/headaches/medication-overuse-headache` | ✅ 完了 | 18 section / Mermaid 5図 / table 24 / 外部リンク 18 |
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
+| Stellate-Ganglion-Block | `/blocks/stellate-ganglion-block` | ✅ 完了 | 11 section / Mermaid 11図 / table 22 / 外部リンク 25 |
 | Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
 | Tension-Type-Headache | `/headaches/tension-type-headache` | ✅ 完了 | 15 section / Mermaid 8図 / table 29 / 外部リンク 38 |
 | 3D解剖アトラス | `/anatomy` | 🟡 Phase 0（雛形） | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（3Dプレースホルダ＋ホットスポット凡例）/ MriSliceViewer（2Dスクラバ）をクライアントアイランド遅延配置。設計書 `docs/architecture.md`。Phase1=匿名化MRI投入 / Phase2=glTFモデル投入 |
@@ -82,7 +83,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 0a29159
+- 最新 HEAD: 7e6b109
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
