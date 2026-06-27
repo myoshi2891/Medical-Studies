@@ -9,7 +9,10 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** ソース HTML（Stellate-Ganglion-Block.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 11 }, (_, i) => `s${i + 1}`);
-const H2_COUNT = 40;
+// 51 = 11 section タイトル（.sec-title）+ 40 小見出し。
+// section タイトルは hero <h1> と階層が衝突しないよう h2 を使う（下の tagName 検証で明示）。
+const H2_COUNT = 51;
+const SECTION_COUNT = 11;
 const MERMAID_COUNT = 11;
 const TABLE_COUNT = 22;
 const NAV_COUNT = 11;
@@ -31,6 +34,17 @@ describe("StellateGanglionBlockPage: 契約（忠実転記）", () => {
   it("<h2> の個数がソースと一致する", () => {
     const { container } = render(<StellateGanglionBlockPage />);
     expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
+  });
+
+  it("section.sec のセクションタイトル（.sec-title）はすべて h2 で、hero の h1 と階層が衝突しない", () => {
+    const { container } = render(<StellateGanglionBlockPage />);
+    const titles = Array.from(container.querySelectorAll("section.sec .sec-title"));
+    expect(titles).toHaveLength(SECTION_COUNT);
+    for (const t of titles) {
+      expect(t.tagName).toBe("H2");
+    }
+    // hero h1 は 1 つだけ（セクションタイトルが h1 に降格していないことの裏取り）。
+    expect(container.querySelectorAll("h1")).toHaveLength(1);
   });
 
   it("Mermaid 図の個数がソースと一致する", () => {
