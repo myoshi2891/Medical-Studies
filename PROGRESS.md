@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `c71bab2` test(web-next): update heading contracts for h2 to h3 demotion
-- **ビルド状態**: 計 105 passed。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
+- **最新 HEAD**: `0a29159` chore(web-next): enable Migraine navigation link and update tests
+- **ビルド状態**: 計 123 passed。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
 - **次の作業**: `/anatomy` 3D解剖アトラス雛形（Phase 0）完了。Phase 1（匿名化済みMRI投入）/ Phase 2（オープンソースglTFモデル投入）待ち。設計書: `docs/architecture.md`
 - **未移行 HTML 残数**: 0
 
@@ -62,13 +62,14 @@
 | Medication-Overuse-Headache | `/headaches/medication-overuse-headache` | ✅ 完了 | 18 section / Mermaid 5図 / table 24 / 外部リンク 18 |
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
+| Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
 | 3D解剖アトラス | `/anatomy` | 🟡 Phase 0（雛形） | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（3Dプレースホルダ＋ホットスポット凡例）/ MriSliceViewer（2Dスクラバ）をクライアントアイランド遅延配置。設計書 `docs/architecture.md`。Phase1=匿名化MRI投入 / Phase2=glTFモデル投入 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
 - **chrome のみクライアント化**: `components/blocks/CpbSidebar.tsx`（scroll-spy = IntersectionObserver）/ `components/headaches/CehSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/blocks/<slug>/<slug>.css` に `.cervical-accent` や `.ceh-accent` でスコープ。
-- **テスト**: 計 103 passed。lint / typecheck 全通過。
+- **テスト**: 計 123 passed。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
@@ -77,7 +78,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 6ce78fc
+- 最新 HEAD: 0a29159
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
