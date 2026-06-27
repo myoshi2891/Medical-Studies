@@ -1,11 +1,33 @@
-import { type AnatomyStructure, validateManifest } from "./types";
+import { type AnatomyStructure, type MriSeries, validateManifest } from "./types";
+
+/**
+ * Phase 1 で curate した匿名化済み MRI シリーズ（public/mri/<series>/）。
+ * 生成元は scripts/curate-mri.mjs、宣言の正本は public/mri/manifest.json。
+ * 同一シリーズを複数構造から再利用する（設計書 §3 マッピング）。
+ */
+const BRAIN_SERIES: MriSeries = {
+  id: "brain",
+  bodyPart: "brain",
+  slices: Array.from({ length: 8 }, (_, i) => `/mri/brain/${String(i + 1).padStart(2, "0")}.png`),
+  note: "頭部 T2 軸位の代表スライス（教育用・正常解剖中心）",
+};
+
+const CERVICAL_SERIES: MriSeries = {
+  id: "cervical",
+  bodyPart: "cervical",
+  slices: Array.from(
+    { length: 8 },
+    (_, i) => `/mri/cervical/${String(i + 1).padStart(2, "0")}.png`
+  ),
+  note: "頚椎 矢状断の代表スライス（教育用）",
+};
 
 /**
  * 頭痛 3D 解剖アトラスの宣言的 manifest（設計書 §3）。
  *
  * - modelSrc は public/models 配下の glTF を指す（Phase 2 で実モデル投入）。
  *   未投入でも ModelViewer はプレースホルダへ降格する。
- * - mri は Phase 1 で匿名化済みスライスを wiring（現状は null）。
+ * - mri は Phase 1 で匿名化済みスライスを wiring 済み（脳=BRAIN_SERIES／頚椎=CERVICAL_SERIES）。
  * - links は web-next の内部ルート。一部は移行待ち（PROGRESS 参照）。
  */
 const STRUCTURES: AnatomyStructure[] = [
@@ -15,7 +37,7 @@ const STRUCTURES: AnatomyStructure[] = [
     summary: "頭痛に関わる神経・血管・脳・骨・筋の位置関係を俯瞰します。",
     modelSrc: null,
     hotspots: [],
-    mri: null,
+    mri: BRAIN_SERIES,
     links: [
       { label: "片頭痛 (Migraine)", href: "/headaches/migraine" },
       { label: "頸原性頭痛 (CEH)", href: "/headaches/cervicogenic-headache" },
@@ -40,7 +62,7 @@ const STRUCTURES: AnatomyStructure[] = [
         position: "0.1 0.4 0.1",
       },
     ],
-    mri: null,
+    mri: CERVICAL_SERIES,
     links: [
       { label: "後頭神経ブロック (ONB)", href: "/blocks/occipital-nerve-block" },
       { label: "頸椎神経叢ブロック (CPB)", href: "/blocks/cervical-plexus-block" },
@@ -59,7 +81,7 @@ const STRUCTURES: AnatomyStructure[] = [
         position: "0 0.1 0.1",
       },
     ],
-    mri: null,
+    mri: BRAIN_SERIES,
     links: [
       { label: "星状神経節ブロック (SGB)", href: "/blocks/stellate-ganglion-block" },
       { label: "片頭痛 (Migraine)", href: "/headaches/migraine" },
@@ -78,7 +100,7 @@ const STRUCTURES: AnatomyStructure[] = [
         position: "0 0.3 0",
       },
     ],
-    mri: null,
+    mri: BRAIN_SERIES,
     links: [
       { label: "片頭痛 (Migraine)", href: "/headaches/migraine" },
       { label: "後頭神経ブロック (ONB)", href: "/blocks/occipital-nerve-block" },
@@ -97,7 +119,7 @@ const STRUCTURES: AnatomyStructure[] = [
         position: "0 0.05 0.05",
       },
     ],
-    mri: null,
+    mri: CERVICAL_SERIES,
     links: [
       { label: "頸原性頭痛 (CEH)", href: "/headaches/cervicogenic-headache" },
       { label: "頸椎神経叢ブロック (CPB)", href: "/blocks/cervical-plexus-block" },
@@ -116,7 +138,7 @@ const STRUCTURES: AnatomyStructure[] = [
         position: "0 0.15 0.08",
       },
     ],
-    mri: null,
+    mri: CERVICAL_SERIES,
     links: [
       { label: "緊張型頭痛 (TTH)", href: "/headaches/tension-type-headache" },
       {
