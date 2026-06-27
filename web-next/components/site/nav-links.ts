@@ -78,7 +78,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "星状神経節ブロック (SGB)",
         href: "/blocks/stellate-ganglion-block",
-        disabled: true,
       },
     ],
   },
