@@ -64,7 +64,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "薬物乱用頭痛 (MOH)",
         href: "/headaches/medication-overuse-headache",
-        disabled: true,
       },
       {
         name: "頸原性頭痛 (CEH)",
