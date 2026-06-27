@@ -71,8 +71,8 @@ export default function CervicogenicHeadachePage() {
                 頸椎およびその構成要素（骨・椎間板・軟部組織）の障害によって引き起こされる頭痛
               </strong>
               であり、IHS（国際頭痛学会）の <strong>ICHD-3（国際頭痛分類第3版）</strong> において{" "}
-              <strong>第11章「頭頸部構造の障害による頭痛」</strong> の{" "}
-              <strong>11.2.1</strong> に分類される <strong>二次性頭痛</strong>です。
+              <strong>第11章「頭頸部構造の障害による頭痛」</strong> の <strong>11.2.1</strong>{" "}
+              に分類される <strong>二次性頭痛</strong>です。
             </p>
 
             <div className="alert a-info">

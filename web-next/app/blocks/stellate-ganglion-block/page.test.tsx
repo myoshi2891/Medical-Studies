@@ -9,9 +9,11 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** ソース HTML（Stellate-Ganglion-Block.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 11 }, (_, i) => `s${i + 1}`);
-// 51 = 11 section タイトル（.sec-title）+ 40 小見出し。
-// section タイトルは hero <h1> と階層が衝突しないよう h2 を使う（下の tagName 検証で明示）。
-const H2_COUNT = 51;
+// 見出し階層は h2（section タイトル）→ h3（本文小見出し）→ h4（手順ステップ）と段飛ばししない。
+// h2 = 11 section タイトル（.sec-title）のみ。本文小見出し 40 は h3、施術ステップ 3 は h4 に降格。
+const H2_COUNT = 11;
+const H3_COUNT = 40;
+const H4_COUNT = 3;
 const SECTION_COUNT = 11;
 const MERMAID_COUNT = 11;
 const TABLE_COUNT = 22;
@@ -45,6 +47,12 @@ describe("StellateGanglionBlockPage: 契約（忠実転記）", () => {
     }
     // hero h1 は 1 つだけ（セクションタイトルが h1 に降格していないことの裏取り）。
     expect(container.querySelectorAll("h1")).toHaveLength(1);
+  });
+
+  it("本文小見出しは h3、手順ステップは h4 と段飛ばししない階層になっている", () => {
+    const { container } = render(<StellateGanglionBlockPage />);
+    expect(container.querySelectorAll("h3")).toHaveLength(H3_COUNT);
+    expect(container.querySelectorAll("h4")).toHaveLength(H4_COUNT);
   });
 
   it("Mermaid 図の個数がソースと一致する", () => {

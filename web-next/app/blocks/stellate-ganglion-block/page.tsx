@@ -82,7 +82,7 @@ export default function StellateGanglionBlockPage() {
               </div>
             </div>
 
-            <h2>歴史的背景</h2>
+            <h3>歴史的背景</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -120,7 +120,7 @@ export default function StellateGanglionBlockPage() {
               </table>
             </div>
 
-            <h2>全体像の把握</h2>
+            <h3>全体像の把握</h3>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 星状神経節からみたSGBの適応領域</div>
               <MermaidDiagram
@@ -164,7 +164,7 @@ style Effect4 fill:#fff8e1,stroke:#f57f17`}
               </div>
             </div>
 
-            <h2>星状神経節の形成</h2>
+            <h3>星状神経節の形成</h3>
             <p>
               <strong>星状神経節（SG）</strong>は、以下の2つの神経節が合体して形成されます。
             </p>
@@ -216,7 +216,7 @@ style Effect4 fill:#fff8e1,stroke:#f57f17`}
               </div>
             </div>
 
-            <h2>位置関係（Topographic Anatomy）</h2>
+            <h3>位置関係（Topographic Anatomy）</h3>
             <p>SGは以下の構造に囲まれた、手術的に危険な領域に位置します。</p>
             <div className="mmd">
               <div className="mmd-lbl">
@@ -266,7 +266,7 @@ style RL fill:#fce4ec,stroke:#c62828`}
               />
             </div>
 
-            <h2>C6 vs C7：注射レベルの選択</h2>
+            <h3>C6 vs C7：注射レベルの選択</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -330,7 +330,7 @@ style RL fill:#fce4ec,stroke:#c62828`}
               </div>
             </div>
 
-            <h2>組織学的構造</h2>
+            <h3>組織学的構造</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -368,7 +368,7 @@ style RL fill:#fce4ec,stroke:#c62828`}
               <h2 className="sec-title">作用機序</h2>
             </div>
 
-            <h2>基本的な交感神経遮断機序</h2>
+            <h3>基本的な交感神経遮断機序</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 局所麻酔薬による交感神経遮断のカスケード
@@ -394,7 +394,7 @@ style F fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
               />
             </div>
 
-            <h2>延長効果の仮説的機序（NGF仮説）</h2>
+            <h3>延長効果の仮説的機序（NGF仮説）</h3>
             <p>
               局所麻酔薬の作用時間（数時間）を超えた持続効果を説明するため、以下の機序が提唱されています。
             </p>
@@ -443,7 +443,7 @@ style Improvement fill:#c8e6c9,stroke:#2e7d32,font-weight:bold`}
               </div>
             </div>
 
-            <h2>心臓への作用機序（不整脈領域）</h2>
+            <h3>心臓への作用機序（不整脈領域）</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 左右星状神経節の心臓支配と左SGBの抗不整脈効果
@@ -477,7 +477,7 @@ style QT_norm fill:#e8f5e9,stroke:#2e7d32`}
               <h2 className="sec-title">適応症とエビデンスグレード</h2>
             </div>
 
-            <h2>適応症一覧</h2>
+            <h3>適応症一覧</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -631,7 +631,7 @@ style QT_norm fill:#e8f5e9,stroke:#2e7d32`}
               </div>
             </div>
 
-            <h2>適応選択フローチャート</h2>
+            <h3>適応選択フローチャート</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 患者評価から効果判定までの意思決定フロー
@@ -676,7 +676,7 @@ style START fill:#2e7d32,color:#fff`}
               <h2 className="sec-title">禁忌と注意事項</h2>
             </div>
 
-            <h2>絶対禁忌</h2>
+            <h3>絶対禁忌</h3>
             <div className="tbl th-red">
               <table>
                 <thead>
@@ -712,7 +712,7 @@ style START fill:#2e7d32,color:#fff`}
               </table>
             </div>
 
-            <h2>相対禁忌・慎重投与</h2>
+            <h3>相対禁忌・慎重投与</h3>
             <div className="tbl th-orange">
               <table>
                 <thead>
@@ -772,7 +772,7 @@ style START fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>施術前の準備</h2>
+            <h3>施術前の準備</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 施術前チェックリスト（赤＝救急設備の必須確認）
@@ -795,9 +795,9 @@ style EQUIP fill:#fce4ec,stroke:#c62828`}
               />
             </div>
 
-            <h2>超音波ガイド下施術の手順（C6レベル）</h2>
+            <h3>超音波ガイド下施術の手順（C6レベル）</h3>
 
-            <h3>ステップ 1：超音波プローブの設置と解剖構造の同定</h3>
+            <h4>ステップ 1：超音波プローブの設置と解剖構造の同定</h4>
             <div className="tbl">
               <table>
                 <thead>
@@ -831,7 +831,7 @@ style EQUIP fill:#fce4ec,stroke:#c62828`}
               </table>
             </div>
 
-            <h3>ステップ 2：皮膚消毒と局所麻酔</h3>
+            <h4>ステップ 2：皮膚消毒と局所麻酔</h4>
             <div className="tbl">
               <table>
                 <thead>
@@ -853,7 +853,7 @@ style EQUIP fill:#fce4ec,stroke:#c62828`}
               </table>
             </div>
 
-            <h3>ステップ 3：穿刺と薬液注入</h3>
+            <h4>ステップ 3：穿刺と薬液注入</h4>
             <div className="mmd">
               <div className="mmd-lbl">フローチャート — 平面内アプローチによる穿刺〜注入〜確認</div>
               <MermaidDiagram
@@ -880,7 +880,7 @@ style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
               />
             </div>
 
-            <h2>アプローチ法の比較</h2>
+            <h3>アプローチ法の比較</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -939,7 +939,7 @@ style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
               <h2 className="sec-title">使用薬剤と用量</h2>
             </div>
 
-            <h2>局所麻酔薬の選択</h2>
+            <h3>局所麻酔薬の選択</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1005,7 +1005,7 @@ style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
               </div>
             </div>
 
-            <h2>PTSD・ホットフラッシュへの標準的な用量</h2>
+            <h3>PTSD・ホットフラッシュへの標準的な用量</h3>
             <div className="tbl th-purple">
               <table>
                 <thead>
@@ -1038,7 +1038,7 @@ style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
               </table>
             </div>
 
-            <h2>心臓領域（電気的嵐）への標準的な用量</h2>
+            <h3>心臓領域（電気的嵐）への標準的な用量</h3>
             <div className="tbl th-red">
               <table>
                 <thead>
@@ -1073,7 +1073,7 @@ style CONFIRM fill:#e8f5e9,stroke:#2e7d32,font-weight:bold`}
               </table>
             </div>
 
-            <h2>ステロイドの追加について</h2>
+            <h3>ステロイドの追加について</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1144,7 +1144,7 @@ style DURATION fill:#f3e5f5,stroke:#6a1b9a`}
               />
             </div>
 
-            <h2>その他の成功確認指標</h2>
+            <h3>その他の成功確認指標</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1187,7 +1187,7 @@ style DURATION fill:#f3e5f5,stroke:#6a1b9a`}
               <h2 className="sec-title">合併症と安全管理</h2>
             </div>
 
-            <h2>軽微な副作用（ほぼ全例で一時的に出現）</h2>
+            <h3>軽微な副作用（ほぼ全例で一時的に出現）</h3>
             <div className="tbl th-orange">
               <table>
                 <thead>
@@ -1231,7 +1231,7 @@ style DURATION fill:#f3e5f5,stroke:#6a1b9a`}
               </table>
             </div>
 
-            <h2>重篤な合併症（頻度は低いが生命を脅かす可能性）</h2>
+            <h3>重篤な合併症（頻度は低いが生命を脅かす可能性）</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 重篤な合併症とLAST対応（赤＝致死的なもの）
@@ -1256,7 +1256,7 @@ style LAST_MGMT fill:#ede7f6,stroke:#5e35b1`}
               />
             </div>
 
-            <h2>合併症の系統的レビュー（Eldrige et al., 2019）</h2>
+            <h3>合併症の系統的レビュー（Eldrige et al., 2019）</h3>
             <p>260例の有害事象を分析した系統的レビュー（1990〜2018年）の結果：</p>
             <div className="tbl">
               <table>
@@ -1306,7 +1306,7 @@ style LAST_MGMT fill:#ede7f6,stroke:#5e35b1`}
               </div>
             </div>
 
-            <h2>安全管理のフローチャート</h2>
+            <h3>安全管理のフローチャート</h3>
             <div className="mmd">
               <div className="mmd-lbl">
                 フローチャート — 施術中・施術後のモニタリングと緊急対応分岐
@@ -1342,7 +1342,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               <h2 className="sec-title">エビデンスサマリーと最新知見</h2>
             </div>
 
-            <h2>ホットフラッシュ（更年期症状・乳がん治療後）</h2>
+            <h3>ホットフラッシュ（更年期症状・乳がん治療後）</h3>
             <div className="tbl th-teal">
               <table>
                 <thead>
@@ -1393,7 +1393,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </table>
             </div>
 
-            <h2>PTSD（心的外傷後ストレス障害）</h2>
+            <h3>PTSD（心的外傷後ストレス障害）</h3>
             <div className="tbl th-purple">
               <table>
                 <thead>
@@ -1452,7 +1452,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </table>
             </div>
 
-            <h2>室性不整脈・電気的嵐（Electrical Storm）</h2>
+            <h3>室性不整脈・電気的嵐（Electrical Storm）</h3>
             <div className="tbl th-red">
               <table>
                 <thead>
@@ -1511,7 +1511,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </table>
             </div>
 
-            <h2>日本における特殊性</h2>
+            <h3>日本における特殊性</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1541,7 +1541,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </table>
             </div>
 
-            <h2>新興領域</h2>
+            <h3>新興領域</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -1580,7 +1580,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </table>
             </div>
 
-            <h2>総合エビデンスマップ</h2>
+            <h3>総合エビデンスマップ</h3>
             <div className="card">
               <div className="mmd-lbl">適応症のエビデンスグレード分布</div>
               <div className="sgb-evidence-map">
@@ -1666,7 +1666,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               以下はすべて国際的に認知された情報源（査読付きジャーナル・公的データベース・公式臨床リソース）です。各リンクは新規タブで開きます。
             </p>
 
-            <h2>解剖学・基礎</h2>
+            <h3>解剖学・基礎</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Diagnostics (MDPI) · 2025</div>
@@ -1697,7 +1697,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>超音波ガイド下技術・手技</h2>
+            <h3>超音波ガイド下技術・手技</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Korean J Anesthesiol · 2011 (PMC)</div>
@@ -1727,7 +1727,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>合併症・安全性</h2>
+            <h3>合併症・安全性</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Reg Anesth Pain Med · 2019</div>
@@ -1752,7 +1752,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>PTSD</h2>
+            <h3>PTSD</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">VA/DoD · NCBI Bookshelf</div>
@@ -1785,7 +1785,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>不整脈・電気的嵐</h2>
+            <h3>不整脈・電気的嵐</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Eur Heart J · 2024</div>
@@ -1831,7 +1831,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>ホットフラッシュ・更年期</h2>
+            <h3>ホットフラッシュ・更年期</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Med Hypotheses · 2009 (ScienceDirect)</div>
@@ -1845,7 +1845,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>周術期・救急領域</h2>
+            <h3>周術期・救急領域</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">EMCrit Project · 2025</div>
@@ -1866,7 +1866,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>総合レビュー</h2>
+            <h3>総合レビュー</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">Cureus · 2023 (PMC)</div>
@@ -1892,7 +1892,7 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </div>
 
-            <h2>進行中の臨床試験（ClinicalTrials.gov）</h2>
+            <h3>進行中の臨床試験（ClinicalTrials.gov）</h3>
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">GANGSTER Trial</div>
