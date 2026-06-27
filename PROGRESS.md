@@ -4,9 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `7e6b109` test(web-next): update active and disabled links count in SiteHeader tests
-- **ビルド状態**: web-next 全体で計 152 passed（アーキタイプ A 111 + アーキタイプ B（prom）41）。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
-- **次の作業**: `/anatomy` 3D解剖アトラス雛形（Phase 0）完了。Phase 1（匿名化済みMRI投入）/ Phase 2（オープンソースglTFモデル投入）待ち。設計書: `docs/architecture.md`
+- **最新 HEAD**: `32e957e` docs(anatomy): mark Phase 1 (MRI slices) complete
+- **ビルド状態**: web-next 全体で計 171 passed（アーキタイプ A 130 + アーキタイプ B（prom）41）。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
+- **次の作業**: `/anatomy` Phase 1（匿名化済みMRI投入・読影風ビューア）完了。Phase 2（オープンソースglTFモデル投入・ホットスポット注釈）待ち。設計書: `docs/architecture.md`
 - **未移行 HTML 残数**: 0
 
 ## 移行ステータス
@@ -66,7 +66,7 @@
 | Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
 | Tension-Type-Headache | `/headaches/tension-type-headache` | ✅ 完了 | 15 section / Mermaid 8図 / table 29 / 外部リンク 38 |
 | Nutrition-and-Supplements | `/therapies/nutrition-and-supplements` | ✅ 完了 | 12 section / Mermaid 8図 / table 31 / 外部リンク 46 |
-| 3D解剖アトラス | `/anatomy` | 🟡 Phase 0（雛形） | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（3Dプレースホルダ＋ホットスポット凡例）/ MriSliceViewer（2Dスクラバ）をクライアントアイランド遅延配置。設計書 `docs/architecture.md`。Phase1=匿名化MRI投入 / Phase2=glTFモデル投入 |
+| 3D解剖アトラス | `/anatomy` | 🟢 Phase 1 完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（3Dプレースホルダ＋ホットスポット凡例）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）完了。設計書 `docs/architecture.md`。次=Phase2=glTFモデル投入 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
@@ -76,7 +76,7 @@
   `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` などでスコープ。
-- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 111 passed。lint / typecheck 全通過。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 130 passed。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
