@@ -5,7 +5,7 @@
 ## 現在地
 
 - **最新 HEAD**: `7e6b109` test(web-next): update active and disabled links count in SiteHeader tests
-- **ビルド状態**: 計 141 passed。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
+- **ビルド状態**: web-next 全体で計 152 passed（アーキタイプ A 111 + アーキタイプ B（prom）41）。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
 - **次の作業**: `/anatomy` 3D解剖アトラス雛形（Phase 0）完了。Phase 1（匿名化済みMRI投入）/ Phase 2（オープンソースglTFモデル投入）待ち。設計書: `docs/architecture.md`
 - **未移行 HTML 残数**: 0
 
@@ -46,7 +46,7 @@
 | Phase 3 | シェル: prom-checker.css + PromApp（ハッシュルーター）+ 全ビュー + Mermaid | ✅ 完了 |
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
 
-- **テスト**: 36 passed（コア 33 + シェル契約 3）。lint / typecheck / build 全通過。
+- **テスト**: アーキタイプ B（prom）は 41 passed（コア 34 + シェル契約 7）。lint / typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
   `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid）+
   `app/prom-checker/`（page + scoped CSS）。
@@ -76,7 +76,7 @@
   `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` などでスコープ。
-- **テスト**: 計 133 passed。lint / typecheck 全通過。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 111 passed。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---

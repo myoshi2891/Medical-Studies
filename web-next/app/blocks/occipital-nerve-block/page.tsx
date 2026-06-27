@@ -2208,7 +2208,7 @@ style H fill:#e65100,color:#fff`}
               <div className="onb-key">
                 <div className="onb-key-n">8</div>
                 <div className="onb-key-tx">
-                  エコーガイド下法（C2レベル）は<strong>100%の標的特異性</strong>
+                  エコーガイド下法（C2レベル）は<strong>高い注入確実性（20/20＝100%）</strong>
                   を持ち、難治例・解剖変異例に推奨。
                 </div>
               </div>
