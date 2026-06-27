@@ -14,6 +14,11 @@ const ONB_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders the occipital nerve block guide page.
+ *
+ * @returns The rendered ONB educational page.
+ */
 export default function OccipitalNerveBlockPage() {
   return (
     <div className="occipital-accent">

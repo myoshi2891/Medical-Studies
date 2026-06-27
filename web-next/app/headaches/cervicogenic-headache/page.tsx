@@ -23,10 +23,9 @@ const CEH_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * 頸原性頭痛（CEH）完全ガイド。
+ * Renders the cervicogenic headache educational guide page.
  *
- * 静的教育ガイド（アーキタイプ A）。本文は Server Component として忠実転記し、
- * scroll-spy を持つサイドバーのみ {@link CehSidebar} へクライアント分離する。
+ * @returns The full CEH guide page layout.
  */
 export default function CervicogenicHeadachePage() {
   return (
