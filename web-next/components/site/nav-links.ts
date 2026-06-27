@@ -55,7 +55,7 @@ export const navLinks: readonly NavLink[] = [
   {
     name: "Headaches",
     children: [
-      { name: "片頭痛 (Migraine)", href: "/headaches/migraine", disabled: true },
+      { name: "片頭痛 (Migraine)", href: "/headaches/migraine" },
       {
         name: "緊張型頭痛 (TTH)",
         href: "/headaches/tension-type-headache",
