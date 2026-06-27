@@ -1,0 +1,12 @@
+{
+  "note": "匿名化チェックリスト（docs/architecture.md §5.3）の完了後に、images/ から curate した代表スライスを web-next/public/mri/<series>/ へ配置し、本ファイルの series に追記すること。",
+  "schema": {
+    "series[]": {
+      "id": "string",
+      "bodyPart": "brain | cervical",
+      "slices": "string[]  // /mri/<series>/<file>.png（スクラブ順）",
+      "note": "string?"
+    }
+  },
+  "series": []
+}

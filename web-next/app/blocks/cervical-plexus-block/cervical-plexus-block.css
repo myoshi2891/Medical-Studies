@@ -1,0 +1,661 @@
+/*
+ * Cervical Plexus Block（CPB）ガイドページ専用スタイル。
+ * 元 HTML（Types-of-headache/html-files/Blocks/Cervical-Plexus-Block.html）の <style> を
+ * `.cervical-accent` スコープ配下へ忠実移植。ページ固有トークンはローカル変数として閉じ、
+ * globals.css の共通トークンを汚染しない。
+ */
+
+/* スムーズスクロール（グローバル適用 — html セレクターはページスコープ外） */
+html {
+  scroll-behavior: smooth;
+}
+
+.cervical-accent {
+  /* ページ固有デザイントークン（元 :root から移設） */
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+  --cpb1: #4a0e2e;
+  --cpb2: #880e4f;
+  --cpb3: #c2185b;
+  --cpb-l: #fce4ec;
+  --cpb-even: #fdf2f6;
+  --cpb-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans JP", "Segoe UI",
+    Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+}
+
+.cervical-accent * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.cervical-accent .hero {
+  background: linear-gradient(135deg, var(--cpb1), var(--cpb2) 50%, var(--cpb3));
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.cervical-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+.cervical-accent .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.cervical-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cervical-accent .hero-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.cervical-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.cervical-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.cervical-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.cervical-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.cervical-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.cervical-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.cervical-accent .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.cervical-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.cervical-accent .nav-a:hover,
+.cervical-accent .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--cpb2);
+  color: var(--cpb1);
+}
+.cervical-accent .nav-a.active {
+  font-weight: 600;
+  background: var(--cpb-l);
+}
+.cervical-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.cervical-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.cervical-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.cervical-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.cervical-accent .sec-num {
+  background: var(--cpb2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.cervical-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--cpb1);
+}
+.cervical-accent h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cpb2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--cpb3);
+}
+.cervical-accent h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
+}
+.cervical-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.cervical-accent ul,
+.cervical-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.cervical-accent li {
+  margin-bottom: 4px;
+}
+.cervical-accent a {
+  color: var(--blue);
+}
+.cervical-accent a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.cervical-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--cpb-shadow);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.cervical-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.cervical-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.cervical-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.cervical-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.cervical-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.cervical-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.cervical-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.cervical-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--cpb-shadow);
+  margin: 14px 0;
+}
+.cervical-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.cervical-accent thead th {
+  background: var(--cpb2);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cervical-accent tbody tr:nth-child(even) {
+  background: var(--cpb-even);
+}
+.cervical-accent tbody tr:hover {
+  background: var(--cpb-l);
+}
+.cervical-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.cervical-accent .th-teal thead th {
+  background: var(--teal);
+}
+.cervical-accent .th-red thead th {
+  background: var(--red);
+}
+.cervical-accent .th-orange thead th {
+  background: var(--orange);
+}
+.cervical-accent .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.cervical-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.cervical-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.cervical-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.cervical-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.cervical-accent .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.cervical-accent .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.cervical-accent .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.cervical-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.cervical-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.cervical-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.cervical-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.cervical-accent .tN {
+  color: var(--cpb1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.cervical-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--cpb-shadow);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.cervical-accent .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cervical-accent .mmd-lbl::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--cpb2);
+  display: inline-block;
+}
+.cervical-accent pre.mermaid {
+  text-align: center;
+}
+
+/* Phase cards */
+.cervical-accent .phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+@media (max-width: 700px) {
+  .cervical-accent .phase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.cervical-accent .ph {
+  border-radius: var(--rs);
+  padding: 16px;
+  text-align: center;
+}
+.cervical-accent .ph1 {
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+}
+.cervical-accent .ph2 {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.cervical-accent .ph3 {
+  background: #ffebee;
+  border: 2px solid #ef5350;
+}
+.cervical-accent .ph4 {
+  background: #e8f5e9;
+  border: 2px solid #66bb6a;
+}
+.cervical-accent .ph-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.cervical-accent .ph-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 2px;
+}
+.cervical-accent .ph-time {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 6px;
+}
+.cervical-accent .ph-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Drug cards */
+.cervical-accent .drug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.cervical-accent .drug {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--cpb-shadow);
+  border-top: 4px solid var(--cpb2);
+}
+.cervical-accent .drug-nm {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--cpb2);
+  margin-bottom: 2px;
+}
+.cervical-accent .drug-br {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 8px;
+}
+.cervical-accent .drug-tx {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Source cards */
+.cervical-accent .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.cervical-accent .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--cpb-shadow);
+  border-left: 4px solid var(--cpb2);
+}
+.cervical-accent .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cpb2);
+  margin-bottom: 2px;
+}
+.cervical-accent .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.cervical-accent .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Footer */
+.cervical-accent .footer {
+  background: var(--cpb1);
+  color: rgba(255, 255, 255, 0.78);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.cervical-accent .footer strong {
+  color: #fff;
+}
+
+/* CPB page-specific: paired role cards & 10-point summary list */
+.cervical-accent .cpb-role-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.cervical-accent .cpb-role {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--cpb-shadow);
+  border-top: 4px solid var(--cpb3);
+}
+.cervical-accent .cpb-role-t {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cpb1);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cervical-accent .cpb-role-d {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--g8);
+}
+.cervical-accent .cpb-key-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.cervical-accent .cpb-key {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px 16px;
+  box-shadow: var(--cpb-shadow);
+  border-left: 4px solid var(--cpb3);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.cervical-accent .cpb-key-n {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--cpb2);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cervical-accent .cpb-key-tx {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--g8);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cervical-accent .sidebar {
+    display: none;
+  }
+  .cervical-accent .main {
+    padding: 16px 14px 60px;
+  }
+}

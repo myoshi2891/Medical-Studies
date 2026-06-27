@@ -13,7 +13,16 @@
       "!node_modules",
       "!next-env.d.ts",
       "!app/globals.css",
-      "!app/prom-checker/prom-checker.css"
+      "!app/prom-checker/prom-checker.css",
+      "!app/blocks/cervical-plexus-block/cervical-plexus-block.css",
+      "!app/blocks/occipital-nerve-block/occipital-nerve-block.css",
+      "!app/blocks/stellate-ganglion-block/stellate-ganglion-block.css",
+      "!app/anatomy/anatomy.css",
+      "!app/headaches/cervicogenic-headache/cervicogenic-headache.css",
+      "!app/headaches/medication-overuse-headache/medication-overuse-headache.css",
+      "!app/headaches/migraine/migraine.css",
+      "!app/headaches/tension-type-headache/tension-type-headache.css",
+      "!app/therapies/nutrition-and-supplements/nutrition-and-supplements.css"
     ]
   },
   "formatter": {

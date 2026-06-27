@@ -134,6 +134,7 @@ export function scoreInstrument(answers: number[], def: Instrument): Result<Scor
 /**
  * 判定の対象となる月間服用日数と薬剤分類から MOH リスクを判定します。
  *
+ * @param monthlyDays - 判定に使う月間服用日数（0 以上の整数）
  * @param drugClass - 判定に使う薬剤分類
  * @returns `level` と `threshold` を含む判定結果
  */
