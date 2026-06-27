@@ -4,9 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `eec36e4` feat(Types-of-headache): Cervicogenic-Headache.html — Phase 4/4: finalize — Progress: 16/16 sections complete
-- **ビルド状態**: Mermaid 修正スクリプト正常 / Mermaid テスト 4/4 パス（python3.12）/ Mermaid 6図（TCC収束/ICHD-3診断フロー/SNOOP4/身体評価フロー/神経ブロック確証/治療アルゴリズム）/ 外部リンク31件すべて target="_blank" rel="noopener noreferrer" 付与 / SRI 付与済 / 国際公認ソース（ICHD-3/IHS/NICE/AAN/Cochrane/PubMed）.src-grid 5群明示
-- **次の作業**: Headaches/Cervicogenic-Headache.html 完了。新規コンテンツ待ち
+- **最新 HEAD**: `7e6b109` test(web-next): update active and disabled links count in SiteHeader tests
+- **ビルド状態**: web-next 全体で計 152 passed（アーキタイプ A 111 + アーキタイプ B（prom）41）。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
+- **次の作業**: `/anatomy` 3D解剖アトラス雛形（Phase 0）完了。Phase 1（匿名化済みMRI投入）/ Phase 2（オープンソースglTFモデル投入）待ち。設計書: `docs/architecture.md`
 - **未移行 HTML 残数**: 0
 
 ## 移行ステータス
@@ -46,11 +46,38 @@
 | Phase 3 | シェル: prom-checker.css + PromApp（ハッシュルーター）+ 全ビュー + Mermaid | ✅ 完了 |
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
 
-- **テスト**: 36 passed（コア 33 + シェル契約 3）。lint / typecheck / build 全通過。
+- **テスト**: アーキタイプ B（prom）は 41 passed（コア 34 + シェル契約 7）。lint / typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
   `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid）+
   `app/prom-checker/`（page + scoped CSS）。
 - **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/prom-checker`。
+
+### アーキタイプ A（静的教育ガイドページ）
+
+`Types-of-headache/html-files/**/*.html` の教育ページを Server Component として忠実転記する系統。
+
+| ページ | ルート | ステータス | 備考 |
+|---|---|---|---|
+| Cervicogenic-Headache | `/headaches/cervicogenic-headache` | ✅ 完了 | 16 section / Mermaid 6図 / table 19 / 外部リンク 31 |
+| Medication-Overuse-Headache | `/headaches/medication-overuse-headache` | ✅ 完了 | 18 section / Mermaid 5図 / table 24 / 外部リンク 18 |
+| Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
+| Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
+| Stellate-Ganglion-Block | `/blocks/stellate-ganglion-block` | ✅ 完了 | 11 section / Mermaid 11図 / table 22 / 外部リンク 25 |
+| Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
+| Tension-Type-Headache | `/headaches/tension-type-headache` | ✅ 完了 | 15 section / Mermaid 8図 / table 29 / 外部リンク 38 |
+| Nutrition-and-Supplements | `/therapies/nutrition-and-supplements` | ✅ 完了 | 12 section / Mermaid 8図 / table 31 / 外部リンク 46 |
+| 3D解剖アトラス | `/anatomy` | 🟡 Phase 0（雛形） | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（3Dプレースホルダ＋ホットスポット凡例）/ MriSliceViewer（2Dスクラバ）をクライアントアイランド遅延配置。設計書 `docs/architecture.md`。Phase1=匿名化MRI投入 / Phase2=glTFモデル投入 |
+
+- **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
+  lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
+- **chrome のみクライアント化**: 各ページのサイドバー（scroll-spy = IntersectionObserver）を Client Component 化。
+  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` /
+  `components/headaches/CehSidebar.tsx` / `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx` /
+  `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx`。
+  本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
+  `.moh-accent` / `.migraine-accent` / `.tth-accent` などでスコープ。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 111 passed。lint / typecheck 全通過。
+- **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
 
@@ -58,7 +85,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: eec36e4
-- 次の作業: Headaches/Cervicogenic-Headache.html 完了。新規コンテンツ待ち
+- 最新 HEAD: 7e6b109
+- 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```

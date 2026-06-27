@@ -1,0 +1,559 @@
+/*
+ * 頭痛と栄養・サプリメント療法 ガイドページ専用スタイル。
+ * 元 HTML の <style> を `.nutrition-accent` スコープ配下へ忠実移植。
+ * ページ固有トークンはローカル変数として閉じ、globals.css を汚染しない。
+ */
+
+/* スムーズスクロール（reduced-motion ガード配下） */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.nutrition-accent {
+  /* ページ固有デザイントークン（元 :root から移設） */
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+  --nut1: #1b5e20;
+  --nut2: #2e7d32;
+  --nut3: #43a047;
+
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans JP", "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef4ef;
+}
+
+.nutrition-accent * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.nutrition-accent .hero {
+  background: linear-gradient(135deg, var(--nut1), var(--nut2) 50%, var(--nut3));
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.nutrition-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+.nutrition-accent .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.nutrition-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nutrition-accent .hero-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.nutrition-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.nutrition-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.nutrition-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.nutrition-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.nutrition-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.nutrition-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.nutrition-accent .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.nutrition-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.nutrition-accent .nav-a:hover,
+.nutrition-accent .nav-a.active {
+  background: #e8f5e9;
+  border-left-color: var(--nut2);
+  color: var(--nut1);
+}
+.nutrition-accent .nav-a.active {
+  font-weight: 600;
+}
+.nutrition-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.nutrition-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.nutrition-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.nutrition-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.nutrition-accent .sec-num {
+  background: var(--nut2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.nutrition-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--nut1);
+}
+.nutrition-accent h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--nut1);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--nut3);
+}
+.nutrition-accent h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
+}
+.nutrition-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.nutrition-accent ul,
+.nutrition-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.nutrition-accent li {
+  margin-bottom: 4px;
+}
+.nutrition-accent a {
+  color: var(--nut2);
+}
+.nutrition-accent a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.nutrition-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.nutrition-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.nutrition-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.nutrition-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.nutrition-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.nutrition-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.nutrition-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.nutrition-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.nutrition-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.nutrition-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.nutrition-accent thead th {
+  background: var(--nut2);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nutrition-accent tbody tr:nth-child(even) {
+  background: #f4faf5;
+}
+.nutrition-accent tbody tr:hover {
+  background: #eaf6ec;
+}
+.nutrition-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.nutrition-accent .th-teal thead th {
+  background: var(--teal);
+}
+.nutrition-accent .th-red thead th {
+  background: var(--red);
+}
+.nutrition-accent .th-orange thead th {
+  background: var(--orange);
+}
+.nutrition-accent .th-purple thead th {
+  background: var(--purple);
+}
+.nutrition-accent .th-navy thead th {
+  background: var(--navy);
+}
+
+/* Evidence badges */
+.nutrition-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.nutrition-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.nutrition-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.nutrition-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.nutrition-accent .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.nutrition-accent .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.nutrition-accent .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.nutrition-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.nutrition-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.nutrition-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.nutrition-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.nutrition-accent .tN {
+  color: var(--nut1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.nutrition-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.nutrition-accent .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nutrition-accent .mmd-lbl::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--nut2);
+  display: inline-block;
+}
+.nutrition-accent pre.mermaid {
+  text-align: center;
+}
+
+/* Nutrition protocol cards (ASCII alternative) */
+.nutrition-accent .nut-rx {
+  background: #f1f8f4;
+  border: 1px solid #c8e6c9;
+  border-left: 4px solid var(--nut2);
+  border-radius: var(--rs);
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.nutrition-accent .nut-rx-t {
+  font-weight: 700;
+  color: var(--nut1);
+  font-size: 12.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nutrition-accent .nut-rx dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 16px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.nutrition-accent .nut-rx dt {
+  font-weight: 600;
+  color: var(--nut1);
+  white-space: nowrap;
+}
+.nutrition-accent .nut-rx dd {
+  margin: 0;
+  color: var(--g8);
+}
+.nutrition-accent .nut-rx + .nut-rx {
+  margin-top: 10px;
+}
+
+/* Source cards */
+.nutrition-accent .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.nutrition-accent .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--nut2);
+}
+.nutrition-accent .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--nut2);
+  margin-bottom: 2px;
+}
+.nutrition-accent .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.nutrition-accent .src-url {
+  font-size: 11px;
+  color: var(--nut2);
+  word-break: break-all;
+  line-height: 1.5;
+}
+.nutrition-accent .src-sep {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nut1);
+  margin: 18px 0 4px;
+}
+
+/* Footer */
+.nutrition-accent .footer {
+  background: var(--nut1);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.nutrition-accent .footer strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nutrition-accent .sidebar {
+    display: none;
+  }
+  .nutrition-accent .main {
+    padding: 16px 14px 60px;
+  }
+}
