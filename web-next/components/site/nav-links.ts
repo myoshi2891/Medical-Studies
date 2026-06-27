@@ -59,7 +59,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "緊張型頭痛 (TTH)",
         href: "/headaches/tension-type-headache",
-        disabled: true,
       },
       {
         name: "薬物乱用頭痛 (MOH)",

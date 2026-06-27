@@ -76,8 +76,8 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
   it("disabled なリンクは <a> ではなく aria-disabled の span で描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const disabled = container.querySelectorAll("span.ch-disabled[aria-disabled='true']");
-    // Headaches1 + Blocks(SGB)1 + Therapies3 + PROM6 = 11 件
-    expect(disabled.length).toBe(11);
+    // Headaches0 + Blocks(SGB)1 + Therapies3 + PROM6 = 10 件
+    expect(disabled.length).toBe(10);
   });
 
   it("準備中項目はクリック可能なリンク（href）を持たない", () => {
@@ -89,12 +89,13 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     });
   });
 
-  it("実装済みルート（Migraine/CEH/ONB/CPB/anatomy/prom-checker）は通常リンクで描画される", () => {
+  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker）は通常リンクで描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const hrefs = Array.from(container.querySelectorAll<HTMLAnchorElement>("a[href]")).map((a) =>
       a.getAttribute("href")
     );
     expect(hrefs).toContain("/headaches/migraine");
+    expect(hrefs).toContain("/headaches/tension-type-headache");
     expect(hrefs).toContain("/headaches/cervicogenic-headache");
     expect(hrefs).toContain("/blocks/occipital-nerve-block");
     expect(hrefs).toContain("/blocks/cervical-plexus-block");
