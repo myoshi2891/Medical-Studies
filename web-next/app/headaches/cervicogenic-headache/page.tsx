@@ -71,7 +71,7 @@ export default function CervicogenicHeadachePage() {
                 頸椎およびその構成要素（骨・椎間板・軟部組織）の障害によって引き起こされる頭痛
               </strong>
               であり、IHS（国際頭痛学会）の <strong>ICHD-3（国際頭痛分類第3版）</strong> において{" "}
-              <strong>第11章「頭頸部構造 of the cranio-cervical structure による頭痛」</strong> の{" "}
+              <strong>第11章「頭頸部構造の障害による頭痛」</strong> の{" "}
               <strong>11.2.1</strong> に分類される <strong>二次性頭痛</strong>です。
             </p>
 
@@ -86,8 +86,7 @@ export default function CervicogenicHeadachePage() {
                   pain.&quot;
                 </em>
                 <br />
-                （頸椎およびその構成要素である骨・椎間板・軟部組織 of the neck
-                の障害によって生じる頭痛で、通常は頸部痛を伴うが、必ずしも伴うとは限らない）
+                （頸椎およびその構成要素である骨・椎間板・軟部組織の障害によって生じる頭痛で、通常は頸部痛を伴うが、必ずしも伴うとは限らない）
                 <br />
                 <span className="src-url">
                   出典：ICHD-3, 11.2.1 Cervicogenic headache —{" "}
@@ -460,7 +459,7 @@ style CLINIC fill:#1E8449,color:#fff`}
               </p>
               <p>
                 <strong className="tN">B.</strong> 頭痛を引き起こしうることが知られている
-                <strong>頸椎または頸部軟部組織 of the neck の障害・病変</strong>
+                <strong>頸椎または頸部軟部組織の障害・病変</strong>
                 の臨床的および/または画像的証拠が存在する¹
               </p>
               <p>
@@ -1651,14 +1650,14 @@ style BLOCK fill:#8e44ad,color:#fff`}
                     <td>
                       <span className="bB">Grade B</span>
                     </td>
-                    <td>1件 of Class I RCT または ≥2件 of Class II研究</td>
+                    <td>1件のClass I RCT または ≥2件のClass II研究</td>
                     <td>推奨</td>
                   </tr>
                   <tr>
                     <td>
                       <span className="bC">Grade C</span>
                     </td>
-                    <td>1件 of Class II または ≥2件 of Class III研究</td>
+                    <td>1件のClass II または ≥2件のClass III研究</td>
                     <td>考慮可能</td>
                   </tr>
                   <tr>

@@ -68,7 +68,7 @@ export default function NutritionAndSupplementsPage() {
             <h2>1-1. 片頭痛の病態生理学と栄養の接点</h2>
             <p>
               片頭痛（Migraine）は単なる「頭の痛み」ではなく、
-              <strong>脳 of 神経代謝障害・三叉神経血管系の活性化・中枢感作</strong>
+              <strong>脳の神経代謝障害・三叉神経血管系の活性化・中枢感作</strong>
               が複雑に絡み合う慢性神経疾患です。栄養素は、これらの病態メカニズムの複数の段階に介入できます。
             </p>
 

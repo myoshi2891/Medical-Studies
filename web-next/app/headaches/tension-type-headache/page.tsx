@@ -586,7 +586,7 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <strong>ストレス</strong>
                     </td>
-                    <td>最強 of 誘発因子；慢性化の促進因子でもある</td>
+                    <td>最強の誘発因子；慢性化の促進因子でもある</td>
                   </tr>
                   <tr>
                     <td>
