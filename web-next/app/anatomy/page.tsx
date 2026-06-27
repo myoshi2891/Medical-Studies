@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 };
 
 /**
- * /anatomy ── 頭痛 3D 解剖アトラス（教育専用・Server Component シェル）。
- * 構造ごとにクライアントアイランド（ModelViewer / MriSliceViewer）を遅延配置する。
- * データは lib/anatomy/manifest を単一ソースとする（設計書 docs/architecture.md §3〜§6）。
+ * Renders the /anatomy page for the headache anatomy atlas.
+ *
+ * @returns The anatomy page shell with sectioned 3D anatomy content, educational links, and an academic disclaimer.
  */
 export default function AnatomyPage() {
   return (
