@@ -76,8 +76,8 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
   it("disabled なリンクは <a> ではなく aria-disabled の span で描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const disabled = container.querySelectorAll("span.ch-disabled[aria-disabled='true']");
-    // Headaches0 + Blocks(SGB)0 + Therapies3 + PROM6 = 9 件
-    expect(disabled.length).toBe(9);
+    // Headaches0 + Blocks(SGB)0 + Therapies2 + PROM6 = 8 件
+    expect(disabled.length).toBe(8);
   });
 
   it("準備中項目はクリック可能なリンク（href）を持たない", () => {
@@ -89,7 +89,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     });
   });
 
-  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker）は通常リンクで描画される", () => {
+  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker/nutrition-and-supplements）は通常リンクで描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const hrefs = Array.from(container.querySelectorAll<HTMLAnchorElement>("a[href]")).map((a) =>
       a.getAttribute("href")
@@ -102,6 +102,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/blocks/stellate-ganglion-block");
     expect(hrefs).toContain("/anatomy");
     expect(hrefs).toContain("/prom-checker");
+    expect(hrefs).toContain("/therapies/nutrition-and-supplements");
   });
 });
 

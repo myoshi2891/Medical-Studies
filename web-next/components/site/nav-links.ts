@@ -92,7 +92,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "栄養・サプリメント",
         href: "/therapies/nutrition-and-supplements",
-        disabled: true,
       },
       {
         name: "心理・行動療法",
