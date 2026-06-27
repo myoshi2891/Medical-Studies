@@ -14,6 +14,9 @@ const MIGRAINE_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Renders the comprehensive migraine guide page.
+ */
 export default function MigrainePage() {
   return (
     <div className="migraine-accent">

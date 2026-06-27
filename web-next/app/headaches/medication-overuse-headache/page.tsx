@@ -14,6 +14,14 @@ const MOH_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Renders a comprehensive guide to medication-overuse headache.
+ *
+ * The page presents MOH definitions, epidemiology, pathophysiology, diagnostic criteria, treatment strategies,
+ * special populations, outcomes, evidence summaries, and reference sources.
+ *
+ * @returns The rendered MOH education page.
+ */
 export default function MedicationOveruseHeadachePage() {
   return (
     <div className="moh-accent">
