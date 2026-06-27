@@ -1,0 +1,690 @@
+/*
+ * 片頭痛（Migraine）完全ガイド専用スタイル。
+ * 元 HTML の <style> を `.migraine-accent` スコープ配下へ忠実移植。
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.migraine-accent {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, .10);
+  --r: 12px;
+  --rs: 8px;
+
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
+}
+
+.migraine-accent * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.migraine-accent .hero {
+  background: linear-gradient(135deg, #1a237e, #283593 55%, #0277bd);
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.migraine-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin: 10px 0 8px;
+}
+.migraine-accent .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.migraine-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.migraine-accent .hero-tag {
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, .3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.migraine-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.migraine-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.migraine-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.migraine-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.migraine-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.migraine-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.migraine-accent .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.migraine-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all .15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.migraine-accent .nav-a:hover,
+.migraine-accent .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--navy);
+  color: var(--navy);
+}
+.migraine-accent .nav-a.active {
+  font-weight: 600;
+  background: #e8eaf6;
+}
+.migraine-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.migraine-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.migraine-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.migraine-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.migraine-accent .sec-num {
+  background: var(--navy);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.migraine-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--navy);
+}
+.migraine-accent h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid #5c6bc0;
+}
+.migraine-accent h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
+}
+.migraine-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.migraine-accent ul,
+.migraine-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.migraine-accent li {
+  margin-bottom: 4px;
+}
+.migraine-accent a {
+  color: var(--blue);
+}
+.migraine-accent a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.migraine-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.migraine-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.migraine-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.migraine-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.migraine-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.migraine-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.migraine-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.migraine-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.migraine-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.migraine-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.migraine-accent thead th {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.migraine-accent tbody tr:nth-child(even) {
+  background: #f7f8ff;
+}
+.migraine-accent tbody tr:hover {
+  background: #eef0fb;
+}
+.migraine-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.migraine-accent .th-teal thead th {
+  background: var(--teal);
+}
+.migraine-accent .th-red thead th {
+  background: var(--red);
+}
+.migraine-accent .th-orange thead th {
+  background: var(--orange);
+}
+.migraine-accent .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.migraine-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.migraine-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.migraine-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.migraine-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.migraine-accent .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.migraine-accent .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.migraine-accent .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.migraine-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.migraine-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.migraine-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.migraine-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.migraine-accent .tN {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.migraine-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.migraine-accent .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.migraine-accent .mmd-lbl::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--navy2);
+  display: inline-block;
+}
+.migraine-accent pre.mermaid {
+  text-align: center;
+}
+
+/* Phase cards */
+.migraine-accent .phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+@media(max-width:700px) {
+  .migraine-accent .phase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.migraine-accent .ph {
+  border-radius: var(--rs);
+  padding: 16px;
+  text-align: center;
+}
+.migraine-accent .ph1 {
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+}
+.migraine-accent .ph2 {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.migraine-accent .ph3 {
+  background: #ffebee;
+  border: 2px solid #ef5350;
+}
+.migraine-accent .ph4 {
+  background: #e8f5e9;
+  border: 2px solid #66bb6a;
+}
+.migraine-accent .ph-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.migraine-accent .ph-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 2px;
+}
+.migraine-accent .ph-time {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 6px;
+}
+.migraine-accent .ph-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* SNOOP4 cards */
+.migraine-accent .snoop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.migraine-accent .sn {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--red);
+}
+.migraine-accent .sn-letter {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+}
+.migraine-accent .sn-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 3px 0 5px;
+}
+.migraine-accent .sn-symp {
+  font-size: 12px;
+  color: var(--g6);
+  line-height: 1.5;
+}
+.migraine-accent .sn-dx {
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 7px;
+  background: var(--red-l);
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* CGRP drug cards */
+.migraine-accent .drug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.migraine-accent .drug {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--teal);
+}
+.migraine-accent .drug-nm {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 2px;
+}
+.migraine-accent .drug-br {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 8px;
+}
+.migraine-accent .drug-tx {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* MOH cards */
+.migraine-accent .moh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.migraine-accent .moh {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.migraine-accent .moh-h {
+  border-top: 4px solid var(--red);
+}
+.migraine-accent .moh-m {
+  border-top: 4px solid var(--orange);
+}
+.migraine-accent .moh-l {
+  border-top: 4px solid var(--green);
+}
+.migraine-accent .moh-day {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+.migraine-accent .moh-unit {
+  font-size: 10.5px;
+  color: var(--g6);
+  margin-bottom: 4px;
+}
+.migraine-accent .moh-drug {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--g8);
+}
+
+/* Source cards */
+.migraine-accent .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.migraine-accent .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+.migraine-accent .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.migraine-accent .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.migraine-accent .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Quick ref */
+.migraine-accent .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.migraine-accent .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.migraine-accent .qr-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* Footer */
+.migraine-accent .footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, .75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.migraine-accent .footer strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media(max-width:900px) {
+  .migraine-accent .sidebar {
+    display: none;
+  }
+  .migraine-accent .main {
+    padding: 16px 14px 60px;
+  }
+}

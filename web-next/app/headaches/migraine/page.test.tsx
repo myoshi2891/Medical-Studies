@@ -7,11 +7,6 @@ vi.mock("@/components/MermaidDiagram", () => ({
   default: ({ chart }: { chart: string }) => <div className="mermaid" data-chart={chart} />,
 }));
 
-// サイドバーもテスト時は軽量モックに差し替える。
-vi.mock("@/components/headaches/MigraineSidebar", () => ({
-  MigraineSidebar: () => <div className="sidebar-mock" data-testid="sidebar" />,
-}));
-
 /** ソース HTML から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 14 }, (_, i) => `s${i + 1}`);
 // h2 = 14 section タイトル（元の h1 から降格）。
