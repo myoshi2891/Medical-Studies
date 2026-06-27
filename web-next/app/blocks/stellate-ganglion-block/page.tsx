@@ -23,10 +23,9 @@ const SGB_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * 星状神経節ブロック（SGB）完全ガイド。
+ * Renders the complete guide page for stellate ganglion block (SGB).
  *
- * 静的教育ガイド（アーキタイプ A）。本文は Server Component として忠実転記し、
- * scroll-spy を持つサイドバーのみ {@link SgbSidebar} へクライアント分離する。
+ * @returns The full educational article layout, including the sidebar, sections, diagrams, tables, and disclaimers.
  */
 export default function StellateGanglionBlockPage() {
   return (

@@ -23,10 +23,9 @@ const CPB_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * 浅・深頚神経叢ブロック（CPB）完全ガイド。
+ * Renders the cervical plexus block guide page.
  *
- * 静的教育ガイド（アーキタイプ A）。本文は Server Component として忠実転記し、
- * scroll-spy を持つサイドバーのみ {@link CpbSidebar} へクライアント分離する。
+ * @returns The page content for the comprehensive cervical plexus block educational guide.
  */
 export default function CervicalPlexusBlockPage() {
   return (
