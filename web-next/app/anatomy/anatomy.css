@@ -184,13 +184,47 @@
   color: var(--muted);
 }
 
-/* MRI scrubber */
-.anatomy-mri-img {
-  width: 100%;
+/* MRI scrubber — 放射線読影風ステージ */
+.anatomy-mri-stage {
+  position: relative;
   border-radius: var(--rs);
-  background: #000;
+  background: #0b0f12;
+  overflow: hidden;
+}
+
+.anatomy-mri-img {
+  display: block;
+  width: 100%;
+  background: #0b0f12;
   aspect-ratio: 1 / 1;
   object-fit: contain;
+}
+
+/* DICOM ワークステーション風の角オーバーレイ（装飾） */
+.anatomy-mri-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.anatomy-mri-ov {
+  position: absolute;
+  font-family: ui-monospace, "SF Mono", "Menlo", monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: rgba(110, 231, 214, 0.85);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  font-variant-numeric: tabular-nums;
+}
+
+.anatomy-mri-ov-series {
+  top: 8px;
+  left: 10px;
+}
+
+.anatomy-mri-ov-index {
+  right: 10px;
+  bottom: 8px;
 }
 
 .anatomy-mri-controls {
