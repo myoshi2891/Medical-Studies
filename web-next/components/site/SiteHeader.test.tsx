@@ -76,8 +76,8 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
   it("disabled なリンクは <a> ではなく aria-disabled の span で描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const disabled = container.querySelectorAll("span.ch-disabled[aria-disabled='true']");
-    // Headaches0 + Blocks0 + Therapies0 + PROM6 = 6 件
-    expect(disabled.length).toBe(6);
+    // Headaches0 + Blocks0 + Therapies0 + PROM5 = 5 件
+    expect(disabled.length).toBe(5);
   });
 
   it("準備中項目はクリック可能なリンク（href）を持たない", () => {
@@ -89,7 +89,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     });
   });
 
-  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker/nutrition-and-supplements/physical-therapy-for-headache/psychological-behavioral-therapy）は通常リンクで描画される", () => {
+  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker/nutrition-and-supplements/physical-therapy-for-headache/psychological-behavioral-therapy/headache-diary）は通常リンクで描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const hrefs = Array.from(container.querySelectorAll<HTMLAnchorElement>("a[href]")).map((a) =>
       a.getAttribute("href")
@@ -105,6 +105,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/therapies/nutrition-and-supplements");
     expect(hrefs).toContain("/therapies/physical-therapy-for-headache");
     expect(hrefs).toContain("/therapies/psychological-behavioral-therapy");
+    expect(hrefs).toContain("/prom/headache-diary");
   });
 });
 
