@@ -4,7 +4,7 @@
 
 ## 現在地
 
-- **最新 HEAD**: `3be0694` feat(web-next): implement PGIC page and enable navigation
+- **最新 HEAD**: `5232d63` chore(web-next): format page.test.tsx with biome
 - **ビルド状態**: web-next 全体で typecheck クリーン。テスト：アーキタイプ A 167 passed ＋ anatomy、頭痛ダイアリー、HIT-6、MIDAS、MSQ、PGIC 契約追加
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
@@ -97,7 +97,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 3be0694
+- 最新 HEAD: 5232d63
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
