@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `8d345f5` feat(web-next): add MSQ v2.1 page (prom/migraine-specific-quality-of-life) [Green]
-- **ビルド状態**: web-next 全体でtypecheck クリーン。テスト：アーキタイプ A 157 passed＋MIDAS、MSQ 契約追加
+- **最新 HEAD**: `43ef4cd` docs(architecture): update MRI anonymization checklist details
+- **ビルド状態**: web-next 全体で typecheck クリーン。テスト：アーキタイプ A 157 passed ＋ anatomy、頭痛ダイアリー、HIT-6、MIDAS、MSQ 契約追加
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
