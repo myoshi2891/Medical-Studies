@@ -160,6 +160,13 @@
 .headache-impact-test-accent .menu-toggle {
   display: none;
 }
+.headache-impact-test-accent .nav-backdrop {
+  display: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
 
 @media (max-width: 900px) {
   .headache-impact-test-accent .menu-toggle {
