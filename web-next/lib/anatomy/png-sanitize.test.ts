@@ -108,4 +108,12 @@ describe("sanitizePng: 異常系", () => {
     ]);
     expect(() => sanitizePng(broken)).toThrow(/範囲外|切り詰め/);
   });
+
+  it("終端チャンク IEND が存在しない場合は例外を投げる", () => {
+    const png = makePng([
+      makeChunk("IHDR", [0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 0, 0, 0]),
+      makeChunk("IDAT", [9]),
+    ]);
+    expect(() => sanitizePng(png)).toThrow(/IEND/);
+  });
 });
