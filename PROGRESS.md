@@ -65,6 +65,7 @@
 | Stellate-Ganglion-Block | `/blocks/stellate-ganglion-block` | ✅ 完了 | 11 section / Mermaid 11図 / table 22 / 外部リンク 25 |
 | Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
 | Tension-Type-Headache | `/headaches/tension-type-headache` | ✅ 完了 | 15 section / Mermaid 8図 / table 29 / 外部リンク 38 |
+| Physical-Therapy-for-Headache | `/therapies/physical-therapy-for-headache` | ✅ 完了 | 15 section / Mermaid 9図 / table 33 / 外部リンク 57 |
 | Nutrition-and-Supplements | `/therapies/nutrition-and-supplements` | ✅ 完了 | 12 section / Mermaid 8図 / table 31 / 外部リンク 46 |
 | 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer` 遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。残=実 glTF 資産投入（`public/models/LICENSES.md`）＋Phase3 |
 
