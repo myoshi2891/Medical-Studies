@@ -55,9 +55,13 @@ describe("PsychologicalBehavioralTherapyPage: 契約（忠実転記）", () => {
     expect(container.querySelectorAll("table")).toHaveLength(TABLE_COUNT);
   });
 
-  it("サイドバー nav-a の個数がソースと一致する", () => {
+  it("サイドバー nav-a の個数および href ターゲットが SECTION_IDS と一致する", () => {
     const { container } = render(<PsychologicalBehavioralTherapyPage />);
-    expect(container.querySelectorAll(".nav-a")).toHaveLength(NAV_COUNT);
+    const links = container.querySelectorAll(".nav-a");
+    expect(links).toHaveLength(NAV_COUNT);
+    const hrefs = Array.from(links).map((a) => a.getAttribute("href"));
+    const expectedHrefs = SECTION_IDS.map((id) => `#${id}`);
+    expect(hrefs).toEqual(expectedHrefs);
   });
 
   it("外部リンク（http 始まり）はすべて target=_blank と rel=noopener noreferrer を持つ", () => {
