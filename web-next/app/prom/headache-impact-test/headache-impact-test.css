@@ -99,19 +99,17 @@
   width: 260px;
   flex-shrink: 0;
   position: sticky;
-  top: 56px; /* ヘッダー分下げる */
-  height: calc(100vh - 56px);
+  top: 0;
+  height: 100vh;
   overflow-y: auto;
   background: #fff;
   border-right: 1px solid var(--g3);
   padding: 18px 0;
-  z-index: 10;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 .headache-impact-test-accent .sidebar::-webkit-scrollbar {
-  width: 3px;
-}
-.headache-impact-test-accent .sidebar::-webkit-scrollbar-thumb {
-  background: var(--g3);
+  display: none;
 }
 .headache-impact-test-accent .s-hdr {
   font-size: 10px;
