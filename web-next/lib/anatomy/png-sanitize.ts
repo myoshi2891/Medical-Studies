@@ -86,6 +86,9 @@ function readChunks(input: Uint8Array): PngChunk[] {
  */
 export function sanitizePng(input: Uint8Array): Uint8Array {
   const chunks = readChunks(input);
+  if (chunks.length === 0 || chunks[chunks.length - 1].type !== "IEND") {
+    throw new Error("終端チャンクが IEND ではありません");
+  }
   const kept = chunks.filter((c) => ALLOWED_CHUNKS.has(c.type));
 
   const total = PNG_SIGNATURE.length + kept.reduce((sum, c) => sum + c.raw.length, 0);
