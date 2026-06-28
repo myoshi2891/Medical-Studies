@@ -1,4 +1,5 @@
 import { Ext } from "@/components/Ext";
+import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import MigraineDisabilityAssessmentSidebar from "@/components/prom/MigraineDisabilityAssessmentSidebar";
 import "./migraine-disability-assessment.css";
@@ -46,1430 +47,1411 @@ export default function MigraineDisabilityAssessmentPage() {
 
         {/* MAIN CONTENT */}
         <main className="main">
-          {/* §1 MIDASとは何か */}
-          <section className="sec" id="s1">
-            <div className="sec-hd">
-              <span className="sec-num">1</span>
-              <h2 className="sec-title">MIDAS とは何か — 開発の背景と意義</h2>
-            </div>
-
-            <h3>1.1 開発の背景</h3>
-            <p>
-              <strong>
-                MIDAS（Migraine Disability Assessment / 片頭痛障害評価スコア）
-              </strong>
-              は、2000年に Walter F. Stewart（疫学者）、Richard B. Lipton（神経科医）、Andrew J.
-              Dowson、James Sawyer らの国際研究グループによって開発された、
-              <strong>
-                頭痛が患者の社会的・職業的機能に与える障害（Disability）を3ヵ月単位で定量化する自己記入式調査票
-              </strong>
-              です。
-            </p>
-            <p>
-              開発の核心的動機は、当時の頭痛診療における深刻な認識ギャップにありました。片頭痛は「痛みの強さ」だけでなく、仕事・家事・社会活動への影響という「機能的コスト」を通じて患者と社会に甚大な負担を与えていましたが、医師と患者の間でこの障害度の認識には著しいギャップが存在していました。MIDAS
-              はこのコミュニケーションギャップを埋め、
-              <strong>
-                治療の必要性と優先度を客観的に評価・共有するための共通言語
-              </strong>
-              として設計されました。
-            </p>
-
-            <div className="alert a-info">
-              <div className="alert-i">💡</div>
-              <div>
-                <strong>臨床的意義の核心：</strong>
-                頭痛の「痛みの強さ」ではなく「機能損失の実績値（日数）」を計測することで、医師と患者が共有できる客観的指標を提供し、片頭痛の疾病負担（burden
-                of disease）の定量化と社会経済的コスト評価に直結します。
+          <AutoGlossary>
+            {/* §1 MIDASとは何か */}
+            <section className="sec" id="s1">
+              <div className="sec-hd">
+                <span className="sec-num">1</span>
+                <h2 className="sec-title">MIDAS とは何か — 開発の背景と意義</h2>
               </div>
-            </div>
 
-            <h3>1.2 開発プロセス</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>ステップ</th>
-                    <th>内容</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>概念設計</strong>
-                    </td>
-                    <td>「頭痛による機能損失日数」を活動ドメイン別に計測するアプローチを採用</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>予備検証（1999年）</strong>
-                    </td>
-                    <td>
-                      頭痛専門医49名が多様な片頭痛症例の重症度と治療必要性を独立評価；MIDAS
-                      スコアとの相関を確認
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>妥当性検証（2000年）</strong>
-                    </td>
-                    <td>
-                      n = 144名の診断済み片頭痛患者を対象に90日間の頭痛日誌と比較；Spearman 相関係数 r
-                      = 0.63 を確認
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>信頼性検証（2001年）</strong>
-                    </td>
-                    <td>
-                      検査再検査信頼性：Pearson 相関係数 r ≈ 0.80（Stewart et al.）
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>臨床実装</strong>
-                    </td>
-                    <td>
-                      CGRP mAbs を含む世界中の主要頭痛臨床試験の標準的患者報告アウトカム（PRO）として採用
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+              <h3>1.1 開発の背景</h3>
+              <p>
+                <strong>MIDAS（Migraine Disability Assessment / 片頭痛障害評価スコア）</strong>
+                は、2000年に Walter F. Stewart（疫学者）、Richard B. Lipton（神経科医）、Andrew J.
+                Dowson、James Sawyer らの国際研究グループによって開発された、
+                <strong>
+                  頭痛が患者の社会的・職業的機能に与える障害（Disability）を3ヵ月単位で定量化する自己記入式調査票
+                </strong>
+                です。
+              </p>
+              <p>
+                開発の核心的動機は、当時の頭痛診療における深刻な認識ギャップにありました。片頭痛は「痛みの強さ」だけでなく、仕事・家事・社会活動への影響という「機能的コスト」を通じて患者と社会に甚大な負担を与えていましたが、医師と患者の間でこの障害度の認識には著しいギャップが存在していました。MIDAS
+                はこのコミュニケーションギャップを埋め、
+                <strong>治療の必要性と優先度を客観的に評価・共有するための共通言語</strong>
+                として設計されました。
+              </p>
 
-            <div className="src-grid">
-              <div className="src">
-                <div className="src-org">Pain · 2000</div>
-                <div className="src-t">
-                  Stewart WF, et al. Validity of the MIDAS Score in comparison to a diary-based
-                  measure in a population sample of migraine sufferers. <em>Pain</em>{" "}
-                  2000;88(1):41–52.
+              <div className="alert a-info">
+                <div className="alert-i">💡</div>
+                <div>
+                  <strong>臨床的意義の核心：</strong>
+                  頭痛の「痛みの強さ」ではなく「機能損失の実績値（日数）」を計測することで、医師と患者が共有できる客観的指標を提供し、片頭痛の疾病負担（burden
+                  of disease）の定量化と社会経済的コスト評価に直結します。
                 </div>
-                <Ext
-                  href="https://pubmed.ncbi.nlm.nih.gov/11033369/"
-                  className="src-url"
-                >
-                  PubMed: 11033369
-                </Ext>
               </div>
-              <div className="src">
-                <div className="src-org">Neurology · 2001</div>
-                <div className="src-t">
-                  Stewart WF, et al. Development and testing of the MIDAS Questionnaire to assess
-                  headache-related disability. <em>Neurology</em> 2001;56(Suppl 1):S20–S28.
+
+              <h3>1.2 開発プロセス</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ステップ</th>
+                      <th>内容</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>概念設計</strong>
+                      </td>
+                      <td>「頭痛による機能損失日数」を活動ドメイン別に計測するアプローチを採用</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>予備検証（1999年）</strong>
+                      </td>
+                      <td>
+                        頭痛専門医49名が多様な片頭痛症例の重症度と治療必要性を独立評価；MIDAS
+                        スコアとの相関を確認
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>妥当性検証（2000年）</strong>
+                      </td>
+                      <td>
+                        n = 144名の診断済み片頭痛患者を対象に90日間の頭痛日誌と比較；Spearman
+                        相関係数 r = 0.63 を確認
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>信頼性検証（2001年）</strong>
+                      </td>
+                      <td>検査再検査信頼性：Pearson 相関係数 r ≈ 0.80（Stewart et al.）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>臨床実装</strong>
+                      </td>
+                      <td>
+                        CGRP mAbs
+                        を含む世界中の主要頭痛臨床試験の標準的患者報告アウトカム（PRO）として採用
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="src-grid">
+                <div className="src">
+                  <div className="src-org">Pain · 2000</div>
+                  <div className="src-t">
+                    Stewart WF, et al. Validity of the MIDAS Score in comparison to a diary-based
+                    measure in a population sample of migraine sufferers. <em>Pain</em>{" "}
+                    2000;88(1):41–52.
+                  </div>
+                  <Ext href="https://pubmed.ncbi.nlm.nih.gov/11033369/" className="src-url">
+                    PubMed: 11033369
+                  </Ext>
                 </div>
-                <Ext
-                  href="https://www.neurology.org/doi/abs/10.1212/wnl.56.suppl_1.s20"
-                  className="src-url"
-                >
-                  DOI: 10.1212/wnl.56.suppl_1.s20
-                </Ext>
-              </div>
-            </div>
-
-            <h3>1.3 MIDAS が測定する3つの活動ドメイン</h3>
-            <p>
-              MIDAS の設計思想の核心は、
-              <strong>
-                「日常生活の3領域（職業的・家事的・社会的）にわたる機能損失日数を客観的に計測する」
-              </strong>
-              点にあります。
-            </p>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>ドメイン（Domain）</th>
-                    <th>英語</th>
-                    <th>測定内容（Q番号）</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>職業的活動（Occupational）</strong>
-                    </td>
-                    <td>Paid work / School</td>
-                    <td>仕事または学業の欠勤・欠席日数（Q1）および生産性50%以上低下日数（Q2）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>家事活動（Household）</strong>
-                    </td>
-                    <td>Household work</td>
-                    <td>家事の欠損日数（Q3）および生産性50%以上低下日数（Q4）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>社会的活動（Social）</strong>
-                    </td>
-                    <td>Non-work / Social activities</td>
-                    <td>家族イベント・余暇・レジャーの欠損日数（Q5）</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* §2 SNOOP4 */}
-          <section className="sec" id="s2">
-            <div className="sec-hd">
-              <span className="sec-num">2</span>
-              <h2 className="sec-title">SNOOP4 レッドフラッグスクリーニング（必須先行評価）</h2>
-            </div>
-
-            <div className="alert a-danger">
-              <div className="alert-i">🚨</div>
-              <div>
-                <strong>重要：MIDAS を使用する前に必ず SNOOP4 スクリーニングを完了すること。</strong>
-                　二次性頭痛（Secondary Headache）が疑われる場合は、先に CT / MRI
-                等の画像診断を行い、原疾患を除外した後にのみ MIDAS による障害評価を実施する。
-              </div>
-            </div>
-
-            <div className="snoop-grid">
-              <div className="sn">
-                <div className="sn-letter">S</div>
-                <div className="sn-title">Systemic symptoms（全身症状）</div>
-                <div className="sn-symp">発熱・髄膜刺激症状・体重減少・免疫抑制状態・悪性腫瘍既往</div>
-                <div className="sn-dx">緊急画像診断</div>
-              </div>
-              <div className="sn">
-                <div className="sn-letter">N</div>
-                <div className="sn-title">Neurological deficits（神経脱落）</div>
-                <div className="sn-symp">運動麻痺・感覚障害・失語・複視・意識変容・認知変化</div>
-                <div className="sn-dx">緊急神経学的精査</div>
-              </div>
-              <div className="sn">
-                <div className="sn-letter">O</div>
-                <div className="sn-title">Onset sudden（突発発症）</div>
-                <div className="sn-symp">
-                  雷鳴頭痛（Thunderclap）：「生涯最悪の頭痛」→ くも膜下出血除外
+                <div className="src">
+                  <div className="src-org">Neurology · 2001</div>
+                  <div className="src-t">
+                    Stewart WF, et al. Development and testing of the MIDAS Questionnaire to assess
+                    headache-related disability. <em>Neurology</em> 2001;56(Suppl 1):S20–S28.
+                  </div>
+                  <Ext
+                    href="https://www.neurology.org/doi/abs/10.1212/wnl.56.suppl_1.s20"
+                    className="src-url"
+                  >
+                    DOI: 10.1212/wnl.56.suppl_1.s20
+                  </Ext>
                 </div>
-                <div className="sn-dx">緊急 CT</div>
               </div>
-              <div className="sn">
-                <div className="sn-letter">O</div>
-                <div className="sn-title">Onset after 50（50歳以降発症）</div>
-                <div className="sn-symp">50歳以降の新規頭痛 → 側頭動脈炎・頭蓋内病変除外</div>
-                <div className="sn-dx">緊急画像診断</div>
+
+              <h3>1.3 MIDAS が測定する3つの活動ドメイン</h3>
+              <p>
+                MIDAS の設計思想の核心は、
+                <strong>
+                  「日常生活の3領域（職業的・家事的・社会的）にわたる機能損失日数を客観的に計測する」
+                </strong>
+                点にあります。
+              </p>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ドメイン（Domain）</th>
+                      <th>英語</th>
+                      <th>測定内容（Q番号）</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>職業的活動（Occupational）</strong>
+                      </td>
+                      <td>Paid work / School</td>
+                      <td>仕事または学業の欠勤・欠席日数（Q1）および生産性50%以上低下日数（Q2）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>家事活動（Household）</strong>
+                      </td>
+                      <td>Household work</td>
+                      <td>家事の欠損日数（Q3）および生産性50%以上低下日数（Q4）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>社会的活動（Social）</strong>
+                      </td>
+                      <td>Non-work / Social activities</td>
+                      <td>家族イベント・余暇・レジャーの欠損日数（Q5）</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className="sn">
-                <div className="sn-letter">P</div>
-                <div className="sn-title">Pattern change（パターン変化）</div>
-                <div className="sn-symp">
-                  増悪傾向・外傷後新規発症・体位依存性（仰臥位悪化→ICP↑、立位悪化→ICP↓）
+            </section>
+
+            {/* §2 SNOOP4 */}
+            <section className="sec" id="s2">
+              <div className="sec-hd">
+                <span className="sec-num">2</span>
+                <h2 className="sec-title">SNOOP4 レッドフラッグスクリーニング（必須先行評価）</h2>
+              </div>
+
+              <div className="alert a-danger">
+                <div className="alert-i">🚨</div>
+                <div>
+                  <strong>
+                    重要：MIDAS を使用する前に必ず SNOOP4 スクリーニングを完了すること。
+                  </strong>
+                  　二次性頭痛（Secondary Headache）が疑われる場合は、先に CT / MRI
+                  等の画像診断を行い、原疾患を除外した後にのみ MIDAS による障害評価を実施する。
                 </div>
-                <div className="sn-dx">画像診断</div>
               </div>
-              <div className="sn">
-                <div className="sn-letter">4</div>
-                <div className="sn-title">4つの追加基準</div>
-                <div className="sn-symp">乳頭浮腫 / 硬膜穿刺後 / 痙攣後 / 妊娠・産後</div>
-                <div className="sn-dx">それぞれ専門的評価</div>
+
+              <div className="snoop-grid">
+                <div className="sn">
+                  <div className="sn-letter">S</div>
+                  <div className="sn-title">Systemic symptoms（全身症状）</div>
+                  <div className="sn-symp">
+                    発熱・髄膜刺激症状・体重減少・免疫抑制状態・悪性腫瘍既往
+                  </div>
+                  <div className="sn-dx">緊急画像診断</div>
+                </div>
+                <div className="sn">
+                  <div className="sn-letter">N</div>
+                  <div className="sn-title">Neurological deficits（神経脱落）</div>
+                  <div className="sn-symp">運動麻痺・感覚障害・失語・複視・意識変容・認知変化</div>
+                  <div className="sn-dx">緊急神経学的精査</div>
+                </div>
+                <div className="sn">
+                  <div className="sn-letter">O</div>
+                  <div className="sn-title">Onset sudden（突発発症）</div>
+                  <div className="sn-symp">
+                    雷鳴頭痛（Thunderclap）：「生涯最悪の頭痛」→ くも膜下出血除外
+                  </div>
+                  <div className="sn-dx">緊急 CT</div>
+                </div>
+                <div className="sn">
+                  <div className="sn-letter">O</div>
+                  <div className="sn-title">Onset after 50（50歳以降発症）</div>
+                  <div className="sn-symp">50歳以降の新規頭痛 → 側頭動脈炎・頭蓋内病変除外</div>
+                  <div className="sn-dx">緊急画像診断</div>
+                </div>
+                <div className="sn">
+                  <div className="sn-letter">P</div>
+                  <div className="sn-title">Pattern change（パターン変化）</div>
+                  <div className="sn-symp">
+                    増悪傾向・外傷後新規発症・体位依存性（仰臥位悪化→ICP↑、立位悪化→ICP↓）
+                  </div>
+                  <div className="sn-dx">画像診断</div>
+                </div>
+                <div className="sn">
+                  <div className="sn-letter">4</div>
+                  <div className="sn-title">4つの追加基準</div>
+                  <div className="sn-symp">乳頭浮腫 / 硬膜穿刺後 / 痙攣後 / 妊娠・産後</div>
+                  <div className="sn-dx">それぞれ専門的評価</div>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          {/* §3 質問票の構造 */}
-          <section className="sec" id="s3">
-            <div className="sec-hd">
-              <span className="sec-num">3</span>
-              <h2 className="sec-title">MIDAS 質問票の構造 — 5問＋補足2問を理解する</h2>
-            </div>
-
-            <h3>3.1 質問票の全体像</h3>
-            <p>
-              MIDAS 質問票は、
-              <strong>スコア計算に使用する5問（Q1〜Q5）</strong>
-              と、
-              <strong>
-                スコアには含まれないが臨床的に重要な情報を提供する2問の補足質問（A・B）
-              </strong>
-              から構成されます。記入にかかる時間は約5分です。
-            </p>
-
-            <h3>3.2 スコア計算に使用する5問（Q1〜Q5）</h3>
-            <p>
-              各質問への回答は「過去3ヵ月（90日間）のうち、頭痛により該当する活動が制限された日数」を
-              0〜90 の整数で記入します。
-            </p>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>質問</th>
-                    <th>英語原文（要旨）</th>
-                    <th>日本語概訳</th>
-                    <th>活動ドメイン</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>Q1</strong>
-                    </td>
-                    <td>
-                      On how many days did you miss work or school because of your headaches?
-                    </td>
-                    <td>
-                      頭痛のために仕事または学校を<strong>休んだ</strong>日数
-                    </td>
-                    <td>職業：欠勤・欠席</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Q2</strong>
-                    </td>
-                    <td>
-                      How many days was your productivity at work or school reduced by half or more?
-                    </td>
-                    <td>
-                      頭痛のために仕事・学校での<strong>生産性が半分以下になった</strong>日数
-                    </td>
-                    <td>職業：生産性低下（≥50%）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Q3</strong>
-                    </td>
-                    <td>
-                      How many days did you not do household work because of your headaches?
-                    </td>
-                    <td>
-                      頭痛のために<strong>家事ができなかった</strong>日数
-                    </td>
-                    <td>家事：欠損</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Q4</strong>
-                    </td>
-                    <td>
-                      How many days was your productivity in household work reduced by half or more?
-                    </td>
-                    <td>
-                      頭痛のために<strong>家事の生産性が半分以下になった</strong>日数
-                    </td>
-                    <td>家事：生産性低下（≥50%）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Q5</strong>
-                    </td>
-                    <td>
-                      On how many days did you miss family, social, or leisure activities?
-                    </td>
-                    <td>
-                      頭痛のために<strong>家族・社会・余暇活動を欠席または取りやめた</strong>日数
-                    </td>
-                    <td>社会：欠損</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="alert a-info">
-              <div className="alert-i">ℹ️</div>
-              <div>
-                <strong>「生産性半分以下」の定義：</strong>Q2・Q4
-                は、仕事や家事に出たものの頭痛のために普段の半分以下しか機能できなかった日数を計測します。出勤・家事継続の有無に関わらず機能障害の実態を捉えるための重要な設問です。
+            {/* §3 質問票の構造 */}
+            <section className="sec" id="s3">
+              <div className="sec-hd">
+                <span className="sec-num">3</span>
+                <h2 className="sec-title">MIDAS 質問票の構造 — 5問＋補足2問を理解する</h2>
               </div>
-            </div>
 
-            <h3>3.3 補足質問（A・B）— スコアには含まれない</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>質問</th>
-                    <th>内容</th>
-                    <th>記入形式</th>
-                    <th>臨床的意義</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>A</strong>
-                    </td>
-                    <td>過去3ヵ月間に頭痛があった日の総日数</td>
-                    <td>0〜90の整数</td>
-                    <td>
-                      月間頭痛日数（MHD）の推定；発作性（&lt;15日/月）vs
-                      慢性（≥15日/月）の判断；予防療法適応の根拠
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>B</strong>
-                    </td>
-                    <td>頭痛の平均痛み強度</td>
-                    <td>0〜10 の NRS スケール</td>
-                    <td>急性期治療の選択・強度評価；Step-care 療法の判断</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+              <h3>3.1 質問票の全体像</h3>
+              <p>
+                MIDAS 質問票は、
+                <strong>スコア計算に使用する5問（Q1〜Q5）</strong>
+                と、
+                <strong>
+                  スコアには含まれないが臨床的に重要な情報を提供する2問の補足質問（A・B）
+                </strong>
+                から構成されます。記入にかかる時間は約5分です。
+              </p>
 
-            <div className="alert a-ok">
-              <div className="alert-i">🔰</div>
-              <div>
-                <strong>初学者向け解説：</strong>補足質問 A（月間頭痛日数）は ICHD-3 の慢性片頭痛診断（ICHD-3
-                コード 1.3：月15日以上の頭痛が3ヵ月以上継続）や予防療法の適応判断に不可欠です。MIDAS
-                合計スコアには加算されませんが、臨床判断において本体スコアと同等以上の重要性を持ちます。
+              <h3>3.2 スコア計算に使用する5問（Q1〜Q5）</h3>
+              <p>
+                各質問への回答は「過去3ヵ月（90日間）のうち、頭痛により該当する活動が制限された日数」を
+                0〜90 の整数で記入します。
+              </p>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>質問</th>
+                      <th>英語原文（要旨）</th>
+                      <th>日本語概訳</th>
+                      <th>活動ドメイン</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>Q1</strong>
+                      </td>
+                      <td>
+                        On how many days did you miss work or school because of your headaches?
+                      </td>
+                      <td>
+                        頭痛のために仕事または学校を<strong>休んだ</strong>日数
+                      </td>
+                      <td>職業：欠勤・欠席</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Q2</strong>
+                      </td>
+                      <td>
+                        How many days was your productivity at work or school reduced by half or
+                        more?
+                      </td>
+                      <td>
+                        頭痛のために仕事・学校での<strong>生産性が半分以下になった</strong>日数
+                      </td>
+                      <td>職業：生産性低下（≥50%）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Q3</strong>
+                      </td>
+                      <td>
+                        How many days did you not do household work because of your headaches?
+                      </td>
+                      <td>
+                        頭痛のために<strong>家事ができなかった</strong>日数
+                      </td>
+                      <td>家事：欠損</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Q4</strong>
+                      </td>
+                      <td>
+                        How many days was your productivity in household work reduced by half or
+                        more?
+                      </td>
+                      <td>
+                        頭痛のために<strong>家事の生産性が半分以下になった</strong>日数
+                      </td>
+                      <td>家事：生産性低下（≥50%）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Q5</strong>
+                      </td>
+                      <td>On how many days did you miss family, social, or leisure activities?</td>
+                      <td>
+                        頭痛のために<strong>家族・社会・余暇活動を欠席または取りやめた</strong>日数
+                      </td>
+                      <td>社会：欠損</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            </div>
-          </section>
 
-          {/* §4 スコアリング方法 */}
-          <section className="sec" id="s4">
-            <div className="sec-hd">
-              <span className="sec-num">4</span>
-              <h2 className="sec-title">スコアリング方法 — 計算の仕方を段階的に学ぶ</h2>
-            </div>
+              <div className="alert a-info">
+                <div className="alert-i">ℹ️</div>
+                <div>
+                  <strong>「生産性半分以下」の定義：</strong>Q2・Q4
+                  は、仕事や家事に出たものの頭痛のために普段の半分以下しか機能できなかった日数を計測します。出勤・家事継続の有無に関わらず機能障害の実態を捉えるための重要な設問です。
+                </div>
+              </div>
 
-            <h3>4.1 合計スコアの計算式</h3>
-            <div
-              className="card"
-              style={{
-                textAlign: "center",
-                background: "var(--mds-l)",
-                border: "2px solid var(--mds2)",
-              }}
-            >
+              <h3>3.3 補足質問（A・B）— スコアには含まれない</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>質問</th>
+                      <th>内容</th>
+                      <th>記入形式</th>
+                      <th>臨床的意義</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>A</strong>
+                      </td>
+                      <td>過去3ヵ月間に頭痛があった日の総日数</td>
+                      <td>0〜90の整数</td>
+                      <td>
+                        月間頭痛日数（MHD）の推定；発作性（&lt;15日/月）vs
+                        慢性（≥15日/月）の判断；予防療法適応の根拠
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>B</strong>
+                      </td>
+                      <td>頭痛の平均痛み強度</td>
+                      <td>0〜10 の NRS スケール</td>
+                      <td>急性期治療の選択・強度評価；Step-care 療法の判断</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="alert a-ok">
+                <div className="alert-i">🔰</div>
+                <div>
+                  <strong>初学者向け解説：</strong>補足質問 A（月間頭痛日数）は ICHD-3
+                  の慢性片頭痛診断（ICHD-3 コード
+                  1.3：月15日以上の頭痛が3ヵ月以上継続）や予防療法の適応判断に不可欠です。MIDAS
+                  合計スコアには加算されませんが、臨床判断において本体スコアと同等以上の重要性を持ちます。
+                </div>
+              </div>
+            </section>
+
+            {/* §4 スコアリング方法 */}
+            <section className="sec" id="s4">
+              <div className="sec-hd">
+                <span className="sec-num">4</span>
+                <h2 className="sec-title">スコアリング方法 — 計算の仕方を段階的に学ぶ</h2>
+              </div>
+
+              <h3>4.1 合計スコアの計算式</h3>
               <div
+                className="card"
                 style={{
-                  fontSize: "clamp(18px, 3vw, 26px)",
-                  fontWeight: 800,
-                  color: "var(--mds1)",
-                  letterSpacing: ".5px",
+                  textAlign: "center",
+                  background: "var(--mds-l)",
+                  border: "2px solid var(--mds2)",
                 }}
               >
-                MIDAS 合計スコア = Q1 + Q2 + Q3 + Q4 + Q5
-              </div>
-              <div
-                style={{ fontSize: "13px", color: "var(--g8)", marginTop: "10px" }}
-              >
-                各質問の回答範囲：<strong>0〜90日</strong>（過去3ヵ月の上限）　／　理論的スコア上限：
-                <strong className="tN">270点</strong>
-              </div>
-              <div style={{ fontSize: "12px", color: "var(--g6)", marginTop: "4px" }}>
-                職業ドメイン最大90 ＋ 家事ドメイン最大90 ＋ 社会ドメイン最大90
-              </div>
-            </div>
-
-            <div className="alert a-info">
-              <div className="alert-i">🧮</div>
-              <div>
-                <strong>スコア上限が 270 点である理由：</strong>Q1＋Q2（仕事・学業）の合計は1人が過ごせる仕事日数の上限（約90日）を超えられません。同様に
-                Q3＋Q4（家事）も上限90日、Q5（社会）も上限90日です。各ドメインの活動日数は重複するため、3ドメイン
-                × 90日 = 270日が実質的な上限となります（Blumenfeld et al. 2011）。
-              </div>
-            </div>
-
-            <h3>4.2 計算の仕組み（ステップ解説）</h3>
-            <ol>
-              <li>
-                <strong>ステップ1：</strong>各質問（Q1〜Q5）に過去3ヵ月の該当日数を記入する
-              </li>
-              <li>
-                <strong>ステップ2：</strong>5つの日数を合算する（補足質問 A・B はスコアに含めない）
-              </li>
-              <li>
-                <strong>ステップ3：</strong>合計点をグレード表（§5）に照合する
-              </li>
-            </ol>
-
-            <h3>4.3 スコア計算例（初学者向け）</h3>
-            <p>
-              <strong>例：38歳女性 会社員、片頭痛患者</strong>
-            </p>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>質問</th>
-                    <th>内容（簡略）</th>
-                    <th>回答（日数）</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Q1</td>
-                    <td>仕事を休んだ日数</td>
-                    <td>4日</td>
-                  </tr>
-                  <tr>
-                    <td>Q2</td>
-                    <td>仕事の生産性が半分以下だった日数</td>
-                    <td>8日</td>
-                  </tr>
-                  <tr>
-                    <td>Q3</td>
-                    <td>家事ができなかった日数</td>
-                    <td>5日</td>
-                  </tr>
-                  <tr>
-                    <td>Q4</td>
-                    <td>家事の生産性が半分以下だった日数</td>
-                    <td>6日</td>
-                  </tr>
-                  <tr>
-                    <td>Q5</td>
-                    <td>社会活動を取りやめた日数</td>
-                    <td>3日</td>
-                  </tr>
-                  <tr style={{ fontWeight: 700 }}>
-                    <td>
-                      <strong>MIDAS 合計</strong>
-                    </td>
-                    <td></td>
-                    <td className="tN">26点</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="alert a-danger">
-              <div className="alert-i">🔴</div>
-              <div>
-                合計 <strong>26点 → Grade IV（重度障害）</strong> → 予防療法の即時開始を強く推奨
-              </div>
-            </div>
-
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>補足</th>
-                    <th>内容</th>
-                    <th>記入値</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>A</td>
-                    <td>頭痛があった総日数（3ヵ月）</td>
-                    <td>18日（≒6日/月）</td>
-                  </tr>
-                  <tr>
-                    <td>B</td>
-                    <td>平均痛み強度（NRS）</td>
-                    <td>7/10</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p>→ A より月間頭痛日数は6日/月（発作性）→ 予防療法適応を支持</p>
-          </section>
-
-          {/* §5 スコア解釈 */}
-          <section className="sec" id="s5">
-            <div className="sec-hd">
-              <span className="sec-num">5</span>
-              <h2 className="sec-title">スコア解釈 — 4段階グレード分類</h2>
-            </div>
-
-            <h3>5.1 標準4段階グレード分類（Stewart et al. 2001）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>MIDAS スコア</th>
-                    <th>グレード</th>
-                    <th>英語</th>
-                    <th>障害の程度</th>
-                    <th>推奨される臨床対応</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>0〜5点</strong>
-                    </td>
-                    <td>
-                      <span className="bGrn">Grade I</span>
-                    </td>
-                    <td>Little or No Disability</td>
-                    <td>軽度または障害なし</td>
-                    <td>急性期治療最適化・生活習慣介入・頭痛日誌の開始</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>6〜10点</strong>
-                    </td>
-                    <td>
-                      <span className="bOra">Grade II</span>
-                    </td>
-                    <td>Mild Disability</td>
-                    <td>軽度障害</td>
-                    <td>急性期治療の強化＋トリガー管理；1ヵ月後に再評価</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>11〜20点</strong>
-                    </td>
-                    <td>
-                      <span className="bC">Grade III</span>
-                    </td>
-                    <td>Moderate Disability</td>
-                    <td>中等度障害</td>
-                    <td>
-                      予防療法の開始を強く検討；CBT・理学療法の導入；MOH リスク評価
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>≥21点</strong>
-                    </td>
-                    <td>
-                      <span className="bRed">Grade IV</span>
-                    </td>
-                    <td>Severe Disability</td>
-                    <td>重度障害</td>
-                    <td>
-                      予防療法の即時開始；CGRP mAb を含む多モーダル治療計画；専門医紹介を検討
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>5.2 Grade IV の細分化（Blumenfeld et al. 2011）</h3>
-            <p>
-              慢性片頭痛患者の大多数が Grade IV に集中するため、Blumenfeld ら（2011）はより精緻な臨床評価のために
-              Grade IV を以下のように細分化しました。
-            </p>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>サブグレード</th>
-                    <th>スコア範囲</th>
-                    <th>呼称</th>
-                    <th>臨床的意義</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>Grade IV-A</strong>
-                    </td>
-                    <td>21〜40点</td>
-                    <td>Severe</td>
-                    <td>重度障害；CGRP mAb を含む積極的予防療法の適応</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>Grade IV-B</strong>
-                    </td>
-                    <td>41〜270点</td>
-                    <td>Very Severe</td>
-                    <td>
-                      最重度障害；慢性片頭痛（ICHD-3 1.3）との重複評価を推奨；包括的多職種介入が必要
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="src-grid">
-              <div className="src">
-                <div className="src-org">Cephalalgia · 2011</div>
-                <div className="src-t">
-                  Blumenfeld AM, et al. Disability, HRQoL and resource use among chronic and
-                  episodic migraineurs: Results from the International Burden of Migraine Study
-                  (IBMS). <em>Cephalalgia</em> 2011;31(3):301–315.
-                </div>
-                <Ext
-                  href="https://pubmed.ncbi.nlm.nih.gov/20868393/"
-                  className="src-url"
+                <div
+                  style={{
+                    fontSize: "clamp(18px, 3vw, 26px)",
+                    fontWeight: 800,
+                    color: "var(--mds1)",
+                    letterSpacing: ".5px",
+                  }}
                 >
-                  PubMed: 20868393
-                </Ext>
+                  MIDAS 合計スコア = Q1 + Q2 + Q3 + Q4 + Q5
+                </div>
+                <div style={{ fontSize: "13px", color: "var(--g8)", marginTop: "10px" }}>
+                  各質問の回答範囲：<strong>0〜90日</strong>
+                  （過去3ヵ月の上限）　／　理論的スコア上限：
+                  <strong className="tN">270点</strong>
+                </div>
+                <div style={{ fontSize: "12px", color: "var(--g6)", marginTop: "4px" }}>
+                  職業ドメイン最大90 ＋ 家事ドメイン最大90 ＋ 社会ドメイン最大90
+                </div>
               </div>
-            </div>
 
-            <div className="alert a-warn">
-              <div className="alert-i">⚠️</div>
-              <div>
-                <strong>臨床的ポイント（AAN/EHF）：</strong>AAN/EHF のガイドラインでは、MIDAS{" "}
-                <strong>Grade III〜IV（≥11点）</strong>
-                、または月間頭痛日数 ≥4日/月、または HIT-6 ≥56点が予防療法開始の主要な患者報告アウトカム（PRO）閾値として採用されています。
+              <div className="alert a-info">
+                <div className="alert-i">🧮</div>
+                <div>
+                  <strong>スコア上限が 270 点である理由：</strong>
+                  Q1＋Q2（仕事・学業）の合計は1人が過ごせる仕事日数の上限（約90日）を超えられません。同様に
+                  Q3＋Q4（家事）も上限90日、Q5（社会）も上限90日です。各ドメインの活動日数は重複するため、3ドメイン
+                  × 90日 = 270日が実質的な上限となります（Blumenfeld et al. 2011）。
+                </div>
               </div>
-            </div>
 
-            <h3>5.3 スコアの視覚的理解 — グレードスケール</h3>
-            <div className="grade-scale">
-              <div
-                className="grade-scale-i"
-                style={{ flex: 1, background: "#2ecc71" }}
-              >
-                <strong>Grade I</strong>
-                <br />
-                0–5
-                <br />
-                <span style={{ fontSize: "11px", opacity: 0.95 }}>軽度/なし</span>
-              </div>
-              <div
-                className="grade-scale-i"
-                style={{ flex: 1, background: "#f39c12" }}
-              >
-                <strong>Grade II</strong>
-                <br />
-                6–10
-                <br />
-                <span style={{ fontSize: "11px", opacity: 0.95 }}>軽度障害</span>
-              </div>
-              <div
-                className="grade-scale-i"
-                style={{ flex: 1.4, background: "#e67e22" }}
-              >
-                <strong>Grade III</strong>
-                <br />
-                11–20
-                <br />
-                <span style={{ fontSize: "11px", opacity: 0.95 }}>中等度障害</span>
-              </div>
-              <div
-                className="grade-scale-i"
-                style={{ flex: 1.6, background: "#e74c3c" }}
-              >
-                <strong>Grade IV-A</strong>
-                <br />
-                21–40
-                <br />
-                <span style={{ fontSize: "11px", opacity: 0.95 }}>重度障害</span>
-              </div>
-              <div
-                className="grade-scale-i"
-                style={{ flex: 2, background: "#922b21" }}
-              >
-                <strong>Grade IV-B</strong>
-                <br />
-                41–270
-                <br />
-                <span style={{ fontSize: "11px", opacity: 0.95 }}>最重度障害</span>
-              </div>
-            </div>
-            <p style={{ fontSize: "12px", color: "var(--g6)" }}>
-              ※ Grade IV-A / IV-B は Blumenfeld et al. 2011 による Grade IV の細分化。
-            </p>
-          </section>
-
-          {/* §6 心理測定特性 */}
-          <section className="sec" id="s6">
-            <div className="sec-hd">
-              <span className="sec-num">6</span>
-              <h2 className="sec-title">心理測定特性（Psychometric Properties）</h2>
-            </div>
-
-            <h3>6.1 信頼性（Reliability）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>指標</th>
-                    <th>値</th>
-                    <th>解釈基準</th>
-                    <th>出典</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>検査再検査信頼性（Test-retest）</strong>
-                    </td>
-                    <td>
-                      Pearson r ≈ <strong>0.80</strong>
-                    </td>
-                    <td>r ≥ 0.70 = 良好</td>
-                    <td>
-                      Stewart et al. 2001（<em>Neurology</em>）
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>検査再検査（日本語版）</strong>
-                    </td>
-                    <td>
-                      Spearman r = <strong>0.59〜0.80</strong>（すべて p &lt; 0.0001）
-                    </td>
-                    <td>r ≥ 0.60 = 良好〜優秀</td>
-                    <td>
-                      Iigaya et al. 2003（<em>Headache</em>）
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>内的一貫性（Cronbach&apos;s α）</strong>
-                    </td>
-                    <td>良好（報告あり）</td>
-                    <td>α ≥ 0.70 = 良好</td>
-                    <td>Stewart et al. 2001</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="alert a-ok">
-              <div className="alert-i">🔰</div>
-              <div>
-                <strong>初学者向け解説：</strong>
-                <strong>検査再検査信頼性（r ≈ 0.80）</strong>
-                とは、「同じ患者を数週間後に再び評価しても、ほぼ同じスコアが得られる安定性」を示します。r =
-                0.80 は「優秀」の範囲であり、時間的安定性が高いことを意味します。
-              </div>
-            </div>
-
-            <h3>6.2 妥当性（Validity）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>妥当性の種類</th>
-                    <th>結果</th>
-                    <th>詳細</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>基準関連妥当性（Criterion）</strong>
-                    </td>
-                    <td>
-                      Spearman r = <strong>0.63</strong>（頭痛日誌との比較）
-                    </td>
-                    <td>
-                      Stewart et al. 2000（<em>Pain</em>）；n = 144
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>臨床的妥当性（Clinical）</strong>
-                    </td>
-                    <td>専門医の重症度評価と有意相関</td>
-                    <td>49名の頭痛専門医による独立評価（Stewart et al. 1999）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>判別妥当性（Discriminant）</strong>
-                    </td>
-                    <td>片頭痛患者 vs 非片頭痛患者で有意差</td>
-                    <td>片頭痛患者のほうが有意に高スコアを示す</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>治療反応への感受性（Responsiveness）</strong>
-                    </td>
-                    <td>CGRP mAb 主要 RCT で有意な変化を検出</td>
-                    <td>Erenumab / Fremanezumab / Galcanezumab 各試験</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>6.3 多言語検証状況</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>言語</th>
-                    <th>主な結果</th>
-                    <th>代表文献</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>英語（原版）</strong>
-                    </td>
-                    <td>信頼性・妥当性確立（n = 144）</td>
-                    <td>
-                      Stewart et al. 2000（<em>Pain</em>）
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>日本語版</strong>
-                    </td>
-                    <td>英語版と同等の信頼性・妥当性確認（n = 101）</td>
-                    <td>
-                      Iigaya M, et al. 2003（<em>Headache</em>）
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>イタリア語版</strong>
-                    </td>
-                    <td>検証済</td>
-                    <td>D&apos;Amico et al. 複数文献</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>その他多言語</strong>
-                    </td>
-                    <td>多数の言語で翻訳・検証済</td>
-                    <td>各国頭痛学会</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* §7 MIC */}
-          <section className="sec" id="s7">
-            <div className="sec-hd">
-              <span className="sec-num">7</span>
-              <h2 className="sec-title">最小臨床重要差（MIC / MCID）</h2>
-            </div>
-
-            <h3>7.1 MIC とは何か</h3>
-            <p>
-              <strong>MIC（Minimal Important Change）</strong>または
-              <strong>MCID（Minimally Clinically Important Difference）</strong>
-              とは、「統計的有意性」ではなく{" "}
-              <strong>「患者が実際に『良くなった』と感じ取れる最小の変化量」</strong> を指します。
-            </p>
-            <div className="alert a-info">
-              <div className="alert-i">💡</div>
-              <div>
-                <strong>例：</strong>MIDAS が 28点 → 23点（5点減少）は統計的に有意かもしれませんが、患者にとって実感できる改善かどうかは
-                MIC によって判断します。MIC を下回る変化は、統計的に有意であっても「臨床的に意味のある改善」とはみなされません。
-              </div>
-            </div>
-
-            <h3>7.2 MIC 推定値（文献別）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>研究</th>
-                    <th>対象集団</th>
-                    <th>推定 MIC</th>
-                    <th>推定方法</th>
-                    <th>出典</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Carvalho et al. 2021</td>
-                    <td>頭痛患者（n = 103；非薬物療法 RCT）</td>
-                    <td>
-                      <strong>-4.5点</strong>（1ヵ月想起版；3ヵ月版では約 -13.5点相当）
-                    </td>
-                    <td>アンカーベース法（PGIC 基準）</td>
-                    <td>
-                      <Ext
-                        href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8529733/"
-                      >
-                        J Headache Pain 2021;22:126
-                      </Ext>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ruscheweyh et al. 2024</td>
-                    <td>三次頭痛外来（DMKG レジストリ；n = 1,218）</td>
-                    <td>
-                      <strong>Grade IV（&gt;20）：-30%</strong> /{" "}
-                      <strong>Grade II-III（6-20）：-4点</strong>
-                    </td>
-                    <td>アンカーベース法＋ROC 曲線法（PGIC 基準）</td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/39033424/">
-                        Cephalalgia 2024;44(7)
-                      </Ext>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>7.3 臨床推奨 MIC の解釈</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>対象グレード</th>
-                    <th>臨床的に意味のある改善の目安</th>
-                    <th>具体例</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <span className="bC">Grade II-III</span>（6〜20点）
-                    </td>
-                    <td>
-                      MIDAS <strong>-4点以上</strong>の減少（Ruscheweyh 2024）
-                    </td>
-                    <td>例：14点 → 10点（-4点）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span className="bRed">Grade IV</span>（≥21点）
-                    </td>
-                    <td>
-                      MIDAS <strong>-30%以上</strong>の減少（Ruscheweyh 2024）
-                    </td>
-                    <td>例：40点 → 28点（-30%）= MID 達成</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <span className="bB">臨床試験標準</span>（IHS / CGRP mAb）
-                    </td>
-                    <td>
-                      MIDAS <strong>≥50% 減少</strong> → &quot;MIDAS Responder&quot;
-                    </td>
-                    <td>例：40点 → 20点（-50%）</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="alert a-warn">
-              <div className="alert-i">⚠️</div>
-              <div>
-                <strong>注意：</strong>MIC
-                は集団統計から導出された値であり、個々の患者への適用では臨床的文脈（治療の種類・副作用・生活状況）を総合判断に組み込むことが重要です。
-              </div>
-            </div>
-
-            <h3>7.4 CGRP mAb 試験における MIDAS レスポンダー基準と実績</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>薬剤</th>
-                    <th>試験名</th>
-                    <th>MIDAS ベースライン（平均）</th>
-                    <th>判定基準</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Erenumab（エレヌマブ）</td>
-                    <td>STRIVE（発作性片頭痛）</td>
-                    <td>約18〜20点（Grade III〜IV）</td>
-                    <td>≥50% 改善</td>
-                  </tr>
-                  <tr>
-                    <td>Fremanezumab（フレマネズマブ）</td>
-                    <td>HALO（発作性片頭痛）</td>
-                    <td>約22〜24点（Grade IV）</td>
-                    <td>≥50% 改善</td>
-                  </tr>
-                  <tr>
-                    <td>Galcanezumab（ガルカネズマブ）</td>
-                    <td>EVOLVE-1/2（発作性片頭痛）</td>
-                    <td>約20〜22点（Grade IV）</td>
-                    <td>≥50% 改善</td>
-                  </tr>
-                  <tr>
-                    <td>Eptinezumab（エプティネズマブ）</td>
-                    <td>PROMISE-1（発作性片頭痛）</td>
-                    <td>約19〜21点（Grade III〜IV）</td>
-                    <td>≥50% 改善</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* §8 日本語版の検証 */}
-          <section className="sec" id="s8">
-            <div className="sec-hd">
-              <span className="sec-num">8</span>
-              <h2 className="sec-title">日本語版 MIDAS の検証</h2>
-            </div>
-
-            <h3>8.1 日本語版検証研究（Iigaya et al. 2003）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>項目</th>
-                    <th>内容</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>著者</strong>
-                    </td>
-                    <td>Iigaya M, Sakai F, Kolodner KB, Lipton RB, Stewart WF</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>機関</strong>
-                    </td>
-                    <td>北里大学神経内科（Kitasato University）および関連クリニック</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>雑誌・年</strong>
-                    </td>
-                    <td>
-                      <em>Headache</em> 2003;43(3):225–233
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>PubMed</strong>
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/12656705/">
-                        PMID: 12656705
-                      </Ext>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>対象患者数</strong>
-                    </td>
-                    <td>n = 101名（女性80名・男性21名；年齢21〜77歳）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>組み入れ基準</strong>
-                    </td>
-                    <td>年間6回以上の一次性頭痛を有する患者</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>検査再検査相関（Spearman r）</strong>
-                    </td>
-                    <td>
-                      Q1〜B の各質問：<strong>0.59〜0.80</strong>（すべて p &lt; 0.0001）
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>日誌との比較</strong>
-                    </td>
-                    <td>90日間頭痛日誌由来の等価指標と有意な相関を確認</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>グレード別患者分布</strong>
-                    </td>
-                    <td>Grade I/II：46.5% / Grade III：22.2% / Grade IV：31.3%</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>結論</strong>
-                    </td>
-                    <td>英語版と同等の信頼性・妥当性が確認され、日本語版の臨床使用が支持された</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="alert a-ok">
-              <div className="alert-i">🇯🇵</div>
-              <div>
-                <strong>臨床的意義：</strong>日本語版 MIDAS
-                は正式に検証されており、日本人頭痛患者への適用は科学的に裏付けられています。日本人サンプルでのグレード分布（Grade
-                IV：31.3%）は、多くの患者が重度障害を抱えていることを示しており、予防療法の積極的な適応が示唆されます。
-              </div>
-            </div>
-          </section>
-
-          {/* §9 頭痛タイプ別参照スコア */}
-          <section className="sec" id="s9">
-            <div className="sec-hd">
-              <span className="sec-num">9</span>
-              <h2 className="sec-title">頭痛タイプ別参照スコアと ICHD-3 対応</h2>
-            </div>
-
-            <h3>9.1 疾患別 MIDAS 典型スコア</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>頭痛タイプ（ICHD-3）</th>
-                    <th>典型的 MIDAS 範囲</th>
-                    <th>Grade</th>
-                    <th>主な参考文献</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>低頻度発作性片頭痛（&lt;4回/月）</td>
-                    <td>3〜10点</td>
-                    <td>I〜II</td>
-                    <td>Stewart et al. 1999</td>
-                  </tr>
-                  <tr>
-                    <td>高頻度発作性片頭痛（4〜14日/月）</td>
-                    <td>11〜30点</td>
-                    <td>III〜IV</td>
-                    <td>Stewart et al. 2001</td>
-                  </tr>
-                  <tr>
-                    <td>慢性片頭痛（≥15日/月；ICHD-3 1.3）</td>
-                    <td>30〜100点以上</td>
-                    <td>IV（多くはIV-B）</td>
-                    <td>Blumenfeld et al. 2011</td>
-                  </tr>
-                  <tr>
-                    <td>薬剤乱用頭痛（MOH；ICHD-3 8.2）</td>
-                    <td>40〜80点</td>
-                    <td>IV-B</td>
-                    <td>臨床データ・専門家コンセンサス</td>
-                  </tr>
-                  <tr>
-                    <td>低頻度発作性緊張型頭痛（ETTH）</td>
-                    <td>0〜5点</td>
-                    <td>I</td>
-                    <td>Stewart et al. 1999</td>
-                  </tr>
-                  <tr>
-                    <td>慢性緊張型頭痛（CTTH；ICHD-3 2.3）</td>
-                    <td>5〜20点</td>
-                    <td>I〜III</td>
-                    <td>Stewart et al. 1999</td>
-                  </tr>
-                  <tr>
-                    <td>群発頭痛（発作期；ICHD-3 3.1/3.2）</td>
-                    <td>15〜40点</td>
-                    <td>III〜IV-A</td>
-                    <td>専門家意見</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>9.2 ICHD-3 診断コードとの対応</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>ICHD-3 コード</th>
-                    <th>診断名</th>
-                    <th>MIDAS スコアとの関係</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1.1</td>
-                    <td>前兆なし片頭痛</td>
-                    <td>発作頻度・重症度に比例してスコア上昇；Grade I〜IV まで幅広い</td>
-                  </tr>
-                  <tr>
-                    <td>1.2</td>
-                    <td>前兆あり片頭痛</td>
-                    <td>同上；前兆期の機能障害もスコアに反映される</td>
-                  </tr>
-                  <tr>
-                    <td>1.3</td>
-                    <td>慢性片頭痛</td>
-                    <td>Grade IV（多くはIV-B）が典型的；MOH の合併を必ず評価</td>
-                  </tr>
-                  <tr>
-                    <td>2.1</td>
-                    <td>低頻度発作性緊張型頭痛</td>
-                    <td>Grade I が多い；頭痛日誌による頻度確認が重要</td>
-                  </tr>
-                  <tr>
-                    <td>2.3</td>
-                    <td>慢性緊張型頭痛</td>
-                    <td>Grade II〜III；MOH リスク評価が必須</td>
-                  </tr>
-                  <tr>
-                    <td>3.1/3.2</td>
-                    <td>群発頭痛</td>
-                    <td>発作期は Grade III〜IV-A；間欠期は大幅に改善</td>
-                  </tr>
-                  <tr>
-                    <td>8.2</td>
-                    <td>薬剤乱用頭痛（MOH）</td>
-                    <td>Grade IV が一般的；離脱・解毒後に段階的に改善</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* §10 HIT-6との比較 */}
-          <section className="sec" id="s10">
-            <div className="sec-hd">
-              <span className="sec-num">10</span>
-              <h2 className="sec-title">MIDAS と HIT-6 の比較・補完的使用</h2>
-            </div>
-
-            <h3>10.1 比較概要</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>比較項目</th>
-                    <th>MIDAS</th>
-                    <th>HIT-6</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>開発年</strong>
-                    </td>
-                    <td>2000年</td>
-                    <td>2003年</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>質問数</strong>
-                    </td>
-                    <td>5問（＋補足2問）</td>
-                    <td>6問</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>回答形式</strong>
-                    </td>
-                    <td>実損失日数（日数カウント）</td>
-                    <td>5段階リッカートスケール</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>想起期間</strong>
-                    </td>
-                    <td>
-                      <strong>3ヵ月（90日間）</strong>
-                    </td>
-                    <td>4週間（28日間）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>スコア範囲</strong>
-                    </td>
-                    <td>0〜270点</td>
-                    <td>36〜78点</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>主な感受性</strong>
-                    </td>
-                    <td>
-                      <strong>頭痛頻度・日数</strong>の変化を捉えやすい
-                    </td>
-                    <td>
-                      <strong>頭痛強度・質</strong>の変化を捉えやすい
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>記入時間</strong>
-                    </td>
-                    <td>約5分</td>
-                    <td>約5分</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>相互相関</strong>
-                    </td>
-                    <td colSpan={2}>r = 0.52（有意、p &lt; 0.001；Sauro et al. 2010）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>日本語版検証</strong>
-                    </td>
-                    <td>あり（Iigaya et al. 2003；北里大学）</td>
-                    <td>あり（Sakai et al. 2004）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>臨床試験採用</strong>
-                    </td>
-                    <td>CGRP mAb 主要 RCT の標準 PRO</td>
-                    <td>多数の CGRP mAb 試験で採用</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>再評価頻度</strong>
-                    </td>
-                    <td>3ヵ月ごと（想起期間に一致）</td>
-                    <td>毎月可能</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>経済的コスト評価</strong>
-                    </td>
-                    <td>✅ 生産性損失を直接定量化</td>
-                    <td>✗ 定量化不可</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>10.2 使い分けの指針</h3>
-            <div className="card">
-              <h4 className="tN">MIDAS が優れる場面</h4>
-              <ul>
+              <h3>4.2 計算の仕組み（ステップ解説）</h3>
+              <ol>
                 <li>
-                  <strong>頭痛頻度・日数</strong>の変化が主要アウトカムの場合
+                  <strong>ステップ1：</strong>各質問（Q1〜Q5）に過去3ヵ月の該当日数を記入する
                 </li>
                 <li>
-                  <strong>生産性損失・社会経済的コスト</strong>の定量化が必要な場合
+                  <strong>ステップ2：</strong>5つの日数を合算する（補足質問 A・B
+                  はスコアに含めない）
                 </li>
                 <li>
-                  <strong>3ヵ月単位</strong>の長期的障害評価（予防療法の12週評価など）
+                  <strong>ステップ3：</strong>合計点をグレード表（§5）に照合する
                 </li>
-                <li>社会保障・労務管理・障害認定的観点での評価</li>
-                <li>
-                  <strong>補足質問 A</strong> を活用した月間頭痛日数の把握（予防療法適応判断）
-                </li>
-              </ul>
-              <h4 style={{ color: "var(--purple)" }}>HIT-6 が優れる場面</h4>
-              <ul>
-                <li>
-                  頭痛の<strong>質（Quality）や強度（Intensity）</strong>が問題の中心である場合
-                </li>
-                <li>
-                  <strong>短期間（1ヵ月単位）</strong>の治療効果モニタリング（月次フォロー）
-                </li>
-                <li>
-                  患者の<strong>主観的 QoL</strong> を多面的に評価したい場合
-                </li>
-                <li>頭痛種別に関わらず全般的インパクトを捉えたい場合</li>
-              </ul>
-            </div>
+              </ol>
 
-            <h3>10.3 補完的使用の推奨</h3>
-            <div className="alert a-ok">
-              <div className="alert-i">🤝</div>
-              <div>
-                <strong>推奨（Grade B；Sauro et al. 2010, CHORD 研究 n = 798）：</strong>HIT-6 と MIDAS を
-                <strong>併用</strong>
-                することで、頭痛障害をより正確・多角的に評価できる。単独使用より補完的使用が推奨される。
+              <h3>4.3 スコア計算例（初学者向け）</h3>
+              <p>
+                <strong>例：38歳女性 会社員、片頭痛患者</strong>
+              </p>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>質問</th>
+                      <th>内容（簡略）</th>
+                      <th>回答（日数）</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Q1</td>
+                      <td>仕事を休んだ日数</td>
+                      <td>4日</td>
+                    </tr>
+                    <tr>
+                      <td>Q2</td>
+                      <td>仕事の生産性が半分以下だった日数</td>
+                      <td>8日</td>
+                    </tr>
+                    <tr>
+                      <td>Q3</td>
+                      <td>家事ができなかった日数</td>
+                      <td>5日</td>
+                    </tr>
+                    <tr>
+                      <td>Q4</td>
+                      <td>家事の生産性が半分以下だった日数</td>
+                      <td>6日</td>
+                    </tr>
+                    <tr>
+                      <td>Q5</td>
+                      <td>社会活動を取りやめた日数</td>
+                      <td>3日</td>
+                    </tr>
+                    <tr style={{ fontWeight: 700 }}>
+                      <td>
+                        <strong>MIDAS 合計</strong>
+                      </td>
+                      <td></td>
+                      <td className="tN">26点</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            </div>
-            <div className="alert a-danger">
-              <div className="alert-i">⚠️</div>
-              <div>
-                <strong>REFORM 研究（2026年、Danish Headache Center）：</strong>HIT-6 および MIDAS
-                はエレヌマブの治療反応評価において、前向き頭痛日誌を代替するには精度が不十分であることが示された。
-                <strong>頭痛日誌との組み合わせが必須</strong>。
-              </div>
-            </div>
-          </section>
 
-          {/* §11 臨床使用フローチャート */}
-          <section className="sec" id="s11">
-            <div className="sec-hd">
-              <span className="sec-num">11</span>
-              <h2 className="sec-title">臨床使用フローチャート</h2>
-            </div>
-
-            <h3>11.1 MIDAS 臨床使用フロー（初診〜治療決定まで）</h3>
-            <div className="mmd">
-              <div className="mmd-lbl">
-                フローチャート — 初診からSNOOP4・MOH評価・グレード分類・治療決定まで
+              <div className="alert a-danger">
+                <div className="alert-i">🔴</div>
+                <div>
+                  合計 <strong>26点 → Grade IV（重度障害）</strong> → 予防療法の即時開始を強く推奨
+                </div>
               </div>
-              <MermaidDiagram
-                themeVariables={MIDAS_MERMAID_THEME}
-                chart={`flowchart TD
+
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>補足</th>
+                      <th>内容</th>
+                      <th>記入値</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A</td>
+                      <td>頭痛があった総日数（3ヵ月）</td>
+                      <td>18日（≒6日/月）</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>平均痛み強度（NRS）</td>
+                      <td>7/10</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p>→ A より月間頭痛日数は6日/月（発作性）→ 予防療法適応を支持</p>
+            </section>
+
+            {/* §5 スコア解釈 */}
+            <section className="sec" id="s5">
+              <div className="sec-hd">
+                <span className="sec-num">5</span>
+                <h2 className="sec-title">スコア解釈 — 4段階グレード分類</h2>
+              </div>
+
+              <h3>5.1 標準4段階グレード分類（Stewart et al. 2001）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>MIDAS スコア</th>
+                      <th>グレード</th>
+                      <th>英語</th>
+                      <th>障害の程度</th>
+                      <th>推奨される臨床対応</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>0〜5点</strong>
+                      </td>
+                      <td>
+                        <span className="bGrn">Grade I</span>
+                      </td>
+                      <td>Little or No Disability</td>
+                      <td>軽度または障害なし</td>
+                      <td>急性期治療最適化・生活習慣介入・頭痛日誌の開始</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>6〜10点</strong>
+                      </td>
+                      <td>
+                        <span className="bOra">Grade II</span>
+                      </td>
+                      <td>Mild Disability</td>
+                      <td>軽度障害</td>
+                      <td>急性期治療の強化＋トリガー管理；1ヵ月後に再評価</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>11〜20点</strong>
+                      </td>
+                      <td>
+                        <span className="bC">Grade III</span>
+                      </td>
+                      <td>Moderate Disability</td>
+                      <td>中等度障害</td>
+                      <td>予防療法の開始を強く検討；CBT・理学療法の導入；MOH リスク評価</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>≥21点</strong>
+                      </td>
+                      <td>
+                        <span className="bRed">Grade IV</span>
+                      </td>
+                      <td>Severe Disability</td>
+                      <td>重度障害</td>
+                      <td>
+                        予防療法の即時開始；CGRP mAb を含む多モーダル治療計画；専門医紹介を検討
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>5.2 Grade IV の細分化（Blumenfeld et al. 2011）</h3>
+              <p>
+                慢性片頭痛患者の大多数が Grade IV に集中するため、Blumenfeld
+                ら（2011）はより精緻な臨床評価のために Grade IV を以下のように細分化しました。
+              </p>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>サブグレード</th>
+                      <th>スコア範囲</th>
+                      <th>呼称</th>
+                      <th>臨床的意義</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>Grade IV-A</strong>
+                      </td>
+                      <td>21〜40点</td>
+                      <td>Severe</td>
+                      <td>重度障害；CGRP mAb を含む積極的予防療法の適応</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Grade IV-B</strong>
+                      </td>
+                      <td>41〜270点</td>
+                      <td>Very Severe</td>
+                      <td>
+                        最重度障害；慢性片頭痛（ICHD-3
+                        1.3）との重複評価を推奨；包括的多職種介入が必要
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="src-grid">
+                <div className="src">
+                  <div className="src-org">Cephalalgia · 2011</div>
+                  <div className="src-t">
+                    Blumenfeld AM, et al. Disability, HRQoL and resource use among chronic and
+                    episodic migraineurs: Results from the International Burden of Migraine Study
+                    (IBMS). <em>Cephalalgia</em> 2011;31(3):301–315.
+                  </div>
+                  <Ext href="https://pubmed.ncbi.nlm.nih.gov/20868393/" className="src-url">
+                    PubMed: 20868393
+                  </Ext>
+                </div>
+              </div>
+
+              <div className="alert a-warn">
+                <div className="alert-i">⚠️</div>
+                <div>
+                  <strong>臨床的ポイント（AAN/EHF）：</strong>AAN/EHF のガイドラインでは、MIDAS{" "}
+                  <strong>Grade III〜IV（≥11点）</strong>
+                  、または月間頭痛日数 ≥4日/月、または HIT-6
+                  ≥56点が予防療法開始の主要な患者報告アウトカム（PRO）閾値として採用されています。
+                </div>
+              </div>
+
+              <h3>5.3 スコアの視覚的理解 — グレードスケール</h3>
+              <div className="grade-scale">
+                <div className="grade-scale-i" style={{ flex: 1, background: "#2ecc71" }}>
+                  <strong>Grade I</strong>
+                  <br />
+                  0–5
+                  <br />
+                  <span style={{ fontSize: "11px", opacity: 0.95 }}>軽度/なし</span>
+                </div>
+                <div className="grade-scale-i" style={{ flex: 1, background: "#f39c12" }}>
+                  <strong>Grade II</strong>
+                  <br />
+                  6–10
+                  <br />
+                  <span style={{ fontSize: "11px", opacity: 0.95 }}>軽度障害</span>
+                </div>
+                <div className="grade-scale-i" style={{ flex: 1.4, background: "#e67e22" }}>
+                  <strong>Grade III</strong>
+                  <br />
+                  11–20
+                  <br />
+                  <span style={{ fontSize: "11px", opacity: 0.95 }}>中等度障害</span>
+                </div>
+                <div className="grade-scale-i" style={{ flex: 1.6, background: "#e74c3c" }}>
+                  <strong>Grade IV-A</strong>
+                  <br />
+                  21–40
+                  <br />
+                  <span style={{ fontSize: "11px", opacity: 0.95 }}>重度障害</span>
+                </div>
+                <div className="grade-scale-i" style={{ flex: 2, background: "#922b21" }}>
+                  <strong>Grade IV-B</strong>
+                  <br />
+                  41–270
+                  <br />
+                  <span style={{ fontSize: "11px", opacity: 0.95 }}>最重度障害</span>
+                </div>
+              </div>
+              <p style={{ fontSize: "12px", color: "var(--g6)" }}>
+                ※ Grade IV-A / IV-B は Blumenfeld et al. 2011 による Grade IV の細分化。
+              </p>
+            </section>
+
+            {/* §6 心理測定特性 */}
+            <section className="sec" id="s6">
+              <div className="sec-hd">
+                <span className="sec-num">6</span>
+                <h2 className="sec-title">心理測定特性（Psychometric Properties）</h2>
+              </div>
+
+              <h3>6.1 信頼性（Reliability）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>指標</th>
+                      <th>値</th>
+                      <th>解釈基準</th>
+                      <th>出典</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>検査再検査信頼性（Test-retest）</strong>
+                      </td>
+                      <td>
+                        Pearson r ≈ <strong>0.80</strong>
+                      </td>
+                      <td>r ≥ 0.70 = 良好</td>
+                      <td>
+                        Stewart et al. 2001（<em>Neurology</em>）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>検査再検査（日本語版）</strong>
+                      </td>
+                      <td>
+                        Spearman r = <strong>0.59〜0.80</strong>（すべて p &lt; 0.0001）
+                      </td>
+                      <td>r ≥ 0.60 = 良好〜優秀</td>
+                      <td>
+                        Iigaya et al. 2003（<em>Headache</em>）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>内的一貫性（Cronbach&apos;s α）</strong>
+                      </td>
+                      <td>良好（報告あり）</td>
+                      <td>α ≥ 0.70 = 良好</td>
+                      <td>Stewart et al. 2001</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="alert a-ok">
+                <div className="alert-i">🔰</div>
+                <div>
+                  <strong>初学者向け解説：</strong>
+                  <strong>検査再検査信頼性（r ≈ 0.80）</strong>
+                  とは、「同じ患者を数週間後に再び評価しても、ほぼ同じスコアが得られる安定性」を示します。r
+                  = 0.80 は「優秀」の範囲であり、時間的安定性が高いことを意味します。
+                </div>
+              </div>
+
+              <h3>6.2 妥当性（Validity）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>妥当性の種類</th>
+                      <th>結果</th>
+                      <th>詳細</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>基準関連妥当性（Criterion）</strong>
+                      </td>
+                      <td>
+                        Spearman r = <strong>0.63</strong>（頭痛日誌との比較）
+                      </td>
+                      <td>
+                        Stewart et al. 2000（<em>Pain</em>）；n = 144
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>臨床的妥当性（Clinical）</strong>
+                      </td>
+                      <td>専門医の重症度評価と有意相関</td>
+                      <td>49名の頭痛専門医による独立評価（Stewart et al. 1999）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>判別妥当性（Discriminant）</strong>
+                      </td>
+                      <td>片頭痛患者 vs 非片頭痛患者で有意差</td>
+                      <td>片頭痛患者のほうが有意に高スコアを示す</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>治療反応への感受性（Responsiveness）</strong>
+                      </td>
+                      <td>CGRP mAb 主要 RCT で有意な変化を検出</td>
+                      <td>Erenumab / Fremanezumab / Galcanezumab 各試験</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>6.3 多言語検証状況</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>言語</th>
+                      <th>主な結果</th>
+                      <th>代表文献</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>英語（原版）</strong>
+                      </td>
+                      <td>信頼性・妥当性確立（n = 144）</td>
+                      <td>
+                        Stewart et al. 2000（<em>Pain</em>）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>日本語版</strong>
+                      </td>
+                      <td>英語版と同等の信頼性・妥当性確認（n = 101）</td>
+                      <td>
+                        Iigaya M, et al. 2003（<em>Headache</em>）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>イタリア語版</strong>
+                      </td>
+                      <td>検証済</td>
+                      <td>D&apos;Amico et al. 複数文献</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>その他多言語</strong>
+                      </td>
+                      <td>多数の言語で翻訳・検証済</td>
+                      <td>各国頭痛学会</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* §7 MIC */}
+            <section className="sec" id="s7">
+              <div className="sec-hd">
+                <span className="sec-num">7</span>
+                <h2 className="sec-title">最小臨床重要差（MIC / MCID）</h2>
+              </div>
+
+              <h3>7.1 MIC とは何か</h3>
+              <p>
+                <strong>MIC（Minimal Important Change）</strong>または
+                <strong>MCID（Minimally Clinically Important Difference）</strong>
+                とは、「統計的有意性」ではなく{" "}
+                <strong>「患者が実際に『良くなった』と感じ取れる最小の変化量」</strong> を指します。
+              </p>
+              <div className="alert a-info">
+                <div className="alert-i">💡</div>
+                <div>
+                  <strong>例：</strong>MIDAS が 28点 →
+                  23点（5点減少）は統計的に有意かもしれませんが、患者にとって実感できる改善かどうかは
+                  MIC によって判断します。MIC
+                  を下回る変化は、統計的に有意であっても「臨床的に意味のある改善」とはみなされません。
+                </div>
+              </div>
+
+              <h3>7.2 MIC 推定値（文献別）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>研究</th>
+                      <th>対象集団</th>
+                      <th>推定 MIC</th>
+                      <th>推定方法</th>
+                      <th>出典</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Carvalho et al. 2021</td>
+                      <td>頭痛患者（n = 103；非薬物療法 RCT）</td>
+                      <td>
+                        <strong>-4.5点</strong>（1ヵ月想起版；3ヵ月版では約 -13.5点相当）
+                      </td>
+                      <td>アンカーベース法（PGIC 基準）</td>
+                      <td>
+                        <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8529733/">
+                          J Headache Pain 2021;22:126
+                        </Ext>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Ruscheweyh et al. 2024</td>
+                      <td>三次頭痛外来（DMKG レジストリ；n = 1,218）</td>
+                      <td>
+                        <strong>Grade IV（&gt;20）：-30%</strong> /{" "}
+                        <strong>Grade II-III（6-20）：-4点</strong>
+                      </td>
+                      <td>アンカーベース法＋ROC 曲線法（PGIC 基準）</td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/39033424/">
+                          Cephalalgia 2024;44(7)
+                        </Ext>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>7.3 臨床推奨 MIC の解釈</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>対象グレード</th>
+                      <th>臨床的に意味のある改善の目安</th>
+                      <th>具体例</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span className="bC">Grade II-III</span>（6〜20点）
+                      </td>
+                      <td>
+                        MIDAS <strong>-4点以上</strong>の減少（Ruscheweyh 2024）
+                      </td>
+                      <td>例：14点 → 10点（-4点）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="bRed">Grade IV</span>（≥21点）
+                      </td>
+                      <td>
+                        MIDAS <strong>-30%以上</strong>の減少（Ruscheweyh 2024）
+                      </td>
+                      <td>例：40点 → 28点（-30%）= MID 達成</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="bB">臨床試験標準</span>（IHS / CGRP mAb）
+                      </td>
+                      <td>
+                        MIDAS <strong>≥50% 減少</strong> → &quot;MIDAS Responder&quot;
+                      </td>
+                      <td>例：40点 → 20点（-50%）</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="alert a-warn">
+                <div className="alert-i">⚠️</div>
+                <div>
+                  <strong>注意：</strong>MIC
+                  は集団統計から導出された値であり、個々の患者への適用では臨床的文脈（治療の種類・副作用・生活状況）を総合判断に組み込むことが重要です。
+                </div>
+              </div>
+
+              <h3>7.4 CGRP mAb 試験における MIDAS レスポンダー基準と実績</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>薬剤</th>
+                      <th>試験名</th>
+                      <th>MIDAS ベースライン（平均）</th>
+                      <th>判定基準</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Erenumab（エレヌマブ）</td>
+                      <td>STRIVE（発作性片頭痛）</td>
+                      <td>約18〜20点（Grade III〜IV）</td>
+                      <td>≥50% 改善</td>
+                    </tr>
+                    <tr>
+                      <td>Fremanezumab（フレマネズマブ）</td>
+                      <td>HALO（発作性片頭痛）</td>
+                      <td>約22〜24点（Grade IV）</td>
+                      <td>≥50% 改善</td>
+                    </tr>
+                    <tr>
+                      <td>Galcanezumab（ガルカネズマブ）</td>
+                      <td>EVOLVE-1/2（発作性片頭痛）</td>
+                      <td>約20〜22点（Grade IV）</td>
+                      <td>≥50% 改善</td>
+                    </tr>
+                    <tr>
+                      <td>Eptinezumab（エプティネズマブ）</td>
+                      <td>PROMISE-1（発作性片頭痛）</td>
+                      <td>約19〜21点（Grade III〜IV）</td>
+                      <td>≥50% 改善</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* §8 日本語版の検証 */}
+            <section className="sec" id="s8">
+              <div className="sec-hd">
+                <span className="sec-num">8</span>
+                <h2 className="sec-title">日本語版 MIDAS の検証</h2>
+              </div>
+
+              <h3>8.1 日本語版検証研究（Iigaya et al. 2003）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>項目</th>
+                      <th>内容</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>著者</strong>
+                      </td>
+                      <td>Iigaya M, Sakai F, Kolodner KB, Lipton RB, Stewart WF</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>機関</strong>
+                      </td>
+                      <td>北里大学神経内科（Kitasato University）および関連クリニック</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>雑誌・年</strong>
+                      </td>
+                      <td>
+                        <em>Headache</em> 2003;43(3):225–233
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>PubMed</strong>
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/12656705/">PMID: 12656705</Ext>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>対象患者数</strong>
+                      </td>
+                      <td>n = 101名（女性80名・男性21名；年齢21〜77歳）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>組み入れ基準</strong>
+                      </td>
+                      <td>年間6回以上の一次性頭痛を有する患者</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>検査再検査相関（Spearman r）</strong>
+                      </td>
+                      <td>
+                        Q1〜B の各質問：<strong>0.59〜0.80</strong>（すべて p &lt; 0.0001）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>日誌との比較</strong>
+                      </td>
+                      <td>90日間頭痛日誌由来の等価指標と有意な相関を確認</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>グレード別患者分布</strong>
+                      </td>
+                      <td>Grade I/II：46.5% / Grade III：22.2% / Grade IV：31.3%</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>結論</strong>
+                      </td>
+                      <td>
+                        英語版と同等の信頼性・妥当性が確認され、日本語版の臨床使用が支持された
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="alert a-ok">
+                <div className="alert-i">🇯🇵</div>
+                <div>
+                  <strong>臨床的意義：</strong>日本語版 MIDAS
+                  は正式に検証されており、日本人頭痛患者への適用は科学的に裏付けられています。日本人サンプルでのグレード分布（Grade
+                  IV：31.3%）は、多くの患者が重度障害を抱えていることを示しており、予防療法の積極的な適応が示唆されます。
+                </div>
+              </div>
+            </section>
+
+            {/* §9 頭痛タイプ別参照スコア */}
+            <section className="sec" id="s9">
+              <div className="sec-hd">
+                <span className="sec-num">9</span>
+                <h2 className="sec-title">頭痛タイプ別参照スコアと ICHD-3 対応</h2>
+              </div>
+
+              <h3>9.1 疾患別 MIDAS 典型スコア</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>頭痛タイプ（ICHD-3）</th>
+                      <th>典型的 MIDAS 範囲</th>
+                      <th>Grade</th>
+                      <th>主な参考文献</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>低頻度発作性片頭痛（&lt;4回/月）</td>
+                      <td>3〜10点</td>
+                      <td>I〜II</td>
+                      <td>Stewart et al. 1999</td>
+                    </tr>
+                    <tr>
+                      <td>高頻度発作性片頭痛（4〜14日/月）</td>
+                      <td>11〜30点</td>
+                      <td>III〜IV</td>
+                      <td>Stewart et al. 2001</td>
+                    </tr>
+                    <tr>
+                      <td>慢性片頭痛（≥15日/月；ICHD-3 1.3）</td>
+                      <td>30〜100点以上</td>
+                      <td>IV（多くはIV-B）</td>
+                      <td>Blumenfeld et al. 2011</td>
+                    </tr>
+                    <tr>
+                      <td>薬剤乱用頭痛（MOH；ICHD-3 8.2）</td>
+                      <td>40〜80点</td>
+                      <td>IV-B</td>
+                      <td>臨床データ・専門家コンセンサス</td>
+                    </tr>
+                    <tr>
+                      <td>低頻度発作性緊張型頭痛（ETTH）</td>
+                      <td>0〜5点</td>
+                      <td>I</td>
+                      <td>Stewart et al. 1999</td>
+                    </tr>
+                    <tr>
+                      <td>慢性緊張型頭痛（CTTH；ICHD-3 2.3）</td>
+                      <td>5〜20点</td>
+                      <td>I〜III</td>
+                      <td>Stewart et al. 1999</td>
+                    </tr>
+                    <tr>
+                      <td>群発頭痛（発作期；ICHD-3 3.1/3.2）</td>
+                      <td>15〜40点</td>
+                      <td>III〜IV-A</td>
+                      <td>専門家意見</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>9.2 ICHD-3 診断コードとの対応</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>ICHD-3 コード</th>
+                      <th>診断名</th>
+                      <th>MIDAS スコアとの関係</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1.1</td>
+                      <td>前兆なし片頭痛</td>
+                      <td>発作頻度・重症度に比例してスコア上昇；Grade I〜IV まで幅広い</td>
+                    </tr>
+                    <tr>
+                      <td>1.2</td>
+                      <td>前兆あり片頭痛</td>
+                      <td>同上；前兆期の機能障害もスコアに反映される</td>
+                    </tr>
+                    <tr>
+                      <td>1.3</td>
+                      <td>慢性片頭痛</td>
+                      <td>Grade IV（多くはIV-B）が典型的；MOH の合併を必ず評価</td>
+                    </tr>
+                    <tr>
+                      <td>2.1</td>
+                      <td>低頻度発作性緊張型頭痛</td>
+                      <td>Grade I が多い；頭痛日誌による頻度確認が重要</td>
+                    </tr>
+                    <tr>
+                      <td>2.3</td>
+                      <td>慢性緊張型頭痛</td>
+                      <td>Grade II〜III；MOH リスク評価が必須</td>
+                    </tr>
+                    <tr>
+                      <td>3.1/3.2</td>
+                      <td>群発頭痛</td>
+                      <td>発作期は Grade III〜IV-A；間欠期は大幅に改善</td>
+                    </tr>
+                    <tr>
+                      <td>8.2</td>
+                      <td>薬剤乱用頭痛（MOH）</td>
+                      <td>Grade IV が一般的；離脱・解毒後に段階的に改善</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* §10 HIT-6との比較 */}
+            <section className="sec" id="s10">
+              <div className="sec-hd">
+                <span className="sec-num">10</span>
+                <h2 className="sec-title">MIDAS と HIT-6 の比較・補完的使用</h2>
+              </div>
+
+              <h3>10.1 比較概要</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>比較項目</th>
+                      <th>MIDAS</th>
+                      <th>HIT-6</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>開発年</strong>
+                      </td>
+                      <td>2000年</td>
+                      <td>2003年</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>質問数</strong>
+                      </td>
+                      <td>5問（＋補足2問）</td>
+                      <td>6問</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>回答形式</strong>
+                      </td>
+                      <td>実損失日数（日数カウント）</td>
+                      <td>5段階リッカートスケール</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>想起期間</strong>
+                      </td>
+                      <td>
+                        <strong>3ヵ月（90日間）</strong>
+                      </td>
+                      <td>4週間（28日間）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>スコア範囲</strong>
+                      </td>
+                      <td>0〜270点</td>
+                      <td>36〜78点</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>主な感受性</strong>
+                      </td>
+                      <td>
+                        <strong>頭痛頻度・日数</strong>の変化を捉えやすい
+                      </td>
+                      <td>
+                        <strong>頭痛強度・質</strong>の変化を捉えやすい
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>記入時間</strong>
+                      </td>
+                      <td>約5分</td>
+                      <td>約5分</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>相互相関</strong>
+                      </td>
+                      <td colSpan={2}>r = 0.52（有意、p &lt; 0.001；Sauro et al. 2010）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>日本語版検証</strong>
+                      </td>
+                      <td>あり（Iigaya et al. 2003；北里大学）</td>
+                      <td>あり（Sakai et al. 2004）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>臨床試験採用</strong>
+                      </td>
+                      <td>CGRP mAb 主要 RCT の標準 PRO</td>
+                      <td>多数の CGRP mAb 試験で採用</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>再評価頻度</strong>
+                      </td>
+                      <td>3ヵ月ごと（想起期間に一致）</td>
+                      <td>毎月可能</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>経済的コスト評価</strong>
+                      </td>
+                      <td>✅ 生産性損失を直接定量化</td>
+                      <td>✗ 定量化不可</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>10.2 使い分けの指針</h3>
+              <div className="card">
+                <h4 className="tN">MIDAS が優れる場面</h4>
+                <ul>
+                  <li>
+                    <strong>頭痛頻度・日数</strong>の変化が主要アウトカムの場合
+                  </li>
+                  <li>
+                    <strong>生産性損失・社会経済的コスト</strong>の定量化が必要な場合
+                  </li>
+                  <li>
+                    <strong>3ヵ月単位</strong>の長期的障害評価（予防療法の12週評価など）
+                  </li>
+                  <li>社会保障・労務管理・障害認定的観点での評価</li>
+                  <li>
+                    <strong>補足質問 A</strong> を活用した月間頭痛日数の把握（予防療法適応判断）
+                  </li>
+                </ul>
+                <h4 style={{ color: "var(--purple)" }}>HIT-6 が優れる場面</h4>
+                <ul>
+                  <li>
+                    頭痛の<strong>質（Quality）や強度（Intensity）</strong>が問題の中心である場合
+                  </li>
+                  <li>
+                    <strong>短期間（1ヵ月単位）</strong>の治療効果モニタリング（月次フォロー）
+                  </li>
+                  <li>
+                    患者の<strong>主観的 QoL</strong> を多面的に評価したい場合
+                  </li>
+                  <li>頭痛種別に関わらず全般的インパクトを捉えたい場合</li>
+                </ul>
+              </div>
+
+              <h3>10.3 補完的使用の推奨</h3>
+              <div className="alert a-ok">
+                <div className="alert-i">🤝</div>
+                <div>
+                  <strong>推奨（Grade B；Sauro et al. 2010, CHORD 研究 n = 798）：</strong>HIT-6 と
+                  MIDAS を<strong>併用</strong>
+                  することで、頭痛障害をより正確・多角的に評価できる。単独使用より補完的使用が推奨される。
+                </div>
+              </div>
+              <div className="alert a-danger">
+                <div className="alert-i">⚠️</div>
+                <div>
+                  <strong>REFORM 研究（2026年、Danish Headache Center）：</strong>HIT-6 および MIDAS
+                  はエレヌマブの治療反応評価において、前向き頭痛日誌を代替するには精度が不十分であることが示された。
+                  <strong>頭痛日誌との組み合わせが必須</strong>。
+                </div>
+              </div>
+            </section>
+
+            {/* §11 臨床使用フローチャート */}
+            <section className="sec" id="s11">
+              <div className="sec-hd">
+                <span className="sec-num">11</span>
+                <h2 className="sec-title">臨床使用フローチャート</h2>
+              </div>
+
+              <h3>11.1 MIDAS 臨床使用フロー（初診〜治療決定まで）</h3>
+              <div className="mmd">
+                <div className="mmd-lbl">
+                  フローチャート — 初診からSNOOP4・MOH評価・グレード分類・治療決定まで
+                </div>
+                <MermaidDiagram
+                  themeVariables={MIDAS_MERMAID_THEME}
+                  chart={`flowchart TD
 A["患者が頭痛を主訴として来院"] --> B{"SNOOP4\\nレッドフラッグスクリーニング"}
 B -->|"フラグあり"| C["緊急画像診断\\nCT / MRI\\n二次性頭痛を除外"]
 C --> D{"画像・検査結果"}
@@ -1506,17 +1488,17 @@ style L fill:#e67e22,color:#ffffff
 style M fill:#c0392b,color:#ffffff
 style Q fill:#27ae60,color:#ffffff
 style R fill:#8e44ad,color:#ffffff`}
-              />
-            </div>
-
-            <h3>11.2 MIDAS グレードと予防療法選択フロー</h3>
-            <div className="mmd">
-              <div className="mmd-lbl">
-                フローチャート — 月間頭痛日数・グレードから予防薬選択まで
+                />
               </div>
-              <MermaidDiagram
-                themeVariables={MIDAS_MERMAID_THEME}
-                chart={`flowchart LR
+
+              <h3>11.2 MIDAS グレードと予防療法選択フロー</h3>
+              <div className="mmd">
+                <div className="mmd-lbl">
+                  フローチャート — 月間頭痛日数・グレードから予防薬選択まで
+                </div>
+                <MermaidDiagram
+                  themeVariables={MIDAS_MERMAID_THEME}
+                  chart={`flowchart LR
 START["MIDAS スコア確認\\n+ 補足質問 A（月間頭痛日数）"] --> FREQ
 
 FREQ{"補足質問 A:\\n月間頭痛日数？"}
@@ -1542,17 +1524,17 @@ style ACUTE fill:#27ae60,color:#fff
 style CGRP fill:#8e44ad,color:#fff
 style TRAD fill:#2980b9,color:#fff
 style BONTA fill:#16a085,color:#fff`}
-              />
-            </div>
-
-            <h3>11.3 MOH 回復期における MIDAS モニタリングフロー</h3>
-            <div className="mmd">
-              <div className="mmd-lbl">
-                フローチャート — MOH離脱期から再発予防までのMIDAS位置づけ
+                />
               </div>
-              <MermaidDiagram
-                themeVariables={MIDAS_MERMAID_THEME}
-                chart={`flowchart LR
+
+              <h3>11.3 MOH 回復期における MIDAS モニタリングフロー</h3>
+              <div className="mmd">
+                <div className="mmd-lbl">
+                  フローチャート — MOH離脱期から再発予防までのMIDAS位置づけ
+                </div>
+                <MermaidDiagram
+                  themeVariables={MIDAS_MERMAID_THEME}
+                  chart={`flowchart LR
 MOH(["⚠️ MOH 診断確定\\nICHD-3 コード: 8.2\\n急性期薬剤の漸減開始"])
 
 MOH --> P1["🔴 離脱期（Week 1〜2）\\n反跳性頭痛により MIDAS が一時的上昇する可能性あり\\nこの時期のスコアは治療効果の指標に使用しないこと\\nバイオフィードバック・PMR を支持的に実施"]
@@ -1568,980 +1550,949 @@ style P1 fill:#8B0000,color:#fff
 style P2 fill:#7b3f00,color:#fff
 style P3 fill:#1b4332,color:#fff
 style P4 fill:#27ae60,color:#fff`}
-              />
-            </div>
-          </section>
-
-          {/* §12 特殊集団への適用 */}
-          <section className="sec" id="s12">
-            <div className="sec-hd">
-              <span className="sec-num">12</span>
-              <h2 className="sec-title">特殊集団への適用（PedMIDAS 含む）</h2>
-            </div>
-
-            <h3>12.1 小児・青年期：PedMIDAS</h3>
-            <p>
-              小児の頭痛関連障害評価には、成人用 MIDAS を直接適用することは推奨されません。4〜18歳には専用の{" "}
-              <strong>PedMIDAS（Pediatric Migraine Disability Assessment）</strong> を使用します。
-            </p>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>比較項目</th>
-                    <th>PedMIDAS</th>
-                    <th>成人 MIDAS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>対象年齢</strong>
-                    </td>
-                    <td>4〜18歳（検証済）</td>
-                    <td>成人（18歳以上）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>開発者</strong>
-                    </td>
-                    <td>Hershey AD, et al. 2001</td>
-                    <td>Stewart WF, et al. 2000</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>活動ドメイン</strong>
-                    </td>
-                    <td>学校欠席・学校での機能低下・家庭内活動・社会活動</td>
-                    <td>仕事・家事・社会活動</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>スコア解釈</strong>
-                    </td>
-                    <td>0〜10：軽微 / 11〜30：軽度 / 31〜50：中等度 / &gt;50：重度</td>
-                    <td>Grade I〜IV</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>想起期間</strong>
-                    </td>
-                    <td>3ヵ月（同一）</td>
-                    <td>3ヵ月</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>注意点</strong>
-                    </td>
-                    <td>
-                      3ヵ月の記憶に基づくため、特に幼児では信頼性に限界あり；保護者も補助
-                    </td>
-                    <td>—</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="alert a-warn">
-              <div className="alert-i">👶</div>
-              <div>
-                <strong>急性期治療の注意（小児）：</strong>第1選択はイブプロフェン{" "}
-                <strong>10 mg/kg</strong> またはアセトアミノフェン <strong>15 mg/kg</strong>
-                。スマトリプタン点鼻スプレーは <strong>12歳以上</strong>
-                で一部承認。バルプロ酸は体重増加・認知への影響を考慮；生殖年齢の女性には催奇形性についての必須説明。
+                />
               </div>
-            </div>
+            </section>
 
-            <div className="src-grid">
-              <div className="src">
-                <div className="src-org">Neurology · 2001</div>
-                <div className="src-t">
-                  Hershey AD, et al. PedMIDAS: Development of a questionnaire to assess disability
-                  of migraines in children. <em>Neurology</em> 2001;57(11):2034–2039.
+            {/* §12 特殊集団への適用 */}
+            <section className="sec" id="s12">
+              <div className="sec-hd">
+                <span className="sec-num">12</span>
+                <h2 className="sec-title">特殊集団への適用（PedMIDAS 含む）</h2>
+              </div>
+
+              <h3>12.1 小児・青年期：PedMIDAS</h3>
+              <p>
+                小児の頭痛関連障害評価には、成人用 MIDAS
+                を直接適用することは推奨されません。4〜18歳には専用の{" "}
+                <strong>PedMIDAS（Pediatric Migraine Disability Assessment）</strong> を使用します。
+              </p>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>比較項目</th>
+                      <th>PedMIDAS</th>
+                      <th>成人 MIDAS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>対象年齢</strong>
+                      </td>
+                      <td>4〜18歳（検証済）</td>
+                      <td>成人（18歳以上）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>開発者</strong>
+                      </td>
+                      <td>Hershey AD, et al. 2001</td>
+                      <td>Stewart WF, et al. 2000</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>活動ドメイン</strong>
+                      </td>
+                      <td>学校欠席・学校での機能低下・家庭内活動・社会活動</td>
+                      <td>仕事・家事・社会活動</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>スコア解釈</strong>
+                      </td>
+                      <td>0〜10：軽微 / 11〜30：軽度 / 31〜50：中等度 / &gt;50：重度</td>
+                      <td>Grade I〜IV</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>想起期間</strong>
+                      </td>
+                      <td>3ヵ月（同一）</td>
+                      <td>3ヵ月</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>注意点</strong>
+                      </td>
+                      <td>3ヵ月の記憶に基づくため、特に幼児では信頼性に限界あり；保護者も補助</td>
+                      <td>—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="alert a-warn">
+                <div className="alert-i">👶</div>
+                <div>
+                  <strong>急性期治療の注意（小児）：</strong>第1選択はイブプロフェン{" "}
+                  <strong>10 mg/kg</strong> またはアセトアミノフェン <strong>15 mg/kg</strong>
+                  。スマトリプタン点鼻スプレーは <strong>12歳以上</strong>
+                  で一部承認。バルプロ酸は体重増加・認知への影響を考慮；生殖年齢の女性には催奇形性についての必須説明。
                 </div>
-                <Ext
-                  href="https://pubmed.ncbi.nlm.nih.gov/11739827/"
-                  className="src-url"
-                >
-                  PubMed: 11739827
-                </Ext>
               </div>
-            </div>
 
-            <h3>12.2 妊娠・授乳期</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>項目</th>
-                    <th>内容</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>ツールの使用</strong>
-                    </td>
-                    <td>MIDAS 評価自体は問題なく使用可能</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>スコアが高い場合</strong>
-                    </td>
-                    <td>
-                      Grade III〜IV であっても、薬剤選択は妊娠安全性に基づいて行うこと
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>急性期第1選択</strong>
-                    </td>
-                    <td>アセトアミノフェン；重症時：IV 硫酸マグネシウム 1〜2g（専門医管理下）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>禁忌薬</strong>
-                    </td>
-                    <td>
-                      バルプロ酸（Category X）・トピラマート（Category D）・エルゴタミン・CGRP mAb（安全データ不十分）・NSAIDs（第3三半期）
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>非薬物療法（優先）</strong>
-                    </td>
-                    <td>
-                      バイオフィードバック・CBT が妊娠中の第一選択非薬物療法として特に推奨
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>12.3 高齢者（≥65歳）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>項目</th>
-                    <th>内容</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>ツール使用の注意</strong>
-                    </td>
-                    <td>
-                      認知機能低下により質問の理解・記憶への影響を考慮；補助者によるサポートが有益
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>スコア解釈の注意</strong>
-                    </td>
-                    <td>
-                      多疾患（comorbidity）・身体機能低下が MIDAS スコアを複合的に上昇させる可能性あり
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>優先薬剤</strong>
-                    </td>
-                    <td>
-                      TCA（アミトリプチリン）は <strong>10 mg</strong>{" "}
-                      から開始；β遮断薬は転倒・起立性低血圧リスクを考慮
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>SNOOP4 感度</strong>
-                    </td>
-                    <td>
-                      50歳以上の頭痛には側頭動脈炎・悪性・血管性疾患のリスクが高い；SNOOP4
-                      を高感度に保つ
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>認知機能への薬剤影響</strong>
-                    </td>
-                    <td>
-                      トピラマートは認知機能低下リスクが上昇；高齢者では代替薬を優先検討
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>12.4 薬剤乱用頭痛（MOH）回復期（ICHD-3 8.2）</h3>
-            <div className="alert a-danger">
-              <div className="alert-i">🚨</div>
-              <div>
-                <strong>MIDAS スコアが高い患者では必ず MOH リスクを評価すること：</strong>
-                単純鎮痛薬・NSAIDs は月15日以上 × 3ヵ月以上、トリプタン・エルゴタミン・オピオイドは月10日以上
-                × 3ヵ月以上で MOH 診断基準を満たす。
-              </div>
-            </div>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>回復段階</th>
-                    <th>MIDAS の位置づけ</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>離脱期（Week 1〜2）</strong>
-                    </td>
-                    <td>
-                      反跳性頭痛により一時的スコア上昇を来す；この時期のスコアを治療効果指標に使用しないこと
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>回復初期（Week 2〜8）</strong>
-                    </td>
-                    <td>スコアの緩やかな改善；4週ごとに HIT-6 で補完的にモニタリング</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>安定期（Week 8〜）</strong>
-                    </td>
-                    <td>
-                      ベースライン比での MIDAS スコア改善が治療成功の指標；予防療法の有効性評価
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>長期フォロー</strong>
-                    </td>
-                    <td>
-                      MOH 再発防止のため月間薬剤使用日数と MIDAS スコアを定期モニタリング
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* §13 臨床応用の限界 */}
-          <section className="sec" id="s13">
-            <div className="sec-hd">
-              <span className="sec-num">13</span>
-              <h2 className="sec-title">臨床応用の限界と注意点</h2>
-            </div>
-
-            <h3>13.1 MIDAS の制限事項</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>限界点</th>
-                    <th>詳細</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>回顧バイアス（Recall Bias）</strong>
-                    </td>
-                    <td>3ヵ月（90日間）という長い想起期間は記憶の歪みを生じさせやすい</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>活動の異質性</strong>
-                    </td>
-                    <td>
-                      専業主婦・無職・退職者では「仕事欠勤（Q1・Q2）」が0となり、職業的障害を過小評価する可能性がある
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>感受性の限界</strong>
-                    </td>
-                    <td>
-                      Carvalho et al. 2021 で「限定的な感受性」が指摘されており、短期間での治療変化を捉えにくい
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>頭痛強度を直接測定しない</strong>
-                    </td>
-                    <td>
-                      MIDAS は日数のみを計測するため、補足質問 B（NRS）および HIT-6
-                      との組み合わせが必要
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>フロア効果</strong>
-                    </td>
-                    <td>Grade I（0〜5点）の患者では変化の検出が困難</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>就労形態の影響</strong>
-                    </td>
-                    <td>
-                      学生・パート・フリーランスなど多様な就労形態によりスコアの解釈が異なる
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>治療反応の単独代替不可</strong>
-                    </td>
-                    <td>
-                      REFORM 研究（2026）：頭痛日誌を代替できない；日誌との組み合わせが必須
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>13.2 MIDAS 単独使用が不十分な場面</h3>
-            <div className="alert a-info">
-              <div className="alert-i">🧭</div>
-              <div>
-                <strong>以下の目的には MIDAS 単独では不十分です：</strong>
-                <ul style={{ marginTop: "6px" }}>
-                  <li>
-                    新規頭痛の初期診断 → <strong>ICHD-3 診断基準</strong>を使用
-                  </li>
-                  <li>
-                    頭痛強度の評価 → <strong>NRS / VAS および HIT-6</strong> と組み合わせる
-                  </li>
-                  <li>
-                    緊急性の判断 → <strong>SNOOP4</strong> を使用
-                  </li>
-                  <li>
-                    小児の頭痛評価 → <strong>PedMIDAS</strong> を使用
-                  </li>
-                  <li>
-                    CGRP mAb 治療反応の唯一の評価 →{" "}
-                    <strong>頭痛日誌との組み合わせが必須</strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* §14 統合モニタリングプロトコル */}
-          <section className="sec" id="s14">
-            <div className="sec-hd">
-              <span className="sec-num">14</span>
-              <h2 className="sec-title">統合モニタリングプロトコル（12週間フレームワーク）</h2>
-            </div>
-
-            <h3>14.1 12週間フレームワーク</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>時点</th>
-                    <th>MIDAS</th>
-                    <th>HIT-6</th>
-                    <th>頭痛日誌</th>
-                    <th>評価目標</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>ベースライン（0週）</strong>
-                    </td>
-                    <td>✅ 必須</td>
-                    <td>✅ 必須</td>
-                    <td>最低30日間</td>
-                    <td>治療前評価の確立；グレード確定</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>4週（1ヵ月後）</strong>
-                    </td>
-                    <td>—</td>
-                    <td>✅ 実施</td>
-                    <td>継続</td>
-                    <td>初期反応確認（HIT-6 で毎月評価可能）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>8週（2ヵ月後）</strong>
-                    </td>
-                    <td>—</td>
-                    <td>✅ 実施</td>
-                    <td>継続</td>
-                    <td>中間評価</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>12週（3ヵ月後）</strong>
-                    </td>
-                    <td>
-                      ✅ <strong>必須</strong>
-                    </td>
-                    <td>
-                      ✅ <strong>必須</strong>
-                    </td>
-                    <td>継続</td>
-                    <td>正式アウトカム評価；グレード変化の確認</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>6ヵ月</strong>
-                    </td>
-                    <td>✅ 必須</td>
-                    <td>✅ 必須</td>
-                    <td>継続</td>
-                    <td>長期維持の判断；治療継続の根拠</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>12ヵ月</strong>
-                    </td>
-                    <td>✅ 必須</td>
-                    <td>✅ 必須</td>
-                    <td>継続</td>
-                    <td>年間評価；CGRP mAb の継続可否判断</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="alert a-info">
-              <div className="alert-i">📅</div>
-              <div>
-                <strong>なぜ MIDAS は3ヵ月ごとか？</strong>MIDAS の想起期間が3ヵ月（90日）であるため、3ヵ月未満での再測定は想起期間の重複が生じ、正確な評価が困難になります。一方、HIT-6
-                の想起期間は4週間のため毎月の測定が可能です。この特性を活かした役割分担が最適なモニタリングを実現します。
-              </div>
-            </div>
-
-            <h3>14.2 治療成功基準（複合アウトカム）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>指標</th>
-                    <th>最小成功基準（MCID）</th>
-                    <th>優良基準</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <strong>MIDAS スコア</strong>
-                    </td>
-                    <td>≥50% 減少（MIDAS レスポンダー）</td>
-                    <td>Grade I または II への移行</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>MIDAS Grade</strong>
-                    </td>
-                    <td>1グレード以上の改善</td>
-                    <td>Grade I への移行</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>頭痛日数/月</strong>
-                    </td>
-                    <td>≥50% 減少</td>
-                    <td>≥75% 減少</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>HIT-6 スコア</strong>
-                    </td>
-                    <td>≥5〜6点の改善（MCID）</td>
-                    <td>&lt;50点（正常域）</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>急性期薬使用日数</strong>
-                    </td>
-                    <td>
-                      MOH 閾値以下（NSAIDs &lt;15日/月、トリプタン &lt;10日/月）
-                    </td>
-                    <td>≤4日/月</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>VAS ピーク強度</strong>
-                    </td>
-                    <td>≥30% 低下</td>
-                    <td>≥50% 低下</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <strong>PGIC</strong>
-                    </td>
-                    <td>7点尺度で「改善（5点）」以上</td>
-                    <td>「著明改善（7点）」</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>14.3 治療プラン別 MIDAS 改善の期待値</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>治療介入</th>
-                    <th>期待される MIDAS 改善</th>
-                    <th>エビデンスレベル</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Erenumab（CGRP 受容体拮抗 mAb）</td>
-                    <td>MIDAS スコアの有意な減少；≥50% レスポンダー率の増加</td>
-                    <td>
-                      <span className="bA">Grade A</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Fremanezumab（CGRP 標的 mAb）</td>
-                    <td>MIDAS スコアの有意な減少</td>
-                    <td>
-                      <span className="bA">Grade A</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Galcanezumab（CGRP 標的 mAb）</td>
-                    <td>MIDAS スコアの有意な減少</td>
-                    <td>
-                      <span className="bA">Grade A</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Eptinezumab（CGRP 標的 mAb；IV）</td>
-                    <td>MIDAS スコアの有意な減少</td>
-                    <td>
-                      <span className="bA">Grade A</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>オナボツリヌムトキシン A</td>
-                    <td>MIDAS の有意な改善（慢性片頭痛のみ）</td>
-                    <td>
-                      <span className="bA">Grade A</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>バイオフィードバック</td>
-                    <td>臨床的意義のある改善</td>
-                    <td>
-                      <span className="bB">Grade B</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>有酸素運動（中等度）</td>
-                    <td>補助的改善</td>
-                    <td>
-                      <span className="bB">Grade B</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>CBT</td>
-                    <td>補助的改善；再発防止に有効</td>
-                    <td>
-                      <span className="bB">Grade B</span>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>マグネシウム 400〜600 mg/日</td>
-                    <td>補助的効果</td>
-                    <td>
-                      <span className="bB">Grade B（AAN/EHF）</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          {/* §15 エビデンス要約と参考文献 */}
-          <section className="sec" id="s15">
-            <div className="sec-hd">
-              <span className="sec-num">15</span>
-              <h2 className="sec-title">エビデンス要約と参考文献</h2>
-            </div>
-
-            <h3>15.1 MIDAS 開発・検証 — コア文献</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>著者</th>
-                    <th>タイトル</th>
-                    <th>雑誌・年</th>
-                    <th>URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Stewart WF, et al.</td>
-                    <td>
-                      Validity of the MIDAS Score in comparison to a diary-based measure in a
-                      population sample of migraine sufferers
-                    </td>
-                    <td>
-                      <em>Pain</em> 2000;88(1):41–52
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/11033369/">
-                        PubMed: 11033369
-                      </Ext>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Stewart WF, et al.</td>
-                    <td>
-                      Development and testing of the MIDAS Questionnaire to assess
-                      headache-related disability
-                    </td>
-                    <td>
-                      <em>Neurology</em> 2001;56(Suppl 1):S20–S28
-                    </td>
-                    <td>
-                      <Ext
-                        href="https://www.neurology.org/doi/abs/10.1212/wnl.56.suppl_1.s20"
-                      >
-                        DOI: 10.1212/wnl.56.suppl_1.s20
-                      </Ext>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Lipton RB, et al.</td>
-                    <td>
-                      Clinical utility of a new instrument assessing migraine disability: the MIDAS
-                      questionnaire
-                    </td>
-                    <td>
-                      <em>Cephalalgia</em> 2000;20(suppl 1):6–10
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/10796563/">
-                        PubMed: 10796563
-                      </Ext>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Blumenfeld AM, et al.</td>
-                    <td>
-                      Disability, HRQoL and resource use among chronic and episodic migraineurs:
-                      Results from the IBMS
-                    </td>
-                    <td>
-                      <em>Cephalalgia</em> 2011;31(3):301–315
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/20868393/">
-                        PubMed: 20868393
-                      </Ext>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>15.2 MIC / MCID に関する文献</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>著者</th>
-                    <th>タイトル</th>
-                    <th>雑誌・年</th>
-                    <th>URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Carvalho GF, et al.</td>
-                    <td>
-                      Minimal important change and responsiveness of the MIDAS questionnaire
-                    </td>
-                    <td>
-                      <em>J Headache Pain</em> 2021;22:126
-                    </td>
-                    <td>
-                      <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8529733/">
-                        PMC8529733
-                      </Ext>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ruscheweyh R, et al.</td>
-                    <td>
-                      Minimal important difference of the MIDAS: Longitudinal data from the DMKG
-                      Headache Registry
-                    </td>
-                    <td>
-                      <em>Cephalalgia</em> 2024;44(7):3331024241261077
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/39033424/">
-                        PubMed: 39033424
-                      </Ext>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>15.3 日本語版検証</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>著者</th>
-                    <th>タイトル</th>
-                    <th>雑誌・年</th>
-                    <th>URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Iigaya M, Sakai F, Kolodner KB, Lipton RB, Stewart WF</td>
-                    <td>Reliability and validity of the Japanese MIDAS Questionnaire</td>
-                    <td>
-                      <em>Headache</em> 2003;43(3):225–233
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/12656705/">
-                        PubMed: 12656705
-                      </Ext>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>15.4 PedMIDAS（小児版）</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>著者</th>
-                    <th>タイトル</th>
-                    <th>雑誌・年</th>
-                    <th>URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Hershey AD, et al.</td>
-                    <td>
-                      PedMIDAS: Development of a questionnaire to assess disability of migraines in
-                      children
-                    </td>
-                    <td>
-                      <em>Neurology</em> 2001;57(11):2034–2039
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/11739827/">
-                        PubMed: 11739827
-                      </Ext>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>15.5 HIT-6 との比較</h3>
-            <div className="tbl">
-              <table>
-                <thead>
-                  <tr>
-                    <th>著者</th>
-                    <th>タイトル</th>
-                    <th>雑誌・年</th>
-                    <th>URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Sauro KM, et al.</td>
-                    <td>
-                      HIT-6 and MIDAS as Measures of Headache Disability in a Headache Referral
-                      Population
-                    </td>
-                    <td>
-                      <em>Headache</em> 2010;50(3):383–395
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/19817883/">
-                        PubMed: 19817883
-                      </Ext>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Thuraiaiyah J, et al.</td>
-                    <td>
-                      MIDAS and HIT-6 Questionnaires Versus Headache Diaries for Monitoring
-                      Treatment Response to Erenumab in Migraine: A REFORM Study
-                    </td>
-                    <td>
-                      <em>Eur J Neurol</em> 2026;33(4):e70542
-                    </td>
-                    <td>
-                      <Ext href="https://pubmed.ncbi.nlm.nih.gov/41902353/">
-                        PubMed: 41902353
-                      </Ext>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3>15.6 国際ガイドライン・分類基準</h3>
-            <div className="src-grid">
-              <div className="src">
-                <div className="src-org">IHS / ICHD-3</div>
-                <div className="src-t">国際頭痛分類第3版（全文）</div>
-                <Ext href="https://ichd-3.org/" className="src-url">
-                  https://ichd-3.org/
-                </Ext>
-              </div>
-              <div className="src">
-                <div className="src-org">ICHD-3 全文 PDF</div>
-                <div className="src-t">
-                  The International Classification of Headache Disorders, 3rd Edition（2018）
+              <div className="src-grid">
+                <div className="src">
+                  <div className="src-org">Neurology · 2001</div>
+                  <div className="src-t">
+                    Hershey AD, et al. PedMIDAS: Development of a questionnaire to assess disability
+                    of migraines in children. <em>Neurology</em> 2001;57(11):2034–2039.
+                  </div>
+                  <Ext href="https://pubmed.ncbi.nlm.nih.gov/11739827/" className="src-url">
+                    PubMed: 11739827
+                  </Ext>
                 </div>
-                <Ext
-                  href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf"
-                  className="src-url"
-                >
-                  ichd-3.org/PDF
-                </Ext>
               </div>
-              <div className="src">
-                <div className="src-org">IHS 分類委員会</div>
-                <div className="src-t">ICHD-4 最新動向（Classification Committee）</div>
-                <Ext
-                  href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/"
-                  className="src-url"
-                >
-                  ihs-headache.org
-                </Ext>
-              </div>
-              <div className="src">
-                <div className="src-org">AAN</div>
-                <div className="src-t">片頭痛予防ガイドライン（AAN/AHS）</div>
-                <Ext href="https://www.aan.com/guidelines/" className="src-url">
-                  aan.com/guidelines
-                </Ext>
-              </div>
-              <div className="src">
-                <div className="src-org">EHF · 2022</div>
-                <div className="src-t">CGRP mAbs 予防療法ガイドライン 2022</div>
-                <Ext
-                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/"
-                  className="src-url"
-                >
-                  PMC9188162
-                </Ext>
-              </div>
-              <div className="src">
-                <div className="src-org">IHS · Cephalalgia 2024</div>
-                <div className="src-t">IHS 急性期治療推奨 2024</div>
-                <Ext
-                  href="https://journals.sagepub.com/doi/10.1177/03331024241252666"
-                  className="src-url"
-                >
-                  journals.sagepub.com
-                </Ext>
-              </div>
-              <div className="src">
-                <div className="src-org">Cochrane Library</div>
-                <div className="src-t">頭痛・片頭痛レビュー総覧</div>
-                <Ext
-                  href="https://www.cochranelibrary.com/search?query=headache+migraine&searchBy=3&type=cdsr"
-                  className="src-url"
-                >
-                  cochranelibrary.com
-                </Ext>
-              </div>
-            </div>
-          </section>
 
-          {/* APPENDIX */}
-          <section className="sec" id="appendix">
-            <div className="sec-hd">
-              <span className="sec-num">📎</span>
-              <h2 className="sec-title">付録：MIDAS クイックリファレンスカード</h2>
-            </div>
-            <div className="qr-grid">
-              <div className="qr">
-                <div className="qr-t">基本情報</div>
-                <p style={{ fontSize: "12.5px", margin: 0 }}>
-                  ツール名：Migraine Disability Assessment (MIDAS)
-                  <br />
-                  開発年：2000年（Stewart WF, Lipton RB, et al.）
-                  <br />
-                  記入時間：約5分
-                </p>
+              <h3>12.2 妊娠・授乳期</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>項目</th>
+                      <th>内容</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>ツールの使用</strong>
+                      </td>
+                      <td>MIDAS 評価自体は問題なく使用可能</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>スコアが高い場合</strong>
+                      </td>
+                      <td>Grade III〜IV であっても、薬剤選択は妊娠安全性に基づいて行うこと</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>急性期第1選択</strong>
+                      </td>
+                      <td>アセトアミノフェン；重症時：IV 硫酸マグネシウム 1〜2g（専門医管理下）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>禁忌薬</strong>
+                      </td>
+                      <td>
+                        バルプロ酸（Category X）・トピラマート（Category D）・エルゴタミン・CGRP
+                        mAb（安全データ不十分）・NSAIDs（第3三半期）
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>非薬物療法（優先）</strong>
+                      </td>
+                      <td>バイオフィードバック・CBT が妊娠中の第一選択非薬物療法として特に推奨</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div className="qr">
-                <div className="qr-t">質問・回答形式</div>
-                <p style={{ fontSize: "12.5px", margin: 0 }}>
-                  質問数：5問（スコア）＋ 2問（補足 A=頭痛日数、B=痛み強度）
-                  <br />
-                  回答形式：過去3ヵ月の損失日数（0〜90）
-                  <br />
-                  想起期間：3ヵ月（90日間）
-                </p>
-              </div>
-              <div className="qr">
-                <div className="qr-t">スコア・グレード</div>
-                <p style={{ fontSize: "12.5px", margin: 0 }}>
-                  スコア範囲：0〜270点
-                  <br />
-                  Grade I（0〜5）/ II（6〜10）/ III（11〜20）/ IV（≥21）
-                  <br />
-                  IV 細分化：IV-A（21〜40）/ IV-B（41〜270）
-                </p>
-              </div>
-              <div className="qr">
-                <div className="qr-t">臨床判断の閾値</div>
-                <p style={{ fontSize: "12.5px", margin: 0 }}>
-                  MIC：-4点（Grade II-III）/ -30%（Grade IV；Ruscheweyh 2024）
-                  <br />
-                  レスポンダー：≥50% 改善（CGRP mAb 試験標準）
-                  <br />
-                  予防療法適応：Grade III〜IV（≥11点）または ≥4日/月（AAN/EHF）
-                </p>
-              </div>
-              <div className="qr">
-                <div className="qr-t">検証・派生版</div>
-                <p style={{ fontSize: "12.5px", margin: 0 }}>
-                  日本語版検証：済（Iigaya et al. 2003；北里大学；n = 101）
-                  <br />
-                  小児用：PedMIDAS（4〜18歳；Hershey et al. 2001）
-                  <br />
-                  臨床試験採用：CGRP mAb 主要 RCT の標準 PRO
-                </p>
-              </div>
-            </div>
 
-            <div className="alert a-info">
-              <div className="alert-i">📚</div>
-              <div>
-                本文書は2026年6月時点の国際的学術文献に基づいて作成されています。ICHD-4
-                作業版（2024年）の改訂動向を含む最新ガイドラインの更新については、
-                <Ext
-                  href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/"
-                >
-                  IHS 分類委員会
-                </Ext>
-                を定期的に参照してください。
+              <h3>12.3 高齢者（≥65歳）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>項目</th>
+                      <th>内容</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>ツール使用の注意</strong>
+                      </td>
+                      <td>
+                        認知機能低下により質問の理解・記憶への影響を考慮；補助者によるサポートが有益
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>スコア解釈の注意</strong>
+                      </td>
+                      <td>
+                        多疾患（comorbidity）・身体機能低下が MIDAS
+                        スコアを複合的に上昇させる可能性あり
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>優先薬剤</strong>
+                      </td>
+                      <td>
+                        TCA（アミトリプチリン）は <strong>10 mg</strong>{" "}
+                        から開始；β遮断薬は転倒・起立性低血圧リスクを考慮
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>SNOOP4 感度</strong>
+                      </td>
+                      <td>
+                        50歳以上の頭痛には側頭動脈炎・悪性・血管性疾患のリスクが高い；SNOOP4
+                        を高感度に保つ
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>認知機能への薬剤影響</strong>
+                      </td>
+                      <td>トピラマートは認知機能低下リスクが上昇；高齢者では代替薬を優先検討</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            </div>
-          </section>
+
+              <h3>12.4 薬剤乱用頭痛（MOH）回復期（ICHD-3 8.2）</h3>
+              <div className="alert a-danger">
+                <div className="alert-i">🚨</div>
+                <div>
+                  <strong>MIDAS スコアが高い患者では必ず MOH リスクを評価すること：</strong>
+                  単純鎮痛薬・NSAIDs は月15日以上 ×
+                  3ヵ月以上、トリプタン・エルゴタミン・オピオイドは月10日以上 × 3ヵ月以上で MOH
+                  診断基準を満たす。
+                </div>
+              </div>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>回復段階</th>
+                      <th>MIDAS の位置づけ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>離脱期（Week 1〜2）</strong>
+                      </td>
+                      <td>
+                        反跳性頭痛により一時的スコア上昇を来す；この時期のスコアを治療効果指標に使用しないこと
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>回復初期（Week 2〜8）</strong>
+                      </td>
+                      <td>スコアの緩やかな改善；4週ごとに HIT-6 で補完的にモニタリング</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>安定期（Week 8〜）</strong>
+                      </td>
+                      <td>
+                        ベースライン比での MIDAS スコア改善が治療成功の指標；予防療法の有効性評価
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>長期フォロー</strong>
+                      </td>
+                      <td>MOH 再発防止のため月間薬剤使用日数と MIDAS スコアを定期モニタリング</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* §13 臨床応用の限界 */}
+            <section className="sec" id="s13">
+              <div className="sec-hd">
+                <span className="sec-num">13</span>
+                <h2 className="sec-title">臨床応用の限界と注意点</h2>
+              </div>
+
+              <h3>13.1 MIDAS の制限事項</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>限界点</th>
+                      <th>詳細</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>回顧バイアス（Recall Bias）</strong>
+                      </td>
+                      <td>3ヵ月（90日間）という長い想起期間は記憶の歪みを生じさせやすい</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>活動の異質性</strong>
+                      </td>
+                      <td>
+                        専業主婦・無職・退職者では「仕事欠勤（Q1・Q2）」が0となり、職業的障害を過小評価する可能性がある
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>感受性の限界</strong>
+                      </td>
+                      <td>
+                        Carvalho et al. 2021
+                        で「限定的な感受性」が指摘されており、短期間での治療変化を捉えにくい
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>頭痛強度を直接測定しない</strong>
+                      </td>
+                      <td>
+                        MIDAS は日数のみを計測するため、補足質問 B（NRS）および HIT-6
+                        との組み合わせが必要
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>フロア効果</strong>
+                      </td>
+                      <td>Grade I（0〜5点）の患者では変化の検出が困難</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>就労形態の影響</strong>
+                      </td>
+                      <td>
+                        学生・パート・フリーランスなど多様な就労形態によりスコアの解釈が異なる
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>治療反応の単独代替不可</strong>
+                      </td>
+                      <td>REFORM 研究（2026）：頭痛日誌を代替できない；日誌との組み合わせが必須</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>13.2 MIDAS 単独使用が不十分な場面</h3>
+              <div className="alert a-info">
+                <div className="alert-i">🧭</div>
+                <div>
+                  <strong>以下の目的には MIDAS 単独では不十分です：</strong>
+                  <ul style={{ marginTop: "6px" }}>
+                    <li>
+                      新規頭痛の初期診断 → <strong>ICHD-3 診断基準</strong>を使用
+                    </li>
+                    <li>
+                      頭痛強度の評価 → <strong>NRS / VAS および HIT-6</strong> と組み合わせる
+                    </li>
+                    <li>
+                      緊急性の判断 → <strong>SNOOP4</strong> を使用
+                    </li>
+                    <li>
+                      小児の頭痛評価 → <strong>PedMIDAS</strong> を使用
+                    </li>
+                    <li>
+                      CGRP mAb 治療反応の唯一の評価 → <strong>頭痛日誌との組み合わせが必須</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* §14 統合モニタリングプロトコル */}
+            <section className="sec" id="s14">
+              <div className="sec-hd">
+                <span className="sec-num">14</span>
+                <h2 className="sec-title">統合モニタリングプロトコル（12週間フレームワーク）</h2>
+              </div>
+
+              <h3>14.1 12週間フレームワーク</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>時点</th>
+                      <th>MIDAS</th>
+                      <th>HIT-6</th>
+                      <th>頭痛日誌</th>
+                      <th>評価目標</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>ベースライン（0週）</strong>
+                      </td>
+                      <td>✅ 必須</td>
+                      <td>✅ 必須</td>
+                      <td>最低30日間</td>
+                      <td>治療前評価の確立；グレード確定</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>4週（1ヵ月後）</strong>
+                      </td>
+                      <td>—</td>
+                      <td>✅ 実施</td>
+                      <td>継続</td>
+                      <td>初期反応確認（HIT-6 で毎月評価可能）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>8週（2ヵ月後）</strong>
+                      </td>
+                      <td>—</td>
+                      <td>✅ 実施</td>
+                      <td>継続</td>
+                      <td>中間評価</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>12週（3ヵ月後）</strong>
+                      </td>
+                      <td>
+                        ✅ <strong>必須</strong>
+                      </td>
+                      <td>
+                        ✅ <strong>必須</strong>
+                      </td>
+                      <td>継続</td>
+                      <td>正式アウトカム評価；グレード変化の確認</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>6ヵ月</strong>
+                      </td>
+                      <td>✅ 必須</td>
+                      <td>✅ 必須</td>
+                      <td>継続</td>
+                      <td>長期維持の判断；治療継続の根拠</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>12ヵ月</strong>
+                      </td>
+                      <td>✅ 必須</td>
+                      <td>✅ 必須</td>
+                      <td>継続</td>
+                      <td>年間評価；CGRP mAb の継続可否判断</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="alert a-info">
+                <div className="alert-i">📅</div>
+                <div>
+                  <strong>なぜ MIDAS は3ヵ月ごとか？</strong>MIDAS
+                  の想起期間が3ヵ月（90日）であるため、3ヵ月未満での再測定は想起期間の重複が生じ、正確な評価が困難になります。一方、HIT-6
+                  の想起期間は4週間のため毎月の測定が可能です。この特性を活かした役割分担が最適なモニタリングを実現します。
+                </div>
+              </div>
+
+              <h3>14.2 治療成功基準（複合アウトカム）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>指標</th>
+                      <th>最小成功基準（MCID）</th>
+                      <th>優良基準</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>MIDAS スコア</strong>
+                      </td>
+                      <td>≥50% 減少（MIDAS レスポンダー）</td>
+                      <td>Grade I または II への移行</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>MIDAS Grade</strong>
+                      </td>
+                      <td>1グレード以上の改善</td>
+                      <td>Grade I への移行</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>頭痛日数/月</strong>
+                      </td>
+                      <td>≥50% 減少</td>
+                      <td>≥75% 減少</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>HIT-6 スコア</strong>
+                      </td>
+                      <td>≥5〜6点の改善（MCID）</td>
+                      <td>&lt;50点（正常域）</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>急性期薬使用日数</strong>
+                      </td>
+                      <td>MOH 閾値以下（NSAIDs &lt;15日/月、トリプタン &lt;10日/月）</td>
+                      <td>≤4日/月</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>VAS ピーク強度</strong>
+                      </td>
+                      <td>≥30% 低下</td>
+                      <td>≥50% 低下</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>PGIC</strong>
+                      </td>
+                      <td>7点尺度で「改善（5点）」以上</td>
+                      <td>「著明改善（7点）」</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>14.3 治療プラン別 MIDAS 改善の期待値</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>治療介入</th>
+                      <th>期待される MIDAS 改善</th>
+                      <th>エビデンスレベル</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Erenumab（CGRP 受容体拮抗 mAb）</td>
+                      <td>MIDAS スコアの有意な減少；≥50% レスポンダー率の増加</td>
+                      <td>
+                        <span className="bA">Grade A</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Fremanezumab（CGRP 標的 mAb）</td>
+                      <td>MIDAS スコアの有意な減少</td>
+                      <td>
+                        <span className="bA">Grade A</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Galcanezumab（CGRP 標的 mAb）</td>
+                      <td>MIDAS スコアの有意な減少</td>
+                      <td>
+                        <span className="bA">Grade A</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Eptinezumab（CGRP 標的 mAb；IV）</td>
+                      <td>MIDAS スコアの有意な減少</td>
+                      <td>
+                        <span className="bA">Grade A</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>オナボツリヌムトキシン A</td>
+                      <td>MIDAS の有意な改善（慢性片頭痛のみ）</td>
+                      <td>
+                        <span className="bA">Grade A</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>バイオフィードバック</td>
+                      <td>臨床的意義のある改善</td>
+                      <td>
+                        <span className="bB">Grade B</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>有酸素運動（中等度）</td>
+                      <td>補助的改善</td>
+                      <td>
+                        <span className="bB">Grade B</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>CBT</td>
+                      <td>補助的改善；再発防止に有効</td>
+                      <td>
+                        <span className="bB">Grade B</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>マグネシウム 400〜600 mg/日</td>
+                      <td>補助的効果</td>
+                      <td>
+                        <span className="bB">Grade B（AAN/EHF）</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            {/* §15 エビデンス要約と参考文献 */}
+            <section className="sec" id="s15">
+              <div className="sec-hd">
+                <span className="sec-num">15</span>
+                <h2 className="sec-title">エビデンス要約と参考文献</h2>
+              </div>
+
+              <h3>15.1 MIDAS 開発・検証 — コア文献</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>著者</th>
+                      <th>タイトル</th>
+                      <th>雑誌・年</th>
+                      <th>URL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Stewart WF, et al.</td>
+                      <td>
+                        Validity of the MIDAS Score in comparison to a diary-based measure in a
+                        population sample of migraine sufferers
+                      </td>
+                      <td>
+                        <em>Pain</em> 2000;88(1):41–52
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/11033369/">PubMed: 11033369</Ext>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Stewart WF, et al.</td>
+                      <td>
+                        Development and testing of the MIDAS Questionnaire to assess
+                        headache-related disability
+                      </td>
+                      <td>
+                        <em>Neurology</em> 2001;56(Suppl 1):S20–S28
+                      </td>
+                      <td>
+                        <Ext href="https://www.neurology.org/doi/abs/10.1212/wnl.56.suppl_1.s20">
+                          DOI: 10.1212/wnl.56.suppl_1.s20
+                        </Ext>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Lipton RB, et al.</td>
+                      <td>
+                        Clinical utility of a new instrument assessing migraine disability: the
+                        MIDAS questionnaire
+                      </td>
+                      <td>
+                        <em>Cephalalgia</em> 2000;20(suppl 1):6–10
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/10796563/">PubMed: 10796563</Ext>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Blumenfeld AM, et al.</td>
+                      <td>
+                        Disability, HRQoL and resource use among chronic and episodic migraineurs:
+                        Results from the IBMS
+                      </td>
+                      <td>
+                        <em>Cephalalgia</em> 2011;31(3):301–315
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/20868393/">PubMed: 20868393</Ext>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>15.2 MIC / MCID に関する文献</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>著者</th>
+                      <th>タイトル</th>
+                      <th>雑誌・年</th>
+                      <th>URL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Carvalho GF, et al.</td>
+                      <td>
+                        Minimal important change and responsiveness of the MIDAS questionnaire
+                      </td>
+                      <td>
+                        <em>J Headache Pain</em> 2021;22:126
+                      </td>
+                      <td>
+                        <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8529733/">
+                          PMC8529733
+                        </Ext>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Ruscheweyh R, et al.</td>
+                      <td>
+                        Minimal important difference of the MIDAS: Longitudinal data from the DMKG
+                        Headache Registry
+                      </td>
+                      <td>
+                        <em>Cephalalgia</em> 2024;44(7):3331024241261077
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/39033424/">PubMed: 39033424</Ext>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>15.3 日本語版検証</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>著者</th>
+                      <th>タイトル</th>
+                      <th>雑誌・年</th>
+                      <th>URL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Iigaya M, Sakai F, Kolodner KB, Lipton RB, Stewart WF</td>
+                      <td>Reliability and validity of the Japanese MIDAS Questionnaire</td>
+                      <td>
+                        <em>Headache</em> 2003;43(3):225–233
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/12656705/">PubMed: 12656705</Ext>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>15.4 PedMIDAS（小児版）</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>著者</th>
+                      <th>タイトル</th>
+                      <th>雑誌・年</th>
+                      <th>URL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Hershey AD, et al.</td>
+                      <td>
+                        PedMIDAS: Development of a questionnaire to assess disability of migraines
+                        in children
+                      </td>
+                      <td>
+                        <em>Neurology</em> 2001;57(11):2034–2039
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/11739827/">PubMed: 11739827</Ext>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>15.5 HIT-6 との比較</h3>
+              <div className="tbl">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>著者</th>
+                      <th>タイトル</th>
+                      <th>雑誌・年</th>
+                      <th>URL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Sauro KM, et al.</td>
+                      <td>
+                        HIT-6 and MIDAS as Measures of Headache Disability in a Headache Referral
+                        Population
+                      </td>
+                      <td>
+                        <em>Headache</em> 2010;50(3):383–395
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/19817883/">PubMed: 19817883</Ext>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Thuraiaiyah J, et al.</td>
+                      <td>
+                        MIDAS and HIT-6 Questionnaires Versus Headache Diaries for Monitoring
+                        Treatment Response to Erenumab in Migraine: A REFORM Study
+                      </td>
+                      <td>
+                        <em>Eur J Neurol</em> 2026;33(4):e70542
+                      </td>
+                      <td>
+                        <Ext href="https://pubmed.ncbi.nlm.nih.gov/41902353/">PubMed: 41902353</Ext>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>15.6 国際ガイドライン・分類基準</h3>
+              <div className="src-grid">
+                <div className="src">
+                  <div className="src-org">IHS / ICHD-3</div>
+                  <div className="src-t">国際頭痛分類第3版（全文）</div>
+                  <Ext href="https://ichd-3.org/" className="src-url">
+                    https://ichd-3.org/
+                  </Ext>
+                </div>
+                <div className="src">
+                  <div className="src-org">ICHD-3 全文 PDF</div>
+                  <div className="src-t">
+                    The International Classification of Headache Disorders, 3rd Edition（2018）
+                  </div>
+                  <Ext
+                    href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf"
+                    className="src-url"
+                  >
+                    ichd-3.org/PDF
+                  </Ext>
+                </div>
+                <div className="src">
+                  <div className="src-org">IHS 分類委員会</div>
+                  <div className="src-t">ICHD-4 最新動向（Classification Committee）</div>
+                  <Ext
+                    href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/"
+                    className="src-url"
+                  >
+                    ihs-headache.org
+                  </Ext>
+                </div>
+                <div className="src">
+                  <div className="src-org">AAN</div>
+                  <div className="src-t">片頭痛予防ガイドライン（AAN/AHS）</div>
+                  <Ext href="https://www.aan.com/guidelines/" className="src-url">
+                    aan.com/guidelines
+                  </Ext>
+                </div>
+                <div className="src">
+                  <div className="src-org">EHF · 2022</div>
+                  <div className="src-t">CGRP mAbs 予防療法ガイドライン 2022</div>
+                  <Ext
+                    href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9188162/"
+                    className="src-url"
+                  >
+                    PMC9188162
+                  </Ext>
+                </div>
+                <div className="src">
+                  <div className="src-org">IHS · Cephalalgia 2024</div>
+                  <div className="src-t">IHS 急性期治療推奨 2024</div>
+                  <Ext
+                    href="https://journals.sagepub.com/doi/10.1177/03331024241252666"
+                    className="src-url"
+                  >
+                    journals.sagepub.com
+                  </Ext>
+                </div>
+                <div className="src">
+                  <div className="src-org">Cochrane Library</div>
+                  <div className="src-t">頭痛・片頭痛レビュー総覧</div>
+                  <Ext
+                    href="https://www.cochranelibrary.com/search?query=headache+migraine&searchBy=3&type=cdsr"
+                    className="src-url"
+                  >
+                    cochranelibrary.com
+                  </Ext>
+                </div>
+              </div>
+            </section>
+
+            {/* APPENDIX */}
+            <section className="sec" id="appendix">
+              <div className="sec-hd">
+                <span className="sec-num">📎</span>
+                <h2 className="sec-title">付録：MIDAS クイックリファレンスカード</h2>
+              </div>
+              <div className="qr-grid">
+                <div className="qr">
+                  <div className="qr-t">基本情報</div>
+                  <p style={{ fontSize: "12.5px", margin: 0 }}>
+                    ツール名：Migraine Disability Assessment (MIDAS)
+                    <br />
+                    開発年：2000年（Stewart WF, Lipton RB, et al.）
+                    <br />
+                    記入時間：約5分
+                  </p>
+                </div>
+                <div className="qr">
+                  <div className="qr-t">質問・回答形式</div>
+                  <p style={{ fontSize: "12.5px", margin: 0 }}>
+                    質問数：5問（スコア）＋ 2問（補足 A=頭痛日数、B=痛み強度）
+                    <br />
+                    回答形式：過去3ヵ月の損失日数（0〜90）
+                    <br />
+                    想起期間：3ヵ月（90日間）
+                  </p>
+                </div>
+                <div className="qr">
+                  <div className="qr-t">スコア・グレード</div>
+                  <p style={{ fontSize: "12.5px", margin: 0 }}>
+                    スコア範囲：0〜270点
+                    <br />
+                    Grade I（0〜5）/ II（6〜10）/ III（11〜20）/ IV（≥21）
+                    <br />
+                    IV 細分化：IV-A（21〜40）/ IV-B（41〜270）
+                  </p>
+                </div>
+                <div className="qr">
+                  <div className="qr-t">臨床判断の閾値</div>
+                  <p style={{ fontSize: "12.5px", margin: 0 }}>
+                    MIC：-4点（Grade II-III）/ -30%（Grade IV；Ruscheweyh 2024）
+                    <br />
+                    レスポンダー：≥50% 改善（CGRP mAb 試験標準）
+                    <br />
+                    予防療法適応：Grade III〜IV（≥11点）または ≥4日/月（AAN/EHF）
+                  </p>
+                </div>
+                <div className="qr">
+                  <div className="qr-t">検証・派生版</div>
+                  <p style={{ fontSize: "12.5px", margin: 0 }}>
+                    日本語版検証：済（Iigaya et al. 2003；北里大学；n = 101）
+                    <br />
+                    小児用：PedMIDAS（4〜18歳；Hershey et al. 2001）
+                    <br />
+                    臨床試験採用：CGRP mAb 主要 RCT の標準 PRO
+                  </p>
+                </div>
+              </div>
+
+              <div className="alert a-info">
+                <div className="alert-i">📚</div>
+                <div>
+                  本文書は2026年6月時点の国際的学術文献に基づいて作成されています。ICHD-4
+                  作業版（2024年）の改訂動向を含む最新ガイドラインの更新については、
+                  <Ext href="https://ihs-headache.org/en/about-ihs/standing-committees/classification/">
+                    IHS 分類委員会
+                  </Ext>
+                  を定期的に参照してください。
+                </div>
+              </div>
+            </section>
+          </AutoGlossary>
         </main>
       </div>
 
@@ -2549,8 +2500,7 @@ style P4 fill:#27ae60,color:#fff`}
       <div className="footer">
         <strong>MIDAS（片頭痛障害評価スコア）完全リファレンスガイド</strong> —
         頭痛による機能損失日数を3ヵ月単位で定量化する国際標準PRO — 初学者から臨床家まで
-        <br />
-        📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時
+        <br />📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時
         <br />
         ⚠️
         本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。

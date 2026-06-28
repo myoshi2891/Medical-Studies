@@ -38,9 +38,7 @@ describe("MigraineSpecificQualityOfLifePage: 契約（忠実転記）", () => {
     const { container } = render(<MigraineSpecificQualityOfLifePage />);
     const h1 = container.querySelector("h1");
     expect(h1).not.toBeNull();
-    expect(h1?.textContent?.trim()).toBe(
-      "MSQ v2.1 — 片頭痛特異的 QOL 質問票 完全ガイド"
-    );
+    expect(h1?.textContent?.trim()).toBe("MSQ v2.1 — 片頭痛特異的 QOL 質問票 完全ガイド");
   });
 
   it("section.sec の id 配列が s1..s15 と一致する", () => {
