@@ -39,9 +39,7 @@ describe("MigraineDisabilityAssessmentPage: 契約（忠実転記）", () => {
     const { container } = render(<MigraineDisabilityAssessmentPage />);
     const h1 = container.querySelector("h1");
     expect(h1).not.toBeNull();
-    expect(h1?.textContent?.trim()).toBe(
-      "MIDAS（片頭痛障害評価スコア）完全リファレンスガイド"
-    );
+    expect(h1?.textContent?.trim()).toBe("MIDAS（片頭痛障害評価スコア）完全リファレンスガイド");
   });
 
   it("section.sec の id 配列が s1..s15 + appendix と一致する", () => {

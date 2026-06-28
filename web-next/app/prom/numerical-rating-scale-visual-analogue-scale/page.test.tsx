@@ -27,7 +27,7 @@ const SECTION_IDS = [
 ];
 const H2_COUNT = 15; // セクションタイトル (元の h1.sec-title)
 const H3_COUNT = 52; // 中見出し (元の h2)
-const H4_COUNT = 3;  // 小見出し (元の h3)
+const H4_COUNT = 3; // 小見出し (元の h3)
 const MERMAID_COUNT = 8; // Mermaid 図
 const TABLE_COUNT = 30; // テーブル数
 const NAV_A_COUNT = 15; // サイドバー目次リンク数 (s1〜s15)
@@ -38,9 +38,7 @@ describe("NumericalRatingScaleVisualAnalogueScalePage: 契約（忠実転記）"
     const { container } = render(<NumericalRatingScaleVisualAnalogueScalePage />);
     const h1 = container.querySelector("h1");
     expect(h1).not.toBeNull();
-    expect(h1?.textContent?.trim()).toBe(
-      "VAS / NRS（視覚的アナログスケール / 数値評価スケール）"
-    );
+    expect(h1?.textContent?.trim()).toBe("VAS / NRS（視覚的アナログスケール / 数値評価スケール）");
   });
 
   it("section.sec の id 配列が s1..s15 と一致する", () => {
