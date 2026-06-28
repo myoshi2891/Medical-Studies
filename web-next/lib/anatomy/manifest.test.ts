@@ -53,10 +53,10 @@ describe("ANATOMY_MANIFEST: MRI 配線（Phase 1）", () => {
     }
   });
 
-  it("全スライスが /mri/ 始まりの .png 非空パスである", () => {
+  it("全スライスが /mri/ 始まりの .png 非空パスであり、枚数が8枚固定である", () => {
     for (const s of ANATOMY_MANIFEST) {
       const slices = s.mri?.slices ?? [];
-      expect(slices.length).toBeGreaterThan(0);
+      expect(slices).toHaveLength(8);
       for (const path of slices) {
         expect(path).toMatch(/^\/mri\/(brain|cervical)\/\d{2}\.png$/);
       }
