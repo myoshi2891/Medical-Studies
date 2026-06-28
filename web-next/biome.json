@@ -23,7 +23,8 @@
       "!app/headaches/migraine/migraine.css",
       "!app/headaches/tension-type-headache/tension-type-headache.css",
       "!app/therapies/nutrition-and-supplements/nutrition-and-supplements.css",
-      "!app/therapies/physical-therapy-for-headache/physical-therapy-for-headache.css"
+      "!app/therapies/physical-therapy-for-headache/physical-therapy-for-headache.css",
+      "!app/therapies/psychological-behavioral-therapy/psychological-behavioral-therapy.css"
     ]
   },
   "formatter": {
