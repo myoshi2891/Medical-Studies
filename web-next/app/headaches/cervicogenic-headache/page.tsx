@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Ext } from "@/components/Ext";
+import Term from "@/components/glossary/Term";
 import { CehSidebar } from "@/components/headaches/CehSidebar";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import "./cervicogenic-headache.css";
@@ -119,7 +120,8 @@ export default function CervicogenicHeadachePage() {
                       <strong>関連痛（referred pain）</strong>
                     </td>
                     <td>
-                      痛みの「発生源」は頸部だが、「感じる場所」は頭部。これは三叉神経頸髄複合体の収束による（§3で詳述）
+                      痛みの「発生源」は頸部だが、「感じる場所」は頭部。これは
+                      <Term id="trigeminal-nerve">三叉神経</Term>頸髄複合体の収束による（§3で詳述）
                     </td>
                   </tr>
                   <tr>
@@ -265,8 +267,8 @@ export default function CervicogenicHeadachePage() {
 
             <p>
               頸原性頭痛を理解する鍵は、
-              <strong>「なぜ頸部の障害が&quot;頭&quot;の痛みになるのか」</strong>{" "}
-              という関連痛のメカニズムです。
+              <strong>「なぜ頸部の障害が&quot;頭&quot;の痛みになるのか」</strong> という
+              <Term id="referred-pain">関連痛</Term>のメカニズムです。
             </p>
 
             <h3>3.1 中核機序：三叉神経頸髄複合体（Trigeminocervical Complex: TCC）</h3>
@@ -322,7 +324,9 @@ style CLINIC fill:#1E8449,color:#fff`}
                   </tr>
                   <tr>
                     <td>
-                      <strong>環軸関節（C1-C2）</strong>
+                      <strong>
+                        <Term id="c1-c2">環軸関節</Term>（C1-C2）
+                      </strong>
                     </td>
                     <td>C2</td>
                     <td>頭部回旋の大部分を担う。障害で回旋時痛</td>
@@ -349,11 +353,16 @@ style CLINIC fill:#1E8449,color:#fff`}
                       <strong>後頸部筋群</strong>
                     </td>
                     <td>頸神経後枝</td>
-                    <td>筋緊張・トリガーポイント（緊張型頭痛との鑑別が課題）</td>
+                    <td>
+                      筋緊張・<Term id="trigger-point">トリガーポイント</Term>
+                      （緊張型頭痛との鑑別が課題）
+                    </td>
                   </tr>
                   <tr>
                     <td>
-                      <strong>大後頭神経（GON, C2）</strong>
+                      <strong>
+                        <Term id="gon">大後頭神経</Term>（GON, C2）
+                      </strong>
                     </td>
                     <td>C2</td>
                     <td>後頭神経痛との関連・鑑別</td>
@@ -731,7 +740,11 @@ style START fill:#2980b9,color:#fff`}
               <h2 className="sec-title">鑑別診断</h2>
             </div>
 
-            <p>頸原性頭痛は、片頭痛・緊張型頭痛・後頭神経痛との鑑別が最も重要かつ困難です。</p>
+            <p>
+              頸原性頭痛は、<Term id="migraine">片頭痛</Term>・
+              <Term id="tension-type-headache">緊張型頭痛</Term>
+              ・後頭神経痛との鑑別が最も重要かつ困難です。
+            </p>
 
             <div className="tbl">
               <table>
