@@ -1,4 +1,5 @@
 import { Ext } from "@/components/Ext";
+import Term from "@/components/glossary/Term";
 import { MigraineSidebar } from "@/components/headaches/MigraineSidebar";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import "./migraine.css";
@@ -315,7 +316,7 @@ style I fill:#ffebee,stroke:#b71c1c,color:#7b1a1a`}
 
             <h3>CGRP（カルシトニン遺伝子関連ペプチド）の役割</h3>
             <p>
-              CGRP は片頭痛研究における<strong>パラダイムシフト</strong>
+              <Term id="cgrp">CGRP</Term> は片頭痛研究における<strong>パラダイムシフト</strong>
               をもたらした神経ペプチドです。
             </p>
             <div className="tbl">
@@ -329,7 +330,9 @@ style I fill:#ffebee,stroke:#b71c1c,color:#7b1a1a`}
                 <tbody>
                   <tr>
                     <td>産生部位</td>
-                    <td>三叉神経節・脊髄後角・脳幹</td>
+                    <td>
+                      <Term id="trigeminal-nerve">三叉神経</Term>節・脊髄後角・脳幹
+                    </td>
                   </tr>
                   <tr>
                     <td>主な作用</td>
@@ -422,7 +425,9 @@ style I fill:#ffebee,stroke:#b71c1c,color:#7b1a1a`}
                   </tr>
                   <tr>
                     <td>2.1〜2.3</td>
-                    <td>緊張型頭痛（稀/頻発/慢性）</td>
+                    <td>
+                      <Term id="tension-type-headache">緊張型頭痛</Term>（稀/頻発/慢性）
+                    </td>
                     <td>圧迫性・両側性・軽〜中等度</td>
                   </tr>
                   <tr>
@@ -439,7 +444,9 @@ style I fill:#ffebee,stroke:#b71c1c,color:#7b1a1a`}
                   </tr>
                   <tr>
                     <td>11.2</td>
-                    <td>頸原性頭痛</td>
+                    <td>
+                      <Term id="cervicogenic-headache">頸原性頭痛</Term>
+                    </td>
                     <td>頸部疾患に起因する頭痛</td>
                   </tr>
                 </tbody>
@@ -2008,7 +2015,7 @@ style G fill:#e65100,color:#ffffff`}
             <div className="alert a-warn">
               <div className="alert-i">💊</div>
               <div>
-                薬物乱用頭痛（MOH）は、頭痛治療薬の
+                <Term id="moh">薬物乱用頭痛</Term>（MOH）は、頭痛治療薬の
                 <strong>過剰使用によって逆説的に頭痛が増悪・慢性化する</strong>
                 重要な落とし穴です。「頭痛 → 薬 → 一時改善 → 再び頭痛 →
                 また薬」という悪循環が生じます。急性期治療計画では

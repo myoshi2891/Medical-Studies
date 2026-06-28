@@ -1,4 +1,5 @@
 import { Ext } from "@/components/Ext";
+import Term from "@/components/glossary/Term";
 import { MohSidebar } from "@/components/headaches/MohSidebar";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import "./medication-overuse-headache.css";
@@ -187,7 +188,10 @@ export default function MedicationOveruseHeadachePage() {
                   </tr>
                   <tr>
                     <td>好発基礎疾患</td>
-                    <td>片頭痛（最多）、緊張型頭痛、群発頭痛</td>
+                    <td>
+                      <Term id="migraine">片頭痛</Term>（最多）、
+                      <Term id="tension-type-headache">緊張型頭痛</Term>、群発頭痛
+                    </td>
                   </tr>
                   <tr>
                     <td>職業的傾向</td>
@@ -220,7 +224,8 @@ export default function MedicationOveruseHeadachePage() {
 
             <h3>Step 2 — 中枢感作（Central Sensitization）の進行</h3>
             <p>
-              三叉神経痛覚経路の閾値が低下し、本来頭痛を引き起こさない程度の刺激でも頭痛が誘発されるようになります。これは脊髄後角ニューロンおよび三叉神経核尾側亜核（Trigeminal
+              <Term id="trigeminal-nerve">三叉神経</Term>
+              痛覚経路の閾値が低下し、本来頭痛を引き起こさない程度の刺激でも頭痛が誘発されるようになります。これは脊髄後角ニューロンおよび三叉神経核尾側亜核（Trigeminal
               nucleus caudalis）の興奮性亢進によるものです。
             </p>
 
@@ -236,12 +241,15 @@ export default function MedicationOveruseHeadachePage() {
 
             <h3>Step 5 — セロトニン系の脱感作</h3>
             <p>
-              トリプタンなどの5-HT1B/1D受容体作動薬の過用により、セロトニン受容体が下方制御（ダウンレギュレーション）し、セロトニンによる内因性疼痛抑制が低下します。
+              トリプタンなどの5-HT1B/1D受容体作動薬の過用により、
+              <Term id="serotonin">セロトニン</Term>
+              受容体が下方制御（ダウンレギュレーション）し、セロトニンによる内因性疼痛抑制が低下します。
             </p>
 
             <h3>Step 6 — CGRPの上昇とトリプタン効果の減弱</h3>
             <p>
-              CGRP（カルシトニン遺伝子関連ペプチド）の放出が慢性的に増加し、三叉神経血管系の感作が維持されます。同時にトリプタンへの反応性も低下する可能性があります。
+              <Term id="cgrp">CGRP</Term>
+              （カルシトニン遺伝子関連ペプチド）の放出が慢性的に増加し、三叉神経血管系の感作が維持されます。同時にトリプタンへの反応性も低下する可能性があります。
             </p>
 
             <div className="mmd">

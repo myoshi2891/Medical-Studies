@@ -1,4 +1,5 @@
 import { Ext } from "@/components/Ext";
+import Term from "@/components/glossary/Term";
 import { TthSidebar } from "@/components/headaches/TthSidebar";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import "./tension-type-headache.css";
@@ -365,7 +366,9 @@ export default function TensionTypeHeadachePage() {
             <div className="alert a-ok">
               <div className="alert-i">💡</div>
               <div>
-                <strong>片頭痛との最重要鑑別ポイント：</strong>
+                <strong>
+                  <Term id="migraine">片頭痛</Term>との最重要鑑別ポイント：
+                </strong>
                 「非拍動性」「体動で悪化しない」「悪心なし」の3点が TTH の特徴です。詳細な鑑別は
                 Section 7 を参照。
               </div>
@@ -491,7 +494,10 @@ export default function TensionTypeHeadachePage() {
             </div>
 
             <h3>① 末梢感作（Peripheral Sensitization）— 主に 2.1 / 2.2 型</h3>
-            <p>頭蓋周囲の筋膜侵害受容器が持続的な刺激を受け活性化します。</p>
+            <p>
+              頭蓋周囲の<Term id="myofascial">筋膜</Term>
+              侵害受容器が持続的な刺激を受け活性化します。
+            </p>
             <div className="tbl">
               <table>
                 <thead>
@@ -531,7 +537,10 @@ export default function TensionTypeHeadachePage() {
             </div>
 
             <h3>② 中枢感作（Central Sensitization）— 主に 2.3 型（慢性型）</h3>
-            <p>反復する末梢刺激により三叉神経系が過感受化し、中枢での痛み処理が変容します。</p>
+            <p>
+              反復する末梢刺激により<Term id="trigeminal-nerve">三叉神経</Term>
+              系が過感受化し、中枢での痛み処理が変容します。
+            </p>
             <div className="tbl">
               <table>
                 <thead>
@@ -545,7 +554,9 @@ export default function TensionTypeHeadachePage() {
                     <td>
                       <strong>下行性疼痛抑制系の機能低下</strong>
                     </td>
-                    <td>セロトニン・ノルアドレナリン系の機能不全</td>
+                    <td>
+                      <Term id="serotonin">セロトニン</Term>・ノルアドレナリン系の機能不全
+                    </td>
                   </tr>
                   <tr>
                     <td>
@@ -2490,7 +2501,9 @@ export default function TensionTypeHeadachePage() {
                   </tr>
                   <tr>
                     <td>
-                      <strong>CGRP 経路薬（TTH 適応）</strong>
+                      <strong>
+                        <Term id="cgrp">CGRP</Term> 経路薬（TTH 適応）
+                      </strong>
                     </td>
                     <td>
                       <span className="bU">Grade U</span>
