@@ -65,6 +65,9 @@ for (const series of SERIES) {
   const all = readdirSync(series.srcDir)
     .filter((f) => f.toLowerCase().endsWith(".png") && !series.exclude.has(f))
     .sort();
+  if (all.length < COUNT) {
+    throw new Error(`${series.id}: 候補画像が不足しています（期待値: ${COUNT}, 実際: ${all.length}）`);
+  }
   const selected = pickEvenly(all, COUNT);
 
   const outDir = join(OUT_ROOT, series.id);
