@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `73cef9c` feat(web-next): enable psychological-behavioral-therapy link in global navigation
-- **ビルド状態**: web-next 全体で計 188 passed（アーキタイプ A 147 + アーキタイプ B（prom）41）。typecheck・lint クリーン
+- **最新 HEAD**: `fc82f84` feat(web-next): implement full sections for headache-diary
+- **ビルド状態**: web-next 全体で計 198 passed（アーキタイプ A 157 + アーキタイプ B（prom）41）。typecheck・lint クリーン
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
@@ -68,6 +68,7 @@
 | Physical-Therapy-for-Headache | `/therapies/physical-therapy-for-headache` | ✅ 完了 | 15 section / Mermaid 9図 / table 33 / 外部リンク 57 |
 | Nutrition-and-Supplements | `/therapies/nutrition-and-supplements` | ✅ 完了 | 12 section / Mermaid 8図 / table 31 / 外部リンク 46 |
 | Psychological-Behavioral-Therapy | `/therapies/psychological-behavioral-therapy` | ✅ 完了 | 14 section / Mermaid 8図 / table 28 / 外部リンク 51 |
+| Headache-Diary | `/prom/headache-diary` | ✅ 完了 | 16 section / Mermaid 9図 / table 29 / 外部リンク 46 |
 | 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer` 遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。残=実 glTF 資産投入（`public/models/LICENSES.md`）＋Phase3 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
@@ -75,10 +76,11 @@
 - **chrome のみクライアント化**: 各ページのサイドバー（scroll-spy = IntersectionObserver）を Client Component 化。
   `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` /
   `components/headaches/CehSidebar.tsx` / `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx` /
-  `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx` / `components/therapies/PsychologicalBehavioralTherapySidebar.tsx`。
+  `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx` /
+  `components/therapies/PsychologicalBehavioralTherapySidebar.tsx` / `components/prom/HeadacheDiarySidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
-  `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` などでスコープ。
-- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 147 passed。lint / typecheck 全通過。
+  `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` などでスコープ。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 157 passed。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
@@ -87,7 +89,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 73cef9c
+- 最新 HEAD: fc82f84
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
