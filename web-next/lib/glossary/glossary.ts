@@ -5,7 +5,7 @@ import { type GlossaryTerm, validateGlossary } from "./types";
  *
  * - 各エントリは Term コンポーネント（components/glossary/Term.tsx）と
  *   /anatomy・主要ガイドページのツールチップから参照される。
- * - plain は「高校生でも分かる」言い換えを基準にする。reading はひらがな。
+ * - plain は「分かりやすい」言い換えを基準にする。reading はひらがな。
  * - 新しい画面へ展開する際は語を追記する（手順は .claude/skills/glossary-term-tooltip/SKILL.md）。
  */
 const TERMS: GlossaryTerm[] = [

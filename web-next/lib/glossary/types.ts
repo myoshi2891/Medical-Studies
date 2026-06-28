@@ -12,7 +12,7 @@ export interface GlossaryTerm {
   term: string;
   /** 読み仮名（ふりがな・ひらがな。例: "だいこうとうしんけい"）。 */
   reading: string;
-  /** 高校生レベルのやさしい解説（1〜2 文）。 */
+  /** 分かりやすい解説（1〜2 文）。 */
   plain: string;
 }
 

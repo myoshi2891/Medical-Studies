@@ -1,12 +1,12 @@
 ---
 name: glossary-term-tooltip
 description: >
-  web-next の画面で医学的な専門用語に「読み仮名（ふりがな）＋高校生レベルのやさしい解説」の
+  web-next の画面で医学的な専門用語に「読み仮名（ふりがな）＋やさしい解説」の
   ツールチップを付ける手順。用語集レジストリ（lib/glossary）に語を追記し、対象ページ本文の
   初出を <Term> でラップする。契約テストを壊さない安全な適用方法を含む。
   TRIGGER when the user says any of the following (Japanese or English):
   - "用語ツールチップを追加" / "やさしい解説を追加" / "読み仮名を付ける" / "ふりがなを付ける"
-  - "専門用語を高校生向けに" / "用語集に追加" / "Term を適用" / "用語解説を付ける"
+  - "専門用語を" / "用語集に追加" / "Term を適用" / "用語解説を付ける"
   - "add glossary term" / "add term tooltip" / "glossary term" / "furigana tooltip"
 ---
 
@@ -45,7 +45,7 @@ import Term from "@/components/glossary/Term";
 
 ### 1. 対象ページの専門用語を抽出
 
-対象 `page.tsx` から、高校生に説明が必要な語を選ぶ。**そのページ自身のテーマ語は避け**、
+対象 `page.tsx` から、説明が必要な語を選ぶ。**そのページ自身のテーマ語は避け**、
 他疾患・他概念への相互参照になる語を優先する（例: 片頭痛ページでは「片頭痛」を囲まない）。
 1 ページあたり **8〜15 語**を目安に、網羅ではなく要点を優先。
 
@@ -56,7 +56,7 @@ import Term from "@/components/glossary/Term";
 - `id`: kebab-case の一意キー（例: `"cgrp"`, `"trigeminal-nerve"`）。
 - `term`: 専門用語の表記。
 - `reading`: 読み仮名（**ひらがな**。英略語は読み下し例 `"シージーアールピー"`）。
-- `plain`: **高校生でも分かる** 1〜2 文の言い換え。専門語の連鎖を避け、たとえを使う。
+- `plain`: **分かりやすい** 1〜2 文の言い換え。専門語の連鎖を避け、たとえを使う。
 
 ### 3. 本文の初出を `<Term>` でラップ
 
