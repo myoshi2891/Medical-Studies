@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Term from "@/components/glossary/Term";
 import type { Hotspot } from "@/lib/anatomy/types";
 
 /**
@@ -67,7 +68,13 @@ export default function ModelViewer({
       <ul className="anatomy-hotspots">
         {hotspots.map((h) => (
           <li key={h.id} className="anatomy-hotspot">
-            <span className="anatomy-hotspot-label">{h.label}</span>
+            <span className="anatomy-hotspot-label">
+              {/* 専門名にツールチップ（読み仮名＋やさしい言い換え）を付ける。 */}
+              <Term term={h.label} reading={h.reading} plain={h.plain}>
+                {h.label}
+              </Term>
+            </span>
+            {/* 降格・スクリーンリーダー向けに、やさしい言い換えは常時テキストでも残す。 */}
             <span className="anatomy-hotspot-plain">{h.plain}</span>
           </li>
         ))}
@@ -80,11 +87,7 @@ export default function ModelViewer({
       : src
         ? "3D モデルは準備中です（モデル未投入）"
         : "総覧セクション（モデルなし）";
-    const statusText = failed
-      ? "読込失敗"
-      : src
-        ? "準備中"
-        : "モデルなし";
+    const statusText = failed ? "読込失敗" : src ? "準備中" : "モデルなし";
     return (
       <div className="anatomy-viewer anatomy-model" data-src={src ?? ""}>
         <div

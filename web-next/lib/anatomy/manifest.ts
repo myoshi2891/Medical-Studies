@@ -52,12 +52,14 @@ const STRUCTURES: AnatomyStructure[] = [
       {
         id: "gon",
         label: "大後頭神経 (GON / C2)",
+        reading: "だいこうとうしんけい",
         plain: "後頭部の感覚を伝える神経",
         position: "0 0.2 0.1",
       },
       {
         id: "trigeminal",
         label: "三叉神経",
+        reading: "さんさしんけい",
         plain: "顔の感覚を伝える神経",
         position: "0.1 0.4 0.1",
       },
@@ -77,6 +79,7 @@ const STRUCTURES: AnatomyStructure[] = [
       {
         id: "vertebral-artery",
         label: "椎骨動脈",
+        reading: "ついこつどうみゃく",
         plain: "首の骨を通って脳へ血液を送る動脈",
         position: "0 0.1 0.1",
       },
@@ -96,6 +99,7 @@ const STRUCTURES: AnatomyStructure[] = [
       {
         id: "tcc",
         label: "三叉頚椎複合体 (TCC)",
+        reading: "さんさけいついふくごうたい",
         plain: "首と頭の痛みが脳幹で合流する場所",
         position: "0 0.3 0",
       },
@@ -115,6 +119,7 @@ const STRUCTURES: AnatomyStructure[] = [
       {
         id: "c1-c2",
         label: "環軸関節 (C1-C2)",
+        reading: "かんじくかんせつ",
         plain: "首を回す動きの中心となる関節",
         position: "0 0.05 0.05",
       },
@@ -134,6 +139,7 @@ const STRUCTURES: AnatomyStructure[] = [
       {
         id: "suboccipital",
         label: "後頭下筋群",
+        reading: "こうとうかきんぐん",
         plain: "後頭部の深い位置にある小さな筋肉",
         position: "0 0.15 0.08",
       },
