@@ -1,22 +1,47 @@
 "use client";
 
-import { type KeyboardEvent, type ReactNode, useId, useState } from "react";
+import {
+  type KeyboardEvent,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
 import { getTerm } from "@/lib/glossary/glossary";
+
+/** ツールチップの fixed 配置座標と表示方向。 */
+interface TipPosition {
+  top: number;
+  left: number;
+  /** 三角の向き。トリガの上に出すなら "top"、下なら "bottom"。 */
+  placement: "top" | "bottom";
+  /** 三角の水平位置（ツールチップ左端からの px）。 */
+  arrowLeft: number;
+}
+
+const GAP = 8;
+const MARGIN = 8;
 
 /**
  * 専門用語に「読み仮名＋やさしい解説」のツールチップを付ける共有部品。
  *
  * `components/MermaidDiagram.tsx`・`components/Ext.tsx` と同じく最小の client 部品。
  * トリガはインラインの `<button>` で、ホバー / キーボードフォーカス / タップ（クリック）で開く。
- * ツールチップは開いている間だけ DOM に描画し、`role="tooltip"` と `aria-describedby` で
- * スクリーンリーダーへ関連付ける。Esc で閉じる。
+ *
+ * ツールチップは **React portal で `document.body` 直下へ描画し `position: fixed`** で配置する。
+ * これにより、テーブルの `overflow-x: auto`（`.tbl`）やカードの `transform` など、祖先要素に
+ * よるクリッピングを完全に回避する（旧 `position: absolute` 実装で表内ツールチップが切れていた）。
+ * `role="tooltip"` と `aria-describedby` でスクリーンリーダーへ関連付け、Esc で閉じる。
  *
  * 用法:
  * - 用語集参照: `<Term id="cgrp">CGRP</Term>`（children が無ければ用語集の term を表示）
  * - インライン指定: `<Term term="大後頭神経" reading="..." plain="..." />`（/anatomy hotspot など）
  *
- * 解説テキスト（plain）が解決できない場合は、素のテキストへ静かに降格する（握りつぶさない設計：
- * 開発時は warn）。
+ * 解説テキスト（plain）が解決できない場合は、素のテキストへ静かに降格する（開発時は warn）。
  *
  * @param id - 用語集（lib/glossary）の id。
  * @param term - インライン指定の専門用語表記（id 未指定時）。
@@ -39,6 +64,15 @@ export default function Term({
 }) {
   const tipId = useId();
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [pos, setPos] = useState<TipPosition | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const tipRef = useRef<HTMLSpanElement>(null);
+
+  // portal は client マウント後のみ（SSR 不一致回避）。
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const entry = id ? getTerm(id) : undefined;
   if (process.env.NODE_ENV !== "production" && id && !entry) {
@@ -50,6 +84,45 @@ export default function Term({
   const resolvedPlain = entry?.plain ?? plain;
   const display = children ?? resolvedTerm;
 
+  // トリガ位置からツールチップの fixed 座標を計算する（上に収まらなければ下へフリップ）。
+  const reposition = useCallback(() => {
+    const trigger = triggerRef.current;
+    const tip = tipRef.current;
+    if (!trigger || !tip) return;
+    const t = trigger.getBoundingClientRect();
+    const tw = tip.offsetWidth;
+    const th = tip.offsetHeight;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    let placement: "top" | "bottom" = "top";
+    let top = t.top - th - GAP;
+    if (top < MARGIN) {
+      // 上に収まらない → 下へ
+      const below = t.bottom + GAP;
+      if (below + th <= vh - MARGIN || below < top) {
+        placement = "bottom";
+        top = below;
+      }
+    }
+    const left = Math.min(Math.max(t.left, MARGIN), Math.max(MARGIN, vw - tw - MARGIN));
+    const arrowLeft = Math.min(Math.max(t.left + t.width / 2 - left, 12), Math.max(12, tw - 12));
+    setPos({ top, left, placement, arrowLeft });
+  }, []);
+
+  // open 中はレイアウト確定後に位置を測り、スクロール / リサイズで追従する。
+  useLayoutEffect(() => {
+    if (!open) return;
+    reposition();
+    const onScroll = () => reposition();
+    window.addEventListener("scroll", onScroll, true);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll, true);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [open, reposition]);
+
   // 解説が無ければツールチップを付けず素テキストへ降格する。
   if (!resolvedPlain) {
     return <>{display}</>;
@@ -59,9 +132,34 @@ export default function Term({
     if (e.key === "Escape") setOpen(false);
   };
 
+  const tooltip =
+    open && mounted
+      ? createPortal(
+          <span
+            ref={tipRef}
+            id={tipId}
+            role="tooltip"
+            className="term-tip"
+            data-placement={pos?.placement ?? "top"}
+            style={{
+              top: pos ? `${pos.top}px` : undefined,
+              left: pos ? `${pos.left}px` : undefined,
+              // 未計測（初回レイアウト前）は見えない位置に置きチラつきを防ぐ。
+              visibility: pos ? "visible" : "hidden",
+              ...(pos ? { ["--term-arrow-left" as string]: `${pos.arrowLeft}px` } : {}),
+            }}
+          >
+            {resolvedReading ? <span className="term-tip-reading">{resolvedReading}</span> : null}
+            <span className="term-tip-plain">{resolvedPlain}</span>
+          </span>,
+          document.body
+        )
+      : null;
+
   return (
     <span className="term-wrap">
       <button
+        ref={triggerRef}
         type="button"
         className="term"
         aria-describedby={open ? tipId : undefined}
@@ -75,12 +173,7 @@ export default function Term({
       >
         {display}
       </button>
-      {open ? (
-        <span id={tipId} role="tooltip" className="term-tip">
-          {resolvedReading ? <span className="term-tip-reading">{resolvedReading}</span> : null}
-          <span className="term-tip-plain">{resolvedPlain}</span>
-        </span>
-      ) : null}
+      {tooltip}
     </span>
   );
 }
