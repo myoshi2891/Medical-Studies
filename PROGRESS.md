@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `126e59f` fix(web-next): apply correct background color and font styles for headache-diary layout
-- **ビルド状態**: web-next 全体で計 198 passed（アーキタイプ A 157 + アーキタイプ B（prom）41）。typecheck・lint クリーン
+- **最新 HEAD**: `2b8ab21` feat(web-next): implement headache-impact-test page and update global nav
+- **ビルド状態**: web-next 全体で計 218 passed。typecheck・lint クリーン
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
@@ -69,6 +69,7 @@
 | Nutrition-and-Supplements | `/therapies/nutrition-and-supplements` | ✅ 完了 | 12 section / Mermaid 8図 / table 31 / 外部リンク 46 |
 | Psychological-Behavioral-Therapy | `/therapies/psychological-behavioral-therapy` | ✅ 完了 | 14 section / Mermaid 8図 / table 28 / 外部リンク 51 |
 | Headache-Diary | `/prom/headache-diary` | ✅ 完了 | 16 section / Mermaid 9図 / table 29 / 外部リンク 46 |
+| Headache-Impact-Test | `/prom/headache-impact-test` | ✅ 完了 | 14 section / Mermaid 3図 / table 24 / 外部リンク 37 |
 | 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer` 遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。残=実 glTF 資産投入（`public/models/LICENSES.md`）＋Phase3 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
