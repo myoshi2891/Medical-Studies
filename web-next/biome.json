@@ -26,7 +26,8 @@
       "!app/therapies/physical-therapy-for-headache/physical-therapy-for-headache.css",
       "!app/therapies/psychological-behavioral-therapy/psychological-behavioral-therapy.css",
       "!app/prom/headache-diary/headache-diary.css",
-      "!app/prom/headache-impact-test/headache-impact-test.css"
+      "!app/prom/headache-impact-test/headache-impact-test.css",
+      "!app/prom/migraine-disability-assessment/migraine-disability-assessment.css"
     ]
   },
   "formatter": {
