@@ -116,4 +116,12 @@ describe("sanitizePng: 異常系", () => {
     ]);
     expect(() => sanitizePng(png)).toThrow(/IEND/);
   });
+
+  it("IDAT チャンクが存在しない場合は例外を投げる", () => {
+    const png = makePng([
+      makeChunk("IHDR", [0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 0, 0, 0]),
+      makeChunk("IEND"),
+    ]);
+    expect(() => sanitizePng(png)).toThrow(/IDAT/);
+  });
 });
