@@ -4,7 +4,7 @@
 
 ## 現在地
 
-- **最新 HEAD**: `2b8ab21` feat(web-next): implement headache-impact-test page and update global nav
+- **最新 HEAD**: `1417c3f` fix(web-next): hide sidebar scrollbar and correct position in headache-impact-test
 - **ビルド状態**: web-next 全体で計 218 passed。typecheck・lint クリーン
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
