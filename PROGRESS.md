@@ -4,7 +4,7 @@
 
 ## 現在地
 
-- **最新 HEAD**: `fc82f84` feat(web-next): implement full sections for headache-diary
+- **最新 HEAD**: `126e59f` fix(web-next): apply correct background color and font styles for headache-diary layout
 - **ビルド状態**: web-next 全体で計 198 passed（アーキタイプ A 157 + アーキタイプ B（prom）41）。typecheck・lint クリーン
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
@@ -89,7 +89,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: fc82f84
+- 最新 HEAD: 126e59f
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
