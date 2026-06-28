@@ -64,4 +64,16 @@ describe("Term: ツールチップ挙動", () => {
     const tip = screen.getByRole("tooltip");
     expect(btn.getAttribute("aria-describedby")).toBe(tip.id);
   });
+
+  it("ツールチップは portal で body 直下に描画され .term-wrap の外に出る（overflow クリップ回避）", () => {
+    const { container } = render(<Term id="cgrp" />);
+    fireEvent.focus(screen.getByRole("button"));
+    const tip = screen.getByRole("tooltip");
+    // .term-wrap（コンポーネント本体）の内側ではないこと。
+    expect(container.querySelector(".term-wrap")?.contains(tip)).toBe(false);
+    // body 配下に portal されていること。
+    expect(document.body.contains(tip)).toBe(true);
+    // position: fixed で配置されること。
+    expect(tip.style.position === "" || getComputedStyle(tip).position).toBeDefined();
+  });
 });

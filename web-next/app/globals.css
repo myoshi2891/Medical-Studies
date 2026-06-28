@@ -389,15 +389,16 @@ body.has-common-header {
   outline-offset: 2px;
 }
 
-/* ツールチップ本体：中立のダーク背景＋白文字。本文の上に重ねて表示する。 */
+/* ツールチップ本体：中立のダーク背景＋白文字。
+ * portal で body 直下へ描画し position: fixed で配置するため、
+ * 祖先の overflow（.tbl の overflow-x:auto 等）や transform でクリップされない。
+ * top / left は Term.tsx が getBoundingClientRect から計算してインラインで与える。 */
 .term-tip {
-  position: absolute;
-  left: 0;
-  bottom: calc(100% + 8px);
-  z-index: 50;
+  position: fixed;
+  z-index: 9000; /* ページ内コンテンツより上、共通ヘッダ(99999)より下 */
   display: block;
   width: max-content;
-  max-width: min(320px, 80vw);
+  max-width: min(320px, 90vw);
   padding: 10px 12px;
   border-radius: 8px;
   background: #1f2933;
@@ -410,14 +411,25 @@ body.has-common-header {
   box-shadow: 0 6px 24px rgba(15, 23, 32, 0.35);
 }
 
-/* 吹き出しの三角（下向き） */
+/* 吹き出しの三角。トリガ中心に合わせて --term-arrow-left で水平位置を指定。 */
 .term-tip::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 16px;
+  left: var(--term-arrow-left, 16px);
+  margin-left: -6px;
   border: 6px solid transparent;
+}
+
+/* トリガの上に出すとき（既定）：三角は下向きで下端に。 */
+.term-tip[data-placement="top"]::after {
+  top: 100%;
   border-top-color: #1f2933;
+}
+
+/* トリガの下に出すとき：三角は上向きで上端に。 */
+.term-tip[data-placement="bottom"]::after {
+  bottom: 100%;
+  border-bottom-color: #1f2933;
 }
 
 .term-tip-reading {
