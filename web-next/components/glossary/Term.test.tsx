@@ -39,11 +39,14 @@ describe("Term: ツールチップ挙動", () => {
     expect(tip.textContent).toContain("片頭痛"); // やさしい解説の一部
   });
 
-  it("クリックで開閉をトグルする", () => {
+  it("クリックで開閉をトグルする（focus→click の実順序）", () => {
     render(<Term id="cgrp" />);
     const btn = screen.getByRole("button");
+    // 実ブラウザではクリック前にフォーカスが入る。focus が開き、同一操作の click は二重発火しない。
+    fireEvent.focus(btn);
     fireEvent.click(btn);
     expect(screen.getByRole("tooltip")).toBeInTheDocument();
+    // 2 回目の click（focus 済み）でトグルして閉じる。
     fireEvent.click(btn);
     expect(screen.queryByRole("tooltip")).toBeNull();
   });
@@ -73,7 +76,10 @@ describe("Term: ツールチップ挙動", () => {
     expect(container.querySelector(".term-wrap")?.contains(tip)).toBe(false);
     // body 配下に portal されていること。
     expect(document.body.contains(tip)).toBe(true);
-    // position: fixed で配置されること。
-    expect(tip.style.position === "" || getComputedStyle(tip).position).toBeDefined();
+    // 祖先の overflow/transform を逃れる fixed 配置クラス（.term-tip）が付くこと。
+    // jsdom は globals.css を読み込まないため computed style は検証できず、配置を担う
+    // class と placement 属性の付与で fixed 配置の適用を確認する。
+    expect(tip).toHaveClass("term-tip");
+    expect(tip.dataset.placement).toBeTruthy();
   });
 });

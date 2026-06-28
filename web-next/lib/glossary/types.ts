@@ -21,13 +21,15 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 function isNonEmptyString(value: unknown): value is string {
-  return typeof value === "string" && value.length > 0;
+  // 空白のみ・前後パディングだけの値は無効扱い（trim 後に中身が必要）。
+  return typeof value === "string" && value.trim().length > 0;
 }
 
 function assertTerm(value: unknown, ctx: string): GlossaryTerm {
   if (!isRecord(value)) throw new Error(`${ctx}: term がオブジェクトではありません`);
   const { id, term, reading, plain } = value;
-  if (!isNonEmptyString(id)) throw new Error(`${ctx}: term.id が不正です`);
+  // id は getTerm(id) ルックアップの鍵なので、前後空白を含む値は拒否する（一致不整合の防止）。
+  if (!isNonEmptyString(id) || id.trim() !== id) throw new Error(`${ctx}: term.id が不正です`);
   if (!isNonEmptyString(term)) throw new Error(`${ctx}: term.term が不正です`);
   if (!isNonEmptyString(reading)) throw new Error(`${ctx}: term.reading が不正です`);
   if (!isNonEmptyString(plain)) throw new Error(`${ctx}: term.plain が不正です`);

@@ -45,7 +45,8 @@ function shouldSkip(el: ReactElement): boolean {
     if (el.type === "a" || el.type === "code" || el.type === "button") return true;
   }
   const props = el.props as Record<string, unknown> | null;
-  if (props?.["data-no-glossary"]) return true;
+  // 属性が存在すればオプトアウト（data-no-glossary="" のような falsy 値でもスキップ）。
+  if (props && "data-no-glossary" in props) return true;
   return false;
 }
 
