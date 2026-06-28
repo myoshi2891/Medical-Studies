@@ -101,7 +101,7 @@ export const navLinks: readonly NavLink[] = [
   {
     name: "PROM 指標",
     children: [
-      { name: "頭痛ダイアリー", href: "/prom/headache-diary", disabled: true },
+      { name: "頭痛ダイアリー", href: "/prom/headache-diary" },
       { name: "HIT-6", href: "/prom/headache-impact-test", disabled: true },
       { name: "MIDAS", href: "/prom/migraine-disability-assessment", disabled: true },
       {
