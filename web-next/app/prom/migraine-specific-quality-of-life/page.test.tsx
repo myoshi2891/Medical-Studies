@@ -27,11 +27,11 @@ const SECTION_IDS = [
 ];
 const H2_COUNT = 15; // セクションタイトル (元の span.sec-title / h1.sec-title)
 const H3_COUNT = 44; // 中見出し (元の h2)
-const H4_COUNT = 0; // 小見出し (元の h3)
+const H4_COUNT = 11; // 小見出し (元の h3)
 const MERMAID_COUNT = 6; // Mermaid 図
 const TABLE_COUNT = 29; // テーブル数
 const NAV_A_COUNT = 15; // サイドバー目次リンク数 (s1〜s15)
-const EXTERNAL_LINK_COUNT = 26; // 外部リンク数
+const EXTERNAL_LINK_COUNT = 29; // 外部リンク数
 
 describe("MigraineSpecificQualityOfLifePage: 契約（忠実転記）", () => {
   it("hero の <h1> がソースのページタイトルと一致する", () => {
@@ -39,7 +39,7 @@ describe("MigraineSpecificQualityOfLifePage: 契約（忠実転記）", () => {
     const h1 = container.querySelector("h1");
     expect(h1).not.toBeNull();
     expect(h1?.textContent?.trim()).toBe(
-      "MSQ v2.1（片頭痛特異的QoL質問票）完全リファレンスガイド"
+      "MSQ v2.1 — 片頭痛特異的 QOL 質問票 完全ガイド"
     );
   });
 
