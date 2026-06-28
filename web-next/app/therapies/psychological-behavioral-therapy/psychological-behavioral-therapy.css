@@ -1,0 +1,692 @@
+.psychological-behavioral-accent {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, .10);
+  --r: 12px;
+  --rs: 8px;
+  /* ページ固有：トワイライト藍紫（心・マインド） */
+  --mind1: #1a237e;
+  --mind2: #3949ab;
+  --mind3: #7986cb;
+
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hero */
+.psychological-behavioral-accent .hero {
+  background: linear-gradient(135deg, var(--mind1), var(--mind2) 50%, var(--mind3));
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.psychological-behavioral-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin: 10px 0 8px;
+}
+.psychological-behavioral-accent .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.psychological-behavioral-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.psychological-behavioral-accent .hero-tag {
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, .3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.psychological-behavioral-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.psychological-behavioral-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.psychological-behavioral-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.psychological-behavioral-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.psychological-behavioral-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.psychological-behavioral-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.psychological-behavioral-accent .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.psychological-behavioral-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all .15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.psychological-behavioral-accent .nav-a:hover,
+.psychological-behavioral-accent .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--mind2);
+  color: var(--mind2);
+}
+.psychological-behavioral-accent .nav-a.active {
+  font-weight: 600;
+  background: #e8eaf6;
+}
+.psychological-behavioral-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.psychological-behavioral-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.psychological-behavioral-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.psychological-behavioral-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.psychological-behavioral-accent .sec-num {
+  background: var(--mind2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.psychological-behavioral-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--mind1);
+}
+
+/* 移行後、元 h2 は h3、元 h3 は h4 に変換 */
+.psychological-behavioral-accent h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid #5c6bc0;
+}
+.psychological-behavioral-accent h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
+}
+.psychological-behavioral-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.psychological-behavioral-accent ul,
+.psychological-behavioral-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.psychological-behavioral-accent li {
+  margin-bottom: 4px;
+}
+.psychological-behavioral-accent a {
+  color: var(--blue);
+}
+.psychological-behavioral-accent a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.psychological-behavioral-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.psychological-behavioral-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.psychological-behavioral-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.psychological-behavioral-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.psychological-behavioral-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.psychological-behavioral-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.psychological-behavioral-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.psychological-behavioral-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.psychological-behavioral-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.psychological-behavioral-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.psychological-behavioral-accent thead th {
+  background: var(--mind1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.psychological-behavioral-accent tbody tr:nth-child(even) {
+  background: #f7f8ff;
+}
+.psychological-behavioral-accent tbody tr:hover {
+  background: #eef0fb;
+}
+.psychological-behavioral-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.psychological-behavioral-accent .th-teal thead th {
+  background: var(--teal);
+}
+.psychological-behavioral-accent .th-red thead th {
+  background: var(--red);
+}
+.psychological-behavioral-accent .th-orange thead th {
+  background: var(--orange);
+}
+.psychological-behavioral-accent .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.psychological-behavioral-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.psychological-behavioral-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.psychological-behavioral-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.psychological-behavioral-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.psychological-behavioral-accent .bExp {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--g2);
+  color: var(--g8);
+  border: 1px solid var(--g3);
+}
+.psychological-behavioral-accent .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.psychological-behavioral-accent .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.psychological-behavioral-accent .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.psychological-behavioral-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.psychological-behavioral-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.psychological-behavioral-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.psychological-behavioral-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.psychological-behavioral-accent .tN {
+  color: var(--mind1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.psychological-behavioral-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.psychological-behavioral-accent .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.psychological-behavioral-accent .mmd-lbl::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--mind2);
+  display: inline-block;
+}
+.psychological-behavioral-accent pre.mermaid {
+  text-align: center;
+}
+
+/* Phase cards */
+.psychological-behavioral-accent .phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+@media (max-width: 700px) {
+  .psychological-behavioral-accent .phase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.psychological-behavioral-accent .ph {
+  border-radius: var(--rs);
+  padding: 16px;
+  text-align: center;
+}
+.psychological-behavioral-accent .ph1 {
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+}
+.psychological-behavioral-accent .ph2 {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.psychological-behavioral-accent .ph3 {
+  background: #ffebee;
+  border: 2px solid #ef5350;
+}
+.psychological-behavioral-accent .ph4 {
+  background: #e8f5e9;
+  border: 2px solid #66bb6a;
+}
+.psychological-behavioral-accent .ph-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.psychological-behavioral-accent .ph-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 2px;
+}
+.psychological-behavioral-accent .ph-time {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 6px;
+}
+.psychological-behavioral-accent .ph-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* SNOOP4 cards */
+.psychological-behavioral-accent .snoop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.psychological-behavioral-accent .sn {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--red);
+}
+.psychological-behavioral-accent .sn-letter {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+}
+.psychological-behavioral-accent .sn-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 3px 0 5px;
+}
+.psychological-behavioral-accent .sn-symp {
+  font-size: 12px;
+  color: var(--g6);
+  line-height: 1.5;
+}
+.psychological-behavioral-accent .sn-dx {
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 7px;
+  background: var(--red-l);
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Therapy cards (心理療法 概観) */
+.psychological-behavioral-accent .therapy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.psychological-behavioral-accent .therapy {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--mind2);
+}
+.psychological-behavioral-accent .therapy-nm {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--mind1);
+  margin-bottom: 4px;
+}
+.psychological-behavioral-accent .therapy-tx {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* MOH cards */
+.psychological-behavioral-accent .moh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.psychological-behavioral-accent .moh {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.psychological-behavioral-accent .moh-h {
+  border-top: 4px solid var(--red);
+}
+.psychological-behavioral-accent .moh-m {
+  border-top: 4px solid var(--orange);
+}
+.psychological-behavioral-accent .moh-l {
+  border-top: 4px solid var(--green);
+}
+.psychological-behavioral-accent .moh-day {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+.psychological-behavioral-accent .moh-unit {
+  font-size: 10.5px;
+  color: var(--g6);
+  margin-bottom: 4px;
+}
+.psychological-behavioral-accent .moh-drug {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--g8);
+}
+
+/* Source cards */
+.psychological-behavioral-accent .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.psychological-behavioral-accent .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+.psychological-behavioral-accent .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.psychological-behavioral-accent .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.psychological-behavioral-accent .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Quick ref */
+.psychological-behavioral-accent .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.psychological-behavioral-accent .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.psychological-behavioral-accent .qr-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mind1);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* Footer */
+.psychological-behavioral-accent .footer {
+  background: var(--mind1);
+  color: rgba(255, 255, 255, .75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.psychological-behavioral-accent .footer strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .psychological-behavioral-accent .sidebar {
+    display: none;
+  }
+  .psychological-behavioral-accent .main {
+    padding: 16px 14px 60px;
+  }
+}
