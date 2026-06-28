@@ -28,7 +28,8 @@
       "!app/prom/headache-diary/headache-diary.css",
       "!app/prom/headache-impact-test/headache-impact-test.css",
       "!app/prom/migraine-disability-assessment/migraine-disability-assessment.css",
-      "!app/prom/migraine-specific-quality-of-life/migraine-specific-quality-of-life.css"
+      "!app/prom/migraine-specific-quality-of-life/migraine-specific-quality-of-life.css",
+      "!app/prom/numerical-rating-scale-visual-analogue-scale/numerical-rating-scale-visual-analogue-scale.css"
     ]
   },
   "formatter": {
