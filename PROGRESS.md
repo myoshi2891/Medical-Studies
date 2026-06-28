@@ -4,7 +4,7 @@
 
 ## 現在地
 
-- **最新 HEAD**: `007bd2c` feat(web-next): implement psychological-behavioral-therapy page with full content
+- **最新 HEAD**: `73cef9c` feat(web-next): enable psychological-behavioral-therapy link in global navigation
 - **ビルド状態**: web-next 全体で計 188 passed（アーキタイプ A 147 + アーキタイプ B（prom）41）。typecheck・lint クリーン
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
@@ -87,7 +87,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 007bd2c
+- 最新 HEAD: 73cef9c
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
