@@ -72,6 +72,7 @@
 | Headache-Impact-Test | `/prom/headache-impact-test` | ✅ 完了 | 14 section / Mermaid 3図 / table 24 / 外部リンク 37 |
 | Migraine-Disability-Assessment | `/prom/migraine-disability-assessment` | ✅ 完了 | 16 section（s1-s15+appendix）/ Mermaid 3図 / table 31 / 外部リンク 25 |
 | Migraine-Specific-Quality-of-Life | `/prom/migraine-specific-quality-of-life` | ✅ 完了 | 15 section（s1-s15）/ Mermaid 6図 / table 29 / 外部リンク 26 |
+| Numerical-Rating-Scale-Visual-Analogue-Scale | `/prom/numerical-rating-scale-visual-analogue-scale` | ✅ 完了 | 15 section / Mermaid 8図 / table 30 / 外部リンク 20 |
 | 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer` 遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。残=実 glTF 資産投入（`public/models/LICENSES.md`）＋Phase3 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
@@ -94,7 +95,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 1ed4c5b
+- 最新 HEAD: 956aac1
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
