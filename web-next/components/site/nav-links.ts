@@ -87,7 +87,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "理学療法 (PT)",
         href: "/therapies/physical-therapy-for-headache",
-        disabled: true,
       },
       {
         name: "栄養・サプリメント",
