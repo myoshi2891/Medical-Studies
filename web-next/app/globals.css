@@ -349,3 +349,101 @@ body.has-common-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   }
 }
+
+/* =========================================================================
+ * 専門用語ツールチップ（components/glossary/Term.tsx）
+ * 全ページ（各 .*-accent スコープ）で再利用するためグローバルに定義する。
+ * 配色はアクセントスコープに依存しない中立色（どのページ背景でも視認可能）。
+ * ========================================================================= */
+
+.term-wrap {
+  position: relative;
+  display: inline;
+}
+
+/* トリガ：本文に溶け込むインラインボタン。点線下線で「解説あり」を示す。 */
+.term {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: help;
+  text-decoration: underline dotted currentColor;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.term:hover,
+.term:focus-visible {
+  color: #11716e;
+  text-decoration-color: #11716e;
+  outline: none;
+}
+
+.term:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid #11716e;
+  outline-offset: 2px;
+}
+
+/* ツールチップ本体：中立のダーク背景＋白文字。本文の上に重ねて表示する。 */
+.term-tip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 8px);
+  z-index: 50;
+  display: block;
+  width: max-content;
+  max-width: min(320px, 80vw);
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #1f2933;
+  color: #f7fafb;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 6px 24px rgba(15, 23, 32, 0.35);
+}
+
+/* 吹き出しの三角（下向き） */
+.term-tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 16px;
+  border: 6px solid transparent;
+  border-top-color: #1f2933;
+}
+
+.term-tip-reading {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 11.5px;
+  color: #9fb3c8;
+}
+
+.term-tip-plain {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .term-tip {
+    animation: term-tip-in 0.12s ease-out;
+  }
+
+  @keyframes term-tip-in {
+    from {
+      opacity: 0;
+      transform: translateY(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
