@@ -26,7 +26,7 @@ const SECTION_IDS = [
 ];
 const H2_COUNT = 14; // セクションタイトル (元の h1.sec-title)
 const H3_COUNT = 39; // 中見出し (元の h2)
-const H4_COUNT = 0;  // 小見出し (元の h3 は存在しない)
+const H4_COUNT = 0; // 小見出し (元の h3 は存在しない)
 const MERMAID_COUNT = 8; // Mermaid 図
 const TABLE_COUNT = 16; // テーブル数
 const NAV_A_COUNT = 14; // サイドバー目次リンク数 (s1〜s14)
