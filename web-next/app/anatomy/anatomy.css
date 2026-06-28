@@ -184,6 +184,44 @@
   color: var(--muted);
 }
 
+/* 3D ステージ（@google/model-viewer） */
+.anatomy-model model-viewer {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 240px;
+  border: 1px solid var(--line);
+  border-radius: var(--rs);
+  background:
+    radial-gradient(circle at 50% 35%, #ffffff, #eef3f5 70%);
+  --poster-color: transparent;
+}
+
+/* 3D 上に固定されるホットスポットピン（model-viewer の slot 子要素） */
+.anatomy-hotspot-pin {
+  display: inline-flex;
+  align-items: center;
+  max-width: 180px;
+  padding: 3px 9px;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+  background: var(--atl2);
+  border: 1px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(15, 61, 62, 0.35);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.anatomy-hotspot-pin:hover,
+.anatomy-hotspot-pin:focus-visible {
+  background: var(--atl3);
+  outline: 2px solid var(--atl1);
+  outline-offset: 1px;
+}
+
 /* MRI scrubber — 放射線読影風ステージ */
 .anatomy-mri-stage {
   position: relative;
