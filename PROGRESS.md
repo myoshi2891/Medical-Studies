@@ -4,7 +4,7 @@
 
 ## 現在地
 
-- **最新 HEAD**: `43ef4cd` docs(architecture): update MRI anonymization checklist details
+- **最新 HEAD**: `1ed4c5b` fix(web-next): correct inert attribute value type in MSQ sidebar
 - **ビルド状態**: web-next 全体で typecheck クリーン。テスト：アーキタイプ A 157 passed ＋ anatomy、頭痛ダイアリー、HIT-6、MIDAS、MSQ 契約追加
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
@@ -94,7 +94,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 8d345f5
+- 最新 HEAD: 1ed4c5b
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```

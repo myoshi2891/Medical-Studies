@@ -89,6 +89,10 @@ export function sanitizePng(input: Uint8Array): Uint8Array {
   if (chunks.length === 0 || chunks[chunks.length - 1].type !== "IEND") {
     throw new Error("終端チャンクが IEND ではありません");
   }
+  const hasIdat = chunks.some((c) => c.type === "IDAT");
+  if (!hasIdat) {
+    throw new Error("IDAT チャンクが存在しません");
+  }
   const kept = chunks.filter((c) => ALLOWED_CHUNKS.has(c.type));
 
   const total = PNG_SIGNATURE.length + kept.reduce((sum, c) => sum + c.raw.length, 0);
