@@ -29,6 +29,15 @@ const navItems: NavItem[] = [
 export default function MigraineSpecificQualityOfLifeSidebar() {
   const [activeId, setActiveId] = useState<string>("s1");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 900px)");
+    const listener = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    setIsMobile(media.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -97,7 +106,12 @@ export default function MigraineSpecificQualityOfLifeSidebar() {
         aria-label="目次を閉じる"
       />
 
-      <nav className={`sidebar ${isOpen ? "open" : ""}`} id="site-nav" aria-label="目次">
+      <nav
+        className={`sidebar ${isOpen ? "open" : ""}`}
+        id="site-nav"
+        aria-label="目次"
+        inert={isMobile && !isOpen ? "" : undefined}
+      >
         <div className="s-hdr">目次</div>
         {navItems.map((item) => (
           <a
