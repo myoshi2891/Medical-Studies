@@ -91,17 +91,11 @@ export default function HeadacheDiarySidebar() {
         <span aria-hidden="true">☰</span> 目次
       </button>
 
-      <div
+      <button
+        type="button"
         className={`nav-backdrop ${isOpen ? "open" : ""}`}
         id="navBackdrop"
         onClick={() => setIsOpen(false)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            setIsOpen(false);
-          }
-        }}
-        tabIndex={0}
-        role="button"
         aria-label="目次を閉じる"
       />
 
