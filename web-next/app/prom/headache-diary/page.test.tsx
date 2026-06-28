@@ -1,17 +1,32 @@
-import { describe, expect, it } from "vitest";
 import { render } from "@testing-library/react";
+import { describe, expect, it } from "vitest";
 import HeadacheDiaryPage from "./page";
 
 // 移行先ガイドの構造契約値
 const SECTION_IDS = [
-  "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16"
+  "s1",
+  "s2",
+  "s3",
+  "s4",
+  "s5",
+  "s6",
+  "s7",
+  "s8",
+  "s9",
+  "s10",
+  "s11",
+  "s12",
+  "s13",
+  "s14",
+  "s15",
+  "s16",
 ];
-const H2_COUNT = 16;      // セクションタイトル (元の h1)
-const H3_COUNT = 39;      // 中見出し (元の h2)
-const H4_COUNT = 0;       // 小見出し (元の h3 はなし)
-const MERMAID_COUNT = 9;  // Mermaid図
-const TABLE_COUNT = 29;   // テーブル数
-const NAV_A_COUNT = 16;   // サイドバーの目次リンク数
+const H2_COUNT = 16; // セクションタイトル (元の h1)
+const H3_COUNT = 40; // 中見出し (元の h2)
+const H4_COUNT = 0; // 小見出し (元の h3 はなし)
+const MERMAID_COUNT = 9; // Mermaid図
+const TABLE_COUNT = 29; // テーブル数
+const NAV_A_COUNT = 16; // サイドバーの目次リンク数
 const EXTERNAL_LINK_COUNT = 46; // http/https 始まりの外部リンク数
 
 describe("HeadacheDiaryPage: 契約（忠実転記）", () => {
