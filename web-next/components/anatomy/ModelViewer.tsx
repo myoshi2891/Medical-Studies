@@ -35,6 +35,10 @@ export default function ModelViewer({
   const showModel = src !== null && !failed;
 
   useEffect(() => {
+    setFailed(false);
+  }, [src]);
+
+  useEffect(() => {
     if (!showModel) return;
     let cancelled = false;
     const node = ref.current;
@@ -76,12 +80,17 @@ export default function ModelViewer({
       : src
         ? "3D モデルは準備中です（モデル未投入）"
         : "総覧セクション（モデルなし）";
+    const statusText = failed
+      ? "読込失敗"
+      : src
+        ? "準備中"
+        : "モデルなし";
     return (
       <div className="anatomy-viewer anatomy-model" data-src={src ?? ""}>
         <div
           className="anatomy-viewer-stage"
           role="img"
-          aria-label={`${title} の 3D モデル（${failed ? "読込失敗" : "準備中"}）`}
+          aria-label={`${title} の 3D モデル（${statusText}）`}
         >
           <span className="anatomy-viewer-badge">3D</span>
           <p className="anatomy-viewer-note">{note}</p>
