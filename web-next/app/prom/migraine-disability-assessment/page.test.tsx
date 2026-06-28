@@ -28,7 +28,7 @@ const SECTION_IDS = [
 ];
 const H2_COUNT = 16; // セクションタイトル (元の span.sec-title) — s1〜s15 + appendix
 const H3_COUNT = 43; // 中見出し (元の h2: 43個)
-const H4_COUNT = 0; // 小見出しなし (元の h3 は0個)
+const H4_COUNT = 2; // 小見出し (元の h3)
 const MERMAID_COUNT = 3; // Mermaid 図
 const TABLE_COUNT = 31; // テーブル数
 const NAV_A_COUNT = 15; // サイドバー目次リンク数 (s1〜s15; appendix は nav-a に含まれない)
