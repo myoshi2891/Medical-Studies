@@ -107,7 +107,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "MSQ v2.1",
         href: "/prom/migraine-specific-quality-of-life",
-        disabled: true,
       },
       {
         name: "NRS / VAS",
