@@ -27,7 +27,8 @@
       "!app/therapies/psychological-behavioral-therapy/psychological-behavioral-therapy.css",
       "!app/prom/headache-diary/headache-diary.css",
       "!app/prom/headache-impact-test/headache-impact-test.css",
-      "!app/prom/migraine-disability-assessment/migraine-disability-assessment.css"
+      "!app/prom/migraine-disability-assessment/migraine-disability-assessment.css",
+      "!app/prom/migraine-specific-quality-of-life/migraine-specific-quality-of-life.css"
     ]
   },
   "formatter": {
