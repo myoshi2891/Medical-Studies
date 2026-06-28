@@ -111,7 +111,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "NRS / VAS",
         href: "/prom/numerical-rating-scale-visual-analogue-scale",
-        disabled: true,
       },
       {
         name: "PGIC",
