@@ -1,6 +1,7 @@
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./anatomy.css";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { AnatomyViewers } from "@/components/anatomy/AnatomyViewers";
 import { ANATOMY_MANIFEST } from "@/lib/anatomy/manifest";
 
@@ -52,9 +53,9 @@ export default function AnatomyPage() {
 
               <nav className="anatomy-links" aria-label={`${s.title} の関連教育ページ`}>
                 {s.links.map((l) => (
-                  <a key={l.href} className="anatomy-link" href={l.href}>
+                  <Link key={l.href} className="anatomy-link" href={l.href}>
                     {l.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </section>
