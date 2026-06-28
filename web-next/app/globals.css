@@ -371,7 +371,7 @@ body.has-common-header {
   font: inherit;
   color: inherit;
   cursor: help;
-  text-decoration: underline dotted currentColor;
+  text-decoration: underline dotted currentcolor;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }

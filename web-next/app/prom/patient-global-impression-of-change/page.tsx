@@ -477,7 +477,7 @@ style B3 fill:#c8e6c9,stroke:#2e7d32`}
                     <thead>
                       <tr>
                         <th>特性</th>
-                        <th>暗号化・評価</th>
+                        <th>評価</th>
                         <th>根拠</th>
                       </tr>
                     </thead>
@@ -761,7 +761,7 @@ style K fill:#fff3e0,stroke:#e65100`}
                         <td>
                           <strong>RELIEF</strong>
                         </td>
-                        <td>エレヌマブ（Vyepti）</td>
+                        <td>エプチネズマブ（Vyepti）</td>
                         <td>副次転帰</td>
                         <td>降順型（1=大幅改善、7=大幅悪化）</td>
                       </tr>
@@ -1680,10 +1680,10 @@ style S10 fill:#ffcdd2,stroke:#c62828`}
                   </div>
                   <div className="src">
                     <div className="src-org">ClinicalTrials.gov</div>
-                    <div className="src-t">ARISE 試験（エレヌマブ）NCT03927144 — PGIC採用仕様</div>
+                    <div className="src-t">ARISE 試験（エレヌマブ）NCT02483585 — PGIC採用仕様</div>
                     <div className="src-url">
-                      <Ext href="https://clinicaltrials.gov/study/NCT03927144">
-                        clinicaltrials.gov/study/NCT03927144
+                      <Ext href="https://clinicaltrials.gov/study/NCT02483585">
+                        clinicaltrials.gov/study/NCT02483585
                       </Ext>
                     </div>
                   </div>

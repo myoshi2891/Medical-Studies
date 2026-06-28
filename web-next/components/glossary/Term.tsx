@@ -68,6 +68,8 @@ export default function Term({
   const [pos, setPos] = useState<TipPosition | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const tipRef = useRef<HTMLSpanElement>(null);
+  // 同一操作中に onFocus が開いたかを記録し、直後の onClick による二重発火（即閉じ）を防ぐ。
+  const focusOpenedRef = useRef(false);
 
   // portal は client マウント後のみ（SSR 不一致回避）。
   useEffect(() => {
@@ -82,7 +84,8 @@ export default function Term({
   const resolvedTerm = entry?.term ?? term;
   const resolvedReading = entry?.reading ?? reading;
   const resolvedPlain = entry?.plain ?? plain;
-  const display = children ?? resolvedTerm;
+  // 用語集に無い id でも空表示にならないよう、最後の手段として id を可視テキストにする。
+  const display = children ?? resolvedTerm ?? id;
 
   // トリガ位置からツールチップの fixed 座標を計算する（上に収まらなければ下へフリップ）。
   const reposition = useCallback(() => {
@@ -166,9 +169,23 @@ export default function Term({
         aria-expanded={open}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
-        onFocus={() => setOpen(true)}
-        onBlur={() => setOpen(false)}
-        onClick={() => setOpen((o) => !o)}
+        onFocus={() => {
+          // フォーカス（キーボード／ポインタ）は「開く」だけ。トグルはしない。
+          focusOpenedRef.current = !open;
+          setOpen(true);
+        }}
+        onBlur={() => {
+          setOpen(false);
+          focusOpenedRef.current = false;
+        }}
+        onClick={() => {
+          // 直前の onFocus が同じ操作で開いた場合、click はトグルせず開いたまま保つ（二重発火回避）。
+          if (focusOpenedRef.current) {
+            focusOpenedRef.current = false;
+            return;
+          }
+          setOpen((o) => !o);
+        }}
         onKeyDown={onKeyDown}
       >
         {display}

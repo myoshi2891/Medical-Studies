@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `5232d63` chore(web-next): format page.test.tsx with biome
-- **ビルド状態**: web-next 全体で typecheck クリーン。テスト：アーキタイプ A 167 passed ＋ anatomy、頭痛ダイアリー、HIT-6、MIDAS、MSQ、PGIC 契約追加
+- **最新 HEAD**: `5b71444` docs(glossary): update tooltip description target from high school level to simple wording
+- **ビルド状態**: web-next 全体で typecheck クリーン。テスト：アーキタイプ A 全ページ契約テスト＋ anatomy／PROM 各尺度（NRS・VAS 含む）契約／用語集（glossary・AutoGlossary・Term）テストが green
 - **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
