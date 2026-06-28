@@ -29,8 +29,11 @@
   --r: 12px;
   --rs: 8px;
 
-  color: var(--g9);
+  font-size: 1rem;
   line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
 }
 
 /* Prefer smooth scrolling unless requested otherwise */
