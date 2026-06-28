@@ -115,7 +115,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "PGIC",
         href: "/prom/patient-global-impression-of-change",
-        disabled: true,
       },
     ],
   },
