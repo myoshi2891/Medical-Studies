@@ -154,7 +154,7 @@ MdLink { label, href }                    // href は内部 # or 既存ページ
 
 - [x] ファイル名に患者識別子・撮影日・施設名を含まない。（中立連番 `01.png`…へ改名）
 - [x] ピクセル焼込みテキスト（氏名・ID・日付）が無い。（curate 対象スライスを目視確認）
-- [x] 付随メタデータ（PNG tEXt 等）に PHI が無い。（`sanitizePng` で ancillary チャンク除去）
+- [x] 付随メタデータ（tEXt, iTXt, zTXt, tIME, eXIf 等）に PHI が無い。（`sanitizePng` で ancillary チャンク除去）
 - [x] 顔貌の 3D 再構築が不可能な 2D スライスに限定する。（等間隔の単発スライスのみ採用）
 
 ---
