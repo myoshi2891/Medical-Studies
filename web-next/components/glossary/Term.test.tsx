@@ -22,6 +22,13 @@ describe("Term: 表示と降格", () => {
     expect(screen.queryByRole("button")).toBeNull();
     expect(screen.getByText("不明語")).toBeInTheDocument();
   });
+
+  it("用語集に無い id は id 文字列を可視テキストに降格しボタンを作らない", () => {
+    // children も term も無く id が用語集未登録 → display = id（最後のフォールバック）。
+    render(<Term id="__missing__" />);
+    expect(screen.queryByRole("button")).toBeNull();
+    expect(screen.getByText("__missing__")).toBeInTheDocument();
+  });
 });
 
 describe("Term: ツールチップ挙動", () => {
@@ -39,14 +46,26 @@ describe("Term: ツールチップ挙動", () => {
     expect(tip.textContent).toContain("片頭痛"); // やさしい解説の一部
   });
 
-  it("クリックで開閉をトグルする（focus→click の実順序）", () => {
+  it("ポインタのクリックで開閉をトグルする（pointerDown→focus→click の実順序）", () => {
     render(<Term id="cgrp" />);
     const btn = screen.getByRole("button");
-    // 実ブラウザではクリック前にフォーカスが入る。focus が開き、同一操作の click は二重発火しない。
+    // 実ブラウザのポインタ操作は pointerdown→focus→click の順。focus が開き、同一操作の click は二重発火しない。
+    fireEvent.pointerDown(btn);
     fireEvent.focus(btn);
     fireEvent.click(btn);
     expect(screen.getByRole("tooltip")).toBeInTheDocument();
-    // 2 回目の click（focus 済み）でトグルして閉じる。
+    // 2 回目のポインタクリック（focus 済み）でトグルして閉じる。
+    fireEvent.pointerDown(btn);
+    fireEvent.click(btn);
+    expect(screen.queryByRole("tooltip")).toBeNull();
+  });
+
+  it("キーボード起動（Tab フォーカス後の Enter/Space=click）はトグルする", () => {
+    render(<Term id="cgrp" />);
+    const btn = screen.getByRole("button");
+    // pointerdown を伴わないフォーカスはキーボード由来。focus が開き、続く click は抑止されずトグルで閉じる。
+    fireEvent.focus(btn);
+    expect(screen.getByRole("tooltip")).toBeInTheDocument();
     fireEvent.click(btn);
     expect(screen.queryByRole("tooltip")).toBeNull();
   });
