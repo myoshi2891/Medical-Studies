@@ -59,12 +59,7 @@ export default function HeadacheDiarySidebar() {
     };
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleNavClick = () => {
     setIsOpen(false);
   };
 
@@ -106,7 +101,7 @@ export default function HeadacheDiarySidebar() {
             key={item.id}
             className={`nav-a ${activeId === item.id ? "active" : ""}`}
             href={`#${item.id}`}
-            onClick={(e) => handleNavClick(e, item.id)}
+            onClick={handleNavClick}
           >
             <span className="n-num">{item.num}</span>
             {item.title}
