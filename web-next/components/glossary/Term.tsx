@@ -68,7 +68,10 @@ export default function Term({
   const [pos, setPos] = useState<TipPosition | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const tipRef = useRef<HTMLSpanElement>(null);
-  // 同一操作中に onFocus が開いたかを記録し、直後の onClick による二重発火（即閉じ）を防ぐ。
+  // ポインタ押下を記録し、ポインタ由来のフォーカスだけを後続の onClick 抑止対象とする。
+  // （キーボードの Tab フォーカス後の Enter/Space 起動はトグルさせたいので対象外にする。）
+  const pointerDownRef = useRef(false);
+  // ポインタ操作で onFocus が開いたかを記録し、直後の onClick による二重発火（即閉じ）を防ぐ。
   const focusOpenedRef = useRef(false);
 
   // portal は client マウント後のみ（SSR 不一致回避）。
@@ -169,17 +172,24 @@ export default function Term({
         aria-expanded={open}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
+        onPointerDown={() => {
+          pointerDownRef.current = true;
+        }}
         onFocus={() => {
           // フォーカス（キーボード／ポインタ）は「開く」だけ。トグルはしない。
-          focusOpenedRef.current = !open;
+          // ポインタ由来で、かつ今閉じている場合のみ、直後の click を抑止対象にする。
+          focusOpenedRef.current = pointerDownRef.current && !open;
           setOpen(true);
         }}
         onBlur={() => {
           setOpen(false);
           focusOpenedRef.current = false;
+          pointerDownRef.current = false;
         }}
         onClick={() => {
-          // 直前の onFocus が同じ操作で開いた場合、click はトグルせず開いたまま保つ（二重発火回避）。
+          pointerDownRef.current = false;
+          // 同一ポインタ操作の onFocus が開いた場合のみ、click はトグルせず開いたまま保つ（二重発火回避）。
+          // キーボード起動（Tab→Enter/Space）は focusOpenedRef が false のため通常どおりトグルする。
           if (focusOpenedRef.current) {
             focusOpenedRef.current = false;
             return;
