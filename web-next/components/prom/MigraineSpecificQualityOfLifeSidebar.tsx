@@ -110,7 +110,7 @@ export default function MigraineSpecificQualityOfLifeSidebar() {
         className={`sidebar ${isOpen ? "open" : ""}`}
         id="site-nav"
         aria-label="目次"
-        inert={isMobile && !isOpen ? "" : undefined}
+        inert={isMobile && !isOpen ? true : undefined}
       >
         <div className="s-hdr">目次</div>
         {navItems.map((item) => (
