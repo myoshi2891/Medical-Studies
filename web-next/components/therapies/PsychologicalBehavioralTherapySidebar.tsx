@@ -38,7 +38,10 @@ export function PsychologicalBehavioralTherapySidebar() {
           }
         }
       },
-      { threshold: 0.25 }
+      {
+        threshold: 0,
+        rootMargin: "-10% 0px -70% 0px",
+      }
     );
 
     for (const section of sections) {
