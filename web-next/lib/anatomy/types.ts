@@ -21,6 +21,8 @@ export interface Hotspot {
   id: string;
   /** 専門名（例: 大後頭神経 GON）。 */
   label: string;
+  /** 読み仮名（ふりがな・ひらがな。任意。ツールチップに表示）。 */
+  reading?: string;
   /** やさしい言い換え（v1.2 Translation Engine の転用）。 */
   plain: string;
   /** model-viewer の data-position 形式 "x y z"。 */
@@ -69,12 +71,18 @@ function isStructureId(value: unknown): value is StructureId {
 
 function assertHotspot(value: unknown, ctx: string): Hotspot {
   if (!isRecord(value)) throw new Error(`${ctx}: hotspot がオブジェクトではありません`);
-  const { id, label, plain, position } = value;
+  const { id, label, reading, plain, position } = value;
   if (!isNonEmptyString(id)) throw new Error(`${ctx}: hotspot.id が不正です`);
   if (!isNonEmptyString(label)) throw new Error(`${ctx}: hotspot.label が不正です`);
   if (!isNonEmptyString(plain)) throw new Error(`${ctx}: hotspot.plain が不正です`);
   if (!isNonEmptyString(position)) throw new Error(`${ctx}: hotspot.position が不正です`);
-  return { id, label, plain, position };
+  const result: Hotspot = { id, label, plain, position };
+  // reading は任意。存在する場合のみ検証して付与する。
+  if (reading !== undefined) {
+    if (!isNonEmptyString(reading)) throw new Error(`${ctx}: hotspot.reading が不正です`);
+    result.reading = reading;
+  }
+  return result;
 }
 
 function assertMdLink(value: unknown, ctx: string): MdLink {
