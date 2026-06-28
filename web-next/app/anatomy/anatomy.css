@@ -247,7 +247,7 @@
 
 .anatomy-mri-ov {
   position: absolute;
-  font-family: ui-monospace, "SF Mono", "Menlo", monospace;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
   font-size: 11px;
   letter-spacing: 0.5px;
   color: rgba(110, 231, 214, 0.85);
