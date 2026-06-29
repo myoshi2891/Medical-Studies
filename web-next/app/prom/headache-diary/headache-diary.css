@@ -1,0 +1,727 @@
+/* Scope-specific custom properties and components */
+.headache-diary-accent {
+  --diary1: #3e2723;
+  --diary2: #6d4c41;
+  --diary3: #a98467;
+  --diary-l: #eee6e1;
+
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
+}
+
+/* Prefer smooth scrolling unless requested otherwise */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hero */
+.headache-diary-accent .hero {
+  background: linear-gradient(135deg, var(--diary1), var(--diary2) 55%, var(--diary3));
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.headache-diary-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+.headache-diary-accent .hero-sub {
+  font-size: 1rem;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.headache-diary-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.headache-diary-accent .hero-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.headache-diary-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 1rem;
+  color: var(--g8);
+}
+.headache-diary-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.headache-diary-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.headache-diary-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.headache-diary-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.headache-diary-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.headache-diary-accent .s-hdr {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.headache-diary-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 1rem;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.headache-diary-accent .nav-a:hover,
+.headache-diary-accent .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--diary1);
+  color: var(--diary1);
+}
+.headache-diary-accent .nav-a.active {
+  font-weight: 600;
+  background: var(--diary-l);
+}
+.headache-diary-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 1rem;
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.headache-diary-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.headache-diary-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.headache-diary-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.headache-diary-accent .sec-num {
+  background: var(--diary1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.headache-diary-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--diary1);
+}
+.headache-diary-accent h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--diary2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--diary3);
+}
+.headache-diary-accent h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
+}
+.headache-diary-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.headache-diary-accent ul,
+.headache-diary-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.headache-diary-accent li {
+  margin-bottom: 4px;
+}
+
+/* Cards */
+.headache-diary-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.headache-diary-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 1rem;
+}
+.headache-diary-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.headache-diary-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.headache-diary-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.headache-diary-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.headache-diary-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.headache-diary-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.headache-diary-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.headache-diary-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 1rem;
+}
+.headache-diary-accent thead th {
+  background: var(--diary1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.headache-diary-accent tbody tr:nth-child(even) {
+  background: var(--diary-l);
+}
+.headache-diary-accent tbody tr:hover {
+  background: var(--g1);
+}
+.headache-diary-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.headache-diary-accent .th-teal thead th {
+  background: var(--teal);
+}
+.headache-diary-accent .th-red thead th {
+  background: var(--red);
+}
+.headache-diary-accent .th-orange thead th {
+  background: var(--orange);
+}
+.headache-diary-accent .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.headache-diary-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.headache-diary-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.headache-diary-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.headache-diary-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.headache-diary-accent .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.headache-diary-accent .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.headache-diary-accent .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.headache-diary-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.headache-diary-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.headache-diary-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.headache-diary-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.headache-diary-accent .tN {
+  color: var(--diary1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.headache-diary-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.headache-diary-accent .mmd-lbl {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.headache-diary-accent .mmd-lbl::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--diary2);
+  display: inline-block;
+}
+
+/* Phase cards */
+.headache-diary-accent .phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+@media (max-width: 700px) {
+  .headache-diary-accent .phase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.headache-diary-accent .ph {
+  border-radius: var(--rs);
+  padding: 16px;
+  text-align: center;
+}
+.headache-diary-accent .ph1 {
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+}
+.headache-diary-accent .ph2 {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.headache-diary-accent .ph3 {
+  background: #ffebee;
+  border: 2px solid #ef5350;
+}
+.headache-diary-accent .ph4 {
+  background: #e8f5e9;
+  border: 2px solid #66bb6a;
+}
+.headache-diary-accent .ph-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.headache-diary-accent .ph-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.headache-diary-accent .ph-time {
+  font-size: 1rem;
+  color: var(--g6);
+  margin-bottom: 6px;
+}
+.headache-diary-accent .ph-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* SNOOP4 cards */
+.headache-diary-accent .snoop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-diary-accent .sn {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--red);
+}
+.headache-diary-accent .sn-letter {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+}
+.headache-diary-accent .sn-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 3px 0 5px;
+}
+.headache-diary-accent .sn-symp {
+  font-size: 1rem;
+  color: var(--g6);
+  line-height: 1.5;
+}
+.headache-diary-accent .sn-dx {
+  font-size: 1rem;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 7px;
+  background: var(--red-l);
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Drug cards */
+.headache-diary-accent .drug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.headache-diary-accent .drug {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--teal);
+}
+.headache-diary-accent .drug-nm {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 2px;
+}
+.headache-diary-accent .drug-br {
+  font-size: 1rem;
+  color: var(--g6);
+  margin-bottom: 8px;
+}
+.headache-diary-accent .drug-tx {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* MOH cards */
+.headache-diary-accent .moh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.headache-diary-accent .moh {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.headache-diary-accent .moh-h {
+  border-top: 4px solid var(--red);
+}
+.headache-diary-accent .moh-m {
+  border-top: 4px solid var(--orange);
+}
+.headache-diary-accent .moh-l {
+  border-top: 4px solid var(--green);
+}
+.headache-diary-accent .moh-day {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+}
+.headache-diary-accent .moh-unit {
+  font-size: 1rem;
+  color: var(--g6);
+  margin-bottom: 4px;
+}
+.headache-diary-accent .moh-drug {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--g8);
+}
+
+/* Source cards */
+.headache-diary-accent .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-diary-accent .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+.headache-diary-accent .src-org {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.headache-diary-accent .src-t {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.headache-diary-accent .src-url {
+  font-size: 1rem;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Quick ref */
+.headache-diary-accent .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-diary-accent .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.headache-diary-accent .qr-t {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--diary1);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* Footer */
+.headache-diary-accent .footer {
+  background: var(--diary1);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 24px;
+  font-size: 1rem;
+  margin-top: 48px;
+}
+.headache-diary-accent .footer strong {
+  color: #fff;
+}
+
+/* Mobile nav toggle */
+.headache-diary-accent .menu-toggle {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1002;
+  align-items: center;
+  gap: 6px;
+  background: var(--diary1);
+  color: #fff;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--sh);
+}
+.headache-diary-accent .menu-toggle:focus-visible {
+  outline: 3px solid var(--diary-l);
+  outline-offset: 2px;
+}
+.headache-diary-accent .nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 1000;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .headache-diary-accent .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    z-index: 1001;
+    box-shadow: 2px 0 14px rgba(0, 0, 0, 0.18);
+  }
+  .headache-diary-accent .sidebar.open {
+    transform: translateX(0);
+  }
+  .headache-diary-accent .menu-toggle {
+    display: inline-flex;
+  }
+  .headache-diary-accent .nav-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .headache-diary-accent .main {
+    padding: 64px 14px 60px;
+  }
+}

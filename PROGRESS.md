@@ -4,9 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `7e6b109` test(web-next): update active and disabled links count in SiteHeader tests
-- **ビルド状態**: web-next 全体で計 152 passed（アーキタイプ A 111 + アーキタイプ B（prom）41）。typecheck・lint クリーン / 本番ビルドで `/anatomy` 静的プリレンダリング確認
-- **次の作業**: `/anatomy` 3D解剖アトラス雛形（Phase 0）完了。Phase 1（匿名化済みMRI投入）/ Phase 2（オープンソースglTFモデル投入）待ち。設計書: `docs/architecture.md`
+- **最新 HEAD**: `5b71444` docs(glossary): update tooltip description target from high school level to simple wording
+- **ビルド状態**: web-next 全体で typecheck クリーン。テスト：アーキタイプ A 全ページ契約テスト＋ anatomy／PROM 各尺度（NRS・VAS 含む）契約／用語集（glossary・AutoGlossary・Term）テストが green
+- **次の作業**: 新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
 ## 移行ステータス
@@ -65,18 +65,30 @@
 | Stellate-Ganglion-Block | `/blocks/stellate-ganglion-block` | ✅ 完了 | 11 section / Mermaid 11図 / table 22 / 外部リンク 25 |
 | Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
 | Tension-Type-Headache | `/headaches/tension-type-headache` | ✅ 完了 | 15 section / Mermaid 8図 / table 29 / 外部リンク 38 |
+| Physical-Therapy-for-Headache | `/therapies/physical-therapy-for-headache` | ✅ 完了 | 15 section / Mermaid 9図 / table 33 / 外部リンク 57 |
 | Nutrition-and-Supplements | `/therapies/nutrition-and-supplements` | ✅ 完了 | 12 section / Mermaid 8図 / table 31 / 外部リンク 46 |
-| 3D解剖アトラス | `/anatomy` | 🟡 Phase 0（雛形） | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（3Dプレースホルダ＋ホットスポット凡例）/ MriSliceViewer（2Dスクラバ）をクライアントアイランド遅延配置。設計書 `docs/architecture.md`。Phase1=匿名化MRI投入 / Phase2=glTFモデル投入 |
+| Psychological-Behavioral-Therapy | `/therapies/psychological-behavioral-therapy` | ✅ 完了 | 14 section / Mermaid 8図 / table 28 / 外部リンク 51 |
+| Headache-Diary | `/prom/headache-diary` | ✅ 完了 | 16 section / Mermaid 9図 / table 29 / 外部リンク 46 |
+| Headache-Impact-Test | `/prom/headache-impact-test` | ✅ 完了 | 14 section / Mermaid 3図 / table 24 / 外部リンク 37 |
+| Migraine-Disability-Assessment | `/prom/migraine-disability-assessment` | ✅ 完了 | 16 section（s1-s15+appendix）/ Mermaid 3図 / table 31 / 外部リンク 25 |
+| Migraine-Specific-Quality-of-Life | `/prom/migraine-specific-quality-of-life` | ✅ 完了 | 15 section（s1-s15）/ Mermaid 6図 / table 29 / 外部リンク 26 |
+| Numerical-Rating-Scale-Visual-Analogue-Scale | `/prom/numerical-rating-scale-visual-analogue-scale` | ✅ 完了 | 15 section / Mermaid 8図 / table 30 / 外部リンク 20 |
+| Patient-Global-Impression-of-Change | `/prom/patient-global-impression-of-change` | ✅ 完了 | 14 section / Mermaid 8図 / table 16 / 外部リンク 17 |
+| 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer` 遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し `/anatomy` 凡例＋主要ガイド（`app/headaches/` 4ページ）へ適用（残り画面は `.claude/skills/glossary-term-tooltip` の手順で展開）。残=実 glTF 資産投入（`public/models/LICENSES.md`） |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
 - **chrome のみクライアント化**: 各ページのサイドバー（scroll-spy = IntersectionObserver）を Client Component 化。
   `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` /
   `components/headaches/CehSidebar.tsx` / `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx` /
-  `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx`。
+  `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx` /
+  `components/therapies/PsychologicalBehavioralTherapySidebar.tsx` / `components/prom/HeadacheDiarySidebar.tsx` /
+  `components/prom/HeadacheImpactTestSidebar.tsx` / `components/prom/MigraineDisabilityAssessmentSidebar.tsx` /
+  `components/prom/MigraineSpecificQualityOfLifeSidebar.tsx` /
+  `components/prom/PatientGlobalImpressionOfChangeSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
-  `.moh-accent` / `.migraine-accent` / `.tth-accent` などでスコープ。
-- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 111 passed。lint / typecheck 全通過。
+  `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` などでスコープ。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 167 passed。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
@@ -85,7 +97,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 7e6b109
+- 最新 HEAD: 5232d63
 - 次の作業: 新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```

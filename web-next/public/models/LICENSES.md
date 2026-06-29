@@ -27,7 +27,14 @@
 
 ## 投入手順（Phase 2）
 
+> [!NOTE]
+> 手順 4（`ModelViewer` の `@google/model-viewer` 遅延ロード・ホットスポット注釈・
+> 読込失敗時の降格）は**実装済**。あとは手順 1〜3（実 glTF 資産の取得・配置・帰属表示）を
+> 行えば、該当構造の `<model-viewer>` が自動で描画される。
+> `<id>.glb` 投入後は、ホットスポット `position` を実モデル座標へ要キャリブレーション
+> （`lib/anatomy/manifest.ts`）。
+
 1. 上記ソースから対象構造のモデルを取得し、glTF/GLB へ変換（Draco/Meshopt 圧縮）。
 2. `web-next/public/models/<id>.glb` に配置（id は `lib/anatomy/manifest.ts` と一致）。
 3. 本表へ出典・ライセンス・改変有無・帰属表示を追記。
-4. `ModelViewer` の遅延ロード（model-viewer）を有効化。
+4. ~~`ModelViewer` の遅延ロード（model-viewer）を有効化。~~ ✅ 実装済（Phase 2 コード）。
