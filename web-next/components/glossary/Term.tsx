@@ -73,6 +73,9 @@ export default function Term({
   const pointerDownRef = useRef(false);
   // ポインタ操作で onFocus が開いたかを記録し、直後の onClick による二重発火（即閉じ）を防ぐ。
   const focusOpenedRef = useRef(false);
+  // ホバー／フォーカスの独立追跡。どちらかが true の間は setOpen(false) を抑制する。
+  const hoverRef = useRef(false);
+  const focusRef = useRef(false);
 
   // portal は client マウント後のみ（SSR 不一致回避）。
   useEffect(() => {
@@ -170,21 +173,31 @@ export default function Term({
         className="term"
         aria-describedby={open ? tipId : undefined}
         aria-expanded={open}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
+        onMouseEnter={() => {
+          hoverRef.current = true;
+          setOpen(true);
+        }}
+        onMouseLeave={() => {
+          hoverRef.current = false;
+          // フォーカスが残っている場合は閉じない（キーボード開放状態を保持する）。
+          if (!focusRef.current) setOpen(false);
+        }}
         onPointerDown={() => {
           pointerDownRef.current = true;
         }}
         onFocus={() => {
+          focusRef.current = true;
           // フォーカス（キーボード／ポインタ）は「開く」だけ。トグルはしない。
           // ポインタ由来で、かつ今閉じている場合のみ、直後の click を抑止対象にする。
           focusOpenedRef.current = pointerDownRef.current && !open;
           setOpen(true);
         }}
         onBlur={() => {
-          setOpen(false);
+          focusRef.current = false;
           focusOpenedRef.current = false;
           pointerDownRef.current = false;
+          // ホバーが残っている場合は閉じない（マウスオーバー中のまま Tab 移動した場合）。
+          if (!hoverRef.current) setOpen(false);
         }}
         onClick={() => {
           pointerDownRef.current = false;
