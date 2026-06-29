@@ -1,5 +1,7 @@
+import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./anatomy.css";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { AnatomyViewers } from "@/components/anatomy/AnatomyViewers";
 import { ANATOMY_MANIFEST } from "@/lib/anatomy/manifest";
 
@@ -36,27 +38,29 @@ export default function AnatomyPage() {
 
       {/* SECTIONS */}
       <main className="anatomy-main">
-        {ANATOMY_MANIFEST.map((s) => (
-          <section key={s.id} id={s.id} className="anatomy-sec">
-            <h2 className="anatomy-sec-title">{s.title}</h2>
-            <p className="anatomy-sec-summary">{s.summary}</p>
+        <AutoGlossary>
+          {ANATOMY_MANIFEST.map((s) => (
+            <section key={s.id} id={s.id} className="anatomy-sec">
+              <h2 className="anatomy-sec-title">{s.title}</h2>
+              <p className="anatomy-sec-summary">{s.summary}</p>
 
-            <AnatomyViewers
-              modelSrc={s.modelSrc}
-              hotspots={s.hotspots}
-              mri={s.mri}
-              title={s.title}
-            />
+              <AnatomyViewers
+                modelSrc={s.modelSrc}
+                hotspots={s.hotspots}
+                mri={s.mri}
+                title={s.title}
+              />
 
-            <nav className="anatomy-links" aria-label={`${s.title} の関連教育ページ`}>
-              {s.links.map((l) => (
-                <a key={l.href} className="anatomy-link" href={l.href}>
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-          </section>
-        ))}
+              <nav className="anatomy-links" aria-label={`${s.title} の関連教育ページ`}>
+                {s.links.map((l) => (
+                  <Link key={l.href} className="anatomy-link" href={l.href}>
+                    {l.label}
+                  </Link>
+                ))}
+              </nav>
+            </section>
+          ))}
+        </AutoGlossary>
       </main>
     </div>
   );

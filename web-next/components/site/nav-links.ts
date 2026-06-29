@@ -87,7 +87,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "理学療法 (PT)",
         href: "/therapies/physical-therapy-for-headache",
-        disabled: true,
       },
       {
         name: "栄養・サプリメント",
@@ -96,30 +95,26 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "心理・行動療法",
         href: "/therapies/psychological-behavioral-therapy",
-        disabled: true,
       },
     ],
   },
   {
     name: "PROM 指標",
     children: [
-      { name: "頭痛ダイアリー", href: "/prom/headache-diary", disabled: true },
-      { name: "HIT-6", href: "/prom/headache-impact-test", disabled: true },
-      { name: "MIDAS", href: "/prom/migraine-disability-assessment", disabled: true },
+      { name: "頭痛ダイアリー", href: "/prom/headache-diary" },
+      { name: "HIT-6", href: "/prom/headache-impact-test" },
+      { name: "MIDAS", href: "/prom/migraine-disability-assessment" },
       {
         name: "MSQ v2.1",
         href: "/prom/migraine-specific-quality-of-life",
-        disabled: true,
       },
       {
         name: "NRS / VAS",
         href: "/prom/numerical-rating-scale-visual-analogue-scale",
-        disabled: true,
       },
       {
         name: "PGIC",
         href: "/prom/patient-global-impression-of-change",
-        disabled: true,
       },
     ],
   },

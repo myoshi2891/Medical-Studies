@@ -1,5 +1,7 @@
 # GEMINI.md
 
+Updated 2026-06-28
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## プロジェクト概要
@@ -62,6 +64,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `pre-commit-check` | "/pre-commit-check", "コミット前チェック" | コミット前の Markdown Lint・Mermaid テスト・フロントエンドビルド/テスト（条件付き）を検証（手動呼び出しのみ） |
 | `spec-sync` | "仕様書同期", "ドキュメント同期", "仕様同期" | GEMINI.md / CLAUDE.md / PROGRESS.md とコード実態の乖離を検出・修正 |
 | `nextjs-page-migration` | "/nextjs-page-migration", "HTMLをNext.jsに移行", "ガイドページを移行", "SPAをNext.jsに移行" | HTML を `web-next/` Next.js App Router へ TDD 移行。2 アーキタイプ対応: A=静的教育ページ（`html-files/`・Server Component）/ B=インタラクティブ SPA（`prom-checker/index.html`・コア抽出 + StorageAdapter、参照実装は `lib/prom/`・`components/prom/`） |
+| `glossary-term-tooltip` | "用語ツールチップを追加", "やさしい解説を追加", "読み仮名を付ける", "用語集に追加" | web-next の専門用語に読み仮名＋やさしい解説のツールチップを付与。用語集レジストリ（`lib/glossary`）に語を追記し、本文初出を `<Term>`（`components/glossary/Term.tsx`）でラップ。契約テスト非破壊手順を含む |
 
 > [!NOTE]
 > `GEMINI.md` と `CLAUDE.md` は**同一内容**（`GEMINI.md` が SSoT）。一方を更新したら `spec-sync` スキルで他方も同期すること。

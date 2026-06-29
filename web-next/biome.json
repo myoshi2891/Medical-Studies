@@ -22,7 +22,15 @@
       "!app/headaches/medication-overuse-headache/medication-overuse-headache.css",
       "!app/headaches/migraine/migraine.css",
       "!app/headaches/tension-type-headache/tension-type-headache.css",
-      "!app/therapies/nutrition-and-supplements/nutrition-and-supplements.css"
+      "!app/therapies/nutrition-and-supplements/nutrition-and-supplements.css",
+      "!app/therapies/physical-therapy-for-headache/physical-therapy-for-headache.css",
+      "!app/therapies/psychological-behavioral-therapy/psychological-behavioral-therapy.css",
+      "!app/prom/headache-diary/headache-diary.css",
+      "!app/prom/headache-impact-test/headache-impact-test.css",
+      "!app/prom/migraine-disability-assessment/migraine-disability-assessment.css",
+      "!app/prom/migraine-specific-quality-of-life/migraine-specific-quality-of-life.css",
+      "!app/prom/numerical-rating-scale-visual-analogue-scale/numerical-rating-scale-visual-analogue-scale.css",
+      "!app/prom/patient-global-impression-of-change/patient-global-impression-of-change.css"
     ]
   },
   "formatter": {
