@@ -82,7 +82,9 @@ export class GoogleSheetsExporter implements ReportExporter {
     if (!g?.accessToken) return err("Google に接続してください（アクセストークンがありません）");
     const client = new SheetsClient({
       accessToken: g.accessToken,
-      fetchImpl: ctx.fetchImpl ?? fetch,
+      // ネイティブ fetch は this===globalThis を要求するため bind する。
+      // 裸の参照のまま SheetsClient のメソッドとして呼ぶと Illegal invocation になる。
+      fetchImpl: ctx.fetchImpl ?? fetch.bind(globalThis),
     });
 
     let spreadsheetId = g.spreadsheetId;
