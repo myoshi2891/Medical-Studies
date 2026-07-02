@@ -1,6 +1,6 @@
 # GEMINI.md
 
-Updated 2026-06-28
+Updated 2026-07-02
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **コンテンツ源**: `Types-of-headache/md-files/{Headaches,Blocks}/*.md` — 国際エビデンス（ICHD-3）に基づいた医療教育 Markdown
 - **成果物**: `Types-of-headache/html-files/{Headaches,Blocks}/*.html` — ブラウザで閲覧可能な教育 HTML ページ
 - **デザインの権威ソース**: `Types-of-headache/html-files/Headaches/Migraine.html`（CSS 変数・コンポーネントはここを基準とする）
+- **web-next PROM 外部連携設計**: `docs/google-sheets-sync-design.md` — 頭痛日誌・PROM スコアの Google スプレッドシート同期／CSV エクスポート詳細設計。純粋中間表現 `ExportWorkbook` → `ReportExporter`（`web-next/lib/export/`）の三層分離
 
 ## コマンド
 

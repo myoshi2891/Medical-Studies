@@ -4,9 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `5b71444` docs(glossary): update tooltip description target from high school level to simple wording
-- **ビルド状態**: web-next 全体で typecheck クリーン。テスト：アーキタイプ A 全ページ契約テスト＋ anatomy／PROM 各尺度（NRS・VAS 含む）契約／用語集（glossary・AutoGlossary・Term）テストが green
-- **次の作業**: 新規コンテンツ移行待ち
+- **最新 HEAD**: `9241300` feat(web-next): wire external sync/CSV UI into data manager
+- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 336 passed（アーキタイプ A 全ページ契約＋ anatomy／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
+- **次の作業**: Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
 ## 移行ステータス
@@ -45,12 +45,19 @@
 | Phase 2 | 永続化: StorageAdapter + schema migration | ✅ 完了 |
 | Phase 3 | シェル: prom-checker.css + PromApp（ハッシュルーター）+ 全ビュー + Mermaid | ✅ 完了 |
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
+| Phase 5 | 外部連携: Google スプレッドシート同期 + CSV エクスポート | ✅ 完了 |
 
-- **テスト**: アーキタイプ B（prom）は 41 passed（コア 34 + シェル契約 7）。lint / typecheck / build 全通過。
+- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。web-next 全体で 336 passed / typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
-  `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid）+
+  `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid + `useExporters`）+
   `app/prom-checker/`（page + scoped CSS）。
-- **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/prom-checker`。
+- **外部連携（Phase 5・新設）**: `lib/export/`（`ExportPayload` → 純粋 `ExportWorkbook` → `ReportExporter` の三層分離）。
+  `flatten.ts`/`workbook.ts`（純粋変換コア）/ `csv.ts`（RFC 4180 + UTF-8 BOM）/
+  `google/{gis,sheetsClient,googleSheetsExporter}.ts`（GIS トークンモデル・fetch 注入・純粋 `computeUpsert`）/
+  `registry.ts`（宣言的 `buildExporters`）。`DataManager` に「外部連携・同期」カードを配線。
+  設定は `Settings.syncTargets.googleSheets`（`spreadsheetId`/`lastSyncedAt`）のみ保持しトークンは非永続（`normalizeSyncTargets`）。
+  設計書 `docs/google-sheets-sync-design.md`。有効化には `NEXT_PUBLIC_GOOGLE_CLIENT_ID`（`.env.example` 参照）が必要。
+- **視覚確認（ユーザー手動）**: `cd web-next && bun run dev` → `/prom-checker` → データ管理。
 
 ### アーキタイプ A（静的教育ガイドページ）
 
@@ -97,7 +104,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 5232d63
-- 次の作業: 新規コンテンツ移行待ち
+- 最新 HEAD: 9241300
+- 次の作業: Google Sheets 同期の実機確認／新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
