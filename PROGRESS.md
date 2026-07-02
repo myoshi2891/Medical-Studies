@@ -4,9 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `9241300` feat(web-next): wire external sync/CSV UI into data manager
-- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 336 passed（アーキタイプ A 全ページ契約＋ anatomy／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
-- **次の作業**: Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
+- **最新 HEAD**: `2b836d0` docs: reflect anatomy UX/IA/A11y brush-up in architecture
+- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 356 passed（アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
+- **次の作業**: `/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
 ## 移行ステータス
@@ -81,7 +81,7 @@
 | Migraine-Specific-Quality-of-Life | `/prom/migraine-specific-quality-of-life` | ✅ 完了 | 15 section（s1-s15）/ Mermaid 6図 / table 29 / 外部リンク 26 |
 | Numerical-Rating-Scale-Visual-Analogue-Scale | `/prom/numerical-rating-scale-visual-analogue-scale` | ✅ 完了 | 15 section / Mermaid 8図 / table 30 / 外部リンク 20 |
 | Patient-Global-Impression-of-Change | `/prom/patient-global-impression-of-change` | ✅ 完了 | 14 section / Mermaid 8図 / table 16 / 外部リンク 17 |
-| 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer` 遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し `/anatomy` 凡例＋主要ガイド（`app/headaches/` 4ページ）へ適用（残り画面は `.claude/skills/glossary-term-tooltip` の手順で展開）。残=実 glTF 資産投入（`public/models/LICENSES.md`） |
+| 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer` 遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し `/anatomy` 凡例＋主要ガイド（`app/headaches/` 4ページ）へ適用（残り画面は `.claude/skills/glossary-term-tooltip` の手順で展開）。Phase4=UX/IA/A11y ブラッシュアップ完了（manifest 駆動の検索コア `lib/anatomy/search.ts`＋WAI-ARIA autocomplete `AnatomySearch`、scroll-spy 左ナビ `AnatomySidebar`、`.anatomy-layout` 化、Hero 検索/カテゴリチップ/skip リンク、教育リンクのセマンティックタグ `data-cat`、`prefers-color-scheme` ダークモード、reduced-motion、focus-visible）。残=実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
@@ -95,7 +95,7 @@
   `components/prom/PatientGlobalImpressionOfChangeSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` などでスコープ。
-- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 167 passed。lint / typecheck 全通過。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 187 passed（anatomy 検索コア 9・AnatomySearch 6・AnatomySidebar 4・page 契約 +1 を追加）。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
@@ -104,7 +104,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 9241300
-- 次の作業: Google Sheets 同期の実機確認／新規コンテンツ移行待ち
+- 最新 HEAD: 2b836d0
+- 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
