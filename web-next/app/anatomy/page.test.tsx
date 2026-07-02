@@ -46,6 +46,22 @@ describe("AnatomyPage: 契約", () => {
     expect(getAllByTestId("mri-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
   });
 
+  it("各教育リンクが href に応じたセマンティックカテゴリ(data-cat)を持つ", () => {
+    const { container } = render(<AnatomyPage />);
+    const links = Array.from(container.querySelectorAll<HTMLAnchorElement>("a.anatomy-link"));
+    expect(links.length).toBeGreaterThan(0);
+    const expected = (href: string): string => {
+      if (href.startsWith("/headaches")) return "疾患";
+      if (href.startsWith("/blocks")) return "神経ブロック";
+      if (href.startsWith("/therapies") || href.startsWith("/physical-therapy")) return "治療";
+      return "教育";
+    };
+    for (const a of links) {
+      const href = a.getAttribute("href") ?? "";
+      expect(a.getAttribute("data-cat")).toBe(expected(href));
+    }
+  });
+
   it("manifest の全 md リンクを内部リンクとして描画する（.html を含まない）", () => {
     const { container } = render(<AnatomyPage />);
     const hrefs = Array.from(container.querySelectorAll("a")).map(
