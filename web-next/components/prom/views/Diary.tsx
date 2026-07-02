@@ -4,6 +4,7 @@ import { type FormEvent, useState } from "react";
 import { DRUG_CLASS } from "@/lib/prom/registry";
 import { mohRiskFor } from "@/lib/prom/scoring";
 import type { DiaryDrug, DiaryEntry } from "@/lib/prom/types";
+import { hasDiaryForDate, upsertDiaryByDate } from "@/lib/prom/upsert";
 import { usePromContext } from "../PromContext";
 import {
   DIARY_OPTS,
@@ -142,11 +143,18 @@ export function Diary() {
       })
       .filter((d): d is DiaryDrug => d !== null);
 
+    const date = todayISO();
+    // 同一日付の日誌が既にあれば上書き確認（1日1データ）。キャンセルで中断。
+    const isOverwrite = hasDiaryForDate(data.diary.entries, date);
+    if (isOverwrite && !window.confirm("本日分の日誌が既にあります。上書きしますか？")) {
+      return;
+    }
+
     const impactRaw = fd.get("d_impact");
     const entry: DiaryEntry = {
       id: `diary_${Date.now()}`,
       createdAt: new Date().toISOString(),
-      date: todayISO(),
+      date,
       startTime: start,
       endTime: end,
       sides: getChecked("d_sides"),
@@ -173,10 +181,10 @@ export function Diary() {
 
     commit((prev) => ({
       ...prev,
-      diary: { ...prev.diary, entries: [...prev.diary.entries, entry] },
+      diary: { ...prev.diary, entries: upsertDiaryByDate(prev.diary.entries, entry) },
     }))
       .then(() => {
-        toast("日誌を保存しました");
+        toast(isOverwrite ? "日誌を上書き保存しました" : "日誌を保存しました");
         setStart("");
         setEnd("");
         setDrugRows([]);

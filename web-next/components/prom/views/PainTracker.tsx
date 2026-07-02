@@ -3,6 +3,7 @@
 import { type FormEvent, useState } from "react";
 import { COMMON_DISCLAIMER, PAIN_SCALES } from "@/lib/prom/registry";
 import type { ScoreRecord } from "@/lib/prom/types";
+import { hasScoreForDateInstrument, upsertScoreByDateInstrument } from "@/lib/prom/upsert";
 import { usePromContext } from "../PromContext";
 import { todayISO } from "../state";
 import { BackButton } from "./BackButton";
@@ -40,8 +41,17 @@ export function PainTracker() {
    * @param value - The recorded pain score.
    */
   function savePain(scaleId: "nrs" | "vas", value: number) {
+    const date = todayISO();
+    // 同日・同指標が既にあれば上書き確認（1日1データ）。キャンセルで中断。
+    const isOverwrite = hasScoreForDateInstrument(data.scores.records, date, scaleId);
+    if (
+      isOverwrite &&
+      !window.confirm(`${scaleId.toUpperCase()} は本日分が既にあります。上書きしますか？`)
+    ) {
+      return;
+    }
     const record: ScoreRecord = {
-      date: todayISO(),
+      date,
       createdAt: new Date().toISOString(),
       instrumentId: scaleId,
       instrumentVersion: "1.0",
@@ -49,11 +59,13 @@ export function PainTracker() {
     };
     commit((prev) => ({
       ...prev,
-      scores: { ...prev.scores, records: [...prev.scores.records, record] },
+      scores: { ...prev.scores, records: upsertScoreByDateInstrument(prev.scores.records, record) },
     }))
       .then(() =>
         toast(
-          `${scaleId.toUpperCase()} を記録しました（${value}${scaleId === "vas" ? " mm" : ""}）`
+          `${scaleId.toUpperCase()} を${isOverwrite ? "上書き保存" : "記録"}しました（${value}${
+            scaleId === "vas" ? " mm" : ""
+          }）`
         )
       )
       .catch((err) => toast(err.message));
