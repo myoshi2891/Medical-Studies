@@ -9,31 +9,13 @@
 
 ## 配置済みモデル
 
-いずれも BodyParts3D v4.0（OBJ）から `scripts/bodyparts3d/` ＋ `web-next/scripts/build-anatomy-glb.mjs`
-のパイプラインで生成。改変内容は共通で **複数 OBJ の統合・単一マテリアル色付け・原点中心化・
-単位変換(mm→m)・座標系変換(Z-up→Y-up)・Draco 圧縮**。帰属表示は下記「帰属表示（必須）」を参照。
-
 | ファイル | 構造(id) | 出典 | ライセンス | 改変 | 帰属表示 |
 |---|---|---|---|---|---|
-| `nerves.glb` | nerves | BodyParts3D v4.0 (DBCLS) | CC-BY-SA 2.1 JP | あり | 必須（下記） |
-| `vessels.glb` | vessels | BodyParts3D v4.0 (DBCLS) | CC-BY-SA 2.1 JP | あり | 必須（下記） |
-| `brain.glb` | brain | BodyParts3D v4.0 (DBCLS) | CC-BY-SA 2.1 JP | あり | 必須（下記） |
-| `bones.glb` | bones | BodyParts3D v4.0 (DBCLS) | CC-BY-SA 2.1 JP | あり | 必須（下記） |
-| `muscles.glb` | muscles | BodyParts3D v4.0 (DBCLS) | CC-BY-SA 2.1 JP | あり | 必須（下記） |
-
-> [!NOTE]
-> `nerves.glb` は三叉神経本幹・大後頭神経(GON)が BodyParts3D に非在のため、三叉神経第1枝(V1)・
-> 眼窩枝で近似構成している（`manifest.ts` の nerves 概要と `scripts/bodyparts3d/output/not_found_report.txt` 参照）。
-
-### 帰属表示（必須・CC-BY-SA 2.1 JP）
-
-各 OBJ ヘッダが規定する原文を UI（`/anatomy`）またはページフッターに掲示する:
-
-> BodyParts3D, © The Database Center for Life Science licensed under
-> CC Attribution-Share Alike 2.1 Japan.
-
-- ライセンス全文: <http://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html>
-- **ShareAlike**: 改変済み `.glb` を再配布する場合は同一（CC-BY-SA 2.1 JP 互換）ライセンスで公開する。
+| _(未配置)_ | nerves | — | — | — | — |
+| _(未配置)_ | vessels | — | — | — | — |
+| _(未配置)_ | brain | — | — | — | — |
+| _(未配置)_ | bones | — | — | — | — |
+| _(未配置)_ | muscles | — | — | — | — |
 
 ## 候補ソース（合法・教育利用可）
 

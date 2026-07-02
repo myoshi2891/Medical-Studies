@@ -328,20 +328,3 @@
 .anatomy-link:hover {
   background: var(--atl3);
 }
-
-/* 帰属表示フッター（BodyParts3D / CC-BY-SA。掲示は必須） */
-.anatomy-credits {
-  max-width: 980px;
-  margin: 32px auto 8px;
-  padding: 12px 18px;
-  border-top: 1px solid #e2e8e7;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.anatomy-credits a {
-  color: var(--atl3);
-  text-decoration: underline;
-}
