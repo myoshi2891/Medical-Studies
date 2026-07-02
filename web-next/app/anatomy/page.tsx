@@ -14,6 +14,20 @@ export const metadata: Metadata = {
 };
 
 /**
+ * 教育リンクの href からセマンティックカテゴリを導出する（promp.md ⑨ タグ改善）。
+ * 「何のページか」をタグで明示し、単なる青ピルの曖昧さを解消する。
+ *
+ * @param href - 内部ルート（/...）。
+ * @returns 表示カテゴリ（疾患 / 神経ブロック / 治療 / 教育）。
+ */
+function linkCategory(href: string): string {
+  if (href.startsWith("/headaches")) return "疾患";
+  if (href.startsWith("/blocks")) return "神経ブロック";
+  if (href.startsWith("/therapies") || href.startsWith("/physical-therapy")) return "治療";
+  return "教育";
+}
+
+/**
  * Renders the /anatomy page for the headache anatomy atlas.
  *
  * @returns The anatomy page shell with sectioned 3D anatomy content, educational links, and an academic disclaimer.
@@ -75,11 +89,15 @@ export default function AnatomyPage() {
                 />
 
                 <nav className="anatomy-links" aria-label={`${s.title} の関連教育ページ`}>
-                  {s.links.map((l) => (
-                    <Link key={l.href} className="anatomy-link" href={l.href}>
-                      {l.label}
-                    </Link>
-                  ))}
+                  {s.links.map((l) => {
+                    const cat = linkCategory(l.href);
+                    return (
+                      <Link key={l.href} className="anatomy-link" data-cat={cat} href={l.href}>
+                        <span className="anatomy-link-cat">{cat}</span>
+                        {l.label}
+                      </Link>
+                    );
+                  })}
                 </nav>
               </section>
             ))}

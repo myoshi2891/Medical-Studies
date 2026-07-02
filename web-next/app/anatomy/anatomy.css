@@ -13,6 +13,10 @@
   --r: 14px;
   --rs: 10px;
   --sh: 0 4px 20px rgba(15, 61, 62, 0.08);
+  /* リンクピルの固定アクセント（ライト/ダーク双方で白文字が AA を満たす中濃度ティール）。
+     見出しトークン(--atl1)はダークで明色へ反転するため、ピルには使わない。 */
+  --pill: #0f6f68;
+  --pill-hover: #0b504b;
 
   font-family: var(--font-sans, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif);
   font-size: 15px;
@@ -541,10 +545,12 @@
 }
 
 .anatomy-link {
-  display: inline-block;
-  padding: 7px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px 6px 7px;
   border-radius: 999px;
-  background: var(--atl1);
+  background: var(--pill);
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -553,7 +559,23 @@
 }
 
 .anatomy-link:hover {
-  background: var(--atl3);
+  background: var(--pill-hover);
+}
+
+.anatomy-link:focus-visible {
+  outline: 3px solid var(--atl3);
+  outline-offset: 2px;
+}
+
+/* セマンティックカテゴリのバッジ（何のページか＝疾患/ブロック/治療/教育） */
+.anatomy-link-cat {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 /* 帰属表示フッター（BodyParts3D / CC-BY-SA。掲示は必須） */
@@ -571,4 +593,67 @@
 .anatomy-credits a {
   color: var(--atl3);
   text-decoration: underline;
+}
+
+/* ──────────────────────────────────────────────────────────────
+ * ダークモード（promp.md ⑲）
+ * トークンを反転するだけで大半のコンポーネントが追従する（変数化の恩恵）。
+ * ただし白文字前提の面（hero グラデ・リンクピル）は個別に固定色で担保する。
+ * ────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  .anatomy-accent {
+    --atl1: #7fe3d6; /* 見出し・ラベルは明色ティールへ反転 */
+    --atl2: #16a394;
+    --atl3: #2bd4bd;
+    --ink: #e6edf3;
+    --muted: #9aa7b1;
+    --line: #2b333a;
+    --surface: #161b22;
+    --bg: #0d1117;
+    --sh: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* ピルはダークでも中濃度ティールのまま白文字を維持 */
+    --pill: #12857c;
+    --pill-hover: #16a394;
+  }
+
+  /* hero は明色トークンに引きずられないよう固定の暗ティールグラデにする */
+  .anatomy-hero {
+    background: linear-gradient(135deg, #0b2e2f, #0f4a47 55%, #12615c);
+  }
+
+  .anatomy-disclaimer {
+    background: rgba(234, 179, 8, 0.12);
+    border-color: rgba(234, 179, 8, 0.3);
+    color: #f0c674;
+  }
+
+  /* ビューア面・注釈カードを暗色サーフェスへ */
+  .anatomy-viewer {
+    background: #0f151a;
+  }
+
+  .anatomy-hotspot {
+    background: var(--surface);
+  }
+
+  .anatomy-model model-viewer {
+    background: radial-gradient(circle at 50% 35%, #1b2330, #0d1117 70%);
+  }
+
+  .anatomy-mri-btn {
+    background: var(--surface);
+    color: var(--atl1);
+  }
+}
+
+/* モーション削減（promp.md ⑫ / ⑬）: 派手さを排し、遷移・アニメを無効化する */
+@media (prefers-reduced-motion: reduce) {
+  .anatomy-accent *,
+  .anatomy-accent *::before,
+  .anatomy-accent *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
