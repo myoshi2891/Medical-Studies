@@ -163,13 +163,138 @@
   text-align: left;
 }
 
+/* Skip link（キーボード導線・通常は隠し、フォーカスで出現） */
+.anatomy-skip {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 40;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--atl1);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.anatomy-skip:focus-visible {
+  top: 10px;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Category chips（Hero 内クイックジャンプ） */
+.anatomy-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 620px;
+  margin: 16px auto 0;
+}
+
+.anatomy-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.anatomy-chip:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.anatomy-chip:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Layout: 左固定サイドナビ + 本文 */
+.anatomy-layout {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 18px 8px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.anatomy-sidebar {
+  position: sticky;
+  top: calc(var(--ch-height, 60px) + 16px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  max-height: calc(100vh - var(--ch-height, 60px) - 32px);
+  overflow-y: auto;
+}
+
+.anatomy-sidebar-hdr {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 4px 10px 8px;
+}
+
+.anatomy-nav-a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+  color: var(--ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.anatomy-nav-a:hover {
+  background: rgba(22, 163, 148, 0.1);
+}
+
+.anatomy-nav-a.active {
+  background: rgba(22, 163, 148, 0.14);
+  border-left-color: var(--atl3);
+  color: var(--atl1);
+}
+
+.anatomy-nav-a:focus-visible {
+  outline: 2px solid var(--atl3);
+  outline-offset: -2px;
+}
+
 /* Sections */
 .anatomy-main {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 28px 18px 64px;
+  padding: 0 0 40px;
   display: grid;
-  gap: 28px;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  /* モバイル/タブレットではサイドナビを退避し、Hero の検索・チップで導線を確保する */
+  .anatomy-layout {
+    grid-template-columns: 1fr;
+  }
+  .anatomy-sidebar {
+    display: none;
+  }
 }
 
 .anatomy-sec {
