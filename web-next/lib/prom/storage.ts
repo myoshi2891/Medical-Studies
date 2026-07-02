@@ -182,9 +182,25 @@ export function migrateImport(data: Record<string, unknown>): MigratedData {
   const snoopHistory = asArray<SnoopEntry>(data.snoopHistory);
   const diary = asArray<DiaryEntry>(data.diary);
   const promScores = asArray<ScoreRecord>(data.promScores);
+  // 外部同期先は正規化して取り込む（不明フィールド＝トークン等を落とす。第9章）。
+  settings.syncTargets = normalizeSyncTargets(settings.syncTargets);
   // 現行は 1.0 のみ。将来の版差はここで段階的に変換する。
   if (version !== SCHEMA_VERSION) {
     settings.migratedFrom = version;
   }
   return { settings, snoopHistory, diary, promScores };
+}
+
+/**
+ * Normalizes external sync-target settings, keeping only non-sensitive identifiers.
+ *
+ * @param value - The raw `syncTargets` value from loaded or imported settings.
+ * @returns Normalized sync targets containing only `spreadsheetId`/`lastSyncedAt`, or `undefined` when absent or invalid. Any extra fields (e.g. access tokens) are dropped.
+ */
+export function normalizeSyncTargets(value: unknown): Settings["syncTargets"] {
+  if (!isObject(value)) return undefined;
+  const gs = value.googleSheets;
+  if (!isObject(gs) || !isStringValue(gs.spreadsheetId)) return undefined;
+  const lastSyncedAt = isStringValue(gs.lastSyncedAt) ? gs.lastSyncedAt : "";
+  return { googleSheets: { spreadsheetId: gs.spreadsheetId, lastSyncedAt } };
 }

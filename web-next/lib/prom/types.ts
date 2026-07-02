@@ -183,6 +183,13 @@ export interface Settings {
   theme: "auto" | "light" | "dark";
   /** インポート時にスキーマ版が異なった場合の移行元（マイグレーションの足場）。 */
   migratedFrom?: string;
+  /**
+   * 外部同期先の設定（設計書 第8章）。非機微の識別子のみを保持する。
+   * アクセストークンは決して保存しない（第9章 トークン非永続）。
+   */
+  syncTargets?: {
+    googleSheets?: { spreadsheetId: string; lastSyncedAt: string };
+  };
 }
 
 export interface SnoopEntry {
