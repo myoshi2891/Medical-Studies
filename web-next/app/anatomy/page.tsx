@@ -62,6 +62,25 @@ export default function AnatomyPage() {
           ))}
         </AutoGlossary>
       </main>
+
+      {/* ATTRIBUTION（CC-BY-SA 2.1 JP は帰属表示が必須。詳細は public/models/LICENSES.md） */}
+      <footer className="anatomy-credits">
+        <p>
+          3D モデル出典:{" "}
+          <a href="https://lifesciencedb.jp/bp3d/" target="_blank" rel="noopener noreferrer">
+            BodyParts3D
+          </a>
+          , © The Database Center for Life Science, licensed under{" "}
+          <a
+            href="https://creativecommons.org/licenses/by-sa/2.1/jp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CC BY-SA 2.1 JP
+          </a>
+          。教材化のため統合・簡略化・座標変換などの改変を加えています。
+        </p>
+      </footer>
     </div>
   );
 }
