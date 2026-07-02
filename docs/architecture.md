@@ -183,6 +183,24 @@ flowchart LR
 - `MriSliceViewer.tsx`（`"use client"`）: manifest のスライス配列を
   `<img loading="lazy">` でスクラブ表示（スライダー / 前後ボタン）。
 
+### 6.1 UX/IA レイヤー（v1.3 ブラッシュアップ）
+
+「目的の解剖へ 3 クリック以内」（KPI）を満たすため、manifest を索引源とする
+検索・ナビゲーション層を Server Component シェルへ加算的に重ねた。既存契約
+（hero / disclaimer / credits / section id / ビューア数 / md リンク）は不変。
+
+- `lib/anatomy/search.ts`: `ANATOMY_MANIFEST` から構造名・概要・ホットスポット・
+  リンク名を索引する純粋関数 `searchAnatomy(query)`。DOM 非依存で単体テスト可能。
+- `components/anatomy/AnatomySearch.tsx`（`"use client"`）: 上記コアを消費する
+  WAI-ARIA combobox（autocomplete）。矢印キー仮想選択・Enter 遷移・Escape クリア。
+- `components/anatomy/AnatomySidebar.tsx`（`"use client"`）: manifest 駆動の
+  scroll-spy 左ナビ（`IntersectionObserver` threshold 0.25、`MigraineSidebar` 同型）。
+- `page.tsx`: `.anatomy-layout`（サイドナビ + 本文）へ再構成。Hero に検索・
+  カテゴリチップ・skip リンクを配置。教育リンクへ `data-cat`（疾患/神経ブロック/
+  治療/教育）でセマンティックタグを付与。
+- `anatomy.css`: `prefers-color-scheme: dark` によるダークモード（トークン反転）、
+  `prefers-reduced-motion` によるモーション削減、`:focus-visible` リングを追加。
+
 ---
 
 ## 7. パフォーマンス予算（レビュー §5.3 修正版を継承）
@@ -238,7 +256,7 @@ flowchart LR
 | 1 | 2D MRI スライスビューアの実画像投入（匿名化済み curate） | ✅ 完了（脳/頚椎 各8枚・読影風ビューア） |
 | 2 | 3D 解剖モデル（オープンソース glTF）の投入・ホットスポット注釈 | 🔄 コード実装済（model-viewer 遅延描画・ホットスポット注釈・読込失敗時の降格・テスト）。実 glTF 資産の投入待ち（`public/models/LICENSES.md` 手順 1〜3） |
 | 3 | 各構造から md 教育ページへの誘導・やさしい言い換えの作り込み | ✅ 完了（用語ツールチップ基盤＝`lib/glossary`＋`components/glossary/Term.tsx`。読み仮名＋やさしい解説をツールチップ表示。ツールチップは portal＋`position: fixed` で表内 `overflow` 切れを解消。`components/glossary/AutoGlossary.tsx` でコンテンツ全 17 ページ（解剖・頭痛・ブロック・理学療法・PROM）の本文初出を自動ラップし、トップ／PROM ハブを除く全教育ページを網羅。展開手順は `.claude/skills/glossary-term-tooltip`） |
-| 4 | 仕上げ（パフォーマンス計測・アクセシビリティ・テスト拡充） | ⏳ 未着手 |
+| 4 | 仕上げ（UX/IA 導線・アクセシビリティ・テスト拡充） | 🔄 UX/IA/A11y ブラッシュアップ完了（manifest 駆動の検索コア＋autocomplete、scroll-spy 左ナビ、Hero 検索/カテゴリチップ/skip リンク、セマンティックタグ、ダークモード、reduced-motion、focus-visible。§6.1）。Lighthouse 実測・仮想スクロール等のパフォーマンス計測は未着手 |
 
 ---
 
