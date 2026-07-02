@@ -125,6 +125,7 @@ export function scoreRow(rec: ScoreRecord): Cell[] {
     numCell(rec.value),
     rec.interpretation ?? null,
     formatCreatedAtJst(rec.createdAt),
-    `${rec.instrumentId}_${rec.createdAt}`,
+    // (指標, 日付) を upsert キーに。同日同指標は再同期で更新される。
+    `${rec.instrumentId}_${rec.date}`,
   ];
 }

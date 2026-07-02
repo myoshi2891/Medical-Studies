@@ -68,7 +68,7 @@ describe("buildWorkbook", () => {
     const payload = payloadFixture();
     const wb = buildWorkbook(payload, { now: () => new Date("2026-07-02T00:00:00.000Z") });
     expect(wb.tables[0].columns).toEqual(diaryColumns);
-    expect(wb.tables[0].keyColumnKey).toBe("id");
+    expect(wb.tables[0].keyColumnKey).toBe("date");
     expect(wb.tables[0].rows).toHaveLength(2);
     expect(wb.tables[1].columns).toEqual(scoreColumns);
     expect(wb.tables[1].keyColumnKey).toBe("recordKey");

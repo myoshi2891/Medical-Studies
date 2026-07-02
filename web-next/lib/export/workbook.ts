@@ -24,7 +24,8 @@ export function buildWorkbook(payload: ExportPayload, opts?: { now?: () => Date 
         name: "頭痛日誌",
         columns: diaryColumns,
         rows: payload.diary.map(diaryRow),
-        keyColumnKey: "id",
+        // 1日1データのため日付をキーに。再同期で同日行が増えず更新される。
+        keyColumnKey: "date",
       },
       {
         name: "PROMスコア",
