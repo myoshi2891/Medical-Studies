@@ -1,5 +1,11 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { KEYS, LocalStorageAdapter, migrateImport, SCHEMA_VERSION } from "./storage";
+import {
+  KEYS,
+  LocalStorageAdapter,
+  migrateImport,
+  normalizeSyncTargets,
+  SCHEMA_VERSION,
+} from "./storage";
 import type { StorageLike } from "./types";
 
 /**
@@ -120,5 +126,54 @@ describe("migrateImport", () => {
     expect(migrated.diary).toEqual([]);
     expect(migrated.promScores).toEqual([]);
     expect(migrated.settings).toBeTypeOf("object");
+  });
+});
+
+describe("normalizeSyncTargets", () => {
+  it("未定義は undefined を返す（未定義許容）", () => {
+    expect(normalizeSyncTargets(undefined)).toBeUndefined();
+  });
+
+  it("spreadsheetId が無い場合は undefined を返す", () => {
+    expect(normalizeSyncTargets({ googleSheets: {} })).toBeUndefined();
+  });
+
+  it("spreadsheetId と lastSyncedAt のみ抽出し、混入したトークンは保存しない", () => {
+    // Arrange（accessToken は本来アプリが保存しないが、混入しても落とすことを検証）
+    const raw = {
+      googleSheets: { spreadsheetId: "SS1", lastSyncedAt: "2026-07-02", accessToken: "SECRET" },
+    };
+    // Act
+    const out = normalizeSyncTargets(raw);
+    // Assert
+    expect(out).toEqual({ googleSheets: { spreadsheetId: "SS1", lastSyncedAt: "2026-07-02" } });
+    expect(JSON.stringify(out)).not.toContain("SECRET");
+  });
+
+  it("lastSyncedAt 欠損は空文字で補完する", () => {
+    const out = normalizeSyncTargets({ googleSheets: { spreadsheetId: "SS2" } });
+    expect(out).toEqual({ googleSheets: { spreadsheetId: "SS2", lastSyncedAt: "" } });
+  });
+});
+
+describe("migrateImport: syncTargets", () => {
+  it("インポート settings の syncTargets を正規化しトークンを落とす", () => {
+    const migrated = migrateImport({
+      schemaVersion: SCHEMA_VERSION,
+      settings: {
+        syncTargets: {
+          googleSheets: { spreadsheetId: "IMP1", lastSyncedAt: "2026-07-01", accessToken: "TOK" },
+        },
+      },
+    });
+    expect(migrated.settings.syncTargets).toEqual({
+      googleSheets: { spreadsheetId: "IMP1", lastSyncedAt: "2026-07-01" },
+    });
+    expect(JSON.stringify(migrated.settings)).not.toContain("TOK");
+  });
+
+  it("syncTargets が無いインポートは syncTargets 未設定のまま", () => {
+    const migrated = migrateImport({ schemaVersion: SCHEMA_VERSION, settings: {} });
+    expect(migrated.settings.syncTargets).toBeUndefined();
   });
 });
