@@ -21,15 +21,17 @@ function client(fetchImpl: typeof fetch): SheetsClient {
 describe("SheetsClient.createSpreadsheet", () => {
   it("2xx で spreadsheetId を返し Bearer トークンを付与する", async () => {
     // Arrange
-    const fetchImpl = vi.fn(async () => jsonResponse({ spreadsheetId: "abc123" }));
+    const fetchImpl = vi.fn(async (_url: RequestInfo | URL, _init?: RequestInit) =>
+      jsonResponse({ spreadsheetId: "abc123" })
+    );
     // Act
     const res = await client(fetchImpl as unknown as typeof fetch).createSpreadsheet("T", ["日誌"]);
     // Assert
     expect(res.ok).toBe(true);
     if (res.ok) expect(res.value.spreadsheetId).toBe("abc123");
-    const init = fetchImpl.mock.calls[0][1] as RequestInit;
-    expect(init.method).toBe("POST");
-    expect((init.headers as Record<string, string>).Authorization).toBe("Bearer tok");
+    const init = fetchImpl.mock.calls[0][1];
+    expect(init?.method).toBe("POST");
+    expect((init?.headers as Record<string, string>).Authorization).toBe("Bearer tok");
   });
 
   it("spreadsheetId 欠落レスポンスは型ガードで Result エラー化する", async () => {
