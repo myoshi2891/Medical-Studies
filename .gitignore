@@ -75,3 +75,7 @@ pnpm-debug.log*
 
 /images/
 /diagnosis/
+/BodyParts3D/
+
+# BodyParts3D パイプラインの中間生成物（CC-BY-SA ジオメトリの複製。元データから再生成可能）
+/scripts/bodyparts3d/extract/

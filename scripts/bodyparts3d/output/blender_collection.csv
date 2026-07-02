@@ -1,0 +1,186 @@
+Collection,OBJ ID,English Name,Japanese Name
+Bones,FJ3176,Atlas,環椎（第1頚椎 C1）
+Bones,FJ3177,Axis,軸椎（第2頚椎 C2）
+Bones,FJ3167,Fifth cervical vertebra,頚椎
+Bones,FJ3164,Fourth cervical vertebra,頚椎
+Bones,FJ3200,Frontal bone,前頭骨
+Bones,FJ3274,Left parietal bone,頭頂骨
+Bones,FJ3281,Left temporal bone,側頭骨
+Bones,FJ3289,Mandible,下顎骨
+Bones,FJ3309,Occipital bone,後頭骨
+Bones,FJ3380,Right parietal bone,頭頂骨
+Bones,FJ3386,Right temporal bone,側頭骨
+Bones,FJ3172,Seventh cervical vertebra,頚椎
+Bones,FJ3170,Sixth cervical vertebra,頚椎
+Bones,FJ3394,Sphenoid bone,蝶形骨
+Bones,FJ3161,Third cervical vertebra,頚椎
+Muscles,FJ1520M,Ascending part of left trapezius,僧帽筋
+Muscles,FJ1520,Ascending part of right trapezius,僧帽筋
+Muscles,FJ1521M,Descending part of left trapezius,僧帽筋
+Muscles,FJ1521,Descending part of right trapezius,僧帽筋
+Muscles,FJ1557,Inferior oblique part of left longus colli,頚長筋
+Muscles,FJ1532M,Left levator scapulae,肩甲挙筋
+Muscles,FJ1561,Left longus capitis,頭長筋
+Muscles,FJ1563,Left obliquus capitis inferior,下頭斜筋
+Muscles,FJ1564,Left obliquus capitis superior,上頭斜筋
+Muscles,FJ1566,Left rectus capitis anterior,前頭直筋
+Muscles,FJ1569,Left rectus capitis lateralis,外側頭直筋
+Muscles,FJ1567,Left rectus capitis posterior major,大後頭直筋
+Muscles,FJ1568,Left rectus capitis posterior minor,小後頭直筋
+Muscles,FJ1538M,Left semispinalis capitis,頭半棘筋
+Muscles,FJ1539M,Left semispinalis cervicis,頚半棘筋
+Muscles,FJ1545M,Left splenius capitis,頭板状筋
+Muscles,FJ1546M,Left splenius cervicis,頚板状筋
+Muscles,FJ1573,Left sternocleidomastoid,胸鎖乳突筋
+Muscles,FJ1532,Right levator scapulae,肩甲挙筋
+Muscles,FJ1582,Right longus capitis,頭長筋
+Muscles,FJ1584,Right obliquus capitis inferior,下頭斜筋
+Muscles,FJ1585,Right obliquus capitis superior,上頭斜筋
+Muscles,FJ1588,Right rectus capitis anterior,前頭直筋
+Muscles,FJ1591,Right rectus capitis lateralis,外側頭直筋
+Muscles,FJ1589,Right rectus capitis posterior major,大後頭直筋
+Muscles,FJ1590,Right rectus capitis posterior minor,小後頭直筋
+Muscles,FJ1538,Right semispinalis capitis,頭半棘筋
+Muscles,FJ1539,Right semispinalis cervicis,頚半棘筋
+Muscles,FJ1545,Right splenius capitis,頭板状筋
+Muscles,FJ1546,Right splenius cervicis,頚板状筋
+Muscles,FJ1595,Right sternocleidomastoid,胸鎖乳突筋
+Muscles,FJ1600,Superior oblique part of left longus colli,頚長筋
+Muscles,FJ1554M,Transverse part of left trapezius,僧帽筋
+Muscles,FJ1554,Transverse part of right trapezius,僧帽筋
+Muscles,FJ1601,Vertical intermediate part of left longus colli,頚長筋
+Nerves,FJ1311,Communicating branch of left nasociliary nerve with left ciliary ganglion,鼻毛様体神経
+Nerves,FJ1362,Communicating branch of right nasociliary nerve with right ciliary ganglion,鼻毛様体神経
+Nerves,FJ1293,Inferior branch of left oculomotor nerve,動眼神経
+Nerves,FJ1344,Inferior branch of right oculomotor nerve,動眼神経
+Nerves,FJ1283,Left anterior ethmoidal nerve,前篩骨神経
+Nerves,FJ1288,Left ciliary ganglion,毛様体神経節
+Nerves,FJ1290,Left frontal nerve,前頭神経
+Nerves,FJ1296,Left infratrochlear nerve,滑車下神経
+Nerves,FJ1300,Left lacrimal nerve,涙腺神経
+Nerves,FJ1318,Left long ciliary nerve,長毛様体神経
+Nerves,FJ1310,Left nasociliary nerve,鼻毛様体神経
+Nerves,FJ1312,Left ophthalmic nerve,眼神経（三叉神経第1枝 V1）
+Nerves,FJ1313,Left optic nerve,視神経
+Nerves,FJ1772,Left optic nerve,視神経
+Nerves,FJ1315,Left posterior ethmoidal nerve,後篩骨神経
+Nerves,FJ1325,Left supra-orbital nerve,眼窩上神経
+Nerves,FJ1326,Left supratrochlear nerve,滑車上神経
+Nerves,FJ1330,Left trochlear nerve,滑車神経
+Nerves,FJ1333,Right anterior ethmoidal nerve,前篩骨神経
+Nerves,FJ1339,Right ciliary ganglion,毛様体神経節
+Nerves,FJ1341,Right frontal nerve,前頭神経
+Nerves,FJ1347,Right infratrochlear nerve,滑車下神経
+Nerves,FJ1351,Right lacrimal nerve,涙腺神経
+Nerves,FJ1369,Right long ciliary nerve,長毛様体神経
+Nerves,FJ1361,Right nasociliary nerve,鼻毛様体神経
+Nerves,FJ1363,Right ophthalmic nerve,眼神経（三叉神経第1枝 V1）
+Nerves,FJ1364,Right optic nerve,視神経
+Nerves,FJ1819,Right optic nerve,視神経
+Nerves,FJ1366,Right posterior ethmoidal nerve,後篩骨神経
+Nerves,FJ1376,Right supra-orbital nerve,眼窩上神経
+Nerves,FJ1377,Right supratrochlear nerve,滑車上神経
+Nerves,FJ1381,Right trochlear nerve,滑車神経
+Nerves,FJ1321,Superior branch of left oculomotor nerve,動眼神経
+Nerves,FJ1372,Superior branch of right oculomotor nerve,動眼神経
+BloodVessels,FJ1662M,Anterolateral central branch of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1663M,Anterolateral central branch of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1662,Anterolateral central branch of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1663,Anterolateral central branch of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1672,Basilar artery,脳底動脈
+BloodVessels,FJ1844,Basilar artery,脳底動脈
+BloodVessels,FJ1673M,Branch of left middle cerebral artery to left angular gyrus,中大脳動脈
+BloodVessels,FJ1673,Branch of right middle cerebral artery to right angular gyrus,中大脳動脈
+BloodVessels,FJ1660M,Insular part of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1694M,Insular part of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1660,Insular part of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1694,Insular part of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1654M,Left anterior cerebral artery,前大脳動脈
+BloodVessels,FJ1682M,Left internal carotid artery,内頚動脈
+BloodVessels,FJ3485,Left internal jugular vein,内頚静脈
+BloodVessels,FJ1700M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1701M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1702M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1703M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1704M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1705M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1706M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1707M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1708M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1709M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1710M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1711M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1715M,Left posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1725M,Left vertebral artery,椎骨動脈
+BloodVessels,FJ1693M,Middle temporal branch of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1693,Middle temporal branch of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1714M,Postcommunicating part of left posterior cerebral artery,後大脳動脈
+BloodVessels,FJ1714,Postcommunicating part of right posterior cerebral artery,後大脳動脈
+BloodVessels,FJ1717M,Posterior temporal branch of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1717,Posterior temporal branch of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1721M,Posteromedial central branch of left posterior cerebral artery,後大脳動脈
+BloodVessels,FJ1721,Posteromedial central branch of right posterior cerebral artery,後大脳動脈
+BloodVessels,FJ1723M,Precommunicating part of left posterior cerebral artery,後大脳動脈
+BloodVessels,FJ1723,Precommunicating part of right posterior cerebral artery,後大脳動脈
+BloodVessels,FJ1654,Right anterior cerebral artery,前大脳動脈
+BloodVessels,FJ1682,Right internal carotid artery,内頚動脈
+BloodVessels,FJ3585,Right internal jugular vein,内頚静脈
+BloodVessels,FJ1700,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1701,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1702,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1703,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1704,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1705,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1706,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1707,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1708,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1709,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1710,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1711,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1715,Right posterior inferior cerebellar artery,後下小脳動脈(PICA)
+BloodVessels,FJ1725,Right vertebral artery,椎骨動脈
+BloodVessels,FJ1692M,Sphenoid part of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1692,Sphenoid part of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1729M,Temporo-occipital branch of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1729,Temporo-occipital branch of right middle cerebral artery,中大脳動脈
+BloodVessels,FJ1718M,Trunk of inferior terminal branch of left middle cerebral artery,中大脳動脈
+BloodVessels,FJ1718,Trunk of inferior terminal branch of right middle cerebral artery,中大脳動脈
+Brain,FJ1781,Cerebellum,小脳
+Brain,FJ1830,Cerebellum,小脳
+Brain,FJ1760,Hypothalamus,視床下部
+Brain,FJ1808,Hypothalamus,視床下部
+Brain,FJ1777,Left stria medullaris of thalamus,視床
+Brain,FJ1782,Left thalamus,視床
+Brain,FJ1769,Medulla oblongata,延髄
+Brain,FJ1831,Medulla oblongata,延髄
+Brain,FJ1770,Midbrain,中脳
+Brain,FJ1817,Midbrain,中脳
+Brain,FJ1774,Peduncle of midbrain,中脳
+Brain,FJ1821,Peduncle of midbrain,中脳
+Brain,FJ1796,Pituitary gland,下垂体
+Brain,FJ1775,Pons,橋
+Brain,FJ1822,Pons,橋
+Brain,FJ1824,Right stria medullaris of thalamus,視床
+Brain,FJ1827,Right thalamus,視床
+Others,FJ3202,Intervertebral disk of axis,椎間板
+Others,FJ3207,Intervertebral disk of eighth thoracic vertebra,椎間板
+Others,FJ3210,Intervertebral disk of eleventh thoracic vertebra,椎間板
+Others,FJ3219,Intervertebral disk of fifth cervical vertebra,椎間板
+Others,FJ3217,Intervertebral disk of fifth lumbar vertebra,椎間板
+Others,FJ3204,Intervertebral disk of fifth thoracic vertebra,椎間板
+Others,FJ3212,Intervertebral disk of first lumbar vertebra,椎間板
+Others,FJ3222,Intervertebral disk of first thoracic vertebra,椎間板
+Others,FJ3218,Intervertebral disk of fourth cervical vertebra,椎間板
+Others,FJ3216,Intervertebral disk of fourth lumbar vertebra,椎間板
+Others,FJ3203,Intervertebral disk of fourth thoracic vertebra,椎間板
+Others,FJ3208,Intervertebral disk of ninth thoracic vertebra,椎間板
+Others,FJ3214,Intervertebral disk of second lumbar vertebra,椎間板
+Others,FJ3223,Intervertebral disk of second thoracic vertebra,椎間板
+Others,FJ3221,Intervertebral disk of seventh cervical vertebra,椎間板
+Others,FJ3206,Intervertebral disk of seventh thoracic vertebra,椎間板
+Others,FJ3220,Intervertebral disk of sixth cervical vertebra,椎間板
+Others,FJ3205,Intervertebral disk of sixth thoracic vertebra,椎間板
+Others,FJ3209,Intervertebral disk of tenth thoracic vertebra,椎間板
+Others,FJ3213,Intervertebral disk of third cervical vertebra,椎間板
+Others,FJ3215,Intervertebral disk of third lumbar vertebra,椎間板
+Others,FJ3224,Intervertebral disk of third thoracic vertebra,椎間板

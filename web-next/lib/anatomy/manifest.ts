@@ -46,22 +46,25 @@ const STRUCTURES: AnatomyStructure[] = [
   {
     id: "nerves",
     title: "神経",
-    summary: "大後頭神経(GON/C2)・三叉神経・頚神経叢など、頭痛の発生と伝達に関わる神経。",
+    summary:
+      "眼神経(三叉神経第1枝 V1)・眼窩上神経など、前頭部痛に関わる三叉神経第1枝系。" +
+      "※三叉神経本幹・大後頭神経(GON)は元データ(BodyParts3D)に含まれないため、V1 系で代替表示。",
     modelSrc: "/models/nerves.glb",
     hotspots: [
       {
-        id: "gon",
-        label: "大後頭神経 (GON / C2)",
-        reading: "だいこうとうしんけい",
-        plain: "後頭部の感覚を伝える神経",
-        position: "0 0.2 0.1",
+        id: "ophthalmic",
+        label: "眼神経 (三叉神経第1枝 V1)",
+        reading: "がんしんけい",
+        plain: "顔の感覚を伝える三叉神経の第1枝（本幹はこのモデルには含まれません）",
+        // glb_report.json の Left/Right ophthalmic nerve 中心の正中平均（モデル空間・メートル）。
+        position: "0 -0.008 -0.02",
       },
       {
-        id: "trigeminal",
-        label: "三叉神経",
-        reading: "さんさしんけい",
-        plain: "顔の感覚を伝える神経",
-        position: "0.1 0.4 0.1",
+        id: "supraorbital",
+        label: "眼窩上神経",
+        reading: "がんかじょうしんけい",
+        plain: "額の感覚を伝える神経。神経ブロックの標的",
+        position: "0 0.017 0.03",
       },
     ],
     mri: CERVICAL_SERIES,
@@ -81,7 +84,8 @@ const STRUCTURES: AnatomyStructure[] = [
         label: "椎骨動脈",
         reading: "ついこつどうみゃく",
         plain: "首の骨を通って脳へ血液を送る動脈",
-        position: "0 0.1 0.1",
+        // glb_report.json の Left/Right vertebral artery 中心の正中平均。
+        position: "0 -0.012 0.017",
       },
     ],
     mri: BRAIN_SERIES,
@@ -101,7 +105,8 @@ const STRUCTURES: AnatomyStructure[] = [
         label: "三叉頚椎複合体 (TCC)",
         reading: "さんさけいついふくごうたい",
         plain: "首と頭の痛みが脳幹で合流する場所",
-        position: "0 0.3 0",
+        // 延髄(medulla oblongata)の中心＝TCC の座（glb_report.json）。
+        position: "0 -0.03 0.007",
       },
     ],
     mri: BRAIN_SERIES,
@@ -121,7 +126,8 @@ const STRUCTURES: AnatomyStructure[] = [
         label: "環軸関節 (C1-C2)",
         reading: "かんじくかんせつ",
         plain: "首を回す動きの中心となる関節",
-        position: "0 0.05 0.05",
+        // Atlas(C1)と Axis(C2)の中心の中点（glb_report.json）。
+        position: "0 -0.037 -0.017",
       },
     ],
     mri: CERVICAL_SERIES,
@@ -141,7 +147,8 @@ const STRUCTURES: AnatomyStructure[] = [
         label: "後頭下筋群",
         reading: "こうとうかきんぐん",
         plain: "後頭部の深い位置にある小さな筋肉",
-        position: "0 0.15 0.08",
+        // 大後頭直筋・下頭斜筋の中心付近（glb_report.json の正中平均）。
+        position: "0 0.18 -0.02",
       },
     ],
     mri: CERVICAL_SERIES,
