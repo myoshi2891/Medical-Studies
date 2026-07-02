@@ -61,6 +61,108 @@
   color: #5d4037;
 }
 
+/* Search (autocomplete / WAI-ARIA combobox) */
+.anatomy-search {
+  position: relative;
+  max-width: 560px;
+  margin: 18px auto 0;
+  display: flex;
+  align-items: center;
+}
+
+.anatomy-search-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 15px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.anatomy-search-input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  box-shadow: 0 6px 24px rgba(15, 61, 62, 0.22);
+}
+
+.anatomy-search-input::placeholder {
+  color: var(--muted);
+}
+
+.anatomy-search-input:focus-visible {
+  outline: 3px solid var(--atl3);
+  outline-offset: 2px;
+}
+
+.anatomy-search-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: 340px;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  padding: 6px;
+  text-align: left;
+}
+
+.anatomy-search-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.anatomy-search-opt:hover,
+.anatomy-search-opt.active {
+  background: rgba(22, 163, 148, 0.12);
+}
+
+.anatomy-search-opt:focus-visible {
+  outline: 2px solid var(--atl3);
+  outline-offset: -2px;
+}
+
+.anatomy-search-opt-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--atl1);
+}
+
+.anatomy-search-opt-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.anatomy-search-empty {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  color: var(--muted);
+  font-size: 13px;
+  text-align: left;
+}
+
 /* Sections */
 .anatomy-main {
   max-width: 980px;
