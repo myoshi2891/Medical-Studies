@@ -4,6 +4,7 @@
  * DOM / Storage / 時刻に依存しない（band 導出は REGISTRY の宣言データのみ参照）。
  */
 import { impactLabel, timeDiffMins } from "@/components/prom/state";
+import { formatCreatedAtJst } from "@/lib/prom/datetime";
 import { REGISTRY } from "@/lib/prom/registry";
 import { bandFor } from "@/lib/prom/scoring";
 import type { DiaryDrug, DiaryEntry, ScoreRecord } from "@/lib/prom/types";
@@ -73,7 +74,7 @@ export function diaryRow(e: DiaryEntry): Cell[] {
     numCell(e.sleep.quality),
     numCell(e.sleep.stress),
     impactLabel(e.impact),
-    e.createdAt,
+    formatCreatedAtJst(e.createdAt),
     e.id,
   ];
 }
@@ -123,7 +124,7 @@ export function scoreRow(rec: ScoreRecord): Cell[] {
     numCell(rec.context?.b),
     numCell(rec.value),
     rec.interpretation ?? null,
-    rec.createdAt,
+    formatCreatedAtJst(rec.createdAt),
     `${rec.instrumentId}_${rec.createdAt}`,
   ];
 }
