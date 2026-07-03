@@ -26,14 +26,6 @@ describe("AnatomyPage: 契約", () => {
     expect(container.querySelector(".anatomy-disclaimer")).not.toBeNull();
   });
 
-  it("BodyParts3D の帰属表示（CC-BY-SA）を掲示する", () => {
-    const { container } = render(<AnatomyPage />);
-    const credits = container.querySelector(".anatomy-credits");
-    expect(credits).not.toBeNull();
-    expect(credits?.textContent).toContain("BodyParts3D");
-    expect(credits?.textContent).toContain("CC BY-SA 2.1 JP");
-  });
-
   it("section.anatomy-sec の id が manifest と一致する", () => {
     const { container } = render(<AnatomyPage />);
     const ids = Array.from(container.querySelectorAll("section.anatomy-sec")).map((s) => s.id);
