@@ -1,394 +1,740 @@
-最終的に作ろうとしているものは、
-
-> **「頭痛に関する医学教材用の3Dアセットデータベース」**
-
-なので、最初にマスター表を作ることが成功の鍵になります。
-
----
-
-# BodyParts3D解析プロンプト（完全版）
+# 世界最高水準UI/UX改善プロンプト
 
 ```text
-あなたは世界トップクラスのPythonエンジニア・医学CGエンジニア・BodyParts3D解析の専門家です。
+あなたはGoogle Material Designチーム、Apple Human Interfaceチーム、Mayo Clinic、Radiopaedia、Visible Body、Complete Anatomy、BioDigital Human、Kenhub、TeachMeAnatomyのUXデザイナーとフロントエンドエンジニアが融合した世界トップクラスのUI/UXアーキテクトです。
 
-# 目的
+## ゴール
 
-BodyParts3D v4.0 のOBJデータから、
-頭痛の3D教材制作で利用するためのマスター表を作成してください。
+現在の頭頸部3D解剖アトラスを
 
-このマスター表は今後BlenderやThree.jsで利用する基礎データになります。
+「見やすいサイト」
 
-## ディレクトリ構成
+ではなく
 
-project/
+「世界最高水準の医学教育Webアプリ」
 
-    partof_BP3D_4.0_obj_99/
-        FJ0001.obj
-        FJ0002.obj
-        ...
-        FJ3659.obj
+へリデザインしてください。
 
-    isa_BP3D_4.0_obj_99/
-        FJ0001.obj
-        ...
+見た目だけではなく、
 
-    *.txt
-    *.csv
-    README*
+・情報設計
+・導線設計
+・教育効果
+・アクセシビリティ
+・パフォーマンス
+・拡張性
 
-OBJ以外に存在するtxt/csvは
-BodyParts3D公式の対応表・Ontology・Mapping情報である。
+まで含めて改善してください。
 
-必ずそれらを解析して利用すること。
+現在の機能は壊さず、
+リファクタリングしながら改善してください。
 
----
+----------------------------------------
 
-# やってほしいこと
+## UXの基本方針
 
-BodyParts3D内の全OBJについて
+最優先事項
 
-OBJ番号
+「ユーザーが目的の解剖へ3クリック以内で到達できること」
+
+学習フロー
+
+見る
+↓
+
+理解する
 
 ↓
 
-人体名称
+MRIと対応付ける
 
 ↓
 
-日本語名
+臨床へ繋げる
 
 ↓
 
-カテゴリ
+関連構造へ移動する
 
 ↓
 
-頭痛との関連
+記憶する
 
-↓
+という流れを自然に作る。
 
-Blender Collection
+----------------------------------------
 
-まで自動で整理してください。
+## デザインコンセプト
 
----
+目指すUI
 
-# 出力してほしいCSV
+Apple
++
+Notion
++
+Radiopaedia
++
+Complete Anatomy
++
+Material Design 3
 
-master_bodyparts.csv
+余白を活かしながら情報密度は高くする。
 
-列は以下とする。
+落ち着いた医療デザイン。
 
-|列名|内容|
-|------|------|
-|OBJ File|FJ3659.obj|
-|OBJ ID|FJ3659|
-|English Name|Skull|
-|Japanese Name|頭蓋骨|
-|FMA ID|FMAxxxxx|
-|Category|Bone / Muscle / Nerve / Vessel / Brain / Organ / Ligament / Other|
-|Region|Head / Neck / Shoulder / Thorax / Upper Limb / Lower Limb|
-|Headache Importance|★★★★★〜★☆☆☆☆|
-|Headache Type|Migraine / Tension / Cervicogenic / Cluster / Multiple / None|
-|Recommended Blender Collection|Bones / Muscles / Nerves / Brain / BloodVessels / Others|
-|Description|簡潔な説明|
+過度な装飾は禁止。
 
----
+カラーは
 
-# さらに作成するCSV
+Primary
+Teal
 
-headache_parts.csv
+Secondary
+Blue
 
-これは頭痛に関係する部位だけ抽出する。
+Accent
+Orange
 
-対象例
+Danger
+Red
 
-Skull
+Neutral
+Gray
 
-Mandible
+で統一する。
 
-Occipital Bone
+----------------------------------------
 
-Temporal Bone
+# ① ファーストビュー改善
 
-Atlas
+現在はタイトルだけなので弱い。
 
-Axis
+以下へ変更する。
 
-C3〜C7
+・Hero Section
+
+頭頸部3D解剖アトラス
+
+検索バー
+
+人気カテゴリ
 
 Brain
-
-Brainstem
-
-Cerebellum
-
-Pituitary
-
-Meninges
-
-Trigeminal nerve
-
-Greater occipital nerve
-
-Lesser occipital nerve
-
-Accessory nerve
-
-Facial nerve
-
-Vagus nerve
-
-Vertebral artery
-
-Basilar artery
-
-Internal carotid artery
-
-External carotid artery
-
-Jugular vein
-
-Trapezius
-
-Sternocleidomastoid
-
-Levator scapulae
-
-Splenius capitis
-
-Semispinalis capitis
-
-Rectus capitis posterior major
-
-Rectus capitis posterior minor
-
-Obliquus capitis superior
-
-Obliquus capitis inferior
-
-Longus capitis
-
-Longus colli
-
-Scalenes
-
-Suboccipital muscles
-
----
-
-# Blender用CSVも生成
-
-blender_collection.csv
-
-例
-
-Bones
-    Skull
-    C1
-    C2
-    C3
-
-Muscles
-    Trapezius
-    SCM
-    Levator Scapulae
-
-Nerves
-    Trigeminal
-    Greater Occipital
-
-BloodVessels
-    Vertebral Artery
-
-Brain
-    Brain
-    Cerebellum
-
----
-
-# OBJ抽出用CSV
-
-extract_list.csv
-
-OBJ File
-
-だけ並べる。
-
-例
-
-FJ3659.obj
-FJ3632.obj
-FJ3610.obj
-
----
-
-# Pythonも生成
-
-extract_headache_parts.py
-
-このPythonは
-
-master_bodyparts.csv
-
-を読み込み
-
-extract_list.csv
-
-を利用して
-
-extract/
-
-以下へOBJをコピーする。
-
-完成後
-
-extract/
-
-    Bones/
-
-    Muscles/
-
-    Nerves/
-
-    Brain/
-
-    BloodVessels/
-
-という構成になるようにする。
-
----
-
-# Blender用
-
-さらに
-
-Blender Python
-
-(import_headache_parts.py)
-
-も生成してください。
-
-実行すると
-
-・OBJを読み込む
-・Collectionを自動作成
-・Collectionへ自動分類
-・名前変更
-・原点合わせ
-・法線修正
-・Auto Smooth
-・マテリアル色分け
-
-まで自動化してください。
-
-色
-
-Bone
-白
-
-Muscle
-赤
 
 Nerve
-黄色
 
-Blood Vessel
-青
+Vessel
 
-Brain
-薄ピンク
+Bone
 
-Ligament
-緑
+Muscle
 
----
+最近見た項目
 
-# 品質
+最近追加
 
-医学英語名は
-BodyParts3Dの名称を優先。
+お気に入り
 
-日本語名は一般的医学用語を使用。
+学習を続ける
 
-FMA情報があれば利用。
+を表示する。
 
-頭痛との関連度は
+スクロールしなくても何ができるサイトか分かること。
 
-★★★★★
-★★★★☆
-★★★☆☆
-★★☆☆☆
-★☆☆☆☆
+----------------------------------------
 
-で評価してください。
+# ② 検索機能
 
-Descriptionは医学的に簡潔に。
+最重要。
 
----
+上部固定検索。
 
-# 最終成果物
+検索対象
 
-master_bodyparts.csv
+神経
 
-headache_parts.csv
+血管
 
-blender_collection.csv
+筋
 
-extract_list.csv
+骨
 
-extract_headache_parts.py
+MRI
 
-import_headache_parts.py
+疾患
 
-README.md
+神経ブロック
 
----
+略称
 
-コードは保守性を重視し、
+正式名称
 
-Python 3.12
+英語
 
-型ヒントあり
+日本語
 
-コメント充実
+例
 
-関数分割
+V1
 
-例外処理
+Trigeminal
 
-ログ出力
+三叉神経
 
-で実装してください。
+ONB
+
+Occipital nerve block
+
+後頭神経ブロック
+
+Willis
+
+ICA
+
+C2
+
+など全て検索可能。
+
+Autocomplete必須。
+
+----------------------------------------
+
+# ③ 左サイドナビ
+
+スクロールだけは禁止。
+
+左固定ナビ。
+
+■全体
+
+■神経
+
+■血管
+
+■脳
+
+■筋
+
+■骨
+
+クリックでスクロール。
+
+現在位置をハイライト。
+
+スクロールスパイ実装。
+
+----------------------------------------
+
+# ④ カードデザイン改善
+
+カード高さを統一。
+
+余白を削減。
+
+画像を大きく。
+
+情報密度を向上。
+
+カード内構成
+
+タイトル
+
+概要
+
+3D
+
+MRI
+
+臨床
+
+関連疾患
+
+関連処置
+
+関連神経
+
+お気に入り
+
+共有
+
+----------------------------------------
+
+# ⑤ 3D Viewer改善
+
+画面の主役にする。
+
+現在の2倍程度のサイズ。
+
+機能
+
+回転
+
+ズーム
+
+パン
+
+部位選択
+
+透明化
+
+レイヤー切替
+
+神経だけ表示
+
+骨だけ表示
+
+筋だけ表示
+
+血管だけ表示
+
+名称ON/OFF
+
+ピン留め
+
+ホバーで名称表示
+
+クリックで詳細表示
+
+----------------------------------------
+
+# ⑥ MRI Viewer改善
+
+同期表示。
+
+3Dで神経クリック
+
+↓
+
+MRIでも同じ位置をハイライト。
+
+逆方向も可能。
+
+Axial
+
+Coronal
+
+Sagittal
+
+切替。
+
+T1
+
+T2
+
+FLAIR
+
+MRA
+
+切替可能なら対応。
+
+ズーム
+
+Window調整
+
+フルスクリーン
+
+----------------------------------------
+
+# ⑦ 学習導線
+
+単なる図鑑は禁止。
+
+各構造に
+
+概要
+
+起始停止
+
+支配
+
+走行
+
+機能
+
+臨床
+
+症候
+
+関連疾患
+
+MRI
+
+神経ブロック
+
+動画
+
+参考文献
+
+まで表示。
+
+----------------------------------------
+
+# ⑧ 関連コンテンツ
+
+各構造の下に
+
+Related
+
+を表示。
+
+例
+
+三叉神経
+
+↓
+
+眼神経
+
+↓
+
+上顎神経
+
+↓
+
+下顎神経
+
+↓
+
+海綿静脈洞
+
+↓
+
+Willis
+
+知識グラフを形成する。
+
+----------------------------------------
+
+# ⑨ タグ改善
+
+現在のタグは
+
+何をするボタンなのか分からない。
+
+改善
+
+関連疾患
+
+関連治療
+
+神経ブロック
+
+画像診断
+
+論文
+
+参考
+
+など意味を持たせる。
+
+----------------------------------------
+
+# ⑩ 学習支援
+
+追加機能
+
+お気に入り
+
+履歴
+
+閲覧済み
+
+理解度
+
+難易度
+
+国家試験頻出
+
+専門医試験頻出
+
+チェックリスト
+
+学習進捗
+
+----------------------------------------
+
+# ⑪ レスポンシブ
+
+Desktop
+
+Tablet
+
+Mobile
+
+全対応。
+
+モバイルでは
+
+Bottom Navigation採用。
+
+カードを縦積み。
+
+画像サイズ維持。
+
+----------------------------------------
+
+# ⑫ アニメーション
+
+派手は禁止。
+
+100〜200ms程度。
+
+hover
+
+fade
+
+scale
+
+のみ。
+
+Skeleton UI実装。
+
+----------------------------------------
+
+# ⑬ アクセシビリティ
+
+WCAG AA以上。
+
+キーボード操作。
+
+ARIA。
+
+Contrast AA。
+
+フォーカスリング。
+
+Screen Reader対応。
+
+----------------------------------------
+
+# ⑭ パフォーマンス
+
+Lazy Load
+
+Virtual Scroll
+
+Code Split
+
+Image Optimization
+
+Memoization
+
+不要レンダリング削減
+
+Lighthouse
+
+95点以上。
+
+----------------------------------------
+
+# ⑮ 医学教育向け追加
+
+各構造に
+
+臨床症状
+
+支配領域
+
+ブロック位置
+
+超音波位置
+
+MRI位置
+
+CT位置
+
+代表疾患
+
+鑑別
+
+関連動画
+
+参考論文
+
+を表示。
+
+----------------------------------------
+
+# ⑯ ダッシュボード
+
+追加
+
+Continue Learning
+
+最近閲覧
+
+お気に入り
+
+学習時間
+
+理解率
+
+閲覧済み数
+
+----------------------------------------
+
+# ⑰ UI改善
+
+統一する。
+
+Border Radius
+
+12〜16px
+
+Shadow
+
+極小
+
+Gap
+
+24px
+
+余白
+
+32px
+
+フォント
+
+Inter
+
+Noto Sans JP
+
+タイポグラフィを統一。
+
+----------------------------------------
+
+# ⑱ フルスクリーンモード
+
+3D
+
+MRI
+
+どちらも
+
+フルスクリーン可能。
+
+Escで戻る。
+
+----------------------------------------
+
+# ⑲ ダークモード
+
+完全対応。
+
+医療画像が最も見やすい配色。
+
+----------------------------------------
+
+# ⑳ 実装品質
+
+コンポーネントを細分化。
+
+再利用可能。
+
+型安全。
+
+保守性重視。
+
+Atomic DesignまたはFeature-Sliced Designを採用。
+
+----------------------------------------
+
+## 出力
+
+以下を出力してください。
+
+1.
+改善後の情報設計（IA）
+
+2.
+画面レイアウト
+
+3.
+コンポーネント構成
+
+4.
+UI改善理由
+
+5.
+UX改善理由
+
+6.
+追加する機能一覧
+
+7.
+削除すべきUI
+
+8.
+レスポンシブ設計
+
+9.
+アクセシビリティ改善
+
+10.
+パフォーマンス改善
+
+11.
+実装ロードマップ
+
+12.
+変更対象ファイル一覧
+
+13.
+各ファイルの修正内容
+
+14.
+新規追加ファイル一覧
+
+15.
+必要なライブラリ
+
+16.
+リファクタリング内容
+
+17.
+コンポーネント図
+
+18.
+画面遷移図
+
+19.
+最終的なディレクトリ構成
+
+20.
+改善後の完成イメージ（テキストワイヤーフレーム）
+
+重要事項
+
+・既存機能は維持すること
+・保守性を最優先すること
+・医療教育の専門性を損なわないこと
+・初心者から専門医まで使いやすいこと
+・世界最高水準の医学教育Webアプリを目指すこと
+・UI/UX・情報設計・教育効果・開発品質のすべてで妥協しないこと
 ```
 
 ---
 
-## さらにおすすめしたい「上位版」
+## このプロンプトに追加するとさらに品質が上がる要求
 
-このプロンプトをさらに発展させるなら、**OBJファイルを実際に解析して自動判定**させます。
-
-例えば以下の項目も追加すると、品質が大幅に向上します。
+実際にGoogleやMicrosoftのデザインレビューでは、**機能追加よりも「ユーザータスクの最適化」と「測定可能な品質目標」**が重視されます。そのため、以下も追記することをおすすめします。
 
 ```text
-追加要件
+## KPI
 
-・各OBJの頂点数
-・面数
-・Bounding Box
-・体積
-・重心
-・左右判定
-・メッシュの健全性
-・OBJプレビュー画像(PNG)
-・glTF変換
-・LOD(Level of Detail)生成
+以下のUX KPIを満たす設計とすること。
+
+- 任意の解剖構造へ3クリック以内で到達
+- 初回ユーザーが30秒以内に主要機能を理解できる
+- Lighthouse Performance 95+
+- Lighthouse Accessibility 100
+- Lighthouse Best Practices 100
+- Lighthouse SEO 100
+- Core Web Vitals (LCP, INP, CLS) をすべてGood
+- WCAG 2.2 AA準拠
+- モバイル・タブレット・デスクトップで同等の体験を提供
+- キーボードのみで全操作が可能
+- 3D ViewerとMRI Viewerの操作を統一
+- 新しい解剖カテゴリを追加しても既存コードを変更せず拡張できる設計
+- Feature-Sliced DesignまたはAtomic Designに準拠した高い保守性
 ```
-
-最終的には次のようなマスター表になります。
-
-| OBJ        | 英語名   | 日本語 | カテゴリ | 頭痛関連  | Collection |    頂点数 |  ポリゴン数 | Bounding Box  | プレビュー |
-| ---------- | ----- | --- | ---- | ----- | ---------- | -----: | -----: | ------------- | ----- |
-| FJ3659.obj | Skull | 頭蓋骨 | Bone | ★★★★★ | Bones      | 18,432 | 36,512 | 120×150×180mm | ✓     |
-
-このレベルまで作っておけば、今後は**「片頭痛モデル」「緊張型頭痛モデル」「頚椎性頭痛モデル」**などを数分で組み立てられる、再利用性の高い3Dアセット基盤になります。
