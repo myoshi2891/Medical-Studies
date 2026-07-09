@@ -64,8 +64,10 @@ PROM スコアが「医学的助言」と誤認されないための表示原則
 - [x] SaMD 非該当論拠を単一文書に集約した
 - [x] 分散記述（architecture.md / sync-design.md）への参照を整理した
 - [ ] SaMD 非該当 3 要件を機能追加レビューのチェック項目として運用フローに組み込む
-- [ ] プライバシーポリシーを別途起草した（骨子は本文書）
-- [ ] 利用規約を別途起草した（骨子は本文書）
+- [ ] プライバシーポリシーを別途起草した（骨子は本文書。全文ドラフトと `/privacy` ページ実装は
+  [`plans/013-privacy-policy-and-terms-pages.md`](../../plans/013-privacy-policy-and-terms-pages.md)）
+- [ ] 利用規約を別途起草した（骨子は本文書。全文ドラフトと `/terms` ページ実装は
+  [`plans/013-privacy-policy-and-terms-pages.md`](../../plans/013-privacy-policy-and-terms-pages.md)）
 - [ ] スコア表示の「参考値」明記を全 PROM ページで確認した
 
 ## 関連文書

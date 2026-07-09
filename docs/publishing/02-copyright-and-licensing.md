@@ -57,7 +57,8 @@
 - [x] ルート `THIRD_PARTY_NOTICES.md` を配置した
 - [x] BodyParts3D 帰属が公開 UI に掲示されていることを確認した
 - [ ] `.glb` の ShareAlike 適合（再配布ライセンス互換性）を最終確認した
-- [ ] npm 依存ライセンスの棚卸しを実施した（`06` 参照）
+- [ ] npm 依存ライセンスの棚卸しを実施した（`06` 参照。実施手順は
+  [`plans/009-dependency-license-inventory.md`](../../plans/009-dependency-license-inventory.md)）
 
 ## 関連文書
 

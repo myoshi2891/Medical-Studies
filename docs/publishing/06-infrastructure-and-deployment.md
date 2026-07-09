@@ -61,9 +61,14 @@
 
 - [x] 検証コマンド（build/test/typecheck/lint）を記録した
 - [x] 想定デプロイ構成・公開環境変数の方針を整理した
-- [ ] 最小 CI パイプラインを `.github/workflows` として別プランで起票した
-- [ ] 依存脆弱性監査・ライセンス棚卸しを CI に組み込む方針を確定した
+- [x] 最小 CI パイプラインを `.github/workflows` として別プランで起票した →
+  [`plans/014-minimal-ci-pipeline.md`](../../plans/014-minimal-ci-pipeline.md)（5 ジョブ構成の YAML 骨子付き）
+- [ ] 依存脆弱性監査・ライセンス棚卸しを CI に組み込む方針を確定した（ライセンスゲートは
+  `plans/014` でジョブ化、脆弱性監査は Dependabot 有効化方針 — 同プラン参照）
 - [ ] git 履歴の author メール（F7）の対応（許容 or 書き換え）をユーザーが判断した
+  （書き換えを選ぶ場合の手順書:
+  [`plans/015-git-history-author-email-rewrite.md`](../../plans/015-git-history-author-email-rewrite.md)。
+  全ブランチ一括・バックアップ・決定ゲート付き）
 
 ## 関連文書
 

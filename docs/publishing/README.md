@@ -37,14 +37,14 @@
 
 ## 文書一覧とステータス
 
-| 文書 | 対象 | 優先度 | ステータス |
-|---|---|---|---|
-| [`01-urgent-exposure.md`](01-urgent-exposure.md) | F1・F2 の即時対応 | P0 | 起草済（要ユーザー判断） |
-| [`02-copyright-and-licensing.md`](02-copyright-and-licensing.md) | デュアルライセンス方針 | P0 | 起草済＋`LICENSE`/`THIRD_PARTY_NOTICES.md` 配置済 |
-| [`03-mri-image-provenance.md`](03-mri-image-provenance.md) | MRI 画像出典 | P1 | 起草済（出典は要確認） |
-| [`04-security-policy.md`](04-security-policy.md) | セキュリティ姿勢・CSP 骨子 | P1 | 起草済＋`SECURITY.md` 配置済 |
-| [`05-legal-and-regulatory.md`](05-legal-and-regulatory.md) | SaMD 非該当・規約骨子 | P1 | 起草済 |
-| [`06-infrastructure-and-deployment.md`](06-infrastructure-and-deployment.md) | CI・デプロイ・F7 | P2 | 起草済 |
+| 文書 | 対象 | 優先度 | ステータス | 実装プラン |
+|---|---|---|---|---|
+| [`01-urgent-exposure.md`](01-urgent-exposure.md) | F1・F2 の即時対応 | P0 | 起草済（要ユーザー判断） | [`plans/008`](../../plans/008-prom-license-gate-and-alternative-display.md) |
+| [`02-copyright-and-licensing.md`](02-copyright-and-licensing.md) | デュアルライセンス方針 | P0 | 起草済＋`LICENSE`/`THIRD_PARTY_NOTICES.md` 配置済 | [`plans/009`](../../plans/009-dependency-license-inventory.md) |
+| [`03-mri-image-provenance.md`](03-mri-image-provenance.md) | MRI 画像出典 | P1 | 起草済（出典は要確認） | [`plans/010`](../../plans/010-mri-provenance-manifest-and-fallback.md) |
+| [`04-security-policy.md`](04-security-policy.md) | セキュリティ姿勢・CSP 骨子 | P1 | 起草済＋`SECURITY.md` 配置済 | [`plans/011`](../../plans/011-security-headers-next-config.md) / [`plans/012`](../../plans/012-localstorage-notice-and-clear-ui.md) |
+| [`05-legal-and-regulatory.md`](05-legal-and-regulatory.md) | SaMD 非該当・規約骨子 | P1 | 起草済 | [`plans/013`](../../plans/013-privacy-policy-and-terms-pages.md) |
+| [`06-infrastructure-and-deployment.md`](06-infrastructure-and-deployment.md) | CI・デプロイ・F7 | P2 | 起草済 | [`plans/014`](../../plans/014-minimal-ci-pipeline.md) / [`plans/015`](../../plans/015-git-history-author-email-rewrite.md) |
 
 ### ルート標準ファイル（本計画で新設）
 
@@ -73,4 +73,7 @@ P2  06（インフラ・CI・F7）
 - `web-next/next.config.ts`（CSP は設計記述のみ）
 - `.gitignore` 除外済みディレクトリ
 
-各是正の実装は、本文書群を入力として別途プラン化・実行する。
+各是正の実装は、本文書群を入力として **`plans/008`〜`plans/015`** に詳細化済み
+（実行順・依存関係・ステータスは [`plans/README.md`](../../plans/README.md) を参照）。
+権利者確認等のユーザー判断を要するもの（008 Phase B・010 Phase B・015）は各プランの
+「決定ゲート」成立後にのみ実行する。

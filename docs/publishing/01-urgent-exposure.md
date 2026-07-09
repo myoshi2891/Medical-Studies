@@ -74,7 +74,9 @@
 - [ ] HIT-6 の許諾状況を QualityMetric に照会し、結果を記録した
 - [ ] MSQ v2.1 の許諾状況を Mapi Research Trust に照会し、結果を記録した
 - [ ] MIDAS / PGIC / NRS / VAS / SNOOP4 の帰属・利用条件を個別確認した
-- [ ] 許諾不可の場合の代替設計（概要＋公式リンク化）を別プランとして起票した
+- [x] 許諾不可の場合の代替設計（概要＋公式リンク化）を別プランとして起票した →
+  [`plans/008-prom-license-gate-and-alternative-display.md`](../../plans/008-prom-license-gate-and-alternative-display.md)
+  （Phase A は即実行可、Phase B は照会結果の決定ゲート付き）
 - [ ] 露出継続 or 一時非公開の判断をユーザーが下した
 
 ---

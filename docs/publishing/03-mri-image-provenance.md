@@ -54,7 +54,9 @@
 - [ ] brain シリーズの取得元・著作権者・許諾を確認した
 - [ ] cervical シリーズの取得元・著作権者・許諾を確認した
 - [ ] 確認結果を `manifest.json` / 本文書に記録した
-- [ ] 許諾不明の場合の対応（除外 or 差し替え）を別プランとして起票した
+- [x] 許諾不明の場合の対応（除外 or 差し替え）を別プランとして起票した →
+  [`plans/010-mri-provenance-manifest-and-fallback.md`](../../plans/010-mri-provenance-manifest-and-fallback.md)
+  （Phase A = 出典メタデータの器、Phase B = 公開除外。B は出典確認の決定ゲート付き）
 
 ## 関連文書
 

@@ -85,9 +85,12 @@ form-action 'self';
 
 - [x] セキュリティ姿勢（クライアント型・ゼロ知識・最小スコープ）を文書化した
 - [x] ルート `SECURITY.md` を配置した
-- [ ] `next.config.ts` へのヘッダ付与を別プランとして起票した
-- [ ] CSP 骨子を実 Google 連携（OAuth ログイン・Sheets 書込）で検証した
-- [ ] localStorage 消去導線・注意喚起 UI を別プランとして起票した
+- [x] `next.config.ts` へのヘッダ付与を別プランとして起票した →
+  [`plans/011-security-headers-next-config.md`](../../plans/011-security-headers-next-config.md)（3 段階導入）
+- [ ] CSP 骨子を実 Google 連携（OAuth ログイン・Sheets 書込）で検証した（`plans/011` Stage 2〜3 で実施）
+- [x] localStorage 消去導線・注意喚起 UI を別プランとして起票した →
+  [`plans/012-localstorage-notice-and-clear-ui.md`](../../plans/012-localstorage-notice-and-clear-ui.md)
+  （消去導線は既存 `DataManager` を再利用し、注意喚起の常設のみ追加）
 - [ ] 依存脆弱性監査（`bun audit` 等）の定期実行を CI に組み込む方針を `06` に反映した
 
 ## 関連文書
