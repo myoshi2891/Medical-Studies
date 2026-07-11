@@ -78,6 +78,30 @@ describe("computeUpsert", () => {
     expect(plan.updates).toEqual([{ dataRowIndex: 0, values: ["a", "diary_1"] }]);
     expect(plan.appends).toEqual([["b", "diary_9"]]);
   });
+
+  it("rows 内に同一キーが複数あれば後勝ちで1件に正規化して append する", () => {
+    const plan = computeUpsert(
+      [],
+      [
+        ["2026-07-01", "diary_1"],
+        ["2026-07-01T09:00", "diary_1"], // 同一キー diary_1 の2件目（後勝ち）
+      ],
+      1
+    );
+    expect(plan.appends).toEqual([["2026-07-01T09:00", "diary_1"]]);
+  });
+
+  it("rows 内に同一キーが複数あれば後勝ちで1件に正規化して update する", () => {
+    const plan = computeUpsert(
+      ["diary_1"],
+      [
+        ["a", "diary_1"],
+        ["b", "diary_1"], // 同一キー、後勝ちで b が反映される
+      ],
+      1
+    );
+    expect(plan.updates).toEqual([{ dataRowIndex: 0, values: ["b", "diary_1"] }]);
+  });
 });
 
 describe("GoogleSheetsExporter.export", () => {
