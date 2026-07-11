@@ -68,4 +68,15 @@ describe("AnatomySearch: キーボード操作", () => {
     expect(combo.value).toBe("");
     expect(container.querySelector('[role="listbox"]')).toBeNull();
   });
+
+  it("未選択（activeIndex=-1）のまま Enter すると先頭候補へ暗黙遷移する", () => {
+    const { container } = render(<AnatomySearch />);
+    const combo = getCombobox(container);
+    fireEvent.change(combo, { target: { value: "V1" } });
+    // ArrowDown 等を送らず、activeIndex=-1 のまま Enter する。
+    fireEvent.keyDown(combo, { key: "Enter" });
+    // 先頭候補のアンカー click（onClick={close}）でクエリがクリアされ listbox が閉じる。
+    expect(combo.value).toBe("");
+    expect(container.querySelector('[role="listbox"]')).toBeNull();
+  });
 });
