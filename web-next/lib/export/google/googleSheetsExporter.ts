@@ -38,9 +38,17 @@ export function computeUpsert(
   existingKeys.forEach((k, i) => {
     indexByKey.set(k, i);
   });
+
+  // rows 内に同一キーの行が複数あれば「後勝ち」で1行に正規化してから振り分ける
+  // （さもないと appends に重複行が入ったり、同じ dataRowIndex への update が重複投入される）。
+  const dedupedByKey = new Map<string, Cell[]>();
+  for (const row of rows) {
+    dedupedByKey.set(String(row[keyColIndex]), row);
+  }
+
   const updates: UpsertPlan["updates"] = [];
   const appends: Cell[][] = [];
-  for (const row of rows) {
+  for (const row of dedupedByKey.values()) {
     const key = String(row[keyColIndex]);
     const found = indexByKey.get(key);
     if (found === undefined) {
@@ -51,6 +59,8 @@ export function computeUpsert(
   }
   return { updates, appends };
 }
+
+
 
 /**
  * Converts a 0-based column index to an A1 column letter (0→A, 25→Z, 26→AA).
