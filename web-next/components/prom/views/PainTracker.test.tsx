@@ -6,11 +6,12 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { type PromContextValue, PromProvider } from "@/components/prom/PromContext";
+import type { AppData } from "@/components/prom/state";
 import { defaultSettings, todayISO } from "@/components/prom/state";
 import { PainTracker } from "@/components/prom/views/PainTracker";
 import { SCHEMA_VERSION } from "@/lib/prom/storage";
-import type { AppData } from "@/components/prom/state";
 import type { ScoreRecord, StorageAdapter } from "@/lib/prom/types";
+
 
 function buildContext(records: ScoreRecord[]): { ctx: PromContextValue; state: { data: AppData } } {
   const state: { data: AppData } = {

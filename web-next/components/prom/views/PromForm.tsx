@@ -1,6 +1,7 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import { confirmAndCommit } from "@/lib/prom/confirmAndCommit";
 import { COMMON_DISCLAIMER, PROM_IDS, REGISTRY } from "@/lib/prom/registry";
 import { bandFor, scoreInstrument } from "@/lib/prom/scoring";
 import type { Instrument, ScoreRecord, ScoreValue } from "@/lib/prom/types";
@@ -62,10 +63,6 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
     const date = todayISO();
     // 同日・同指標が既にあれば上書き確認（1日1データ）。キャンセルで中断。
     const isOverwrite = hasScoreForDateInstrument(data.scores.records, date, def.id);
-    if (isOverwrite && !window.confirm(`${def.title} は本日分が既にあります。上書きしますか？`)) {
-      return;
-    }
-
     const val = result.value;
     const record: ScoreRecord = {
       date,
@@ -79,15 +76,21 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
     record.interpretation = val.interpretation;
     if (Object.keys(context).length) record.context = context;
 
-    commit((prev) => ({
-      ...prev,
-      scores: { ...prev.scores, records: upsertScoreByDateInstrument(prev.scores.records, record) },
-    }))
-      .then(() => {
-        toast(`${def.title} を${isOverwrite ? "上書き保存" : "記録"}しました`);
-        setSubmitState({ kind: "result", val, context, def });
-      })
-      .catch((err) => toast(err.message));
+    confirmAndCommit({
+      isOverwrite,
+      confirmMessage: `${def.title} は本日分が既にあります。上書きしますか？`,
+      updater: (prev) => ({
+        ...prev,
+        scores: {
+          ...prev.scores,
+          records: upsertScoreByDateInstrument(prev.scores.records, record),
+        },
+      }),
+      commit,
+      toast,
+      successMessage: (overwrite) => `${def.title} を${overwrite ? "上書き保存" : "記録"}しました`,
+      onCommitted: () => setSubmitState({ kind: "result", val, context, def }),
+    });
   }
 
   return (
