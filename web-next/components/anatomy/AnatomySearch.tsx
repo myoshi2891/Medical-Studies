@@ -56,6 +56,10 @@ export default function AnatomySearch() {
       listRef.current
         ?.querySelector<HTMLAnchorElement>(`#${CSS.escape(optionId(activeIndex))}`)
         ?.click();
+    } else if (e.key === "Enter" && activeIndex < 0 && hasHits) {
+      e.preventDefault();
+      // 未選択のまま Enter された場合は先頭候補への暗黙選択として扱う。
+      listRef.current?.querySelector<HTMLAnchorElement>(`#${CSS.escape(optionId(0))}`)?.click();
     }
   }
 
