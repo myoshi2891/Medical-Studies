@@ -2,7 +2,21 @@ import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import HeadacheImpactTestSidebar from "@/components/prom/HeadacheImpactTestSidebar";
+import { RestrictedItemText } from "@/components/prom/RestrictedItemText";
 import "./headache-impact-test.css";
+
+/**
+ * 各項目の構成メタ情報。質問文は権利者所有のため掲載せず（RestrictedItemText が担当）、
+ * 測定ドメインと想起期間だけを示す。
+ */
+const HIT6_ITEM_META = [
+  { no: "Q1", domain: "疼痛強度", recall: "現在の状態" },
+  { no: "Q2", domain: "役割機能", recall: "現在の状態" },
+  { no: "Q3", domain: "重症度感", recall: "現在の状態" },
+  { no: "Q4", domain: "活力", recall: "過去4週間" },
+  { no: "Q5", domain: "心理的苦痛", recall: "過去4週間" },
+  { no: "Q6", domain: "認知機能", recall: "過去4週間" },
+];
 
 const HIT_MERMAID_THEME = {
   primaryColor: "#eedaf2",
@@ -369,83 +383,36 @@ export default function HeadacheImpactTestPage() {
               </div>
 
               <div className="card">
-                <h3>3.1 6つの質問項目（英語・日本語対訳）</h3>
+                <h3>3.1 6つの質問項目（構成と評価ドメイン）</h3>
                 <p>
                   以下の各質問に対し、過去 <strong>4週間（Q4〜Q6）</strong>{" "}
-                  または現在の状態（Q1〜Q3）を5段階で回答します。
+                  または現在の状態（Q1〜Q3）を5段階で回答します。 質問文そのものは QualityMetric
+                  社が権利を有する著作物のため、本サイトでは掲載せず、
+                  各項目が測定するドメインのみを示します。
                 </p>
                 <div className="tbl">
                   <table className="th-purple">
                     <thead>
                       <tr>
                         <th>項目</th>
-                        <th>英語原文（要旨）</th>
-                        <th>日本語概訳</th>
+                        <th>質問文</th>
                         <th>評価ドメイン</th>
+                        <th>想起期間</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          <strong>Q1</strong>
-                        </td>
-                        <td>How often do you have severe headache pain?</td>
-                        <td>激しい頭痛はどのくらい起こりますか？</td>
-                        <td>疼痛強度</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <strong>Q2</strong>
-                        </td>
-                        <td>How often does headache limit your ability to do daily activities?</td>
-                        <td>
-                          頭痛のために日常活動（仕事・学業・家事・社会活動）が制限されますか？
-                        </td>
-                        <td>役割機能</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <strong>Q3</strong>
-                        </td>
-                        <td>When you have a headache, how often do you wish you could lie down?</td>
-                        <td>頭痛があるとき、横になりたいと感じますか？</td>
-                        <td>重症度感</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <strong>Q4</strong>
-                        </td>
-                        <td>
-                          In the past 4 weeks, how often did you feel too tired to work/do daily
-                          activities because of headache?
-                        </td>
-                        <td>
-                          過去4週間で、頭痛のために疲れて仕事や日常活動ができなかったことはありますか？
-                        </td>
-                        <td>活力</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <strong>Q5</strong>
-                        </td>
-                        <td>
-                          In the past 4 weeks, how often did you feel irritated/fed up because of
-                          headache?
-                        </td>
-                        <td>過去4週間で、頭痛のために気分が落ち込んだり、うんざりしましたか？</td>
-                        <td>心理的苦痛</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <strong>Q6</strong>
-                        </td>
-                        <td>
-                          In the past 4 weeks, how often did headache limit your ability to
-                          concentrate on work/daily activities?
-                        </td>
-                        <td>過去4週間で、頭痛のために集中力が低下しましたか？</td>
-                        <td>認知機能</td>
-                      </tr>
+                      {HIT6_ITEM_META.map((meta, i) => (
+                        <tr key={meta.no}>
+                          <td>
+                            <strong>{meta.no}</strong>
+                          </td>
+                          <td>
+                            <RestrictedItemText instrumentId="hit6" index={i} />
+                          </td>
+                          <td>{meta.domain}</td>
+                          <td>{meta.recall}</td>
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -457,6 +424,12 @@ export default function HeadacheImpactTestPage() {
                     Q1〜Q3：特定の想起期間なし（現在の状態を反映）
                     <br />
                     Q4〜Q6：<strong>過去4週間（28日間）</strong>
+                    <br />
+                    質問票の全文は{" "}
+                    <Ext href="https://www.qualitymetric.com/health-surveys/the-headache-impact-test-hit-6/">
+                      QualityMetric（公式配布元）
+                    </Ext>{" "}
+                    から入手してください。
                   </div>
                 </div>
               </div>
