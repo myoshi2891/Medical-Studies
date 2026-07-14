@@ -49,16 +49,64 @@
 
 ---
 
-## 4. npm 依存（主要・再配布時に注意を要するもの）
+## 4. npm 依存（機械的棚卸し済み）
 
-各パッケージのライセンス条項は各配布物に同梱される。代表的なもの:
+各パッケージのライセンス条項は各配布物に同梱される。
 
-| パッケージ | 用途 | ライセンス（要検証） |
+### 4-1. 棚卸しメタデータ
+
+| 項目 | 値 |
+|---|---|
+| 実施日 | 2026-07-15 |
+| 対象 | `web-next/`（`bun install --frozen-lockfile` 後の `node_modules`） |
+| ツール | `license-checker-rseidelsohn`（`bunx` 経由で実行） |
+| production 依存総数 | 141 パッケージ（`web-next` 自身を除く） |
+| 強コピーレフト検査 | `--failOn "GPL-2.0;GPL-3.0;AGPL-1.0;AGPL-3.0"` → **exit 0（検出なし）** |
+
+再現手順（`web-next/` で実行）:
+
+```bash
+bun install --frozen-lockfile
+bunx license-checker-rseidelsohn --production --summary
+bunx license-checker-rseidelsohn --production --failOn "GPL-2.0;GPL-3.0;AGPL-1.0;AGPL-3.0"
+```
+
+### 4-2. 直接依存（dependencies 6 件・検証済み）
+
+| パッケージ | バージョン | ライセンス | 用途 |
+|---|---|---|---|
+| `next` | 16.2.6 | MIT | アプリ基盤（App Router） |
+| `react` | 19.2.4 | MIT | UI ライブラリ |
+| `react-dom` | 19.2.4 | MIT | DOM レンダラ |
+| `mermaid` | 10.9.6 | MIT | 図表描画 |
+| `@google/model-viewer` | 4.3.1 | Apache-2.0 | 3D モデル表示 |
+| `@tabler/icons-react` | 3.44.0 | MIT | アイコン |
+
+### 4-3. 推移的依存を含む種別別件数（production）
+
+| ライセンス | 件数 |
+|---|---|
+| MIT | 77 |
+| ISC | 35 |
+| BSD-3-Clause | 13 |
+| Apache-2.0 | 8 |
+| LGPL-3.0-or-later | 1 |
+| CC-BY-4.0 | 1 |
+| MPL-2.0 OR Apache-2.0 | 1 |
+| EPL-2.0 | 1 |
+| MIT\*（LICENSE 同梱だが package.json に宣言なし） | 1 |
+| Unlicense | 1 |
+| 0BSD | 1 |
+
+### 4-4. 要注意判定の個別記録
+
+| パッケージ | ライセンス | 判断 |
 |---|---|---|
-| `next` / `react` / `react-dom` | アプリ基盤 | MIT |
-| `mermaid` | 図表描画 | MIT |
-| `@google/model-viewer` | 3D モデル表示 | Apache-2.0 |
-| `@tabler/icons-react` | アイコン | MIT |
+| `@img/sharp-libvips-darwin-arm64@1.2.4` | LGPL-3.0-or-later | Next.js の画像最適化が使うネイティブバイナリ（プラットフォーム固有の optional dependency）。クライアントバンドルに含まれず**動的リンク**されるため、LGPL の義務は本リポジトリのソースへ伝播しない。バイナリを改変・静的リンクする場合は再評価が必要。 |
+| `elkjs@0.9.3` | EPL-2.0 | `mermaid` のレイアウトエンジン。EPL はファイル単位コピーレフトであり、**当該ファイルを改変しない限り**独自コードへの開示義務は生じない。改変していない。 |
+| `caniuse-lite@1.0.30001799` | CC-BY-4.0 | ブラウザ互換データ。**帰属表示が条件**。ビルドツールチェーンの一部として同梱される（`browserslist` 経由）。 |
+| `dompurify@3.4.11` | MPL-2.0 OR Apache-2.0 | デュアルライセンス。**Apache-2.0 を選択**することでファイル単位コピーレフトの適用を回避できる。 |
+| `khroma@2.1.0` | MIT\* | リポジトリの LICENSE ファイルは MIT。`package.json` に `license` フィールドが無いためツールが `*` を付与している。実質 MIT。 |
 
 > [!NOTE]
-> 上表は代表例であり網羅ではない。公開・配布前に `web-next/` で依存ライセンスの棚卸し（例: ライセンスチェッカ）を行い、コピーレフト系（GPL/LGPL 等）の混入がないことを確認すること。実行手順は [`docs/publishing/06-infrastructure-and-deployment.md`](docs/publishing/06-infrastructure-and-deployment.md) を参照。
+> 本表は 2026-07-15 時点の機械的棚卸しに基づく。依存を追加・更新した際は上記の再現手順を再実行し、本節を更新すること（`plans/014-minimal-ci-pipeline.md` で同じ `--failOn` ゲートを CI 化する予定）。`@google/model-viewer`（Apache-2.0）は NOTICE 条項を持つため、バンドル形態を変更する場合は帰属表示の同梱要否を再確認すること。
