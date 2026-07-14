@@ -30,14 +30,32 @@
 
 以下は本リポジトリが再ライセンスできない第三者著作物である。掲載継続の可否・許諾状況は [`docs/publishing/01-urgent-exposure.md`](docs/publishing/01-urgent-exposure.md)（F1）で管理する。
 
-| 尺度 | 権利者 | 制約 |
-|---|---|---|
-| HIT-6 | QualityMetric Incorporated（© 2001, 2015） | 商用利用は要許諾 |
-| MSQ v2.1 | Mapi Research Trust（専有） | 事前の書面許諾が必須 |
-| MIDAS | 出典元（ICHD-3 系） | 帰属表示の要否を要確認 |
-| PGIC / NRS / VAS | 汎用スケール | 特定バージョンの帰属を確認 |
+| 尺度 | 権利者 | 制約 | 確認状態（`license.status`） |
+|---|---|---|---|
+| HIT-6 | QualityMetric Incorporated（© 2001, 2015） | 商用利用は要許諾 | **restricted**（2026-07-15 レダクション済み） |
+| MSQ v2.1 | Mapi Research Trust（専有） | 事前の書面許諾が必須 | **restricted**（2026-07-15 レダクション済み） |
+| MIDAS | 出典元（ICHD-3 系） | 帰属表示の要否を要確認 | 未設定（掲載継続） |
+| PGIC / NRS / VAS | 汎用スケール | 特定バージョンの帰属を確認 | 未設定（掲載継続） |
 
 出典参照: `web-next/lib/prom/registry.ts` の各尺度 `license` フィールド。
+
+### 2-1. レダクション運用（restricted の尺度）
+
+`license.status = "restricted"` の尺度は、**質問文・回答選択肢の文言をリポジトリに一切掲載しない**。
+
+- 公開レジストリ（`web-next/lib/prom/registry.ts`）は中立プレースホルダのみを持つ。項目数・`id`・`value` は
+  採点および保存済み `ScoreRecord` との互換のため不変。
+- 実文言は git 管理外のローカル専用オーバーレイ `web-next/public/prom-restricted.local.json`
+  （`.gitignore` 済み）に置き、**開発環境（`NODE_ENV !== "production"`）でのみ**画面に注入される。
+  形式のテンプレートは `web-next/public/prom-restricted.example.json` を参照。
+- オーバーレイが無い状態（公開リポジトリ・本番ビルド）では、質問票の代わりに
+  「尺度の概要 ＋ 公式取得先リンク ＋ 帰属表示」の代替表示になる。
+- 教育ページ（`web-next/app/prom/*`・`Types-of-headache/**`）およびレガシー SPA
+  （`prom-checker/index.html`）からも逐語引用を除去済み。測定ドメイン・スコアリング方法・解釈バンド・
+  MCID の解説は一般的知識のため掲載を継続する。
+- **権利者照会は未了**（`docs/publishing/01-urgent-exposure.md` F1 参照）。許諾取得後に文言を
+  `registry.ts` へ戻し `status: "verified"` とする。
+- 新しい尺度を追加する際は `license.status` の設定と本表への行追加をセットで行う。
 
 ---
 
