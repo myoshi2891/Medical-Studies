@@ -2,7 +2,7 @@
  * 「上書き確認 → commit → toast」の共通骨格（PainTracker/PromForm/Diary で共通の保存フロー）。
  * window.confirm・PromContext(commit/toast) という副作用を扱うため upsert.ts（純粋関数専用）とは分離する。
  */
-import type { AppData } from "@/components/prom/state";
+import type { AppData } from "@/lib/prom/types";
 
 export interface ConfirmAndCommitOptions {
   /** 既に同一キー（日付単位 or 日付+指標単位）のデータが存在するか。 */

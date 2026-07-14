@@ -5,15 +5,10 @@
  */
 import { DEFAULT_MEDS, DRUG_CLASS } from "@/lib/prom/registry";
 import { SCHEMA_VERSION } from "@/lib/prom/storage";
-import type { DiaryEntry, DiaryState, ScoresState, Settings, SnoopState } from "@/lib/prom/types";
+import type { DiaryEntry, Settings } from "@/lib/prom/types";
 
-/** 4 つの永続化キーをまとめたアプリ状態。 */
-export interface AppData {
-  settings: Settings;
-  snoop: SnoopState;
-  diary: DiaryState;
-  scores: ScoresState;
-}
+// AppData の定義はコア層（lib/prom/types）にあり、既存の参照互換のためここから再エクスポートする。
+export type { AppData } from "@/lib/prom/types";
 
 /**
  * Creates the initial application settings.

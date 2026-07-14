@@ -50,16 +50,13 @@ export default function AnatomySearch() {
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveIndex((i) => Math.max(i - 1, 0));
-    } else if (e.key === "Enter" && activeIndex >= 0) {
+    } else if (e.key === "Enter") {
       e.preventDefault();
-      // 仮想選択中のアンカーを click して遷移を一元化する。
+      // 仮想選択中のアンカー、未選択なら先頭候補（暗黙選択）を click して遷移を一元化する。
+      const targetIndex = activeIndex >= 0 ? activeIndex : 0;
       listRef.current
-        ?.querySelector<HTMLAnchorElement>(`#${CSS.escape(optionId(activeIndex))}`)
+        ?.querySelector<HTMLAnchorElement>(`#${CSS.escape(optionId(targetIndex))}`)
         ?.click();
-    } else if (e.key === "Enter" && activeIndex < 0 && hasHits) {
-      e.preventDefault();
-      // 未選択のまま Enter された場合は先頭候補への暗黙選択として扱う。
-      listRef.current?.querySelector<HTMLAnchorElement>(`#${CSS.escape(optionId(0))}`)?.click();
     }
   }
 

@@ -254,6 +254,14 @@ export interface ScoresState {
   records: ScoreRecord[];
 }
 
+/** 4 つの永続化キーをまとめたアプリ状態。 */
+export interface AppData {
+  settings: Settings;
+  snoop: SnoopState;
+  diary: DiaryState;
+  scores: ScoresState;
+}
+
 /** エクスポート / インポートの JSON ペイロード（設計書 第7.2章）。 */
 export interface ExportPayload {
   schemaVersion: string;
