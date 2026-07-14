@@ -71,10 +71,22 @@ export interface OrdinalScoring {
 
 export type Scoring = SumScoring | DomainScoring | OrdinalScoring;
 
+/**
+ * 権利確認の状態。
+ * - verified: 権利者から現在の掲載態様の許諾を得ている
+ * - pending: 権利者へ照会中（掲載は継続）
+ * - restricted: 質問文を公開レジストリから除外し、ローカル専用オーバーレイでのみ表示する
+ */
+export type LicenseStatus = "verified" | "pending" | "restricted";
+
 export interface License {
   holder: string;
   note: string;
   source: string;
+  /** 未設定は従来挙動（レジストリの内容をそのまま表示）。 */
+  status?: LicenseStatus;
+  /** 公式取得先 URL。restricted の代替表示で案内する。 */
+  officialUrl?: string;
 }
 
 export interface Mcid {

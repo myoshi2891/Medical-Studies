@@ -54,6 +54,20 @@ describe("REGISTRY: 収録尺度", () => {
       expect(scoring.variant).toBe("ascending");
     }
   });
+
+  it("権利確認状態: HIT-6 / MSQ v2.1 は restricted（F1 管理対象・質問文は非掲載）", () => {
+    for (const id of ["hit6", "msq-v2.1"] as const) {
+      const license = REGISTRY[id].license;
+      expect(license.status).toBe("restricted");
+      // 代替表示で公式取得先を案内するため URL が必須。
+      expect(license.officialUrl).toMatch(/^https:\/\//);
+    }
+  });
+
+  it("権利確認状態: F1 対象外の尺度には status を付けない（未評価と restricted を混同しない）", () => {
+    expect(REGISTRY.midas.license.status).toBeUndefined();
+    expect(REGISTRY.pgic.license.status).toBeUndefined();
+  });
 });
 
 describe("補助レジストリ", () => {

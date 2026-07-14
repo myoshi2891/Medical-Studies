@@ -86,8 +86,10 @@ export const REGISTRY: Record<string, Instrument> = {
     },
     license: {
       holder: "QualityMetric Incorporated（© 2001, 2015）",
-      note: "学術利用は可、商用利用は要許諾。日本語版は検証済み（Sakai 2004）。",
+      note: "学術利用は可、商用利用は要許諾。日本語版は検証済み（Sakai 2004）。質問文は権利者所有のため本リポジトリには収載していない。",
       source: "ICHD-3 / QualityMetric",
+      status: "restricted",
+      officialUrl: "https://www.qualitymetric.com/health-surveys/the-headache-impact-test-hit-6/",
     },
   },
 
@@ -219,8 +221,11 @@ export const REGISTRY: Record<string, Instrument> = {
     },
     license: {
       holder: "Mapi Research Trust（専有）",
-      note: "事前の書面による許諾が必須（eprovide.mapi-trust.org）。ePRO版は検証済み（Speck 2019/2021）。公開配布時は許諾状況に注意。",
+      note: "事前の書面による許諾が必須（eprovide.mapi-trust.org）。ePRO版は検証済み（Speck 2019/2021）。質問文は権利者所有のため本リポジトリには収載していない。",
       source: "Mapi Research Trust",
+      status: "restricted",
+      officialUrl:
+        "https://eprovide.mapi-trust.org/instruments/migraine-specific-quality-of-life-questionnaire",
     },
   },
 
