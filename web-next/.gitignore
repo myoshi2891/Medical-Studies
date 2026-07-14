@@ -19,6 +19,10 @@
 .env*
 !.env.example
 
+# 著作権保護 PROM 質問文のローカル専用オーバーレイ（一般公開しない）。
+# テンプレートの prom-restricted.example.json のみ追跡する。詳細は THIRD_PARTY_NOTICES.md §2。
+/public/*.local.json
+
 # debug
 npm-debug.log*
 yarn-debug.log*
