@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `2b836d0` docs: reflect anatomy UX/IA/A11y brush-up in architecture
-- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 356 passed（アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
+- **最新 HEAD**: `127d95a` docs(publishing): record PROM redaction and local-only overlay operation
+- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 399 passed（47 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
 - **次の作業**: `/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
@@ -47,7 +47,7 @@
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
 | Phase 5 | 外部連携: Google スプレッドシート同期 + CSV エクスポート | ✅ 完了 |
 
-- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。web-next 全体で 336 passed / typecheck / build 全通過。
+- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統 128 passed（web-next 全体で 399 passed）/ typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
   `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid + `useExporters`）+
   `app/prom-checker/`（page + scoped CSS）。
@@ -95,7 +95,7 @@
   `components/prom/PatientGlobalImpressionOfChangeSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` などでスコープ。
-- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 187 passed（anatomy 検索コア 9・AnatomySearch 6・AnatomySidebar 4・page 契約 +1 を追加）。lint / typecheck 全通過。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 271 passed（PROM 各尺度の静的ガイドページ契約を含む。anatomy 検索コア 9・AnatomySearch 6・AnatomySidebar 4・page 契約 +1 を追加）。lint / typecheck 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
@@ -104,7 +104,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 2b836d0
+- 最新 HEAD: 127d95a
 - 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```

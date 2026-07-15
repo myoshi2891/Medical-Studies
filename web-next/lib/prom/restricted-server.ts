@@ -8,6 +8,7 @@
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { cache } from "react";
 import { parseRestrictedOverlay, type RestrictedOverlay } from "./restricted";
 import { isOverlayEnabled } from "./restricted-loader";
 
@@ -17,8 +18,12 @@ export const OVERLAY_FILE = join(process.cwd(), "public", "prom-restricted.local
 /**
  * オーバーレイをファイルから読む。不在・パース失敗・本番モードはすべて null。
  * null のとき呼び出し側は「非掲載」表示へフォールバックする。
+ *
+ * `cache()` でラップし、1リクエスト内の複数 Server Component 呼び出し
+ * （例: RestrictedItemText を項目数ぶん描画するガイドページ）で
+ * ファイル I/O・パースを1回に集約する。
  */
-export function readRestrictedOverlay(): RestrictedOverlay | null {
+export const readRestrictedOverlay = cache((): RestrictedOverlay | null => {
   if (!isOverlayEnabled()) return null;
 
   try {
@@ -27,4 +32,4 @@ export function readRestrictedOverlay(): RestrictedOverlay | null {
   } catch {
     return null; // 未配置（ENOENT）が既定の正常系
   }
-}
+});

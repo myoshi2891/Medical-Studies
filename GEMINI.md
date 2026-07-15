@@ -1,6 +1,6 @@
 # GEMINI.md
 
-Updated 2026-07-02
+Updated 2026-07-15
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -12,6 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **成果物**: `Types-of-headache/html-files/{Headaches,Blocks}/*.html` — ブラウザで閲覧可能な教育 HTML ページ
 - **デザインの権威ソース**: `Types-of-headache/html-files/Headaches/Migraine.html`（CSS 変数・コンポーネントはここを基準とする）
 - **web-next PROM 外部連携設計**: `docs/google-sheets-sync-design.md` — 頭痛日誌・PROM スコアの Google スプレッドシート同期／CSV エクスポート詳細設計。純粋中間表現 `ExportWorkbook` → `ReportExporter`（`web-next/lib/export/`）の三層分離
+- **PROM 制限尺度の redaction 運用**: HIT-6・MSQ など著作権で保護された尺度の verbatim 設問文は公開レジストリ（`web-next/lib/prom/`）から redaction 済み。復元はリポジトリ外の local-only overlay でのみ行い、`web-next/public/prom-restricted.example.json` をテンプレートとして gitignore 対象の overlay を配置し `lib/prom/restricted-*` が読み込む。運用詳細は `docs/publishing/01-urgent-exposure.md` を参照
 
 ## コマンド
 
@@ -66,6 +67,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | `spec-sync` | "仕様書同期", "ドキュメント同期", "仕様同期" | GEMINI.md / CLAUDE.md / PROGRESS.md とコード実態の乖離を検出・修正 |
 | `nextjs-page-migration` | "/nextjs-page-migration", "HTMLをNext.jsに移行", "ガイドページを移行", "SPAをNext.jsに移行" | HTML を `web-next/` Next.js App Router へ TDD 移行。2 アーキタイプ対応: A=静的教育ページ（`html-files/`・Server Component）/ B=インタラクティブ SPA（`prom-checker/index.html`・コア抽出 + StorageAdapter、参照実装は `lib/prom/`・`components/prom/`） |
 | `glossary-term-tooltip` | "用語ツールチップを追加", "やさしい解説を追加", "読み仮名を付ける", "用語集に追加" | web-next の専門用語に読み仮名＋やさしい解説のツールチップを付与。用語集レジストリ（`lib/glossary`）に語を追記し、本文初出を `<Term>`（`components/glossary/Term.tsx`）でラップ。契約テスト非破壊手順を含む |
+| `improve`※ | "コードベース監査", "改善提案", "ロードマップ", "audit codebase" | シニアアドバイザとしてリードオンリーで監査し、他モデル／エージェント実行用の優先度付き実装プランを生成（自身は実装しない。外部由来: author shadcn, MIT） |
+
+> [!NOTE]
+> ※ `improve` のみ格納先が `.claude/skills/` ではなく `.agents/skills/`（ワークスペース共有・外部由来）。他は全て `.claude/skills/` 配下のプロジェクト固有スキル。
 
 > [!NOTE]
 > `GEMINI.md` と `CLAUDE.md` は**同一内容**（`GEMINI.md` が SSoT）。一方を更新したら `spec-sync` スキルで他方も同期すること。
