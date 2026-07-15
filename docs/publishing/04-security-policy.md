@@ -1,10 +1,12 @@
 # 04. セキュリティ方針（P1）
 
+> Updated 2026-07-15
+
 > [!NOTE]
-> 本文書は**設計・是正案の提示**であり、コードは変更しない。CSP 等のヘッダ値は推奨骨子であって、導入時に実ブラウザ・実 Google 連携で検証すること。
+> 本文書は**設計・是正案の提示**として起票され、`plans/011` により**コード実装済み**（§3 「実装状況」参照）。CSP 等のヘッダ値の**実ブラウザ・実 Google 連携での実効性検証は別途実施**する。
 
 - **対象監査所見**: F4（CSP／セキュリティヘッダ未設定、`SECURITY.md`・脆弱性開示方針なし）
-- **成果物**: ルート `SECURITY.md`（新設）、本文書。
+- **成果物**: ルート `SECURITY.md`（新設）、本文書、`web-next/next.config.ts`（非 CSP ヘッダ）、`web-next/middleware.ts`（nonce ベース CSP）。
 - **記載時点コミット**: `0fced4f`
 
 ---
@@ -71,6 +73,41 @@ form-action 'self';
 > [!NOTE]
 > `style-src 'unsafe-inline'` は Tailwind/インラインスタイル併用時の暫定。`script-src` に `'unsafe-inline'` を入れないこと（XSS 防御が無効化される）。Next.js の nonce/strict-dynamic 対応で段階的に厳格化する。Mermaid はビルド時レンダor SRI 付き自己ホストなら外部 `script-src` 追加は不要か要検証。
 
+### 実装状況（`plans/011` により導入済み）
+
+`plans/011` の 3 段階（非 CSP ヘッダ → Report-Only 計測 → nonce ベース強制）を実装した。
+
+- **非 CSP ヘッダ**: `web-next/next.config.ts` の `headers()` で全パス（`/:path*`）へ付与。
+  HSTS は `max-age=63072000; includeSubDomains`（`preload` は HTTPS 運用安定後に別途判断のため未付与）。
+- **CSP 本体**: `web-next/middleware.ts` がリクエストごとに nonce を発行し、強制モードで付与。
+  `script-src` に `'unsafe-inline'` / `'unsafe-eval'` を含めず、`'strict-dynamic'` で GIS 動的読込へ信頼を伝播する。
+  matcher は `_next/static`・`_next/image`・`favicon.ico`・`models/`・`mri/` を除外。
+
+最終的に強制している CSP（middleware。`'nonce-<per-request>'` はリクエスト毎に変わる）:
+
+```text
+default-src 'self';
+script-src 'nonce-<per-request>' 'strict-dynamic' https://accounts.google.com;
+connect-src 'self' https://sheets.googleapis.com https://accounts.google.com;
+frame-src https://accounts.google.com;
+img-src 'self' data: blob:;
+style-src 'self' 'unsafe-inline';
+font-src 'self';
+worker-src 'self' blob:;
+frame-ancestors 'none';
+base-uri 'self';
+form-action 'self';
+```
+
+**自動検証（実施済み）**: `bun run typecheck` / `bun run test`（403 pass）/ `bun run build` すべて exit 0。
+`curl -sI` で非 CSP 5 ヘッダと `Content-Security-Policy`（`script-src 'nonce-…'` 含む）の実付与を確認。
+ビルド出力はページの静的最適化（`○ Static`）を維持したまま `Middleware` が追加された。
+
+**実効性検証（別途実施・未了）**: 実ブラウザ 4 巡回（トップ / prom-checker、anatomy 3D+MRI、
+**Google 接続 → Sheets 同期**、Mermaid ページ）での CSP violation 記録と全機能動作確認は、
+実 Google アカウント・`NEXT_PUBLIC_GOOGLE_CLIENT_ID` を要するため未実施。計測結果に応じて
+`'wasm-unsafe-eval'` 追加等の許可リスト微調整が必要になり得る（判断表は `plans/011` Stage 2 参照）。
+
 ## 4. localStorage のデータ保持リスクとユーザー向け注意喚起
 
 - 頭痛日誌・PROM スコアは端末の `localStorage` に平文で残る。共有端末・公共端末では次の利用者が閲覧しうる。
@@ -85,9 +122,10 @@ form-action 'self';
 
 - [x] セキュリティ姿勢（クライアント型・ゼロ知識・最小スコープ）を文書化した
 - [x] ルート `SECURITY.md` を配置した
-- [x] `next.config.ts` へのヘッダ付与を別プランとして起票した →
-  [`plans/011-security-headers-next-config.md`](../../plans/011-security-headers-next-config.md)（3 段階導入）
-- [ ] CSP 骨子を実 Google 連携（OAuth ログイン・Sheets 書込）で検証した（`plans/011` Stage 2〜3 で実施）
+- [x] `next.config.ts` へのヘッダ付与を別プランとして起票し、**実装した** →
+  [`plans/011-security-headers-next-config.md`](../../plans/011-security-headers-next-config.md)（3 段階導入・§3「実装状況」）
+- [ ] CSP を実 Google 連携（OAuth ログイン・Sheets 書込）で検証した — **コードは導入済み・実ブラウザ検証は未了**
+  （`plans/011` Stage 2〜3 の実地巡回チェックリストで実施予定）
 - [x] localStorage 消去導線・注意喚起 UI を別プランとして起票した →
   [`plans/012-localstorage-notice-and-clear-ui.md`](../../plans/012-localstorage-notice-and-clear-ui.md)
   （消去導線は既存 `DataManager` を再利用し、注意喚起の常設のみ追加）
