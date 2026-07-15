@@ -29,6 +29,27 @@ export interface Hotspot {
   position: string;
 }
 
+/** 利用許諾の状態: own=自己保有 / granted=許諾取得済 / unverified=未確認 / denied=許諾なし。 */
+export type MriPermission = "own" | "granted" | "unverified" | "denied";
+
+const MRI_PERMISSIONS: readonly MriPermission[] = ["own", "granted", "unverified", "denied"];
+
+/** MRI シリーズの出典・権利状態（監査所見 F3）。permission が own / granted 以外は公開可否未確定。 */
+export interface MriProvenance {
+  /** 元データの取得元（施設名・データセット名等）。未確認は "unverified"。 */
+  source: string;
+  /** 著作権者。未確認は "unverified"。 */
+  copyrightHolder: string;
+  /** 利用許諾の状態。 */
+  permission: MriPermission;
+  /** 適用ライセンス（該当時のみ）。 */
+  license?: string;
+  /** 帰属表示文（必要な場合のみ）。 */
+  attribution?: string;
+  /** 確認日（ISO 8601）。未確認時は省略。 */
+  verifiedAt?: string;
+}
+
 /** 構造に対応する MRI シリーズ（既存 PNG・匿名化済み）。 */
 export interface MriSeries {
   id: string;
@@ -36,6 +57,8 @@ export interface MriSeries {
   /** public/mri 配下のスライス相対パス（順序＝スクラブ順）。 */
   slices: string[];
   note?: string;
+  /** 出典・権利状態（F3）。未記入シリーズは公開可否が未確定。 */
+  provenance?: MriProvenance;
 }
 
 /** md 教育ページへのリンク。 */
@@ -97,10 +120,43 @@ function assertMdLink(value: unknown, ctx: string): MdLink {
   return { label, href };
 }
 
+function isMriPermission(value: unknown): value is MriPermission {
+  return typeof value === "string" && (MRI_PERMISSIONS as readonly string[]).includes(value);
+}
+
+function assertProvenance(value: unknown, ctx: string): MriProvenance {
+  if (!isRecord(value)) throw new Error(`${ctx}: provenance がオブジェクトではありません`);
+  const { source, copyrightHolder, permission, license, attribution, verifiedAt } = value;
+  if (!isNonEmptyString(source)) throw new Error(`${ctx}: provenance.source が不正です`);
+  if (!isNonEmptyString(copyrightHolder)) {
+    throw new Error(`${ctx}: provenance.copyrightHolder が不正です`);
+  }
+  if (!isMriPermission(permission)) {
+    throw new Error(`${ctx}: provenance.permission が不正です`);
+  }
+  const result: MriProvenance = { source, copyrightHolder, permission };
+  // license / attribution / verifiedAt は任意。存在する場合のみ検証して付与する。
+  if (license !== undefined) {
+    if (!isNonEmptyString(license)) throw new Error(`${ctx}: provenance.license が不正です`);
+    result.license = license;
+  }
+  if (attribution !== undefined) {
+    if (!isNonEmptyString(attribution)) {
+      throw new Error(`${ctx}: provenance.attribution が不正です`);
+    }
+    result.attribution = attribution;
+  }
+  if (verifiedAt !== undefined) {
+    if (!isNonEmptyString(verifiedAt)) throw new Error(`${ctx}: provenance.verifiedAt が不正です`);
+    result.verifiedAt = verifiedAt;
+  }
+  return result;
+}
+
 function assertMri(value: unknown, ctx: string): MriSeries | null {
   if (value === null) return null;
   if (!isRecord(value)) throw new Error(`${ctx}: mri が不正です`);
-  const { id, bodyPart, slices, note } = value;
+  const { id, bodyPart, slices, note, provenance } = value;
   if (!isNonEmptyString(id)) throw new Error(`${ctx}: mri.id が不正です`);
   if (bodyPart !== "brain" && bodyPart !== "cervical") {
     throw new Error(`${ctx}: mri.bodyPart が不正です`);
@@ -112,6 +168,10 @@ function assertMri(value: unknown, ctx: string): MriSeries | null {
   if (note !== undefined) {
     if (!isNonEmptyString(note)) throw new Error(`${ctx}: mri.note が不正です`);
     result.note = note;
+  }
+  // provenance は任意。存在する場合のみ検証して付与する（F3）。
+  if (provenance !== undefined) {
+    result.provenance = assertProvenance(provenance, `${ctx}.mri`);
   }
   return result;
 }

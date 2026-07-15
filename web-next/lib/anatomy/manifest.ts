@@ -5,11 +5,20 @@ import { type AnatomyStructure, type MriSeries, validateManifest } from "./types
  * 生成元は scripts/curate-mri.mjs、宣言の正本は public/mri/manifest.json。
  * 同一シリーズを複数構造から再利用する（設計書 §3 マッピング）。
  */
+/** 本リポジトリの MRI は開発者本人保有（本人撮影分）。帰属表示・ライセンス指定は不要（F3）。 */
+const OWN_PROVENANCE = {
+  source: "自己保有（本人撮影分）",
+  copyrightHolder: "リポジトリ管理者（本人保有）",
+  permission: "own",
+  verifiedAt: "2026-07-15",
+} as const;
+
 const BRAIN_SERIES: MriSeries = {
   id: "brain",
   bodyPart: "brain",
   slices: Array.from({ length: 8 }, (_, i) => `/mri/brain/${String(i + 1).padStart(2, "0")}.png`),
   note: "頭部 T2 軸位の代表スライス（教育用・正常解剖中心）",
+  provenance: OWN_PROVENANCE,
 };
 
 const CERVICAL_SERIES: MriSeries = {
@@ -20,6 +29,7 @@ const CERVICAL_SERIES: MriSeries = {
     (_, i) => `/mri/cervical/${String(i + 1).padStart(2, "0")}.png`
   ),
   note: "頚椎 矢状断の代表スライス（教育用）",
+  provenance: OWN_PROVENANCE,
 };
 
 /**
