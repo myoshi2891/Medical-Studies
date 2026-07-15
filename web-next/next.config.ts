@@ -4,8 +4,27 @@ import type { NextConfig } from "next";
 
 const configDir = path.dirname(fileURLToPath(import.meta.url));
 
-// CSP を含まない標準セキュリティヘッダ。即時強制しても既存機能を壊さない安全な防御層。
-// CSP 本体は nonce ベースの強制版を middleware.ts で付与する（リクエストごとに nonce 発行）。
+// 強制 CSP（静的最適化を維持するため next.config.ts の静的ヘッダとして付与する）。
+// web-next は全ページを静的プリレンダするため、per-request nonce は焼き込めない。
+// そこで nonce/'strict-dynamic' を採らず、Next.js の inline bootstrap script を 'unsafe-inline'
+// で許容し、外部スクリプトはホスト単位（accounts.google.com = GIS）に限定する。
+// 当サイトは完全クライアント型・サーバ/秘密なし・ユーザー入力を script 文脈へ注入する sink が
+// 無いため、'unsafe-inline' 許容による残存 XSS リスクは限定的（詳細は docs/publishing/04）。
+const cspEnforced = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://accounts.google.com",
+  "connect-src 'self' https://sheets.googleapis.com https://accounts.google.com",
+  "frame-src https://accounts.google.com",
+  "img-src 'self' data: blob:",
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self'",
+  "worker-src 'self' blob:",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join("; ");
+
+// セキュリティヘッダ一式。即時強制しても既存機能を壊さない防御層。
 const securityHeaders = [
   // HTTPS 固定（2 年）。preload 登録は HTTPS 運用が安定してから別途判断する。
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
@@ -15,6 +34,8 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   // 使用しない高権限 API を全面禁止
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=()" },
+  // XSS 主防御。外部スクリプト・接続先を許可ドメインに限定する。
+  { key: "Content-Security-Policy", value: cspEnforced },
 ];
 
 const nextConfig: NextConfig = {
