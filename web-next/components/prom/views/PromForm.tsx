@@ -1,11 +1,16 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import { confirmAndCommit } from "@/lib/prom/confirmAndCommit";
 import { COMMON_DISCLAIMER, PROM_IDS, REGISTRY } from "@/lib/prom/registry";
+import { applyRestrictedOverlay, isRestricted } from "@/lib/prom/restricted";
 import { bandFor, scoreInstrument } from "@/lib/prom/scoring";
 import type { Instrument, ScoreRecord, ScoreValue } from "@/lib/prom/types";
+import { hasScoreForDateInstrument, upsertScoreByDateInstrument } from "@/lib/prom/upsert";
 import { usePromContext } from "../PromContext";
+import { RestrictedNotice } from "../RestrictedNotice";
 import { todayISO } from "../state";
+import { useRestrictedOverlay } from "../useRestrictedOverlay";
 import { BackButton } from "./BackButton";
 
 type SubmitState =
@@ -22,13 +27,24 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
   const { data, commit, navigate, toast } = usePromContext();
   const [submitState, setSubmitState] = useState<SubmitState>(null);
 
+  const overlayState = useRestrictedOverlay();
+
   const id = (PROM_IDS as readonly string[]).includes(instrumentId) ? instrumentId : "hit6";
   // PGIC は設定の variant を採点へ反映（REGISTRY は mutate せず派生 def を渡す）。
   const base = REGISTRY[id];
-  const def: Instrument =
+  const registryDef: Instrument =
     id === "pgic" && base.scoring.method === "single-ordinal"
       ? { ...base, scoring: { ...base.scoring, variant: data.settings.pgicVariant } }
       : base;
+
+  // ローカル専用オーバーレイがあれば質問文を注入する。適用できない場合（不在・件数不一致・本番モード）
+  // applyRestrictedOverlay は元の定義を同一参照で返すため、参照比較でそのまま権利ゲートの判定に使える。
+  const overlay = overlayState.status === "ready" ? overlayState.overlay : null;
+  const def = applyRestrictedOverlay(registryDef, overlay);
+  const restricted = isRestricted(def);
+  // 取得中は質問票／代替表示のどちらも出さない（プレースホルダの一瞬の露出を防ぐ）。
+  const overlayPending = restricted && overlayState.status === "loading";
+  const gated = restricted && def === registryDef;
 
   /**
    * Submits the current PROM answers, records the score, and updates the result state.
@@ -58,9 +74,12 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
       }
     }
 
+    const date = todayISO();
+    // 同日・同指標が既にあれば上書き確認（1日1データ）。キャンセルで中断。
+    const isOverwrite = hasScoreForDateInstrument(data.scores.records, date, def.id);
     const val = result.value;
     const record: ScoreRecord = {
-      date: todayISO(),
+      date,
       createdAt: new Date().toISOString(),
       instrumentId: def.id,
       instrumentVersion: def.version,
@@ -71,15 +90,21 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
     record.interpretation = val.interpretation;
     if (Object.keys(context).length) record.context = context;
 
-    commit((prev) => ({
-      ...prev,
-      scores: { ...prev.scores, records: [...prev.scores.records, record] },
-    }))
-      .then(() => {
-        toast(`${def.title} を記録しました`);
-        setSubmitState({ kind: "result", val, context, def });
-      })
-      .catch((err) => toast(err.message));
+    confirmAndCommit({
+      isOverwrite,
+      confirmMessage: `${def.title} は本日分が既にあります。上書きしますか？`,
+      updater: (prev) => ({
+        ...prev,
+        scores: {
+          ...prev.scores,
+          records: upsertScoreByDateInstrument(prev.scores.records, record),
+        },
+      }),
+      commit,
+      toast,
+      successMessage: (overwrite) => `${def.title} を${overwrite ? "上書き保存" : "記録"}しました`,
+      onCommitted: () => setSubmitState({ kind: "result", val, context, def }),
+    });
   }
 
   return (
@@ -110,9 +135,13 @@ export function PromForm({ instrumentId }: { instrumentId: string }) {
           </label>
         ))}
       </div>
-      <form className="c-card" onSubmit={onSubmit}>
-        <InstrumentBody def={def} />
-      </form>
+      {overlayPending ? null : gated ? (
+        <RestrictedNotice def={def} />
+      ) : (
+        <form className="c-card" onSubmit={onSubmit}>
+          <InstrumentBody def={def} />
+        </form>
+      )}
       <div>
         {submitState?.kind === "error" ? (
           <div className="c-card">

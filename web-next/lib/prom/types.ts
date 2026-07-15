@@ -71,10 +71,22 @@ export interface OrdinalScoring {
 
 export type Scoring = SumScoring | DomainScoring | OrdinalScoring;
 
+/**
+ * 権利確認の状態。
+ * - verified: 権利者から現在の掲載態様の許諾を得ている
+ * - pending: 権利者へ照会中（掲載は継続）
+ * - restricted: 質問文を公開レジストリから除外し、ローカル専用オーバーレイでのみ表示する
+ */
+export type LicenseStatus = "verified" | "pending" | "restricted";
+
 export interface License {
   holder: string;
   note: string;
   source: string;
+  /** 未設定は従来挙動（レジストリの内容をそのまま表示）。 */
+  status?: LicenseStatus;
+  /** 公式取得先 URL。restricted の代替表示で案内する。 */
+  officialUrl?: string;
 }
 
 export interface Mcid {
@@ -183,6 +195,13 @@ export interface Settings {
   theme: "auto" | "light" | "dark";
   /** インポート時にスキーマ版が異なった場合の移行元（マイグレーションの足場）。 */
   migratedFrom?: string;
+  /**
+   * 外部同期先の設定（設計書 第8章）。非機微の識別子のみを保持する。
+   * アクセストークンは決して保存しない（第9章 トークン非永続）。
+   */
+  syncTargets?: {
+    googleSheets?: { spreadsheetId: string; lastSyncedAt: string };
+  };
 }
 
 export interface SnoopEntry {
@@ -245,6 +264,14 @@ export interface ScoreRecord {
 export interface ScoresState {
   schemaVersion: string;
   records: ScoreRecord[];
+}
+
+/** 4 つの永続化キーをまとめたアプリ状態。 */
+export interface AppData {
+  settings: Settings;
+  snoop: SnoopState;
+  diary: DiaryState;
+  scores: ScoresState;
 }
 
 /** エクスポート / インポートの JSON ペイロード（設計書 第7.2章）。 */

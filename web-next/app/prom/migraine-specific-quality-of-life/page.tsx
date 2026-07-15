@@ -2,7 +2,51 @@ import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import MigraineSpecificQualityOfLifeSidebar from "@/components/prom/MigraineSpecificQualityOfLifeSidebar";
+import { RestrictedItemText } from "@/components/prom/RestrictedItemText";
 import "./migraine-specific-quality-of-life.css";
+
+/**
+ * 各項目が測定する内容（Item 1〜14 の順）。質問文そのものは権利者所有のため掲載せず、
+ * RestrictedItemText がローカル開発時のみ実文言を描画する。
+ */
+const MSQ_ITEM_MEASURES = [
+  "家族・友人・他者との関わりへの支障",
+  "家事遂行能力の制限",
+  "終日の職業活動・通学の全面的な不能",
+  "職業活動・通学能力の制限",
+  "終日の家事遂行の全面的な不能",
+  "集中力の制限",
+  "社会的活動の楽しみへの制限",
+  "外出活動の阻止",
+  "家族イベント・社会活動への参加阻止",
+  "職業活動・通学の阻止",
+  "家事の阻止",
+  "頭痛に対する無力感・コントロール不能感",
+  "日常生活が妨げられることへの苛立ち",
+  "他者への負担感・申し訳なさ",
+];
+
+/** Item {from}〜{to}（1 始まり）の行を描画する。 */
+function MsqItemRows({ from, to }: { from: number; to: number }) {
+  return (
+    <>
+      {MSQ_ITEM_MEASURES.slice(from - 1, to).map((measure, i) => {
+        const index = from - 1 + i;
+        return (
+          <tr key={measure}>
+            <td>
+              <strong>Item {index + 1}</strong>
+            </td>
+            <td>
+              <RestrictedItemText instrumentId="msq-v2.1" index={index} />
+            </td>
+            <td>{measure}</td>
+          </tr>
+        );
+      })}
+    </>
+  );
+}
 
 const MSQ_MERMAID_THEME = {
   primaryColor: "#feeed3",
@@ -461,7 +505,12 @@ EF --> R3["原スコア範囲：3–18<br/>変換式：スコア 0–100"]`}
                 </div>
               </div>
 
-              <h3>4.3 各ドメインの測定項目（英語原版 要旨）</h3>
+              <h3>4.3 各ドメインの測定項目（構成と測定内容）</h3>
+              <p>
+                質問文そのものは Mapi Research Trust
+                が権利を有する著作物のため、本サイトでは掲載せず、
+                各項目が測定する内容のみを示します。
+              </p>
 
               <h4>RFR ドメイン — Items 1–7（役割機能制限）</h4>
               <p>過去 4 週間に、片頭痛のためにどのくらいの頻度で以下の制限が生じましたか？</p>
@@ -470,63 +519,12 @@ EF --> R3["原スコア範囲：3–18<br/>変換式：スコア 0–100"]`}
                   <thead>
                     <tr>
                       <th>項目番号</th>
-                      <th>英語原版（要旨）</th>
+                      <th>質問文</th>
                       <th>測定内容</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <strong>Item 1</strong>
-                      </td>
-                      <td>Interfered with how well you dealt with family, friends, and others</td>
-                      <td>家族・友人・他者との関わりへの支障</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 2</strong>
-                      </td>
-                      <td>Limited your ability to do household chores</td>
-                      <td>家事遂行能力の制限</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 3</strong>
-                      </td>
-                      <td>
-                        Left you unable to do work outside the home or attend school for the entire
-                        day
-                      </td>
-                      <td>終日の職業活動・通学の全面的な不能</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 4</strong>
-                      </td>
-                      <td>Limited your ability to work outside the home or attend school</td>
-                      <td>職業活動・通学能力 of 制限</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 5</strong>
-                      </td>
-                      <td>Left you unable to perform your household chores for the entire day</td>
-                      <td>終日の家事遂行の全面的な不能</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 6</strong>
-                      </td>
-                      <td>Limited your ability to concentrate</td>
-                      <td>集中力の制限</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 7</strong>
-                      </td>
-                      <td>Limited your enjoyment of social activities</td>
-                      <td>社会的活動の楽しみへの制限</td>
-                    </tr>
+                    <MsqItemRows from={1} to={7} />
                   </tbody>
                 </table>
               </div>
@@ -538,39 +536,12 @@ EF --> R3["原スコア範囲：3–18<br/>変換式：スコア 0–100"]`}
                   <thead>
                     <tr>
                       <th>項目番号</th>
-                      <th>英語原版（要旨）</th>
+                      <th>質問文</th>
                       <th>測定内容</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <strong>Item 8</strong>
-                      </td>
-                      <td>Prevented you from doing things outside the home</td>
-                      <td>外出活動の阻止</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 9</strong>
-                      </td>
-                      <td>Prevented you from going to family events, social activities</td>
-                      <td>家族イベント・社会活動への参加阻止</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 10</strong>
-                      </td>
-                      <td>Prevented you from doing work outside the home or attending school</td>
-                      <td>職業活動・通学の阻止</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 11</strong>
-                      </td>
-                      <td>Prevented you from doing your household chores</td>
-                      <td>家事の阻止</td>
-                    </tr>
+                    <MsqItemRows from={8} to={11} />
                   </tbody>
                 </table>
               </div>
@@ -582,32 +553,12 @@ EF --> R3["原スコア範囲：3–18<br/>変換式：スコア 0–100"]`}
                   <thead>
                     <tr>
                       <th>項目番号</th>
-                      <th>英語原版（要旨）</th>
+                      <th>質問文</th>
                       <th>測定内容</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <strong>Item 12</strong>
-                      </td>
-                      <td>Feel helpless（無力感）</td>
-                      <td>頭痛に対する無力感・コントロール不能感</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 13</strong>
-                      </td>
-                      <td>Feel frustrated（フラストレーション）</td>
-                      <td>日常生活が妨げられることへの苛立ち</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <strong>Item 14</strong>
-                      </td>
-                      <td>Feel like you are a burden（バーデン感）</td>
-                      <td>他者への負担感・申し訳なさ</td>
-                    </tr>
+                    <MsqItemRows from={12} to={14} />
                   </tbody>
                 </table>
               </div>

@@ -19,35 +19,23 @@ export const REGISTRY: Record<string, Instrument> = {
     recallLabel: "過去4週間",
     reassessEvery: "P1M",
     reassessLabel: "月次",
+    // 質問文・選択肢は権利者所有のため非掲載（license.status = "restricted"）。
+    // 件数・id・value は採点と保存済みデータの互換のため固定。実文言はローカル専用
+    // オーバーレイ（public/prom-restricted.local.json）から注入される。
     items: [
-      { id: "q1", label: "頭痛のとき、ひどい痛みを感じることはどのくらいありますか？" },
-      {
-        id: "q2",
-        label:
-          "頭痛のために、日常生活（家事・仕事・学業・社会活動）が制限されることはどのくらいありますか？",
-      },
-      { id: "q3", label: "頭痛のとき、横になりたくなることはどのくらいありますか？" },
-      {
-        id: "q4",
-        label:
-          "過去4週間、頭痛のために疲れすぎて仕事や日常生活ができなかったことはどのくらいありますか？",
-      },
-      {
-        id: "q5",
-        label: "過去4週間、頭痛のためにうんざりしたり、いらだったことはどのくらいありますか？",
-      },
-      {
-        id: "q6",
-        label:
-          "過去4週間、頭痛のために仕事や日常生活で集中できなかったことはどのくらいありますか？",
-      },
+      { id: "q1", label: "設問1（質問原文は非掲載）" },
+      { id: "q2", label: "設問2（質問原文は非掲載）" },
+      { id: "q3", label: "設問3（質問原文は非掲載）" },
+      { id: "q4", label: "設問4（質問原文は非掲載）" },
+      { id: "q5", label: "設問5（質問原文は非掲載）" },
+      { id: "q6", label: "設問6（質問原文は非掲載）" },
     ],
     responseOptions: [
-      { label: "まったくない", value: 6 },
-      { label: "めったにない", value: 8 },
-      { label: "ときどき", value: 10 },
-      { label: "非常によく", value: 11 },
-      { label: "いつも", value: 13 },
+      { label: "選択肢1", value: 6 },
+      { label: "選択肢2", value: 8 },
+      { label: "選択肢3", value: 10 },
+      { label: "選択肢4", value: 11 },
+      { label: "選択肢5", value: 13 },
     ],
     scoring: { method: "sum", reverseCoding: false, range: [36, 78] },
     interpretationBands: [
@@ -86,8 +74,10 @@ export const REGISTRY: Record<string, Instrument> = {
     },
     license: {
       holder: "QualityMetric Incorporated（© 2001, 2015）",
-      note: "学術利用は可、商用利用は要許諾。日本語版は検証済み（Sakai 2004）。",
+      note: "学術利用は可、商用利用は要許諾。日本語版は検証済み（Sakai 2004）。質問文は権利者所有のため本リポジトリには収載していない。",
       source: "ICHD-3 / QualityMetric",
+      status: "restricted",
+      officialUrl: "https://www.qualitymetric.com/health-surveys/the-headache-impact-test-hit-6/",
     },
   },
 
@@ -154,29 +144,31 @@ export const REGISTRY: Record<string, Instrument> = {
     recallLabel: "過去4週間",
     reassessEvery: "P4W",
     reassessLabel: "月次〜4週ごと",
+    // 質問文・選択肢は権利者所有のため非掲載（license.status = "restricted"）。
+    // ドメイン構成（RFR: q1-q7 / RFP: q8-q11 / EF: q12-q14）は scoring 側に保持する。
     items: [
-      { id: "q1", label: "片頭痛のために、仕事や日常の活動を中断したことがありましたか？" },
-      { id: "q2", label: "片頭痛のために、家族・友人との時間を妨げられましたか？" },
-      { id: "q3", label: "片頭痛のために、レジャーや余暇活動が困難でしたか？" },
-      { id: "q4", label: "片頭痛のために、仕事や日常の活動で生産性が落ちましたか？" },
-      { id: "q5", label: "片頭痛のために、集中するのが難しかったですか？" },
-      { id: "q6", label: "片頭痛のために、疲労を感じて仕事や活動が妨げられましたか？" },
-      { id: "q7", label: "片頭痛のために、やりたいこと（社会・余暇など）を制限しましたか？" },
-      { id: "q8", label: "片頭痛のために、予定をキャンセル・変更せざるを得なかったですか？" },
-      { id: "q9", label: "片頭痛のために、助けが必要になりましたか？" },
-      { id: "q10", label: "片頭痛のために、計画どおりに物事を進められませんでしたか？" },
-      { id: "q11", label: "片頭痛のために、対人関係に支障が出ましたか？" },
-      { id: "q12", label: "片頭痛のために、いらだちを感じましたか？" },
-      { id: "q13", label: "片頭痛のために、自分が重荷だと感じましたか？" },
-      { id: "q14", label: "片頭痛のために、再発への不安や恐れを感じましたか？" },
+      { id: "q1", label: "設問1（質問原文は非掲載）" },
+      { id: "q2", label: "設問2（質問原文は非掲載）" },
+      { id: "q3", label: "設問3（質問原文は非掲載）" },
+      { id: "q4", label: "設問4（質問原文は非掲載）" },
+      { id: "q5", label: "設問5（質問原文は非掲載）" },
+      { id: "q6", label: "設問6（質問原文は非掲載）" },
+      { id: "q7", label: "設問7（質問原文は非掲載）" },
+      { id: "q8", label: "設問8（質問原文は非掲載）" },
+      { id: "q9", label: "設問9（質問原文は非掲載）" },
+      { id: "q10", label: "設問10（質問原文は非掲載）" },
+      { id: "q11", label: "設問11（質問原文は非掲載）" },
+      { id: "q12", label: "設問12（質問原文は非掲載）" },
+      { id: "q13", label: "設問13（質問原文は非掲載）" },
+      { id: "q14", label: "設問14（質問原文は非掲載）" },
     ],
     responseOptions: [
-      { label: "まったくない", value: 1 },
-      { label: "ほとんどない", value: 2 },
-      { label: "ときどきある", value: 3 },
-      { label: "かなりある", value: 4 },
-      { label: "ほとんどいつもある", value: 5 },
-      { label: "いつもある", value: 6 },
+      { label: "選択肢1", value: 1 },
+      { label: "選択肢2", value: 2 },
+      { label: "選択肢3", value: 3 },
+      { label: "選択肢4", value: 4 },
+      { label: "選択肢5", value: 5 },
+      { label: "選択肢6", value: 6 },
     ],
     scoring: {
       method: "domain-rescale",
@@ -219,8 +211,11 @@ export const REGISTRY: Record<string, Instrument> = {
     },
     license: {
       holder: "Mapi Research Trust（専有）",
-      note: "事前の書面による許諾が必須（eprovide.mapi-trust.org）。ePRO版は検証済み（Speck 2019/2021）。公開配布時は許諾状況に注意。",
+      note: "事前の書面による許諾が必須（eprovide.mapi-trust.org）。ePRO版は検証済み（Speck 2019/2021）。質問文は権利者所有のため本リポジトリには収載していない。",
       source: "Mapi Research Trust",
+      status: "restricted",
+      officialUrl:
+        "https://eprovide.mapi-trust.org/instruments/migraine-specific-quality-of-life-questionnaire",
     },
   },
 

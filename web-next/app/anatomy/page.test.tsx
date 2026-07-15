@@ -26,6 +26,14 @@ describe("AnatomyPage: 契約", () => {
     expect(container.querySelector(".anatomy-disclaimer")).not.toBeNull();
   });
 
+  it("BodyParts3D の帰属表示（CC-BY-SA）を掲示する", () => {
+    const { container } = render(<AnatomyPage />);
+    const credits = container.querySelector(".anatomy-credits");
+    expect(credits).not.toBeNull();
+    expect(credits?.textContent).toContain("BodyParts3D");
+    expect(credits?.textContent).toContain("CC BY-SA 2.1 JP");
+  });
+
   it("section.anatomy-sec の id が manifest と一致する", () => {
     const { container } = render(<AnatomyPage />);
     const ids = Array.from(container.querySelectorAll("section.anatomy-sec")).map((s) => s.id);
@@ -36,6 +44,22 @@ describe("AnatomyPage: 契約", () => {
     const { getAllByTestId } = render(<AnatomyPage />);
     expect(getAllByTestId("model-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
     expect(getAllByTestId("mri-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
+  });
+
+  it("各教育リンクが href に応じたセマンティックカテゴリ(data-cat)を持つ", () => {
+    const { container } = render(<AnatomyPage />);
+    const links = Array.from(container.querySelectorAll<HTMLAnchorElement>("a.anatomy-link"));
+    expect(links.length).toBeGreaterThan(0);
+    const expected = (href: string): string => {
+      if (href.startsWith("/headaches")) return "疾患";
+      if (href.startsWith("/blocks")) return "神経ブロック";
+      if (href.startsWith("/therapies") || href.startsWith("/physical-therapy")) return "治療";
+      return "教育";
+    };
+    for (const a of links) {
+      const href = a.getAttribute("href") ?? "";
+      expect(a.getAttribute("data-cat")).toBe(expected(href));
+    }
   });
 
   it("manifest の全 md リンクを内部リンクとして描画する（.html を含まない）", () => {

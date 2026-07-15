@@ -3,7 +3,12 @@
 import "@/app/prom-checker/prom-checker.css";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { DEFAULT_MEDS } from "@/lib/prom/registry";
-import { KEYS, LocalStorageAdapter, SCHEMA_VERSION } from "@/lib/prom/storage";
+import {
+  KEYS,
+  LocalStorageAdapter,
+  normalizeSyncTargets,
+  SCHEMA_VERSION,
+} from "@/lib/prom/storage";
 import type {
   DiaryState,
   ScoresState,
@@ -40,6 +45,8 @@ async function loadData(store: StorageAdapter): Promise<AppData> {
     ? (rawSettings as unknown as Settings)
     : defaultSettings();
   if (!Array.isArray(settings.medicationList)) settings.medicationList = DEFAULT_MEDS.slice();
+  // 外部同期先は安全に読み込む（未定義許容・トークン非保存。設計書 第8/9章）。
+  settings.syncTargets = normalizeSyncTargets(settings.syncTargets);
 
   const rawSnoop = await store.load(KEYS.snoop);
   const snoop: SnoopState = isObject(rawSnoop)

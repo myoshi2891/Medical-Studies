@@ -1,0 +1,51 @@
+{
+  "__note": "著作権保護 PROM 質問票のローカル専用オーバーレイのテンプレート。このファイルをコピーして 'prom-restricted.local.json' を作り、公式配布元から入手した質問文を入れると、bun run dev（開発モード）でのみ質問票が画面に表示されます。'*.local.json' は .gitignore 済みでリポジトリには含まれません。本番ビルド（NODE_ENV=production）では読み込まれません。",
+  "__howToObtain": {
+    "hit6": "https://www.qualitymetric.com/health-surveys/the-headache-impact-test-hit-6/ （QualityMetric Incorporated。商用利用は要許諾）",
+    "msq-v2.1": "https://eprovide.mapi-trust.org/instruments/migraine-specific-quality-of-life-questionnaire （Mapi Research Trust。事前の書面による許諾が必須）"
+  },
+  "__format": "各尺度の items / responseOptions は registry.ts の定義と『同じ件数・同じ順序』で並べる。件数が食い違うオーバーレイは読み込み時に破棄され、プレースホルダ表示のままになります。",
+  "hit6": {
+    "items": [
+      "設問1の原文をここに（全 6 件・registry.ts と同順）",
+      "設問2の原文をここに",
+      "設問3の原文をここに",
+      "設問4の原文をここに",
+      "設問5の原文をここに",
+      "設問6の原文をここに"
+    ],
+    "responseOptions": [
+      "選択肢1の原文（value 6）",
+      "選択肢2の原文（value 8）",
+      "選択肢3の原文（value 10）",
+      "選択肢4の原文（value 11）",
+      "選択肢5の原文（value 13）"
+    ]
+  },
+  "msq-v2.1": {
+    "items": [
+      "設問1の原文をここに（全 14 件・registry.ts と同順）",
+      "設問2の原文をここに",
+      "設問3の原文をここに",
+      "設問4の原文をここに",
+      "設問5の原文をここに",
+      "設問6の原文をここに",
+      "設問7の原文をここに",
+      "設問8の原文をここに",
+      "設問9の原文をここに",
+      "設問10の原文をここに",
+      "設問11の原文をここに",
+      "設問12の原文をここに",
+      "設問13の原文をここに",
+      "設問14の原文をここに"
+    ],
+    "responseOptions": [
+      "選択肢1の原文（value 1）",
+      "選択肢2の原文（value 2）",
+      "選択肢3の原文（value 3）",
+      "選択肢4の原文（value 4）",
+      "選択肢5の原文（value 5）",
+      "選択肢6の原文（value 6）"
+    ]
+  }
+}
