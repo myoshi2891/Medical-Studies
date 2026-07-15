@@ -12,7 +12,6 @@ import { PainTracker } from "@/components/prom/views/PainTracker";
 import { SCHEMA_VERSION } from "@/lib/prom/storage";
 import type { ScoreRecord, StorageAdapter } from "@/lib/prom/types";
 
-
 function buildContext(records: ScoreRecord[]): { ctx: PromContextValue; state: { data: AppData } } {
   const state: { data: AppData } = {
     data: {

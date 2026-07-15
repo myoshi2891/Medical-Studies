@@ -35,6 +35,9 @@ export default function ModelViewer({
 
   const showModel = src !== null && !failed;
 
+  // src が変わったら失敗状態をリセットし、新しいモデルの読み込みを再試行する。
+  // src は本文で参照しないが reset トリガーとして意図的に依存に含める（削除不可）。
+  // biome-ignore lint/correctness/useExhaustiveDependencies: src はリセットのトリガーとして意図的に指定
   useEffect(() => {
     setFailed(false);
   }, [src]);
