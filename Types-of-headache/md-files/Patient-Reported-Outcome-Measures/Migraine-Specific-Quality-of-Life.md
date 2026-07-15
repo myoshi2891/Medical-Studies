@@ -155,42 +155,44 @@ graph TD
 > - **RFR（制限）：** 「活動はできているが、頭痛のためにパフォーマンスが低下している」状態を測定します。例：家族と会話しているが、頭痛で十分に集中できない。  
 > - **RFP（阻害）：** 「活動そのものを行えなかった・取りやめた」完全な機能喪失を測定します。例：頭痛のために外出を完全にキャンセルした。
 
-### 4.3 各ドメインの測定項目（英語原版 要旨）
+### 4.3 各ドメインの測定項目（構成と測定内容）
+
+質問文そのものは Mapi Research Trust が権利を有する著作物のため本資料には掲載せず、各項目が測定する内容のみを示します。
 
 #### RFR ドメイン — Items 1–7（役割機能制限）
 
 過去 4 週間に、片頭痛のためにどのくらいの頻度で以下の制限が生じましたか？
 
-| 項目番号 | 英語原版（要旨） | 測定内容 |
+| 項目番号 | 質問文 | 測定内容 |
 |---------|----------------|---------|
-| **Item 1** | Interfered with how well you dealt with family, friends, and others | 家族・友人・他者との関わりへの支障 |
-| **Item 2** | Limited your ability to do household chores | 家事遂行能力の制限 |
-| **Item 3** | Left you unable to do work outside the home or attend school for the entire day | 終日の職業活動・通学の全面的な不能 |
-| **Item 4** | Limited your ability to work outside the home or attend school | 職業活動・通学能力の制限 |
-| **Item 5** | Left you unable to perform your household chores for the entire day | 終日の家事遂行の全面的な不能 |
-| **Item 6** | Limited your ability to concentrate | 集中力の制限 |
-| **Item 7** | Limited your enjoyment of social activities | 社会的活動の楽しみへの制限 |
+| **Item 1** | 非掲載（公式配布元を参照） | 家族・友人・他者との関わりへの支障 |
+| **Item 2** | 非掲載（公式配布元を参照） | 家事遂行能力の制限 |
+| **Item 3** | 非掲載（公式配布元を参照） | 終日の職業活動・通学の全面的な不能 |
+| **Item 4** | 非掲載（公式配布元を参照） | 職業活動・通学能力の制限 |
+| **Item 5** | 非掲載（公式配布元を参照） | 終日の家事遂行の全面的な不能 |
+| **Item 6** | 非掲載（公式配布元を参照） | 集中力の制限 |
+| **Item 7** | 非掲載（公式配布元を参照） | 社会的活動の楽しみへの制限 |
 
 #### RFP ドメイン — Items 8–11（役割機能阻害）
 
 過去 4 週間に、片頭痛のためにどのくらいの頻度で以下の活動が妨げられましたか？
 
-| 項目番号 | 英語原版（要旨） | 測定内容 |
+| 項目番号 | 質問文 | 測定内容 |
 |---------|----------------|---------|
-| **Item 8** | Prevented you from doing things outside the home | 外出活動の阻止 |
-| **Item 9** | Prevented you from going to family events, social activities | 家族イベント・社会活動への参加阻止 |
-| **Item 10** | Prevented you from doing work outside the home or attending school | 職業活動・通学の阻止 |
-| **Item 11** | Prevented you from doing your household chores | 家事の阻止 |
+| **Item 8** | 非掲載（公式配布元を参照） | 外出活動の阻止 |
+| **Item 9** | 非掲載（公式配布元を参照） | 家族イベント・社会活動への参加阻止 |
+| **Item 10** | 非掲載（公式配布元を参照） | 職業活動・通学の阻止 |
+| **Item 11** | 非掲載（公式配布元を参照） | 家事の阻止 |
 
 #### EF ドメイン — Items 12–14（感情機能）
 
 過去 4 週間に、片頭痛のためにどのくらいの頻度で以下の感情を経験しましたか？
 
-| 項目番号 | 英語原版（要旨） | 測定内容 |
+| 項目番号 | 質問文 | 測定内容 |
 |---------|----------------|---------|
-| **Item 12** | Feel helpless（無力感）| 頭痛に対する無力感・コントロール不能感 |
-| **Item 13** | Feel frustrated（フラストレーション）| 日常生活が妨げられることへの苛立ち |
-| **Item 14** | Feel like you are a burden（バーデン感）| 他者への負担感・申し訳なさ |
+| **Item 12** | 非掲載（公式配布元を参照） | 頭痛に対する無力感・コントロール不能感 |
+| **Item 13** | 非掲載（公式配布元を参照） | 日常生活が妨げられることへの苛立ち |
+| **Item 14** | 非掲載（公式配布元を参照） | 他者への負担感・申し訳なさ |
 
 > **📌 利用許諾について：**  
 > MSQ v2.1 の質問票全文（原版および各言語訳）は **Mapi Research Trust** が管理しています。研究・臨床使用の際には必ず事前許諾を取得してください。  

@@ -25,6 +25,10 @@
 
 ### 露出箇所の棚卸し（`file:line`）
 
+> [!NOTE]
+> 以下は**レダクション実施前（記載時点）の棚卸し**である。2026-07-15 にすべての箇所から質問文を除去した
+> （後述「実施済みの是正」）。記録として残す。
+
 以下はデータとしての参照であり、変更対象ではない。
 
 - レジストリ定義（尺度メタデータ・質問項目・`license` フィールド）
@@ -69,6 +73,28 @@
    - 露出を即時に縮小できる最短手段。ただしフォーク済みコピーには効果がなく、過去コミットの履歴も含めた露出は残りうる。
    - 公開を維持したまま許諾照会を進めるか、照会が済むまで非公開に戻すかは、露出継続のリスク許容度に依存する。
 
+### 実施済みの是正（2026-07-15）
+
+> [!IMPORTANT]
+> **ユーザー指示により、権利者照会の結果を待たずにレダクションを実施した**（上記「是正案 2」の先行実施）。
+> 権利者照会自体は未了であり、下記チェックリストの照会項目は `[ ]` のまま残る。
+
+- 公開レジストリ（`web-next/lib/prom/registry.ts`）の HIT-6 / MSQ v2.1 の質問文・回答選択肢を中立
+  プレースホルダへ差し替え、`license.status = "restricted"` と `license.officialUrl` を付与した。
+  項目数・`id`・`value` は不変のため、採点と保存済み `ScoreRecord` の互換は保たれる。
+- 実文言は git 管理外のローカル専用オーバーレイ（`web-next/public/prom-restricted.local.json`）へ退避し、
+  **開発環境でのみ**画面に注入される二重ゲート（ファイル不在／`NODE_ENV=production`）を実装した。
+  公開リポジトリ・公開デプロイでは「概要＋公式取得先リンク＋帰属表示」の代替表示になる。
+- 教育ページ（`web-next/app/prom/{headache-impact-test,migraine-specific-quality-of-life}`、
+  `Types-of-headache/{md-files,html-files}/Patient-Reported-Outcome-Measures/`）およびレガシー SPA
+  （`prom-checker/index.html`）から逐語引用を除去した。スコアリング方法・解釈バンド・MCID の解説は
+  一般的知識のため温存している。
+- 運用の詳細は [`THIRD_PARTY_NOTICES.md` §2-1](../../THIRD_PARTY_NOTICES.md) を参照。
+
+> [!WARNING]
+> **git 履歴には過去コミットの質問文が残存する**（今回の変更では消えない）。フォーク・ミラー・
+> アーカイブ済みコピーにも効果はない。履歴書き換え（`git filter-repo`）による対応は別プランで扱う。
+
 ### チェックリスト
 
 - [ ] HIT-6 の許諾状況を QualityMetric に照会し、結果を記録した
@@ -77,6 +103,9 @@
 - [x] 許諾不可の場合の代替設計（概要＋公式リンク化）を別プランとして起票した →
   [`plans/008-prom-license-gate-and-alternative-display.md`](../../plans/008-prom-license-gate-and-alternative-display.md)
   （Phase A は即実行可、Phase B は照会結果の決定ゲート付き）
+- [x] 質問文のレダクションを実施し、ローカル専用オーバーレイ運用へ移行した（2026-07-15。照会結果を
+  待たずユーザー指示により実施）
+- [ ] git 履歴からの質問文除去（`git filter-repo` による履歴書き換え）を実施した
 - [ ] 露出継続 or 一時非公開の判断をユーザーが下した
 
 ---
