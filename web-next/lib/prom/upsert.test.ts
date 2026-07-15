@@ -33,7 +33,13 @@ function diary(date: string, id: string): DiaryEntry {
 }
 
 function score(date: string, instrumentId: string, value: number): ScoreRecord {
-  return { date, createdAt: `${date}T00:00:00.000Z`, instrumentId, instrumentVersion: "1.0", value };
+  return {
+    date,
+    createdAt: `${date}T00:00:00.000Z`,
+    instrumentId,
+    instrumentVersion: "1.0",
+    value,
+  };
 }
 
 describe("upsertDiaryByDate", () => {

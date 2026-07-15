@@ -13,7 +13,7 @@
 
 - **対象**: `web-next/public/mri/{brain,cervical}/*.png`（各 8 枚・計 16 枚）
 - **PHI 匿名化**: 完了済み。`images/` から `scripts/curate-mri.mjs` で代表スライスを等間隔抽出し、`sanitizePng` で ancillary チャンク（PHI）を除去のうえ中立連番で再配置（`web-next/public/mri/manifest.json` に記録）。
-- **著作権・出典**: **未文書化**。撮影者・提供元・利用許諾（教育公開の可否）が `manifest.json` に記録されていない。
+- **著作権・出典**: **記録済み**。開発者本人保有（本人撮影分）のため `permission: "own"` として `manifest.json` の各 series `provenance` に記録（`plans/010-mri-provenance-manifest-and-fallback.md` Phase A）。
 
 ## 2. 匿名化と著作権は別問題
 
@@ -23,15 +23,15 @@
 
 ## 3. 出典記録テンプレート（要記入）
 
-各シリーズについて以下を確定し、`manifest.json` または本文書に追記する。**現状はすべて「未確認」。**
+各シリーズについて以下を確定し、`manifest.json` の各 series `provenance` に記録する。**確定済み（開発者本人保有）。**
 
 | 項目 | brain（8 枚） | cervical（8 枚） |
 |---|---|---|
-| 元データの取得元（施設／データセット名） | 未確認 | 未確認 |
-| 著作権者 | 未確認 | 未確認 |
-| 利用許諾（教育公開・再配布の可否） | 未確認 | 未確認 |
-| ライセンス（該当する場合） | 未確認 | 未確認 |
-| 帰属表示の要否 | 未確認 | 未確認 |
+| 元データの取得元（施設／データセット名） | 自己保有（本人撮影分） | 自己保有（本人撮影分） |
+| 著作権者 | リポジトリ管理者（本人保有） | リポジトリ管理者（本人保有） |
+| 利用許諾（教育公開・再配布の可否） | 可（本人保有・`permission: "own"`） | 可（本人保有・`permission: "own"`） |
+| ライセンス（該当する場合） | 該当なし | 該当なし |
+| 帰属表示の要否 | 不要 | 不要 |
 | 撮影種別 | 頭部 T2 軸位（代表スライス） | 頚椎 矢状断（代表スライス） |
 
 ### 想定される取得元の類型（確認の指針）
@@ -51,9 +51,9 @@
 ## 5. チェックリスト
 
 - [x] PHI 匿名化の完了を確認した（`manifest.json`）
-- [ ] brain シリーズの取得元・著作権者・許諾を確認した
-- [ ] cervical シリーズの取得元・著作権者・許諾を確認した
-- [ ] 確認結果を `manifest.json` / 本文書に記録した
+- [x] brain シリーズの取得元・著作権者・許諾を確認した（開発者本人保有・`permission: "own"`）
+- [x] cervical シリーズの取得元・著作権者・許諾を確認した（開発者本人保有・`permission: "own"`）
+- [x] 確認結果を `manifest.json` / 本文書に記録した（各 series `provenance` に記録済み）
 - [x] 許諾不明の場合の対応（除外 or 差し替え）を別プランとして起票した →
   [`plans/010-mri-provenance-manifest-and-fallback.md`](../../plans/010-mri-provenance-manifest-and-fallback.md)
   （Phase A = 出典メタデータの器、Phase B = 公開除外。B は出典確認の決定ゲート付き）

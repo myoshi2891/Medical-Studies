@@ -5,7 +5,15 @@
       "id": "string",
       "bodyPart": "brain | cervical",
       "slices": "string[]  // /mri/<series>/<file>.png（スクラブ順）",
-      "note": "string?"
+      "note": "string?",
+      "provenance": {
+        "source": "string  // 取得元。未確認は \"unverified\"",
+        "copyrightHolder": "string  // 著作権者。未確認は \"unverified\"",
+        "permission": "own | granted | unverified | denied",
+        "license": "string?  // 該当時のみ",
+        "attribution": "string?  // 帰属表示が必要な場合のみ",
+        "verifiedAt": "string?  // ISO 8601。未確認時は省略"
+      }
     }
   },
   "series": [
@@ -22,7 +30,13 @@
         "/mri/brain/07.png",
         "/mri/brain/08.png"
       ],
-      "note": "頭部 T2 軸位の代表スライス（教育用・正常解剖中心）"
+      "note": "頭部 T2 軸位の代表スライス（教育用・正常解剖中心）",
+      "provenance": {
+        "source": "自己保有（本人撮影分）",
+        "copyrightHolder": "リポジトリ管理者（本人保有）",
+        "permission": "own",
+        "verifiedAt": "2026-07-15"
+      }
     },
     {
       "id": "cervical",
@@ -37,7 +51,13 @@
         "/mri/cervical/07.png",
         "/mri/cervical/08.png"
       ],
-      "note": "頚椎 矢状断の代表スライス（教育用）"
+      "note": "頚椎 矢状断の代表スライス（教育用）",
+      "provenance": {
+        "source": "自己保有（本人撮影分）",
+        "copyrightHolder": "リポジトリ管理者（本人保有）",
+        "permission": "own",
+        "verifiedAt": "2026-07-15"
+      }
     }
   ]
 }

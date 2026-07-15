@@ -60,8 +60,6 @@ export function computeUpsert(
   return { updates, appends };
 }
 
-
-
 /**
  * Converts a 0-based column index to an A1 column letter (0→A, 25→Z, 26→AA).
  *
