@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>頭痛急性期治療薬の「適正使用日数」とMOH予防｜Types of Headache</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{
+  --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
+  --orange:#e65100;--red:#c62828;--green:#2e7d32;--purple:#6a1b9a;
+  --red-l:#ffebee;--orange-l:#fff3e0;--green-l:#e8f5e9;
+  --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
+  --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
+  --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  --moh1:#b71c1c;--moh2:#e65100;--moh3:#f9a825;
+  --moh-l:#fdecea;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#b71c1c,#e65100 55%,#f9a825);color:#fff;padding:52px 28px 40px;text-align:center}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
+.hero-sub{font-size:14px;color:#fafafa;margin-bottom:22px}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Disclaimer */
+.disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
+.disclaimer strong{color:var(--orange)}
+
+/* Layout */
+.layout{display:flex;max-width:1360px;margin:0 auto}
+
+/* Sidebar */
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
+.s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
+.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--moh1);color:var(--moh1)}
+.nav-a.active{font-weight:600;background:var(--moh-l)}
+.n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Main */
+.main{flex:1;padding:28px 32px 80px;min-width:0}
+
+/* Section */
+.sec{margin:40px 0;scroll-margin-top:12px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-num{background:var(--moh1);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--moh1)}
+h2{font-size:16px;font-weight:700;color:var(--moh2);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--moh3)}
+h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
+p{margin-bottom:10px;color:var(--g8)}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px}
+a{color:var(--blue)}
+a:hover{text-decoration:underline}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+
+/* Alerts */
+.alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.alert-i{font-size:20px;flex-shrink:0}
+.a-danger{background:var(--red-l);border-left:4px solid var(--red)}
+.a-warn{background:var(--orange-l);border-left:4px solid var(--orange)}
+.a-info{background:var(--blue-l);border-left:4px solid var(--blue)}
+.a-ok{background:var(--green-l);border-left:4px solid var(--green)}
+.a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+thead th{background:var(--moh1);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:var(--moh-l)}
+tbody tr:hover{background:var(--g1)}
+tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
+.th-teal thead th{background:var(--teal)}
+.th-red thead th{background:var(--red)}
+.th-orange thead th{background:var(--orange)}
+.th-purple thead th{background:var(--purple)}
+
+/* Evidence badges */
+.bA{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.bB{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
+.bC{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
+.bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+.bRed{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a}
+.bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
+.bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
+
+/* Color text */
+.tR{color:var(--red);font-weight:700}
+.tG{color:var(--green);font-weight:700}
+.tO{color:var(--orange);font-weight:700}
+.tB{color:var(--blue);font-weight:700}
+.tN{color:var(--moh1);font-weight:700}
+
+/* Mermaid */
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--moh2);display:inline-block}
+pre.mermaid{text-align:center}
+
+/* MOH cards */
+.moh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:14px 0}
+.moh{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.moh-h{border-top:4px solid var(--red)}
+.moh-m{border-top:4px solid var(--orange)}
+.moh-l{border-top:4px solid var(--green)}
+.moh-day{font-size:26px;font-weight:800;line-height:1}
+.moh-unit{font-size:10.5px;color:var(--g6);margin-bottom:4px}
+.moh-drug{font-size:12.5px;font-weight:600;color:var(--g8)}
+
+/* Drug cards */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
+.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--teal)}
+.drug-nm{font-size:13.5px;font-weight:700;color:var(--teal);margin-bottom:2px}
+.drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
+.drug-tx{font-size:12px;line-height:1.6}
+
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--blue)}
+.src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:2px}
+.src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
+.src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
+
+/* Quick ref */
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
+.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.qr-t{font-size:13px;font-weight:700;color:var(--moh1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
+
+/* Footer */
+.footer{background:var(--moh1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer strong{color:#fff}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size:40px">💊</div>
+  <h1>頭痛急性期治療薬の「適正使用日数」とMOH予防</h1>
+  <p class="hero-sub">国際頭痛分類（ICHD-3）と主要国際ガイドラインに基づく実践フレームワーク</p>
+  <div class="hero-tags">
+    <span class="hero-tag">MOH予防</span>
+    <span class="hero-tag">ICHD-3</span>
+    <span class="hero-tag">急性期治療薬</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="s-hdr">目次</div>
+  <a class="nav-a" href="#s1"><span class="n-num">1</span>MOHとは何か</a>
+  <a class="nav-a" href="#s2"><span class="n-num">2</span>なぜ「日数」で管理するのか</a>
+  <a class="nav-a" href="#s3"><span class="n-num">3</span>国際ガイドラインの比較</a>
+  <a class="nav-a" href="#s4"><span class="n-num">4</span>予防の実践フレームワーク</a>
+  <a class="nav-a" href="#s5"><span class="n-num">5</span>新しい薬剤クラスの位置づけ</a>
+  <a class="nav-a" href="#s6"><span class="n-num">6</span>エビデンスグレーディング</a>
+  <a class="nav-a" href="#s7"><span class="n-num">7</span>よくある誤解（Q&amp;A）</a>
+  <a class="nav-a" href="#s8"><span class="n-num">8</span>まとめ・チェックリスト</a>
+  <a class="nav-a" href="#s9"><span class="n-num">9</span>権威ソース・参考文献</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<div class="alert a-warn">
+  <div class="alert-i">📘</div>
+  <div><strong>本ページは教育目的であり、個別の治療推奨ではありません。</strong>実際の薬剤選択・用量・用法・休薬方法は、必ず医師・薬剤師にご相談ください。本ページの内容だけで自己判断による服薬の開始・変更・中止を行わないでください。</div>
+</div>
+
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">MOH（薬剤の使用過多による頭痛）とは何か</h1>
+  </div>
+
+  <h2>用語の整理</h2>
+  <p><strong>一次性頭痛</strong>：片頭痛、緊張型頭痛、群発頭痛など、他の疾患が原因ではない頭痛そのものが本体である頭痛。<strong>二次性頭痛</strong>：他の疾患に起因する頭痛。<strong>MOH（Medication-Overuse Headache）</strong>：もともと一次性頭痛（片頭痛・緊張型頭痛が多い）を持つ人が、急性期治療薬を長期間・頻回に使用し続けることで頭痛そのものが慢性化・増悪する二次性頭痛です。日本頭痛学会は誤解を避けるため「薬物乱用頭痛」から<strong>「薬剤の使用過多による頭痛」</strong>という訳語に変更しています。<span class="bB">エビデンス：国内学会解説</span></p>
+
+  <div class="alert a-info">
+    <div class="alert-i">ℹ️</div>
+    <div>薬に対する不安から早めに服薬したり、頭痛がないのに服薬することで薬の効果が弱まり、さらに頭痛が悪化するという悪循環に陥ることがあるとされています（出典：日本頭痛学会）。</div>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">🚨</div>
+    <div><strong>本ページの範囲</strong>：一次性頭痛に対する慢性的な急性期薬使用とMOHを対象としています。突然の激烈な頭痛・神経学的異常・50歳以降の新規発症頭痛などの危険な兆候（SNOOP4）がある場合は本ページの対象外であり、速やかな医療機関受診が必要です。</div>
+  </div>
+
+  <h2>ICHD-3（国際頭痛分類 第3版）の診断基準</h2>
+  <p>MOHの定義は、国際頭痛学会（IHS）が策定する<strong>ICHD-3</strong>が国際的な一次情報です。基本構造は以下のA〜Cです。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>基準</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>既存の一次性頭痛を持つ患者において、月15日以上の頻度で頭痛が生じている</td></tr>
+        <tr><td>B</td><td>急性期・対症的頭痛治療薬の1種類以上を3か月を超えて定期的に使用過多している（薬剤によって月10日以上、または月15日以上という閾値が異なる）</td></tr>
+        <tr><td>C</td><td>他のICHD-3診断ではうまく説明できない</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-purple">
+    <div class="alert-i">🎓</div>
+    <div>ICHD-3の一般注釈には「各サブタイプで使用過多とされる薬剤使用日数は、正式なエビデンスというより専門家の合意に基づくものである」と明記されています。つまりこの日数閾値は<strong>絶対的な安全基準ではなく、専門家コンセンサスに基づく目安</strong>です。<span class="bC">専門家合意</span></div>
+  </div>
+
+  <h2>薬効群別の使用日数の目安（ICHD-3 サブタイプ）</h2>
+  <p>以下はICHD-3の各サブタイプが定義する「使用過多」とされる目安の使用日数です。<strong>これは治療上の許容量の指示ではなく、診断基準としての目安</strong>である点にご留意ください。</p>
+
+  <div class="moh-grid">
+    <div class="moh moh-h">
+      <div class="moh-day tR">10<span style="font-size:13px">日/月〜</span></div>
+      <div class="moh-unit">3か月超で継続</div>
+      <div class="moh-drug">エルゴタミン製剤（8.2.1）</div>
+    </div>
+    <div class="moh moh-h">
+      <div class="moh-day tR">10<span style="font-size:13px">日/月〜</span></div>
+      <div class="moh-unit">3か月超で継続</div>
+      <div class="moh-drug">トリプタン系薬剤（8.2.2）</div>
+    </div>
+    <div class="moh moh-m">
+      <div class="moh-day tO">15<span style="font-size:13px">日/月〜</span></div>
+      <div class="moh-unit">3か月超で継続</div>
+      <div class="moh-drug">非オピオイド系鎮痛薬（8.2.3）<br><span style="font-weight:400;font-size:11px">アセトアミノフェン・NSAIDs・アスピリン等</span></div>
+    </div>
+    <div class="moh moh-h">
+      <div class="moh-day tR">10<span style="font-size:13px">日/月〜</span></div>
+      <div class="moh-unit">3か月超で継続</div>
+      <div class="moh-drug">オピオイド系薬剤（8.2.6）</div>
+    </div>
+    <div class="moh moh-h">
+      <div class="moh-day tR">10<span style="font-size:13px">日/月〜</span></div>
+      <div class="moh-unit">3か月超で継続</div>
+      <div class="moh-drug">配合鎮痛薬（複数成分の合剤、8.2.5）</div>
+    </div>
+    <div class="moh moh-m">
+      <div class="moh-day tO">10<span style="font-size:13px">日/月〜（合計）</span></div>
+      <div class="moh-unit">3か月超で継続</div>
+      <div class="moh-drug">複数薬効群の組み合わせ使用（8.2.4）<br><span style="font-weight:400;font-size:11px">単剤としては過多でない場合を含む</span></div>
+    </div>
+  </div>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — ICHD-3診断ロジック（薬効群別）</div>
+<pre class="mermaid">
+flowchart TD
+    A["急性期治療薬を<br/>定期的に使用している"] --&gt; B{"薬効群は？"}
+    B --&gt;|"トリプタン／エルゴタミン／<br/>オピオイド／配合鎮痛薬"| C{"月10日以上を<br/>3か月超で使用？"}
+    B --&gt;|"単純鎮痛薬<br/>（アセトアミノフェン・NSAIDs等）"| D{"月15日以上を<br/>3か月超で使用？"}
+    B --&gt;|"複数薬効群を併用<br/>（単剤では未達）"| E{"合計で月10日以上を<br/>3か月超で使用？"}
+    C --&gt;|"はい"| F["MOHの可能性を疑う基準に該当<br/>（ICHD-3 8.2）"]
+    D --&gt;|"はい"| F
+    E --&gt;|"はい"| F
+    C --&gt;|"いいえ"| G["現時点では<br/>診断基準に該当しない"]
+    D --&gt;|"いいえ"| G
+    E --&gt;|"いいえ"| G
+    F --&gt; H["医師・頭痛専門医への<br/>相談を推奨"]
+</pre>
+  </div>
+
+  <p style="font-size:12px;color:var(--g6)">出典：ICHD-3「8.2 Medication-overuse headache (MOH)」、「8.2.3 Non-opioid analgesic-overuse headache」の規定（複数の非オピオイド鎮痛薬を併用する場合も単一薬効群として合算される）。原文は本ページ末尾の参考文献を参照。</p>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">なぜ「日数」で管理するのか（根拠と機序）</h1>
+  </div>
+
+  <h2>疫学的根拠</h2>
+  <p>MOHは一般人口の約1〜2%が罹患すると推定される、世界的に見られる病態であり、Global Burden of Diseaseの障害調整生存年（YLD）指標において18位にランクされるなど、公衆衛生上の負担が国際的に認識されています。<span class="bB">エビデンス：疫学研究・複数の横断研究（中等度）</span></p>
+
+  <h2>機序についての仮説（エビデンスの質を明示）</h2>
+  <p>頭痛専門誌 <em>The Lancet Neurology</em> に掲載されたDienerらのレビューでは、ストレスや睡眠など内的・外的な出来事が脳内のストレス回路とκオピオイド受容体でのダイノルフィンシグナリングに作用し、下行性疼痛修飾経路の調節不全を促進するという「感作」の仮説が提示されています。<span class="bC">エビデンス：機序研究（基礎・神経画像研究中心）</span></p>
+
+  <div class="alert a-info">
+    <div class="alert-i">🧠</div>
+    <div>この機序モデルは主に基礎研究・神経画像研究に基づくものであり、<strong>個々の患者での臨床的因果関係を断定するものではありません</strong>。</div>
+  </div>
+
+  <h2>休薬（withdrawal）症状の持続期間 — 薬効群による違い</h2>
+  <p>臨床研究では、休薬頭痛の持続期間には薬効群による違いが報告されています。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>薬効群</th><th>休薬頭痛の持続期間の目安</th><th>エビデンス</th></tr></thead>
+      <tbody>
+        <tr><td>トリプタン系薬剤</td><td>約4日</td><td><span class="bB">中等度</span></td></tr>
+        <tr><td>エルゴタミン製剤</td><td>約7日</td><td><span class="bB">中等度</span></td></tr>
+        <tr><td>単純鎮痛薬</td><td>約9.5日</td><td><span class="bB">中等度</span></td></tr>
+        <tr><td>オピオイド系薬剤</td><td>2〜10日程度（通常4週間を超えない）。嘔気・嘔吐・頭痛・不安・落ち着きのなさ・睡眠障害・頻脈を伴うことがある</td><td><span class="bB">中等度</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;color:var(--g6)">出典：デンマーク頭痛センターで実施されたランダム化比較試験に基づく報告（単施設または少数の対照試験）。</p>
+
+  <div class="alert a-purple">
+    <div class="alert-i">📌</div>
+    <div><strong>要点</strong>：「なぜ10日・15日という数字なのか」に対する誠実な答えは、単一の決定的なRCTではなく、<strong>専門家コンセンサス＋疫学研究＋機序研究を組み合わせた総合的な判断</strong>である、という点です。ICHD-3自身がこれを「専門家の合意に基づく」と明記しています。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">国際ガイドライン間の比較</h1>
+  </div>
+
+  <p>同じMOH／使用過多という概念について、各国際機関・学会の記述には共通点と若干の視点の違いがあります。以下は主要な一次情報の比較です。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>ガイドライン／機関</th><th>使用日数の目安</th><th>特徴・視点</th><th>エビデンスの性質</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ICHD-3</strong>（国際頭痛学会）</td><td>単純鎮痛薬：月15日以上／トリプタン等：月10日以上（3か月超）</td><td>診断基準としての閾値。MOHという二次性頭痛の診断名を定義するもの</td><td><span class="bC">専門家合意</span></td></tr>
+        <tr><td><strong>NICE</strong>（英国CG150）</td><td>トリプタン・オピオイド・エルゴタミン・配合鎮痛薬：月10日以上／単純鎮痛薬：単独もしくは併用で月15日以上（3か月以上）</td><td>臨床現場向けの「気づきの基準」として提示</td><td><span class="bA">ガイドライン推奨</span></td></tr>
+        <tr><td><strong>米国頭痛学会（AHS）</strong>コンセンサス（2021）</td><td>平均して週2日を目安に使用を抑える指導。超える場合は予防療法の提供を検討</td><td>「月」ベースの閾値よりやや保守的な「週」単位の目安を予防療法導入のトリガーとして活用</td><td><span class="bB">専門家コンセンサス</span></td></tr>
+        <tr><td><strong>欧州神経学会（EAN）</strong>MOH管理ガイドライン（2020）</td><td>ICHD-3基準を踏襲しつつ治療アルゴリズムを提示</td><td>休薬が長年MOH治療の第一段階として報告されるが、方法・長期効果に国際コンセンサスなし</td><td><span class="bB">GRADE評価（項目により強度が異なる）</span></td></tr>
+        <tr><td><strong>米国内科学会（ACP）</strong>臨床ガイドライン（2025）</td><td>NSAIDs：月15日以上／トリプタン：月10日以上</td><td>急性期片頭痛薬のネットワークメタ解析に基づく比較臨床ガイドライン</td><td><span class="bA">システマティックレビュー＋GRADE</span></td></tr>
+        <tr><td><strong>日本頭痛学会</strong></td><td>ICHD-3に準拠</td><td>「薬剤の使用過多による頭痛」という訳語を採用。休薬後の改善率は約7割、再発率は約3割との説明</td><td><span class="bB">国内ガイドライン・一般向け解説</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 国際ガイドラインの共通認識</div>
+<pre class="mermaid">
+flowchart LR
+    ICHD["ICHD-3<br/>診断基準（月次閾値）"] --&gt; Common["共通認識：<br/>薬効群ごとに異なる<br/>使用日数閾値が存在する"]
+    NICE["NICE CG150<br/>臨床的気づきの基準"] --&gt; Common
+    AHS["AHS consensus<br/>週2日という<br/>予防導入トリガー"] --&gt; Common
+    EAN["EAN 2020<br/>治療アルゴリズム"] --&gt; Common
+    ACP["ACP 2025<br/>比較臨床ガイドライン"] --&gt; Common
+    JHS["日本頭痛学会<br/>国内標準・患者説明"] --&gt; Common
+</pre>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">📌</div>
+    <div><strong>AHSの「週2日」とICHD-3の「月10日・15日」の違い</strong>：週2日は月に換算すると概ね8〜9日相当であり、ICHD-3の診断閾値（10日・15日）よりもやや手前で「予防療法を検討すべきタイミング」として提示されています。これは診断基準と予防的介入トリガーという<strong>目的の違い</strong>によるものであり、どちらかが誤りというわけではありません。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">MOH予防の実践フレームワーク（ステップバイステップ）</h1>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>以下は国際的なエビデンスを踏まえた<strong>一般的な考え方の枠組み</strong>です。個々の対応は必ず医師・薬剤師と相談のうえで決定してください。</div>
+  </div>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 予防の5ステップ</div>
+<pre class="mermaid">
+flowchart LR
+    A["Step 1<br/>頭痛日誌の記録"] --&gt; B["Step 2<br/>月間使用日数の<br/>セルフモニタリング"]
+    B --&gt; C["Step 3<br/>閾値に近づいたら<br/>医療者へ相談"]
+    C --&gt; D["Step 4<br/>予防療法の要否を<br/>一般名レベルで検討"]
+    D --&gt; E["Step 5<br/>定期フォローアップ<br/>と再評価"]
+    E -.-&gt;|"経過観察を継続"| B
+</pre>
+  </div>
+
+  <h2>Step 1：頭痛日誌をつける</h2>
+  <p>頭痛の頻度・強度・使用した薬（成分名ベースで）・使用日を記録します。NICEやAHSを含む多くのガイドラインが、月経関連片頭痛の診断や治療評価においても少なくとも2周期分の頭痛日誌の活用を推奨しているなど、日誌は国際的に共通して重視される基本ツールです。</p>
+
+  <h2>Step 2：月間使用日数のセルフモニタリング</h2>
+  <p>Step 1の日誌を用いて、薬効群ごとに「月に何日使用したか」を数えます。ここで重要なのは、<strong>同じ薬効群に分類される複数の薬剤を併用している場合、ICHD-3では合算してカウントする</strong>という点です（8.2.3の規定：複数の非オピオイド鎮痛薬を使用していても、個々の薬剤ではなく単一の薬効群として合算して評価される）。</p>
+
+  <h2>Step 3：閾値に近づいたら医療者へ相談</h2>
+  <p>前掲の目安（トリプタン等は月10日、単純鎮痛薬は月15日、AHSの目安では週2日）に近づいてきた場合、自己判断で薬の種類や量を調整するのではなく、医師・薬剤師に相談することが一般的に推奨されています。AHSコンセンサスステートメントでは、この目安を超える患者には予防療法の提供を検討すべきとされています。</p>
+
+  <h2>Step 4：予防療法の検討（一般名・薬効群レベルの一般論）</h2>
+  <p>具体的な処方は医師の判断によりますが、一般に予防療法として検討される薬効群には以下のようなものがあります。<strong>本ページはどの薬剤が最適かを判断するものではなく、選択と用量は医師にご相談ください。</strong></p>
+
+  <div class="drug-grid">
+    <div class="drug">
+      <div class="drug-nm">抗てんかん薬</div>
+      <div class="drug-br">例：バルプロ酸系、トピラマート系（国内承認状況は薬剤ごとに異なる）</div>
+      <div class="drug-tx">片頭痛の予防目的で古くから用いられてきた薬効群の一つ <span class="bB">中等度〜有効性が示されている</span></div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">β遮断薬</div>
+      <div class="drug-br"></div>
+      <div class="drug-tx">片頭痛予防で伝統的に用いられる薬効群 <span class="bB">中等度</span></div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">三環系抗うつ薬</div>
+      <div class="drug-br"></div>
+      <div class="drug-tx">有効性がプラセボ対照試験で明確には示されていないとの指摘もある <span class="bC">限定的</span></div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">ボツリヌス毒素製剤</div>
+      <div class="drug-br"></div>
+      <div class="drug-tx">慢性片頭痛かつ複数の予防療法が奏効しない場合などに検討される選択肢の一つ <span class="bA">有効性が示されている</span></div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">抗CGRP関連薬剤</div>
+      <div class="drug-br">モノクローナル抗体・受容体拮抗薬</div>
+      <div class="drug-tx">比較的新しい薬効群。MOHを合併する患者を対象とした研究も進行中 <span class="bB">中等度〜示唆されている</span></div>
+    </div>
+  </div>
+
+  <h2>Step 5：定期フォローアップと再評価</h2>
+  <p>予防療法を開始した場合も、休薬・減薬を行った場合も、一定期間後に頭痛頻度・使用日数を再評価することが一般的です。欧州のガイドラインでは休薬（overuseの中止）がMOH治療の出発点として長年推奨されてきた一方で、その具体的な実施方法や長期的効果については<strong>国際的なコンセンサスが確立していない</strong>とされており、対応は医療機関ごとに個別性があります。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — MOH疑い後の対応の全体像</div>
+<pre class="mermaid">
+flowchart TD
+    Diag["MOHの診断基準に<br/>該当する可能性"] --&gt; Edu["患者教育<br/>（使用過多の説明）"]
+    Diag --&gt; Consult["医師・頭痛専門医への相談"]
+    Consult --&gt; Path1["休薬方針の検討<br/>（医療者の管理下）"]
+    Consult --&gt; Path2["予防療法の並行検討"]
+    Path1 --&gt; Note1["エビデンス：欧州各国で<br/>推奨されるが方法論に<br/>国際的コンセンサスなし"]
+    Path2 --&gt; Note2["エビデンス：<br/>薬効群により異なる"]
+    Note1 --&gt; FollowUp["定期フォローアップ"]
+    Note2 --&gt; FollowUp
+</pre>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">新しい薬剤クラスの位置づけ（ゲパント等）— 未承認・適応外情報の扱い</h1>
+  </div>
+
+  <p>比較的新しい薬効群である<strong>CGRP受容体拮抗薬（いわゆる「ゲパント」）</strong>について、MOHとの関連が近年議論されています。</p>
+
+  <div class="alert a-info">
+    <div class="alert-i">📄</div>
+    <div>米国頭痛学会のコンセンサスステートメントでは、新しい薬剤のうちCGRP受容体拮抗薬（ウブロゲパント、リメゲパントなど）を反復投与しても薬剤の使用過多による頭痛とは関連しないようであると述べられていますが、同時に、レスミジタンの反復使用については前臨床モデルにおいて持続的な末梢・中枢感作を介してMOHを誘発しうることが示唆される一方、臨床研究は不足していると明記されています。<span class="bU">新しい薬効群・データ蓄積中</span></div>
+  </div>
+
+  <h2>国内承認状況について（本ページ執筆時点：2026年7月の情報）</h2>
+  <p>ゲパント系薬剤や一部の抗CGRP抗体を含め、薬剤ごとに日本国内での承認適応（発症抑制／急性期治療のいずれか、または両方）や承認時期は異なり、かつ承認状況は継続的に変化しています。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>成分名（一般名）</th><th>本ページ執筆時点の国内承認状況</th></tr></thead>
+      <tbody>
+        <tr><td>リメゲパント</td><td>2025年9月に承認（発症抑制・急性期治療の両方の適応で承認）</td></tr>
+        <tr><td>アトゲパント</td><td>2026年に発症抑制（予防）目的で承認・発売。急性期治療の適応は本ページ執筆時点で確認できていない</td></tr>
+        <tr><td>ウブロゲパント／ザベゲパント</td><td>本ページ執筆時点（2026年7月）で国内未承認</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">🚫</div>
+    <div><strong>国内未承認の薬剤・適応外使用について、有効性や安全性を保証する記載はできません。</strong>本ページは特定の商品名を推奨するものではなく、個々の薬剤が現時点で国内のどの適応について承認されているかは、必ずPMDAの添付文書情報、または医師・薬剤師にご確認ください。承認状況は変わりうるため、上表はあくまで執筆時点のスナップショットです。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">本ページにおけるエビデンスグレーディングの考え方</h1>
+  </div>
+
+  <p>本ページでは、GRADE（Grading of Recommendations, Assessment, Development and Evaluation）の考え方を参考にしつつ、一般読者にもわかりやすいよう以下の4段階の相対表現に統一しています。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>バッジ</th><th>本ページでの表記</th><th>おおよその対応</th><th>本文中の言い回し例</th></tr></thead>
+      <tbody>
+        <tr><td><span class="bA">bA</span></td><td>強い・十分なエビデンス</td><td>複数の質の高いRCT・システマティックレビューによる支持</td><td>「有効性が示されている」</td></tr>
+        <tr><td><span class="bB">bB</span></td><td>中等度のエビデンス</td><td>一定数の対照試験や大規模観察研究による支持</td><td>「有効性が示唆されている」</td></tr>
+        <tr><td><span class="bC">bC</span></td><td>限定的・専門家合意</td><td>少数の試験、専門家コンセンサス、機序研究が中心</td><td>「経験的に用いられている」「専門家の合意に基づく」</td></tr>
+        <tr><td><span class="bU">bU</span></td><td>新しい・不確実</td><td>前臨床データ中心、臨床データが少数・進行中</td><td>「データ蓄積中」「限定的」</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-purple">
+    <div class="alert-i">🎓</div>
+    <div>ICHD-3自身も、MOHの使用過多とされる各薬剤の日数閾値について「正式なエビデンスというよりも専門家の意見に基づく」と明記しており、本ページ全体を通じて、確立された合意事項と、現在も議論が続いている論点（休薬方法の最適化、新薬効群のMOHリスクなど）を区別して記載するよう努めています。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">よくある誤解（Q&amp;A）</h1>
+  </div>
+
+  <div class="card">
+    <h3>Q. 「月に10日以上薬を使ったら即座に危険」という意味ですか？</h3>
+    <p>A. いいえ。ICHD-3の閾値は「3か月を超えて」「定期的に」使用した場合の診断基準であり、単月の使用日数だけで判断するものではありません。また、この日数閾値自体が専門家の合意に基づくものであり、絶対的な安全域を示す数値ではありません。ご自身の状況については医師にご相談ください。<span class="bC">専門家合意</span></p>
+  </div>
+
+  <div class="card">
+    <h3>Q. 薬をやめればMOHは必ず治りますか？</h3>
+    <p>A. 日本頭痛学会の説明では、乱用薬をやめることで頭痛が治る方が約7割、再発する方が約3割とされています。効果には個人差があり、100%の治癒を保証するものではありません。<span class="bB">中等度のエビデンス</span></p>
+  </div>
+
+  <div class="card">
+    <h3>Q. 新しい薬（ゲパントなど）ならMOHの心配はいらないのですか？</h3>
+    <p>A. 一部の研究でMOHとの関連が少ない可能性が示唆されていますが、薬剤によってはデータが限定的なものもあります。断定はできず、今後のデータ蓄積が必要な段階です。<span class="bU">データ蓄積中</span></p>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">まとめ・チェックリスト</h1>
+  </div>
+
+  <div class="qr-grid">
+    <div class="qr">
+      <div class="qr-t">✅ セルフチェック</div>
+      <ul>
+        <li>頭痛日誌をつけ、薬効群ごとの月間使用日数を記録している</li>
+        <li>ICHD-3の目安（トリプタン等は月10日、単純鎮痛薬は月15日）と、AHSの目安（週2日）の違いを理解している</li>
+        <li>同じ薬効群の薬剤を複数併用している場合、合算してカウントする必要があることを理解している</li>
+      </ul>
+    </div>
+    <div class="qr">
+      <div class="qr-t">✅ 医療機関との連携</div>
+      <ul>
+        <li>閾値に近づいたら自己判断で薬を調整せず、医師・薬剤師に相談する方針である</li>
+        <li>予防療法や休薬の具体的な方法は、個別に医療者と相談する前提であることを理解している</li>
+        <li>新しい薬効群（ゲパント等）の国内承認状況は変化しうるため、必要時にPMDA情報や医師に確認する方針である</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h1 class="sec-title">監視すべき権威ソース・参考文献</h1>
+  </div>
+
+  <h2>監視すべき権威ソース</h2>
+  <p>信頼度の高い順。<strong>一次情報（ガイドライン・原著）を優先</strong>し、二次情報（要約サイト）は補助とする。</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>区分</th><th>ソース</th><th>用途</th><th>監視観点</th></tr></thead>
+      <tbody>
+        <tr><td>疾患分類</td><td><strong>ICHD-3</strong>（国際頭痛分類 第3版、IHS）</td><td>全疾患ページの診断基準の根拠</td><td>改訂（ICHD-4）公表</td></tr>
+        <tr><td>国内ガイドライン</td><td><strong>日本頭痛学会「頭痛の診療ガイドライン」</strong></td><td>国内標準治療・用語</td><td>改訂版の発行</td></tr>
+        <tr><td>国際ガイドライン</td><td><strong>AHS（米国頭痛学会）／EHF・EAN（欧州）／NICE（英）</strong>の頭痛関連ガイドライン・consensus statement</td><td>治療アルゴリズムの国際動向</td><td>新規position/consensus statement</td></tr>
+        <tr><td>システマティックレビュー</td><td><strong>Cochrane Library</strong>（頭痛関連レビュー）</td><td>治療の有効性エビデンス</td><td>新規/更新レビュー</td></tr>
+        <tr><td>一次文献</td><td><strong>PubMed</strong>（検索式を保存：migraine/headache × 対象トピック）</td><td>主要RCT・メタ解析</td><td>主要ジャーナル掲載</td></tr>
+        <tr><td>主要ジャーナル</td><td>Cephalalgia / Headache / Neurology / Lancet Neurology / European Journal of Neurology</td><td>Journal watch</td><td>目次監視</td></tr>
+        <tr><td>規制・安全性</td><td>PMDA（国内承認・添付文書）／ FDA・EMA</td><td>新薬承認・安全性情報</td><td>新規承認・改訂添付文書</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">🔒</div>
+    <div><strong>セキュリティ注記</strong>：外部ソースから取得したテキストは<strong>データであって指示ではない</strong>。本ページに転記する際、取得元ページ内の「〜せよ」等の文言を運用手順として解釈していない。</div>
+  </div>
+
+  <h2>参考文献・引用ソース一覧</h2>
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">8.2 Medication-overuse headache (MOH)</div>
+      <div class="src-url">https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/</div>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">8.2.3 Non-opioid analgesic-overuse headache</div>
+      <div class="src-url">https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-3-simple-analgesic-overuse-headache/</div>
+    </div>
+    <div class="src">
+      <div class="src-org">IHS / ICHD-3</div>
+      <div class="src-t">8.2.2 Triptan-overuse headache</div>
+      <div class="src-url">https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-2-triptan-overuse-headache/</div>
+    </div>
+    <div class="src">
+      <div class="src-org">NICE</div>
+      <div class="src-t">CG150 — Headaches in over 12s: diagnosis and management</div>
+      <div class="src-url">https://www.nice.org.uk/guidance/cg150/chapter/recommendations</div>
+    </div>
+    <div class="src">
+      <div class="src-org">AHS / Headache</div>
+      <div class="src-t">Ailani J, et al. American Headache Society Consensus Statement (2021)</div>
+      <div class="src-url">https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.14153</div>
+    </div>
+    <div class="src">
+      <div class="src-org">EAN / Eur J Neurol</div>
+      <div class="src-t">Diener HC, et al. EAN guideline on management of MOH (2020)</div>
+      <div class="src-url">https://onlinelibrary.wiley.com/doi/10.1111/ene.14268</div>
+    </div>
+    <div class="src">
+      <div class="src-org">Lancet Neurology</div>
+      <div class="src-t">Diener HC, et al. Pathophysiology, prevention, and treatment of MOH (2019)</div>
+      <div class="src-url">https://doi.org/10.1016/S1474-4422(19)30146-2</div>
+    </div>
+    <div class="src">
+      <div class="src-org">ACP / Ann Intern Med</div>
+      <div class="src-t">Pharmacologic Treatments of Acute Episodic Migraine Headache (2025)</div>
+      <div class="src-url">https://www.acpjournals.org/doi/10.7326/ANNALS-24-03095</div>
+    </div>
+    <div class="src">
+      <div class="src-org">Nature Reviews Disease Primers</div>
+      <div class="src-t">Ashina S, Terwindt GM, Steiner TJ, et al. Medication overuse headache (2023)</div>
+      <div class="src-url">https://www.nature.com/articles/s41572-022-00415-0</div>
+    </div>
+    <div class="src">
+      <div class="src-org">日本頭痛学会</div>
+      <div class="src-t">「薬剤の使用過多による頭痛」一般向け解説</div>
+      <div class="src-url">https://www.jhsnet.net/ippan_zutu_kaisetu_05.html</div>
+    </div>
+    <div class="src">
+      <div class="src-org">日本頭痛学会</div>
+      <div class="src-t">頭痛ガイドライン 一覧ページ</div>
+      <div class="src-url">https://www.jhsnet.net/guideline.html</div>
+    </div>
+    <div class="src">
+      <div class="src-org">NCBI Bookshelf</div>
+      <div class="src-t">Fischer MA, Jan A. Medication-Overuse Headache. StatPearls</div>
+      <div class="src-url">https://www.ncbi.nlm.nih.gov/books/NBK538150/</div>
+    </div>
+    <div class="src">
+      <div class="src-org">Front Pain Res</div>
+      <div class="src-t">Kebede YT, et al. Medication overuse headache: review of evidence and management (2023)</div>
+      <div class="src-url">https://pmc.ncbi.nlm.nih.gov/articles/PMC10442656/</div>
+    </div>
+    <div class="src">
+      <div class="src-org">Front Pain Res</div>
+      <div class="src-t">Krymchantowski A, et al. Medication-overuse headache — review of treatment strategies (2023)</div>
+      <div class="src-url">https://pmc.ncbi.nlm.nih.gov/articles/PMC10597723/</div>
+    </div>
+    <div class="src">
+      <div class="src-org">PMDA</div>
+      <div class="src-t">独立行政法人 医薬品医療機器総合機構（承認・添付文書情報の確認先）</div>
+      <div class="src-url">https://www.pmda.go.jp/</div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>頭痛急性期治療薬の「適正使用日数」とMOH予防</strong> — 国際頭痛分類（ICHD-3）と主要国際ガイドラインに基づく実践フレームワーク<br>
+  📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時<br>
+  ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#fdecea',
+    primaryTextColor: '#7a1015',
+    primaryBorderColor: '#b71c1c',
+    lineColor: '#757575',
+    secondaryColor: '#fff3e0',
+    tertiaryColor: '#fff8e1',
+    edgeLabelBackground: '#ffffff',
+    fontSize: '13px'
+  },
+  flowchart: { curve: 'linear', padding: 20 }
+});
+
+const navAs = document.querySelectorAll('.nav-a');
+navAs.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+const secs = document.querySelectorAll('.sec');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const id = en.target.id;
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {threshold: 0.25});
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
