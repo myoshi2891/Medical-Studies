@@ -107,8 +107,14 @@ base-uri 'self';
 form-action 'self';
 ```
 
+> [!NOTE]
+> **`script-src` の `'unsafe-eval'` は開発モード（`next dev`）のみ**付与する。React は開発時に
+> `eval()` を使う（HMR・スタックトレース復元等）ため、無いと DevTools コンソールに eval 違反が出る。
+> `next.config.ts` の `process.env.NODE_ENV !== "production"` で分岐し、**本番ビルドには含めない**。
+
 **自動検証（実施済み）**: `bun run typecheck` / `bun run test`（403 pass）/ `bun run build` すべて exit 0。
 全ページが `○ Static` を維持。`curl -sI` で 6 ヘッダ（非 CSP 5 + `Content-Security-Policy`）の実付与を確認。
+本番（`next start`）は `script-src` に `'unsafe-eval'` を含まず、開発（`next dev`）のみ含むことを確認済み。
 
 **実ブラウザ検証で判明した経緯**: 当初 `middleware.ts` による nonce/`'strict-dynamic'` 強制を実装したが、
 静的ページに nonce が焼き込めず Next.js の inline script が全ブロックされ、ページが描画されなかった
