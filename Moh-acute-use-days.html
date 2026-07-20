@@ -269,17 +269,17 @@ pre.mermaid{text-align:center}
     <div class="mmd-lbl">フローチャート — ICHD-3診断ロジック（薬効群別）</div>
 <pre class="mermaid">
 flowchart TD
-    A["急性期治療薬を<br/>定期的に使用している"] --&gt; B{"薬効群は？"}
-    B --&gt;|"トリプタン／エルゴタミン／<br/>オピオイド／配合鎮痛薬"| C{"月10日以上を<br/>3か月超で使用？"}
-    B --&gt;|"単純鎮痛薬<br/>（アセトアミノフェン・NSAIDs等）"| D{"月15日以上を<br/>3か月超で使用？"}
-    B --&gt;|"複数薬効群を併用<br/>（単剤では未達）"| E{"合計で月10日以上を<br/>3か月超で使用？"}
-    C --&gt;|"はい"| F["MOHの可能性を疑う基準に該当<br/>（ICHD-3 8.2）"]
-    D --&gt;|"はい"| F
-    E --&gt;|"はい"| F
-    C --&gt;|"いいえ"| G["現時点では<br/>診断基準に該当しない"]
-    D --&gt;|"いいえ"| G
-    E --&gt;|"いいえ"| G
-    F --&gt; H["医師・頭痛専門医への<br/>相談を推奨"]
+A["急性期治療薬を<br/>定期的に使用している"] --&gt; B{"薬効群は？"}
+B --&gt;|"トリプタン／エルゴタミン／<br/>オピオイド／配合鎮痛薬"| C{"月10日以上を<br/>3か月超で使用？"}
+B --&gt;|"単純鎮痛薬<br/>（アセトアミノフェン・NSAIDs等）"| D{"月15日以上を<br/>3か月超で使用？"}
+B --&gt;|"複数薬効群を併用<br/>（単剤では未達）"| E{"合計で月10日以上を<br/>3か月超で使用？"}
+C --&gt;|"はい"| F["MOHの可能性を疑う基準に該当<br/>（ICHD-3 8.2）"]
+D --&gt;|"はい"| F
+E --&gt;|"はい"| F
+C --&gt;|"いいえ"| G["現時点では<br/>診断基準に該当しない"]
+D --&gt;|"いいえ"| G
+E --&gt;|"いいえ"| G
+F --&gt; H["医師・頭痛専門医への<br/>相談を推奨"]
 </pre>
   </div>
 
@@ -353,12 +353,12 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 国際ガイドラインの共通認識</div>
 <pre class="mermaid">
 flowchart LR
-    ICHD["ICHD-3<br/>診断基準（月次閾値）"] --&gt; Common["共通認識：<br/>薬効群ごとに異なる<br/>使用日数閾値が存在する"]
-    NICE["NICE CG150<br/>臨床的気づきの基準"] --&gt; Common
-    AHS["AHS consensus<br/>週2日という<br/>予防導入トリガー"] --&gt; Common
-    EAN["EAN 2020<br/>治療アルゴリズム"] --&gt; Common
-    ACP["ACP 2025<br/>比較臨床ガイドライン"] --&gt; Common
-    JHS["日本頭痛学会<br/>国内標準・患者説明"] --&gt; Common
+ICHD["ICHD-3<br/>診断基準（月次閾値）"] --&gt; Common["共通認識：<br/>薬効群ごとに異なる<br/>使用日数閾値が存在する"]
+NICE["NICE CG150<br/>臨床的気づきの基準"] --&gt; Common
+AHS["AHS consensus<br/>週2日という<br/>予防導入トリガー"] --&gt; Common
+EAN["EAN 2020<br/>治療アルゴリズム"] --&gt; Common
+ACP["ACP 2025<br/>比較臨床ガイドライン"] --&gt; Common
+JHS["日本頭痛学会<br/>国内標準・患者説明"] --&gt; Common
 </pre>
   </div>
 
@@ -384,11 +384,11 @@ flowchart LR
     <div class="mmd-lbl">フローチャート — 予防の5ステップ</div>
 <pre class="mermaid">
 flowchart LR
-    A["Step 1<br/>頭痛日誌の記録"] --&gt; B["Step 2<br/>月間使用日数の<br/>セルフモニタリング"]
-    B --&gt; C["Step 3<br/>閾値に近づいたら<br/>医療者へ相談"]
-    C --&gt; D["Step 4<br/>予防療法の要否を<br/>一般名レベルで検討"]
-    D --&gt; E["Step 5<br/>定期フォローアップ<br/>と再評価"]
-    E -.-&gt;|"経過観察を継続"| B
+A["Step 1<br/>頭痛日誌の記録"] --&gt; B["Step 2<br/>月間使用日数の<br/>セルフモニタリング"]
+B --&gt; C["Step 3<br/>閾値に近づいたら<br/>医療者へ相談"]
+C --&gt; D["Step 4<br/>予防療法の要否を<br/>一般名レベルで検討"]
+D --&gt; E["Step 5<br/>定期フォローアップ<br/>と再評価"]
+E -.-&gt;|"経過観察を継続"| B
 </pre>
   </div>
 
@@ -439,14 +439,14 @@ flowchart LR
     <div class="mmd-lbl">フローチャート — MOH疑い後の対応の全体像</div>
 <pre class="mermaid">
 flowchart TD
-    Diag["MOHの診断基準に<br/>該当する可能性"] --&gt; Edu["患者教育<br/>（使用過多の説明）"]
-    Diag --&gt; Consult["医師・頭痛専門医への相談"]
-    Consult --&gt; Path1["休薬方針の検討<br/>（医療者の管理下）"]
-    Consult --&gt; Path2["予防療法の並行検討"]
-    Path1 --&gt; Note1["エビデンス：欧州各国で<br/>推奨されるが方法論に<br/>国際的コンセンサスなし"]
-    Path2 --&gt; Note2["エビデンス：<br/>薬効群により異なる"]
-    Note1 --&gt; FollowUp["定期フォローアップ"]
-    Note2 --&gt; FollowUp
+Diag["MOHの診断基準に<br/>該当する可能性"] --&gt; Edu["患者教育<br/>（使用過多の説明）"]
+Diag --&gt; Consult["医師・頭痛専門医への相談"]
+Consult --&gt; Path1["休薬方針の検討<br/>（医療者の管理下）"]
+Consult --&gt; Path2["予防療法の並行検討"]
+Path1 --&gt; Note1["エビデンス：欧州各国で<br/>推奨されるが方法論に<br/>国際的コンセンサスなし"]
+Path2 --&gt; Note2["エビデンス：<br/>薬効群により異なる"]
+Note1 --&gt; FollowUp["定期フォローアップ"]
+Note2 --&gt; FollowUp
 </pre>
   </div>
 </section>
@@ -683,21 +683,23 @@ flowchart TD
 </div>
 
 <script>
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#fdecea',
-    primaryTextColor: '#7a1015',
-    primaryBorderColor: '#b71c1c',
-    lineColor: '#757575',
-    secondaryColor: '#fff3e0',
-    tertiaryColor: '#fff8e1',
-    edgeLabelBackground: '#ffffff',
-    fontSize: '13px'
-  },
-  flowchart: { curve: 'linear', padding: 20 }
-});
+if (typeof mermaid !== 'undefined') {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#fdecea',
+      primaryTextColor: '#7a1015',
+      primaryBorderColor: '#b71c1c',
+      lineColor: '#757575',
+      secondaryColor: '#fff3e0',
+      tertiaryColor: '#fff8e1',
+      edgeLabelBackground: '#ffffff',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'linear', padding: 20 }
+  });
+}
 
 const navAs = document.querySelectorAll('.nav-a');
 navAs.forEach(a => {
