@@ -71,6 +71,15 @@ export const navLinks: readonly NavLink[] = [
     ],
   },
   {
+    name: "Treatment",
+    children: [
+      {
+        name: "急性期治療の考え方",
+        href: "/treatment/acute-treatment-of-headache",
+      },
+    ],
+  },
+  {
     name: "Blocks",
     children: [
       { name: "後頭神経ブロック (ONB)", href: "/blocks/occipital-nerve-block" },
