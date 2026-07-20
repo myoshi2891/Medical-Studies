@@ -15,12 +15,12 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
-  * 頭痛の急性期治療の考え方 (Ath) ガイドの固定サイドバー目次。
-  *
-  * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
-  * `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
-  * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
-  */
+ * 頭痛の急性期治療の考え方 (Ath) ガイドの固定サイドバー目次。
+ *
+ * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
+ * `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
+ * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
+ */
 export function AthSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
 

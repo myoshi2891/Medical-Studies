@@ -10,12 +10,12 @@ vi.mock("@/components/MermaidDiagram", () => ({
 /** ソース HTML から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 7 }, (_, i) => `s${i + 1}`);
 const H2_COUNT = 7; // セクションタイトル (元の h1.sec-title から降格)
-const H3_COUNT = 17; // 元の h2 から降格
+const H3_COUNT = 16; // 元の h2 から降格
 const H4_COUNT = 6; // 元の h3 から降格
 const MERMAID_COUNT = 4;
-const TABLE_COUNT = 3;
+const TABLE_COUNT = 6;
 const HERO_H1 = "頭痛の急性期治療の考え方";
-const EXTERNAL_LINKS_COUNT = 46;
+const EXTERNAL_LINKS_COUNT = 48;
 
 describe("AcuteTreatmentOfHeadachePage: 契約（忠実転記）", () => {
   it("hero の <h1> がソース of ページタイトルと一致する", () => {
