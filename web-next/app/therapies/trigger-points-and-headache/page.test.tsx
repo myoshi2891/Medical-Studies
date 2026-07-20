@@ -9,8 +9,8 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** Contract values measured from the source HTML */
 const SECTION_IDS = Array.from({ length: 9 }, (_, i) => `s${i + 1}`);
-const H2_COUNT = 5; 
-const H3_COUNT = 0; 
+const H2_COUNT = 5;
+const H3_COUNT = 0;
 const MERMAID_COUNT = 3;
 const TABLE_COUNT = 5;
 const NAV_COUNT = 9;
