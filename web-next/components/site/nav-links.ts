@@ -100,6 +100,10 @@ export const navLinks: readonly NavLink[] = [
         name: "経穴・トリガーポイント",
         href: "/therapies/headache-acupoints-trigger-points",
       },
+      {
+        name: "トリガーポイント入門",
+        href: "/therapies/trigger-points-and-headache",
+      },
     ],
   },
   {

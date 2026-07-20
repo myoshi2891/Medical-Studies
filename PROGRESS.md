@@ -76,6 +76,7 @@
 | Nutrition-and-Supplements | `/therapies/nutrition-and-supplements` | ✅ 完了 | 12 section / Mermaid 8図 / table 31 / 外部リンク 46 |
 | Psychological-Behavioral-Therapy | `/therapies/psychological-behavioral-therapy` | ✅ 完了 | 14 section / Mermaid 8図 / table 28 / 外部リンク 51 |
 | Headache-Acupoints-Trigger-Points | `/therapies/headache-acupoints-trigger-points` | ✅ 完了 | 9 section / Mermaid 2図 / table 4 / 外部リンク 10 |
+| Trigger-points-and-headache | `/therapies/trigger-points-and-headache` | ✅ 完了 | 9 section / Mermaid 3図 / table 5 / 外部リンク 10 |
 | Headache-Diary | `/prom/headache-diary` | ✅ 完了 | 16 section / Mermaid 9図 / table 29 / 外部リンク 46 |
 | Headache-Impact-Test | `/prom/headache-impact-test` | ✅ 完了 | 14 section / Mermaid 3図 / table 24 / 外部リンク 37 |
 | Migraine-Disability-Assessment | `/prom/migraine-disability-assessment` | ✅ 完了 | 16 section（s1-s15+appendix）/ Mermaid 3図 / table 31 / 外部リンク 25 |
