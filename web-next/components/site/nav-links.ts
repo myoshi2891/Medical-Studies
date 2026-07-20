@@ -96,6 +96,10 @@ export const navLinks: readonly NavLink[] = [
         name: "心理・行動療法",
         href: "/therapies/psychological-behavioral-therapy",
       },
+      {
+        name: "経穴・トリガーポイント",
+        href: "/therapies/headache-acupoints-trigger-points",
+      },
     ],
   },
   {
