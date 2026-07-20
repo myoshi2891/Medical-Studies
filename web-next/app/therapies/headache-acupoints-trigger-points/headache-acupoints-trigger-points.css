@@ -1,0 +1,601 @@
+.headache-acupoints-accent {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, .10);
+  --r: 12px;
+  --rs: 8px;
+  --acp1: #1b5e20;
+  --acp2: #00695c;
+  --acp3: #0d47a1;
+  --acp-l: #e6f3ee;
+
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
+}
+
+/* Reduced-motion を希望しないユーザーにのみ滑らかスクロールを適用する */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.headache-acupoints-accent * {
+  box-sizing: border-box;
+}
+
+/* Hero */
+.headache-acupoints-accent .hero {
+  background: linear-gradient(135deg, #1b5e20, #00695c 55%, #0d47a1);
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.headache-acupoints-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin: 10px 0 8px;
+}
+.headache-acupoints-accent .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.headache-acupoints-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.headache-acupoints-accent .hero-tag {
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, .3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.headache-acupoints-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.headache-acupoints-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.headache-acupoints-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.headache-acupoints-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.headache-acupoints-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.headache-acupoints-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.headache-acupoints-accent .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.headache-acupoints-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all .15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.headache-acupoints-accent .nav-a:hover,
+.headache-acupoints-accent .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--acp1);
+  color: var(--acp1);
+}
+.headache-acupoints-accent .nav-a.active {
+  font-weight: 600;
+  background: var(--acp-l);
+}
+.headache-acupoints-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.headache-acupoints-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.headache-acupoints-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.headache-acupoints-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.headache-acupoints-accent .sec-num {
+  background: var(--acp1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.headache-acupoints-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--acp1);
+  margin: 0;
+}
+.headache-acupoints-accent h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--acp2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--acp3);
+}
+.headache-acupoints-accent h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
+}
+.headache-acupoints-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.headache-acupoints-accent ul,
+.headache-acupoints-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.headache-acupoints-accent li {
+  margin-bottom: 4px;
+}
+.headache-acupoints-accent a {
+  color: var(--blue);
+}
+.headache-acupoints-accent a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.headache-acupoints-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.headache-acupoints-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.headache-acupoints-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.headache-acupoints-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.headache-acupoints-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.headache-acupoints-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.headache-acupoints-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.headache-acupoints-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.headache-acupoints-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.headache-acupoints-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.headache-acupoints-accent thead th {
+  background: var(--acp1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.headache-acupoints-accent tbody tr:nth-child(even) {
+  background: var(--acp-l);
+}
+.headache-acupoints-accent tbody tr:hover {
+  background: var(--g1);
+}
+.headache-acupoints-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.headache-acupoints-accent .th-teal thead th {
+  background: var(--teal);
+}
+.headache-acupoints-accent .th-red thead th {
+  background: var(--red);
+}
+.headache-acupoints-accent .th-orange thead th {
+  background: var(--orange);
+}
+.headache-acupoints-accent .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.headache-acupoints-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.headache-acupoints-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.headache-acupoints-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.headache-acupoints-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.headache-acupoints-accent .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.headache-acupoints-accent .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.headache-acupoints-accent .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.headache-acupoints-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.headache-acupoints-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.headache-acupoints-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.headache-acupoints-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.headache-acupoints-accent .tN {
+  color: var(--acp1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.headache-acupoints-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.headache-acupoints-accent .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.headache-acupoints-accent .mmd-lbl::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--acp2);
+  display: inline-block;
+}
+.headache-acupoints-accent pre.mermaid {
+  text-align: center;
+}
+
+/* SNOOP-style red-flag cards */
+.headache-acupoints-accent .snoop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-acupoints-accent .sn {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--red);
+}
+.headache-acupoints-accent .sn-letter {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+}
+.headache-acupoints-accent .sn-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 3px 0 5px;
+}
+.headache-acupoints-accent .sn-symp {
+  font-size: 12px;
+  color: var(--g6);
+  line-height: 1.5;
+}
+.headache-acupoints-accent .sn-dx {
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 7px;
+  background: var(--red-l);
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Point cards */
+.headache-acupoints-accent .pt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-acupoints-accent .pt {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--acp2);
+}
+.headache-acupoints-accent .pt-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--acp1);
+  margin-bottom: 2px;
+}
+.headache-acupoints-accent .pt-code {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 8px;
+}
+.headache-acupoints-accent .pt-tx {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--g8);
+}
+
+/* Quick ref */
+.headache-acupoints-accent .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-acupoints-accent .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.headache-acupoints-accent .qr-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--acp1);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* Source cards */
+.headache-acupoints-accent .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-acupoints-accent .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+.headache-acupoints-accent .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.headache-acupoints-accent .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.headache-acupoints-accent .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Footer */
+.headache-acupoints-accent .footer {
+  background: var(--acp1);
+  color: rgba(255, 255, 255, .75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.headache-acupoints-accent .footer strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media(max-width:900px) {
+  .headache-acupoints-accent .sidebar {
+    display: none;
+  }
+  .headache-acupoints-accent .main {
+    padding: 16px 14px 60px;
+  }
+}
