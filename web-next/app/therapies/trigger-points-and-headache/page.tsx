@@ -513,7 +513,7 @@ export default function TriggerPointsAndHeadachePage() {
           <section id="s8" className="sec">
             <div className="sec-hd">
               <div className="sec-num">8</div>
-              <h1 className="sec-title">受診 of 目安・よくある誤解</h1>
+              <h1 className="sec-title">受診の目安・よくある誤解</h1>
             </div>
 
             <div className="qr-grid">
@@ -525,7 +525,7 @@ export default function TriggerPointsAndHeadachePage() {
                   </li>
                   <li>頭痛の性質が普段と明らかに違う、悪化している → 受診して相談</li>
                   <li>月15日以上頭痛がある（薬物乱用頭痛のリスク） → 受診して相談</li>
-                  <li>市 市販薬で十分にコントロールできない → 受診して相談</li>
+                  <li>市販薬で十分にコントロールできない → 受診して相談</li>
                 </ul>
               </div>
               <div className="qr">
