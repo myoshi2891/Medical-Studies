@@ -95,7 +95,8 @@ export function StorageNotice() {
   const { navigate } = usePromContext();
   return (
     <p className="c-small c-muted" role="note">
-      記録（頭痛日誌・PROM スコア）は通常、この端末のブラウザにのみ保存されます（Google 連携を有効にして同期を実行した場合は、選択したデータが Google に送信されます）。
+      記録（頭痛日誌・PROM スコア）は通常この端末のブラウザに保存されます。
+      Google Sheets への同期を実行した場合は、選択したデータが Google に送信されます。
       共有・公共の端末では利用を控えるか、利用後に{" "}
       <button type="button" className="c-link" onClick={() => navigate("#/data")}>
         データ管理
@@ -123,7 +124,7 @@ export function StorageNotice() {
 
 変更前（抜粋）: 「…データは外部に送信されません。」
 
-変更後: 「…記録は通常、この端末のブラウザにのみ保存されます（Google 連携を有効にして同期を実行した場合は、選択したデータが Google に送信されます）。**共有端末では利用後に下の「すべてのデータを削除」を実行してください。**」
+変更後: 「…記録（頭痛日誌・PROM スコア）は通常この端末のブラウザに保存されます。Google Sheets への同期を実行した場合は、選択したデータが Google に送信されます。**共有端末では利用後に下の「すべてのデータを削除」を実行してください。**」
 
 **Verify**: `bun run test` → 全 pass（DataManager.test.tsx が文言に依存して失敗した場合は
 該当アサーションのみ新文言へ更新する）
