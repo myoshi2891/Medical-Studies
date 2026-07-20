@@ -25,7 +25,7 @@
 公開リポジトリでありながら CI が存在せず、型エラー・テスト失敗・ビルド破壊・ライセンス違反依存・
 PII（絶対パス）混入のいずれも、マージ前に機械検知される仕組みがない。品質ゲートが
 「各開発者がローカルで実行したかどうか」に依存している。`docs/publishing/06-infrastructure-and-deployment.md` §3 の
-8 項目（install → typecheck → lint → test → build → 依存監査 → ライセンス → PII 検査）を
+5 ジョブ構成（および Dependabot。依存関係の脆弱性監査は Dependabot の静的監査に委ね、CI からは除外する。残る項目: install → typecheck → lint → test → build → ライセンス → PII 検査）を
 GitHub Actions として実装する。
 
 ## Current state
@@ -36,7 +36,7 @@ GitHub Actions として実装する。
     `bun run test`（`vitest run`）/ `bun run build`（`next build`）
   - パッケージマネージャ: `"packageManager": "bun@1.3.12"`、lock は `web-next/bun.lock`
 - Markdown lint: リポジトリルートの `.markdownlint.json` を使い
-  `npx markdownlint-cli -c .markdownlint.json <paths>` で実行する運用（`CLAUDE.md` 記載）。
+  `npx markdownlint-cli@0.41.0 -c .markdownlint.json <paths>` で実行する運用（`CLAUDE.md` 記載）。
 - PII / 絶対パス検査規約: `.claude/rules/no-absolute-paths.md` — コミット差分に
   `/Users/` `/home/` `C:\Users\` を含めない（プレースホルダー `johndoe` は除外）。
 - Mermaid 修正スクリプトのテスト: `python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py`
@@ -52,7 +52,7 @@ GitHub Actions として実装する。
 |---|---|---|
 | YAML 構文検証（ローカル） | `bunx yaml-lint .github/workflows/ci.yml`（または `python3 -c "import yaml,sys;yaml.safe_load(open('.github/workflows/ci.yml'))"`） | exit 0 |
 | web-next 全ゲート（ローカル再現） | `cd web-next && bun install --frozen-lockfile && bun run typecheck && bun run lint && bun run test && bun run build` | すべて exit 0 |
-| Markdown lint（ローカル再現） | `npx markdownlint-cli -c .markdownlint.json "**/*.md" --ignore node_modules --ignore web-next/node_modules` | エラー 0（失敗したら STOP 条件参照） |
+| Markdown lint（ローカル再現） | `npx markdownlint-cli@0.41.0 -c .markdownlint.json "**/*.md" --ignore node_modules --ignore web-next/node_modules` | エラー 0（失敗したら STOP 条件参照） |
 
 ## Scope
 
@@ -120,7 +120,7 @@ jobs:
           bun-version: 1.3.12
       - run: bun install --frozen-lockfile
       # 強コピーレフトの production 混入を拒否（plans/009 と同一ゲート）
-      - run: bunx license-checker-rseidelsohn --production --failOn "GPL-2.0;GPL-3.0;AGPL-1.0;AGPL-3.0"
+      - run: bunx license-checker-rseidelsohn@4.4.2 --production --failOn "GPL-2.0;GPL-3.0;AGPL-1.0;AGPL-3.0"
 
   markdown:
     name: markdown lint
@@ -130,7 +130,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npx markdownlint-cli -c .markdownlint.json "**/*.md" --ignore node_modules --ignore web-next/node_modules
+      - run: npx markdownlint-cli@0.41.0 -c .markdownlint.json "**/*.md" --ignore node_modules --ignore web-next/node_modules
 
   mermaid-script:
     name: fix-mermaid script tests
@@ -140,7 +140,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pytest
+      - run: pip install pytest==8.2.2
       - run: python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py
 
   pii-check:
@@ -175,8 +175,8 @@ push 前に確かめる:
 
 ```bash
 cd web-next && bun install --frozen-lockfile && bun run typecheck && bun run lint && bun run test && bun run build && cd ..
-cd web-next && bunx license-checker-rseidelsohn --production --failOn "GPL-2.0;GPL-3.0;AGPL-1.0;AGPL-3.0" && cd ..
-npx markdownlint-cli -c .markdownlint.json "**/*.md" --ignore node_modules --ignore web-next/node_modules
+cd web-next && bunx license-checker-rseidelsohn@4.4.2 --production --failOn "GPL-2.0;GPL-3.0;AGPL-1.0;AGPL-3.0" && cd ..
+npx markdownlint-cli@0.41.0 -c .markdownlint.json "**/*.md" --ignore node_modules --ignore web-next/node_modules
 python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py
 git grep -nI -E '(/Users/[A-Za-z0-9._-]+/|/home/[A-Za-z0-9._-]+/|C:\\Users\\)' -- ':!*.lock' | grep -vE 'johndoe|https?://' || echo clean
 ```
@@ -193,7 +193,7 @@ git grep -nI -E '(/Users/[A-Za-z0-9._-]+/|/home/[A-Za-z0-9._-]+/|C:\\Users\\)' -
 pii-check の 5 ジョブ）」と付記する。「依存脆弱性監査・ライセンス棚卸しを CI に組み込む方針を
 確定した」も更新する（ライセンス = CI ジョブ化済み、脆弱性 = Dependabot 方針）。
 
-**Verify**: `npx markdownlint-cli -c .markdownlint.json docs/publishing/06-infrastructure-and-deployment.md` → エラー 0
+**Verify**: `npx markdownlint-cli@0.41.0 -c .markdownlint.json docs/publishing/06-infrastructure-and-deployment.md` → エラー 0
 
 ## Test plan
 
