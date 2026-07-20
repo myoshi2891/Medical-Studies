@@ -104,9 +104,9 @@ tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
 .mmd{background:#fff;border-radius:var(--r);padding:24px 16px;box-shadow:var(--sh);margin:18px 0}
 .mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px;justify-content:center}
 .mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--pth2);display:inline-block}
-.mmd-scroll{overflow-x:auto;display:flex;justify-content:center}
-pre.mermaid{text-align:center;margin:0 auto}
-.mmd svg{display:block !important;width:min(100%,860px) !important;height:auto !important;margin:0 auto !important;max-width:100% !important}
+.mmd-scroll{overflow-x:auto;text-align:center}
+pre.mermaid{text-align:center}
+.mmd svg{max-width:100%;height:auto}
 
 /* Phase cards */
 .phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
@@ -676,7 +676,7 @@ mermaid.initialize({
     secondaryColor: '#e0f2f1',
     tertiaryColor: '#e8f5e9',
     edgeLabelBackground: '#ffffff',
-    fontSize: '13px'
+    fontSize: '16px'
   },
   flowchart: { curve: 'linear', padding: 20, nodeSpacing: 40, rankSpacing: 55 }
 });
