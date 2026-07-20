@@ -17,8 +17,8 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
-  * 頭痛と経穴（アキュポイント）ガイドの固定サイドバー目次。
-  */
+ * 頭痛と経穴（アキュポイント）ガイドの固定サイドバー目次。
+ */
 export function HeadacheAcupointsSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
 
