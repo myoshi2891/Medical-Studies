@@ -75,13 +75,13 @@ URL 変更（=外部リンク切れ）を招く。本プランで **拡張後も
 | `womens-headache` | 女性の頭痛（月経関連片頭痛・妊娠/授乳期の治療選択・ホルモンとの関係） | **P1**（片頭痛有病率の性差から需要最大） |
 | `elderly-headache` | 高齢者の頭痛（新規発症時の注意・併存疾患と薬物相互作用） | P3 |
 
-### 3. 薬物療法（`/medications/*`）— 新カテゴリ（詳細は plans/004）
+### 3. 薬物療法（`/treatment/*`）— カテゴリ拡張（詳細は plans/004）
 
 非薬物療法（既存 `/therapies`）と対をなす。**個別の用量推奨は行わない**（plans/001 原則 1）。
 
 | ページ（slug） | 内容 | 優先度 |
 |---|---|---|
-| `acute-treatment` | 急性期治療薬（アセトアミノフェン・NSAIDs・トリプタン・ジタン・ゲパント） | **P1** |
+| `acute-treatment-of-headache` | 急性期治療薬（アセトアミノフェン・NSAIDs・トリプタン・ジタン・ゲパント） | **P1** |
 | `preventive-treatment` | 予防薬（従来予防薬: β遮断薬・抗てんかん薬・抗うつ薬・Ca 拮抗薬） | **P1** |
 | `cgrp-targeted-therapies` | CGRP 関連薬（抗 CGRP/受容体抗体・経口ゲパント予防） | P2 |
 | `medication-overuse-prevention` | 鎮痛薬の適正使用（既存 MOH ページと相互リンク） | P2 |
@@ -113,7 +113,7 @@ URL 変更（=外部リンク切れ）を招く。本プランで **拡張後も
 ### ナビ再編後の姿（ドロップダウン 8 グループ）
 
 ```text
-Home | Anatomy | Headaches(7+4) | Populations(3) | Medications(4) |
+Home | Anatomy | Headaches(7+4) | Populations(3) | Treatment(4) |
 Therapies(5) | Blocks(3) | Care(5) | Research(3) | PROM 指標(6)
 ```
 
@@ -138,7 +138,7 @@ Therapies(5) | Blocks(3) | Care(5) | Research(3) | PROM 指標(6)
 ### Step 1: md-files ディレクトリ規約の対応付け
 
 新カテゴリのコンテンツ Markdown は `Types-of-headache/md-files/` 配下に
-カテゴリ名のディレクトリ（例: `Medications/`, `Care/`, `Research/`, `Populations/`）を
+カテゴリ名のディレクトリ（例: Treatment/, Care/, Research/, Populations/）を
 新設して置く。既存の `Headaches/`・`Blocks/` の慣習（1 ページ 1 md、PascalCase-with-hyphen
 ファイル名）に合わせる。
 
@@ -148,7 +148,7 @@ Therapies(5) | Blocks(3) | Care(5) | Research(3) | PROM 指標(6)
 ### Step 2: 段階公開順の遵守
 
 P1（`cluster-headache` / `secondary-headaches-red-flags` / `womens-headache` /
-`acute-treatment` / `preventive-treatment`）→ P2 → P3 の順で着手する。
+`acute-treatment-of-headache` / `preventive-treatment`）→ P2 → P3 の順で着手する。
 各ページ着手時に nav-links.ts へ `disabled: true` エントリを追加し、
 ページ完成時に `disabled` を外す。
 
@@ -158,7 +158,7 @@ P1（`cluster-headache` / `secondary-headaches-red-flags` / `womens-headache` /
 
 新ページは最低 2 本の内部リンクを持つ：所属カテゴリのインデックス的ページ（または隣接ページ）と、
 関連する既存ページ（例: `cluster-headache` → `/blocks/stellate-ganglion-block`、
-`acute-treatment` → `/headaches/medication-overuse-headache`）。
+`acute-treatment-of-headache` → `/headaches/medication-overuse-headache`）。
 
 **Verify**: 各ページの契約テスト（`page.test.tsx`）に内部リンク存在のアサーションがあること。
 
