@@ -1,5 +1,6 @@
 import "./trigger-points-and-headache.css";
 import { Ext } from "@/components/Ext";
+import Term from "@/components/glossary/Term";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { TriggerPointsSidebar } from "@/components/therapies/TriggerPointsSidebar";
 
@@ -61,7 +62,7 @@ export default function TriggerPointsAndHeadachePage() {
 
             <div className="card">
               <p>
-                筋膜性トリガーポイント（myofascial trigger point,
+                筋膜性<Term id="trigger-point">トリガーポイント</Term>（myofascial trigger point,
                 MTrP）とは、骨格筋の中にある過敏化したスポットで、索状に硬くなった帯（taut
                 band）の中に、押すと痛む結節として触知されるものと定義されています。この概念は1950年代に
                 Travell と Simons
