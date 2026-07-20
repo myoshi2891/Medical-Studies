@@ -19,6 +19,7 @@ const scriptSrc = [
   "'unsafe-inline'",
   ...(isDev ? ["'unsafe-eval'"] : []),
   "https://accounts.google.com",
+  "https://cdnjs.cloudflare.com",
 ].join(" ");
 
 const cspEnforced = [
