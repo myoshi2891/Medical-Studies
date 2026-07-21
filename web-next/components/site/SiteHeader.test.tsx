@@ -89,7 +89,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     });
   });
 
-  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker/nutrition-and-supplements/physical-therapy-for-headache/psychological-behavioral-therapy/headache-diary/headache-impact-test/numerical-rating-scale-visual-analogue-scale/patient-global-impression-of-change）は通常リンクで描画される", () => {
+  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker/nutrition-and-supplements/physical-therapy-for-headache/psychological-behavioral-therapy/headache-diary/headache-impact-test/numerical-rating-scale-visual-analogue-scale/patient-global-impression-of-change/headache-lifestyle-seeds-guide/headache-trigger-identification-guide/headache-pathophysiology/headache-workplace-school-accommodations）は通常リンクで描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const hrefs = Array.from(container.querySelectorAll<HTMLAnchorElement>("a[href]")).map((a) =>
       a.getAttribute("href")
@@ -97,6 +97,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/headaches/migraine");
     expect(hrefs).toContain("/headaches/tension-type-headache");
     expect(hrefs).toContain("/headaches/cervicogenic-headache");
+    expect(hrefs).toContain("/headaches/headache-pathophysiology");
     expect(hrefs).toContain("/blocks/occipital-nerve-block");
     expect(hrefs).toContain("/blocks/cervical-plexus-block");
     expect(hrefs).toContain("/blocks/stellate-ganglion-block");
@@ -111,6 +112,9 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/prom/migraine-specific-quality-of-life");
     expect(hrefs).toContain("/prom/numerical-rating-scale-visual-analogue-scale");
     expect(hrefs).toContain("/prom/patient-global-impression-of-change");
+    expect(hrefs).toContain("/treatment/headache-lifestyle-seeds-guide");
+    expect(hrefs).toContain("/treatment/headache-trigger-identification-guide");
+    expect(hrefs).toContain("/treatment/headache-workplace-school-accommodations");
   });
 });
 

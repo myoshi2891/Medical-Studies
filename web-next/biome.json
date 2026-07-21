@@ -22,6 +22,7 @@
       "!app/headaches/medication-overuse-headache/medication-overuse-headache.css",
       "!app/headaches/migraine/migraine.css",
       "!app/headaches/tension-type-headache/tension-type-headache.css",
+      "!app/headaches/headache-pathophysiology/headache-pathophysiology.css",
       "!app/therapies/nutrition-and-supplements/nutrition-and-supplements.css",
       "!app/therapies/physical-therapy-for-headache/physical-therapy-for-headache.css",
       "!app/therapies/psychological-behavioral-therapy/psychological-behavioral-therapy.css",
@@ -33,7 +34,10 @@
       "!app/prom/patient-global-impression-of-change/patient-global-impression-of-change.css",
       "!app/therapies/headache-acupoints-trigger-points/headache-acupoints-trigger-points.css",
       "!app/therapies/trigger-points-and-headache/trigger-points-and-headache.css",
-      "!app/treatment/acute-treatment-of-headache/acute-treatment-of-headache.css"
+      "!app/treatment/acute-treatment-of-headache/acute-treatment-of-headache.css",
+      "!app/treatment/headache-lifestyle-seeds-guide/headache-lifestyle-seeds-guide.css",
+      "!app/treatment/headache-trigger-identification-guide/headache-trigger-identification-guide.css",
+      "!app/treatment/headache-workplace-school-accommodations/headache-workplace-school-accommodations.css"
     ]
   },
   "formatter": {

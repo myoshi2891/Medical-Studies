@@ -68,6 +68,10 @@ export const navLinks: readonly NavLink[] = [
         name: "頸原性頭痛 (CEH)",
         href: "/headaches/cervicogenic-headache",
       },
+      {
+        name: "病態生理 (Pathophysiology)",
+        href: "/headaches/headache-pathophysiology",
+      },
     ],
   },
   {
@@ -76,6 +80,18 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "急性期治療の考え方",
         href: "/treatment/acute-treatment-of-headache",
+      },
+      {
+        name: "生活習慣管理とSEEDS",
+        href: "/treatment/headache-lifestyle-seeds-guide",
+      },
+      {
+        name: "トリガーの特定と管理",
+        href: "/treatment/headache-trigger-identification-guide",
+      },
+      {
+        name: "合理的配慮の一般論",
+        href: "/treatment/headache-workplace-school-accommodations",
       },
     ],
   },

@@ -1,0 +1,589 @@
+.headache-pathophysiology-accent {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0,0,0,.10);
+  --r: 12px;
+  --rs: 8px;
+  --pth1: #1a1a4e;
+  --pth2: #4c1d95;
+  --pth3: #0e7490;
+  --pth-l: #ede9fe;
+
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
+}
+
+.headache-pathophysiology-accent * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hero */
+.headache-pathophysiology-accent .hero {
+  background: linear-gradient(135deg, #1a1a4e, #4c1d95 55%, #0e7490);
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.headache-pathophysiology-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin: 10px 0 8px;
+}
+.headache-pathophysiology-accent .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.headache-pathophysiology-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.headache-pathophysiology-accent .hero-tag {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.headache-pathophysiology-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.headache-pathophysiology-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.headache-pathophysiology-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.headache-pathophysiology-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.headache-pathophysiology-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.headache-pathophysiology-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.headache-pathophysiology-accent .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.headache-pathophysiology-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all .15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.headache-pathophysiology-accent .nav-a:hover,
+.headache-pathophysiology-accent .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--pth1);
+  color: var(--pth1);
+}
+.headache-pathophysiology-accent .nav-a.active {
+  font-weight: 600;
+  background: var(--pth-l);
+}
+.headache-pathophysiology-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.headache-pathophysiology-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.headache-pathophysiology-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.headache-pathophysiology-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.headache-pathophysiology-accent .sec-num {
+  background: var(--pth1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.headache-pathophysiology-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--pth1);
+}
+.headache-pathophysiology-accent h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--pth2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--pth3);
+}
+.headache-pathophysiology-accent h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
+}
+.headache-pathophysiology-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.headache-pathophysiology-accent ul,
+.headache-pathophysiology-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.headache-pathophysiology-accent li {
+  margin-bottom: 4px;
+}
+.headache-pathophysiology-accent a {
+  color: var(--blue);
+}
+.headache-pathophysiology-accent a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.headache-pathophysiology-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.headache-pathophysiology-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.headache-pathophysiology-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.headache-pathophysiology-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.headache-pathophysiology-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.headache-pathophysiology-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.headache-pathophysiology-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.headache-pathophysiology-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.headache-pathophysiology-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.headache-pathophysiology-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.headache-pathophysiology-accent thead th {
+  background: var(--pth1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.headache-pathophysiology-accent tbody tr:nth-child(even) {
+  background: var(--pth-l);
+}
+.headache-pathophysiology-accent tbody tr:hover {
+  background: var(--g1);
+}
+.headache-pathophysiology-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.headache-pathophysiology-accent .th-teal thead th {
+  background: var(--teal);
+}
+.headache-pathophysiology-accent .th-red thead th {
+  background: var(--red);
+}
+.headache-pathophysiology-accent .th-orange thead th {
+  background: var(--orange);
+}
+.headache-pathophysiology-accent .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.headache-pathophysiology-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.headache-pathophysiology-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.headache-pathophysiology-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.headache-pathophysiology-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.headache-pathophysiology-accent .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.headache-pathophysiology-accent .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.headache-pathophysiology-accent .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.headache-pathophysiology-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.headache-pathophysiology-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.headache-pathophysiology-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.headache-pathophysiology-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.headache-pathophysiology-accent .tN {
+  color: var(--pth1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.headache-pathophysiology-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 24px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+}
+.headache-pathophysiology-accent .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+.headache-pathophysiology-accent .mmd-lbl::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--pth2);
+  display: inline-block;
+}
+.headache-pathophysiology-accent .mmd-scroll {
+  overflow-x: auto;
+  text-align: center;
+}
+.headache-pathophysiology-accent pre.mermaid {
+  text-align: center;
+}
+.headache-pathophysiology-accent .mmd svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Phase cards */
+.headache-pathophysiology-accent .phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+@media (max-width: 700px) {
+  .headache-pathophysiology-accent .phase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.headache-pathophysiology-accent .ph {
+  border-radius: var(--rs);
+  padding: 16px;
+  text-align: center;
+}
+.headache-pathophysiology-accent .ph1 {
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+}
+.headache-pathophysiology-accent .ph2 {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.headache-pathophysiology-accent .ph3 {
+  background: #ffebee;
+  border: 2px solid #ef5350;
+}
+.headache-pathophysiology-accent .ph4 {
+  background: #e8f5e9;
+  border: 2px solid #66bb6a;
+}
+.headache-pathophysiology-accent .ph-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.headache-pathophysiology-accent .ph-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 2px;
+}
+.headache-pathophysiology-accent .ph-time {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 6px;
+}
+.headache-pathophysiology-accent .ph-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Source cards */
+.headache-pathophysiology-accent .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-pathophysiology-accent .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+.headache-pathophysiology-accent .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.headache-pathophysiology-accent .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.headache-pathophysiology-accent .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Quick ref */
+.headache-pathophysiology-accent .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.headache-pathophysiology-accent .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.headache-pathophysiology-accent .qr-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--pth1);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* Footer */
+.headache-pathophysiology-accent .footer {
+  background: var(--pth1);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.headache-pathophysiology-accent .footer strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .headache-pathophysiology-accent .sidebar {
+    display: none;
+  }
+  .headache-pathophysiology-accent .main {
+    padding: 16px 14px 60px;
+  }
+}
