@@ -89,6 +89,10 @@ export const navLinks: readonly NavLink[] = [
         name: "トリガーの特定と管理",
         href: "/treatment/headache-trigger-identification-guide",
       },
+      {
+        name: "合理的配慮の一般論",
+        href: "/treatment/headache-workplace-school-accommodations",
+      },
     ],
   },
   {
