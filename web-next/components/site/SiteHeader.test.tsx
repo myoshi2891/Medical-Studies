@@ -47,16 +47,16 @@ describe("SiteHeader - ルート構造", () => {
 });
 
 describe("SiteHeader - ドロップダウン描画", () => {
-  it("renders 4 dropdowns (Headaches/Blocks/Therapies/PROM) as .ch-dropdown <li>", () => {
+  it("renders 5 dropdowns (Headaches/Treatment/Blocks/Therapies/PROM) as .ch-dropdown <li>", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const dropdowns = container.querySelectorAll("li.ch-dropdown");
-    expect(dropdowns.length).toBe(4);
+    expect(dropdowns.length).toBe(5);
   });
 
   it("each dropdown toggle has aria-haspopup=true", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const toggles = container.querySelectorAll("li.ch-dropdown .ch-dropdown-toggle");
-    expect(toggles.length).toBe(4);
+    expect(toggles.length).toBe(5);
     toggles.forEach((btn) => {
       expect(btn.getAttribute("aria-haspopup")).toBe("true");
     });

@@ -71,6 +71,15 @@ export const navLinks: readonly NavLink[] = [
     ],
   },
   {
+    name: "Treatment",
+    children: [
+      {
+        name: "急性期治療の考え方",
+        href: "/treatment/acute-treatment-of-headache",
+      },
+    ],
+  },
+  {
     name: "Blocks",
     children: [
       { name: "後頭神経ブロック (ONB)", href: "/blocks/occipital-nerve-block" },
@@ -95,6 +104,14 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "心理・行動療法",
         href: "/therapies/psychological-behavioral-therapy",
+      },
+      {
+        name: "経穴・トリガーポイント",
+        href: "/therapies/headache-acupoints-trigger-points",
+      },
+      {
+        name: "トリガーポイント入門",
+        href: "/therapies/trigger-points-and-headache",
       },
     ],
   },

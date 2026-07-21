@@ -30,7 +30,10 @@
       "!app/prom/migraine-disability-assessment/migraine-disability-assessment.css",
       "!app/prom/migraine-specific-quality-of-life/migraine-specific-quality-of-life.css",
       "!app/prom/numerical-rating-scale-visual-analogue-scale/numerical-rating-scale-visual-analogue-scale.css",
-      "!app/prom/patient-global-impression-of-change/patient-global-impression-of-change.css"
+      "!app/prom/patient-global-impression-of-change/patient-global-impression-of-change.css",
+      "!app/therapies/headache-acupoints-trigger-points/headache-acupoints-trigger-points.css",
+      "!app/therapies/trigger-points-and-headache/trigger-points-and-headache.css",
+      "!app/treatment/acute-treatment-of-headache/acute-treatment-of-headache.css"
     ]
   },
   "formatter": {

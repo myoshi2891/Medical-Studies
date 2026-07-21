@@ -64,6 +64,49 @@ describe("ANATOMY_MANIFEST: MRI 配線（Phase 1）", () => {
   });
 });
 
+describe("ANATOMY_MANIFEST: 出典メタデータ（provenance / F3）", () => {
+  /** permission が取りうる 4 値。 */
+  const PERMISSIONS = ["own", "granted", "unverified", "denied"];
+
+  it("全 6 構造の MRI シリーズに provenance が定義されている", () => {
+    for (const s of ANATOMY_MANIFEST) {
+      expect(s.mri?.provenance, `${s.id} の provenance が未定義`).toBeDefined();
+    }
+  });
+
+  it("permission が 4 値のいずれかである", () => {
+    for (const s of ANATOMY_MANIFEST) {
+      expect(PERMISSIONS).toContain(s.mri?.provenance?.permission);
+    }
+  });
+
+  it("本リポジトリの現状値として全シリーズの permission が own である", () => {
+    for (const s of ANATOMY_MANIFEST) {
+      expect(s.mri?.provenance?.permission, `${s.id} の permission`).toBe("own");
+    }
+  });
+
+  it("不正な permission 値を含む mri は理由付き Error で弾かれる", () => {
+    const bad = [
+      {
+        id: "overview",
+        title: "t",
+        summary: "s",
+        modelSrc: null,
+        hotspots: [],
+        mri: {
+          id: "brain",
+          bodyPart: "brain",
+          slices: ["/mri/brain/01.png"],
+          provenance: { source: "x", copyrightHolder: "y", permission: "maybe" },
+        },
+        links: [{ label: "l", href: "/x" }],
+      },
+    ];
+    expect(() => validateManifest(bad)).toThrow(/permission/);
+  });
+});
+
 describe("getStructure", () => {
   it("既知 id で構造を返す", () => {
     expect(getStructure("nerves")?.id).toBe("nerves");

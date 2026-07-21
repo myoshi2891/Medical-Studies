@@ -22,12 +22,14 @@ export interface UpsertPlan {
 }
 
 /**
- * Computes the upsert plan for a set of rows against the keys already present in a sheet.
+ * Computes an upsert plan for rows using keys already present in a sheet.
  *
- * @param existingKeys - Current key-column values (header excluded, top→bottom).
- * @param rows - New rows to upsert.
- * @param keyColIndex - Position of the key column within each row.
- * @returns Updates (matched by key) and appends (new keys).
+ * Duplicate keys in `rows` are reduced to the last row for each key.
+ *
+ * @param existingKeys - Current key-column values, excluding the header and ordered from top to bottom.
+ * @param rows - Rows to update or append.
+ * @param keyColIndex - Zero-based index of the key column in each row.
+ * @returns An upsert plan containing matched-row updates and rows with new keys to append.
  */
 export function computeUpsert(
   existingKeys: string[],
@@ -59,8 +61,6 @@ export function computeUpsert(
   }
   return { updates, appends };
 }
-
-
 
 /**
  * Converts a 0-based column index to an A1 column letter (0→A, 25→Z, 26→AA).

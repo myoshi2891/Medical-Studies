@@ -5,21 +5,14 @@ import Term from "@/components/glossary/Term";
 import type { Hotspot } from "@/lib/anatomy/types";
 
 /**
- * 解剖構造の 3D ビューア（クライアントアイランド）。
+ * Displays an anatomical 3D model with interactive hotspots and an accessible text legend.
  *
- * `src` の glTF/GLB を `@google/model-viewer` で描画する。重い Web Component は
- * 初期バンドルに含めず、マウント時に動的 `import()` で遅延ロードする
- * （`components/MermaidDiagram.tsx` と同型）。モデル未投入（src=null）や
- * 読込失敗時はプレースホルダへ降格し、ページ全体は機能を保つ
- * （設計書 docs/architecture.md §4 / §6 の降格戦略）。
+ * Models that are unavailable or fail to load are represented by a placeholder while
+ * preserving hotspot information.
  *
- * ホットスポット（専門名・やさしい言い換え・3D 座標）は、3D 上のピン
- * （`slot="hotspot-<id>"` + `data-position`）と、常時表示のテキスト凡例の
- * 二系統で提示する（凡例は降格時・スクリーンリーダー向けに情報を保持）。
- *
- * @param src - public/models 配下の glTF パス（未投入時は null）。
- * @param hotspots - 注釈（専門名・やさしい言い換え・3D 座標）。
- * @param title - 構造名（アクセシビリティ用）。
+ * @param src - Path to the glTF or GLB model, or `null` when no model is available.
+ * @param hotspots - Annotations containing labels, plain-language descriptions, and 3D positions.
+ * @param title - Structure name used for accessibility labeling.
  */
 export default function ModelViewer({
   src,
@@ -35,6 +28,9 @@ export default function ModelViewer({
 
   const showModel = src !== null && !failed;
 
+  // src が変わったら失敗状態をリセットし、新しいモデルの読み込みを再試行する。
+  // src は本文で参照しないが reset トリガーとして意図的に依存に含める（削除不可）。
+  // biome-ignore lint/correctness/useExhaustiveDependencies: src はリセットのトリガーとして意図的に指定
   useEffect(() => {
     setFailed(false);
   }, [src]);
