@@ -10,7 +10,7 @@ vi.mock("@/components/MermaidDiagram", () => ({
 /** ソース HTML（Headache-pathophysiology.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 12 }, (_, i) => `s${i + 1}`);
 const H2_COUNT = 12; // 主要セクション数 (元 h1)
-const H3_COUNT = 9;  // セクション内小見出し数 (元 h2)
+const H3_COUNT = 9; // セクション内小見出し数 (元 h2)
 const MERMAID_COUNT = 5;
 const TABLE_COUNT = 3;
 const NAV_COUNT = 12;
