@@ -14,6 +14,9 @@ const ATH_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational page about acute headache treatment strategies, medication classes, and medication-overuse headache prevention.
+ */
 export default function AcuteTreatmentOfHeadachePage() {
   return (
     <div className="acute-treatment-of-headache">

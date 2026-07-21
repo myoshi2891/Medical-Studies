@@ -15,6 +15,11 @@ const MTP_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to myofascial trigger points and their relationship to headache.
+ *
+ * @returns The rendered trigger-points and headache information page.
+ */
 export default function TriggerPointsAndHeadachePage() {
   return (
     <div className="trigger-points-accent">

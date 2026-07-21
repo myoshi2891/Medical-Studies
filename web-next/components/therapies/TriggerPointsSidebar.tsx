@@ -17,7 +17,7 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛のトリガーポイント入門ガイドの固定サイドバー目次。
+ * Renders a fixed table of contents sidebar for the headache trigger point guide.
  */
 export function TriggerPointsSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
