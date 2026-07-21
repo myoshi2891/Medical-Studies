@@ -26,6 +26,19 @@
   --pth2: #4c1d95;
   --pth3: #0e7490;
   --pth-l: #ede9fe;
+
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
+}
+
+.headache-pathophysiology-accent * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @media (prefers-reduced-motion: no-preference) {
