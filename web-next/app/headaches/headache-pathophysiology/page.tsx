@@ -77,7 +77,7 @@ export default function HeadachePathophysiologyPage() {
                 <h2 className="sec-title">なぜ「病態生理」を学ぶのか</h2>
               </div>
               <p>
-                片頭痛は世界で10億人以上が罹患しているとされ、障害を引き起こす疾患として世界的に上位に位置づけされています。かつて片頭痛は「脳血管の拡張が痛みを引き起こす」という
+                片頭痛は世界で10億人以上が罹患しているとされ、障害を引き起こす疾患として世界的に上位に位置づけられています。かつて片頭痛は「脳血管の拡張が痛みを引き起こす」という
                 <strong>血管説（vascular theory）</strong>
                 で説明されてきましたが、1980年代以降の研究により、この理解は大きく修正されました。現在では、片頭痛は
                 <strong>脳の感覚処理の障害（a disorder of sensory processing）</strong>
@@ -210,7 +210,7 @@ export default function HeadachePathophysiologyPage() {
               <div className="alert a-info">
                 <div className="alert-i">ℹ️</div>
                 <div>
-                  前兆期に視床下部の活動変化が機能画像研究で示唆されていることから、片頭痛発作は「頭痛が始まる前から」脳内で始まっている一連のプロセスであると考えされています。
+                  前兆期に視床下部の活動変化が機能画像研究で示唆されていることから、片頭痛発作は「頭痛が始まる前から」脳内で始まっている一連のプロセスであると考えられています。
                 </div>
               </div>
             </section>
@@ -282,7 +282,7 @@ export default function HeadachePathophysiologyPage() {
                 CGRPが片頭痛の病態生理において重要視される根拠として、代表的な知見には以下のようなものがあります。
               </p>
               <ul>
-                <li>片頭痛発作中に、頭部の静脈血中でCGRP濃度の上飾が観察される</li>
+                <li>片頭痛発作中に、頭部の静脈血中でCGRP濃度の上昇が観察される</li>
                 <li>CGRPを健常者・片頭痛患者に投与すると、片頭痛様の頭痛を誘発しうる</li>
                 <li>
                   有効な急性期治療薬（トリプタンなど）の投与後、CGRP濃度の正常化と頭痛の軽快が並行して観察される
@@ -304,7 +304,7 @@ export default function HeadachePathophysiologyPage() {
                 <strong>神経原性炎症（neurogenic inflammation）</strong>
                 と呼ばれる局所の炎症反応を引き起こすと考えられています。この炎症反応が、周囲の侵害受容器をより興奮しやすい状態にする「末梢性感作（peripheral
                 sensitization）」につながり、さらに中枢側の三叉神経脊髄路核ニューロンが持続的に興奮する「中枢性感作（central
-                sensitization）」へと発展すると考えられています。中枢性感作は、頭皮に触れるだけで痛みを感じる「アロディニア（allodynia）」といった臨床症状と関連づけされています。
+                sensitization）」へと発展すると考えられています。中枢性感作は、頭皮に触れるだけで痛みを感じる「アロディニア（allodynia）」といった臨床症状と関連づけられています。
               </p>
 
               <div className="mmd">
@@ -333,7 +333,7 @@ export default function HeadachePathophysiologyPage() {
                 <strong>指標（バイオマーカー）</strong>
                 であると同時に、痛みの伝達・炎症反応を
                 <strong>増幅する分子</strong>
-                として位置づけされています。CGRPを標的とする薬剤が一定の有効性を示すことは、CGRPが病態の重要な一部を担っていることの傍証にはなりますが、片頭痛の病態全体を単一の分子で説明できるわけではない点は、多くの総説で共通して指摘されています。
+                として位置づけられています。CGRPを標的とする薬剤が一定の有効性を示すことは、CGRPが病態の重要な一部を担っていることの傍証にはなりますが、片頭痛の病態全体を単一の分子で説明できるわけではない点は、多くの総説で共通して指摘されています。
               </p>
             </section>
 
