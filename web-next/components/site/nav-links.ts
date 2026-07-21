@@ -68,6 +68,10 @@ export const navLinks: readonly NavLink[] = [
         name: "頸原性頭痛 (CEH)",
         href: "/headaches/cervicogenic-headache",
       },
+      {
+        name: "病態生理 (Pathophysiology)",
+        href: "/headaches/headache-pathophysiology",
+      },
     ],
   },
   {
