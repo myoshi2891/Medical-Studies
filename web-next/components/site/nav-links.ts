@@ -77,6 +77,10 @@ export const navLinks: readonly NavLink[] = [
         name: "急性期治療の考え方",
         href: "/treatment/acute-treatment-of-headache",
       },
+      {
+        name: "生活習慣管理とSEEDS",
+        href: "/treatment/headache-lifestyle-seeds-guide",
+      },
     ],
   },
   {
