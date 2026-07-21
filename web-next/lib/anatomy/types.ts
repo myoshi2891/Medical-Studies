@@ -108,6 +108,14 @@ function assertHotspot(value: unknown, ctx: string): Hotspot {
   return result;
 }
 
+/**
+ * Validates and constructs an internal Markdown link.
+ *
+ * @param value - The value to validate as a link
+ * @param ctx - Context included in validation error messages
+ * @returns A validated link with its label and internal or anchor href
+ * @throws Error if the value is invalid or the href does not start with `/` or `#`
+ */
 function assertMdLink(value: unknown, ctx: string): MdLink {
   if (!isRecord(value)) throw new Error(`${ctx}: link がオブジェクトではありません`);
   const { label, href } = value;
@@ -120,10 +128,24 @@ function assertMdLink(value: unknown, ctx: string): MdLink {
   return { label, href };
 }
 
+/**
+ * Determines whether a value is a valid MRI permission.
+ *
+ * @param value - The value to check
+ * @returns `true` if the value is an allowed MRI permission, `false` otherwise.
+ */
 function isMriPermission(value: unknown): value is MriPermission {
   return typeof value === "string" && (MRI_PERMISSIONS as readonly string[]).includes(value);
 }
 
+/**
+ * Validates MRI provenance metadata and returns its normalized representation.
+ *
+ * @param value - The provenance metadata to validate
+ * @param ctx - Context used to identify validation errors
+ * @returns The validated MRI provenance metadata
+ * @throws Error if the value or any required or present optional field is invalid
+ */
 function assertProvenance(value: unknown, ctx: string): MriProvenance {
   if (!isRecord(value)) throw new Error(`${ctx}: provenance がオブジェクトではありません`);
   const { source, copyrightHolder, permission, license, attribution, verifiedAt } = value;
@@ -153,6 +175,14 @@ function assertProvenance(value: unknown, ctx: string): MriProvenance {
   return result;
 }
 
+/**
+ * Validates an MRI series manifest entry.
+ *
+ * @param value - The value to validate, or `null` when no MRI series is available
+ * @param ctx - Context included in validation error messages
+ * @returns A validated MRI series, or `null` when `value` is `null`
+ * @throws Error If the value or any MRI field is invalid
+ */
 function assertMri(value: unknown, ctx: string): MriSeries | null {
   if (value === null) return null;
   if (!isRecord(value)) throw new Error(`${ctx}: mri が不正です`);
@@ -176,6 +206,14 @@ function assertMri(value: unknown, ctx: string): MriSeries | null {
   return result;
 }
 
+/**
+ * Validates and constructs an anatomy structure from an unknown value.
+ *
+ * @param value - The value to validate as an anatomy structure
+ * @param index - The structure's position in the manifest, used in validation errors
+ * @returns The validated anatomy structure
+ * @throws Error if the value or any required field is invalid
+ */
 function assertStructure(value: unknown, index: number): AnatomyStructure {
   const ctx = `structure[${index}]`;
   if (!isRecord(value)) throw new Error(`${ctx}: オブジェクトではありません`);

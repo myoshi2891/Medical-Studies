@@ -17,7 +17,11 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛と経穴（アキュポイント）ガイドの固定サイドバー目次。
+ * Renders a table-of-contents sidebar for the headache and acupoint guide.
+ *
+ * The active link reflects the guide section currently visible in the viewport.
+ *
+ * @returns The rendered navigation sidebar.
  */
 export function HeadacheAcupointsSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

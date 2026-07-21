@@ -15,6 +15,9 @@ const ACP_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to the anatomical relationships, evidence, safety considerations, and professional consultation pathways for five acupuncture points associated with headache and trigger points.
+ */
 export default function HeadacheAcupointsPage() {
   return (
     <div className="headache-acupoints-accent">
