@@ -35,21 +35,19 @@ describe("HeadacheWorkplaceSchoolAccommodationsPage Contract Tests", () => {
   it("should render correct count of headings", () => {
     const { container } = render(<Page />);
 
-    // Total h1 elements (1 page title h1 + 8 section title h1)
+    // Total h1 elements (1 page title h1)
     const h1s = container.querySelectorAll("h1");
-    expect(h1s.length).toBe(9);
+    expect(h1s.length).toBe(1);
 
-    // Section subtitles (h2)
-    // Note: The source HTML has 6 h2 elements, and 1 h3 element ("日本国内のデータ").
-    // Under the heading hierarchy guidelines, s1's h3 is raised to h2 because it is
-    // directly under the section h1, making it a sibling of other h2s in the document structure.
-    // Therefore, the target h2 count is 6 + 1 = 7, and h3 count becomes 0.
+    // Section titles (h2)
+    // 8 sections, so 8 h2 elements
     const h2s = container.querySelectorAll("h2");
-    expect(h2s.length).toBe(7);
+    expect(h2s.length).toBe(8);
 
-    // After raising s1's h3 to h2, there should be no h3 or h4 elements in this page.
+    // Section subtitles (h3)
+    // 7 subheadings in total
     const h3s = container.querySelectorAll("h3");
-    expect(h3s.length).toBe(0);
+    expect(h3s.length).toBe(7);
     const h4s = container.querySelectorAll("h4");
     expect(h4s.length).toBe(0);
   });

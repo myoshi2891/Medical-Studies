@@ -58,7 +58,7 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
           <section id="s1" className="sec">
             <div className="sec-hd">
               <div className="sec-num">1</div>
-              <h1 className="sec-title">なぜ「周囲の理解」が重要なのか</h1>
+              <h2 className="sec-title">なぜ「周囲の理解」が重要なのか</h2>
             </div>
 
             <div className="alert a-warn">
@@ -112,9 +112,9 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
               </div>
             </div>
 
-            {/* Note: Raised from h3 to h2 to prevent heading level skipping (h1 -> h3) in section 1 */}
+            {/* Note: Changed to h3 to maintain heading hierarchy (h2 -> h3) in section 1 */}
             <div className="card">
-              <h2>日本国内のデータ</h2>
+              <h3>日本国内のデータ</h3>
               <p style={{ fontSize: 13.5 }}>
                 日本国内の医療機関職員を対象とした実態調査（日本頭痛学会誌,
                 2023）では、頭痛時の自覚的な就業能力低下が報告される一方、頭痛による早退・欠勤経験は5%以下にとどまり、
@@ -138,7 +138,7 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
           <section id="s2" className="sec">
             <div className="sec-hd">
               <div className="sec-num">2</div>
-              <h1 className="sec-title">頭痛は「見えない障害」— スティグマの構造</h1>
+              <h2 className="sec-title">頭痛は「見えない障害」— スティグマの構造</h2>
             </div>
 
             <p>
@@ -221,7 +221,7 @@ F --> A`}
           <section id="s3" className="sec">
             <div className="sec-hd">
               <div className="sec-num">3</div>
-              <h1 className="sec-title">合理的配慮とは何か</h1>
+              <h2 className="sec-title">合理的配慮とは何か</h2>
             </div>
 
             <p>
@@ -267,7 +267,7 @@ I --> E`}
               />
             </div>
 
-            <h2>主要な法的・制度的枠組みの比較（一般的な整理）</h2>
+            <h3>主要な法的・制度的枠組みの比較（一般的な整理）</h3>
             <p style={{ fontSize: 13 }}>
               以下は代表的な制度の概要です。要件の詳細（対象となる障害の判定基準、事業者規模の要件など）は必ず一次情報・専門家に確認してください。
             </p>
@@ -334,10 +334,10 @@ I --> E`}
           <section id="s4" className="sec">
             <div className="sec-hd">
               <div className="sec-num">4</div>
-              <h1 className="sec-title">職場における合理的配慮</h1>
+              <h2 className="sec-title">職場における合理的配慮</h2>
             </div>
 
-            <h2>配慮を考える2つの切り口</h2>
+            <h3>配慮を考える2つの切り口</h3>
             <div className="card">
               <p style={{ fontSize: 13.5 }}>
                 米国のJob Accommodation
@@ -358,7 +358,7 @@ I --> E`}
               </p>
             </div>
 
-            <h2>職場での配慮の例とエビデンスレベル</h2>
+            <h3>職場での配慮の例とエビデンスレベル</h3>
             <p style={{ fontSize: 13 }}>
               Begasse de Dhaemらのスコーピングレビュー（<em>Cephalalgia</em>,
               2021）は、片頭痛のある成人の職場での生産性に関連する要因と、報告されている配慮・介入を包括的に整理しています。同レビューは、個々の環境調整に関する研究の多くが横断研究・自己報告データにとどまり、対照群を伴う前向き研究など厳密なデザインは限られると指摘しています。
@@ -432,14 +432,14 @@ I --> E`}
           <section id="s5" className="sec">
             <div className="sec-hd">
               <div className="sec-num">5</div>
-              <h1 className="sec-title">学校における合理的配慮</h1>
+              <h2 className="sec-title">学校における合理的配慮</h2>
             </div>
 
             <p>
               頭痛、特に片頭痛は小児・思春期にも珍しくない疾患であり、学業への影響（欠席の増加、成績への影響、生活の質の低下）が報告されています。
             </p>
 
-            <h2>アメリカの制度例：504プランとIEPの違い</h2>
+            <h3>アメリカの制度例：504プランとIEPの違い</h3>
             <p style={{ fontSize: 13.5 }}>
               米国教育省公民権局（OCR）は、片頭痛のある生徒に対するSection
               504（リハビリテーション法504条）の適用について、通常の教育課程の中で環境調整（教室の照明、香りのある芳香剤の使用制限、サングラス着用の許可など）を行う「修正（modifications）」が求められうるとしています。米国頭痛学会（American
@@ -462,7 +462,7 @@ D --> E`}
               />
             </div>
 
-            <h2>学校での配慮の例（米国の資料を中心に）</h2>
+            <h3>学校での配慮の例（米国の資料を中心に）</h3>
             <div className="tbl">
               <table>
                 <thead>
@@ -498,7 +498,7 @@ D --> E`}
               </table>
             </div>
 
-            <h2>日本の学校における「合理的配慮」の一般的な枠組み</h2>
+            <h3>日本の学校における「合理的配慮」の一般的な枠組み</h3>
             <div className="card">
               <p style={{ fontSize: 13.5 }}>
                 日本では、頭痛に特化した学校向けの公式ガイドラインは確認できていませんが、教育分野における「合理的配慮」の一般的な定義が文部科学省により示されています。初等中等教育段階における合理的配慮とは、
@@ -517,7 +517,7 @@ D --> E`}
           <section id="s6" className="sec">
             <div className="sec-hd">
               <div className="sec-num">6</div>
-              <h1 className="sec-title">開示とスティグマへの向き合い方</h1>
+              <h2 className="sec-title">開示とスティグマへの向き合い方</h2>
             </div>
 
             <p>
@@ -553,7 +553,7 @@ D --> E`}
           <section id="s7" className="sec">
             <div className="sec-hd">
               <div className="sec-num">7</div>
-              <h1 className="sec-title">まとめ：一般的な進め方</h1>
+              <h2 className="sec-title">まとめ：一般的な進め方</h2>
             </div>
 
             <p style={{ fontSize: 13 }}>
@@ -590,7 +590,7 @@ D --> E`}
           <section id="s8" className="sec">
             <div className="sec-hd">
               <div className="sec-num">8</div>
-              <h1 className="sec-title">ソース一覧</h1>
+              <h2 className="sec-title">ソース一覧</h2>
             </div>
 
             <p style={{ fontSize: 13 }}>
