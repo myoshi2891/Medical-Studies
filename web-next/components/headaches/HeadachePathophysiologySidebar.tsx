@@ -63,7 +63,7 @@ export function HeadachePathophysiologySidebar() {
           key={item.id}
           className={item.id === activeId ? "nav-a active" : "nav-a"}
           href={`#${item.id}`}
-          aria-current={item.id === activeId ? "page" : undefined}
+          aria-current={item.id === activeId ? "location" : undefined}
         >
           <span className="n-num">{item.num}</span>
           {item.label}
