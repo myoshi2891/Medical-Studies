@@ -41,11 +41,11 @@ describe("HeadacheLifestyleSeedsGuidePage Contract Tests", () => {
 
     // Section subtitles (h2)
     const h2s = container.querySelectorAll("h2");
-    expect(h2s.length).toBe(23);
+    expect(h2s.length).toBe(10);
 
-    // No h3 or h4 headings
+    // Verify h3s count is 13
     const h3s = container.querySelectorAll("h3");
-    expect(h3s.length).toBe(0);
+    expect(h3s.length).toBe(13);
     const h4s = container.querySelectorAll("h4");
     expect(h4s.length).toBe(0);
   });
