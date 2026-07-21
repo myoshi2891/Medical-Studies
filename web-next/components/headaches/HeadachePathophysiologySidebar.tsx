@@ -21,10 +21,7 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * HeadachePathophysiologySidebar component.
- *
- * Renders the floating sidebar for headache pathophysiology.
- * Track active section on viewport using IntersectionObserver.
+ * Renders a sidebar table of contents for the headache pathophysiology page and highlights the section currently visible in the viewport.
  */
 export function HeadachePathophysiologySidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

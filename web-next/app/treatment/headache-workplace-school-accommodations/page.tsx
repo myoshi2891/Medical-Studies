@@ -22,6 +22,9 @@ const ACCOMMODATIONS_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents educational information about headache accommodations and support in workplace and school settings.
+ */
 export default function HeadacheWorkplaceSchoolAccommodationsPage() {
   return (
     <div className="accommodations-accent">

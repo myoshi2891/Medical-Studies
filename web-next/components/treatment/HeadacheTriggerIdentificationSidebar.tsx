@@ -18,11 +18,9 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛トリガーの特定と管理ガイドの固定サイドバー目次。
+ * Renders a sidebar table of contents for the headache trigger identification guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * 元コードに倣い `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
+ * Highlights the navigation link for the section currently visible in the document.
  */
 export function HeadacheTriggerIdentificationSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

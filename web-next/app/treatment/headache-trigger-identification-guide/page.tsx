@@ -21,6 +21,11 @@ const TRIGGER_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational guide for identifying and managing headache triggers.
+ *
+ * @returns The page layout containing guidance on headache triggers, diary-based review, warning signs, and references.
+ */
 export default function HeadacheTriggerIdentificationGuidePage() {
   return (
     <div className="headache-trigger-accent">
