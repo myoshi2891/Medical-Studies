@@ -22,6 +22,7 @@
       "!app/headaches/medication-overuse-headache/medication-overuse-headache.css",
       "!app/headaches/migraine/migraine.css",
       "!app/headaches/tension-type-headache/tension-type-headache.css",
+      "!app/headaches/headache-pathophysiology/headache-pathophysiology.css",
       "!app/therapies/nutrition-and-supplements/nutrition-and-supplements.css",
       "!app/therapies/physical-therapy-for-headache/physical-therapy-for-headache.css",
       "!app/therapies/psychological-behavioral-therapy/psychological-behavioral-therapy.css",
