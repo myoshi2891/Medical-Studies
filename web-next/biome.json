@@ -33,7 +33,8 @@
       "!app/prom/patient-global-impression-of-change/patient-global-impression-of-change.css",
       "!app/therapies/headache-acupoints-trigger-points/headache-acupoints-trigger-points.css",
       "!app/therapies/trigger-points-and-headache/trigger-points-and-headache.css",
-      "!app/treatment/acute-treatment-of-headache/acute-treatment-of-headache.css"
+      "!app/treatment/acute-treatment-of-headache/acute-treatment-of-headache.css",
+      "!app/treatment/headache-lifestyle-seeds-guide/headache-lifestyle-seeds-guide.css"
     ]
   },
   "formatter": {
