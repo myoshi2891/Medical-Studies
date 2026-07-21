@@ -21,6 +21,9 @@ const SEEDS_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational guide to headache self-care using the SEEDS lifestyle-management framework.
+ */
 export default function HeadacheLifestyleSeedsGuidePage() {
   return (
     <div className="lifestyle-seeds-accent">

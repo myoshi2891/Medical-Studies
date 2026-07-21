@@ -16,11 +16,9 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * Headache Workplace School Accommodations ガイド用の固定サイドバー目次。
+ * Renders a fixed table-of-contents sidebar for the Headache Workplace School Accommodations guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * 元コードに倣い `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
+ * Highlights the navigation link for the section currently visible in the viewport.
  */
 export function HeadacheWorkplaceSchoolAccommodationsSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

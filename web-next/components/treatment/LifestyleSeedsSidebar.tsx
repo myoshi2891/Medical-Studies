@@ -19,11 +19,9 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * Lifestyle Seeds ガイドの固定サイドバー目次。
+ * Renders a fixed table of contents for the Lifestyle Seeds guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * 元コードに倣い `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
+ * Tracks visible content sections and highlights the corresponding navigation link.
  */
 export function LifestyleSeedsSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
