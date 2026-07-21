@@ -96,7 +96,7 @@ export function StorageNotice() {
   return (
     <p className="c-small c-muted" role="note">
       記録（頭痛日誌・PROM スコア）は通常この端末のブラウザに保存されます。
-      Google Sheets への同期を実行した場合は、頭痛日誌および PROM スコアが Google に送信されます。
+      Google Sheets への同期を実行した場合は、選択したデータ（頭痛日誌および PROM スコア）が Google に送信されます。
       共有・公共の端末では利用を控えるか、利用後に{" "}
       <button type="button" className="c-link" onClick={() => navigate("#/data")}>
         データ管理
