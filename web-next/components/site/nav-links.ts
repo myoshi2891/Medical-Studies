@@ -81,6 +81,10 @@ export const navLinks: readonly NavLink[] = [
         name: "生活習慣管理とSEEDS",
         href: "/treatment/headache-lifestyle-seeds-guide",
       },
+      {
+        name: "トリガーの特定と管理",
+        href: "/treatment/headache-trigger-identification-guide",
+      },
     ],
   },
   {
