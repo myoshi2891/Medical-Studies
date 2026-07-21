@@ -58,7 +58,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s1" className="sec">
             <div className="sec-hd">
               <div className="sec-num">1</div>
-              <h1 className="sec-title">なぜ生活習慣が重要なのか</h1>
+              <h2 className="sec-title">なぜ生活習慣が重要なのか</h2>
             </div>
 
             <p>
@@ -129,7 +129,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s2" className="sec">
             <div className="sec-hd">
               <div className="sec-num">2</div>
-              <h1 className="sec-title">SEEDSフレームワークの全体像</h1>
+              <h2 className="sec-title">SEEDSフレームワークの全体像</h2>
             </div>
 
             <p>
@@ -211,7 +211,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s3" className="sec">
             <div className="sec-hd">
               <div className="sec-num">3</div>
-              <h1 className="sec-title">規則正しい生活（睡眠リズム）</h1>
+              <h2 className="sec-title">規則正しい生活（睡眠リズム）</h2>
             </div>
 
             <h2>睡眠と頭痛の関係</h2>
@@ -277,7 +277,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s4" className="sec">
             <div className="sec-hd">
               <div className="sec-num">4</div>
-              <h1 className="sec-title">水分補給</h1>
+              <h2 className="sec-title">水分補給</h2>
             </div>
 
             <h2>脱水と頭痛の関係をどう考えるか</h2>
@@ -325,7 +325,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s5" className="sec">
             <div className="sec-hd">
               <div className="sec-num">5</div>
-              <h1 className="sec-title">カフェインとの付き合い方</h1>
+              <h2 className="sec-title">カフェインとの付き合い方</h2>
             </div>
 
             <p>
@@ -409,7 +409,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s6" className="sec">
             <div className="sec-hd">
               <div className="sec-num">6</div>
-              <h1 className="sec-title">食事リズム（欠食・空腹の回避）</h1>
+              <h2 className="sec-title">食事リズム（欠食・空腹の回避）</h2>
             </div>
 
             <h2>「空腹」も頭痛の誘因になりうる</h2>
@@ -485,7 +485,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s7" className="sec">
             <div className="sec-hd">
               <div className="sec-num">7</div>
-              <h1 className="sec-title">生活習慣が頭痛につながる仕組み（概念図）</h1>
+              <h2 className="sec-title">生活習慣が頭痛につながる仕組み（概念図）</h2>
             </div>
 
             <p>
@@ -520,7 +520,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s8" className="sec">
             <div className="sec-hd">
               <div className="sec-num">8</div>
-              <h1 className="sec-title">SEEDSの残り3要素（簡潔に）</h1>
+              <h2 className="sec-title">SEEDSの残り3要素（簡潔に）</h2>
             </div>
 
             <p>
@@ -571,7 +571,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s9" className="sec">
             <div className="sec-hd">
               <div className="sec-num">9</div>
-              <h1 className="sec-title">個人差と受診の目安</h1>
+              <h2 className="sec-title">個人差と受診の目安</h2>
             </div>
 
             <p>
@@ -632,7 +632,7 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           <section id="s10" className="sec">
             <div className="sec-hd">
               <div className="sec-num">10</div>
-              <h1 className="sec-title">参考文献・情報源</h1>
+              <h2 className="sec-title">参考文献・情報源</h2>
             </div>
 
             <p>

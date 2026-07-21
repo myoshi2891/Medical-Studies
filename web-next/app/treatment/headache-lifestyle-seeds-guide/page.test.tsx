@@ -35,13 +35,13 @@ describe("HeadacheLifestyleSeedsGuidePage Contract Tests", () => {
   it("should render correct count of headings", () => {
     const { container } = render(<Page />);
 
-    // Total h1 elements (1 page title h1 + 10 section title h1)
+    // Total h1 elements (1 page title h1)
     const h1s = container.querySelectorAll("h1");
-    expect(h1s.length).toBe(11);
+    expect(h1s.length).toBe(1);
 
     // Section subtitles (h2)
     const h2s = container.querySelectorAll("h2");
-    expect(h2s.length).toBe(13);
+    expect(h2s.length).toBe(23);
 
     // No h3 or h4 headings
     const h3s = container.querySelectorAll("h3");
