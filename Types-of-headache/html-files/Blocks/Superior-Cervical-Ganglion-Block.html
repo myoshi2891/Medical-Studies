@@ -641,30 +641,32 @@ flowchart TD
 </div>
 
 <script>
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#0e8388',
-    primaryTextColor: '#ffffff',
-    primaryBorderColor: '#0d1b4c',
-    lineColor: '#546e7a',
-    secondaryColor: '#e0f2f1',
-    secondaryTextColor: '#0d1b4c',
-    secondaryBorderColor: '#0e8388',
-    tertiaryColor: '#e8f5e9',
-    tertiaryTextColor: '#0d1b4c',
-    tertiaryBorderColor: '#2e7d32',
-    textColor: '#0d1b4c',
-    titleColor: '#0d1b4c',
-    nodeTextColor: '#ffffff',
-    edgeLabelBackground: '#ffffff',
-    clusterBkg: '#f5f5f5',
-    clusterTextColor: '#0d1b4c',
-    fontSize: '13px'
-  },
-  flowchart: { curve: 'linear', padding: 20, nodeSpacing: 40, rankSpacing: 55 }
-});
+if (typeof mermaid !== 'undefined') {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#0e8388',
+      primaryTextColor: '#ffffff',
+      primaryBorderColor: '#0d1b4c',
+      lineColor: '#546e7a',
+      secondaryColor: '#e0f2f1',
+      secondaryTextColor: '#0d1b4c',
+      secondaryBorderColor: '#0e8388',
+      tertiaryColor: '#e8f5e9',
+      tertiaryTextColor: '#0d1b4c',
+      tertiaryBorderColor: '#2e7d32',
+      textColor: '#0d1b4c',
+      titleColor: '#0d1b4c',
+      nodeTextColor: '#ffffff',
+      edgeLabelBackground: '#ffffff',
+      clusterBkg: '#f5f5f5',
+      clusterTextColor: '#0d1b4c',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'linear', padding: 20, nodeSpacing: 40, rankSpacing: 55 }
+  });
+}
 
 const navAs = document.querySelectorAll('.nav-a');
 navAs.forEach(a => {
