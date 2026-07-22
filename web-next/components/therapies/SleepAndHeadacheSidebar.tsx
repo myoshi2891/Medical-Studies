@@ -50,13 +50,14 @@ export function SleepAndHeadacheSidebar() {
   }, []);
 
   return (
-    <nav className="sidebar">
+    <nav className="sidebar" aria-label="睡眠と頭痛ガイド目次">
       <div className="s-hdr">目次</div>
       {NAV_ITEMS.map((item) => (
         <a
           key={item.id}
           className={item.id === activeId ? "nav-a active" : "nav-a"}
           href={`#${item.id}`}
+          aria-current={item.id === activeId ? "location" : undefined}
         >
           <span className="n-num">{item.num}</span>
           {item.label}
