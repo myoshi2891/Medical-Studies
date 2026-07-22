@@ -4,7 +4,7 @@
 
 ## 現在地
 
-- **最新 HEAD**: `eb85fa6` feat(web-next): add migraine-prevention-therapy-guide link to SiteHeader nav-links
+- **最新 HEAD**: `1d90cd6` feat(web-next): add superior-cervical-ganglion-block link to SiteHeader nav-links
 - **ビルド状態**: web-next 全体で typecheck クリーン。テスト 506 passed（59 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
 - **次の作業**: `/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
@@ -19,6 +19,7 @@
 | Headaches | 頸原性頭痛 (CEH) | [Cervicogenic-Headache.md](Types-of-headache/md-files/Headaches/Cervicogenic-Headache.md) | [Cervicogenic-Headache.html](Types-of-headache/html-files/Headaches/Cervicogenic-Headache.html) | ✅ 完了 | ディープ・スパイン ヒーロー（navy-slate→periwinkle→ice）/ Mermaid 6図 / 16セクション / .moh-grid・.src-grid 5群 / 参考文献31リンク / 4フェーズ分割 |
 | Headaches | 頭痛の病態生理 | [Headache-pathophysiology.md](Types-of-headache/md-files/Headaches/Headache-pathophysiology.md) | [Headache-pathophysiology.html](Types-of-headache/html-files/Headaches/Headache-pathophysiology.html) | ✅ 完了 | 12セクション / Mermaid 5図 / 参考文献19リンク |
 | Blocks | 星状神経節ブロック (SGB) | [Stellate-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Stellate-Ganglion-Block.md) | [Stellate-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Stellate-Ganglion-Block.html) | ✅ 完了 | |
+| Blocks | 上頸神経節ブロック (SCGB) | [Superior-Cervical-Ganglion-Block.md](Superior-Cervical-Ganglion-Block.md) | [Superior-Cervical-Ganglion-Block.html](Superior-Cervical-Ganglion-Block.html) | ✅ 完了 | |
 | Blocks | 後頭神経ブロック (ONB) | [Occipital-Nerve-Block.md](Types-of-headache/md-files/Blocks/Occipital-Nerve-Block.md) | [Occipital-Nerve-Block.html](Types-of-headache/html-files/Blocks/Occipital-Nerve-Block.html) | ✅ 完了 | Deep Teal→Cyan ヒーロー / Mermaid 10図 / 4フェーズ分割 |
 | Blocks | 頸椎神経叢ブロック (CPB) | [Cervical-Plexus-Block.md](Types-of-headache/md-files/Blocks/Cervical-Plexus-Block.md) | [Cervical-Plexus-Block.html](Types-of-headache/html-files/Blocks/Cervical-Plexus-Block.html) | ✅ 完了 | ガーネット→ローズヒーロー / Mermaid 12図 / 18セクション / 4フェーズ分割 |
 | Treatment | 頭痛の急性期治療の考え方 | [Headache-acute-treatment-guide.md](Types-of-headache/md-files/Treatment/Headache-acute-treatment-guide.md) | [Acute-treatment-of-headache.html](Types-of-headache/html-files/Treatment/Acute-treatment-of-headache.html) | ✅ 完了 | 青・ティール系ヒーロー / Mermaid 4図 / 7セクション / 参考文献48リンク / 4フェーズ分割 |
@@ -78,6 +79,7 @@
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
 | Stellate-Ganglion-Block | `/blocks/stellate-ganglion-block` | ✅ 完了 | 11 section / Mermaid 11図 / table 22 / 外部リンク 25 |
+| Superior-Cervical-Ganglion-Block | `/blocks/superior-cervical-ganglion-block` | ✅ 完了 | 13 section / Mermaid 4図 / table 7 / 外部リンク 12 |
 | Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
 | Tension-Type-Headache | `/headaches/tension-type-headache` | ✅ 完了 | 15 section / Mermaid 8図 / table 29 / 外部リンク 38 |
 | Headache-pathophysiology | `/headaches/headache-pathophysiology` | ✅ 完了 | 12 section / Mermaid 5図 / table 3 / 外部リンク 19 |
@@ -106,7 +108,7 @@
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
 - **chrome のみクライアント化**: 各ページのサイドバー（scroll-spy = IntersectionObserver）を Client Component 化。
-  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` /
+  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` / `components/blocks/ScgbSidebar.tsx` /
   `components/headaches/CehSidebar.tsx` / `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx` /
   `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx` /
   `components/therapies/PsychologicalBehavioralTherapySidebar.tsx` / `components/prom/HeadacheDiarySidebar.tsx` /
