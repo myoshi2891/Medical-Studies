@@ -145,6 +145,10 @@ export const navLinks: readonly NavLink[] = [
         name: "有酸素運動と頭痛予防",
         href: "/therapies/aerobic-exercise-headache-prevention",
       },
+      {
+        name: "睡眠衛生ガイド",
+        href: "/therapies/sleep-and-headache-guide",
+      },
     ],
   },
   {
