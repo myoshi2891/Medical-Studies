@@ -18,7 +18,9 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 睡眠と頭痛ガイドの固定サイドバー目次。
+ * Renders a table of contents sidebar for the sleep and headache guide.
+ *
+ * @returns The sidebar navigation with the currently visible section highlighted.
  */
 export function SleepAndHeadacheSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

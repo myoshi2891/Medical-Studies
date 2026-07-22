@@ -18,7 +18,7 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 片頭痛予防治療ガイドの固定サイドバーナビゲーションコンポーネント。
+ * Renders a sidebar navigation for the migraine prevention treatment guide.
  */
 export function MigrainePreventionSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

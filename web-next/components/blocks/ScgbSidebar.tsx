@@ -22,11 +22,7 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * SCGB ガイドの固定サイドバー目次。
- *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * 元コードに倣い `IntersectionObserver`（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
+ * Renders a fixed sidebar table of contents for the SCGB guide and highlights the currently visible section.
  */
 export function ScgbSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
