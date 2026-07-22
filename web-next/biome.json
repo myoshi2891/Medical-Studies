@@ -42,7 +42,8 @@
       "!app/treatment/cgrp-pathway-headache-treatments/cgrp-pathway-headache-treatments.css",
       "!app/treatment/migraine-prevention-therapy-guide/migraine-prevention-therapy-guide.css",
       "!app/treatment/moh-acute-use-days/moh-acute-use-days.css",
-      "!app/therapies/sleep-and-headache-guide/sleep-and-headache-guide.css"
+      "!app/therapies/sleep-and-headache-guide/sleep-and-headache-guide.css",
+      "!app/blocks/superior-cervical-ganglion-block/superior-cervical-ganglion-block.css"
     ]
   },
   "formatter": {
