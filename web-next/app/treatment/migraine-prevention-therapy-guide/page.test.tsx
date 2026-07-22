@@ -21,7 +21,7 @@ const SECTION_IDS = [
   "s9",
 ];
 const H2_COUNT = 10;
-const H3_COUNT = 20;
+const H3_COUNT = 22;
 const MERMAID_COUNT = 6;
 const TABLE_COUNT = 10;
 const NAV_COUNT = 10;

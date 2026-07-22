@@ -1,0 +1,178 @@
+.migraine-prevention {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+  --mpv1: #0d47a1;
+  --mpv2: #00695c;
+  --mpv3: #00897b;
+  --mpv-l: #e0f2f1;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hero */
+.migraine-prevention .hero { background: linear-gradient(135deg, #0d47a1, #00695c 55%, #00897b); color: #fff; padding: 52px 28px 40px; text-align: center; }
+.migraine-prevention .hero h1 { font-size: clamp(20px, 4vw, 38px); font-weight: 800; letter-spacing: -0.5px; margin: 10px 0 8px; }
+.migraine-prevention .hero-sub { font-size: 14px; color: #fafafa; margin-bottom: 22px; }
+.migraine-prevention .hero-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.migraine-prevention .hero-tag { background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); color: #fff; padding: 3px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+
+/* Disclaimer */
+.migraine-prevention .disclaimer { background: linear-gradient(135deg, #fff8e1, #ffecb3); border-left: 5px solid var(--orange); padding: 16px 24px; font-size: 13.5px; color: var(--g8); }
+.migraine-prevention .disclaimer strong { color: var(--orange); }
+.migraine-prevention .disclaimer .d-line { margin-top: 6px; }
+
+/* Layout */
+.migraine-prevention .layout { display: flex; max-width: 1360px; margin: 0 auto; }
+
+/* Sidebar */
+.migraine-prevention .sidebar { width: 270px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; background: #fff; border-right: 1px solid var(--g3); padding: 18px 0; }
+.migraine-prevention .sidebar::-webkit-scrollbar { width: 3px; }
+.migraine-prevention .sidebar::-webkit-scrollbar-thumb { background: var(--g3); }
+.migraine-prevention .s-hdr { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--g6); padding: 0 16px 10px; }
+.migraine-prevention .nav-a { display: flex; align-items: center; gap: 8px; padding: 6px 16px; text-decoration: none; color: var(--g8); font-size: 12.5px; transition: all 0.15s; border-left: 3px solid transparent; line-height: 1.4; }
+.migraine-prevention .nav-a:hover, .migraine-prevention .nav-a.active { background: var(--g1); border-left-color: var(--mpv1); color: var(--mpv1); }
+.migraine-prevention .nav-a.active { font-weight: 600; background: var(--mpv-l); }
+.migraine-prevention .n-num { background: var(--g2); color: var(--g6); font-size: 10px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* Main */
+.migraine-prevention .main { flex: 1; padding: 28px 32px 80px; min-width: 0; }
+
+/* Section */
+.migraine-prevention .sec { margin: 40px 0; scroll-margin-top: 12px; }
+.migraine-prevention .sec-hd { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--g2); }
+.migraine-prevention .sec-num { background: var(--mpv1); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+.migraine-prevention .sec-title { font-size: clamp(17px, 2.5vw, 24px); font-weight: 700; color: var(--mpv1); margin: 0; }
+.migraine-prevention h2.sec-title { font-size: clamp(17px, 2.5vw, 24px); font-weight: 700; color: var(--mpv1); margin: 0; }
+.migraine-prevention h3 { font-size: 16px; font-weight: 700; color: var(--mpv2); margin: 22px 0 10px; padding-left: 10px; border-left: 4px solid var(--mpv3); }
+.migraine-prevention p { margin-bottom: 10px; color: var(--g8); }
+.migraine-prevention ul, .migraine-prevention ol { padding-left: 20px; margin-bottom: 10px; }
+.migraine-prevention li { margin-bottom: 4px; }
+.migraine-prevention a { color: var(--blue); }
+.migraine-prevention a:hover { text-decoration: underline; }
+
+/* Cards */
+.migraine-prevention .card { background: #fff; border-radius: var(--r); padding: 20px; box-shadow: var(--sh); margin-bottom: 18px; }
+
+/* Alerts */
+.migraine-prevention .alert { border-radius: var(--rs); padding: 12px 16px; margin: 12px 0; display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; }
+.migraine-prevention .alert-i { font-size: 20px; flex-shrink: 0; }
+.migraine-prevention .a-danger { background: var(--red-l); border-left: 4px solid var(--red); }
+.migraine-prevention .a-warn { background: var(--orange-l); border-left: 4px solid var(--orange); }
+.migraine-prevention .a-info { background: var(--blue-l); border-left: 4px solid var(--blue); }
+.migraine-prevention .a-ok { background: var(--green-l); border-left: 4px solid var(--green); }
+.migraine-prevention .a-purple { background: #f3e5f5; border-left: 4px solid var(--purple); }
+
+/* Tables */
+.migraine-prevention .tbl { overflow-x: auto; border-radius: var(--rs); box-shadow: var(--sh); margin: 14px 0; }
+.migraine-prevention table { width: 100%; border-collapse: collapse; background: #fff; font-size: 13px; }
+.migraine-prevention thead th { background: var(--mpv1); color: #fff; padding: 10px 13px; text-align: left; font-weight: 600; white-space: nowrap; }
+.migraine-prevention tbody tr:nth-child(even) { background: var(--mpv-l); }
+.migraine-prevention tbody tr:hover { background: var(--g1); }
+.migraine-prevention tbody td { padding: 8px 13px; border-bottom: 1px solid var(--g2); vertical-align: top; }
+.migraine-prevention .th-teal thead th { background: var(--teal); }
+.migraine-prevention .th-red thead th { background: var(--red); }
+.migraine-prevention .th-orange thead th { background: var(--orange); }
+.migraine-prevention .th-purple thead th { background: var(--purple); }
+
+/* Evidence badges */
+.migraine-prevention .bA { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: #e8f5e9; color: #1b5e20; border: 1px solid #a5d6a7; }
+.migraine-prevention .bB { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: #e3f2fd; color: #0d47a1; border: 1px solid #90caf9; }
+.migraine-prevention .bC { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+.migraine-prevention .bU { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: #f3e5f5; color: #4a148c; border: 1px solid #ce93d8; }
+.migraine-prevention .bRed { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: var(--red-l); color: var(--red); border: 1px solid #ef9a9a; }
+.migraine-prevention .bGrn { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: var(--green-l); color: var(--green); border: 1px solid #a5d6a7; }
+.migraine-prevention .bOra { display: inline-block; padding: 1px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; background: var(--orange-l); color: var(--orange); border: 1px solid #ffcc80; }
+
+/* Color text */
+.migraine-prevention .tR { color: var(--red); font-weight: 700; }
+.migraine-prevention .tG { color: var(--green); font-weight: 700; }
+.migraine-prevention .tO { color: var(--orange); font-weight: 700; }
+.migraine-prevention .tB { color: var(--blue); font-weight: 700; }
+.migraine-prevention .tN { color: var(--mpv1); font-weight: 700; }
+
+/* Mermaid */
+.migraine-prevention .mmd { background: #fff; border-radius: var(--r); padding: 20px 16px; box-shadow: var(--sh); margin: 18px 0; overflow-x: auto; }
+.migraine-prevention .mmd-lbl { font-size: 12px; font-weight: 600; color: var(--g6); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.migraine-prevention .mmd-lbl::before { content: ''; width: 10px; height: 10px; border-radius: 2px; background: var(--mpv2); display: inline-block; }
+.migraine-prevention pre.mermaid { text-align: center; }
+.migraine-prevention .mmd .edgeLabel,
+.migraine-prevention .mmd .edgeLabel p,
+.migraine-prevention .mmd .edgeLabel span,
+.migraine-prevention .mmd .edgeLabel div,
+.migraine-prevention .mmd .edgeLabel foreignObject div,
+.migraine-prevention .mmd .edgeLabel foreignObject span {
+  color: #212121 !important;
+  background-color: #ffffff !important;
+}
+.migraine-prevention .mmd .edgeLabel rect { fill: #ffffff !important; opacity: 1 !important; }
+.migraine-prevention .mmd .cluster-label,
+.migraine-prevention .mmd .nodeLabel { color: #ffffff; }
+
+/* Phase cards */
+.migraine-prevention .phase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+@media (max-width: 700px) {
+  .migraine-prevention .phase-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.migraine-prevention .ph { border-radius: var(--rs); padding: 16px; text-align: center; }
+.migraine-prevention .ph1 { background: #fff8e1; border: 2px solid #ffc107; }
+.migraine-prevention .ph2 { background: #e3f2fd; border: 2px solid #2196f3; }
+.migraine-prevention .ph3 { background: #ffebee; border: 2px solid #ef5350; }
+.migraine-prevention .ph4 { background: #e8f5e9; border: 2px solid #66bb6a; }
+.migraine-prevention .ph-icon { font-size: 28px; margin-bottom: 6px; }
+.migraine-prevention .ph-title { font-weight: 700; font-size: 13.5px; margin-bottom: 2px; }
+.migraine-prevention .ph-time { font-size: 11px; color: var(--g6); margin-bottom: 6px; }
+.migraine-prevention .ph-desc { font-size: 12px; line-height: 1.5; text-align: left; }
+
+/* Quick ref */
+.migraine-prevention .qr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin: 16px 0; }
+.migraine-prevention .qr { background: #fff; border-radius: var(--rs); padding: 16px; box-shadow: var(--sh); border-top: 4px solid var(--mpv2); }
+.migraine-prevention .qr-t { font-size: 13px; font-weight: 700; color: var(--mpv1); margin-bottom: 10px; padding-bottom: 7px; border-bottom: 2px solid var(--g2); }
+.migraine-prevention .qr ul { padding-left: 18px; margin-bottom: 0; }
+.migraine-prevention .qr li { font-size: 12.5px; margin-bottom: 6px; }
+
+/* Source cards */
+.migraine-prevention .src-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; margin: 16px 0; }
+.migraine-prevention .src { background: #fff; border-radius: var(--rs); padding: 14px; box-shadow: var(--sh); border-left: 4px solid var(--blue); }
+.migraine-prevention .src-org { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 2px; }
+.migraine-prevention .src-t { font-size: 13px; font-weight: 600; color: var(--g8); margin-bottom: 6px; line-height: 1.4; }
+.migraine-prevention .src-url { font-size: 11px; color: var(--blue); word-break: break-all; line-height: 1.5; }
+
+/* Footer */
+.migraine-prevention .footer { background: var(--mpv1); color: rgba(255, 255, 255, 0.75); text-align: center; padding: 24px; font-size: 13px; margin-top: 48px; }
+.migraine-prevention .footer strong { color: #fff; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .migraine-prevention .sidebar { display: none; }
+  .migraine-prevention .main { padding: 16px 14px 60px; }
+}
