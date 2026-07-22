@@ -17,7 +17,7 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛急性期治療薬の「適正使用日数」とMOH予防ガイドの固定サイドバーナビゲーション。
+ * Renders sidebar navigation for the medication-use-days guide and updates the active link based on the visible section.
  */
 export function MohAcuteUseDaysSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

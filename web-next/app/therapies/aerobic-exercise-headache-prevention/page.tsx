@@ -22,6 +22,11 @@ const EXERCISE_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational guide on introducing aerobic exercise for headache prevention.
+ *
+ * @returns The complete headache prevention guide page
+ */
 export default function AerobicExerciseHeadachePreventionPage() {
   return (
     <div className="aerobic-exercise-accent">

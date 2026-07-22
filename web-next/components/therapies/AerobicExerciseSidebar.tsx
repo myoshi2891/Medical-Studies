@@ -18,10 +18,9 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 有酸素運動と頭痛予防ガイドの固定サイドバー目次。
+ * Renders a fixed table of contents for the aerobic exercise and headache prevention guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * `IntersectionObserver`（threshold 0.25）で可視 section を追跡し active を付与。
+ * Highlights the section currently visible in the viewport.
  */
 export function AerobicExerciseSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

@@ -23,6 +23,9 @@ const SCGB_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational overview of the superior cervical ganglion block.
+ */
 export default function SuperiorCervicalGanglionBlockPage() {
   return (
     <div className="superior-cervical-ganglion-block">

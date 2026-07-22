@@ -21,6 +21,9 @@ const MOH_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents educational information about appropriate acute headache medication use days and medication-overuse headache prevention based on ICHD-3 and major international guidelines.
+ */
 export default function MohAcuteUseDaysPage() {
   return (
     <div className="moh-acute">

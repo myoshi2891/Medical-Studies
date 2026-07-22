@@ -23,6 +23,9 @@ const MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to migraine preventive therapy, including treatment eligibility, medication classes, expected onset, and general continuation and discontinuation principles.
+ */
 export default function MigrainePreventionTherapyGuidePage() {
   return (
     <div className="migraine-prevention">

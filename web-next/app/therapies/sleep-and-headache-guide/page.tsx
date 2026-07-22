@@ -21,6 +21,11 @@ const SLEEP_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational guide about the relationship between sleep and headache.
+ *
+ * @returns The complete sleep and headache guide page
+ */
 export default function SleepAndHeadacheGuidePage() {
   return (
     <div className="sleep-guide">

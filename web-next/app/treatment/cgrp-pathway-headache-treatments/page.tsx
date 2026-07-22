@@ -21,6 +21,9 @@ const CGRP_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational overview of CGRP-targeted headache treatments, including their clinical positioning, evidence, and domestic approval status.
+ */
 export default function CgrpPathwayHeadacheTreatmentsPage() {
   return (
     <div className="cgrp-pathway-headache-treatments">
