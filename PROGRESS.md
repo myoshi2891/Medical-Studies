@@ -116,9 +116,9 @@
   `components/prom/HeadacheImpactTestSidebar.tsx` / `components/prom/MigraineDisabilityAssessmentSidebar.tsx` /
   `components/prom/MigraineSpecificQualityOfLifeSidebar.tsx` /
   `components/prom/PatientGlobalImpressionOfChangeSidebar.tsx`, `components/treatment/AthSidebar.tsx`, `components/treatment/LifestyleSeedsSidebar.tsx`, `components/treatment/HeadacheTriggerIdentificationSidebar.tsx`, `components/treatment/HeadacheWorkplaceSchoolAccommodationsSidebar.tsx`,
-  `components/treatment/MohAcuteUseDaysSidebar.tsx`。
+  `components/treatment/MohAcuteUseDaysSidebar.tsx`, `components/therapies/AerobicExerciseSidebar.tsx`, `components/therapies/SleepAndHeadacheSidebar.tsx`, `components/treatment/CgrpPathwaySidebar.tsx`, `components/treatment/MigrainePreventionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
-  `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` などでスコープ。
+  `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` / `.aerobic-exercise-accent` / `.sleep-guide` / `.cgrp-pathway-headache-treatments` / `.migraine-prevention` などでスコープ。
 - **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 303 passed（moh-acute-use-days 指定 9 + SiteHeader 差分 1 追加）。lint / typecheck / test 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
@@ -128,7 +128,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 38a7268
+- 最新 HEAD: 1d90cd6
 - 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```
