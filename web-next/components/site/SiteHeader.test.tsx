@@ -68,7 +68,7 @@ describe("SiteHeader - ドロップダウン描画", () => {
       container.querySelectorAll<HTMLElement>("li.ch-dropdown .ch-dropdown-toggle")
     ).find((t) => t.textContent?.includes("Blocks"));
     const submenu = blocksToggle?.closest("li.ch-dropdown")?.querySelector("ul.ch-submenu");
-    expect(submenu?.querySelectorAll("li").length).toBe(3);
+    expect(submenu?.querySelectorAll("li").length).toBe(4);
   });
 });
 
@@ -101,6 +101,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/blocks/occipital-nerve-block");
     expect(hrefs).toContain("/blocks/cervical-plexus-block");
     expect(hrefs).toContain("/blocks/stellate-ganglion-block");
+    expect(hrefs).toContain("/blocks/superior-cervical-ganglion-block");
     expect(hrefs).toContain("/anatomy");
     expect(hrefs).toContain("/prom-checker");
     expect(hrefs).toContain("/therapies/nutrition-and-supplements");
