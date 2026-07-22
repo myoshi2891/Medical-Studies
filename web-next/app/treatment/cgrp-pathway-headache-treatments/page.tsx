@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { CgrpPathwaySidebar } from "@/components/treatment/CgrpPathwaySidebar";
 import "./cgrp-pathway-headache-treatments.css";
+
+export const metadata: Metadata = {
+  title: "CGRP経路を標的とした頭痛治療薬",
+  description:
+    "抗CGRP/受容体モノクローナル抗体と経口ゲパントの位置づけ・国内承認状況（PMDA準拠）",
+};
 
 const CGRP_MERMAID_THEME: Record<string, string> = {
   primaryColor: "#ede7f6",
@@ -310,9 +317,9 @@ export default function CgrpPathwayHeadacheTreatmentsPage() {
             <h3>5.3 エビデンスの概要</h3>
             <p>
               複数のシステマティックレビュー・メタアナリシス{" "}
-              <span className="bB">メタアナリシス</span>{" "}
+              <span className="bB">Level B</span>{" "}
               において、抗CGRPモノクローナル抗体群はプラセボと比較して、月間片頭痛日数の50%以上減少を達成する患者の割合（レスポンダー率）に関して有意な改善が示されています。ただし、これらは主に数か月〜1年程度の臨床試験・観察研究に基づくものであり、長期の実臨床データ{" "}
-              <span className="bC">実臨床データ</span>{" "}
+              <span className="bC">Level C</span>{" "}
               は蓄積が進んでいる段階です。日本国内でも、実臨床コホート研究により長期的な有効性・忍容性を検証する取り組みが継続されています。
             </p>
 
