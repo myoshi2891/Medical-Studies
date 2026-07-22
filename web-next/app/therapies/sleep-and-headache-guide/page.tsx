@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { SleepAndHeadacheSidebar } from "@/components/therapies/SleepAndHeadacheSidebar";
 import "./sleep-and-headache-guide.css";
+
+export const metadata: Metadata = {
+  title: "睡眠と頭痛 — エビデンスに基づく基礎知識と睡眠衛生ガイド",
+  description:
+    "ICHD-3・NICE・AASM・Cochraneなど国際的な一次情報に基づく教育コンテンツ（初学者向け・ステップバイステップ解説）",
+};
 
 const SLEEP_MERMAID_THEME: Record<string, string> = {
   primaryColor: "#3949ab",
@@ -36,7 +43,7 @@ export default function SleepAndHeadacheGuidePage() {
 
       {/* DISCLAIMER */}
       <div className="disclaimer">
-        <strong>⚠️ DisclaimerBanner（本ページは教育目的であり個別の治療推奨ではありません）</strong>
+        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>
         <br />
         本ページは<strong>学術・教育・情報提供のみ</strong>
         を目的としており、個別の患者に対する診断・治療の推奨ではありません。記載内容は国際的に認知されているガイドライン・システマティックレビュー等の一次情報に基づく一般的な解説です。ご自身の症状・治療方針については、必ず医師・薬剤師にご相談ください。緊急性の高い症状（Step
