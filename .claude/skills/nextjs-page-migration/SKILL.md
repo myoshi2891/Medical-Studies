@@ -348,19 +348,23 @@ import { Ext } from "@/components/Ext"; // named import
 
 1. **[Red] 契約テストの更新**:
    `web-next/components/site/SiteHeader.test.tsx` の「実装済みルートは通常リンクで描画される」テストブロックに新ページのパスを追加する:
+
    ```tsx
    expect(hrefs).toContain("/<category>/<slug>");
    ```
+
    `bun run test components/site/SiteHeader.test.tsx` で**失敗を確認**する。
 
 2. **[Green] ナビゲーション定義への追記**:
    `web-next/components/site/nav-links.ts` の該当カテゴリ（`Headaches` / `Treatment` / `Blocks` / `Therapies` / `PROM`）に定義を追加する:
+
    ```ts
    {
      name: "ページ表示名",
      href: "/<category>/<slug>",
    }
    ```
+
    テストを再実行して全グリーンを確認し、コミット（`feat(web-next): add <slug> link to SiteHeader nav-links`）する。
 
 ### Step 3: ローカル検証
