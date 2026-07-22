@@ -506,7 +506,7 @@ flowchart TD
   <p>これら3剤は、厚生労働省が高額な新規バイオ医薬品に対して設定する「<strong>最適使用推進ガイドライン</strong>」の適用対象となっており、処方にあたっては施設要件・医師要件（頭痛診療の専門性等）が定められています。これはPMDAの審査・承認プロセスと連動した国内特有の規制監視の仕組みです。</p>
 
   <h2>8.2 経口ゲパントの国内承認</h2>
-  <p>国内では、2025年末にrimegepant（リメゲパント、商品名ナルティーク）が急性期治療・予防治療の両適応で承認・発売されました。続いて2026年2月19日にatogepant（アトゲパント水和物、商品名アクイプタ）が「片頭痛発作の発症抑制」（予防）の適応で承認され、同年4月17日に発売されています。</p>
+  <p>国内では、2025年9月19日にrimegepant（リメゲパント、商品名ナルティーク）が急性期治療・予防治療の両適応で承認され、同年12月16日に発売されました。続いて2026年2月19日にatogepant（アトゲパント水和物、商品名アクイプタ）が「片頭痛発作の発症抑制」（予防）の適応で承認され、同年4月17日に発売されています。</p>
 
   <div class="tbl th-orange">
     <table>
@@ -514,7 +514,7 @@ flowchart TD
         <tr><th>一般名</th><th>商品名（参考・中立併記）</th><th>国内適応</th><th>承認・発売時期（参考）</th></tr>
       </thead>
       <tbody>
-        <tr><td>rimegepant（リメゲパント）</td><td>ナルティーク</td><td>急性期治療＋予防</td><td>2025年末頃 承認・発売</td></tr>
+        <tr><td>rimegepant（リメゲパント）</td><td>ナルティーク</td><td>急性期治療＋予防</td><td>2025年9月19日承認／同年12月16日発売</td></tr>
         <tr><td>atogepant（アトゲパント水和物）</td><td>アクイプタ</td><td>予防（片頭痛発作の発症抑制）</td><td>2026年2月19日承認／同年4月17日発売</td></tr>
         <tr><td>ubrogepant（ウブロゲパント）</td><td>―</td><td colspan="2"><span class="bU">国内未承認</span></td></tr>
         <tr><td>zavegepant（ザベゲパント）</td><td>―</td><td colspan="2"><span class="bU">国内未承認</span></td></tr>
@@ -812,21 +812,23 @@ flowchart TD
 </div>
 
 <script>
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#ede7f6',
-    primaryTextColor: '#1a237e',
-    primaryBorderColor: '#6a1b9a',
-    lineColor: '#5c6bc0',
-    secondaryColor: '#e0f2f1',
-    tertiaryColor: '#e8f5e9',
-    edgeLabelBackground: '#ffffff',
-    fontSize: '13px'
-  },
-  flowchart: { curve: 'linear', padding: 20 }
-});
+if (typeof mermaid !== 'undefined') {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#ede7f6',
+      primaryTextColor: '#1a237e',
+      primaryBorderColor: '#6a1b9a',
+      lineColor: '#5c6bc0',
+      secondaryColor: '#e0f2f1',
+      tertiaryColor: '#e8f5e9',
+      edgeLabelBackground: '#ffffff',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'linear', padding: 20 }
+  });
+}
 
 const navAs = document.querySelectorAll('.nav-a');
 navAs.forEach(a => {

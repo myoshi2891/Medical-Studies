@@ -1,6 +1,6 @@
 # GEMINI.md
 
-Updated 2026-07-21
+Updated 2026-07-22
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 

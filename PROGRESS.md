@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `75e9b68` feat(web-next): implement headache-workplace-school-accommodations page
-- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 460 passed（54 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
+- **最新 HEAD**: `1d90cd6` feat(web-next): add superior-cervical-ganglion-block link to SiteHeader nav-links
+- **ビルド状態**: web-next 全体で typecheck クリーン。テスト 506 passed（59 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
 - **次の作業**: `/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
@@ -19,9 +19,12 @@
 | Headaches | 頸原性頭痛 (CEH) | [Cervicogenic-Headache.md](Types-of-headache/md-files/Headaches/Cervicogenic-Headache.md) | [Cervicogenic-Headache.html](Types-of-headache/html-files/Headaches/Cervicogenic-Headache.html) | ✅ 完了 | ディープ・スパイン ヒーロー（navy-slate→periwinkle→ice）/ Mermaid 6図 / 16セクション / .moh-grid・.src-grid 5群 / 参考文献31リンク / 4フェーズ分割 |
 | Headaches | 頭痛の病態生理 | [Headache-pathophysiology.md](Types-of-headache/md-files/Headaches/Headache-pathophysiology.md) | [Headache-pathophysiology.html](Types-of-headache/html-files/Headaches/Headache-pathophysiology.html) | ✅ 完了 | 12セクション / Mermaid 5図 / 参考文献19リンク |
 | Blocks | 星状神経節ブロック (SGB) | [Stellate-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Stellate-Ganglion-Block.md) | [Stellate-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Stellate-Ganglion-Block.html) | ✅ 完了 | |
+| Blocks | 上頸神経節ブロック (SCGB) | [Superior-Cervical-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Superior-Cervical-Ganglion-Block.md) | [Superior-Cervical-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Superior-Cervical-Ganglion-Block.html) | ✅ 完了 | |
 | Blocks | 後頭神経ブロック (ONB) | [Occipital-Nerve-Block.md](Types-of-headache/md-files/Blocks/Occipital-Nerve-Block.md) | [Occipital-Nerve-Block.html](Types-of-headache/html-files/Blocks/Occipital-Nerve-Block.html) | ✅ 完了 | Deep Teal→Cyan ヒーロー / Mermaid 10図 / 4フェーズ分割 |
 | Blocks | 頸椎神経叢ブロック (CPB) | [Cervical-Plexus-Block.md](Types-of-headache/md-files/Blocks/Cervical-Plexus-Block.md) | [Cervical-Plexus-Block.html](Types-of-headache/html-files/Blocks/Cervical-Plexus-Block.html) | ✅ 完了 | ガーネット→ローズヒーロー / Mermaid 12図 / 18セクション / 4フェーズ分割 |
 | Treatment | 頭痛の急性期治療の考え方 | [Headache-acute-treatment-guide.md](Types-of-headache/md-files/Treatment/Headache-acute-treatment-guide.md) | [Acute-treatment-of-headache.html](Types-of-headache/html-files/Treatment/Acute-treatment-of-headache.html) | ✅ 完了 | 青・ティール系ヒーロー / Mermaid 4図 / 7セクション / 参考文献48リンク / 4フェーズ分割 |
+| Treatment | 片頭痛予防治療ガイド | [Migraine-prevention-therapy-guide.md](Types-of-headache/md-files/Treatment/Migraine-prevention-therapy-guide.md) | [Migraine-prevention-therapy-guide.html](Types-of-headache/html-files/Treatment/Migraine-prevention-therapy-guide.html) | ✅ 完了 | 青・緑系 ヒーロー / Mermaid 6図 / 10セクション / 参考文献22リンク |
+| Treatment | 急性期治療薬の使用日数とMOH予防 | [Headache-acute-medication-moh-prevention-guide.md](Types-of-headache/md-files/Treatment/Headache-acute-medication-moh-prevention-guide.md) | [Moh-acute-use-days.html](Types-of-headache/html-files/Treatment/Moh-acute-use-days.html) | ✅ 完了 | 9 section / Mermaid 4図 / table 6 / 外部リンク 0 |
 | Treatment | 頭痛トリガーの特定と管理 | [Headache-trigger-identification-guide.md](Types-of-headache/md-files/Treatment/Headache-trigger-identification-guide.md) | [Headache-trigger-identification-guide.html](Types-of-headache/html-files/Treatment/Headache-trigger-identification-guide.html) | ✅ 完了 | 青・紺・黄 ヒーロー / Mermaid 3図 / 10セクション / 参考文献13リンク |
 | Treatment | 生活習慣管理とSEEDS | [Headache-lifestyle-seeds-guide.md](Types-of-headache/md-files/Treatment/Headache-lifestyle-seeds-guide.md) | [Headache-lifestyle-seeds-guide.html](Types-of-headache/html-files/Treatment/Headache-lifestyle-seeds-guide.html) | ✅ 完了 | サンライズ・オレンジ ヒーロー / Mermaid 2図 / 10セクション / 参考文献16リンク |
 | Treatment | 職場・学校での頭痛の合理的配慮 | [Headache-workplace-school-accommodations.md](Types-of-headache/md-files/Treatment/Headache-workplace-school-accommodations.md) | [Headache-workplace-school-accommodations.html](Types-of-headache/html-files/Treatment/Headache-workplace-school-accommodations.html) | ✅ 完了 | 暗灰色（Slate-Grey）ヒーロー / Mermaid 3図 / 8セクション / 参考文献19リンク |
@@ -77,6 +80,7 @@
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
 | Stellate-Ganglion-Block | `/blocks/stellate-ganglion-block` | ✅ 完了 | 11 section / Mermaid 11図 / table 22 / 外部リンク 25 |
+| Superior-Cervical-Ganglion-Block | `/blocks/superior-cervical-ganglion-block` | ✅ 完了 | 13 section / Mermaid 4図 / table 7 / 外部リンク 12 |
 | Migraine | `/headaches/migraine` | ✅ 完了 | 14 section / Mermaid 9図 / table 20 / 外部リンク 32 |
 | Tension-Type-Headache | `/headaches/tension-type-headache` | ✅ 完了 | 15 section / Mermaid 8図 / table 29 / 外部リンク 38 |
 | Headache-pathophysiology | `/headaches/headache-pathophysiology` | ✅ 完了 | 12 section / Mermaid 5図 / table 3 / 外部リンク 19 |
@@ -95,21 +99,27 @@
 | Headache-lifestyle-seeds-guide | `/treatment/headache-lifestyle-seeds-guide` | ✅ 完了 | 10 section / Mermaid 2図 / table 6 / 外部リンク 16 |
 | Headache-Trigger-Identification-Guide | `/treatment/headache-trigger-identification-guide` | ✅ 完了 | 10 section / Mermaid 3図 / table 3 / 外部リンク 13 |
 | Headache-workplace-school-accommodations | `/treatment/headache-workplace-school-accommodations` | ✅ 完了 | 8 section / Mermaid 3図 / table 4 / 外部リンク 19 |
+| Aerobic-exercise-headache-prevention | `/therapies/aerobic-exercise-headache-prevention` | ✅ 完了 | 10 section / Mermaid 2図 / table 10 / 外部リンク 16 |
+| Cgrp-pathway-headache-treatments | `/treatment/cgrp-pathway-headache-treatments` | ✅ 完了 | 14 section / Mermaid 4図 / table 5 / 外部リンク 46 |
+| Migraine-prevention-therapy-guide | `/treatment/migraine-prevention-therapy-guide` | ✅ 完了 | 10 section / Mermaid 6図 / table 10 / 外部リンク 22 |
+| Moh-acute-use-days | `/treatment/moh-acute-use-days` | ✅ 完了 | 9 section / Mermaid 4図 / table 6 / 外部リンク 0 |
+| Sleep-and-headache-guide | `/therapies/sleep-and-headache-guide` | ✅ 完了 | 10 section / Mermaid 5図 / table 7 / 外部リンク 48 |
 | 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer`遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し `/anatomy` 凡例＋主要ガイド（`app/headaches/` 4ページ）へ適用（残り画面は `.claude/skills/glossary-term-tooltip` の手順で展開）。Phase4=UX/IA/A11y ブラッシュアップ完了（manifest 駆動の検索コア `lib/anatomy/search.ts`＋WAI-ARIA autocomplete `AnatomySearch`、scroll-spy 左ナビ `AnatomySidebar`、`.anatomy-layout` 化、Hero 検索/カテゴリチップ/skip リンク、教育リンクのセマンティックタグ `data-cat`、`prefers-color-scheme` ダークモード、reduced-motion、focus-visible）。残=実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
 - **chrome のみクライアント化**: 各ページのサイドバー（scroll-spy = IntersectionObserver）を Client Component 化。
-  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` /
+  `components/blocks/CpbSidebar.tsx` / `components/blocks/OnbSidebar.tsx` / `components/blocks/SgbSidebar.tsx` / `components/blocks/ScgbSidebar.tsx` /
   `components/headaches/CehSidebar.tsx` / `components/headaches/MohSidebar.tsx` / `components/headaches/MigraineSidebar.tsx` /
   `components/headaches/TthSidebar.tsx` / `components/therapies/NutritionSidebar.tsx` /
   `components/therapies/PsychologicalBehavioralTherapySidebar.tsx` / `components/prom/HeadacheDiarySidebar.tsx` /
   `components/prom/HeadacheImpactTestSidebar.tsx` / `components/prom/MigraineDisabilityAssessmentSidebar.tsx` /
   `components/prom/MigraineSpecificQualityOfLifeSidebar.tsx` /
-  `components/prom/PatientGlobalImpressionOfChangeSidebar.tsx`, `components/treatment/AthSidebar.tsx`, `components/treatment/LifestyleSeedsSidebar.tsx`, `components/treatment/HeadacheTriggerIdentificationSidebar.tsx`, `components/treatment/HeadacheWorkplaceSchoolAccommodationsSidebar.tsx`。
+  `components/prom/PatientGlobalImpressionOfChangeSidebar.tsx`, `components/treatment/AthSidebar.tsx`, `components/treatment/LifestyleSeedsSidebar.tsx`, `components/treatment/HeadacheTriggerIdentificationSidebar.tsx`, `components/treatment/HeadacheWorkplaceSchoolAccommodationsSidebar.tsx`,
+  `components/treatment/MohAcuteUseDaysSidebar.tsx`, `components/therapies/AerobicExerciseSidebar.tsx`, `components/therapies/SleepAndHeadacheSidebar.tsx`, `components/treatment/CgrpPathwaySidebar.tsx`, `components/treatment/MigrainePreventionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
-  `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` などでスコープ。
-- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 294 passed（PROM 各尺度の静的ガイドページ契約を含む。anatomy 検索コア 9・AnatomySearch 6・AnatomySidebar 4・page 契約 +17 を追加）。lint / typecheck / test 全通過。
+  `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` / `.aerobic-exercise-accent` / `.sleep-guide` / `.cgrp-pathway-headache-treatments` / `.migraine-prevention` などでスコープ。
+- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 303 passed（moh-acute-use-days 指定 9 + SiteHeader 差分 1 追加）。lint / typecheck / test 全通過。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
 
 ---
@@ -118,7 +128,7 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 38a7268
+- 最新 HEAD: 1d90cd6
 - 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／新規コンテンツ移行待ち
 - 未移行 HTML 残数: 0
 ```

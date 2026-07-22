@@ -533,21 +533,23 @@ flowchart TB
 </div>
 
 <script>
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#e0f2f1',
-    primaryTextColor: '#004d40',
-    primaryBorderColor: '#00695c',
-    lineColor: '#00897b',
-    secondaryColor: '#e0f2f1',
-    tertiaryColor: '#e8f5e9',
-    edgeLabelBackground: '#ffffff',
-    fontSize: '13px'
-  },
-  flowchart: { curve: 'linear', padding: 20 }
-});
+if (typeof mermaid !== 'undefined') {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#e0f2f1',
+      primaryTextColor: '#004d40',
+      primaryBorderColor: '#00695c',
+      lineColor: '#00897b',
+      secondaryColor: '#e0f2f1',
+      tertiaryColor: '#e8f5e9',
+      edgeLabelBackground: '#ffffff',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'linear', padding: 20 }
+  });
+}
 
 const navAs = document.querySelectorAll('.nav-a');
 navAs.forEach(a => {

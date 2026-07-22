@@ -1,0 +1,429 @@
+.aerobic-exercise-accent {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+  --exh1: #004d40;
+  --exh2: #00695c;
+  --exh3: #00897b;
+  --exh-l: #e0f2f1;
+
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hero */
+.aerobic-exercise-accent .hero {
+  background: linear-gradient(135deg, #004d40, #00695c 55%, #00897b);
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.aerobic-exercise-accent .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+.aerobic-exercise-accent .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.aerobic-exercise-accent .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.aerobic-exercise-accent .hero-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.aerobic-exercise-accent .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.aerobic-exercise-accent .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.aerobic-exercise-accent .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.aerobic-exercise-accent .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.aerobic-exercise-accent .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.aerobic-exercise-accent .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.aerobic-exercise-accent .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.aerobic-exercise-accent .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.aerobic-exercise-accent .nav-a:hover,
+.aerobic-exercise-accent .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--exh1);
+  color: var(--exh1);
+}
+.aerobic-exercise-accent .nav-a.active {
+  font-weight: 600;
+  background: var(--exh-l);
+}
+.aerobic-exercise-accent .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.aerobic-exercise-accent .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.aerobic-exercise-accent .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.aerobic-exercise-accent .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.aerobic-exercise-accent .sec-num {
+  background: var(--exh1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.aerobic-exercise-accent .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--exh1);
+}
+.aerobic-exercise-accent h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--exh2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--exh3);
+}
+.aerobic-exercise-accent p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.aerobic-exercise-accent ul,
+.aerobic-exercise-accent ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.aerobic-exercise-accent li {
+  margin-bottom: 4px;
+}
+.aerobic-exercise-accent a {
+  color: var(--blue);
+}
+.aerobic-exercise-accent a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.aerobic-exercise-accent .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.aerobic-exercise-accent .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.aerobic-exercise-accent .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.aerobic-exercise-accent .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.aerobic-exercise-accent .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.aerobic-exercise-accent .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.aerobic-exercise-accent .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.aerobic-exercise-accent .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.aerobic-exercise-accent .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.aerobic-exercise-accent table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.aerobic-exercise-accent thead th {
+  background: var(--exh1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.aerobic-exercise-accent tbody tr:nth-child(even) {
+  background: var(--exh-l);
+}
+.aerobic-exercise-accent tbody tr:hover {
+  background: var(--g1);
+}
+.aerobic-exercise-accent tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.aerobic-exercise-accent .th-teal thead th {
+  background: var(--teal);
+}
+.aerobic-exercise-accent .th-red thead th {
+  background: var(--red);
+}
+.aerobic-exercise-accent .th-orange thead th {
+  background: var(--orange);
+}
+.aerobic-exercise-accent .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.aerobic-exercise-accent .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+  white-space: nowrap;
+}
+.aerobic-exercise-accent .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+  white-space: nowrap;
+}
+.aerobic-exercise-accent .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+  white-space: nowrap;
+}
+.aerobic-exercise-accent .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+  white-space: nowrap;
+}
+
+/* Color text */
+.aerobic-exercise-accent .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.aerobic-exercise-accent .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.aerobic-exercise-accent .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.aerobic-exercise-accent .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.aerobic-exercise-accent .tN {
+  color: var(--exh1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.aerobic-exercise-accent .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.aerobic-exercise-accent .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.aerobic-exercise-accent .mmd-lbl::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--exh2);
+  display: inline-block;
+}
+
+/* Footer */
+.aerobic-exercise-accent .footer {
+  background: var(--exh1);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.aerobic-exercise-accent .footer strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .aerobic-exercise-accent .sidebar {
+    display: none;
+  }
+  .aerobic-exercise-accent .main {
+    padding: 16px 14px 60px;
+  }
+}

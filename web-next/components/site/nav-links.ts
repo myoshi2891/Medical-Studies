@@ -93,6 +93,18 @@ export const navLinks: readonly NavLink[] = [
         name: "合理的配慮の一般論",
         href: "/treatment/headache-workplace-school-accommodations",
       },
+      {
+        name: "CGRP標的治療薬",
+        href: "/treatment/cgrp-pathway-headache-treatments",
+      },
+      {
+        name: "片頭痛予防治療ガイド",
+        href: "/treatment/migraine-prevention-therapy-guide",
+      },
+      {
+        name: "適正使用日数とMOH予防",
+        href: "/treatment/moh-acute-use-days",
+      },
     ],
   },
   {
@@ -103,6 +115,10 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "星状神経節ブロック (SGB)",
         href: "/blocks/stellate-ganglion-block",
+      },
+      {
+        name: "上頸神経節ブロック (SCGB)",
+        href: "/blocks/superior-cervical-ganglion-block",
       },
     ],
   },
@@ -128,6 +144,14 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "トリガーポイント入門",
         href: "/therapies/trigger-points-and-headache",
+      },
+      {
+        name: "有酸素運動と頭痛予防",
+        href: "/therapies/aerobic-exercise-headache-prevention",
+      },
+      {
+        name: "睡眠衛生ガイド",
+        href: "/therapies/sleep-and-headache-guide",
       },
     ],
   },

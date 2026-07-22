@@ -342,6 +342,31 @@ import { Ext } from "@/components/Ext"; // named import
 `Ext` が `target=_blank` + `rel=noopener noreferrer` を保証する。内部リンク（`#anchor`）は
 通常の `<a>` を使う。
 
+### Step 2.5: グローバルナビゲーションへの登録（TDD）
+
+ページ本体の移行が完了したら、サイト共通ヘッダー（グローバルナビゲーション）に新ページを登録する。
+
+1. **[Red] 契約テストの更新**:
+   `web-next/components/site/SiteHeader.test.tsx` の「実装済みルートは通常リンクで描画される」テストブロックに新ページのパスを追加する:
+
+   ```tsx
+   expect(hrefs).toContain("/<category>/<slug>");
+   ```
+
+   `bun run test components/site/SiteHeader.test.tsx` で**失敗を確認**する。
+
+2. **[Green] ナビゲーション定義への追記**:
+   `web-next/components/site/nav-links.ts` の該当カテゴリ（`Headaches` / `Treatment` / `Blocks` / `Therapies` / `PROM`）に定義を追加する:
+
+   ```ts
+   {
+     name: "ページ表示名",
+     href: "/<category>/<slug>",
+   }
+   ```
+
+   テストを再実行して全グリーンを確認し、コミット（`feat(web-next): add <slug> link to SiteHeader nav-links`）する。
+
 ### Step 3: ローカル検証
 
 ```bash
@@ -349,7 +374,7 @@ cd web-next
 bun run lint        # Biome（変更ファイル単位でパス指定。lint:fix の引数なし実行は禁止）
 bun run typecheck   # tsc --noEmit
 bun run test        # vitest
-bun run build       # Next.js production build
+bun run build       # Next.js production build（※ユーザーから「ビルド禁止」指示がある場合は実行しない）
 ```
 
 **全通過**が必須。部分 pass でコミットしない。
@@ -361,6 +386,7 @@ bun run build       # Next.js production build
 ### Step 5: ドキュメント同期
 
 - `GEMINI.md` / `CLAUDE.md` / `PROGRESS.md` に移行ページを追記
+- グローバルナビゲーション（`nav-links.ts`）への追加が完了していることを確認
 - `git commit` 前に PII チェック（`.claude/rules/no-absolute-paths.md`）:
 
   ```bash
@@ -503,6 +529,7 @@ bun run build       # Next.js production build
 - **`scroll-behavior:smooth` を無条件で置かない** — `@media (prefers-reduced-motion: no-preference)` で囲う
 - **単語フォント名に引用符を付けない** — `font-family-name-quotes`（例: `Meiryo` は無引用符）
 - **Mermaid 判断ノードに異なる条件を混在させない** — 独立条件は独立ノードに分け、本文の禁忌記述と整合させる
+- **グローバルナビゲーションの登録を忘れない** — `nav-links.ts` へ新ページを追加し、`SiteHeader.test.tsx` でテスト検証（TDD）を行う
 - **`"use client"` を不必要に使わない** — Server Component デフォルト
 - **shiki / CSS Modules を導入しない** — 手書き span + globals.css スコープ方式
 - **`<i class="ti …">` を残さない** — `@tabler/icons-react` へ変換

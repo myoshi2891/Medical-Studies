@@ -808,23 +808,25 @@ flowchart TD
 </div>
 
 <script>
-mermaid.initialize({
-  startOnLoad: true,
-  theme: 'base',
-  themeVariables: {
-    primaryColor: '#0d47a1',
-    primaryTextColor: '#ffffff',
-    primaryBorderColor: '#00695c',
-    lineColor: '#00695c',
-    secondaryColor: '#e0f2f1',
-    tertiaryColor: '#e8f5e9',
-    edgeLabelBackground: '#ffffff',
-    textColor: '#212121',
-    titleColor: '#212121',
-    fontSize: '13px'
-  },
-  flowchart: { curve: 'linear', padding: 20 }
-});
+if (typeof mermaid !== 'undefined') {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#0d47a1',
+      primaryTextColor: '#ffffff',
+      primaryBorderColor: '#00695c',
+      lineColor: '#00695c',
+      secondaryColor: '#e0f2f1',
+      tertiaryColor: '#e8f5e9',
+      edgeLabelBackground: '#ffffff',
+      textColor: '#212121',
+      titleColor: '#212121',
+      fontSize: '13px'
+    },
+    flowchart: { curve: 'linear', padding: 20 }
+  });
+}
 
 const navAs = document.querySelectorAll('.nav-a');
 navAs.forEach(a => {

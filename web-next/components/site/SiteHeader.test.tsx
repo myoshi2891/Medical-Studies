@@ -68,7 +68,7 @@ describe("SiteHeader - ドロップダウン描画", () => {
       container.querySelectorAll<HTMLElement>("li.ch-dropdown .ch-dropdown-toggle")
     ).find((t) => t.textContent?.includes("Blocks"));
     const submenu = blocksToggle?.closest("li.ch-dropdown")?.querySelector("ul.ch-submenu");
-    expect(submenu?.querySelectorAll("li").length).toBe(3);
+    expect(submenu?.querySelectorAll("li").length).toBe(4);
   });
 });
 
@@ -89,7 +89,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     });
   });
 
-  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker/nutrition-and-supplements/physical-therapy-for-headache/psychological-behavioral-therapy/headache-diary/headache-impact-test/numerical-rating-scale-visual-analogue-scale/patient-global-impression-of-change/headache-lifestyle-seeds-guide/headache-trigger-identification-guide/headache-pathophysiology/headache-workplace-school-accommodations）は通常リンクで描画される", () => {
+  it("実装済みルート（Migraine/TTH/CEH/ONB/CPB/anatomy/prom-checker/nutrition-and-supplements/physical-therapy-for-headache/psychological-behavioral-therapy/headache-diary/headache-impact-test/numerical-rating-scale-visual-analogue-scale/patient-global-impression-of-change/headache-lifestyle-seeds-guide/headache-trigger-identification-guide/headache-pathophysiology/headache-workplace-school-accommodations/aerobic-exercise-headache-prevention）は通常リンクで描画される", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const hrefs = Array.from(container.querySelectorAll<HTMLAnchorElement>("a[href]")).map((a) =>
       a.getAttribute("href")
@@ -101,11 +101,13 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/blocks/occipital-nerve-block");
     expect(hrefs).toContain("/blocks/cervical-plexus-block");
     expect(hrefs).toContain("/blocks/stellate-ganglion-block");
+    expect(hrefs).toContain("/blocks/superior-cervical-ganglion-block");
     expect(hrefs).toContain("/anatomy");
     expect(hrefs).toContain("/prom-checker");
     expect(hrefs).toContain("/therapies/nutrition-and-supplements");
     expect(hrefs).toContain("/therapies/physical-therapy-for-headache");
     expect(hrefs).toContain("/therapies/psychological-behavioral-therapy");
+    expect(hrefs).toContain("/therapies/aerobic-exercise-headache-prevention");
     expect(hrefs).toContain("/prom/headache-diary");
     expect(hrefs).toContain("/prom/headache-impact-test");
     expect(hrefs).toContain("/prom/migraine-disability-assessment");
@@ -115,6 +117,10 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/treatment/headache-lifestyle-seeds-guide");
     expect(hrefs).toContain("/treatment/headache-trigger-identification-guide");
     expect(hrefs).toContain("/treatment/headache-workplace-school-accommodations");
+    expect(hrefs).toContain("/treatment/cgrp-pathway-headache-treatments");
+    expect(hrefs).toContain("/treatment/migraine-prevention-therapy-guide");
+    expect(hrefs).toContain("/treatment/moh-acute-use-days");
+    expect(hrefs).toContain("/therapies/sleep-and-headache-guide");
   });
 });
 

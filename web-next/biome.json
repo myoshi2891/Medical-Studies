@@ -37,7 +37,13 @@
       "!app/treatment/acute-treatment-of-headache/acute-treatment-of-headache.css",
       "!app/treatment/headache-lifestyle-seeds-guide/headache-lifestyle-seeds-guide.css",
       "!app/treatment/headache-trigger-identification-guide/headache-trigger-identification-guide.css",
-      "!app/treatment/headache-workplace-school-accommodations/headache-workplace-school-accommodations.css"
+      "!app/treatment/headache-workplace-school-accommodations/headache-workplace-school-accommodations.css",
+      "!app/therapies/aerobic-exercise-headache-prevention/aerobic-exercise-headache-prevention.css",
+      "!app/treatment/cgrp-pathway-headache-treatments/cgrp-pathway-headache-treatments.css",
+      "!app/treatment/migraine-prevention-therapy-guide/migraine-prevention-therapy-guide.css",
+      "!app/treatment/moh-acute-use-days/moh-acute-use-days.css",
+      "!app/therapies/sleep-and-headache-guide/sleep-and-headache-guide.css",
+      "!app/blocks/superior-cervical-ganglion-block/superior-cervical-ganglion-block.css"
     ]
   },
   "formatter": {
