@@ -97,6 +97,10 @@ export const navLinks: readonly NavLink[] = [
         name: "CGRP標的治療薬",
         href: "/treatment/cgrp-pathway-headache-treatments",
       },
+      {
+        name: "片頭痛予防治療ガイド",
+        href: "/treatment/migraine-prevention-therapy-guide",
+      },
     ],
   },
   {

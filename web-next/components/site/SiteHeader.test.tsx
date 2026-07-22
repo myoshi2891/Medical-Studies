@@ -117,6 +117,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/treatment/headache-trigger-identification-guide");
     expect(hrefs).toContain("/treatment/headache-workplace-school-accommodations");
     expect(hrefs).toContain("/treatment/cgrp-pathway-headache-treatments");
+    expect(hrefs).toContain("/treatment/migraine-prevention-therapy-guide");
   });
 });
 
