@@ -93,6 +93,10 @@ export const navLinks: readonly NavLink[] = [
         name: "合理的配慮の一般論",
         href: "/treatment/headache-workplace-school-accommodations",
       },
+      {
+        name: "CGRP標的治療薬",
+        href: "/treatment/cgrp-pathway-headache-treatments",
+      },
     ],
   },
   {
