@@ -352,7 +352,7 @@ export default function SuperiorCervicalGanglionBlockPage() {
                     </td>
                     <td>抗凝固薬・抗血小板薬内服中、凝固異常</td>
                     <td>
-                      致性的となりうる後咽頭血腫のリスク<sup>[7][8]</sup>
+                      致死的となりうる後咽頭血腫のリスク<sup>[7][8]</sup>
                     </td>
                   </tr>
                   <tr>
@@ -643,7 +643,7 @@ export default function SuperiorCervicalGanglionBlockPage() {
                       <span className="tR">後咽頭血腫</span>
                     </td>
                     <td>
-                      まれだが気道閉塞に至り致性的となりうる合併症<sup>[7][8]</sup>
+                      まれだが気道閉塞に至り致死的となりうる合併症<sup>[7][8]</sup>
                     </td>
                     <td>頸部腫脹・呼吸困難出現時は直ちに気道評価と緊急対応</td>
                   </tr>
