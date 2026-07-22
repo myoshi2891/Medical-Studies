@@ -4,8 +4,8 @@
 
 ## 現在地
 
-- **最新 HEAD**: `75e9b68` feat(web-next): implement headache-workplace-school-accommodations page
-- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 460 passed（54 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
+- **最新 HEAD**: `eb85fa6` feat(web-next): add migraine-prevention-therapy-guide link to SiteHeader nav-links
+- **ビルド状態**: web-next 全体で typecheck クリーン・build 成功。テスト 488 passed（57 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
 - **次の作業**: `/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
 - **未移行 HTML 残数**: 0
 
@@ -22,6 +22,7 @@
 | Blocks | 後頭神経ブロック (ONB) | [Occipital-Nerve-Block.md](Types-of-headache/md-files/Blocks/Occipital-Nerve-Block.md) | [Occipital-Nerve-Block.html](Types-of-headache/html-files/Blocks/Occipital-Nerve-Block.html) | ✅ 完了 | Deep Teal→Cyan ヒーロー / Mermaid 10図 / 4フェーズ分割 |
 | Blocks | 頸椎神経叢ブロック (CPB) | [Cervical-Plexus-Block.md](Types-of-headache/md-files/Blocks/Cervical-Plexus-Block.md) | [Cervical-Plexus-Block.html](Types-of-headache/html-files/Blocks/Cervical-Plexus-Block.html) | ✅ 完了 | ガーネット→ローズヒーロー / Mermaid 12図 / 18セクション / 4フェーズ分割 |
 | Treatment | 頭痛の急性期治療の考え方 | [Headache-acute-treatment-guide.md](Types-of-headache/md-files/Treatment/Headache-acute-treatment-guide.md) | [Acute-treatment-of-headache.html](Types-of-headache/html-files/Treatment/Acute-treatment-of-headache.html) | ✅ 完了 | 青・ティール系ヒーロー / Mermaid 4図 / 7セクション / 参考文献48リンク / 4フェーズ分割 |
+| Treatment | 片頭痛予防治療ガイド | [Migraine-prevention-therapy-guide.md](Migraine-prevention-therapy-guide.md) | [Migraine-prevention-therapy-guide.html](Migraine-prevention-therapy-guide.html) | ✅ 完了 | 青・緑系 ヒーロー / Mermaid 6図 / 10セクション / 参考文献22リンク |
 | Treatment | 頭痛トリガーの特定と管理 | [Headache-trigger-identification-guide.md](Types-of-headache/md-files/Treatment/Headache-trigger-identification-guide.md) | [Headache-trigger-identification-guide.html](Types-of-headache/html-files/Treatment/Headache-trigger-identification-guide.html) | ✅ 完了 | 青・紺・黄 ヒーロー / Mermaid 3図 / 10セクション / 参考文献13リンク |
 | Treatment | 生活習慣管理とSEEDS | [Headache-lifestyle-seeds-guide.md](Types-of-headache/md-files/Treatment/Headache-lifestyle-seeds-guide.md) | [Headache-lifestyle-seeds-guide.html](Types-of-headache/html-files/Treatment/Headache-lifestyle-seeds-guide.html) | ✅ 完了 | サンライズ・オレンジ ヒーロー / Mermaid 2図 / 10セクション / 参考文献16リンク |
 | Treatment | 職場・学校での頭痛の合理的配慮 | [Headache-workplace-school-accommodations.md](Types-of-headache/md-files/Treatment/Headache-workplace-school-accommodations.md) | [Headache-workplace-school-accommodations.html](Types-of-headache/html-files/Treatment/Headache-workplace-school-accommodations.html) | ✅ 完了 | 暗灰色（Slate-Grey）ヒーロー / Mermaid 3図 / 8セクション / 参考文献19リンク |
@@ -97,6 +98,7 @@
 | Headache-workplace-school-accommodations | `/treatment/headache-workplace-school-accommodations` | ✅ 完了 | 8 section / Mermaid 3図 / table 4 / 外部リンク 19 |
 | Aerobic-exercise-headache-prevention | `/therapies/aerobic-exercise-headache-prevention` | ✅ 完了 | 10 section / Mermaid 2図 / table 10 / 外部リンク 16 |
 | Cgrp-pathway-headache-treatments | `/treatment/cgrp-pathway-headache-treatments` | ✅ 完了 | 14 section / Mermaid 4図 / table 5 / 外部リンク 46 |
+| Migraine-prevention-therapy-guide | `/treatment/migraine-prevention-therapy-guide` | ✅ 完了 | 10 section / Mermaid 6図 / table 10 / 外部リンク 22 |
 | 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer`遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し `/anatomy` 凡例＋主要ガイド（`app/headaches/` 4ページ）へ適用（残り画面は `.claude/skills/glossary-term-tooltip` の手順で展開）。Phase4=UX/IA/A11y ブラッシュアップ完了（manifest 駆動の検索コア `lib/anatomy/search.ts`＋WAI-ARIA autocomplete `AnatomySearch`、scroll-spy 左ナビ `AnatomySidebar`、`.anatomy-layout` 化、Hero 検索/カテゴリチップ/skip リンク、教育リンクのセマンティックタグ `data-cat`、`prefers-color-scheme` ダークモード、reduced-motion、focus-visible）。残=実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
