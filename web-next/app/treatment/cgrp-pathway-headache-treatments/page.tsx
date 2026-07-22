@@ -317,9 +317,9 @@ export default function CgrpPathwayHeadacheTreatmentsPage() {
             <h3>5.3 エビデンスの概要</h3>
             <p>
               複数のシステマティックレビュー・メタアナリシス{" "}
-              <span className="bB">Level B</span>{" "}
+              <span className="bB">メタアナリシス</span>{" "}
               において、抗CGRPモノクローナル抗体群はプラセボと比較して、月間片頭痛日数の50%以上減少を達成する患者の割合（レスポンダー率）に関して有意な改善が示されています。ただし、これらは主に数か月〜1年程度の臨床試験・観察研究に基づくものであり、長期の実臨床データ{" "}
-              <span className="bC">Level C</span>{" "}
+              <span className="bC">観察研究</span>{" "}
               は蓄積が進んでいる段階です。日本国内でも、実臨床コホート研究により長期的な有効性・忍容性を検証する取り組みが継続されています。
             </p>
 
