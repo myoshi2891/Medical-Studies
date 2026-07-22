@@ -19,12 +19,10 @@ vi.mock("@/components/MermaidDiagram", () => ({
  * - 内部リンク（#始まり）: 9個（サイドバー nav-a）
  */
 const SECTION_IDS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9"];
-const H2_COUNT = 14;
-// h3: Q&Aカード内 3個。h1は sec-title として使用するがNext.jsではh2へ昇格。
-// 移行後見出し階層: 各セクションタイトルを h2（sec-title）、本文の h2 を h3 へ1段下げる。
-// ただし元ソースの h2/h3 の構造を忠実転記する場合、スキルの指示により論理階層を是正する。
-// 元ソース: <h1 class="sec-title"> 9個（セクション見出し）、<h2> 14個（サブ見出し）、<h3> 3個
-// 移行後: sec-title → h2（9個）、h2 → h3（14個）、h3 → h4（3個）
+// 見出し階層の是正（スキル規約に従い段飛ばし禁止）:
+// 元ソース: <h1 class="sec-title"> 9個、<h2> 14個（サブ見出し）、<h3> 3個
+// 移行後: sec-title → h2（9個）、元h2 → h3（14個）、元h3 → h4（3個）
+const H2_COUNT = 9; // sec-title 9個がh2として昇格
 const H3_COUNT = 14;
 const H4_COUNT = 3;
 const MERMAID_COUNT = 4;
@@ -47,11 +45,7 @@ describe("MohAcuteUseDaysPage: 契約（忠実転記）", () => {
 
   it("<h2> の個数がソースと一致する（sec-title 昇格後）", () => {
     const { container } = render(<MohActuseUseDaysPage />);
-    // sec-title 9個 + 元 h2 14個 の中の... 実際は sec-title が h2 になる
-    // h2: 9 (sec-title) + 14 (h2→h3 変換後の h2) → ただし元 h2 を h3 に変換するなら h2 = 9
-    // スキルに従い: sec-title → h2, 元h2 → h3, 元h3 → h4
-    // つまり h2 = 9 (セクション見出し)
-    expect(container.querySelectorAll("h2")).toHaveLength(9);
+    expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
   });
 
   it("<h3> の個数がソースと一致する（元 h2 を h3 へ昇格）", () => {

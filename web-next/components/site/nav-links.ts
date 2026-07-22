@@ -101,6 +101,10 @@ export const navLinks: readonly NavLink[] = [
         name: "片頭痛予防治療ガイド",
         href: "/treatment/migraine-prevention-therapy-guide",
       },
+      {
+        name: "適正使用日数とMOH予防",
+        href: "/treatment/moh-acute-use-days",
+      },
     ],
   },
   {
