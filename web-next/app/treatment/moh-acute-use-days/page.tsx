@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { MohAcuteUseDaysSidebar } from "@/components/treatment/MohAcuteUseDaysSidebar";
 import "./moh-acute-use-days.css";
@@ -857,28 +858,36 @@ Note2 --> FollowUp`}
                 <div className="src-org">IHS / ICHD-3</div>
                 <div className="src-t">8.2 Medication-overuse headache (MOH)</div>
                 <div className="src-url">
-                  https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/
+                  <Ext href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/">
+                    https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/
+                  </Ext>
                 </div>
               </div>
               <div className="src">
                 <div className="src-org">IHS / ICHD-3</div>
                 <div className="src-t">8.2.3 Non-opioid analgesic-overuse headache</div>
                 <div className="src-url">
-                  https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-3-simple-analgesic-overuse-headache/
+                  <Ext href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-3-simple-analgesic-overuse-headache/">
+                    https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-3-simple-analgesic-overuse-headache/
+                  </Ext>
                 </div>
               </div>
               <div className="src">
                 <div className="src-org">IHS / ICHD-3</div>
                 <div className="src-t">8.2.2 Triptan-overuse headache</div>
                 <div className="src-url">
-                  https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-2-triptan-overuse-headache/
+                  <Ext href="https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-2-triptan-overuse-headache/">
+                    https://ichd-3.org/8-headache-attributed-to-a-substance-or-its-withdrawal/8-2-medication-overuse-headache-moh/8-2-2-triptan-overuse-headache/
+                  </Ext>
                 </div>
               </div>
               <div className="src">
                 <div className="src-org">NICE</div>
                 <div className="src-t">CG150 — Headaches in over 12s: diagnosis and management</div>
                 <div className="src-url">
-                  https://www.nice.org.uk/guidance/cg150/chapter/recommendations
+                  <Ext href="https://www.nice.org.uk/guidance/cg150/chapter/recommendations">
+                    https://www.nice.org.uk/guidance/cg150/chapter/recommendations
+                  </Ext>
                 </div>
               </div>
               <div className="src">
@@ -887,7 +896,9 @@ Note2 --> FollowUp`}
                   Ailani J, et al. American Headache Society Consensus Statement (2021)
                 </div>
                 <div className="src-url">
-                  https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.14153
+                  <Ext href="https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.14153">
+                    https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.14153
+                  </Ext>
                 </div>
               </div>
               <div className="src">
@@ -895,14 +906,22 @@ Note2 --> FollowUp`}
                 <div className="src-t">
                   Diener HC, et al. EAN guideline on management of MOH (2020)
                 </div>
-                <div className="src-url">https://onlinelibrary.wiley.com/doi/10.1111/ene.14268</div>
+                <div className="src-url">
+                  <Ext href="https://onlinelibrary.wiley.com/doi/10.1111/ene.14268">
+                    https://onlinelibrary.wiley.com/doi/10.1111/ene.14268
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">Lancet Neurology</div>
                 <div className="src-t">
                   Diener HC, et al. Pathophysiology, prevention, and treatment of MOH (2019)
                 </div>
-                <div className="src-url">https://doi.org/10.1016/S1474-4422(19)30146-2</div>
+                <div className="src-url">
+                  <Ext href="https://doi.org/10.1016/S1474-4422(19)30146-2">
+                    https://doi.org/10.1016/S1474-4422(19)30146-2
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">ACP / Ann Intern Med</div>
@@ -910,7 +929,9 @@ Note2 --> FollowUp`}
                   Pharmacologic Treatments of Acute Episodic Migraine Headache (2025)
                 </div>
                 <div className="src-url">
-                  https://www.acpjournals.org/doi/10.7326/ANNALS-24-03095
+                  <Ext href="https://www.acpjournals.org/doi/10.7326/ANNALS-24-03095">
+                    https://www.acpjournals.org/doi/10.7326/ANNALS-24-03095
+                  </Ext>
                 </div>
               </div>
               <div className="src">
@@ -918,24 +939,40 @@ Note2 --> FollowUp`}
                 <div className="src-t">
                   Ashina S, Terwindt GM, Steiner TJ, et al. Medication overuse headache (2023)
                 </div>
-                <div className="src-url">https://www.nature.com/articles/s41572-022-00415-0</div>
+                <div className="src-url">
+                  <Ext href="https://www.nature.com/articles/s41572-022-00415-0">
+                    https://www.nature.com/articles/s41572-022-00415-0
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">日本頭痛学会</div>
                 <div className="src-t">「薬剤の使用過多による頭痛」一般向け解説</div>
-                <div className="src-url">https://www.jhsnet.net/ippan_zutu_kaisetu_05.html</div>
+                <div className="src-url">
+                  <Ext href="https://www.jhsnet.net/ippan_zutu_kaisetu_05.html">
+                    https://www.jhsnet.net/ippan_zutu_kaisetu_05.html
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">日本頭痛学会</div>
                 <div className="src-t">頭痛ガイドライン 一覧ページ</div>
-                <div className="src-url">https://www.jhsnet.net/guideline.html</div>
+                <div className="src-url">
+                  <Ext href="https://www.jhsnet.net/guideline.html">
+                    https://www.jhsnet.net/guideline.html
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">NCBI Bookshelf</div>
                 <div className="src-t">
                   Fischer MA, Jan A. Medication-Overuse Headache. StatPearls
                 </div>
-                <div className="src-url">https://www.ncbi.nlm.nih.gov/books/NBK538150/</div>
+                <div className="src-url">
+                  <Ext href="https://www.ncbi.nlm.nih.gov/books/NBK538150/">
+                    https://www.ncbi.nlm.nih.gov/books/NBK538150/
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">Front Pain Res</div>
@@ -943,7 +980,11 @@ Note2 --> FollowUp`}
                   Kebede YT, et al. Medication overuse headache: review of evidence and management
                   (2023)
                 </div>
-                <div className="src-url">https://pmc.ncbi.nlm.nih.gov/articles/PMC10442656/</div>
+                <div className="src-url">
+                  <Ext href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10442656/">
+                    https://pmc.ncbi.nlm.nih.gov/articles/PMC10442656/
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">Front Pain Res</div>
@@ -951,14 +992,20 @@ Note2 --> FollowUp`}
                   Krymchantowski A, et al. Medication-overuse headache — review of treatment
                   strategies (2023)
                 </div>
-                <div className="src-url">https://pmc.ncbi.nlm.nih.gov/articles/PMC10597723/</div>
+                <div className="src-url">
+                  <Ext href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10597723/">
+                    https://pmc.ncbi.nlm.nih.gov/articles/PMC10597723/
+                  </Ext>
+                </div>
               </div>
               <div className="src">
                 <div className="src-org">PMDA</div>
                 <div className="src-t">
                   独立行政法人 医薬品医療機器総合機構（承認情報・添付文書）
                 </div>
-                <div className="src-url">https://www.pmda.go.jp/</div>
+                <div className="src-url">
+                  <Ext href="https://www.pmda.go.jp/">https://www.pmda.go.jp/</Ext>
+                </div>
               </div>
             </div>
           </section>
