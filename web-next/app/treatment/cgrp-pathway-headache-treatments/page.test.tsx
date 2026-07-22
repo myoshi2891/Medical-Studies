@@ -9,8 +9,9 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** ソース HTML（Cgrp-pathway-headache-treatments.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 14 }, (_, i) => `s${i + 1}`);
-const H2_COUNT = 17;
-const H3_COUNT = 1;
+const H2_COUNT = 14;
+const H3_COUNT = 17;
+const H4_COUNT = 1;
 const MERMAID_COUNT = 4;
 const TABLE_COUNT = 5;
 const NAV_COUNT = 14;
@@ -30,14 +31,19 @@ describe("CgrpPathwayHeadacheTreatmentsPage: 契約（忠実転記）", () => {
     expect(ids).toEqual(SECTION_IDS);
   });
 
-  it("<h2> の個数がソースと一致する", () => {
+  it("<h2> の個数がソースのセクション数と一致する（14個）", () => {
     const { container } = render(<CgrpPathwayHeadacheTreatmentsPage />);
     expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
   });
 
-  it("<h3> の個数がソースと一致する", () => {
+  it("<h3> の個数がソースのサブセクション数と一致する（17個）", () => {
     const { container } = render(<CgrpPathwayHeadacheTreatmentsPage />);
     expect(container.querySelectorAll("h3")).toHaveLength(H3_COUNT);
+  });
+
+  it("<h4> の個数がソースのサブサブセクション数と一致する（1個）", () => {
+    const { container } = render(<CgrpPathwayHeadacheTreatmentsPage />);
+    expect(container.querySelectorAll("h4")).toHaveLength(H4_COUNT);
   });
 
   it("Mermaid 図の個数がソースと一致する", () => {
