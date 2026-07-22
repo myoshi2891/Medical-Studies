@@ -116,6 +116,10 @@ export const navLinks: readonly NavLink[] = [
         name: "星状神経節ブロック (SGB)",
         href: "/blocks/stellate-ganglion-block",
       },
+      {
+        name: "上頸神経節ブロック (SCGB)",
+        href: "/blocks/superior-cervical-ganglion-block",
+      },
     ],
   },
   {
