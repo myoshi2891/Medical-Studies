@@ -129,6 +129,10 @@ export const navLinks: readonly NavLink[] = [
         name: "トリガーポイント入門",
         href: "/therapies/trigger-points-and-headache",
       },
+      {
+        name: "有酸素運動と頭痛予防",
+        href: "/therapies/aerobic-exercise-headache-prevention",
+      },
     ],
   },
   {
