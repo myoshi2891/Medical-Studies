@@ -21,7 +21,7 @@
 | 001  | プラットフォーム全体ビジョンと現状分析 | P1 | S | — | TODO |
 | 002  | カテゴリ体系・情報アーキテクチャ確定 | P1 | M | 001 | TODO |
 | 003  | 情報収集・最新情報キャッチアップ運用 | P1 | M | 001 | TODO |
-| 004  | 治療法カテゴリ（薬物・サプリ）拡張 | P1 | L | 001, 002, 003 | TODO |
+| 004  | 治療法カテゴリ（薬物・サプリ）拡張 | P1 | L | 001, 002, 003 | **IN PROGRESS**（`/treatment/*` 7 ページ移行済: acute-treatment / cgrp-pathway / migraine-prevention / moh-acute-use-days / lifestyle-seeds / trigger-identification / workplace-school。slug は立案時から改名あり例 `preventive-treatment`→`migraine-prevention-therapy-guide`。残: 予防・CGRP 系の残ページと相互リンク精査） |
 | 005  | 研究・エビデンスカテゴリ新設 | P2 | L | 001, 002, 003 | TODO |
 | 006  | 療養・セルフケアカテゴリ新設 | P2 | M | 001, 002, 003 | TODO |
 | 007  | 技術基盤拡張（横断検索・鮮度メタ・ナビ再設計） | P2 | L | 001, 002 | TODO |
