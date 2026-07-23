@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  web-next:
+    name: web-next (typecheck / lint / test / build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web-next
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.12
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun run lint
+      - run: bun run test
+      - run: bun run build
+
+  license-gate:
+    name: dependency license gate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web-next
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.12
+      - run: bun install --frozen-lockfile
+      # 強コピーレフトの production 混入を拒否（plans/009 と同一ゲート）
+      - run: bunx license-checker-rseidelsohn@4.4.2 --production --failOn "GPL-2.0;GPL-3.0;AGPL-1.0;AGPL-3.0"
+
+  markdown:
+    name: markdown lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # 対象は現状 lint-clean なツリーに限定（ルート *.md / plans / docs/publishing）。
+      # コンテンツ .md（Types-of-headache 等）の既存 markdownlint 負債は別タスクで是正後に対象へ加える。
+      - run: npx markdownlint-cli@0.41.0 -c .markdownlint.json "*.md" "plans/**/*.md" "docs/publishing/**/*.md" --ignore node_modules --ignore web-next/node_modules
+
+  mermaid-script:
+    name: fix-mermaid script tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest==8.2.2
+      - run: python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py
+
+  pii-check:
+    name: absolute-path / PII check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 追跡対象の全ファイルに環境依存の絶対パスがないこと（.claude/rules/no-absolute-paths.md の CI 化）。
+      # パターンは「/Users/<名前>/」「/home/<名前>/」のようにユーザー名セグメント＋後続スラッシュを
+      # 必須にしている（素朴な '/home/' では Web URL（例: sagepub.com/home/cep）や
+      # 検査ルール自身のパターン定義行に誤検知するため）。URL を含む行は除外する。
+      - run: |
+          hits=$(git grep -nI -E '(/Users/[A-Za-z0-9._-]+/|/home/[A-Za-z0-9._-]+/|C:\\Users\\)' -- ':!*.lock' | grep -vE 'johndoe|https?://' || true)
+          if [ -n "$hits" ]; then
+            echo "::error::環境依存の絶対パスが検出されました:"
+            echo "$hits"
+            exit 1
+          fi
