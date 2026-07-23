@@ -30,10 +30,7 @@ function isAtLeast(actual: string, minimum: string): boolean {
 
 function lockedVersions(lockfile: string, packageName: string): string[] {
   const escapedName = packageName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp(
-    `"[^"]*${escapedName}": \\["${escapedName}@([^"]+)"`,
-    "g"
-  );
+  const pattern = new RegExp(`"[^"]*${escapedName}": \\["${escapedName}@([^"]+)"`, "g");
 
   return [...lockfile.matchAll(pattern)].map((match) => match[1]);
 }
