@@ -459,3 +459,63 @@ body.has-common-header {
     }
   }
 }
+
+/* ──────────────────────────────────────────────────────────────
+ * 共通フッター（components/site/SiteFooter）と法務ページ（app/privacy・app/terms）
+ * 監査所見 F5 / plans/013。装飾は最小限に留め、既存 --ch-* トークンに寄せる。
+ * ────────────────────────────────────────────────────────────── */
+
+.site-footer {
+  margin-top: 48px;
+  padding: 20px 16px;
+  border-top: 1px solid var(--ch-border);
+  text-align: center;
+  font-size: 13px;
+  color: #9fb3c8;
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--ch-text-hover);
+}
+
+.site-footer p {
+  margin: 8px 0 0;
+}
+
+.legal-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 8px;
+  line-height: 1.8;
+}
+
+.legal-page h1 {
+  margin-bottom: 4px;
+}
+
+.legal-updated {
+  font-size: 13px;
+  color: #9fb3c8;
+  margin-top: 0;
+}
+
+.legal-provisional {
+  margin-top: 32px;
+  font-size: 13px;
+  color: #9fb3c8;
+}
+

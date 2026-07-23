@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DisclaimerBanner } from "@/components/site/DisclaimerBanner";
+import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { inter, outfit } from "@/lib/fonts";
 import "./globals.css";
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <DisclaimerBanner />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
