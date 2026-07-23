@@ -1,6 +1,6 @@
+import { ScgbSidebar } from "@/components/blocks/ScgbSidebar";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
-import { ScgbSidebar } from "@/components/blocks/ScgbSidebar";
 import "./superior-cervical-ganglion-block.css";
 
 const SCGB_MERMAID_THEME: Record<string, string> = {
@@ -123,7 +123,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
             <div className="alert a-ok">
               <div className="alert-i">✅</div>
               <div>
-                この整理は、上頸神経節と星状神経節を対比した国際文献の記載にも一致します<sup>[1]</sup>
+                この整理は、上頸神経節と星状神経節を対比した国際文献の記載にも一致します
+                <sup>[1]</sup>
                 。本資料では以降「上頸神経節ブロック（SCGB）」という正式名称で統一して解説します。
               </div>
             </div>
@@ -299,7 +300,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
             <div className="alert a-warn">
               <div className="alert-i">⚠️</div>
               <div>
-                うつ症状への応用など、一部の適応は症例報告レベルの限定的なエビデンスであり<sup>[4]</sup>
+                うつ症状への応用など、一部の適応は症例報告レベルの限定的なエビデンスであり
+                <sup>[4]</sup>
                 、標準治療としては確立していません。適応判断は個々の症例と施設のプロトコルに基づいて慎重に行う必要があります。
               </div>
             </div>
@@ -412,9 +414,7 @@ export default function SuperiorCervicalGanglionBlockPage() {
               </div>
               <div className="qr">
                 <div className="qr-t">③ 画像・血液検査</div>
-                <p>
-                  必要に応じて凝固能検査、頸部の解剖学的異常（腫瘍、術後瘢痕）の評価
-                </p>
+                <p>必要に応じて凝固能検査、頸部の解剖学的異常（腫瘍、術後瘢痕）の評価</p>
               </div>
               <div className="qr">
                 <div className="qr-t">④ モニタリング環境</div>
@@ -500,7 +500,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
                   <tr>
                     <td>⑩ モニタリング</td>
                     <td>
-                      注入後は血圧を10分ごと、脈拍・SpO₂を持続的に約30分間モニタリングする<sup>[1]</sup>
+                      注入後は血圧を10分ごと、脈拍・SpO₂を持続的に約30分間モニタリングする
+                      <sup>[1]</sup>
                     </td>
                   </tr>
                   <tr>
@@ -548,7 +549,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
             <div className="card">
               <p>
                 現在主流の超音波ガイド下法が普及する以前は、口腔内から「ストッパー」と呼ばれる器具を用いて針の進達距離を制限しながら盲目的に穿刺する
-                <strong>経口法（transoral approach）</strong>が古典的な手技として報告されていました<sup>[2][4]</sup>
+                <strong>経口法（transoral approach）</strong>が古典的な手技として報告されていました
+                <sup>[2][4]</sup>
                 。しかし、この方法は針先を標的から離れた位置にしか到達させられず、内頸動脈誤穿刺の懸念から局所麻酔薬の注入自体が禁忌とされていたほか、口腔内からの穿刺に伴う
                 <strong>頭蓋頸部膿瘍の症例報告</strong>もあり<sup>[9]</sup>
                 、感染リスクの観点からも現在ではほとんど用いられていません。
@@ -611,7 +613,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
             <div className="alert a-ok">
               <div className="alert-i">✅</div>
               <div>
-                ある単施設の後方視的研究では、43回の手技すべてでホルネル徴候が確認されており（100%）<sup>[1]</sup>
+                ある単施設の後方視的研究では、43回の手技すべてでホルネル徴候が確認されており（100%）
+                <sup>[1]</sup>
                 、これは解剖学的な位置の個体差が比較的小さいことの裏付けとしても言及されています
                 <sup>[1][6]</sup>
                 。ホルネル徴候は通常、局所麻酔薬の効果消退とともに数時間以内に自然軽快します。
@@ -713,7 +716,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
             </div>
             <div className="card">
               <p>
-                初学者が最も混同しやすいのが星状神経節ブロックとの違いです。国際文献での位置づけを整理すると以下のようになります<sup>[1][4]</sup>。
+                初学者が最も混同しやすいのが星状神経節ブロックとの違いです。国際文献での位置づけを整理すると以下のようになります
+                <sup>[1][4]</sup>。
               </p>
             </div>
 
@@ -800,8 +804,7 @@ export default function SuperiorCervicalGanglionBlockPage() {
                   。ただし無作為化比較試験ではない点に留意が必要です。
                 </li>
                 <li>
-                  <strong>合併症に関するエビデンス</strong>{" "}
-                  <span className="bU">bU</span>
+                  <strong>合併症に関するエビデンス</strong> <span className="bU">bU</span>
                   ：上頸神経節ブロックに特化した大規模な合併症データベースは現時点で乏しく、多くの安全性に関する議論は、より症例数の多い星状神経節ブロックの系統的レビュー
                   <sup>[8]</sup>や後咽頭血腫の解析<sup>[7]</sup>から類推されています。
                 </li>
@@ -964,8 +967,7 @@ export default function SuperiorCervicalGanglionBlockPage() {
                 <div className="src-org">Anesthesiology (2006)</div>
                 <div className="src-t">
                   [7] Higa K, Hirata K, Hirota K, Nitahara K, Shono S. Retropharyngeal hematoma
-                  after stellate ganglion block: analysis of 27 patients reported in the
-                  literature.
+                  after stellate ganglion block: analysis of 27 patients reported in the literature.
                 </div>
                 <div className="src-url">
                   <Ext href="https://doi.org/10.1097/00000542-200612000-00024">
@@ -989,8 +991,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
                 <div className="src-org">Case Reports in Medicine (2018)</div>
                 <div className="src-t">
                   [9] Sproll C, Turowski B, Depprich R, Kübler NR, Rapp M, Lommen J, Holtmann H.
-                  Extensive craniocervical abscess after transoral ganglionic local opioid
-                  analgesia at the superior cervical ganglion for atypical trigeminal neuralgia.
+                  Extensive craniocervical abscess after transoral ganglionic local opioid analgesia
+                  at the superior cervical ganglion for atypical trigeminal neuralgia.
                 </div>
                 <div className="src-url">
                   <Ext href="https://doi.org/10.1155/2018/5247594">
@@ -1013,8 +1015,8 @@ export default function SuperiorCervicalGanglionBlockPage() {
               <div className="src">
                 <div className="src-org">Cephalalgia (2018)</div>
                 <div className="src-t">
-                  [11] Headache Classification Committee of the International Headache Society (IHS).
-                  The International Classification of Headache Disorders, 3rd edition.
+                  [11] Headache Classification Committee of the International Headache Society
+                  (IHS). The International Classification of Headache Disorders, 3rd edition.
                 </div>
                 <div className="src-url">
                   <Ext href="https://doi.org/10.1177/0333102417738202">
@@ -1043,8 +1045,7 @@ export default function SuperiorCervicalGanglionBlockPage() {
       <div className="footer">
         <strong>上頸神経節ブロック（Superior Cervical Ganglion Block）</strong> —
         国際文献に基づくステップ・バイ・ステップ解説
-        <br />
-        📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時
+        <br />📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時
         <br />
         ⚠️
         本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。

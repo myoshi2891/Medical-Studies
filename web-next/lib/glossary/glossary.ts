@@ -115,7 +115,8 @@ const TERMS: GlossaryTerm[] = [
     id: "acupoint",
     term: "経穴",
     reading: "けいけつ",
-    plain: "東洋医学で「ツボ」と呼ばれる場所。体の中のエネルギー（気・血）が通る経路（経絡）の上にあります。",
+    plain:
+      "東洋医学で「ツボ」と呼ばれる場所。体の中のエネルギー（気・血）が通る経路（経絡）の上にあります。",
   },
   {
     id: "referred-pain",

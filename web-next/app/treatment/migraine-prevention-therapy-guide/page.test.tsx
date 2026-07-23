@@ -8,18 +8,7 @@ vi.mock("@/components/MermaidDiagram", () => ({
 }));
 
 /** ソース HTML（Migraine-prevention-therapy-guide.html）から実測した忠実転記の契約値。 */
-const SECTION_IDS = [
-  "overview",
-  "s1",
-  "s2",
-  "s3",
-  "s4",
-  "s5",
-  "s6",
-  "s7",
-  "s8",
-  "s9",
-];
+const SECTION_IDS = ["overview", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9"];
 const H2_COUNT = 10;
 const H3_COUNT = 22;
 const MERMAID_COUNT = 6;
