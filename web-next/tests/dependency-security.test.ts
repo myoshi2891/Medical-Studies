@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 type PackageManifest = {
@@ -31,5 +32,16 @@ describe("dependency security baselines", () => {
     const manifest = JSON.parse(readFileSync("package.json", "utf8")) as PackageManifest;
 
     expect(isAtLeast(manifest.dependencies.next, "16.2.11")).toBe(true);
+  });
+
+  it("loads a patched Mermaid CDN bundle with subresource integrity", () => {
+    const legacyApp = readFileSync(path.resolve("..", "prom-checker/index.html"), "utf8");
+    const scriptTag = legacyApp.match(
+      /<script[^>]+mermaid(?:\/|@)(\d+\.\d+\.\d+)[^"]*mermaid\.min\.js[^>]*>/
+    );
+
+    expect(scriptTag).not.toBeNull();
+    expect(isAtLeast(scriptTag?.[1] ?? "0.0.0", "10.9.6")).toBe(true);
+    expect(scriptTag?.[0]).toMatch(/\sintegrity="sha512-[^"]+"/);
   });
 });
