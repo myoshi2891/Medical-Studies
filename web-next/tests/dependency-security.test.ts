@@ -28,6 +28,16 @@ function isAtLeast(actual: string, minimum: string): boolean {
   return true;
 }
 
+function lockedVersions(lockfile: string, packageName: string): string[] {
+  const escapedName = packageName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(
+    `"[^"]*${escapedName}": \\["${escapedName}@([^"]+)"`,
+    "g"
+  );
+
+  return [...lockfile.matchAll(pattern)].map((match) => match[1]);
+}
+
 describe("dependency security baselines", () => {
   it("uses a Next.js release containing the July 2026 security fixes", () => {
     const manifest = JSON.parse(readFileSync("package.json", "utf8")) as PackageManifest;
@@ -58,5 +68,19 @@ describe("dependency security baselines", () => {
     expect(bunVersions.length).toBeGreaterThan(0);
     expect(bunVersions.every((version) => isAtLeast(version, "1.3.14"))).toBe(true);
     expect(isAtLeast(pytestVersion, "9.0.3")).toBe(true);
+  });
+
+  it("locks patched DOMPurify and protobufjs releases", () => {
+    const lockfile = readFileSync("bun.lock", "utf8");
+    const baselines = [
+      ["dompurify", "3.4.12"],
+      ["protobufjs", "8.6.6"],
+    ] as const;
+
+    for (const [packageName, minimum] of baselines) {
+      const versions = lockedVersions(lockfile, packageName);
+      expect(versions.length).toBeGreaterThan(0);
+      expect(versions.every((version) => isAtLeast(version, minimum))).toBe(true);
+    }
   });
 });
