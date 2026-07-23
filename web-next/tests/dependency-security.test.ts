@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 type PackageManifest = {
+  packageManager: string;
   dependencies: Record<string, string>;
 };
 
@@ -43,5 +44,19 @@ describe("dependency security baselines", () => {
     expect(scriptTag).not.toBeNull();
     expect(isAtLeast(scriptTag?.[1] ?? "0.0.0", "10.9.6")).toBe(true);
     expect(scriptTag?.[0]).toMatch(/\sintegrity="sha512-[^"]+"/);
+  });
+
+  it("uses patched Bun and pytest releases in CI", () => {
+    const manifest = JSON.parse(readFileSync("package.json", "utf8")) as PackageManifest;
+    const workflow = readFileSync(path.resolve("..", ".github/workflows/ci.yml"), "utf8");
+    const bunVersions = [...workflow.matchAll(/bun-version:\s*([0-9.]+)/g)].map(
+      (match) => match[1]
+    );
+    const pytestVersion = workflow.match(/pip install pytest==([0-9.]+)/)?.[1] ?? "0.0.0";
+
+    expect(isAtLeast(manifest.packageManager, "1.3.14")).toBe(true);
+    expect(bunVersions.length).toBeGreaterThan(0);
+    expect(bunVersions.every((version) => isAtLeast(version, "1.3.14"))).toBe(true);
+    expect(isAtLeast(pytestVersion, "9.0.3")).toBe(true);
   });
 });
