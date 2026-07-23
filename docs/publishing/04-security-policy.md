@@ -142,9 +142,9 @@ form-action 'self';
   静的維持型の強制 CSP へ方針変更。§3「実装状況」参照）
 - [ ] **実 Google 連携（OAuth ログイン・Sheets 書込）の実効性検証** — 実 Google アカウント・
   `NEXT_PUBLIC_GOOGLE_CLIENT_ID` を要するため未了（トップ / prom-checker の描画復帰は確認済み）
-- [x] localStorage 消去導線・注意喚起 UI を別プランとして起票した →
+- [x] localStorage 消去導線・注意喚起 UI を別プランとして起票し、**実装した** →
   [`plans/012-localstorage-notice-and-clear-ui.md`](../../plans/012-localstorage-notice-and-clear-ui.md)
-  （消去導線は既存 `DataManager` を再利用し、注意喚起の常設のみ追加）
+  （消去導線は既存 `DataManager` を再利用、注意喚起は `StorageNotice` を新設し Dashboard に常設）
 - [ ] 依存脆弱性監査（`bun audit` 等）の定期実行を CI に組み込む方針を `06` に反映した
 
 ## 関連文書
