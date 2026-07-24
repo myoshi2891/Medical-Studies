@@ -607,7 +607,8 @@ const TERMS: GlossaryTerm[] = [
     id: "access-token",
     term: "アクセストークン",
     reading: "あくせすとーくん",
-    plain: "アプリが外部サービス（Google ドライブなど）にアクセスする許可を得たことを証明する一時的な鍵。",
+    plain:
+      "アプリが外部サービス（Google ドライブなど）にアクセスする許可を得たことを証明する一時的な鍵。",
   },
   {
     id: "oauth-provider",
