@@ -602,6 +602,19 @@ const TERMS: GlossaryTerm[] = [
     reading: "すてぃぐま",
     plain: "周囲の偏見や誤解によって、不当に低い評価や差別的な扱いを受けること。",
   },
+  // --- 連携・認証システム ---
+  {
+    id: "access-token",
+    term: "アクセストークン",
+    reading: "あくせすとーくん",
+    plain: "アプリが外部サービス（Google ドライブなど）にアクセスする許可を得たことを証明する一時的な鍵。",
+  },
+  {
+    id: "oauth-provider",
+    term: "OAuth プロバイダ",
+    reading: "おーおーすぷろばいだ",
+    plain: "Google などの外部サービスで、安全な認証やデータ連携の仕組み（OAuth）を提供する事業者。",
+  },
 ];
 
 /** 起動時に検証済みの用語集（不正・id 重複なら例外で fail-fast）。 */
