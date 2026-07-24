@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Hotspot } from "@/lib/anatomy/types";
 import ModelViewer from "./ModelViewer";
 
@@ -7,6 +7,14 @@ import ModelViewer from "./ModelViewer";
 // カスタム要素は未登録のまま <model-viewer> は不明要素として描画され、
 // DOM 属性アサーションは成立する。
 vi.mock("@google/model-viewer", () => ({}));
+
+/** model-viewer のグローバル設定（DRACO デコーダ位置）を読むための型。 */
+type ModelViewerGlobal = { ModelViewerElement?: { dracoDecoderLocation?: string } };
+
+// ModelViewer が self へ書き込む dracoDecoderLocation はテスト間で残るためリセットする。
+afterEach(() => {
+  delete (self as unknown as ModelViewerGlobal).ModelViewerElement;
+});
 
 const HOTSPOTS: Hotspot[] = [
   {
@@ -78,6 +86,22 @@ describe("ModelViewer: 3D 描画", () => {
     const { container } = render(<ModelViewer src="/models/brain.glb" hotspots={[]} title="脳" />);
     expect(container.querySelector("model-viewer")).not.toBeNull();
     expect(container.querySelectorAll("[slot^='hotspot-']")).toHaveLength(0);
+  });
+});
+
+describe("ModelViewer: DRACO デコーダの自己ホスト設定", () => {
+  it("src ありで描画すると dracoDecoderLocation を自己ホスト '/draco/' に設定する", () => {
+    render(<ModelViewer src="/models/vessels.glb" hotspots={[]} title="血管" />);
+    // useEffect 内の import 前に self.ModelViewerElement.dracoDecoderLocation が設定される。
+    // これにより gstatic CDN ではなく同一オリジンの /draco/ からデコーダを取得する（CSP 準拠）。
+    const g = self as unknown as ModelViewerGlobal;
+    expect(g.ModelViewerElement?.dracoDecoderLocation).toBe("/draco/");
+  });
+
+  it("src=null（モデルなし）では dracoDecoderLocation を設定しない", () => {
+    render(<ModelViewer src={null} hotspots={[]} title="総覧" />);
+    const g = self as unknown as ModelViewerGlobal;
+    expect(g.ModelViewerElement?.dracoDecoderLocation).toBeUndefined();
   });
 });
 

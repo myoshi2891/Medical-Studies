@@ -600,7 +600,7 @@ Next.js 移行時は本リポジトリのスキル `html-to-nextjs-migration` / 
 
 【Mermaid を HTML に埋め込む場合】
 - 本リポジトリ規約（HTML エンティティエスケープ・SRI ハッシュ付き script・改行は <br/>）に従う。
-  CDN: https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js
+  CDN: https://cdn.jsdelivr.net/npm/mermaid@10.9.6/dist/mermaid.min.js
   必要に応じてスキル fix-mermaid / md-to-medical-html を参照する。
 
 【検証】

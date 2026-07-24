@@ -115,7 +115,8 @@ const TERMS: GlossaryTerm[] = [
     id: "acupoint",
     term: "経穴",
     reading: "けいけつ",
-    plain: "東洋医学で「ツボ」と呼ばれる場所。体の中のエネルギー（気・血）が通る経路（経絡）の上にあります。",
+    plain:
+      "東洋医学で「ツボ」と呼ばれる場所。体の中のエネルギー（気・血）が通る経路（経絡）の上にあります。",
   },
   {
     id: "referred-pain",
@@ -600,6 +601,19 @@ const TERMS: GlossaryTerm[] = [
     term: "スティグマ",
     reading: "すてぃぐま",
     plain: "周囲の偏見や誤解によって、不当に低い評価や差別的な扱いを受けること。",
+  },
+  // --- 連携・認証システム ---
+  {
+    id: "access-token",
+    term: "アクセストークン",
+    reading: "あくせすとーくん",
+    plain: "アプリが外部サービス（Google ドライブなど）にアクセスする許可を得たことを証明する一時的な鍵。",
+  },
+  {
+    id: "oauth-provider",
+    term: "OAuth プロバイダ",
+    reading: "おーおーすぷろばいだ",
+    plain: "Google などの外部サービスで、安全な認証やデータ連携の仕組み（OAuth）を提供する事業者。",
   },
 ];
 

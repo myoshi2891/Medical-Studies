@@ -39,8 +39,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Mermaid（HTML 内）必須ルール
 
 - **HTML エンティティエスケープ・SRI ハッシュ・初期化テンプレートの完全仕様**: `.claude/skills/fix-mermaid/SKILL.md` および `.claude/skills/md-to-medical-html/SKILL.md` を参照。
-- **CDN URL（現行バージョン）**: `https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js`
-- バージョン変更時のハッシュ取得: `GET https://api.cdnjs.com/libraries/mermaid/{VERSION}?fields=sri`
+- **CDN URL（現行バージョン）**: `https://cdn.jsdelivr.net/npm/mermaid@10.9.6/dist/mermaid.min.js`
+- バージョン変更時のハッシュ取得: 配布ファイルを取得し、SHA-512 SRI を算出する。
 
 ## Markdownlint ルール（有効なもの）
 

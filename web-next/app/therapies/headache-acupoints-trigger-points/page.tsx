@@ -1,6 +1,6 @@
 import { Ext } from "@/components/Ext";
-import MermaidDiagram from "@/components/MermaidDiagram";
 import Term from "@/components/glossary/Term";
+import MermaidDiagram from "@/components/MermaidDiagram";
 import { HeadacheAcupointsSidebar } from "@/components/therapies/HeadacheAcupointsSidebar";
 import "./headache-acupoints-trigger-points.css";
 
@@ -63,7 +63,9 @@ export default function HeadacheAcupointsPage() {
 
             <div className="card">
               <p>
-                本ページは「頭痛の<Term id="trigger-point">トリガーポイント</Term>入門」の続編として、日本の鍼灸臨床でよく言及される5つの<Term id="acupoint">経穴</Term>（けいけつ）――
+                本ページは「頭痛の<Term id="trigger-point">トリガーポイント</Term>
+                入門」の続編として、日本の鍼灸臨床でよく言及される5つの
+                <Term id="acupoint">経穴</Term>（けいけつ）――
                 <strong>
                   肩井（けんせい）・肩外兪（けんがいゆ）・膏肓（こうこう）・風池（ふうち）・天柱（てんちゅう）
                 </strong>

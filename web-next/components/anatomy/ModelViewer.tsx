@@ -46,6 +46,12 @@ export default function ModelViewer({
     node?.addEventListener("error", onError);
     (async () => {
       try {
+        // DRACO デコーダを gstatic CDN ではなく同一オリジンの /draco/ から取得させる。
+        // model-viewer は接続時に self.ModelViewerElement.dracoDecoderLocation を参照するため、
+        // カスタム要素登録（import）より前に設定する（CSP connect-src 'self' 準拠）。
+        const g = self as unknown as { ModelViewerElement?: { dracoDecoderLocation?: string } };
+        g.ModelViewerElement = g.ModelViewerElement ?? {};
+        g.ModelViewerElement.dracoDecoderLocation = "/draco/";
         // 副作用でカスタム要素 <model-viewer> を登録する。
         await import("@google/model-viewer");
       } catch {
