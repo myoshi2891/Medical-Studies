@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Term from "@/components/glossary/Term";
 
 export const metadata: Metadata = {
   title: "プライバシーポリシー | 頭痛 PROM 統合チェッカー",
@@ -44,8 +45,10 @@ export default function PrivacyPolicyPage() {
           要求する権限は drive.file（本アプリが作成したファイルのみへのアクセス）に限定されます。
         </li>
         <li>
-          アクセストークンはブラウザのメモリ上でのみ扱い、本アプリは保存しません。ページを閉じるとアプリが保持していたトークンは破棄されます。トークン自体の有効期限や失効は、Google（OAuth
-          プロバイダ）側の管理・失効条件に従います。
+          <Term id="access-token">アクセストークン</Term>
+          はブラウザのメモリ上でのみ扱い、本アプリは保存しません。ページを閉じるとアプリが保持していたトークンは破棄されます。トークン自体の有効期限や失効は、Google（
+          <Term id="oauth-provider">OAuth プロバイダ</Term>
+          ）側の管理・失効条件に従います。
         </li>
       </ul>
 
