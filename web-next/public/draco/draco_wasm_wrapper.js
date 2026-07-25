@@ -25,14 +25,14 @@ this.fulfill_(f)}};l.prototype.resolveToNonPromiseObj_=function(f){var q=void 0;
 this.executeOnSettledCallbacks_()};l.prototype.scheduleUnhandledRejectionCheck_=function(){var f=this;p(function(){if(f.notifyUnhandledRejection_()){var q=$jscomp.global.console;"undefined"!==typeof q&&q.error(f.result_)}},1)};l.prototype.notifyUnhandledRejection_=function(){if(this.isRejectionHandled_)return!1;var f=$jscomp.global.CustomEvent,q=$jscomp.global.Event,u=$jscomp.global.dispatchEvent;if("undefined"===typeof u)return!0;"function"===typeof f?f=new f("unhandledrejection",{cancelable:!0}):
 "function"===typeof q?f=new q("unhandledrejection",{cancelable:!0}):(f=$jscomp.global.document.createEvent("CustomEvent"),f.initCustomEvent("unhandledrejection",!1,!0,f));f.promise=this;f.reason=this.result_;return u(f)};l.prototype.executeOnSettledCallbacks_=function(){if(null!=this.onSettledCallbacks_){for(var f=0;f<this.onSettledCallbacks_.length;++f)y.asyncExecute(this.onSettledCallbacks_[f]);this.onSettledCallbacks_=null}};var y=new n;l.prototype.settleSameAsPromise_=function(f){var q=this.createResolveAndReject_();
 f.callWhenSettled_(q.resolve,q.reject)};l.prototype.settleSameAsThenable_=function(f,q){var u=this.createResolveAndReject_();try{f.call(q,u.resolve,u.reject)}catch(A){u.reject(A)}};l.prototype.then=function(f,q){/**
- * Creates a guarded callback when a function is provided.
- * @param {Function|*} w - Callback to invoke with the supplied argument.
- * @param {*} B - Value returned when no callback is provided.
- * @return {Function|*} A callback wrapper or the fallback value.
+ * Wraps a callback with internal result and error handling.
+ * @param {Function|*} w - Callback to invoke with the supplied value.
+ * @param {*} B - Value to return when `w` is not a function.
+ * @return {Function|*} The wrapped callback or fallback value.
  */
 function u(w,B){return"function"==typeof w?function(R){try{A(w(R))}catch(Z){F(Z)}}:B}var A,F,v=new l(function(w,B){A=w;F=B});this.callWhenSettled_(u(f,A),u(q,F));return v};l.prototype.catch=function(f){return this.then(void 0,f)};l.prototype.callWhenSettled_=function(f,q){/**
- * Dispatches callbacks according to the promise's settled state.
- * @throws {Error} If the promise has an unexpected state.
+ * Invokes the appropriate callback for the promise's settled state.
+ * @throws {Error} If the promise state is unexpected.
  */
 function u(){switch(A.state_){case 1:f(A.result_);
 break;case 2:q(A.result_);break;default:throw Error("Unexpected state: "+A.state_);}}var A=this;null==this.onSettledCallbacks_?y.asyncExecute(u):this.onSettledCallbacks_.push(u);this.isRejectionHandled_=!0};l.resolve=k;l.reject=function(f){return new l(function(q,u){u(f)})};l.race=function(f){return new l(function(q,u){for(var A=$jscomp.makeIterator(f),F=A.next();!F.done;F=A.next())k(F.value).callWhenSettled_(q,u)})};l.all=function(f){var q=$jscomp.makeIterator(f),u=q.next();return u.done?k([]):new l(function(A,
@@ -70,7 +70,7 @@ function p(e,b){if(e){var c=ia;var d=e+b;for(b=e;c[b]&&!(b>=d);)++b;if(16<b-e&&c
 function l(){var e=ja.buffer;a.HEAP8=W=new Int8Array(e);a.HEAP16=new Int16Array(e);a.HEAP32=ca=new Int32Array(e);a.HEAPU8=ia=new Uint8Array(e);a.HEAPU16=new Uint16Array(e);a.HEAPU32=Y=new Uint32Array(e);a.HEAPF32=new Float32Array(e);a.HEAPF64=new Float64Array(e)}/**
  * Aborts module execution with the specified reason.
  * @param {*} e - The reason for the abort.
- * @throws {WebAssembly.RuntimeError} Always thrown with the abort reason.
+ * @throws {WebAssembly.RuntimeError} Always thrown with a message containing the abort reason.
  */
 function y(e){if(a.onAbort)a.onAbort(e);
 e="Aborted("+e+")";da(e);sa=!0;e=new WebAssembly.RuntimeError(e+". Build with -sASSERTIONS for more info.");ka(e);throw e;}/**
@@ -84,8 +84,8 @@ function f(e){try{if(e==P&&ea)return new Uint8Array(ea);if(ma)return ma(e);throw
  */
 function q(){if(!ea&&(ta||fa)){if("function"==typeof fetch&&!P.startsWith("file://"))return fetch(P,{credentials:"same-origin"}).then(function(e){if(!e.ok)throw"failed to load wasm binary file at '"+P+"'";return e.arrayBuffer()}).catch(function(){return f(P)});
 if(na)return new Promise(function(e,b){na(P,function(c){e(new Uint8Array(c))},b)})}return Promise.resolve().then(function(){return f(P)})}/**
- * Executes all queued callbacks with the module instance.
- * @param {Function[]} e - The callbacks to execute.
+ * Executes each queued callback with the module instance.
+ * @param {Function[]} callbacks - Callbacks to execute.
  */
 function u(e){for(;0<e.length;)e.shift()(a)}/**
  * Creates an exception information record for a native exception pointer.
@@ -96,7 +96,10 @@ function A(e){this.excPtr=e;this.ptr=e-24;this.set_type=function(b){Y[this.ptr+4
 16>>2]=b};this.get_adjusted_ptr=function(){return Y[this.ptr+16>>2]};this.get_exception_ptr=function(){if(ua(this.get_type()))return Y[this.excPtr>>2];var b=this.get_adjusted_ptr();return 0!==b?b:this.excPtr}}/**
  * Starts the Emscripten runtime after all required dependencies are resolved.
  */
-function F(){function e(){if(!la&&(la=!0,a.calledRun=!0,!sa)){va=!0;u(oa);wa(a);if(a.onRuntimeInitialized)a.onRuntimeInitialized();if(a.postRun)for("function"==typeof a.postRun&&(a.postRun=[a.postRun]);a.postRun.length;)xa.unshift(a.postRun.shift());u(xa)}}if(!(0<ba)){if(a.preRun)for("function"==
+function F(){/**
+ * Completes runtime initialization and invokes queued startup callbacks.
+ */
+function e(){if(!la&&(la=!0,a.calledRun=!0,!sa)){va=!0;u(oa);wa(a);if(a.onRuntimeInitialized)a.onRuntimeInitialized();if(a.postRun)for("function"==typeof a.postRun&&(a.postRun=[a.postRun]);a.postRun.length;)xa.unshift(a.postRun.shift());u(xa)}}if(!(0<ba)){if(a.preRun)for("function"==
 typeof a.preRun&&(a.preRun=[a.preRun]);a.preRun.length;)ya.unshift(a.preRun.shift());u(ya);0<ba||(a.setStatus?(a.setStatus("Running..."),setTimeout(function(){setTimeout(function(){a.setStatus("")},1);e()},1)):e())}}function v(){}/**
  * Gets the pointer cache associated with a wrapped object.
  * @param {Object} [e] - The wrapped object whose cache to retrieve.
@@ -128,13 +131,13 @@ function S(){this.ptr=za();w(S)[this.ptr]=this}/**
  * Creates an attribute transform data wrapper.
  */
 function Q(){this.ptr=Aa();w(Q)[this.ptr]=this}/**
- * Create a geometry attribute wrapper.
+ * Creates a geometry attribute wrapper.
  */
 function V(){this.ptr=Ba();w(V)[this.ptr]=this}/**
  * Creates a point attribute wrapper.
  */
 function x(){this.ptr=Ca();w(x)[this.ptr]=this}/**
- * Create an attribute quantization transform.
+ * Create an attribute quantization transform wrapper.
  */
 function D(){this.ptr=Da();w(D)[this.ptr]=this}/**
  * Create an attribute octahedron transform wrapper.
@@ -147,23 +150,23 @@ function H(){this.ptr=Fa();w(H)[this.ptr]=this}/**
  */
 function E(){this.ptr=Ga();w(E)[this.ptr]=
 this}/**
- * Create a metadata wrapper.
+ * Create a metadata object.
  */
 function T(){this.ptr=Ha();w(T)[this.ptr]=this}function C(){throw"cannot construct a Status, no constructor in IDL";}/**
  * Create a wrapper for a Draco floating-point array.
  */
 function I(){this.ptr=Ia();w(I)[this.ptr]=this}/**
- * Create a wrapper for a decoder-owned typed array.
+ * Create a wrapper for a Draco signed 8-bit integer array.
  */
 function J(){this.ptr=Ja();w(J)[this.ptr]=this}/**
- * Creates a wrapper for decoded attribute data.
+ * Creates a wrapper for a Draco unsigned 8-bit integer array.
  */
 function K(){this.ptr=Ka();w(K)[this.ptr]=this}/**
- * Create a wrapper for a Draco typed array.
+ * Creates a wrapper for a Draco signed 16-bit integer array.
  * @constructor
  */
 function L(){this.ptr=La();w(L)[this.ptr]=this}/**
- * Creates a wrapper for a decoder-owned typed array.
+ * Creates a wrapper for a decoder-owned unsigned 16-bit integer array.
  */
 function M(){this.ptr=Ma();w(M)[this.ptr]=this}/**
  * Create a wrapper for a 32-bit signed integer array.
@@ -184,18 +187,18 @@ b,c){e=e.startsWith("file://")?new URL(e):pa.normalize(e);Va.readFile(e,function
 e,!1);b.send(null);return b.responseText},fa&&(ma=function(e){var b=new XMLHttpRequest;b.open("GET",e,!1);b.responseType="arraybuffer";b.send(null);return new Uint8Array(b.response)}),na=function(e,b,c){var d=new XMLHttpRequest;d.open("GET",e,!0);d.responseType="arraybuffer";d.onload=function(){200==d.status||0==d.status&&d.response?b(d.response):c()};d.onerror=c;d.send(null)};a.print||console.log.bind(console);var da=a.printErr||console.warn.bind(console);Object.assign(a,Ta);Ta=null;var ea;a.wasmBinary&&
 (ea=a.wasmBinary);"object"!=typeof WebAssembly&&y("no native wasm support detected");var ja,sa=!1,ra="undefined"!=typeof TextDecoder?new TextDecoder("utf8"):void 0,W,ia,ca,Y,ya=[],oa=[],xa=[],va=!1,ba=0,qa=null,ha=null;var P="draco_decoder_gltf.wasm";P.startsWith("data:application/octet-stream;base64,")||(P=k(P));var pd=0,qd={b:function(e,b,c){(new A(e)).init(b,c);pd++;throw e;},a:function(){y("")},d:function(e,b,c){ia.copyWithin(e,b,b+c)},c:function(e){var b=ia.length;e>>>=0;if(2147483648<e)return!1;
 for(var c=1;4>=c;c*=2){var d=b*(1+.2/c);d=Math.min(d,e+100663296);var g=Math;d=Math.max(e,d);g=g.min.call(g,2147483648,d+(65536-d%65536)%65536);a:{d=ja.buffer;try{ja.grow(g-d.byteLength+65535>>>16);l();var t=1;break a}catch(aa){}t=void 0}if(t)return!0}return!1}};(function(){/**
- * Completes WebAssembly module initialization and advances the runtime startup process.
+ * Completes WebAssembly initialization and advances the runtime startup process.
  * @param {WebAssembly.Instance} g - The instantiated WebAssembly module.
  */
 function e(g,t){a.asm=g.exports;ja=a.asm.e;l();oa.unshift(a.asm.f);ba--;a.monitorRunDependencies&&a.monitorRunDependencies(ba);0==ba&&(null!==qa&&(clearInterval(qa),qa=null),ha&&(g=ha,ha=null,g()))}/**
- * Resolves module initialization with the instantiated WebAssembly module.
- * @param {Object} g - WebAssembly instantiation result.
+ * Completes module initialization using the instantiated WebAssembly module.
+ * @param {Object} g - WebAssembly instantiation result containing the module instance.
  */
 function b(g){e(g.instance)}
 /**
- * Instantiates the WebAssembly module and processes the resulting instance.
- * @param {Function} g - Callback invoked with the instantiated WebAssembly module.
- * @return {Promise<*>} The value produced by the callback.
+ * Instantiates the WebAssembly module and passes the result to a callback.
+ * @param {Function} g - Callback that receives the WebAssembly instantiation result.
+ * @return {Promise<*>} The value returned by the callback.
  */
 function c(g){return q().then(function(t){return WebAssembly.instantiate(t,d)}).then(function(t){return t}).then(g,function(t){da("failed to asynchronously prepare wasm: "+t);y(t)})}var d={a:qd};ba++;a.monitorRunDependencies&&a.monitorRunDependencies(ba);if(a.instantiateWasm)try{return a.instantiateWasm(d,e)}catch(g){da("Module.instantiateWasm callback failed with error: "+g),ka(g)}(function(){return ea||"function"!=typeof WebAssembly.instantiateStreaming||P.startsWith("data:application/octet-stream;base64,")||
 P.startsWith("file://")||Ua||"function"!=typeof fetch?c(b):fetch(P,{credentials:"same-origin"}).then(function(g){return WebAssembly.instantiateStreaming(g,d).then(b,function(t){da("wasm streaming compile failed: "+t);da("falling back to ArrayBuffer instantiation");return c(b)})})})().catch(ka);return{}})();var Xa=a._emscripten_bind_VoidPtr___destroy___0=function(){return(Xa=a._emscripten_bind_VoidPtr___destroy___0=a.asm.h).apply(null,arguments)},za=a._emscripten_bind_DecoderBuffer_DecoderBuffer_0=
