@@ -7,9 +7,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * 利用規約の静的ページ（監査所見 F5 / plans/013）。
- * 本文は plans/013 のドラフトを忠実に転記した暫定版であり、法務レビュー後に更新される。
- * 日本語テキストは JSX の改行畳み込みで余計な空白が入らないよう各ブロックを 1 行に保つ。
+ * Renders the site's Terms of Service page, including medical disclaimers, liability limitations, and usage restrictions.
  */
 export default function TermsOfServicePage() {
   return (

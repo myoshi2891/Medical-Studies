@@ -8,10 +8,9 @@ export const metadata: Metadata = {
 };
 
 /**
- * プライバシーポリシーの静的ページ（監査所見 F5 / plans/013）。
- * 本文は plans/013 のドラフトを忠実に転記した暫定版であり、法務レビュー後に更新される。
- * 日本語テキストは JSX の改行畳み込みで余計な空白が入らないよう各ブロックを 1 行に保つ
- * （biome は ASCII スペース位置でのみ折り返すため、元の半角スペースは保存される）。
+ * Renders the site's interim privacy policy page.
+ *
+ * @returns The privacy policy page content
  */
 export default function PrivacyPolicyPage() {
   return (

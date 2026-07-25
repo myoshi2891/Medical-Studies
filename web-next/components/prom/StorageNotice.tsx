@@ -3,8 +3,9 @@
 import { usePromContext } from "./PromContext";
 
 /**
- * localStorage 保存に関する常設の注意喚起（監査所見 F4/F5）。
- * 健康データが端末に残ること・共有端末のリスク・消去導線を 1 箇所で案内する。
+ * Displays storage and privacy guidance for health records.
+ *
+ * The notice explains local browser storage, Google transmission during synchronization, and how to delete data from shared or public devices.
  */
 export function StorageNotice() {
   const { navigate } = usePromContext();

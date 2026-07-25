@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-/** 全ページ共通フッター。法務ページと帰属への導線を常設する。 */
+/**
+ * Renders the shared site footer with legal links and a medical education disclaimer.
+ *
+ * @returns The site footer element.
+ */
 export function SiteFooter() {
   return (
     <footer className="site-footer">

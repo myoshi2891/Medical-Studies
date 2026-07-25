@@ -1,12 +1,8 @@
 /**
- * Content Security Policy を組み立てる純粋関数。
+ * Builds a Content Security Policy for statically pre-rendered pages.
  *
- * next.config.ts の静的ヘッダから利用する。全ページを静的プリレンダするため per-request
- * nonce を焼き込めず、nonce/'strict-dynamic' は採らない。Next.js の inline bootstrap script は
- * 'unsafe-inline' で許容し、外部スクリプトはホスト単位に限定する（詳細は docs/publishing/04）。
- *
- * @param isDev - 開発モードなら true。dev は React の eval と wasm コンパイルを許容する。
- * @returns `"; "` 区切りの CSP 文字列。
+ * @param isDev - Whether to include development-only script evaluation permissions.
+ * @returns The CSP directives joined by `"; "`.
  */
 export function buildContentSecurityPolicy(isDev: boolean): string {
   // script-src: React は開発モードのみ eval() を使う（HMR・スタックトレース復元等）。
