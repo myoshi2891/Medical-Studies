@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 /**
  * Renders the site's interim privacy policy page.
  *
- * @returns The privacy policy page content
+ * @returns The rendered privacy policy page
  */
 export default function PrivacyPolicyPage() {
   return (

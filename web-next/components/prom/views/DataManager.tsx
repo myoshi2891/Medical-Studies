@@ -12,7 +12,9 @@ import { useExporters } from "../useExporters";
 import { BackButton } from "./BackButton";
 
 /**
- * Renders the data management view for exporting, importing, saving settings, and clearing local data.
+ * Renders controls for exporting, importing, synchronizing, and managing application data and settings.
+ *
+ * @returns The data management view.
  */
 export function DataManager() {
   const { data, commit, navigate, toast, store, reload } = usePromContext();

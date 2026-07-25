@@ -24,7 +24,7 @@ const SCGB_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders an educational overview of the superior cervical ganglion block.
+ * Renders an educational overview of the superior cervical ganglion block, including anatomy, indications, procedural guidance, complications, evidence, and references.
  */
 export default function SuperiorCervicalGanglionBlockPage() {
   return (
