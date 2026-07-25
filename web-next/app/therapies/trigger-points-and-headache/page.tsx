@@ -36,7 +36,7 @@ export default function TriggerPointsAndHeadachePage() {
           <span className="hero-tag">緊張型頭痛</span>
           <span className="hero-tag">頸原性頭痛</span>
           <span className="hero-tag">筋膜性疼痛 (MTrP)</span>
-          <span className="hero-tag">SNNOOP10</span>
+          <span className="hero-tag">SNOOP10</span>
           <span className="hero-tag">エビデンスに基づく医療</span>
         </div>
       </div>
@@ -265,7 +265,7 @@ export default function TriggerPointsAndHeadachePage() {
           <section id="s5" className="sec">
             <div className="sec-hd">
               <div className="sec-num">5</div>
-              <h1 className="sec-title">セルフチェックの考え方と危険信号（SNNOOP10）</h1>
+              <h1 className="sec-title">セルフチェックの考え方と危険信号（SNOOP10）</h1>
             </div>
 
             <p>
@@ -278,7 +278,7 @@ export default function TriggerPointsAndHeadachePage() {
               <MermaidDiagram
                 themeVariables={MTP_MERMAID_THEME}
                 chart={`flowchart TD
-    Start["頭痛が繰り返し起こる"] --> RF{"SNNOOP10に該当する危険信号があるか"}
+    Start["頭痛が繰り返し起こる"] --> RF{"SNOOP10に該当する危険信号があるか"}
     RF -->|"該当あり"| ER["速やかに医療機関を受診"]
     RF -->|"該当なし"| Pattern{"両側性・圧迫感・首肩のこりを伴うか"}
     Pattern -->|"はい"| Palp["僧帽筋上部・側頭筋・胸鎖乳突筋・後頭下筋群周辺が張っていないか意識してみる"]
@@ -291,9 +291,9 @@ export default function TriggerPointsAndHeadachePage() {
               />
             </div>
 
-            <h2>見逃してはいけない危険信号（SNNOOP10）</h2>
+            <h2>見逃してはいけない危険信号（SNOOP10）</h2>
             <p>
-              国際的に使われる二次性頭痛のスクリーニングリスト <strong>SNNOOP10</strong>{" "}
+              国際的に使われる二次性頭痛のスクリーニングリスト <strong>SNOOP10</strong>{" "}
               は、以下のような項目に当てはまる場合、単なる一次性頭痛ではない可能性を考慮すべきとしています。
             </p>
 
@@ -527,7 +527,7 @@ export default function TriggerPointsAndHeadachePage() {
                 <div className="qr-t">受診の目安</div>
                 <ul>
                   <li>
-                    SNNOOP10に該当する項目がある → <span className="tR">速やかに受診</span>
+                    SNOOP10に該当する項目がある → <span className="tR">速やかに受診</span>
                   </li>
                   <li>頭痛の性質が普段と明らかに違う、悪化している → 受診して相談</li>
                   <li>月15日以上頭痛がある（薬物乱用頭痛のリスク） → 受診して相談</li>
@@ -666,11 +666,11 @@ export default function TriggerPointsAndHeadachePage() {
                 <div className="src-org">Neurology / IHS</div>
                 <div className="src-t">
                   Do TP, Remmers A, Schytz HW et al. Red and orange flags for secondary headaches:
-                  SNNOOP10 list (2019)
+                  SNOOP10 list (2019)
                 </div>
                 <div className="src-url">
                   <Ext href="https://researchprofiles.ku.dk/en/publications/red-and-orange-flags-for-secondary-headaches-in-clinical-practice/">
-                    researchprofiles.ku.dk — SNNOOP10
+                    researchprofiles.ku.dk — SNOOP10
                   </Ext>
                 </div>
               </div>

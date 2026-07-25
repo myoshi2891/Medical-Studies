@@ -718,7 +718,7 @@ export default function HeadacheTriggerIdentificationGuidePage() {
                 <div className="src-org">Neurology, 2019</div>
                 <div className="src-t">
                   Do TP, et al. Red and orange flags for secondary headaches in clinical practice:
-                  SNNOOP10 list.
+                  SNOOP10 list.
                 </div>
                 <div className="src-url">
                   <Ext href="https://www.neurology.org/doi/10.1212/WNL.0000000000006697">

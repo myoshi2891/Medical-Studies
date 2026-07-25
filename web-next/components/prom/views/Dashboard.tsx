@@ -3,6 +3,7 @@
 import { SCHEDULE } from "@/lib/prom/registry";
 import { nextDueDate } from "@/lib/prom/scoring";
 import { usePromContext } from "../PromContext";
+import { StorageNotice } from "../StorageNotice";
 
 const TILES = [
   { go: "#/diary", ic: "📓", t: "頭痛日誌", d: "日々の前向き記録・MOH 判定" },
@@ -40,6 +41,7 @@ export function Dashboard() {
         <h1>こんにちは。今日の記録を始めましょう</h1>
         <p>各機能はここから。すべての入力は端末内にのみ保存されます。</p>
       </div>
+      <StorageNotice />
       <div className="c-card">
         <div
           style={{

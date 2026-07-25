@@ -1,6 +1,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { NextConfig } from "next";
+import { buildContentSecurityPolicy } from "./lib/security/csp";
 
 const configDir = path.dirname(fileURLToPath(import.meta.url));
 
@@ -10,31 +11,9 @@ const configDir = path.dirname(fileURLToPath(import.meta.url));
 // で許容し、外部スクリプトはホスト単位（accounts.google.com = GIS）に限定する。
 // 当サイトは完全クライアント型・サーバ/秘密なし・ユーザー入力を script 文脈へ注入する sink が
 // 無いため、'unsafe-inline' 許容による残存 XSS リスクは限定的（詳細は docs/publishing/04）。
+// CSP 文字列の組み立ては lib/security/csp.ts の純粋関数に分離（契約テストで検証）。
 const isDev = process.env.NODE_ENV !== "production";
-
-// script-src: React は開発モードのみ eval() を使う（HMR・スタックトレース復元等）。
-// dev だけ 'unsafe-eval' を許可し、本番ビルドでは付与しない（本番の React は eval を使わない）。
-const scriptSrc = [
-  "'self'",
-  "'unsafe-inline'",
-  ...(isDev ? ["'unsafe-eval'"] : []),
-  "https://accounts.google.com",
-  "https://cdnjs.cloudflare.com",
-].join(" ");
-
-const cspEnforced = [
-  "default-src 'self'",
-  `script-src ${scriptSrc}`,
-  "connect-src 'self' https://sheets.googleapis.com https://accounts.google.com",
-  "frame-src https://accounts.google.com",
-  "img-src 'self' data: blob:",
-  "style-src 'self' 'unsafe-inline'",
-  "font-src 'self'",
-  "worker-src 'self' blob:",
-  "frame-ancestors 'none'",
-  "base-uri 'self'",
-  "form-action 'self'",
-].join("; ");
+const cspEnforced = buildContentSecurityPolicy(isDev);
 
 // セキュリティヘッダ一式。即時強制しても既存機能を壊さない防御層。
 const securityHeaders = [

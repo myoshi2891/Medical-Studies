@@ -62,7 +62,7 @@ URL 変更（=外部リンク切れ）を招く。本プランで **拡張後も
 | `sunct-suna` | SUNCT/SUNA | 3.3 | P3 |
 | `hemicrania-continua` | 持続性片側頭痛 | 3.4 | P3 |
 | `other-primary-headaches` | その他の一次性頭痛（運動時・咳嗽性・性行為時・雷鳴頭痛等の総覧） | 4 | P2 |
-| `secondary-headaches-red-flags` | 二次性頭痛とレッドフラグ（SNNOOP10）。受診勧奨の教育ページ | 5〜12 | **P1**（安全性情報として最優先級） |
+| `secondary-headaches-red-flags` | 二次性頭痛とレッドフラグ（SNOOP10）。受診勧奨の教育ページ | 5〜12 | **P1**（安全性情報として最優先級） |
 | `trigeminal-neuralgia` | 三叉神経痛・有痛性脳神経ニューロパチー | 13 | P2 |
 
 ### 2. ライフステージ・特殊集団（`/populations/*`）— 新カテゴリ

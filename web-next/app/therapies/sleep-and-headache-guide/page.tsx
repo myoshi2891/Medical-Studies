@@ -808,7 +808,7 @@ export default function SleepAndHeadacheGuidePage() {
 
             <p>
               以下は、国際頭痛学会の二次性頭痛特別関心グループが文献レビューと専門家の合意に基づきまとめた
-              <strong>SNNOOP10リスト</strong>
+              <strong>SNOOP10リスト</strong>
               （危険な頭痛＝二次性頭痛を疑うべきサインの一覧）を基に、教育目的で要点を紹介するものです。自己診断のためのチェックリストではなく、該当する場合はもちろん、該当しなくても症状が心配な場合は速やかに医療機関を受診してください。出典:{" "}
               <Ext href="https://www.neurology.org/doi/10.1212/WNL.0000000000006697">
                 Do TP, et al. Neurology 2019;92:134–144
@@ -1278,7 +1278,7 @@ export default function SleepAndHeadacheGuidePage() {
               </div>
               <div className="src">
                 <div className="src-org">レッドフラッグ</div>
-                <div className="src-t">Do TP, et al. SNNOOP10 list — Neurology (2019)</div>
+                <div className="src-t">Do TP, et al. SNOOP10 list — Neurology (2019)</div>
                 <div className="src-url">
                   <Ext href="https://www.neurology.org/doi/10.1212/WNL.0000000000006697">
                     neurology.org/doi/10.1212/WNL.0000000000006697

@@ -6,8 +6,7 @@ import "./cgrp-pathway-headache-treatments.css";
 
 export const metadata: Metadata = {
   title: "CGRP経路を標的とした頭痛治療薬",
-  description:
-    "抗CGRP/受容体モノクローナル抗体と経口ゲパントの位置づけ・国内承認状況（PMDA準拠）",
+  description: "抗CGRP/受容体モノクローナル抗体と経口ゲパントの位置づけ・国内承認状況（PMDA準拠）",
 };
 
 const CGRP_MERMAID_THEME: Record<string, string> = {

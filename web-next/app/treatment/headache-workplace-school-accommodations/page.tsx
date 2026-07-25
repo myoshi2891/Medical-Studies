@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Ext } from "@/components/Ext";
-import MermaidDiagram from "@/components/MermaidDiagram";
 import Term from "@/components/glossary/Term";
+import MermaidDiagram from "@/components/MermaidDiagram";
 import { HeadacheWorkplaceSchoolAccommodationsSidebar } from "@/components/treatment/HeadacheWorkplaceSchoolAccommodationsSidebar";
 import "./headache-workplace-school-accommodations.css";
 
@@ -108,7 +108,9 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
                 <div className="qr-t">生産性損失の内訳</div>
                 <p style={{ fontSize: 13, marginBottom: 6 }}>
                   片頭痛関連の生産性損失の最大
-                  <span className="tN">89%は<Term id="presenteeism">プレゼンティーズム</Term></span>
+                  <span className="tN">
+                    89%は<Term id="presenteeism">プレゼンティーズム</Term>
+                  </span>
                   （出勤しているが本来の力が出せない状態）によるものと報告されています。
                 </p>
                 <span className="bA">bA</span>
@@ -146,7 +148,9 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
 
             <p>
               頭痛性疾患、特に片頭痛は、外見からは症状の重さが判断しにくい「見えない障害（invisible
-              disability）」の典型例とされます。この「見えにくさ」は、<Term id="stigma">スティグマ</Term>（負の烙印）と申告控えの悪循環を生みやすいことが研究で指摘されています。
+              disability）」の典型例とされます。この「見えにくさ」は、
+              <Term id="stigma">スティグマ</Term>
+              （負の烙印）と申告控えの悪循環を生みやすいことが研究で指摘されています。
             </p>
 
             <div className="mmd">

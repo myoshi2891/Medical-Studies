@@ -86,10 +86,6 @@ export default function AerobicExerciseHeadachePreventionPage() {
               </p>
               <ul>
                 <li>
-                  ASCIIアートは使用せず、図解は <strong>Mermaid のフローチャート</strong> と{" "}
-                  <strong>表（HTMLテーブル）</strong> のみで表現しています。
-                </li>
-                <li>
                   各エビデンスには「エビデンスの質」バッジ（
                   <span className="bA">質が高い</span> <span className="bB">中程度</span>{" "}
                   <span className="bC">限定的</span> <span className="bU">参考情報</span>

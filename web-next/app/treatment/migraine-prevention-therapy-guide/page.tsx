@@ -199,7 +199,8 @@ export default function MigrainePreventionTherapyGuidePage() {
                 <strong>頭痛頻度</strong>：月間の頭痛日数・片頭痛日数
               </li>
               <li>
-                <strong>QOL障害・生活支障の程度</strong>：急性期治療で十分にコントロールできない障害の有無
+                <strong>QOL障害・生活支障の程度</strong>
+                ：急性期治療で十分にコントロールできない障害の有無
               </li>
               <li>
                 <strong>薬物乱用頭痛（MOH）のリスク</strong>：急性期治療薬の使用頻度が高すぎないか
@@ -239,12 +240,16 @@ export default function MigrainePreventionTherapyGuidePage() {
                 <tbody>
                   <tr>
                     <td>ACP（米国内科学会）臨床ガイドライン</td>
-                    <td>エピソード性片頭痛（月1〜14日）の成人を対象とした予防薬物治療のガイドライン</td>
+                    <td>
+                      エピソード性片頭痛（月1〜14日）の成人を対象とした予防薬物治療のガイドライン
+                    </td>
                     <td>頻度そのものより、患者の希望・QOL障害を重視する枠組み</td>
                   </tr>
                   <tr>
                     <td>Canadian Headache Society（2024年改訂）</td>
-                    <td>高頻度エピソード性片頭痛（月8日以上、頭痛日数15日未満）で中等度以上の障害、および慢性片頭痛</td>
+                    <td>
+                      高頻度エピソード性片頭痛（月8日以上、頭痛日数15日未満）で中等度以上の障害、および慢性片頭痛
+                    </td>
                     <td>障害の程度（disability）を明示的な判断軸としている</td>
                   </tr>
                   <tr>
@@ -403,7 +408,9 @@ export default function MigrainePreventionTherapyGuidePage() {
               <div>
                 出典：AAN/AHS「Evidence-based guideline update: Pharmacologic treatment for episodic
                 migraine prevention in adults」（Neurology, 2012）{" "}
-                <Ext href="https://www.neurology.org/doi/10.1212/WNL.0b013e3182535d20">論文リンク</Ext>
+                <Ext href="https://www.neurology.org/doi/10.1212/WNL.0b013e3182535d20">
+                  論文リンク
+                </Ext>
               </div>
             </div>
 
@@ -588,8 +595,8 @@ export default function MigrainePreventionTherapyGuidePage() {
                   <tr>
                     <td>代表的な一般名</td>
                     <td>
-                      トピラマート、バルプロ酸/ジバルプロエクス{" "}
-                      <span className="bA">Level A</span>（いずれもAAN/AHSでLevel A評価）
+                      トピラマート、バルプロ酸/ジバルプロエクス <span className="bA">Level A</span>
+                      （いずれもAAN/AHSでLevel A評価）
                     </td>
                   </tr>
                   <tr>
@@ -766,7 +773,9 @@ export default function MigrainePreventionTherapyGuidePage() {
             </p>
 
             <h3>6.2　中止判断に関する一般原則</h3>
-            <p>頭痛予防治療の中止に関する系統的レビューでは、中止を検討する理由として主に以下が挙げられています。</p>
+            <p>
+              頭痛予防治療の中止に関する系統的レビューでは、中止を検討する理由として主に以下が挙げられています。
+            </p>
             <ul>
               <li>有害事象（忍容性の問題）</li>
               <li>効果不十分（efficacy failure）</li>
@@ -775,7 +784,9 @@ export default function MigrainePreventionTherapyGuidePage() {
             </ul>
             <p>
               同レビューは、
-              <strong>経口予防薬の中止判断については、各国・各学会のガイドラインに従うことが合理的</strong>
+              <strong>
+                経口予防薬の中止判断については、各国・各学会のガイドラインに従うことが合理的
+              </strong>
               であるとし、漸減中に頭痛が再燃した場合は、
               <strong>有効だった治療への復帰を医師と相談すること</strong>
               が一般的な対応であるとしています。
@@ -1028,8 +1039,8 @@ export default function MigrainePreventionTherapyGuidePage() {
               <div className="src">
                 <div className="src-org">Neurology, 2012 / AAN・AHS</div>
                 <div className="src-t">
-                  Silberstein SD, et al. Evidence-based guideline update: Pharmacologic treatment for
-                  episodic migraine prevention in adults
+                  Silberstein SD, et al. Evidence-based guideline update: Pharmacologic treatment
+                  for episodic migraine prevention in adults
                 </div>
                 <div className="src-url">
                   <Ext href="https://www.neurology.org/doi/10.1212/WNL.0b013e3182535d20">
@@ -1042,8 +1053,9 @@ export default function MigrainePreventionTherapyGuidePage() {
               <div className="src">
                 <div className="src-org">Headache, 2012</div>
                 <div className="src-t">
-                  Loder E, Burch R, Rizzoli P. The 2012 AHS/AAN Guidelines for Prevention of Episodic
-                  Migraine: A Summary and Comparison With Other Recent Clinical Practice Guidelines
+                  Loder E, Burch R, Rizzoli P. The 2012 AHS/AAN Guidelines for Prevention of
+                  Episodic Migraine: A Summary and Comparison With Other Recent Clinical Practice
+                  Guidelines
                 </div>
                 <div className="src-url">
                   <Ext href="https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/j.1526-4610.2012.02185.x">
@@ -1142,7 +1154,9 @@ export default function MigrainePreventionTherapyGuidePage() {
             <div className="src-grid">
               <div className="src">
                 <div className="src-org">系統的レビュー</div>
-                <div className="src-t">de Vries Lentsch S, et al. The sense of stopping migraine prophylaxis</div>
+                <div className="src-t">
+                  de Vries Lentsch S, et al. The sense of stopping migraine prophylaxis
+                </div>
                 <div className="src-url">
                   <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9933401/">
                     https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9933401/
@@ -1202,9 +1216,9 @@ export default function MigrainePreventionTherapyGuidePage() {
 
       {/* FOOTER */}
       <div className="footer">
-        <strong>片頭痛予防治療ガイド</strong> — 適応判断・従来予防薬の薬効群・効果発現期間・継続/中止の一般原則
-        <br />
-        📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時
+        <strong>片頭痛予防治療ガイド</strong> —
+        適応判断・従来予防薬の薬効群・効果発現期間・継続/中止の一般原則
+        <br />📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時
         <br />
         ⚠️
         本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。

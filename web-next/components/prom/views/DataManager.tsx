@@ -12,7 +12,9 @@ import { useExporters } from "../useExporters";
 import { BackButton } from "./BackButton";
 
 /**
- * Renders the data management view for exporting, importing, saving settings, and clearing local data.
+ * Renders controls for exporting, importing, synchronizing, and managing application data and settings.
+ *
+ * @returns The data management view.
  */
 export function DataManager() {
   const { data, commit, navigate, toast, store, reload } = usePromContext();
@@ -214,7 +216,8 @@ export function DataManager() {
           機種変更やキャッシュ消去に備え、すべてのデータを JSON
           ファイルとして保存・復元できます。記録（頭痛日誌・PROM
           スコア）は通常この端末のブラウザに保存されます。Google Sheets
-          への同期を実行した場合は、選択したデータ（頭痛日誌および PROM スコア）が Google に送信されます。
+          への同期を実行した場合は、選択したデータ（頭痛日誌および PROM スコア）が Google
+          に送信されます。
           共有・公共の端末では利用を控えるか、利用後にこのページ下部の「すべてのデータを削除」を実行してください。
         </p>
       </div>

@@ -61,10 +61,13 @@
 
 - [x] 検証コマンド（build/test/typecheck/lint）を記録した
 - [x] 想定デプロイ構成・公開環境変数の方針を整理した
-- [x] 最小 CI パイプラインを `.github/workflows` として別プランで起票した →
-  [`plans/014-minimal-ci-pipeline.md`](../../plans/014-minimal-ci-pipeline.md)（5 ジョブ構成の YAML 骨子付き）
-- [ ] 依存脆弱性監査・ライセンス棚卸しを CI に組み込む方針を確定した（ライセンスゲートは
-  `plans/014` でジョブ化、脆弱性監査は Dependabot 有効化方針 — 同プラン参照）
+- [x] 最小 CI パイプラインを `.github/workflows` として別プランで起票し、**実装した** →
+  [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml)（`web-next` / `license-gate` /
+  `markdown` / `mermaid-script` / `pii-check` の 5 ジョブ。全ジョブをローカル再現で green 確認済み）。
+  markdown ジョブは現状 lint-clean なツリー（`*.md` / `plans/` / `docs/publishing/`）に限定し、
+  コンテンツ `.md`（`Types-of-headache/` 等）の既存 markdownlint 負債は別タスクで是正後に対象へ加える
+- [x] 依存脆弱性監査・ライセンス棚卸しを CI に組み込む方針を確定した（ライセンスゲートは
+  `ci.yml` の `license-gate` ジョブで実装済み、脆弱性監査は Dependabot 有効化方針 — リポジトリ管理者設定）
 - [ ] git 履歴の author メール（F7）の対応（許容 or 書き換え）をユーザーが判断した
   （書き換えを選ぶ場合の手順書:
   [`plans/015-git-history-author-email-rewrite.md`](../../plans/015-git-history-author-email-rewrite.md)。

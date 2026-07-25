@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -43,7 +43,8 @@
       "!app/treatment/migraine-prevention-therapy-guide/migraine-prevention-therapy-guide.css",
       "!app/treatment/moh-acute-use-days/moh-acute-use-days.css",
       "!app/therapies/sleep-and-headache-guide/sleep-and-headache-guide.css",
-      "!app/blocks/superior-cervical-ganglion-block/superior-cervical-ganglion-block.css"
+      "!app/blocks/superior-cervical-ganglion-block/superior-cervical-ganglion-block.css",
+      "!public/draco"
     ]
   },
   "formatter": {
