@@ -19,6 +19,20 @@ const NON_CONTENT_ROUTES: readonly string[] = ["/", "/privacy", "/terms", "/prom
 /** ISO 8601 の日付（YYYY-MM-DD）。 */
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
+/**
+ * 形式だけでなく暦日として実在するかを検証する。
+ *
+ * 正規表現は形しか見ないため `2026-02-31` を通してしまい、`new Date()` は
+ * これを 3/3 へ黙って丸める。パース結果を ISO へ戻して原文と一致するか
+ * （round-trip）を見ることで、存在しない日付を弾く。
+ */
+function isRealIsoDate(value: string): boolean {
+  if (!ISO_DATE.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(parsed.getTime())) return false;
+  return parsed.toISOString().slice(0, 10) === value;
+}
+
 /** app/ 配下を走査し、page.tsx を持つルートを列挙する。 */
 function listAppRoutes(dir: string, prefix: string): string[] {
   const routes: string[] = [];
@@ -53,6 +67,20 @@ describe("CONTENT_REGISTRY: エントリ単体の不変条件", () => {
       expect(entry.title.length, `empty title: ${entry.href}`).toBeGreaterThan(0);
       expect(CONTENT_CATEGORIES, `unknown category: ${entry.href}`).toContain(entry.category);
       expect(entry.lastReviewed, `bad lastReviewed: ${entry.href}`).toMatch(ISO_DATE);
+    }
+  });
+
+  it("lastReviewed / sourcesAsOf が実在する暦日である（2026-02-31 等を弾く）", () => {
+    for (const entry of CONTENT_REGISTRY) {
+      expect(
+        isRealIsoDate(entry.lastReviewed),
+        `not a real date (lastReviewed): ${entry.href} -> ${entry.lastReviewed}`
+      ).toBe(true);
+      if (entry.sourcesAsOf === undefined) continue;
+      expect(
+        isRealIsoDate(entry.sourcesAsOf),
+        `not a real date (sourcesAsOf): ${entry.href} -> ${entry.sourcesAsOf}`
+      ).toBe(true);
     }
   });
 

@@ -5,7 +5,7 @@
 ## 現在地
 
 - **最新 HEAD**: `fe21e7d` feat(treatment): surface related pages on treatment and MOH guides
-- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。テスト 582 passed（67 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／**コンテンツレジストリ・sitemap・RelatedLinks** が green）
+- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。テスト 585 passed（67 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／**コンテンツレジストリ・sitemap・RelatedLinks** が green）
 - **次の作業**: plans/007 の残 Step（横断検索コア `lib/content/search.ts`・ナビ再設計）／`/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／`/treatment` 以外のカテゴリへの RelatedLinks 展開
 - **未移行 HTML 残数**: 0
 - **コンテンツ SSoT の注意**: `Types-of-headache/`（md-files / html-files）はコミット `ebdd955` で `.gitignore` へ追加・untrack され、リポジトリ内に存在しない。本ファイルの「移行ステータス」表の Markdown / HTML リンクはリポジトリ内では解決しない。新規コンテンツ執筆は SSoT 方針の決定まで保留（`plans/README.md` の注意書きを参照）
@@ -58,7 +58,8 @@
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
 | Phase 5 | 外部連携: Google スプレッドシート同期 + CSV エクスポート | ✅ 完了 |
 
-- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統 128 passed（web-next 全体で 399 passed）/ typecheck / build 全通過。
+- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統（`lib/prom` / `components/prom` / `app/prom-checker` / `lib/export`）130 passed
+  ＝ web-next 全体 585 passed の一部 / typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
   `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid + `useExporters`）+
   `app/prom-checker/`（page + scoped CSS）。
@@ -120,14 +121,15 @@
   `components/treatment/MohAcuteUseDaysSidebar.tsx`, `components/therapies/AerobicExerciseSidebar.tsx`, `components/therapies/SleepAndHeadacheSidebar.tsx`, `components/treatment/CgrpPathwaySidebar.tsx`, `components/treatment/MigrainePreventionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` / `.aerobic-exercise-accent` / `.sleep-guide` / `.cgrp-pathway-headache-treatments` / `.migraine-prevention` などでスコープ。
-- **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 303 passed（moh-acute-use-days 指定 9 + SiteHeader 差分 1 追加）。lint / typecheck / test 全通過。
+- **テスト**: アーキタイプ A（`app/{headaches,blocks,therapies,prom,treatment,anatomy}` + `lib/anatomy` + `components/anatomy`）は計 363 passed ＝ web-next 全体 585 passed の一部。lint / typecheck / test 全通過。
 - **横断基盤（plans/007 A・D / plans/002 Step 3）**: `lib/content/registry.ts` に全 30 コンテンツルートの
   メタ（カテゴリ・`lastReviewed`・`related`）を宣言的に集約し、`getEntry` / `getRelated` を純関数で提供
   （`lib/anatomy` パターン踏襲）。これを単一データ源として `app/sitemap.ts`（コンテンツ 30 + 静的 4 = 34 URL）と
   `components/content/RelatedLinks.tsx`（関連ページ導線・Server Component）が動く。`registry.test.ts` は
   `node:fs` で `app/**/page.tsx` を走査し、登録漏れ・幽霊エントリ・dangling 参照を機械検知する。
   適用済みは `/treatment/*` 7 ページと `/headaches/medication-overuse-headache`（残カテゴリは今後展開）。
-- **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
+- **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → RelatedLinks 適用済みの
+  `/headaches/medication-overuse-headache` および `/treatment/moh-acute-use-days`。
   関連ページ導線は `/treatment/moh-acute-use-days` ↔ `/headaches/medication-overuse-headache` の双方向遷移を確認済み。
 
 ---

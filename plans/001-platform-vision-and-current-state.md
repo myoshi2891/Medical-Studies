@@ -31,7 +31,7 @@ web-next は「頭痛疾患の教育コンテンツ集」として成長して�
 ### ディレクトリ構成（web-next、2026-08-10 実測）
 
 ```text
-web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / Biome / Vitest（533 tests green）
+web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / Biome / Vitest（web-next 全体 585 tests green）
 ├── app/
 │   ├── page.tsx             # ホーム（/prom-checker へ誘導）
 │   ├── anatomy/             # 3D 解剖アトラス（glTF + MRI PNG。docs/architecture.md v1.3 準拠）
@@ -85,8 +85,12 @@ web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / B
 | 解剖 | `/anatomy` | 1 | 3D アトラス実装済み。実 glTF 資産投入が残作業（PROGRESS.md 参照） |
 | 法務 | `/privacy`・`/terms` | 2 | plans/013 で新設。文言は法務レビュー待ち |
 
-> **未整備（2026-08-10 時点）**: ページ間の相互リンク（plans/002 Step 3）が全ページで未実装、
-> サイト横断のコンテンツレジストリ・サイトマップ（plans/007 A・D）が未着手。
+> **横断基盤の現況（2026-08-11 時点）**: サイト横断のコンテンツレジストリ（`lib/content/registry.ts`・
+> 全 30 ルート）とサイトマップ（`app/sitemap.ts`・34 URL）は **実装済み**（plans/007 A・D）。
+> 相互リンク（plans/002 Step 3）もレジストリ駆動の `RelatedLinks` として実装済みで、
+> `/treatment/*` 7 ページと `/headaches/medication-overuse-headache` の計 8 ページへ適用済み。
+> **残作業**: `RelatedLinks` を残りのカテゴリ（`/headaches` の他ページ・`/blocks`・`/therapies`・
+> `/prom`・`/anatomy`）へ展開すること。
 
 ### 既存の設計・運用資産（コードから読み取れない決定事項）
 

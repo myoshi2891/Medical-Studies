@@ -71,10 +71,18 @@ describe("sitemap", () => {
     }
   });
 
-  it("ベース URL 未設定でも絶対 URL を生成する（フォールバック）", () => {
+  it("ベース URL 未設定は設定エラーとして失敗する（誤オリジンへのフォールバックなし）", () => {
     delete process.env.NEXT_PUBLIC_SITE_URL;
-    for (const entry of sitemap()) {
-      expect(() => new URL(entry.url)).not.toThrow();
-    }
+    expect(() => sitemap()).toThrow(/NEXT_PUBLIC_SITE_URL is not set/);
+  });
+
+  it("URL として不正なベース URL を拒否する", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "example.test";
+    expect(() => sitemap()).toThrow(/not a valid URL/);
+  });
+
+  it("http / https 以外のスキームを拒否する", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "ftp://example.test";
+    expect(() => sitemap()).toThrow(/must use http or https/);
   });
 });

@@ -15,14 +15,31 @@ import { CONTENT_REGISTRY } from "@/lib/content/registry";
  */
 export const STATIC_ROUTES: readonly string[] = ["/", "/prom-checker", "/privacy", "/terms"];
 
-/** ベース URL 未設定時のフォールバック（本番は NEXT_PUBLIC_SITE_URL で上書きする）。 */
-const FALLBACK_BASE_URL = "https://example.com";
-
-/** 末尾スラッシュを除いたベース URL を返す（`${base}${href}` で二重スラッシュを避ける）。 */
+/**
+ * 末尾スラッシュを除いたベース URL を返す（`${base}${href}` で二重スラッシュを避ける）。
+ *
+ * サイトマップは検索エンジンに正規 URL を宣言する成果物であり、既定値へ黙って落とすと
+ * 誤ったオリジンを配信し続ける。未設定・不正・http(s) 以外は設定エラーとして失敗させる。
+ *
+ * @throws {Error} NEXT_PUBLIC_SITE_URL が未設定、URL として不正、または http/https 以外の場合。
+ */
 function resolveBaseUrl(): string {
   const configured = process.env.NEXT_PUBLIC_SITE_URL ?? "";
-  const base = configured.length > 0 ? configured : FALLBACK_BASE_URL;
-  return base.replace(/\/+$/, "");
+  if (configured.length === 0) {
+    throw new Error("NEXT_PUBLIC_SITE_URL is not set: サイトマップの絶対 URL を生成できません。");
+  }
+
+  let parsed: URL;
+  try {
+    parsed = new URL(configured);
+  } catch {
+    throw new Error(`NEXT_PUBLIC_SITE_URL is not a valid URL: ${configured}`);
+  }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+    throw new Error(`NEXT_PUBLIC_SITE_URL must use http or https: ${configured}`);
+  }
+
+  return configured.replace(/\/+$/, "");
 }
 
 /**
