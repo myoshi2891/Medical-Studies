@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./patient-global-impression-of-change.css";
 import { Ext } from "@/components/Ext";
@@ -1781,6 +1782,9 @@ style S10 fill:#ffcdd2,stroke:#c62828`}
         </main>
       </div>
       {/* end layout */}
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/prom/patient-global-impression-of-change" />
 
       {/* FOOTER */}
       <div className="footer">

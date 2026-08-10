@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./numerical-rating-scale-visual-analogue-scale.css";
 import { Ext } from "@/components/Ext";
@@ -2325,6 +2326,9 @@ style End fill:#c8e6c9,stroke:#1B5E20`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/prom/numerical-rating-scale-visual-analogue-scale" />
 
       {/* FOOTER */}
       <div className="footer">

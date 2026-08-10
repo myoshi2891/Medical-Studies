@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { getRelated } from "@/lib/content/registry";
 import HeadacheImpactTestPage from "./page";
 
 // Mermaidのモック化（描画コストの排除）
@@ -117,6 +118,32 @@ describe("HeadacheImpactTestPage: 契約（忠実転記）", () => {
     for (const a of intAnchors) {
       const href = a.getAttribute("href") || "";
       expect(href).not.toContain(".html");
+    }
+  });
+});
+
+/**
+ * 関連ページ導線の契約（plans/002 Step 3）。
+ * リンク関係は本文ではなく lib/content/registry.ts が持つため、
+ * ここではレジストリとの結線のみを固定する。
+ */
+describe("HeadacheImpactTestPage: 関連ページ導線", () => {
+  const HREF = "/prom/headache-impact-test";
+
+  it("レジストリの関連ページをすべてリンクとして描画する", () => {
+    const { container } = render(<HeadacheImpactTestPage />);
+    const hrefs = Array.from(container.querySelectorAll(".related-links a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(hrefs).toEqual(getRelated(HREF).map((e) => e.href));
+  });
+
+  it("内部リンクを最低 2 本持つ（plans/002 Step 3）", () => {
+    const { container } = render(<HeadacheImpactTestPage />);
+    const links = container.querySelectorAll(".related-links a");
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
     }
   });
 });
