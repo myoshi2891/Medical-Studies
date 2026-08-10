@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { CgrpPathwaySidebar } from "@/components/treatment/CgrpPathwaySidebar";
@@ -1397,6 +1398,9 @@ export default function CgrpPathwayHeadacheTreatmentsPage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/treatment/cgrp-pathway-headache-treatments" />
 
       {/* FOOTER */}
       <div className="footer">

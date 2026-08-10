@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { getRelated } from "@/lib/content/registry";
 import MohActuseUseDaysPage from "./page";
 
 // Mermaid は描画コストと CDN 依存を排除するため軽量モックに差し替える。
@@ -45,7 +46,12 @@ describe("MohAcuteUseDaysPage: 契約（忠実転記）", () => {
 
   it("<h2> の個数がソースと一致する（sec-title 昇格後）", () => {
     const { container } = render(<MohActuseUseDaysPage />);
-    expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
+    // 転記契約は元 HTML 由来の見出しのみを数える。RelatedLinks（plans/002 Step 3 の
+    // サイト共通導線）が足す h2 は転記物ではないため除外する。
+    const h2s = Array.from(container.querySelectorAll("h2")).filter(
+      (h) => h.closest(".related-links") === null
+    );
+    expect(h2s).toHaveLength(H2_COUNT);
   });
 
   it("<h3> の個数がソースと一致する（元 h2 を h3 へ昇格）", () => {
@@ -82,5 +88,38 @@ describe("MohAcuteUseDaysPage: 契約（忠実転記）", () => {
     for (const a of internals) {
       expect(a.getAttribute("href")).not.toContain(".html");
     }
+  });
+});
+
+/**
+ * 関連ページ導線の契約（plans/002 Step 3 / plans/004 残作業）。
+ * リンク関係は本文ではなく lib/content/registry.ts が持つため、
+ * ここではレジストリとの結線のみを固定する。
+ */
+describe("MohActuseUseDaysPage: 関連ページ導線", () => {
+  const HREF = "/treatment/moh-acute-use-days";
+
+  it("レジストリの関連ページをすべてリンクとして描画する", () => {
+    const { container } = render(<MohActuseUseDaysPage />);
+    const hrefs = Array.from(container.querySelectorAll(".related-links a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(hrefs).toEqual(getRelated(HREF).map((e) => e.href));
+  });
+
+  it("内部リンクを最低 2 本持つ（plans/002 Step 3）", () => {
+    const { container } = render(<MohActuseUseDaysPage />);
+    const links = container.querySelectorAll(".related-links a");
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
+    }
+  });
+
+  it("/headaches/medication-overuse-headache へ相互リンクする", () => {
+    const { container } = render(<MohActuseUseDaysPage />);
+    expect(
+      container.querySelector('.related-links a[href="/headaches/medication-overuse-headache"]')
+    ).not.toBeNull();
   });
 });

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { MohAcuteUseDaysSidebar } from "@/components/treatment/MohAcuteUseDaysSidebar";
@@ -1012,6 +1013,9 @@ Note2 --> FollowUp`}
               </div>
             </div>
           </section>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/treatment/moh-acute-use-days" />
 
           {/* FOOTER */}
           <footer className="footer">

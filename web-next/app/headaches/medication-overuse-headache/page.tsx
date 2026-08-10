@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import Term from "@/components/glossary/Term";
@@ -2249,6 +2250,9 @@ style H fill:#2980b9,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/headaches/medication-overuse-headache" />
 
       {/* FOOTER */}
       <div className="footer">

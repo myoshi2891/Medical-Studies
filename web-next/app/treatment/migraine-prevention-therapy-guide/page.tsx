@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { MigrainePreventionSidebar } from "@/components/treatment/MigrainePreventionSidebar";
@@ -1213,6 +1214,9 @@ export default function MigrainePreventionTherapyGuidePage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/treatment/migraine-prevention-therapy-guide" />
 
       {/* FOOTER */}
       <div className="footer">

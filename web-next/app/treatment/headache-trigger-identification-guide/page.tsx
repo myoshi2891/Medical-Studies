@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { HeadacheTriggerIdentificationSidebar } from "@/components/treatment/HeadacheTriggerIdentificationSidebar";
@@ -730,6 +731,9 @@ export default function HeadacheTriggerIdentificationGuidePage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/treatment/headache-trigger-identification-guide" />
 
       {/* FOOTER */}
       <div className="footer">

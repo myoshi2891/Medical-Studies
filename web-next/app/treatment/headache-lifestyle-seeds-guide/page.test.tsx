@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { getRelated } from "@/lib/content/registry";
 import Page from "./page";
 
 // Mock MermaidDiagram component to avoid loading issues in jsdom environment
@@ -40,7 +41,10 @@ describe("HeadacheLifestyleSeedsGuidePage Contract Tests", () => {
     expect(h1s.length).toBe(1);
 
     // Section subtitles (h2)
-    const h2s = container.querySelectorAll("h2");
+    // RelatedLinks（plans/002 Step 3 のサイト共通導線）の h2 は転記物ではないため除外する。
+    const h2s = Array.from(container.querySelectorAll("h2")).filter(
+      (h) => h.closest(".related-links") === null
+    );
     expect(h2s.length).toBe(10);
 
     // Verify h3s count is 13
@@ -90,6 +94,32 @@ describe("HeadacheLifestyleSeedsGuidePage Contract Tests", () => {
     for (const link of intAnchors) {
       const href = link.getAttribute("href") || "";
       expect(href.endsWith(".html")).toBe(false);
+    }
+  });
+});
+
+/**
+ * 関連ページ導線の契約（plans/002 Step 3 / plans/004 残作業）。
+ * リンク関係は本文ではなく lib/content/registry.ts が持つため、
+ * ここではレジストリとの結線のみを固定する。
+ */
+describe("Page: 関連ページ導線", () => {
+  const HREF = "/treatment/headache-lifestyle-seeds-guide";
+
+  it("レジストリの関連ページをすべてリンクとして描画する", () => {
+    const { container } = render(<Page />);
+    const hrefs = Array.from(container.querySelectorAll(".related-links a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(hrefs).toEqual(getRelated(HREF).map((e) => e.href));
+  });
+
+  it("内部リンクを最低 2 本持つ（plans/002 Step 3）", () => {
+    const { container } = render(<Page />);
+    const links = container.querySelectorAll(".related-links a");
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
     }
   });
 });

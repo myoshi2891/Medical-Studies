@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { LifestyleSeedsSidebar } from "@/components/treatment/LifestyleSeedsSidebar";
@@ -817,6 +818,9 @@ export default function HeadacheLifestyleSeedsGuidePage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/treatment/headache-lifestyle-seeds-guide" />
 
       {/* FOOTER */}
       <div className="footer">

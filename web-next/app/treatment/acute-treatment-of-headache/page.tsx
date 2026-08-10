@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { AthSidebar } from "@/components/treatment/AthSidebar";
@@ -1583,6 +1584,9 @@ D --> H["早期服薬の原則を維持しつつ使用日数を注視する"]`}
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/treatment/acute-treatment-of-headache" />
 
       {/* FOOTER */}
       <div className="footer">

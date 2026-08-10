@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import Term from "@/components/glossary/Term";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -833,6 +834,9 @@ D --> E`}
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/treatment/headache-workplace-school-accommodations" />
 
       {/* FOOTER */}
       <div className="footer">
