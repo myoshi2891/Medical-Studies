@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import Term from "@/components/glossary/Term";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -720,6 +721,9 @@ export default function HeadacheAcupointsPage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/therapies/headache-acupoints-trigger-points" />
 
       {/* FOOTER */}
       <div className="footer">

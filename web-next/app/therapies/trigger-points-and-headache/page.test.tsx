@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { getRelated } from "@/lib/content/registry";
 import TriggerPointsAndHeadachePage from "./page";
 
 // Mock MermaidDiagram component to avoid loading mermaid inside the test environment
@@ -31,7 +32,12 @@ describe("TriggerPointsAndHeadachePage: Contract Tests", () => {
 
   it("<h2> count matches corrected section headings count", () => {
     const { container } = render(<TriggerPointsAndHeadachePage />);
-    expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
+    // RelatedLinks（plans/002 Step 3 のサイト共通導線）が足す h2 は
+    // 元 HTML の転記物ではないため除外する。
+    const h2s = Array.from(container.querySelectorAll("h2")).filter(
+      (h) => h.closest(".related-links") === null
+    );
+    expect(h2s).toHaveLength(H2_COUNT);
   });
 
   it("<h3> count matches corrected subsections count", () => {
@@ -74,6 +80,32 @@ describe("TriggerPointsAndHeadachePage: Contract Tests", () => {
     expect(internals.length).toBeGreaterThan(0);
     for (const a of internals) {
       expect(a.getAttribute("href")).not.toContain(".html");
+    }
+  });
+});
+
+/**
+ * 関連ページ導線の契約（plans/002 Step 3）。
+ * リンク関係は本文ではなく lib/content/registry.ts が持つため、
+ * ここではレジストリとの結線のみを固定する。
+ */
+describe("TriggerPointsAndHeadachePage: 関連ページ導線", () => {
+  const HREF = "/therapies/trigger-points-and-headache";
+
+  it("レジストリの関連ページをすべてリンクとして描画する", () => {
+    const { container } = render(<TriggerPointsAndHeadachePage />);
+    const hrefs = Array.from(container.querySelectorAll(".related-links a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(hrefs).toEqual(getRelated(HREF).map((e) => e.href));
+  });
+
+  it("内部リンクを最低 2 本持つ（plans/002 Step 3）", () => {
+    const { container } = render(<TriggerPointsAndHeadachePage />);
+    const links = container.querySelectorAll(".related-links a");
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
     }
   });
 });

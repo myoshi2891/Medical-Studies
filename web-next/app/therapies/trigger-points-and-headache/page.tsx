@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import "./trigger-points-and-headache.css";
 import { Ext } from "@/components/Ext";
 import Term from "@/components/glossary/Term";
@@ -780,6 +781,9 @@ export default function TriggerPointsAndHeadachePage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/therapies/trigger-points-and-headache" />
 
       {/* FOOTER */}
       <div className="footer">

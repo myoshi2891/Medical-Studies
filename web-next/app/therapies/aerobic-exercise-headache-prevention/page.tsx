@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import { AerobicExerciseSidebar } from "@/components/therapies/AerobicExerciseSidebar";
@@ -1024,6 +1025,9 @@ export default function AerobicExerciseHeadachePreventionPage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/therapies/aerobic-exercise-headache-prevention" />
 
       {/* FOOTER */}
       <div className="footer">
