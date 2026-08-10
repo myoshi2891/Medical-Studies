@@ -41,6 +41,13 @@ export interface ContentEntry {
   /** 参照ガイドライン・文献の基準日（YYYY-MM-DD、任意）。plans/003 規約。 */
   readonly sourcesAsOf?: string;
   /**
+   * 検索索引専用の語彙（plans/007 Step 2）。略称・別名・主要トピックを宣言する。
+   * `title` だけでは「CGRP」「不眠」等で引けないため、横断検索
+   * （`lib/content/search.ts`）はここを haystack に含める。
+   * 本文の見出しを網羅する必要はなく、利用者が入力しそうな語に絞ること。
+   */
+  readonly keywords?: readonly string[];
+  /**
    * 関連ページの href（宣言順に表示）。plans/002 Step 3 により最低 2 本。
    * 参照先は必ずレジストリに存在すること（契約テストで dangling を検知）。
    */

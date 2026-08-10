@@ -84,6 +84,27 @@ describe("CONTENT_REGISTRY: エントリ単体の不変条件", () => {
     }
   });
 
+  it("検索索引語（keywords）を 1 件以上持つ", () => {
+    for (const entry of CONTENT_REGISTRY) {
+      expect(entry.keywords?.length ?? 0, `no keywords: ${entry.href}`).toBeGreaterThan(0);
+    }
+  });
+
+  it("keywords に空文字・空白のみの語が含まれない", () => {
+    for (const entry of CONTENT_REGISTRY) {
+      for (const keyword of entry.keywords ?? []) {
+        expect(keyword.trim().length, `blank keyword: ${entry.href}`).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("keywords がエントリ内で重複しない", () => {
+    for (const entry of CONTENT_REGISTRY) {
+      const keywords = entry.keywords ?? [];
+      expect(new Set(keywords).size, `duplicated keyword: ${entry.href}`).toBe(keywords.length);
+    }
+  });
+
   it("href がカテゴリと整合する（/anatomy を除き /<category>/<slug> 形式）", () => {
     for (const entry of CONTENT_REGISTRY) {
       if (entry.category === "anatomy") {
