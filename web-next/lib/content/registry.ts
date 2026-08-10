@@ -1,0 +1,379 @@
+/**
+ * サイト横断コンテンツレジストリ（plans/007 拡張項目 A・Step 1）。
+ *
+ * `lib/anatomy/manifest.ts` の宣言的レジストリ＋純関数コアのパターンを踏襲する。
+ * 全コンテンツページのメタ（カテゴリ・鮮度・関連ページ）をここに集約し、
+ * 相互リンク（RelatedLinks）・サイトマップ・鮮度棚卸しが同一のデータ源を参照する。
+ *
+ * **新規ページ追加時は本レジストリへの登録を 1 セットにすること。**
+ * 登録漏れ・dangling 参照・実ルートとの不一致は `registry.test.ts` が機械検知する。
+ *
+ * `title` はナビ表記（`components/site/nav-links.ts`）に準じた短いラベルとし、
+ * ページの SEO タイトル（各 page.tsx の `metadata.title`）とは役割を分ける。
+ * `lastReviewed` の初期値は各 `page.tsx` の最終コミット日を採用した。
+ */
+
+import type { ContentEntry } from "./types";
+
+export const CONTENT_REGISTRY: readonly ContentEntry[] = [
+  // ── 解剖 ──────────────────────────────────────────────
+  {
+    href: "/anatomy",
+    title: "頭痛の 3D 解剖アトラス",
+    category: "anatomy",
+    lastReviewed: "2026-07-03",
+    related: [
+      "/headaches/headache-pathophysiology",
+      "/blocks/occipital-nerve-block",
+      "/headaches/cervicogenic-headache",
+    ],
+  },
+
+  // ── 疾患 ──────────────────────────────────────────────
+  {
+    href: "/headaches/migraine",
+    title: "片頭痛 (Migraine)",
+    category: "headaches",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/headaches/headache-pathophysiology",
+      "/treatment/acute-treatment-of-headache",
+      "/treatment/migraine-prevention-therapy-guide",
+      "/prom/migraine-disability-assessment",
+    ],
+  },
+  {
+    href: "/headaches/tension-type-headache",
+    title: "緊張型頭痛 (TTH)",
+    category: "headaches",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/headaches/headache-pathophysiology",
+      "/therapies/physical-therapy-for-headache",
+      "/therapies/psychological-behavioral-therapy",
+      "/headaches/cervicogenic-headache",
+    ],
+  },
+  {
+    href: "/headaches/medication-overuse-headache",
+    title: "薬物乱用頭痛 (MOH)",
+    category: "headaches",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/treatment/moh-acute-use-days",
+      "/treatment/acute-treatment-of-headache",
+      "/treatment/migraine-prevention-therapy-guide",
+    ],
+  },
+  {
+    href: "/headaches/cervicogenic-headache",
+    title: "頸原性頭痛 (CEH)",
+    category: "headaches",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/therapies/physical-therapy-for-headache",
+      "/therapies/trigger-points-and-headache",
+      "/blocks/occipital-nerve-block",
+    ],
+  },
+  {
+    href: "/headaches/headache-pathophysiology",
+    title: "頭痛の病態生理",
+    category: "headaches",
+    lastReviewed: "2026-07-21",
+    related: ["/headaches/migraine", "/treatment/cgrp-pathway-headache-treatments", "/anatomy"],
+  },
+
+  // ── 治療 ──────────────────────────────────────────────
+  {
+    href: "/treatment/acute-treatment-of-headache",
+    title: "急性期治療の考え方",
+    category: "treatment",
+    lastReviewed: "2026-07-21",
+    related: [
+      "/headaches/medication-overuse-headache",
+      "/treatment/moh-acute-use-days",
+      "/headaches/migraine",
+    ],
+  },
+  {
+    href: "/treatment/migraine-prevention-therapy-guide",
+    title: "片頭痛予防治療ガイド",
+    category: "treatment",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/treatment/cgrp-pathway-headache-treatments",
+      "/headaches/migraine",
+      "/therapies/nutrition-and-supplements",
+    ],
+  },
+  {
+    href: "/treatment/cgrp-pathway-headache-treatments",
+    title: "CGRP 標的治療薬",
+    category: "treatment",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/treatment/migraine-prevention-therapy-guide",
+      "/headaches/headache-pathophysiology",
+      "/headaches/migraine",
+    ],
+  },
+  {
+    href: "/treatment/moh-acute-use-days",
+    title: "適正使用日数と MOH 予防",
+    category: "treatment",
+    lastReviewed: "2026-07-22",
+    related: [
+      "/headaches/medication-overuse-headache",
+      "/treatment/acute-treatment-of-headache",
+      "/prom/headache-diary",
+    ],
+  },
+  {
+    href: "/treatment/headache-lifestyle-seeds-guide",
+    title: "生活習慣管理と SEEDS",
+    category: "treatment",
+    lastReviewed: "2026-07-21",
+    related: [
+      "/treatment/headache-trigger-identification-guide",
+      "/therapies/sleep-and-headache-guide",
+      "/therapies/aerobic-exercise-headache-prevention",
+    ],
+  },
+  {
+    href: "/treatment/headache-trigger-identification-guide",
+    title: "トリガーの特定と管理",
+    category: "treatment",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/prom/headache-diary",
+      "/treatment/headache-lifestyle-seeds-guide",
+      "/therapies/nutrition-and-supplements",
+    ],
+  },
+  {
+    href: "/treatment/headache-workplace-school-accommodations",
+    title: "職場・学校での合理的配慮",
+    category: "treatment",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/prom/headache-impact-test",
+      "/prom/migraine-disability-assessment",
+      "/treatment/headache-lifestyle-seeds-guide",
+    ],
+  },
+
+  // ── 神経ブロック ──────────────────────────────────────
+  {
+    href: "/blocks/occipital-nerve-block",
+    title: "後頭神経ブロック (ONB)",
+    category: "blocks",
+    lastReviewed: "2026-06-28",
+    related: ["/headaches/cervicogenic-headache", "/blocks/cervical-plexus-block", "/anatomy"],
+  },
+  {
+    href: "/blocks/cervical-plexus-block",
+    title: "頚神経叢ブロック (CPB)",
+    category: "blocks",
+    lastReviewed: "2026-06-28",
+    related: ["/blocks/occipital-nerve-block", "/headaches/cervicogenic-headache", "/anatomy"],
+  },
+  {
+    href: "/blocks/stellate-ganglion-block",
+    title: "星状神経節ブロック (SGB)",
+    category: "blocks",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/blocks/superior-cervical-ganglion-block",
+      "/blocks/occipital-nerve-block",
+      "/anatomy",
+    ],
+  },
+  {
+    href: "/blocks/superior-cervical-ganglion-block",
+    title: "上頸神経節ブロック (SCGB)",
+    category: "blocks",
+    lastReviewed: "2026-07-25",
+    related: ["/blocks/stellate-ganglion-block", "/anatomy", "/headaches/migraine"],
+  },
+
+  // ── 非薬物療法 ────────────────────────────────────────
+  {
+    href: "/therapies/physical-therapy-for-headache",
+    title: "理学療法 (PT)",
+    category: "therapies",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/headaches/cervicogenic-headache",
+      "/therapies/trigger-points-and-headache",
+      "/headaches/tension-type-headache",
+    ],
+  },
+  {
+    href: "/therapies/nutrition-and-supplements",
+    title: "栄養・サプリメント",
+    category: "therapies",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/treatment/migraine-prevention-therapy-guide",
+      "/treatment/headache-lifestyle-seeds-guide",
+      "/treatment/headache-trigger-identification-guide",
+    ],
+  },
+  {
+    href: "/therapies/psychological-behavioral-therapy",
+    title: "心理・行動療法",
+    category: "therapies",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/headaches/tension-type-headache",
+      "/therapies/sleep-and-headache-guide",
+      "/prom/patient-global-impression-of-change",
+    ],
+  },
+  {
+    href: "/therapies/headache-acupoints-trigger-points",
+    title: "経穴・トリガーポイント",
+    category: "therapies",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/therapies/trigger-points-and-headache",
+      "/therapies/physical-therapy-for-headache",
+      "/headaches/tension-type-headache",
+    ],
+  },
+  {
+    href: "/therapies/trigger-points-and-headache",
+    title: "トリガーポイント入門",
+    category: "therapies",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/therapies/headache-acupoints-trigger-points",
+      "/therapies/physical-therapy-for-headache",
+      "/headaches/cervicogenic-headache",
+    ],
+  },
+  {
+    href: "/therapies/aerobic-exercise-headache-prevention",
+    title: "有酸素運動と頭痛予防",
+    category: "therapies",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/treatment/headache-lifestyle-seeds-guide",
+      "/therapies/sleep-and-headache-guide",
+      "/treatment/migraine-prevention-therapy-guide",
+    ],
+  },
+  {
+    href: "/therapies/sleep-and-headache-guide",
+    title: "睡眠衛生ガイド",
+    category: "therapies",
+    lastReviewed: "2026-07-23",
+    related: [
+      "/treatment/headache-lifestyle-seeds-guide",
+      "/therapies/aerobic-exercise-headache-prevention",
+      "/therapies/psychological-behavioral-therapy",
+    ],
+  },
+
+  // ── PROM 指標 ─────────────────────────────────────────
+  {
+    href: "/prom/headache-diary",
+    title: "頭痛ダイアリー",
+    category: "prom",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/prom/migraine-disability-assessment",
+      "/treatment/headache-trigger-identification-guide",
+      "/treatment/moh-acute-use-days",
+    ],
+  },
+  {
+    href: "/prom/headache-impact-test",
+    title: "HIT-6",
+    category: "prom",
+    lastReviewed: "2026-07-15",
+    related: [
+      "/prom/migraine-disability-assessment",
+      "/prom/migraine-specific-quality-of-life",
+      "/prom/headache-diary",
+    ],
+  },
+  {
+    href: "/prom/migraine-disability-assessment",
+    title: "MIDAS",
+    category: "prom",
+    lastReviewed: "2026-06-28",
+    related: ["/prom/headache-impact-test", "/prom/headache-diary", "/headaches/migraine"],
+  },
+  {
+    href: "/prom/migraine-specific-quality-of-life",
+    title: "MSQ v2.1",
+    category: "prom",
+    lastReviewed: "2026-07-15",
+    related: [
+      "/prom/headache-impact-test",
+      "/prom/patient-global-impression-of-change",
+      "/headaches/migraine",
+    ],
+  },
+  {
+    href: "/prom/numerical-rating-scale-visual-analogue-scale",
+    title: "NRS / VAS",
+    category: "prom",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/prom/headache-diary",
+      "/prom/patient-global-impression-of-change",
+      "/prom/headache-impact-test",
+    ],
+  },
+  {
+    href: "/prom/patient-global-impression-of-change",
+    title: "PGIC",
+    category: "prom",
+    lastReviewed: "2026-06-28",
+    related: [
+      "/prom/numerical-rating-scale-visual-analogue-scale",
+      "/prom/migraine-specific-quality-of-life",
+      "/prom/headache-diary",
+    ],
+  },
+];
+
+/** href 引きの索引をモジュールロード時に一度だけ構築する（`lib/anatomy/search.ts` と同方式）。 */
+const BY_HREF: ReadonlyMap<string, ContentEntry> = new Map(
+  CONTENT_REGISTRY.map((entry) => [entry.href, entry])
+);
+
+/**
+ * href からレジストリエントリを引く。
+ *
+ * @param href - 内部絶対パス（例: `/treatment/moh-acute-use-days`）。
+ * @returns 該当エントリ。未登録なら `undefined`。
+ */
+export function getEntry(href: string): ContentEntry | undefined {
+  return BY_HREF.get(href);
+}
+
+/**
+ * 指定ページの関連ページを、レジストリ宣言順に解決して返す。
+ *
+ * dangling 参照は契約テストで排除済みだが、実行時は防御的に読み飛ばす
+ * （関連リンクの欠落でページ全体を落とさない）。
+ *
+ * @param href - 起点ページの内部絶対パス。
+ * @returns 関連ページのエントリ配列。未登録 href なら空配列。
+ */
+export function getRelated(href: string): ContentEntry[] {
+  const entry = BY_HREF.get(href);
+  if (entry === undefined) return [];
+
+  const resolved: ContentEntry[] = [];
+  for (const relatedHref of entry.related) {
+    const target = BY_HREF.get(relatedHref);
+    if (target === undefined) continue;
+    resolved.push(target);
+  }
+  return resolved;
+}
