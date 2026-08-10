@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./occipital-nerve-block.css";
 import { OnbSidebar } from "@/components/blocks/OnbSidebar";
@@ -2253,6 +2254,9 @@ style H fill:#e65100,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/blocks/occipital-nerve-block" />
 
       {/* FOOTER */}
       <div className="footer">

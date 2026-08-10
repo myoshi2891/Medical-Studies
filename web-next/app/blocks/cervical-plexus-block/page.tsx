@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CpbSidebar } from "@/components/blocks/CpbSidebar";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -2159,6 +2160,9 @@ style F fill:#e65100,color:#fff`}
         </main>
       </div>
       {/* end layout */}
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/blocks/cervical-plexus-block" />
 
       {/* FOOTER */}
       <div className="footer">

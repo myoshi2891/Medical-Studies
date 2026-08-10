@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SgbSidebar } from "@/components/blocks/SgbSidebar";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -1953,6 +1954,9 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/blocks/stellate-ganglion-block" />
 
       {/* FOOTER */}
       <div className="footer">

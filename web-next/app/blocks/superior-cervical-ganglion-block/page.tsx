@@ -1,4 +1,5 @@
 import { ScgbSidebar } from "@/components/blocks/ScgbSidebar";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import MermaidDiagram from "@/components/MermaidDiagram";
 import "./superior-cervical-ganglion-block.css";
@@ -1040,6 +1041,9 @@ export default function SuperiorCervicalGanglionBlockPage() {
           </section>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/blocks/superior-cervical-ganglion-block" />
 
       {/* FOOTER */}
       <div className="footer">
