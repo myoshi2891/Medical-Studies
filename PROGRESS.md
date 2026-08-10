@@ -4,10 +4,11 @@
 
 ## 現在地
 
-- **最新 HEAD**: `1d90cd6` feat(web-next): add superior-cervical-ganglion-block link to SiteHeader nav-links
-- **ビルド状態**: web-next 全体で typecheck クリーン。テスト 506 passed（59 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉が green）
-- **次の作業**: `/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／新規コンテンツ移行待ち
+- **最新 HEAD**: `fe21e7d` feat(treatment): surface related pages on treatment and MOH guides
+- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。テスト 582 passed（67 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／**コンテンツレジストリ・sitemap・RelatedLinks** が green）
+- **次の作業**: plans/007 の残 Step（横断検索コア `lib/content/search.ts`・ナビ再設計）／`/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／`/treatment` 以外のカテゴリへの RelatedLinks 展開
 - **未移行 HTML 残数**: 0
+- **コンテンツ SSoT の注意**: `Types-of-headache/`（md-files / html-files）はコミット `ebdd955` で `.gitignore` へ追加・untrack され、リポジトリ内に存在しない。本ファイルの「移行ステータス」表の Markdown / HTML リンクはリポジトリ内では解決しない。新規コンテンツ執筆は SSoT 方針の決定まで保留（`plans/README.md` の注意書きを参照）
 
 ## 移行ステータス
 
@@ -120,7 +121,14 @@
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` / `.aerobic-exercise-accent` / `.sleep-guide` / `.cgrp-pathway-headache-treatments` / `.migraine-prevention` などでスコープ。
 - **テスト**: アーキタイプ A（静的教育ガイド + 共有コンポーネント + `/anatomy`）は計 303 passed（moh-acute-use-days 指定 9 + SiteHeader 差分 1 追加）。lint / typecheck / test 全通過。
+- **横断基盤（plans/007 A・D / plans/002 Step 3）**: `lib/content/registry.ts` に全 30 コンテンツルートの
+  メタ（カテゴリ・`lastReviewed`・`related`）を宣言的に集約し、`getEntry` / `getRelated` を純関数で提供
+  （`lib/anatomy` パターン踏襲）。これを単一データ源として `app/sitemap.ts`（コンテンツ 30 + 静的 4 = 34 URL）と
+  `components/content/RelatedLinks.tsx`（関連ページ導線・Server Component）が動く。`registry.test.ts` は
+  `node:fs` で `app/**/page.tsx` を走査し、登録漏れ・幽霊エントリ・dangling 参照を機械検知する。
+  適用済みは `/treatment/*` 7 ページと `/headaches/medication-overuse-headache`（残カテゴリは今後展開）。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → `/headaches/cervicogenic-headache`。
+  関連ページ導線は `/treatment/moh-acute-use-days` ↔ `/headaches/medication-overuse-headache` の双方向遷移を確認済み。
 
 ---
 
@@ -128,7 +136,8 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: 1d90cd6
-- 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／新規コンテンツ移行待ち
+- 最新 HEAD: fe21e7d
+- 次の作業: plans/007 の残 Step（横断検索コア・ナビ再設計）／RelatedLinks の残カテゴリ展開／`/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認
 - 未移行 HTML 残数: 0
+- 注意: コンテンツ SSoT（Types-of-headache/）はリポジトリ外。新規コンテンツ執筆は方針決定まで保留
 ```
