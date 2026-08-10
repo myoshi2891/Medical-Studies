@@ -30,6 +30,9 @@
 - コンテンツ SSoT は `Types-of-headache/md-files/` の Markdown。既存ページは各末尾に
   参考文献リスト（PROGRESS.md に「参考文献31リンク」等の記載あり）を持つが、
   **統一フォーマット・エビデンスレベル表記・最終更新日メタデータの規約は未定義**。
+  **なお `Types-of-headache/` はコミット `ebdd955` でリポジトリ管理外となっており、
+  md 執筆を起点とする本ワークフローは SSoT 方針の決定まで保留**（plans/001 原則 3 の注記を参照）。
+  鮮度メタデータ規約（後述）は web-next 側のレジストリで先行実装できるため、本保留の影響を受けない。
 - `GEMINI.md`/`CLAUDE.md` に「Updated 2026-07-02」の日付記載はあるが、ページ単位の鮮度は追えない。
 - 既存の医療正確性への配慮: `docs/publishing/05-legal-and-regulatory.md`（薬機法・医療広告）、
   MRI 画像出所記録（`docs/publishing/03`）。エビデンス管理の運用文書は未整備。
