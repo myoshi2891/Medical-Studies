@@ -110,6 +110,116 @@ body.has-common-header {
   letter-spacing: -0.02em;
 }
 
+/* ── サイト横断検索（components/site/SiteSearch.tsx） ────────────
+ * app/anatomy/anatomy.css の .anatomy-search を手本に、暗色ヘッダー用の
+ * 独立クラスとして定義する（明色ページ用の変数を流用すると視認できないため）。 */
+.site-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 1 320px;
+  margin: 0 1rem;
+}
+
+.site-search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.8rem;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.site-search-input {
+  width: 100%;
+  padding: 0.4rem 0.75rem 0.4rem 2rem;
+  border: 1px solid var(--ch-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ch-text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.site-search-input::placeholder {
+  color: rgba(234, 240, 245, 0.55);
+}
+
+.site-search-input:focus-visible {
+  outline: 2px solid var(--ch-focus);
+  outline-offset: 2px;
+}
+
+.site-search-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  max-height: 60vh;
+  overflow-y: auto;
+  background-color: var(--ch-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--ch-border);
+  border-radius: 8px;
+  padding: 0.4rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.site-search-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--ch-text);
+}
+
+.site-search-opt:hover,
+.site-search-opt.active {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.site-search-opt:focus-visible {
+  outline: 2px solid var(--ch-focus);
+  outline-offset: -2px;
+}
+
+.site-search-opt-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.site-search-opt-meta {
+  font-size: 0.7rem;
+  color: rgba(234, 240, 245, 0.6);
+}
+
+.site-search-empty {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  padding: 0.6rem 0.8rem;
+  background-color: var(--ch-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--ch-border);
+  border-radius: 8px;
+  color: rgba(234, 240, 245, 0.7);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  /* ハンバーガーと並ぶ幅を確保しつつ、ブランド名を押し出さない。 */
+  .site-search {
+    flex: 1 1 auto;
+    margin: 0 0.75rem;
+  }
+}
+
 .ch-links {
   display: flex;
   list-style: none;

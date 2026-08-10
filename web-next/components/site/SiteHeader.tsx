@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { isDropdown, type NavLink, navLinks } from "./nav-links";
 import { SiteHeaderClient } from "./SiteHeaderClient";
+import SiteSearch from "./SiteSearch";
 
 /**
  * usePathname は Client 専用のため、SiteHeader も Client Component とし、
@@ -35,6 +36,9 @@ export function SiteHeader({ pathname: pathnameProp }: { pathname?: string } = {
         <Link className="ch-brand" href="/">
           Medical Studies
         </Link>
+        {/* サイト横断検索。`.ch-links`（ドロワー）の外に置き、リンククリック時の
+            ドロワー開閉ハンドラと干渉させない（SiteHeaderClient のコメント参照）。 */}
+        <SiteSearch />
         <button
           type="button"
           className="ch-hamburger"
