@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import Term from "@/components/glossary/Term";
@@ -2851,6 +2852,9 @@ export default function TensionTypeHeadachePage() {
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/headaches/tension-type-headache" />
 
       {/* FOOTER */}
       <div className="footer">
