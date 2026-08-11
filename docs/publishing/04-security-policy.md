@@ -71,7 +71,7 @@ form-action 'self';
 ```
 
 > [!NOTE]
-> 上記は**立案時（2026-07-09）の骨子**であり、`script-src` から `'unsafe-inline'` を排除して nonce/`'strict-dynamic'` で段階的に厳格化する前提で書かれていた。**このうち nonce を前提とした部分は plans/011 Stage 3 の実測で不成立と判明した**（全ページ静的プリレンダはリクエスト毎に nonce を HTML へ焼き込めない）。ただし不成立なのは nonce 方式であって、`'strict-dynamic'` 自体は nonce・ハッシュのいずれとも併用でき、ビルド間で内容が安定した inline script についてはハッシュベース CSP という選択肢が残る（本プロジェクトでは採用していない。理由は次節「実装状況」）。現行の採用値と、`'unsafe-inline'` を許容した設計判断・残余リスクの受入記録は次節「実装状況」を参照すること。`style-src 'unsafe-inline'` は Tailwind/インラインスタイル併用時の暫定という位置づけのまま。Mermaid は npm 依存としてバンドルされ、外部 `script-src` の追加は不要であることを確認済み。
+> 上記は**立案時（2026-07-09）の骨子**であり、`script-src` から `'unsafe-inline'` を排除して nonce/`'strict-dynamic'` で段階的に厳格化する前提で書かれていた。**このうち nonce を前提とした部分は plans/011 Stage 3 の実測で不成立と判明した**（nonce はレスポンスごとに一意かつ予測困難でなければ防御にならないが、全ページ静的プリレンダではその per-request nonce を静的生成物へ反映できない）。ただし不成立なのは nonce 方式であって、`'strict-dynamic'` 自体は nonce・ハッシュのいずれとも併用でき、ビルド間で内容が安定した inline script についてはハッシュベース CSP という選択肢が残る（本プロジェクトでは採用していない。理由は次節「実装状況」）。現行の採用値と、`'unsafe-inline'` を許容した設計判断・残余リスクの受入記録は次節「実装状況」を参照すること。`style-src 'unsafe-inline'` は Tailwind/インラインスタイル併用時の暫定という位置づけのまま。Mermaid は npm 依存としてバンドルされ、外部 `script-src` の追加は不要であることを確認済み。
 
 ### 実装状況（`plans/011` により導入済み）
 
@@ -84,8 +84,10 @@ form-action 'self';
 
 > [!IMPORTANT]
 > **nonce/`'strict-dynamic'` は採用しなかった（設計判断）**。web-next は全ページを静的プリレンダ
-> （`○ Static`）するため、per-request nonce を HTML に焼き込めず、nonce ベース CSP は静的ページで
-> 機能しない（Next.js は静的シェルをリクエスト毎に再レンダしない）。nonce を機能させるには全ページの
+> （`○ Static`）するため、per-request nonce を静的生成物へ反映できず、nonce ベース CSP は静的ページで
+> 機能しない（Next.js は静的シェルをリクエスト毎に再レンダしない）。nonce は**レスポンスごとに一意
+> かつ予測困難**でなければ攻撃者に値を知られて防御にならないため、ビルド時に固定値を埋め込む代替も
+> 成立しない。nonce を機能させるには全ページの
 > 動的 SSR 化が必要で、静的最適化・CDN キャッシュを全放棄するトレードオフになる。当サイトは
 > **完全クライアント型・サーバ/秘密なし・他者入力が script 文脈へ到達する経路が無い**ため
 > （実行時 HTML sink は `prom-checker/index.html` の `innerHTML` 描画に限られ、`esc()` でエスケープする。
@@ -133,7 +135,7 @@ CSP 文字列の組み立ては `web-next/lib/security/csp.ts` の純粋関数 `
 本番（`next start`）は `script-src` に `'unsafe-eval'` を含まず、開発（`next dev`）のみ含むことを確認済み。
 
 **実ブラウザ検証で判明した経緯**: 当初 `middleware.ts` による nonce/`'strict-dynamic'` 強制を実装したが、
-静的ページに nonce が焼き込めず Next.js の inline script が全ブロックされ、ページが描画されなかった
+静的ページへ per-request nonce を反映できず Next.js の inline script が全ブロックされ、ページが描画されなかった
 （`/anatomy`・`/prom-checker` が「読み込み中…」で停止）。この検証結果を受けて上記の静的維持型 CSP へ
 方針変更した。**将来の厳格化候補**: 動的 SSR 化を許容できるなら nonce/`'strict-dynamic'` へ回帰し
 `script-src` の `'unsafe-inline'` を除去できる。`style-src 'unsafe-inline'` も nonce 化で厳格化しうる。
@@ -153,7 +155,7 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
 | 外部ホスト許可の最小化 | `script-src` の外部許可は `accounts.google.com` のみ。`connect-src` は `self` + Sheets/GIS のみ。CDN 許可なし（cdnjs 除去済み・`csp.test.ts` で再混入を検知） | 任意ライブラリの読込を封じ、**接続 API 経由**（`fetch` / `XMLHttpRequest` / WebSocket / `sendBeacon` / EventSource）の持ち出し先を許可ホストに限定する。**トップレベルナビゲーションは対象外** — 下記注記参照 |
 | `base-uri 'self'` / `form-action 'self'` / `frame-ancestors 'none'` | 実 CSP に付与済み | base タグ乗っ取り・フォーム外部送信・クリックジャッキング（`'unsafe-inline'` では防げない別経路） |
 | 秘密の非永続化 | Google アクセストークンは React state（`DataManager` のメモリ）のみで、`localStorage` に置かない | **アクティブセッション外**への被害の持ち越しを断つ（再読み込み後・次回セッションではトークンが存在しないため、XSS が後から拾える秘密は残らない）。セッション中の窃取は防げない — 下記「残る被害想定」を参照 |
-| Google 権限スコープの最小化 | `drive.file`（`lib/export/google/gis.ts`）。到達しうるのは (a) 通常経路で `spreadsheets.create` が生成した本アプリ作成シート、(b) JSON インポートで `settings.syncTargets.googleSheets.spreadsheetId` として保存された任意の ID（`lib/prom/storage.ts` の `normalizeSyncTargets` は文字列であることのみ検査し、`GoogleSheetsExporter` はその ID に対し `spreadsheets.get` / `values.batchUpdate` / `values.append` を実行する）の 2 経路。`drive.file` の性質上、(b) の ID が本アプリ由来でなければ Google API 側が拒否する。なお `drive.file` は「ユーザーが明示選択したファイル」も許可しうるが、**本アプリに選択 UI（Google Picker 等）は存在しない**ため現状この経路は無い | トークン漏洩時の到達範囲を Drive 全体ではなく、本アプリが作成した／本アプリに紐づいたシートに限定 |
+| Google 権限スコープの最小化 | `drive.file`（`lib/export/google/gis.ts`）。到達しうるのは (a) 通常経路で `spreadsheets.create` が生成した本アプリ作成シート、(b) JSON インポートで `settings.syncTargets.googleSheets.spreadsheetId` として保存された任意の ID（`lib/prom/storage.ts` の `normalizeSyncTargets` は文字列であることのみ検査し、`GoogleSheetsExporter` はその ID に対し `spreadsheets.values.get` / `values.batchUpdate` / `values.append` を実行する）の 2 経路。`drive.file` の性質上、(b) の ID が本アプリ由来でなければ Google API 側が拒否する。なお `drive.file` は「ユーザーが明示選択したファイル」も許可しうるが、**本アプリに選択 UI（Google Picker 等）は存在しない**ため現状この経路は無い | トークン漏洩時の到達範囲を Drive 全体ではなく、本アプリが作成した／本アプリに紐づいたシートに限定 |
 | 供給網の監視 | `plans/014` の CI（依存監査・ライセンスゲート） | inline script 混入の現実的な最大経路である依存改ざん |
 
 > [!NOTE]
@@ -176,7 +178,7 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
    到達しうる。取得されれば `drive.file` スコープの範囲で Google Sheets API の**読み取り・作成・更新・
    追加**（`spreadsheets.create` による新規シート作成と、本アプリに紐づいたシート — 通常経路で本アプリが
    作成したもの、または JSON インポートで `spreadsheetId` として保存されたもの — に対する
-   `spreadsheets.get` / `values.batchUpdate` / `values.append` 相当）を攻撃者に誘発されうる。
+   `spreadsheets.values.get` / `values.batchUpdate` / `values.append` 相当）を攻撃者に誘発されうる。
    なおユーザーが Picker 等でファイルを明示選択する経路は**現状存在しない**。将来これを追加した場合は、
    選択されたファイルに対する読み取り・更新・追加を本項の残余リスクへ追記すること。
 
