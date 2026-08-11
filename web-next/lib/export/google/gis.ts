@@ -1,7 +1,7 @@
 /**
  * Google Identity Services（GIS）トークンモデルのラッパー（設計書 第 6.3 章）。
  * accounts.google.com/gsi/client を動的読み込み（多重防止）し、
- * requestAccessToken を Promise<Result<{ accessToken }>> として提供する。
+ * requestAccessToken を Promise<Result<{ accessToken, expiresIn }>> として提供する。
  * トークンはメモリ（呼び出し元 React state）にのみ保持し、localStorage へは書かない。
  */
 import { err, ok, type Result } from "@/lib/prom/types";
@@ -46,7 +46,7 @@ function loadGisScript(): Promise<void> {
  */
 export async function requestAccessToken(
   clientId: string
-): Promise<Result<{ accessToken: string }>> {
+): Promise<Result<{ accessToken: string; expiresIn?: number }>> {
   if (!clientId) {
     return err("Google Client ID が未設定です（NEXT_PUBLIC_GOOGLE_CLIENT_ID）");
   }
@@ -58,7 +58,7 @@ export async function requestAccessToken(
   const google = window.google;
   if (!google) return err("Google Identity Services を初期化できません");
 
-  return new Promise<Result<{ accessToken: string }>>((resolve) => {
+  return new Promise<Result<{ accessToken: string; expiresIn?: number }>>((resolve) => {
     const tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: clientId,
       scope: SCOPE,
@@ -67,7 +67,7 @@ export async function requestAccessToken(
           resolve(err(`認証に失敗しました: ${response.error ?? "トークンがありません"}`));
           return;
         }
-        resolve(ok({ accessToken: response.access_token }));
+        resolve(ok({ accessToken: response.access_token, expiresIn: response.expires_in }));
       },
       error_callback: (e) => resolve(err(`認証エラー: ${String(e)}`)),
     });
