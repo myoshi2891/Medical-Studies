@@ -34,7 +34,15 @@ web-next は完全クライアント型（サーバ API・秘密情報なし）�
 `web-next/next.config.ts` にはヘッダ設定が一切なく、CSP・HSTS・X-Frame-Options 等の標準防御が
 すべて欠落している（`docs/publishing/04-security-policy.md` §2–3）。
 
-## Current state
+## Current state（**実装前スナップショット** — commit `6614b7c` 時点）
+
+> [!NOTE]
+> 本節は立案時（2026-07-09）の状態を記録したものであり、**現行の実装ではない**。
+> 実装後の `web-next/next.config.ts` は `headers()` を持ち、CSP を含む 6 ヘッダを静的付与する。
+> CSP 文字列は `web-next/lib/security/csp.ts` の純粋関数 `buildContentSecurityPolicy(isDev)` が生成し、
+> `next.config.ts` はその戻り値を `Content-Security-Policy` ヘッダ値として渡すだけの薄い配線である
+> （開発時のみ `'unsafe-eval'` を含む差分は `isDev` 引数で表現される）。現行仕様は下記 `Steps`
+> の Stage 3 および `docs/publishing/04-security-policy.md` を参照。
 
 - `web-next/next.config.ts` — 全 15 行。`reactStrictMode` と `turbopack.root` のみ:
 

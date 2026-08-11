@@ -150,12 +150,27 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
 | React の既定エスケープ | 本文は Server Component の JSX 描画。文字列は自動エスケープされる | 反射型・格納型 XSS の主経路 |
 | 外部ホスト許可の最小化 | `script-src` の外部許可は `accounts.google.com` のみ。`connect-src` は `self` + Sheets/GIS のみ。CDN 許可なし（cdnjs 除去済み・`csp.test.ts` で再混入を検知） | 注入成功時の**外部への持ち出し先**と任意ライブラリ読込を封じる |
 | `base-uri 'self'` / `form-action 'self'` / `frame-ancestors 'none'` | 実 CSP に付与済み | base タグ乗っ取り・フォーム外部送信・クリックジャッキング（`'unsafe-inline'` では防げない別経路） |
-| 秘密の非永続化 | Google アクセストークンはメモリのみ（`localStorage` に置かない） | XSS 成立時の被害範囲を localStorage 内の健康データに限定 |
+| 秘密の非永続化 | Google アクセストークンは React state（`DataManager` のメモリ）のみで、`localStorage` に置かない | **アクティブセッション外**への被害の持ち越しを断つ（再読み込み後・次回セッションではトークンが存在しないため、XSS が後から拾える秘密は残らない）。セッション中の窃取は防げない — 下記「残る被害想定」を参照 |
+| Google 権限スコープの最小化 | `drive.file`（`lib/export/google/gis.ts`）。アプリが作成／ユーザーが明示選択したファイルのみに限定 | トークン漏洩時の到達範囲を Drive 全体ではなく本アプリ生成のシートに限定 |
 | 供給網の監視 | `plans/014` の CI（依存監査・ライセンスゲート） | inline script 混入の現実的な最大経路である依存改ざん |
 
 **残る被害想定**: 上記をすべて突破する XSS（＝依存パッケージ改ざん等でバンドル自体に混入）が成立した場合、
-`localStorage` の頭痛日誌・PROM スコアが窃取されうる。ただしこの経路は `'unsafe-inline'` の有無に
-かかわらず（自オリジンの `'self'` スクリプトとして）成立するため、**`'unsafe-inline'` の除去では防げない**。
+被害は `localStorage` の健康データにとどまらない。想定される範囲は次の 2 つである。
+
+1. **`localStorage` の頭痛日誌・PROM スコアの窃取**（永続データのため、いつ XSS が成立しても読める）
+2. **Google アクセストークンの悪用**: トークンは永続化しないが、ユーザーが「Google と接続」した後の
+   アクティブセッション中は React state（メモリ）に存在し、同一オリジンで動く XSS ペイロードからは
+   到達しうる。取得されれば `drive.file` スコープの範囲で Google Sheets API の**読み取り・作成・更新・
+   追加**（本アプリが作成したスプレッドシートに対する `spreadsheets.get` / `create` / `values.update` /
+   `values.append` 相当）を攻撃者に誘発されうる。
+
+2 の到達範囲は次の 3 点で抑えられている（無効化はされない）: スコープが `drive.file` のため Drive 全体
+ではなく**本アプリ生成のシートのみ**が対象であること、GIS の access token は**短寿命**（既定 1 時間程度）
+で refresh token を保持しないこと、そしてページ再読み込み後・次回セッションではトークンが**残存しない**
+こと。したがって悪用可能な窓は「接続済みのまま開いているタブ」に限られる。
+
+なお 1・2 いずれの経路も `'unsafe-inline'` の有無にかかわらず（自オリジンの `'self'` スクリプトとして）
+成立するため、**`'unsafe-inline'` の除去では防げない**。
 
 **再評価の条件**（いずれか成立時に本受入を破棄し再設計する）:
 

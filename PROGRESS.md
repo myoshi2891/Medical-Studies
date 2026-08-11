@@ -68,8 +68,10 @@
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
 | Phase 5 | 外部連携: Google スプレッドシート同期 + CSV エクスポート | ✅ 完了 |
 
-- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統（`lib/prom` / `components/prom` / `app/prom-checker` / `lib/export`）130 passed
-  ＝ web-next 全体 585 passed の一部 / typecheck / build 全通過。
+- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統（`lib/prom` / `components/prom` / `app/prom-checker` / `lib/export`）は計 130 passed
+  ＝ web-next 全体 666 passed / 69 ファイルの一部（**いずれも HEAD `3745329` 時点・2026-08-11 の実測値**。
+  実行範囲は `bunx vitest run lib/prom components/prom app/prom-checker lib/export` と
+  `bun run test`）。typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
   `components/prom/`（シェル = PromApp + 9 ビュー + Header/Toast/UrgentDialog/Mermaid + `useExporters`）+
   `app/prom-checker/`（page + scoped CSS）。
