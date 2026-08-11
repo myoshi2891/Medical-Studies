@@ -15,6 +15,15 @@ import { type ContentSearchHit, searchContent } from "@/lib/content/search";
  * ヘッダーの `.ch-links`（ドロワー）の外に置くこと。内側に置くと `SiteHeaderClient` が
  * 付与する「リンククリックでドロワーを閉じる」ハンドラと二重に制御される。
  */
+/**
+ * 候補パネルに表示する最大件数。
+ *
+ * `searchContent` は上限を持たず、1 文字クエリのように広く当たる入力ではレジストリ全件に
+ * 迫るヒットを返しうる（レジストリはページ追加のたび増える）。表示件数を切らないと
+ * ヘッダー直下に画面外まで伸びる listbox が生成され、DOM ノード数も青天井になる。
+ */
+export const MAX_VISIBLE_HITS = 8;
+
 export default function SiteSearch() {
   const baseId = useId();
   const [query, setQuery] = useState("");
@@ -23,7 +32,7 @@ export default function SiteSearch() {
 
   const trimmed = query.trim();
   const hits = useMemo<ContentSearchHit[]>(
-    () => (trimmed ? searchContent(trimmed) : []),
+    () => (trimmed ? searchContent(trimmed).slice(0, MAX_VISIBLE_HITS) : []),
     [trimmed]
   );
   const open = trimmed.length > 0;
@@ -65,8 +74,24 @@ export default function SiteSearch() {
     }
   }
 
+  /**
+   * フォーカスがコンテナ外へ抜けたらパネルを閉じる。
+   *
+   * `relatedTarget` は「次にフォーカスを受け取る要素」。候補アンカーは `tabIndex={-1}` だが
+   * マウス押下ではフォーカスを受け取りうるため、入力 → 候補のような内部移動で閉じてしまわないよう
+   * コンテナ内包判定で除外する（`relatedTarget` が null＝ウィンドウ外への離脱時は閉じる）。
+   */
+  function onBlurCapture(e: React.FocusEvent<HTMLDivElement>) {
+    const next = e.relatedTarget;
+    if (next instanceof Node && e.currentTarget.contains(next)) return;
+    close();
+  }
+
   return (
-    <div className="site-search">
+    // onBlur は focusout（バブリングする）に対応し、input と候補アンカーを含む「フォーカス圏」の
+    // 離脱を 1 箇所で検知する。操作を受けるのは内部の input／option であり、この div は境界にすぎない。
+    // biome-ignore lint/a11y/noStaticElementInteractions: combobox の開閉境界はコンテナ単位で判定する
+    <div className="site-search" onBlur={onBlurCapture}>
       <span className="site-search-icon" aria-hidden="true">
         🔍
       </span>

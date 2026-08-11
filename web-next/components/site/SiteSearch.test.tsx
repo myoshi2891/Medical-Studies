@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { searchContent } from "@/lib/content/search";
-import SiteSearch from "./SiteSearch";
+import SiteSearch, { MAX_VISIBLE_HITS } from "./SiteSearch";
 
 /**
  * SiteSearch（ヘッダー常設のサイト横断検索アイランド）の契約テスト。
@@ -87,17 +87,69 @@ describe("SiteSearch: キーボード操作", () => {
   it("未選択のまま Enter すると先頭候補へ暗黙遷移する", () => {
     // 候補は内部ルートのアンカーのため、click がそのまま jsdom の未実装遷移を起こす。
     // キャプチャ段階で既定動作だけ止め、コンポーネント側の onClick は通常どおり走らせる。
-    const suppressNavigation = (e: Event) => e.preventDefault();
+    // 同時に click 対象のアンカーを捕捉し、「どこへ」遷移したかまで固定する
+    // （パネルが閉じるだけでは、誤った候補を click しても検知できない）。
+    let clickedHref: string | null = null;
+    const suppressNavigation = (e: Event) => {
+      e.preventDefault();
+      const target = e.target;
+      if (target instanceof HTMLElement) {
+        clickedHref = target.closest("a")?.getAttribute("href") ?? null;
+      }
+    };
     document.addEventListener("click", suppressNavigation, true);
     try {
       const { container } = render(<SiteSearch />);
       const combo = getCombobox(container);
       fireEvent.change(combo, { target: { value: "CGRP" } });
       fireEvent.keyDown(combo, { key: "Enter" });
+      expect(clickedHref).toBe(searchContent("CGRP")[0]?.href);
       expect(combo.value).toBe("");
       expect(container.querySelector('[role="listbox"]')).toBeNull();
     } finally {
       document.removeEventListener("click", suppressNavigation, true);
     }
+  });
+});
+
+describe("SiteSearch: フォーカス離脱", () => {
+  it("コンテナ外へフォーカスが移ると候補パネルを閉じる", () => {
+    const { container } = render(<SiteSearch />);
+    const combo = getCombobox(container);
+    fireEvent.change(combo, { target: { value: "CGRP" } });
+    expect(container.querySelector('[role="listbox"]')).not.toBeNull();
+
+    const outside = document.createElement("button");
+    document.body.appendChild(outside);
+    try {
+      fireEvent.blur(combo, { relatedTarget: outside });
+      expect(combo.value).toBe("");
+      expect(container.querySelector('[role="listbox"]')).toBeNull();
+    } finally {
+      outside.remove();
+    }
+  });
+
+  it("入力欄から候補項目への内部移動では閉じない", () => {
+    const { container } = render(<SiteSearch />);
+    const combo = getCombobox(container);
+    fireEvent.change(combo, { target: { value: "CGRP" } });
+    const option = container.querySelector<HTMLElement>('[role="option"]');
+    expect(option).not.toBeNull();
+
+    fireEvent.blur(combo, { relatedTarget: option });
+    expect(combo.value).toBe("CGRP");
+    expect(container.querySelector('[role="listbox"]')).not.toBeNull();
+  });
+});
+
+describe("SiteSearch: 候補件数の上限", () => {
+  it("広く当たるクエリでも表示件数を上限で打ち切る", () => {
+    const { container } = render(<SiteSearch />);
+    // 1 文字クエリはレジストリ全体に広く当たる（上限が無ければ全件描画される）。
+    fireEvent.change(getCombobox(container), { target: { value: "頭" } });
+    const options = container.querySelectorAll('[role="option"]');
+    expect(searchContent("頭").length).toBeGreaterThan(MAX_VISIBLE_HITS);
+    expect(options.length).toBe(MAX_VISIBLE_HITS);
   });
 });
