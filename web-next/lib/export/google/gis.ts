@@ -1,7 +1,8 @@
 /**
  * Google Identity Services（GIS）トークンモデルのラッパー（設計書 第 6.3 章）。
  * accounts.google.com/gsi/client を動的読み込み（多重防止）し、
- * requestAccessToken を Promise<Result<{ accessToken, expiresIn }>> として提供する。
+ * requestAccessToken を Promise<Result<{ accessToken, expiresIn? }>> として提供する。
+ * GIS レスポンスでは expires_in が省略される場合がある。
  * トークンはメモリ（呼び出し元 React state）にのみ保持し、localStorage へは書かない。
  */
 import { err, ok, type Result } from "@/lib/prom/types";
@@ -42,7 +43,8 @@ function loadGisScript(): Promise<void> {
  * The token is returned in memory only and must not be persisted (see design §9).
  *
  * @param clientId - The public `NEXT_PUBLIC_GOOGLE_CLIENT_ID`.
- * @returns A result with the access token, or an error message on failure/denial.
+ * @returns A result with the access token and optional expiration seconds, or an error message on
+ * failure/denial. GIS responses may omit `expires_in`.
  */
 export async function requestAccessToken(
   clientId: string
@@ -67,7 +69,12 @@ export async function requestAccessToken(
           resolve(err(`認証に失敗しました: ${response.error ?? "トークンがありません"}`));
           return;
         }
-        resolve(ok({ accessToken: response.access_token, expiresIn: response.expires_in }));
+        resolve(
+          ok({
+            accessToken: response.access_token,
+            ...(response.expires_in === undefined ? {} : { expiresIn: response.expires_in }),
+          })
+        );
       },
       error_callback: (e) => resolve(err(`認証エラー: ${String(e)}`)),
     });

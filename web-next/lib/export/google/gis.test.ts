@@ -18,6 +18,19 @@ describe("requestAccessToken", () => {
 
     expect(result).toEqual(okResult({ accessToken: "token", expiresIn: 1800 }));
   });
+
+  it("GIS レスポンスに有効期間がなくてもアクセストークンを返す", async () => {
+    const initTokenClient = vi.fn(
+      (config: GisTokenClientConfig): GisTokenClient => ({
+        requestAccessToken: () => config.callback({ access_token: "token" }),
+      })
+    );
+    window.google = { accounts: { oauth2: { initTokenClient } } };
+
+    const result = await requestAccessToken("client-id");
+
+    expect(result).toStrictEqual(okResult({ accessToken: "token" }));
+  });
 });
 
 function okResult<T>(value: T) {
