@@ -71,7 +71,7 @@ form-action 'self';
 ```
 
 > [!NOTE]
-> 上記は**立案時（2026-07-09）の骨子**であり、`script-src` から `'unsafe-inline'` を排除して nonce/`'strict-dynamic'` で段階的に厳格化する前提で書かれていた。**この前提は plans/011 Stage 3 の実測で不成立と判明した**（全ページ静的プリレンダと nonce は両立しない）。現行の採用値と、`'unsafe-inline'` を許容した設計判断・残余リスクの受入記録は次節「実装状況」を参照すること。`style-src 'unsafe-inline'` は Tailwind/インラインスタイル併用時の暫定という位置づけのまま。Mermaid は npm 依存としてバンドルされ、外部 `script-src` の追加は不要であることを確認済み。
+> 上記は**立案時（2026-07-09）の骨子**であり、`script-src` から `'unsafe-inline'` を排除して nonce/`'strict-dynamic'` で段階的に厳格化する前提で書かれていた。**このうち nonce を前提とした部分は plans/011 Stage 3 の実測で不成立と判明した**（全ページ静的プリレンダはリクエスト毎に nonce を HTML へ焼き込めない）。ただし不成立なのは nonce 方式であって、`'strict-dynamic'` 自体は nonce・ハッシュのいずれとも併用でき、ビルド間で内容が安定した inline script についてはハッシュベース CSP という選択肢が残る（本プロジェクトでは採用していない。理由は次節「実装状況」）。現行の採用値と、`'unsafe-inline'` を許容した設計判断・残余リスクの受入記録は次節「実装状況」を参照すること。`style-src 'unsafe-inline'` は Tailwind/インラインスタイル併用時の暫定という位置づけのまま。Mermaid は npm 依存としてバンドルされ、外部 `script-src` の追加は不要であることを確認済み。
 
 ### 実装状況（`plans/011` により導入済み）
 
@@ -146,7 +146,7 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
 
 | 統制 | 実体 | 何を補うか |
 |---|---|---|
-| 注入 sink の不在 | サーバ・DB・ユーザー間共有が無く、他者入力が script 文脈へ到達する経路が無い。`dangerouslySetInnerHTML` はビルド時固定のシンタックスハイライト断片のみで、実行時の値を通さない | inline script 注入の**発生源**を断つ（CSP は発生後の実行を止める層であり、本サイトでは前段で閉じている） |
+| 注入 sink の不在 | **本アプリが運用するサーバ・DB は無く**、ユーザー間で共有される保存先も持たないため、他者入力が script 文脈へ到達する経路が無い。ユーザー自身の Google Sheets へ書き出されたデータは外部に永続するが、アプリはこれを script 文脈へ描画しない（`dangerouslySetInnerHTML` はビルド時固定のシンタックスハイライト断片のみで、実行時の値を通さない） | inline script 注入の**発生源**を断つ（CSP は発生後の実行を止める層であり、本サイトでは前段で閉じている） |
 | React の既定エスケープ | 本文は Server Component の JSX 描画。文字列は自動エスケープされる | 反射型・格納型 XSS の主経路 |
 | 外部ホスト許可の最小化 | `script-src` の外部許可は `accounts.google.com` のみ。`connect-src` は `self` + Sheets/GIS のみ。CDN 許可なし（cdnjs 除去済み・`csp.test.ts` で再混入を検知） | 注入成功時の**外部への持ち出し先**と任意ライブラリ読込を封じる |
 | `base-uri 'self'` / `form-action 'self'` / `frame-ancestors 'none'` | 実 CSP に付与済み | base タグ乗っ取り・フォーム外部送信・クリックジャッキング（`'unsafe-inline'` では防げない別経路） |
@@ -171,7 +171,11 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
 ではなく**本アプリに紐づいたシートのみ**が対象であること（本アプリ由来でない ID は Google API 側が
 拒否する）、GIS の access token は**短寿命**（既定 1 時間程度）
 で refresh token を保持しないこと、そしてページ再読み込み後・次回セッションではトークンが**残存しない**
-こと。したがって悪用可能な窓は「接続済みのまま開いているタブ」に限られる。
+こと。ただしこれらが限定するのは**一過性の XSS**の場合であり、本項の想定（バンドル自体への混入）では
+配布されているバンドルが修正されるまで**次回以降の起動でも同じコードが実行される**ため、ユーザーが再接続する
+たびに新しいアクセストークンを取得しうる。トークンを永続化しない統制が防ぐのは「過去のトークンの再利用」で
+あって、攻撃の窓そのものではない。また `spreadsheets.values.append` / `spreadsheets.values.batchUpdate` で
+シートに加えられた変更は、タブを閉じた後も残る。
 
 なお 1・2 いずれの経路も `'unsafe-inline'` の有無にかかわらず（自オリジンの `'self'` スクリプトとして）
 成立するため、**`'unsafe-inline'` の除去では防げない**。
