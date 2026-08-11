@@ -87,7 +87,9 @@ form-action 'self';
 > （`○ Static`）するため、per-request nonce を HTML に焼き込めず、nonce ベース CSP は静的ページで
 > 機能しない（Next.js は静的シェルをリクエスト毎に再レンダしない）。nonce を機能させるには全ページの
 > 動的 SSR 化が必要で、静的最適化・CDN キャッシュを全放棄するトレードオフになる。当サイトは
-> **完全クライアント型・サーバ/秘密なし・ユーザー入力を script 文脈へ注入する sink が無い**ため、
+> **完全クライアント型・サーバ/秘密なし・他者入力が script 文脈へ到達する経路が無い**ため
+> （実行時 HTML sink は `prom-checker/index.html` の `innerHTML` 描画に限られ、`esc()` でエスケープする。
+> 詳細は下記「残余リスクの受入記録」の表を参照）、
 > Next.js の inline bootstrap script を `'unsafe-inline'` で許容しても残存 XSS リスクは限定的と判断し、
 > 静的最適化の維持を優先した。外部スクリプトはホスト単位（`accounts.google.com` = GIS）に限定する。
 
@@ -146,13 +148,24 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
 
 | 統制 | 実体 | 何を補うか |
 |---|---|---|
-| 注入 sink の不在 | **本アプリが運用するサーバ・DB は無く**、ユーザー間で共有される保存先も持たないため、他者入力が script 文脈へ到達する経路が無い。ユーザー自身の Google Sheets へ書き出されたデータは外部に永続するが、アプリはこれを script 文脈へ描画しない（`dangerouslySetInnerHTML` はビルド時固定のシンタックスハイライト断片のみで、実行時の値を通さない） | inline script 注入の**発生源**を断つ（CSP は発生後の実行を止める層であり、本サイトでは前段で閉じている） |
+| 注入 sink の限定 | **本アプリが運用するサーバ・DB は無く**、ユーザー間で共有される保存先も持たないため、**他者**入力が script 文脈へ到達する経路が無い。web-next 側に実行時の `dangerouslySetInnerHTML` は存在しない（Mermaid も `mermaid.run({ nodes })` の in-place 変換で、HTML 文字列を注入しない）。ただし**単一 HTML SPA の `prom-checker/index.html` は画面描画に `innerHTML` を用いており、`localStorage` 由来の state 値やフォーム入力値を文字列連結で差し込む**。これらは同ファイルの `esc()`（`& < > " '` をエンティティ化）でエスケープしてから描画する前提であり、**新規に `innerHTML` を追加する際の `esc()` 付け忘れが残余リスク**（現状の未エスケープ箇所は `type="range"` の `input.value` のようにブラウザが数値へ正規化する値に限られる） | inline script 注入の**発生源**を絞る。ただし sink はゼロではないため、CSP は前段のエスケープを**補完する**防御層として位置づける（`'unsafe-inline'` 許容下では inline 実行自体は止められない — 下記「残る被害想定」参照） |
 | React の既定エスケープ | 本文は Server Component の JSX 描画。文字列は自動エスケープされる | 反射型・格納型 XSS の主経路 |
-| 外部ホスト許可の最小化 | `script-src` の外部許可は `accounts.google.com` のみ。`connect-src` は `self` + Sheets/GIS のみ。CDN 許可なし（cdnjs 除去済み・`csp.test.ts` で再混入を検知） | 注入成功時の**外部への持ち出し先**と任意ライブラリ読込を封じる |
+| 外部ホスト許可の最小化 | `script-src` の外部許可は `accounts.google.com` のみ。`connect-src` は `self` + Sheets/GIS のみ。CDN 許可なし（cdnjs 除去済み・`csp.test.ts` で再混入を検知） | 任意ライブラリの読込を封じ、**接続 API 経由**（`fetch` / `XMLHttpRequest` / WebSocket / `sendBeacon` / EventSource）の持ち出し先を許可ホストに限定する。**トップレベルナビゲーションは対象外** — 下記注記参照 |
 | `base-uri 'self'` / `form-action 'self'` / `frame-ancestors 'none'` | 実 CSP に付与済み | base タグ乗っ取り・フォーム外部送信・クリックジャッキング（`'unsafe-inline'` では防げない別経路） |
 | 秘密の非永続化 | Google アクセストークンは React state（`DataManager` のメモリ）のみで、`localStorage` に置かない | **アクティブセッション外**への被害の持ち越しを断つ（再読み込み後・次回セッションではトークンが存在しないため、XSS が後から拾える秘密は残らない）。セッション中の窃取は防げない — 下記「残る被害想定」を参照 |
 | Google 権限スコープの最小化 | `drive.file`（`lib/export/google/gis.ts`）。到達しうるのは (a) 通常経路で `spreadsheets.create` が生成した本アプリ作成シート、(b) JSON インポートで `settings.syncTargets.googleSheets.spreadsheetId` として保存された任意の ID（`lib/prom/storage.ts` の `normalizeSyncTargets` は文字列であることのみ検査し、`GoogleSheetsExporter` はその ID に対し `spreadsheets.get` / `values.batchUpdate` / `values.append` を実行する）の 2 経路。`drive.file` の性質上、(b) の ID が本アプリ由来でなければ Google API 側が拒否する。なお `drive.file` は「ユーザーが明示選択したファイル」も許可しうるが、**本アプリに選択 UI（Google Picker 等）は存在しない**ため現状この経路は無い | トークン漏洩時の到達範囲を Drive 全体ではなく、本アプリが作成した／本アプリに紐づいたシートに限定 |
 | 供給網の監視 | `plans/014` の CI（依存監査・ライセンスゲート） | inline script 混入の現実的な最大経路である依存改ざん |
+
+> [!NOTE]
+> **`connect-src` はナビゲーション経由の持ち出しを止めない（残余リスク）**。`connect-src` が制限するのは
+> 接続 API（`fetch` / `XHR` / WebSocket / `sendBeacon` 等）であり、`window.location` への代入・
+> `window.open`・注入されたリンク URL といった**トップレベルナビゲーション**でデータをクエリ文字列に
+> 載せて外部へ送る経路は対象外である（`form-action 'self'` が縛るのはフォーム送信のみ）。これを縛る
+> `navigate-to` ディレクティブは CSP 仕様から撤回されブラウザ実装も無いため、**本プロジェクトでは導入しない**。
+> 仮に実装があっても、Google GIS はログイン時に `accounts.google.com` へのポップアップ／リダイレクトを
+> 行うため、その互換性維持のための許可が必要になり、実効的な制限にはなりにくい。
+> したがって XSS 成立時のデータ持ち出しは CSP では封じられない前提で、前段（sink のエスケープ・依存監査）
+> を主たる統制とする。
 
 **残る被害想定**: 上記をすべて突破する XSS（＝依存パッケージ改ざん等でバンドル自体に混入）が成立した場合、
 被害は `localStorage` の健康データにとどまらない。想定される範囲は次の 2 つである。
