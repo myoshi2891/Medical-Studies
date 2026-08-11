@@ -34,7 +34,7 @@
 
 ## 3. セキュリティヘッダ（立案時の設計と現行実装）
 
-以下は、実装前に作成した立案時の設計を履歴として残したものである。セキュリティヘッダはその後 `plans/011` で導入済みであり、**現行の CSP とヘッダ値は `web-next/next.config.ts` を正本**とする（後述「実装状況」参照）。
+以下は、実装前に作成した立案時の設計を履歴として残したものである。セキュリティヘッダはその後 `plans/011` で導入済みであり、**現行の CSP ディレクティブは `web-next/lib/security/csp.ts` の `buildContentSecurityPolicy` で生成し、生成したポリシーを含むセキュリティヘッダは `web-next/next.config.ts` で全パスへ適用する**（後述「実装状況」参照）。
 
 > [!IMPORTANT]
 > 下記は**立案時の参考値の骨子**であり、現行設定ではない。Google GIS/Sheets は将来ドメインを追加する可能性があるため、設定変更後は OAuth ログイン・Sheets 書き込みの実地動作確認が必須。
@@ -76,7 +76,9 @@ form-action 'self';
 ### 実装状況（`plans/011` により導入済み）
 
 `plans/011` の段階導入（非 CSP ヘッダ → Report-Only 計測 → 強制 CSP）を実装した。
-すべて `web-next/next.config.ts` の `headers()` で全パス（`/:path*`）へ静的付与する。
+CSP ディレクティブは `web-next/lib/security/csp.ts` の `buildContentSecurityPolicy` で生成し、
+生成したポリシーを含むすべてのセキュリティヘッダは `web-next/next.config.ts` の `headers()` で
+全パス（`/:path*`）へ静的付与する。
 
 - **非 CSP ヘッダ**: HSTS（`max-age=63072000; includeSubDomains`。`preload` は HTTPS 運用安定後に
   別途判断のため未付与）・X-Frame-Options・X-Content-Type-Options・Referrer-Policy・Permissions-Policy。
