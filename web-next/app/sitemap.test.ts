@@ -113,8 +113,15 @@ describe("sitemap: 本番ビルドのオリジン検証", () => {
     vi.unstubAllEnvs();
   });
 
-  it("localhost オリジンを拒否する", () => {
-    process.env.NEXT_PUBLIC_SITE_URL = "https://localhost:3000";
+  // sitemap.ts の LOCAL_HOSTNAMES と 1:1 で対応させ、要素追加時の取りこぼしを防ぐ。
+  // `[::1]` は URL 形のまま渡し、parsed.hostname が角括弧付きを返す挙動まで固定する。
+  it.each([
+    ["localhost", "https://localhost:3000"],
+    ["127.0.0.1", "https://127.0.0.1:3000"],
+    ["[::1]", "https://[::1]:3000"],
+    ["0.0.0.0", "https://0.0.0.0:3000"],
+  ])("ローカルホスト %s のオリジンを拒否する", (_name, url) => {
+    process.env.NEXT_PUBLIC_SITE_URL = url;
     expect(() => sitemap()).toThrow(/must not be a local host in production/);
   });
 
