@@ -135,6 +135,23 @@ CSP 文字列の組み立ては `web-next/lib/security/csp.ts` の純粋関数 `
 方針変更した。**将来の厳格化候補**: 動的 SSR 化を許容できるなら nonce/`'strict-dynamic'` へ回帰し
 `script-src` の `'unsafe-inline'` を除去できる。`style-src 'unsafe-inline'` も nonce 化で厳格化しうる。
 
+### 実 Google 連携での検証記録（2026-08-11）
+
+本番ビルド（`next start`）＋実 Google アカウントで OAuth 承認 → Sheets 書込 → 生成シート参照まで成功。
+`/anatomy` の 3D・MRI、Mermaid 図、トップも確認し **CSP 違反（`Refused to ...` / `violates the
+following Content Security Policy directive`）は 0 件**。以下 2 種はコンソールに出るが CSP とは無関係の
+既知メッセージであり、対応不要（将来の切り分けのため記録する）:
+
+| コンソール出力 | 正体 | 判断 |
+|---|---|---|
+| `Cross-Origin-Opener-Policy policy would block the window.closed call.`（`client:138`） | GIS が認可ポップアップの閉鎖検知に `window.closed` を参照するが、ポップアップ側（`accounts.google.com`）の COOP により opener 関係が切断されるため Chrome が警告する。GIS ポップアップ方式に共通の既知警告 | 無害。トークン取得・同期は成功する |
+| `The resource <URL> was preloaded using link preload but not used ...`（`_next/static/chunks/*.css`） | Next.js のルートプリフェッチが先読みした CSS を、該当ルートへ遷移しなかったため未使用のまま数秒経過した | 無害（性能上の情報提供）。CSP・ヘッダ設定とは無関係 |
+
+> [!NOTE]
+> **将来の強化候補**: `Cross-Origin-Opener-Policy: same-origin-allow-popups` の付与。cross-origin から
+> の window 参照を遮断しつつ OAuth ポップアップは維持できる。付与時は上記 GIS 警告が消えるとは限らず、
+> **実 Google 連携の再検証が必須**のため、本プラン（011）の範囲外として保留した。
+
 ## 4. localStorage のデータ保持リスクとユーザー向け注意喚起
 
 - 頭痛日誌・PROM スコアは端末の `localStorage` に平文で残る。共有端末・公共端末では次の利用者が閲覧しうる。
@@ -153,8 +170,10 @@ CSP 文字列の組み立ては `web-next/lib/security/csp.ts` の純粋関数 `
   [`plans/011-security-headers-next-config.md`](../../plans/011-security-headers-next-config.md)（3 段階導入・§3「実装状況」）
 - [x] CSP を実ブラウザで検証しレンダリング破壊を是正した（nonce 方式が静的ページで不成立と判明 →
   静的維持型の強制 CSP へ方針変更。§3「実装状況」参照）
-- [ ] **実 Google 連携（OAuth ログイン・Sheets 書込）の実効性検証** — 実 Google アカウント・
-  `NEXT_PUBLIC_GOOGLE_CLIENT_ID` を要するため未了（トップ / prom-checker の描画復帰は確認済み）
+- [x] **実 Google 連携（OAuth ログイン・Sheets 書込）の実効性検証** — 2026-08-11 に本番ビルド
+  （`next start`）＋実 Google アカウントで実施。OAuth ポップアップ承認 → Sheets 書込 → 生成シートの
+  参照まで成功。`/anatomy` の 3D（DRACO wasm）・MRI スライス、Mermaid 図、トップも確認し、
+  **CSP 違反は 0 件**（§3「実装状況」の観測メモ参照）
 - [x] localStorage 消去導線・注意喚起 UI を別プランとして起票し、**実装した** →
   [`plans/012-localstorage-notice-and-clear-ui.md`](../../plans/012-localstorage-notice-and-clear-ui.md)
   （消去導線は既存 `DataManager` を再利用、注意喚起は `StorageNotice` を新設し Dashboard に常設）

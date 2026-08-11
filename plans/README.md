@@ -47,7 +47,7 @@ Status 値: TODO | IN PROGRESS | DONE | BLOCKED（理由 1 行）| REJECTED（�
 | 008  | PROM 権利確認ゲート＋許諾不可時の代替表示 | F1 | P0 | M | 決定ゲート（権利者照会） | **DONE**（2026-07-15。ユーザー指示により照会を待たずレダクション実施。権利者照会自体は未了、履歴書き換えは別途） |
 | 009  | npm 依存ライセンス棚卸し | F2 | P0 | S | — | **DONE**（2026-07-15。THIRD_PARTY_NOTICES §4 が検証済み台帳） |
 | 010  | MRI 出典メタデータ＋公開除外フォールバック | F3 | P1 | M | 決定ゲート（出典確認） | **Phase A DONE**（2026-07-15。開発者本人保有＝`permission: "own"` で確定記録。Phase B 公開除外は決定ゲート非成立のため不要） |
-| 011  | セキュリティヘッダ・CSP の段階導入 | F4 | P1 | M | — | **IN PROGRESS**（2026-07-15。全セキュリティヘッダ + 強制 CSP を next.config.ts へ静的付与済み。実ブラウザ検証で nonce/strict-dynamic が静的ページ非対応と判明し、静的維持型 CSP へ方針変更（middleware 廃止）。残: 実 Google OAuth→Sheets 同期の実効性検証。DONE 化は保留） |
+| 011  | セキュリティヘッダ・CSP の段階導入 | F4 | P1 | M | — | **DONE**（2026-08-11。全セキュリティヘッダ + 強制 CSP を next.config.ts へ静的付与。nonce/strict-dynamic は静的ページ非対応のため不採用（middleware 廃止）。未使用の cdnjs 許可を script-src から除去し外部スクリプトを accounts.google.com のみに限定。実 Google OAuth→Sheets 同期・3D/MRI・Mermaid を実ブラウザで検証し CSP 違反 0 件） |
 | 012  | localStorage 注意喚起の常設＋消去導線接続 | F4/F5 | P1 | S | — | **DONE**（2026-07-23。`StorageNotice` を新設し Dashboard に常設。消去導線は既存 `DataManager` を再利用、DataManager 説明文は既に更新済のため据置。テスト 2 件追加） |
 | 013  | プライバシーポリシー・利用規約ページ新設 | F5 | P1 | M | — | **DONE**（2026-07-23。`/privacy`・`/terms` を静的ページ新設、`SiteFooter` を全ページ common footer として layout に設置。文言は plans/013 ドラフトの暫定版・法務レビュー待ち。テスト 2 件追加） |
 | 014  | 最小 CI パイプライン（5 ジョブ） | F6 | P2 | M | 009 | **DONE**（2026-07-23。`.github/workflows/ci.yml` 5 ジョブ、全ジョブをローカル再現で green 確認。前提として既存 biome 違反 11 件を自動修復。markdown ジョブは lint-clean な `*.md`/`plans/`/`docs/publishing/` に限定、コンテンツ `.md` の既存 markdownlint 負債 57 件は別タスク。push 後の Actions 実行はユーザー承認待ち） |
@@ -81,7 +81,8 @@ Status 値: TODO | IN PROGRESS | DONE | BLOCKED（理由 1 行）| REJECTED（�
    → 2026-08-11 完了
 5. **006 → 005**（療養は既存 PROM 資産と結ぶだけで価値が出る／研究は継続運用が要るため後）。
    ただし新規コンテンツ執筆を伴うため、上記「コンテンツ SSoT 保留」の解消が前提。
-   ← **現在ここ**（コンテンツ SSoT 方針が決まるまで BLOCKED。着手可能な残タスクは 011 のみ）
+   ← **現在ここ**（コンテンツ SSoT 方針が決まるまで BLOCKED。011 は 2026-08-11 に DONE 化したため、
+   着手可能な残タスクは無し。次の判断は 015 の決定ゲート、または SSoT 方針の決定）
 
 ## 見送り事項（considered and rejected / 再監査不要）
 

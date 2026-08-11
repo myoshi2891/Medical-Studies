@@ -228,15 +228,22 @@ export const config = {
 
 ## Done criteria
 
-- [ ] `curl -sI http://localhost:3000` に HSTS / XFO / nosniff / Referrer-Policy / Permissions-Policy /
-      Content-Security-Policy（`nonce-` 含む）がすべて含まれる
-- [ ] `script-src` に `'unsafe-inline'` / `'unsafe-eval'` が**含まれない**
-      （`curl -sI http://localhost:3000 | grep -i content-security-policy | grep -c "unsafe-inline\|unsafe-eval"` → CSP 行の script-src 部分に該当なし。style-src の `'unsafe-inline'` は暫定許容）
-- [ ] Google 接続 → Sheets 同期が実アカウントで成功する（Stage 3 Verify 2）
-- [ ] `/anatomy` の 3D・MRI、Mermaid 図が表示される
-- [ ] `bun run typecheck` / `bun run test` / `bun run build` すべて exit 0
-- [ ] `docs/publishing/04-security-policy.md` に最終 CSP と検証記録が追記されている
-- [ ] `plans/README.md` の Status 更新
+> [!NOTE]
+> 下 2 項目は当初 nonce 方式を前提に書かれていた。Stage 3 で **nonce は全ページ静的プリレンダと
+> 両立しない**ことが実証され静的維持型 CSP を採用したため、採用設計に合わせて受入基準を訂正した
+> （2026-08-11）。
+
+- [x] `curl -sI http://localhost:3000` に HSTS / XFO / nosniff / Referrer-Policy / Permissions-Policy /
+      Content-Security-Policy がすべて含まれる（計 6 ヘッダ）
+- [x] 本番ビルドの `script-src` に `'unsafe-eval'` が**含まれない**（`'wasm-unsafe-eval'` は DRACO 用に
+      意図的に付与）。外部ホスト許可は `accounts.google.com` のみ（cdnjs は未使用のため除去）。
+      `'unsafe-inline'` は静的プリレンダ維持のため意図的に許容 — 根拠は
+      `docs/publishing/04-security-policy.md` §3 の設計判断ノート
+- [x] Google 接続 → Sheets 同期が実アカウントで成功する（Stage 3 Verify 2）
+- [x] `/anatomy` の 3D・MRI、Mermaid 図が表示される
+- [x] `bun run typecheck` / `bun run test` / `bun run build` すべて exit 0
+- [x] `docs/publishing/04-security-policy.md` に最終 CSP と検証記録が追記されている
+- [x] `plans/README.md` の Status 更新
 
 ## STOP conditions
 
