@@ -10,13 +10,14 @@ export function buildContentSecurityPolicy(isDev: boolean): string {
   // 'wasm-unsafe-eval': DRACO デコーダ（自己ホストの .wasm）を dev/prod 両方でコンパイルするため必須。
   // 'unsafe-eval' より狭い wasm 専用ディレクティブ。dev は 'unsafe-eval' が暗黙にカバーするが、
   // 本番では 'unsafe-eval' が除去されるため明示が必要。
+  // 外部ホストの許可は accounts.google.com（GIS の動的 script 読込）のみに限定する。
+  // CDN（cdnjs 等）は利用していない — 新規追加は実コードの参照とセットでレビューすること。
   const scriptSrc = [
     "'self'",
     "'unsafe-inline'",
     "'wasm-unsafe-eval'",
     ...(isDev ? ["'unsafe-eval'"] : []),
     "https://accounts.google.com",
-    "https://cdnjs.cloudflare.com",
   ].join(" ");
 
   // connect-src は 'self' に限定する。DRACO デコーダは public/draco/ に自己ホストするため、
