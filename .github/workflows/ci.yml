@@ -33,7 +33,12 @@ jobs:
       - run: bun run typecheck
       - run: bun run lint
       - run: bun run test
+      # sitemap は NEXT_PUBLIC_SITE_URL を必須とし、本番ビルドでは localhost / 平文 http を拒否する
+      # （app/sitemap.ts の fail-closed 検証）。CI の成果物はデプロイしないため、検証通過用の
+      # プレースホルダ https オリジンを与える。実デプロイ時はホスティング側で実オリジンを設定すること。
       - run: bun run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://ci.invalid
 
   license-gate:
     name: dependency license gate

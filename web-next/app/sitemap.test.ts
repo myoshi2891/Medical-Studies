@@ -5,7 +5,7 @@
  * 自動で載る／登録し忘れれば載らない、という単一の因果に閉じることを検証する。
  */
 
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { CONTENT_REGISTRY } from "@/lib/content/registry";
 import sitemap, { STATIC_ROUTES } from "./sitemap";
 
@@ -84,5 +84,47 @@ describe("sitemap", () => {
   it("http / https 以外のスキームを拒否する", () => {
     process.env.NEXT_PUBLIC_SITE_URL = "ftp://example.test";
     expect(() => sitemap()).toThrow(/must use http or https/);
+  });
+
+  it("クエリ・フラグメント付きのベース URL を拒否する", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://example.test?utm=1";
+    expect(() => sitemap()).toThrow(/must not contain a query or fragment/);
+    process.env.NEXT_PUBLIC_SITE_URL = "https://example.test#top";
+    expect(() => sitemap()).toThrow(/must not contain a query or fragment/);
+  });
+
+  it("ホスト名・既定ポートの表記揺れを正規化する", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://Example.test:443/";
+    expect(sitemap().map((e) => e.url)).toContain("https://example.test/privacy");
+  });
+});
+
+/**
+ * 本番ビルドの fail-closed 検証（`.env.example` から開発既定値を外したことの実効性）。
+ * 開発既定値のまま本番ビルドされると到達不能な URL を検索エンジンへ宣言してしまう。
+ */
+describe("sitemap: 本番ビルドのオリジン検証", () => {
+  // NODE_ENV は型上 read-only のため直接代入せず、vi.stubEnv / unstubAllEnvs で出し入れする。
+  beforeEach(() => {
+    vi.stubEnv("NODE_ENV", "production");
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it("localhost オリジンを拒否する", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://localhost:3000";
+    expect(() => sitemap()).toThrow(/must not be a local host in production/);
+  });
+
+  it("平文 http オリジンを拒否する", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "http://example.test";
+    expect(() => sitemap()).toThrow(/must use https in production/);
+  });
+
+  it("https の公開ドメインは受け入れる", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://example.test";
+    expect(() => sitemap()).not.toThrow();
   });
 });
