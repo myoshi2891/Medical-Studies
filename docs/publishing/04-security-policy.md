@@ -95,7 +95,7 @@ form-action 'self';
 
 ```text
 default-src 'self';
-script-src 'self' 'unsafe-inline' https://accounts.google.com;
+script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://accounts.google.com;
 connect-src 'self' https://sheets.googleapis.com https://accounts.google.com;
 frame-src https://accounts.google.com;
 img-src 'self' data: blob:;
@@ -111,6 +111,19 @@ form-action 'self';
 > **`script-src` の `'unsafe-eval'` は開発モード（`next dev`）のみ**付与する。React は開発時に
 > `eval()` を使う（HMR・スタックトレース復元等）ため、無いと DevTools コンソールに eval 違反が出る。
 > `next.config.ts` の `process.env.NODE_ENV !== "production"` で分岐し、**本番ビルドには含めない**。
+
+> [!NOTE]
+> **`'wasm-unsafe-eval'` は dev / prod 両方で付与する**。`/anatomy` の 3D 表示が使う DRACO デコーダ
+> （自己ホスト。`web-next/public/draco/`）が WebAssembly をコンパイルするために必要で、`'unsafe-eval'`
+> より作用範囲の狭い wasm 専用ディレクティブ。dev は `'unsafe-eval'` が暗黙にカバーするが、
+> 本番では `'unsafe-eval'` を除去するため明示が要る。
+
+**外部スクリプト許可は `accounts.google.com`（GIS）のみ**。一時的に `script-src` へ入っていた
+`https://cdnjs.cloudflare.com` は、アプリコード（`public/`・`app/`・`components/`・`lib/`）から
+参照が無い死んだ許可であり、XSS 時に任意ライブラリの読み込みを許すため除去した。再混入は
+`web-next/lib/security/csp.test.ts` の negative assertion（`gstatic` と同じ形）で防ぐ。
+CSP 文字列の組み立ては `web-next/lib/security/csp.ts` の純粋関数 `buildContentSecurityPolicy(isDev)`
+に分離され、上記の不変条件は契約テストで担保される。
 
 **自動検証（実施済み）**: `bun run typecheck` / `bun run test`（403 pass）/ `bun run build` すべて exit 0。
 全ページが `○ Static` を維持。`curl -sI` で 6 ヘッダ（非 CSP 5 + `Content-Security-Policy`）の実付与を確認。
