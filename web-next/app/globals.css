@@ -392,6 +392,14 @@ body.has-common-header {
     flex-direction: column;
     padding: 1rem 0;
     gap: 0;
+    /* ドロワーは position:fixed のためページスクロールで動かない。ドロップダウンを開くと
+     * 内容がビューポート高を超え、末尾項目が操作不能になる（375x667 で Therapies の
+     * 7 項目中 3 項目が画面外）。自前のスクロール領域にして到達可能性を保証する。
+     * dvh 対応ブラウザではモバイルの URL バー伸縮を考慮した実高さを使う。 */
+    max-height: calc(100vh - var(--ch-height));
+    max-height: calc(100dvh - var(--ch-height));
+    overflow-y: auto;
+    overscroll-behavior: contain;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     transition:
       clip-path 0.3s cubic-bezier(0.4, 0, 0.2, 1),
