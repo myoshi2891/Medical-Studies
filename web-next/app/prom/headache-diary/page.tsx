@@ -16,6 +16,9 @@ const DIARY_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational guide to headache diaries.
+ */
 export default function HeadacheDiaryPage() {
   return (
     <div className="headache-diary-accent">

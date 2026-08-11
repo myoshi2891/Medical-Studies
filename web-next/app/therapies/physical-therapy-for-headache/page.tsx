@@ -24,6 +24,12 @@ const PT_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to physical therapy approaches for headaches.
+ *
+ * The page covers headache classification, safety screening, evidence-based modalities,
+ * clinical protocols, outcome assessment, self-care, and special-population considerations.
+ */
 export default function PhysicalTherapyForHeadachePage() {
   return (
     <div className="physical-therapy-accent">

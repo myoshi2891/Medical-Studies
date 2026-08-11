@@ -24,6 +24,9 @@ const NUTRITION_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders a comprehensive Japanese guide to nutrition and supplement therapies for headache.
+ */
 export default function NutritionAndSupplementsPage() {
   return (
     <div className="nutrition-accent">

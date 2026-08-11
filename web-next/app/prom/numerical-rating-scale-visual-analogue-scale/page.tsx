@@ -16,6 +16,9 @@ const VNS_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to VAS and NRS pain-intensity assessment, including clinical application, interpretation, and headache-medicine use.
+ */
 export default function NumericalRatingScaleVisualAnalogueScalePage() {
   return (
     <div className="nrs-vas-accent">

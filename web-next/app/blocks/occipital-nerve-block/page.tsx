@@ -17,9 +17,9 @@ const ONB_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders the occipital nerve block guide page.
+ * Renders the educational guide page for occipital nerve blocks, including anatomy, indications, procedural approaches, safety considerations, and evidence.
  *
- * @returns The rendered ONB educational page.
+ * @returns The rendered occipital nerve block guide page.
  */
 export default function OccipitalNerveBlockPage() {
   return (

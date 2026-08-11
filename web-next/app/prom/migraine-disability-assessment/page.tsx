@@ -16,6 +16,9 @@ const MIDAS_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Renders a Japanese-language reference guide for the Migraine Disability Assessment (MIDAS) questionnaire.
+ */
 export default function MigraineDisabilityAssessmentPage() {
   return (
     <div className="migraine-disability-assessment-accent">

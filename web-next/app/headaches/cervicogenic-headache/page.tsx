@@ -26,9 +26,9 @@ const CEH_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders the cervicogenic headache educational guide page.
+ * Renders the cervicogenic headache educational guide with diagnostic, treatment, and safety information.
  *
- * @returns The full CEH guide page layout.
+ * @returns The complete CEH guide page.
  */
 export default function CervicogenicHeadachePage() {
   return (

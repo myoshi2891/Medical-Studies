@@ -30,6 +30,9 @@ const HIT_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents a Japanese reference guide to the Headache Impact Test-6, including scoring, interpretation, clinical use, limitations, and supporting evidence.
+ */
 export default function HeadacheImpactTestPage() {
   return (
     <div className="headache-impact-test-accent">

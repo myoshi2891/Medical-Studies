@@ -17,7 +17,7 @@ const ATH_MERMAID_THEME = {
 };
 
 /**
- * Renders an educational page about acute headache treatment strategies, medication classes, and medication-overuse headache prevention.
+ * Renders an educational overview of acute headache treatment strategies, medication classes, and medication-overuse headache prevention.
  */
 export default function AcuteTreatmentOfHeadachePage() {
   return (

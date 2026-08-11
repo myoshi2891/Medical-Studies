@@ -60,6 +60,9 @@ const MSQ_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents a comprehensive Japanese-language guide to the Migraine-Specific Quality of Life Questionnaire (MSQ v2.1).
+ */
 export default function MigraineSpecificQualityOfLifePage() {
   return (
     <div className="migraine-specific-quality-of-life-accent">

@@ -2,12 +2,10 @@ import Link from "next/link";
 import { getRelated } from "@/lib/content/registry";
 
 /**
- * 関連ページの導線（plans/002 Step 3）。
+ * Displays navigation links for pages related to the specified page.
  *
- * リンク関係は本文ではなく `lib/content/registry.ts` の `related` が持つため、
- * 本コンポーネントはレジストリを引いて描画するだけの薄い層に留める
- * （リンク切れ・登録漏れはレジストリの契約テストが機械検知する）。
- * Server Component のまま動作し、クライアント JS を増やさない。
+ * @param href - The page URL used to find related pages
+ * @returns A related-links navigation element, or `null` when no related pages exist
  */
 export function RelatedLinks({ href }: { readonly href: string }) {
   const related = getRelated(href);

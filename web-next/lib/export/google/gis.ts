@@ -38,13 +38,10 @@ function loadGisScript(): Promise<void> {
 }
 
 /**
- * Requests a Google access token via the GIS token model.
+ * Obtains a Google Drive access token through Google Identity Services.
  *
- * The token is returned in memory only and must not be persisted (see design §9).
- *
- * @param clientId - The public `NEXT_PUBLIC_GOOGLE_CLIENT_ID`.
- * @returns A result with the access token and optional expiration seconds, or an error message on
- * failure/denial. GIS responses may omit `expires_in`.
+ * @param clientId - The Google OAuth client ID.
+ * @returns A successful result containing the access token and optional expiration time in seconds, or an error result.
  */
 export async function requestAccessToken(
   clientId: string

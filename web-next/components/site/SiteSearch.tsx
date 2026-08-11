@@ -24,6 +24,11 @@ import { type ContentSearchHit, searchContent } from "@/lib/content/search";
  */
 export const MAX_VISIBLE_HITS = 8;
 
+/**
+ * Renders a site-wide autocomplete search interface with keyboard navigation and page suggestions.
+ *
+ * @returns The site search component.
+ */
 export default function SiteSearch() {
   const baseId = useId();
   const [query, setQuery] = useState("");

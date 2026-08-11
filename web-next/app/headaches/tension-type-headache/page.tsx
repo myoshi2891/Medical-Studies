@@ -250,6 +250,9 @@ style MOH fill:#c0392b,color:#fff
 style SAFE fill:#27ae60,color:#fff
 style MANAGE fill:#e67e22,color:#fff`;
 
+/**
+ * Renders an educational guide to tension-type headache, including its classification, diagnosis, assessment, and management.
+ */
 export default function TensionTypeHeadachePage() {
   return (
     <div className="tth-accent">

@@ -20,11 +20,10 @@ function isParentActive(link: NavLink, pathname: string): boolean {
 }
 
 /**
- * 全ページ共通のヘッダ。サイトブランド・ハンバーガートグル・
- * navLinks 由来のナビゲーション（子を持つ項目はドロップダウン）を描画し、
- * 現在地に一致するリンクへ active クラスと aria-current="page" を付与する。
+ * Renders the shared site header with branding, search, menu controls, and navigation links.
+ * Active navigation items are marked based on the current pathname.
  *
- * @param pathname - ルーター由来 pathname の上書き（省略時は usePathname()、最終フォールバックは "/"）。
+ * @param pathname - Optional pathname override used to determine the active navigation item.
  */
 export function SiteHeader({ pathname: pathnameProp }: { pathname?: string } = {}) {
   const fromHook = usePathname();
