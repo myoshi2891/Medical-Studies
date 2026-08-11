@@ -10,8 +10,10 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 /** Contract values measured from the source HTML */
 const SECTION_IDS = Array.from({ length: 9 }, (_, i) => `s${i + 1}`);
-const H2_COUNT = 5;
-const H3_COUNT = 0;
+// 見出し階層は page h1 → section h2 → subsection h3 に統一する
+// （元 HTML は 9 セクション見出しを h1.sec-title、小見出しを h2 にしていた）。
+const H2_COUNT = 9;
+const H3_COUNT = 5;
 const MERMAID_COUNT = 3;
 const TABLE_COUNT = 5;
 const NAV_COUNT = 9;
@@ -22,6 +24,13 @@ describe("TriggerPointsAndHeadachePage: Contract Tests", () => {
     const { container } = render(<TriggerPointsAndHeadachePage />);
     const hero = container.querySelector(".hero h1");
     expect(hero?.textContent).toBe(HERO_H1);
+  });
+
+  it("<h1> はページ見出しの 1 本のみ（section 見出しは h2）", () => {
+    const { container } = render(<TriggerPointsAndHeadachePage />);
+    const h1s = container.querySelectorAll("h1");
+    expect(h1s).toHaveLength(1);
+    expect(container.querySelectorAll("section.sec h1")).toHaveLength(0);
   });
 
   it("section.sec id list matches s1..s9", () => {

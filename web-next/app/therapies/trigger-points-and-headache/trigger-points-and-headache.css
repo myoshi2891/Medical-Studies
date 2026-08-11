@@ -199,19 +199,15 @@
   font-weight: 700;
   color: var(--mtp1);
 }
-.trigger-points-accent h2 {
+/* セクション小見出し。見出し階層を page h1 → section h2(.sec-title) → subsection h3 に
+   統一したため、小見出しの装飾は h3 に載せる（他ページの accent CSS と同じ構成）。 */
+.trigger-points-accent h3 {
   font-size: 16px;
   font-weight: 700;
   color: var(--mtp2);
   margin: 22px 0 10px;
   padding-left: 10px;
   border-left: 4px solid var(--mtp3);
-}
-.trigger-points-accent h3 {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--g8);
-  margin: 16px 0 8px;
 }
 .trigger-points-accent p {
   margin-bottom: 10px;

@@ -135,7 +135,7 @@ export default function HeadacheTriggerIdentificationGuidePage() {
               <div className="alert a-purple">
                 <div className="alert-i">💡</div>
                 <div>
-                  この判別は自己判断だけで完信させず、記録をもとに医師と相談しながら進めることが推奨されます。
+                  この判別は自己判断だけで完結させず、記録をもとに医師と相談しながら進めることが推奨されます。
                 </div>
               </div>
             </section>

@@ -65,7 +65,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s1" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">1</div>
-                <h1 className="sec-title">トリガーポイントとは何か</h1>
+                <h2 className="sec-title">トリガーポイントとは何か</h2>
               </div>
 
               <div className="card">
@@ -116,7 +116,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s2" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">2</div>
-                <h1 className="sec-title">国際頭痛分類（ICHD-3）における位置づけ</h1>
+                <h2 className="sec-title">国際頭痛分類（ICHD-3）における位置づけ</h2>
               </div>
 
               <p>
@@ -139,13 +139,13 @@ export default function TriggerPointsAndHeadachePage() {
                 />
               </div>
 
-              <h2>2-1. 緊張型頭痛（Tension-Type Headache, TTH）</h2>
+              <h3>2-1. 緊張型頭痛（Tension-Type Headache, TTH）</h3>
               <p>
                 ICHD-3では、緊張型頭痛は頭蓋周囲の圧痛（pericranial
                 tenderness）の有無によってさらにサブタイプ分類されています。この圧痛は頭痛の強さや頻度が増すほど強くなる傾向があるとされ、用手的な触診によって簡便に検出・記録できるとされています。
               </p>
 
-              <h2>2-2. 頸原性頭痛（Cervicogenic Headache）</h2>
+              <h3>2-2. 頸原性頭痛（Cervicogenic Headache）</h3>
               <p>
                 頸椎やその周囲軟部組織の障害によって生じる頭痛です。診断には、頭痛が頸部の障害の発症と時間的に関連していること、頸部の障害の改善と並行して頭痛も改善すること、頸部可動域の低下と誘発手技での増悪、診断的ブロックによる頭痛の消失、といった項目のうち少なくとも2つによる「因果関係の証拠」が求められます。
               </p>
@@ -164,7 +164,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s3" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">3</div>
-                <h1 className="sec-title">病態メカニズム：なぜ関連しうるのか</h1>
+                <h2 className="sec-title">病態メカニズム：なぜ関連しうるのか</h2>
               </div>
 
               <p>
@@ -206,7 +206,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s4" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">4</div>
-                <h1 className="sec-title">代表的な筋肉と関連痛パターン</h1>
+                <h2 className="sec-title">代表的な筋肉と関連痛パターン</h2>
               </div>
 
               <p>
@@ -270,7 +270,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s5" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">5</div>
-                <h1 className="sec-title">セルフチェックの考え方と危険信号（SNOOP10）</h1>
+                <h2 className="sec-title">セルフチェックの考え方と危険信号（SNOOP10）</h2>
               </div>
 
               <p>
@@ -296,7 +296,7 @@ export default function TriggerPointsAndHeadachePage() {
                 />
               </div>
 
-              <h2>見逃してはいけない危険信号（SNOOP10）</h2>
+              <h3>見逃してはいけない危険信号（SNOOP10）</h3>
               <p>
                 国際的に使われる二次性頭痛のスクリーニングリスト <strong>SNOOP10</strong>{" "}
                 は、以下のような項目に当てはまる場合、単なる一次性頭痛ではない可能性を考慮すべきとしています。
@@ -364,7 +364,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s6" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">6</div>
-                <h1 className="sec-title">主な介入法とエビデンスの質（概観）</h1>
+                <h2 className="sec-title">主な介入法とエビデンスの質（概観）</h2>
               </div>
 
               <p>
@@ -490,7 +490,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s7" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">7</div>
-                <h1 className="sec-title">一般的なセルフケアの方向性</h1>
+                <h2 className="sec-title">一般的なセルフケアの方向性</h2>
               </div>
 
               <div className="alert a-warn">
@@ -525,7 +525,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s8" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">8</div>
-                <h1 className="sec-title">受診の目安・よくある誤解</h1>
+                <h2 className="sec-title">受診の目安・よくある誤解</h2>
               </div>
 
               <div className="qr-grid">
@@ -549,7 +549,7 @@ export default function TriggerPointsAndHeadachePage() {
                 </div>
               </div>
 
-              <h2>よくある誤解</h2>
+              <h3>よくある誤解</h3>
               <div className="tbl">
                 <table>
                   <thead>
@@ -588,7 +588,7 @@ export default function TriggerPointsAndHeadachePage() {
             <section id="s9" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">9</div>
-                <h1 className="sec-title">参考文献・情報源</h1>
+                <h2 className="sec-title">参考文献・情報源</h2>
               </div>
 
               <p>
@@ -706,7 +706,7 @@ export default function TriggerPointsAndHeadachePage() {
                 </div>
               </div>
 
-              <h2>監視すべき権威ソース</h2>
+              <h3>監視すべき権威ソース</h3>
               <p>
                 本シリーズの情報収集方針。信頼度の高い順に、
                 <strong>一次情報（ガイドライン・原著）を優先</strong>
