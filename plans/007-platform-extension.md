@@ -9,6 +9,7 @@
 
 ## Status
 
+- **State**: **DONE**（2026-08-11。Step 0〜4 完了。実装コミット `f47749d`〜`c2a298a` および `e818af8`）
 - **Priority**: P2（コンテンツが 10 ページ超増える前に着手）
 - **Effort**: L
 - **Depends on**: plans/001, plans/002（カテゴリ体系）。plans/003 の鮮度メタ規約を実装で受ける
@@ -110,11 +111,32 @@ href 安全性（`isSafeHref` 再利用）と slug 一意性を検証し pass。
 
 **Verify**: `bun run build` 成功、sitemap に全登録 URL が出力される（テストで件数一致を確認）。
 
-### Step 4: ナビ再設計（C）
+### Step 4: ナビ再設計（C）→ **不要と判断（2026-08-11）**
 
-選定した方式で `nav-links.ts` の型とヘッダーを拡張。`isSafeHref`・アサーション・`disabled` を保持。
+選択肢 (3)「検索優先＋ナビ簡素化」が Step 2 のヘッダー検索（`components/site/SiteSearch.tsx`）で
+実質的に達成された。加えて本プランが前提とした「グループが 10 に達し飽和」は未到達で、
+現状は **7 グループ**（Home / Anatomy / Headaches / Treatment / Blocks / Therapies / PROM 指標）。
 
-**Verify**: `bun run test`（nav-links 契約テスト）green、`bun run build` 成功。
+実機計測（Chrome DevTools Protocol でレイアウトを実測）の結果:
+
+| 観点 | 結果 |
+|------|------|
+| 最長ドロップダウン（Therapies 7 項目）の描画 | 183 × 277 px。1440px / 900px 幅ともにビューポート内に収まり、はみ出し・クリップなし |
+| ヘッダー横幅の飽和 | 900px 幅で `.ch-links` 544px・検索 195px。オーバーフローなし（ブランド名が 2 行に折り返す程度） |
+| 768px（ドロワー切替点） | ブランド＋検索＋ハンバーガーが重ならず並ぶ |
+| 375px（iPhone SE） | `docScrollWidth` = 375。横オーバーフローなし |
+
+したがって型・構造の再設計は行わず、**グループが 10 に達した時点で再評価**する
+（メガメニュー化／2 階層グルーピングの選択肢は本ファイルに記録済み）。
+
+ただし実機計測で **別の実害**を検出し修正した: モバイルドロワー `.ch-links` は
+`position: fixed` かつ `overflow-y: visible` のため、ドロップダウンを開くと
+ビューポート高を超えた項目がページスクロールでも到達不能だった（375×667 で Therapies の
+7 項目中 3 項目が操作不能）。`max-height`（`dvh` フォールバック付き）＋ `overflow-y: auto` で
+ドロワー自身をスクロール領域とし、実測で offscreen 0 項目を確認（`e818af8`）。
+
+**Verify**: `bun run test` 655 件 green、`bun run typecheck` / `bun run lint` / `bun run build` 成功。
+ナビの型・`isSafeHref`・アサーション・`disabled` 機構・既存 URL はいずれも無変更。
 
 ## Test plan
 
@@ -127,12 +149,12 @@ href 安全性（`isSafeHref` 再利用）と slug 一意性を検証し pass。
 
 ## Done criteria
 
-- [ ] `npx markdownlint-cli -c .markdownlint.json plans/007-platform-extension.md` → エラー 0
-- [ ]（実装フェーズ）`bun run typecheck`/`test`/`build`/`lint` すべて成功
-- [ ]（実装フェーズ）`lib/content` が `lib/anatomy` の宣言的レジストリ＋純関数パターンを踏襲
+- [x] `npx markdownlint-cli -c .markdownlint.json plans/007-platform-extension.md` → エラー 0
+- [x]（実装フェーズ）`bun run typecheck`/`test`/`build`/`lint` すべて成功
+- [x]（実装フェーズ）`lib/content` が `lib/anatomy` の宣言的レジストリ＋純関数パターンを踏襲
       （`any` 不使用・`readonly` 型・DOM 非依存コア）
-- [ ]（実装フェーズ）既存 356 tests が green のまま（回帰なし）
-- [ ] plans/003 の鮮度メタ（`lastReviewed` 等）を格納する器がレジストリに存在する
+- [x]（実装フェーズ）既存テストが green のまま（回帰なし。356 → 655 件へ増加、失敗 0）
+- [x] plans/003 の鮮度メタ（`lastReviewed` 等）を格納する器がレジストリに存在する
 
 ## STOP conditions
 
