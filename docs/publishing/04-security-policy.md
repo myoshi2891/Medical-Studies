@@ -32,14 +32,14 @@
 | localStorage 残存 | 共有端末で前ユーザーの健康データが閲覧される | ユーザー注意喚起・消去導線（`05` と連携） |
 | リファラ漏洩 | 遷移先へ URL 経由で情報が渡る | `Referrer-Policy` |
 
-## 3. 是正案：セキュリティヘッダ（設計のみ・実装しない）
+## 3. セキュリティヘッダ（立案時の設計と現行実装）
 
-`web-next/next.config.ts` は現状 `reactStrictMode` と `turbopack.root` のみ。以下のヘッダ付与を推奨する。**導入は別プラン**とし、本文書では値の根拠を示すに留める。
+以下は、実装前に作成した立案時の設計を履歴として残したものである。セキュリティヘッダはその後 `plans/011` で導入済みであり、**現行の CSP とヘッダ値は `web-next/next.config.ts` を正本**とする（後述「実装状況」参照）。
 
 > [!IMPORTANT]
-> 下記は**参考値の骨子**であり、そのまま貼り付けるコードではない。Google GIS/Sheets は将来ドメインを追加する可能性があるため、CSP 導入後は OAuth ログイン・Sheets 書き込みの実地動作確認が必須。
+> 下記は**立案時の参考値の骨子**であり、現行設定ではない。Google GIS/Sheets は将来ドメインを追加する可能性があるため、設定変更後は OAuth ログイン・Sheets 書き込みの実地動作確認が必須。
 
-### 推奨ヘッダと根拠
+### 立案時の推奨ヘッダと根拠
 
 | ヘッダ | 推奨値（骨子） | 根拠 |
 |---|---|---|
@@ -50,7 +50,7 @@
 | `Referrer-Policy` | `strict-origin-when-cross-origin` | 遷移先へのパス・クエリ漏洩を抑制 |
 | `Permissions-Policy` | `camera=(), microphone=(), geolocation=()` 等を無効化 | 不要な高権限 API を全面禁止 |
 
-### CSP 骨子（Google GIS/Sheets 連携を含む）
+### 立案時の CSP 骨子（Google GIS/Sheets 連携を含む）
 
 実コードから逆算した許可ドメイン（`web-next/lib/` の Google 連携で使用）:
 
