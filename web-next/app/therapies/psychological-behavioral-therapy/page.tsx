@@ -25,7 +25,7 @@ const MIND_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders a comprehensive Japanese guide to psychological and behavioral therapies for headache.
+ * Renders a comprehensive Japanese educational guide to psychological and behavioral therapies for headache.
  */
 export default function PsychologicalBehavioralTherapyPage() {
   return (

@@ -13,7 +13,11 @@ const SCOPE = "https://www.googleapis.com/auth/drive.file";
 
 let scriptPromise: Promise<void> | null = null;
 
-/** GIS スクリプトを一度だけ動的読み込みする（多重防止）。 */
+/**
+ * Loads the Google Identity Services script once and shares the in-progress load with subsequent callers.
+ *
+ * @throws Rejects when called outside a browser environment or when the script fails to load.
+ */
 function loadGisScript(): Promise<void> {
   if (scriptPromise) return scriptPromise;
   scriptPromise = new Promise<void>((resolve, reject) => {

@@ -27,8 +27,8 @@ const PT_MERMAID_THEME: Record<string, string> = {
 /**
  * Presents an educational guide to physical therapy approaches for headaches.
  *
- * The page covers headache classification, safety screening, evidence-based modalities,
- * clinical protocols, outcome assessment, self-care, and special-population considerations.
+ * The guide covers headache classification, safety screening, evidence-based modalities,
+ * clinical protocols, outcome assessment, self-care, and considerations for special populations.
  */
 export default function PhysicalTherapyForHeadachePage() {
   return (

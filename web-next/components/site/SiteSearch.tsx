@@ -27,7 +27,7 @@ export const MAX_VISIBLE_HITS = 8;
 /**
  * Renders a site-wide autocomplete search interface with keyboard navigation and page suggestions.
  *
- * @returns The site search component.
+ * @returns The rendered site search interface.
  */
 export default function SiteSearch() {
   const baseId = useId();
@@ -45,18 +45,27 @@ export default function SiteSearch() {
   const listId = `${baseId}-list`;
   const optionId = (i: number) => `${baseId}-opt-${i}`;
 
-  /** クエリ変更で候補を更新し、仮想選択をリセットする。 */
+  /**
+   * Updates the search query and clears the active suggestion selection.
+   */
   function onChange(value: string) {
     setQuery(value);
     setActiveIndex(-1);
   }
 
-  /** 候補確定（アンカー click に委譲）後、パネルを閉じる。 */
+  /**
+   * Closes the search suggestions panel and clears the current selection state.
+   */
   function close() {
     setQuery("");
     setActiveIndex(-1);
   }
 
+  /**
+   * Handles keyboard interactions for the search input, including closing the suggestions, changing the active result, and navigating to a selected result.
+   *
+   * @param e - The keyboard event from the search input
+   */
   function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Escape") {
       close();
@@ -80,11 +89,9 @@ export default function SiteSearch() {
   }
 
   /**
-   * フォーカスがコンテナ外へ抜けたらパネルを閉じる。
+   * Closes the search panel when focus moves outside its container.
    *
-   * `relatedTarget` は「次にフォーカスを受け取る要素」。候補アンカーは `tabIndex={-1}` だが
-   * マウス押下ではフォーカスを受け取りうるため、入力 → 候補のような内部移動で閉じてしまわないよう
-   * コンテナ内包判定で除外する（`relatedTarget` が null＝ウィンドウ外への離脱時は閉じる）。
+   * @param e - The focus event used to determine the next focused element
    */
   function onBlurCapture(e: React.FocusEvent<HTMLDivElement>) {
     const next = e.relatedTarget;
