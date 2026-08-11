@@ -4,9 +4,19 @@
 
 ## 現在地
 
-- **最新 HEAD**: `fe21e7d` feat(treatment): surface related pages on treatment and MOH guides
-- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。テスト 585 passed（67 ファイル。アーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／**コンテンツレジストリ・sitemap・RelatedLinks** が green）
-- **次の作業**: plans/007 の残 Step（横断検索コア `lib/content/search.ts`・ナビ再設計）／`/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／`/treatment` 以外のカテゴリへの RelatedLinks 展開
+- **最新 HEAD**: `c1c063d` fix(anatomy): correct broken physical therapy link
+- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。**テスト 666 passed / 69 ファイル**
+  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-11、HEAD `c1c063d`
+  ＋レビュー指摘対応の作業ツリー変更適用後。変更前の HEAD `c1c063d` 素の値は 657 passed / 69 ファイル）。
+  内訳はアーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／
+  PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／
+  コンテンツレジストリ・sitemap・RelatedLinks・サイト横断検索（`SiteSearch`）・CSP（`lib/security/csp.ts`）。
+  > テスト件数は**実行範囲と計測時点を必ず添えて**記録する。範囲を省いた数値（例: plans/007 の 655 件）は
+  > 過去の実測スナップショットであり、現行値との差分は回帰ではなくテスト追加による増加を含む。
+- **次の作業**: `/anatomy` 実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測／
+  Google Sheets 同期の実機確認（`NEXT_PUBLIC_GOOGLE_CLIENT_ID` 設定後）／
+  plans/015（git 履歴 author メール書き換え）の決定ゲート判断／コンテンツ SSoT 方針の決定（005・006 の解除条件）。
+  ※ plans/007 の残 Step（横断検索コア・ナビ再設計）と RelatedLinks の全カテゴリ展開は 2026-08-11 に完了済み。
 - **未移行 HTML 残数**: 0
 - **コンテンツ SSoT の注意**: `Types-of-headache/`（md-files / html-files）はコミット `ebdd955` で `.gitignore` へ追加・untrack され、リポジトリ内に存在しない。本ファイルの「移行ステータス」表の Markdown / HTML リンクはリポジトリ内では解決しない。新規コンテンツ執筆は SSoT 方針の決定まで保留（`plans/README.md` の注意書きを参照）
 
@@ -121,13 +131,22 @@
   `components/treatment/MohAcuteUseDaysSidebar.tsx`, `components/therapies/AerobicExerciseSidebar.tsx`, `components/therapies/SleepAndHeadacheSidebar.tsx`, `components/treatment/CgrpPathwaySidebar.tsx`, `components/treatment/MigrainePreventionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` / `.aerobic-exercise-accent` / `.sleep-guide` / `.cgrp-pathway-headache-treatments` / `.migraine-prevention` などでスコープ。
-- **テスト**: アーキタイプ A（`app/{headaches,blocks,therapies,prom,treatment,anatomy}` + `lib/anatomy` + `components/anatomy`）は計 363 passed ＝ web-next 全体 585 passed の一部。lint / typecheck / test 全通過。
+- **テスト**: アーキタイプ A（`app/{headaches,blocks,therapies,prom,treatment,anatomy}` + `lib/anatomy` + `components/anatomy`）は計 363 passed ＝ web-next 全体 585 passed の一部（**いずれも HEAD `fe21e7d` 時点の実測値**。現行の全体値は 666 passed / 69 ファイル — 上記「現在地」参照）。lint / typecheck / test 全通過。
 - **横断基盤（plans/007 A・D / plans/002 Step 3）**: `lib/content/registry.ts` に全 30 コンテンツルートの
   メタ（カテゴリ・`lastReviewed`・`related`）を宣言的に集約し、`getEntry` / `getRelated` を純関数で提供
   （`lib/anatomy` パターン踏襲）。これを単一データ源として `app/sitemap.ts`（コンテンツ 30 + 静的 4 = 34 URL）と
   `components/content/RelatedLinks.tsx`（関連ページ導線・Server Component）が動く。`registry.test.ts` は
   `node:fs` で `app/**/page.tsx` を走査し、登録漏れ・幽霊エントリ・dangling 参照を機械検知する。
-  適用済みは `/treatment/*` 7 ページと `/headaches/medication-overuse-headache`（残カテゴリは今後展開）。
+- **RelatedLinks の適用件数（2026-08-11 実測。定義は `plans/README.md` の注記に統一）**:
+
+  | 指標 | 現在値 |
+  |---|---|
+  | レジストリ登録数（`CONTENT_REGISTRY.length`） | 30 |
+  | コンポーネント配置数（`<RelatedLinks>` を描画する `page.tsx`） | 30 |
+  | 関連リンク表示数（`getRelated(href).length > 0` のルート） | 30（各 3〜4 本） |
+
+  3 指標は現在すべて一致している。**配置＝表示は保証ではない**ため（`related` が空なら配置しても 0 本）、
+  一致が崩れた場合はどの数を指すか明示すること。sitemap の 34 URL はコンテンツ 30 + 静的 4 で母数が異なる。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → RelatedLinks 適用済みの
   `/headaches/medication-overuse-headache` および `/treatment/moh-acute-use-days`。
   関連ページ導線は `/treatment/moh-acute-use-days` ↔ `/headaches/medication-overuse-headache` の双方向遷移を確認済み。
@@ -138,8 +157,10 @@
 
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
-- 最新 HEAD: fe21e7d
-- 次の作業: plans/007 の残 Step（横断検索コア・ナビ再設計）／RelatedLinks の残カテゴリ展開／`/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認
+- 最新 HEAD: c1c063d
+- テスト: 666 passed / 69 ファイル（`web-next` で `bun run test` 全件・2026-08-11 実測）
+- 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／plans/015 の決定ゲート判断／コンテンツ SSoT 方針の決定
+- 完了済み（再着手不要）: plans/007 全 Step（横断検索コア・ナビ再設計の判断）／RelatedLinks の全 30 ページ展開
 - 未移行 HTML 残数: 0
 - 注意: コンテンツ SSoT（Types-of-headache/）はリポジトリ外。新規コンテンツ執筆は方針決定まで保留
 ```

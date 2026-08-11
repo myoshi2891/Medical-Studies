@@ -138,6 +138,13 @@ href 安全性（`isSafeHref` 再利用）と slug 一意性を検証し pass。
 **Verify**: `bun run test` 655 件 green、`bun run typecheck` / `bun run lint` / `bun run build` 成功。
 ナビの型・`isSafeHref`・アサーション・`disabled` 機構・既存 URL はいずれも無変更。
 
+> [!NOTE]
+> **655 件は本プラン Step 4 完了時（コミット `e818af8`、2026-08-11）の履歴的検証値**であり、
+> 現行値ではない。実行範囲は `web-next/` で `bun run test`（`vitest run` 全件）。
+> **現行の実測は 666 passed / 69 ファイル**（差分 +11 は後続のテスト追加によるもので回帰ではない）。
+> 現行値の正準記録は `PROGRESS.md`「現在地」。以後、件数は必ず**実行範囲と計測時点（コミット・日付）**を
+> 添えて記録し、プラン文書内の数値は実行時点のスナップショットとして凍結する。
+
 ## Test plan
 
 - `lib/content/registry.test.ts`: 全 href が `isSafeHref` を満たす、slug 重複なし、
@@ -153,7 +160,10 @@ href 安全性（`isSafeHref` 再利用）と slug 一意性を検証し pass。
 - [x]（実装フェーズ）`bun run typecheck`/`test`/`build`/`lint` すべて成功
 - [x]（実装フェーズ）`lib/content` が `lib/anatomy` の宣言的レジストリ＋純関数パターンを踏襲
       （`any` 不使用・`readonly` 型・DOM 非依存コア）
-- [x]（実装フェーズ）既存テストが green のまま（回帰なし。356 → 655 件へ増加、失敗 0）
+- [x]（実装フェーズ）既存テストが green のまま（回帰なし。356 → 655 件へ増加、失敗 0）。
+      **件数は本プラン完了時＝コミット `e818af8` / 2026-08-11、実行範囲 `web-next` の `bun run test` 全件の
+      履歴的検証値**。完了判定はこの時点の値で確定済みであり、現行値への追随は不要 —
+      現行値は `PROGRESS.md`「現在地」が正準記録として保持する。
 - [x] plans/003 の鮮度メタ（`lastReviewed` 等）を格納する器がレジストリに存在する
 
 ## STOP conditions

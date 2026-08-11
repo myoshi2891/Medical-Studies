@@ -71,7 +71,7 @@ form-action 'self';
 ```
 
 > [!NOTE]
-> `style-src 'unsafe-inline'` は Tailwind/インラインスタイル併用時の暫定。`script-src` に `'unsafe-inline'` を入れないこと（XSS 防御が無効化される）。Next.js の nonce/strict-dynamic 対応で段階的に厳格化する。Mermaid はビルド時レンダor SRI 付き自己ホストなら外部 `script-src` 追加は不要か要検証。
+> 上記は**立案時（2026-07-09）の骨子**であり、`script-src` から `'unsafe-inline'` を排除して nonce/`'strict-dynamic'` で段階的に厳格化する前提で書かれていた。**この前提は plans/011 Stage 3 の実測で不成立と判明した**（全ページ静的プリレンダと nonce は両立しない）。現行の採用値と、`'unsafe-inline'` を許容した設計判断・残余リスクの受入記録は次節「実装状況」を参照すること。`style-src 'unsafe-inline'` は Tailwind/インラインスタイル併用時の暫定という位置づけのまま。Mermaid は npm 依存としてバンドルされ、外部 `script-src` の追加は不要であることを確認済み。
 
 ### 実装状況（`plans/011` により導入済み）
 
@@ -125,7 +125,8 @@ form-action 'self';
 CSP 文字列の組み立ては `web-next/lib/security/csp.ts` の純粋関数 `buildContentSecurityPolicy(isDev)`
 に分離され、上記の不変条件は契約テストで担保される。
 
-**自動検証（実施済み）**: `bun run typecheck` / `bun run test`（403 pass）/ `bun run build` すべて exit 0。
+**自動検証（実施済み。plans/011 Stage 3 時点 = 2026-08-11 の実測値）**:
+`bun run typecheck` / `bun run test`（当時 web-next 全体 403 pass）/ `bun run build` すべて exit 0。
 全ページが `○ Static` を維持。`curl -sI` で 6 ヘッダ（非 CSP 5 + `Content-Security-Policy`）の実付与を確認。
 本番（`next start`）は `script-src` に `'unsafe-eval'` を含まず、開発（`next dev`）のみ含むことを確認済み。
 
@@ -134,6 +135,34 @@ CSP 文字列の組み立ては `web-next/lib/security/csp.ts` の純粋関数 `
 （`/anatomy`・`/prom-checker` が「読み込み中…」で停止）。この検証結果を受けて上記の静的維持型 CSP へ
 方針変更した。**将来の厳格化候補**: 動的 SSR 化を許容できるなら nonce/`'strict-dynamic'` へ回帰し
 `script-src` の `'unsafe-inline'` を除去できる。`style-src 'unsafe-inline'` も nonce 化で厳格化しうる。
+
+#### 残余リスクの受入記録（`script-src 'unsafe-inline'`）
+
+CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**である。これは未解決の課題ではなく
+**受入済みの残余リスク**として扱う。受入日 2026-08-11 / 受入単位 plans/011（Status: DONE）/
+再評価トリガーは下表「再評価の条件」。
+
+**inline XSS 防御を補う代替策（現に効いている統制）**:
+
+| 統制 | 実体 | 何を補うか |
+|---|---|---|
+| 注入 sink の不在 | サーバ・DB・ユーザー間共有が無く、他者入力が script 文脈へ到達する経路が無い。`dangerouslySetInnerHTML` はビルド時固定のシンタックスハイライト断片のみで、実行時の値を通さない | inline script 注入の**発生源**を断つ（CSP は発生後の実行を止める層であり、本サイトでは前段で閉じている） |
+| React の既定エスケープ | 本文は Server Component の JSX 描画。文字列は自動エスケープされる | 反射型・格納型 XSS の主経路 |
+| 外部ホスト許可の最小化 | `script-src` の外部許可は `accounts.google.com` のみ。`connect-src` は `self` + Sheets/GIS のみ。CDN 許可なし（cdnjs 除去済み・`csp.test.ts` で再混入を検知） | 注入成功時の**外部への持ち出し先**と任意ライブラリ読込を封じる |
+| `base-uri 'self'` / `form-action 'self'` / `frame-ancestors 'none'` | 実 CSP に付与済み | base タグ乗っ取り・フォーム外部送信・クリックジャッキング（`'unsafe-inline'` では防げない別経路） |
+| 秘密の非永続化 | Google アクセストークンはメモリのみ（`localStorage` に置かない） | XSS 成立時の被害範囲を localStorage 内の健康データに限定 |
+| 供給網の監視 | `plans/014` の CI（依存監査・ライセンスゲート） | inline script 混入の現実的な最大経路である依存改ざん |
+
+**残る被害想定**: 上記をすべて突破する XSS（＝依存パッケージ改ざん等でバンドル自体に混入）が成立した場合、
+`localStorage` の頭痛日誌・PROM スコアが窃取されうる。ただしこの経路は `'unsafe-inline'` の有無に
+かかわらず（自オリジンの `'self'` スクリプトとして）成立するため、**`'unsafe-inline'` の除去では防げない**。
+
+**再評価の条件**（いずれか成立時に本受入を破棄し再設計する）:
+
+1. 動的 SSR（per-request レンダ）を許容する方針変更 — nonce/`'strict-dynamic'` へ回帰し `'unsafe-inline'` を除去する
+2. ユーザー入力・外部由来コンテンツを実行時に描画する機能の追加（コメント・投稿・URL パラメータ由来の本文等）
+3. サーバサイド／認証／他者間データ共有の導入
+4. Next.js が静的プリレンダと両立する nonce 機構を提供した場合
 
 ### 実 Google 連携での検証記録（2026-08-11）
 

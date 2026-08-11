@@ -1,13 +1,21 @@
 # Plan 011: web-next にセキュリティヘッダ（CSP 含む）を段階導入する
 
-> **Executor instructions**: 4 段階（Stage 1: 非 CSP ヘッダ → Stage 2: CSP Report-Only 計測 →
-> Stage 3: nonce ベース CSP 強制 → Stage 4: 文書更新および完了時の plans/README.md の Status 更新）で進める。**Stage をまたいで一気に実装しない** — 各 Stage の
-> 検証（実ブラウザでの Google 連携動作確認を含む）を通してから次へ進むこと。
-> 「STOP conditions」該当時は停止して報告する。
+> [!IMPORTANT]
+> **本プランは 2026-08-11 に完了済み（Status: DONE / 残余リスク受入あり）。以下は実施記録である。**
+> 立案時は Stage 3 を「nonce ベース CSP 強制（`middleware.ts` 新設）」として書いていたが、
+> 実装・実ブラウザ検証の結果 **nonce/`'strict-dynamic'` は不採用**となり、`middleware.ts` は
+> 導入後に撤去した。現行の実装は **`next.config.ts` による静的 CSP 付与**（CSP 文字列は
+> `web-next/lib/security/csp.ts` の純粋関数 `buildContentSecurityPolicy(isDev)` が生成）。
+> 廃止した nonce 手順は「実施済み・不採用の履歴」節へ移した — **現行手順として実行しないこと**。
+>
+> **Executor instructions（改訂後）**: 4 段階（Stage 1: 非 CSP ヘッダ → Stage 2: CSP Report-Only 計測 →
+> Stage 3: 静的 CSP 強制 → Stage 4: 文書更新および完了時の plans/README.md の Status 更新）で進める。
+> **Stage をまたいで一気に実装しない** — 各 Stage の検証（実ブラウザでの Google 連携動作確認を含む）を
+> 通してから次へ進むこと。「STOP conditions」該当時は停止して報告する。
 >
 > **Drift check (run first)**:
-> `git diff --stat 6614b7c..HEAD -- web-next/next.config.ts web-next/middleware.ts web-next/lib/export/google`
-> `web-next/middleware.ts` が既に存在する場合は STOP（本プランは新設を前提とする）。
+> `git diff --stat 6614b7c..HEAD -- web-next/next.config.ts web-next/lib/security web-next/lib/export/google`
+> `web-next/middleware.ts` が存在する場合は STOP（本設計では**存在しないこと**が正しい状態）。
 
 ## Status
 
@@ -50,7 +58,7 @@ web-next は完全クライアント型（サーバ API・秘密情報なし）�
 - Mermaid は npm 依存としてバンドルされる（CDN 読み込みなし）。`@google/model-viewer` は
   3D 表示に blob / wasm を使う可能性がある（Stage 2 の計測で確定させる）。
 - デプロイ想定は Node ランタイム（`next start` / Vercel 系）。`output: "export"`（静的エクスポート）は
-  使っていない — `headers()` と middleware が有効に働く前提が成立する。
+  使っていない — `next.config.ts` の `headers()` が有効に働く前提が成立する。
 
 ## Commands you will need
 
@@ -68,8 +76,11 @@ web-next は完全クライアント型（サーバ API・秘密情報なし）�
 **In scope**（変更してよいファイル）:
 
 - `web-next/next.config.ts`（`headers()` の追加）
-- `web-next/middleware.ts`（Stage 3 で新規作成）
+- `web-next/lib/security/csp.ts` + `csp.test.ts`（CSP 文字列生成の純粋関数と契約テスト。Stage 3 で新設）
 - `docs/publishing/04-security-policy.md`（チェックリスト・検証結果の追記）
+
+> `web-next/middleware.ts` は当初 Stage 3 の In scope だったが、nonce 方式の不採用に伴い
+> **撤去済み・再新設しない**（理由は冒頭の IMPORTANT と「実施済み・不採用の履歴」節）。
 
 **Out of scope**（触らない）:
 
@@ -154,62 +165,76 @@ const cspReportOnly = [
 
 | violation | 対応 |
 |---|---|
-| Next.js の inline script（hydration/flight data） | 想定内。Stage 3 の nonce で解決する（許可リストに `'unsafe-inline'` を**足さない**） |
+| Next.js の inline script（hydration/flight data） | 想定内。**Stage 3 の実測により `script-src 'unsafe-inline'` で許容すると決定**（静的プリレンダと nonce が両立しないため。残余リスクは受入済み — `docs/publishing/04-security-policy.md` §3「残余リスクの受入記録」） |
 | `blob:`/`wasm-unsafe-eval`（model-viewer / Draco） | `worker-src blob:` で不足なら `script-src` へ `'wasm-unsafe-eval'` を追加（wasm のみ許可。`'unsafe-eval'` は不可） |
 | `https://accounts.google.com` 配下の別パス | `script-src` / `frame-src` は**オリジン単位**の指定なので追加不要のはず。発生したら記録して STOP |
 | 上記以外の未知の外部ドメイン | **STOP**（想定外の外部依存 — 出所を特定して報告） |
 
-### Stage 3: nonce ベースの CSP を強制する
+### Stage 3: 静的 CSP を強制する（`next.config.ts` + `lib/security/csp.ts`）
 
-`web-next/middleware.ts` を新規作成し、リクエストごとの nonce で CSP を強制モードへ切り替える
-（Next.js 公式の CSP ガイドのパターン）。`'strict-dynamic'` により、信頼済みスクリプトが
-動的生成する `<script>`（= `gis.ts` の GIS 読み込み）へ信頼が伝播する:
+CSP 文字列の組み立てを純粋関数 `buildContentSecurityPolicy(isDev)` へ分離し
+（`web-next/lib/security/csp.ts`）、`next.config.ts` の `headers()` から
+`Content-Security-Policy`（強制モード）として全パスへ静的付与する。
+`middleware.ts` は**作らない** — 全ページが静的プリレンダ（`○ Static`）のため per-request nonce を
+HTML に焼き込めず、nonce ベース CSP は機能しない（実測済み。下記「実施済み・不採用の履歴」参照）。
 
 ```ts
-import { type NextRequest, NextResponse } from "next/server";
+// next.config.ts（抜粋）
+import { buildContentSecurityPolicy } from "./lib/security/csp";
 
-export function middleware(request: NextRequest) {
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
-  const csp = [
-    "default-src 'self'",
-    // strict-dynamic: nonce 付きスクリプトが生成する script（GIS 動的読込）に信頼を伝播
-    `script-src 'nonce-${nonce}' 'strict-dynamic' https://accounts.google.com`,
-    "connect-src 'self' https://sheets.googleapis.com https://accounts.google.com",
-    "frame-src https://accounts.google.com",
-    "img-src 'self' data: blob:",
-    "style-src 'self' 'unsafe-inline'",
-    "font-src 'self'",
-    "worker-src 'self' blob:",
-    "frame-ancestors 'none'",
-    "base-uri 'self'",
-    "form-action 'self'",
-  ].join("; ");
-
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
-  const response = NextResponse.next({ request: { headers: requestHeaders } });
-  response.headers.set("Content-Security-Policy", csp);
-  return response;
-}
-
-export const config = {
-  matcher: [
-    // 静的アセット・プリフェッチには CSP 不要（誤適用によるキャッシュ劣化を避ける）
-    { source: "/((?!_next/static|_next/image|favicon.ico|models/|mri/).*)" },
-  ],
-};
+const isDev = process.env.NODE_ENV !== "production";
+const cspEnforced = buildContentSecurityPolicy(isDev);
+// securityHeaders へ追加: { key: "Content-Security-Policy", value: cspEnforced }
 ```
 
-- Stage 2 で追加した `Content-Security-Policy-Report-Only` を `next.config.ts` から削除する
-  （非 CSP ヘッダは `next.config.ts` に残す）。
+`buildContentSecurityPolicy(isDev)` が満たすべき不変条件（`lib/security/csp.test.ts` で固定する）:
+
+- `script-src` に `'unsafe-eval'` を含むのは **`isDev === true` のときのみ**（本番ビルドには含めない）
+- `'wasm-unsafe-eval'` は dev / prod 双方に含む（`/anatomy` の DRACO デコーダ用）
+- `script-src` の `'unsafe-inline'` は静的プリレンダ維持のため**意図的に含む**
+- 外部ホスト許可は `accounts.google.com` のみ。`cdnjs` / `gstatic` 等が混入しないことを
+  negative assertion で検知する
+
+作業手順:
+
+- Stage 2 で追加した `Content-Security-Policy-Report-Only` を `next.config.ts` から削除し、
+  `Content-Security-Policy`（強制）へ置き換える（非 CSP ヘッダは `next.config.ts` に残す）。
 - Stage 2 の計測で確定した追加ディレクティブ（`'wasm-unsafe-eval'` 等）を反映する。
 
 **Verify**:
 
-1. `bun run typecheck && bun run test && bun run build` → exit 0
-2. `bun run start` で Stage 2 と同じ 4 巡回を再実施 — 今度は violation が **0 件**かつ全機能動作
+1. `bun run typecheck && bun run test && bun run lint && bun run build` → すべて exit 0
+2. `bun run build` の出力で**全ページが `○ Static`（静的プリレンダ）を維持**していること
+   （Next.js 16.2.11 で確認済み。動的 SSR へ転落していたら CSP 設計の前提が崩れるため STOP）
+3. `bun run start`（本番ビルド）で Stage 2 と同じ 4 巡回を再実施 — violation が **0 件**かつ全機能動作
    （特に Google 接続 → 同期の成功、3D / MRI / Mermaid の表示）
-3. `curl -sI http://localhost:3000 | grep -i content-security-policy` → `script-src 'nonce-` を含む 1 行
+4. `curl -sI http://localhost:3000 | grep -i content-security-policy` → `Content-Security-Policy` が
+   1 行返り、`script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://accounts.google.com` を含む。
+   **`'unsafe-eval'` と `nonce-` を含まない**こと
+5. `bun run dev` の同ヘッダには `'unsafe-eval'` が**含まれる**こと（dev のみの分岐が効いている確認）
+
+**実測結果（2026-08-11 / Next.js 16.2.11 / HEAD `c89e701` 時点）**: 上記 1〜5 すべて充足。
+本番ヘッダの実値は `docs/publishing/04-security-policy.md` §3「最終的に強制している CSP」と一致する。
+
+### 実施済み・不採用の履歴: nonce / `'strict-dynamic'` / `middleware.ts`
+
+> [!WARNING]
+> **以下は実施したうえで棄却した設計であり、現行手順ではない。再実装しないこと。**
+
+当初 Stage 3 は `web-next/middleware.ts` を新設し、リクエストごとの nonce で CSP を強制する
+（`script-src 'nonce-${nonce}' 'strict-dynamic' https://accounts.google.com`）設計だった。
+`'strict-dynamic'` により、信頼済みスクリプトが動的生成する `<script>`（= `gis.ts` の GIS 読み込み）へ
+信頼が伝播することを狙っていた。
+
+**棄却理由（実ブラウザ検証で判明）**: web-next は全ページを静的プリレンダするため、Next.js は
+静的シェルをリクエスト毎に再レンダしない。結果、middleware が発行した nonce は HTML の
+`<script>` に焼き込まれず、Next.js の inline bootstrap script が全ブロックされて**ページが描画されなかった**
+（`/anatomy`・`/prom-checker` が「読み込み中…」で停止）。nonce を機能させるには全ページの動的 SSR 化が必要で、
+静的最適化・CDN キャッシュを全放棄するトレードオフになる。
+
+**採用した代替**: `script-src 'unsafe-inline'` を許容し静的最適化を維持する。残存 XSS リスクの評価・
+代替統制・再評価条件は `docs/publishing/04-security-policy.md` §3「残余リスクの受入記録」に確定済み。
+`middleware.ts` は撤去し、CSP は `next.config.ts` の静的付与に一本化した。
 
 ### Stage 4: 文書更新
 
@@ -221,39 +246,55 @@ export const config = {
 
 ## Test plan
 
-- ヘッダ付与はフレームワーク設定のため単体テストは追加しない（`headers()` の出力検証は
-  Next のビルドに委ねる）。既存テストの回帰なし（`bun run test` 全 pass）を各 Stage で確認する。
-- 実効性の検証は Stage 2 / 3 の**実ブラウザ巡回チェックリスト**が担う（機械化は `plans/014` の
-  CI 移行後に検討）。
+- `headers()` の配線自体はフレームワーク設定のため単体テストを持たない（出力検証は Next のビルドに委ねる）。
+  一方、**CSP 文字列の不変条件は `web-next/lib/security/csp.test.ts` で機械的に固定する**
+  （`buildContentSecurityPolicy(isDev)` を純粋関数に分離したのはこのため）。検証項目は Stage 3 に列挙した
+  4 つの不変条件 — 本番の `'unsafe-eval'` 不在 / dev のみ付与、`'wasm-unsafe-eval'` の常時付与、
+  `'unsafe-inline'` の意図的許容、外部ホストが `accounts.google.com` のみ（`cdnjs`・`gstatic` の negative assertion）。
+- 既存テストの回帰なし（`bun run test` 全 pass）を各 Stage で確認する。
+- 実効性（実際にブラウザがブロックしないか）の検証は Stage 2 / 3 の**実ブラウザ巡回チェックリスト**が担う
+  （機械化は `plans/014` の CI 移行後に検討）。
 
 ## Done criteria
 
 > [!NOTE]
-> 下 2 項目は当初 nonce 方式を前提に書かれていた。Stage 3 で **nonce は全ページ静的プリレンダと
-> 両立しない**ことが実証され静的維持型 CSP を採用したため、採用設計に合わせて受入基準を訂正した
-> （2026-08-11）。
+> 受入基準 1・2（ヘッダ一式の付与と `script-src` の中身）は当初 nonce 方式を前提に
+> 「`script-src` に `'nonce-` を含み `'unsafe-inline'` を含まないこと」と書かれていた。Stage 3 で
+> **nonce は全ページ静的プリレンダと両立しない**ことが実証され静的維持型 CSP を採用したため、
+> 採用設計に合わせて下記のとおり訂正した（2026-08-11）。判定はすべて Next.js 16.2.11 の
+> `bun run build` 出力と `next start` 実行時ヘッダで実測している。
 
-- [x] `curl -sI http://localhost:3000` に HSTS / XFO / nosniff / Referrer-Policy / Permissions-Policy /
-      Content-Security-Policy がすべて含まれる（計 6 ヘッダ）
-- [x] 本番ビルドの `script-src` に `'unsafe-eval'` が**含まれない**（`'wasm-unsafe-eval'` は DRACO 用に
-      意図的に付与）。外部ホスト許可は `accounts.google.com` のみ（cdnjs は未使用のため除去）。
-      `'unsafe-inline'` は静的プリレンダ維持のため意図的に許容 — 根拠は
-      `docs/publishing/04-security-policy.md` §3 の設計判断ノート
-- [x] Google 接続 → Sheets 同期が実アカウントで成功する（Stage 3 Verify 2）
-- [x] `/anatomy` の 3D・MRI、Mermaid 図が表示される
-- [x] `bun run typecheck` / `bun run test` / `bun run build` すべて exit 0
-- [x] `docs/publishing/04-security-policy.md` に最終 CSP と検証記録が追記されている
-- [x] `plans/README.md` の Status 更新
+- [x] **(1)** `curl -sI http://localhost:3000` に HSTS / XFO / nosniff / Referrer-Policy /
+      Permissions-Policy / Content-Security-Policy がすべて含まれる（計 6 ヘッダ）
+- [x] **(2)** 本番（`next start`）の `Content-Security-Policy` が
+      `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://accounts.google.com` であること。
+      すなわち **`'unsafe-eval'` と `'nonce-` を含まず**、`'wasm-unsafe-eval'` は DRACO 用に含み、
+      外部ホスト許可は `accounts.google.com` のみ（cdnjs は未使用のため除去）。
+      `'unsafe-inline'` は静的プリレンダ維持のため意図的に許容し、残余リスクは受入済み — 根拠は
+      `docs/publishing/04-security-policy.md` §3「残余リスクの受入記録」
+- [x] **(3)** `bun run dev` の同ヘッダには `'unsafe-eval'` が含まれる（dev 分岐が効いている）
+- [x] **(4)** `bun run build`（Next.js 16.2.11）で**全ページが `○ Static` を維持**し、動的 SSR へ
+      転落していない（静的維持型 CSP の前提条件）
+- [x] **(5)** `web-next/middleware.ts` が存在しない（nonce 方式の残骸が無い）
+- [x] **(6)** Google 接続 → Sheets 同期が実アカウントで成功する（Stage 3 Verify 3）
+- [x] **(7)** `/anatomy` の 3D・MRI、Mermaid 図が表示され、CSP violation 0 件（Stage 3 Verify 3）
+- [x] **(8)** `bun run typecheck` / `bun run test` / `bun run lint` / `bun run build` すべて exit 0
+- [x] **(9)** `lib/security/csp.test.ts` が Stage 3 の 4 つの不変条件を固定している
+- [x] **(10)** `docs/publishing/04-security-policy.md` に最終 CSP・検証記録・残余リスク受入が追記されている
+- [x] **(11)** `plans/README.md` の Status 更新（残余リスク受入済みである旨を含む）
 
 ## STOP conditions
 
 - Stage 2 で**未知の外部ドメイン**への violation が観測された場合（想定外の依存 = 調査が先）。
 - Stage 3 で GIS の OAuth ポップアップが開かない・トークン取得に失敗する状態が、
-  ディレクティブ調整 2 回で解消しない場合（`'strict-dynamic'` と GIS の相互作用の再設計が必要）。
-- `middleware.ts` の導入でページの静的最適化が崩れ、ビルド出力が大きく変わる場合
-  （matcher の見直しかホスティング層ヘッダへの移行判断が必要 — 独断で進めない）。
+  ディレクティブ調整 2 回で解消しない場合（`script-src` / `frame-src` / `connect-src` の
+  オリジン許可と GIS の実挙動の突き合わせが必要）。
+- `bun run build` の出力で**いずれかのページが `○ Static` を失った**場合（静的維持型 CSP の前提が崩れる。
+  ホスティング層ヘッダへの移行か nonce 方式への回帰かの設計判断が要る — 独断で進めない）。
+- `web-next/middleware.ts` が存在する／新設されようとしている場合（nonce 方式は棄却済み。
+  「実施済み・不採用の履歴」節を読み、再実装しないこと）。
 - デプロイ先が静的エクスポート（`output: "export"`）へ変更されていた場合
-  （`headers()`／middleware は無効 — ホスティング層で付与する別設計になる）。
+  （`headers()` は無効 — ホスティング層で付与する別設計になる）。
 
 ## Maintenance notes
 
@@ -262,6 +303,7 @@ export const config = {
 - 新しい外部サービス・CDN・フォントを追加する変更は、必ず本 CSP の許可リスト更新とセットで
   レビューすること。
 - `style-src 'unsafe-inline'` は Tailwind / インラインスタイル併用の暫定許容。将来の厳格化
-  （style の nonce 化）は改善候補として残る。
+  （style の nonce 化）は、`script-src` と同じく全ページ動的 SSR 化を伴うため、静的維持方針を
+  変更する場合にのみ検討対象となる（改善候補として残す）。
 - HSTS の `preload` ディレクティブと preload リスト登録は、独自ドメインでの HTTPS 運用が
   安定した後に別途判断する（登録は事実上不可逆）。
