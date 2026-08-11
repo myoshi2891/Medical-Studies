@@ -151,7 +151,7 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
 | 外部ホスト許可の最小化 | `script-src` の外部許可は `accounts.google.com` のみ。`connect-src` は `self` + Sheets/GIS のみ。CDN 許可なし（cdnjs 除去済み・`csp.test.ts` で再混入を検知） | 注入成功時の**外部への持ち出し先**と任意ライブラリ読込を封じる |
 | `base-uri 'self'` / `form-action 'self'` / `frame-ancestors 'none'` | 実 CSP に付与済み | base タグ乗っ取り・フォーム外部送信・クリックジャッキング（`'unsafe-inline'` では防げない別経路） |
 | 秘密の非永続化 | Google アクセストークンは React state（`DataManager` のメモリ）のみで、`localStorage` に置かない | **アクティブセッション外**への被害の持ち越しを断つ（再読み込み後・次回セッションではトークンが存在しないため、XSS が後から拾える秘密は残らない）。セッション中の窃取は防げない — 下記「残る被害想定」を参照 |
-| Google 権限スコープの最小化 | `drive.file`（`lib/export/google/gis.ts`）。アプリが作成／ユーザーが明示選択したファイルのみに限定 | トークン漏洩時の到達範囲を Drive 全体ではなく本アプリ生成のシートに限定 |
+| Google 権限スコープの最小化 | `drive.file`（`lib/export/google/gis.ts`）。到達しうるのは (a) 通常経路で `spreadsheets.create` が生成した本アプリ作成シート、(b) JSON インポートで `settings.syncTargets.googleSheets.spreadsheetId` として保存された任意の ID（`lib/prom/storage.ts` の `normalizeSyncTargets` は文字列であることのみ検査し、`GoogleSheetsExporter` はその ID に対し `spreadsheets.get` / `values.batchUpdate` / `values.append` を実行する）の 2 経路。`drive.file` の性質上、(b) の ID が本アプリ由来でなければ Google API 側が拒否する。なお `drive.file` は「ユーザーが明示選択したファイル」も許可しうるが、**本アプリに選択 UI（Google Picker 等）は存在しない**ため現状この経路は無い | トークン漏洩時の到達範囲を Drive 全体ではなく、本アプリが作成した／本アプリに紐づいたシートに限定 |
 | 供給網の監視 | `plans/014` の CI（依存監査・ライセンスゲート） | inline script 混入の現実的な最大経路である依存改ざん |
 
 **残る被害想定**: 上記をすべて突破する XSS（＝依存パッケージ改ざん等でバンドル自体に混入）が成立した場合、
@@ -161,11 +161,15 @@ CSP の inline XSS 防御は `script-src 'unsafe-inline'` により**無効**で
 2. **Google アクセストークンの悪用**: トークンは永続化しないが、ユーザーが「Google と接続」した後の
    アクティブセッション中は React state（メモリ）に存在し、同一オリジンで動く XSS ペイロードからは
    到達しうる。取得されれば `drive.file` スコープの範囲で Google Sheets API の**読み取り・作成・更新・
-   追加**（本アプリが作成したスプレッドシートに対する `spreadsheets.get` / `create` / `values.update` /
-   `values.append` 相当）を攻撃者に誘発されうる。
+   追加**（`spreadsheets.create` による新規シート作成と、本アプリに紐づいたシート — 通常経路で本アプリが
+   作成したもの、または JSON インポートで `spreadsheetId` として保存されたもの — に対する
+   `spreadsheets.get` / `values.batchUpdate` / `values.append` 相当）を攻撃者に誘発されうる。
+   なおユーザーが Picker 等でファイルを明示選択する経路は**現状存在しない**。将来これを追加した場合は、
+   選択されたファイルに対する読み取り・更新・追加を本項の残余リスクへ追記すること。
 
 2 の到達範囲は次の 3 点で抑えられている（無効化はされない）: スコープが `drive.file` のため Drive 全体
-ではなく**本アプリ生成のシートのみ**が対象であること、GIS の access token は**短寿命**（既定 1 時間程度）
+ではなく**本アプリに紐づいたシートのみ**が対象であること（本アプリ由来でない ID は Google API 側が
+拒否する）、GIS の access token は**短寿命**（既定 1 時間程度）
 で refresh token を保持しないこと、そしてページ再読み込み後・次回セッションではトークンが**残存しない**
 こと。したがって悪用可能な窓は「接続済みのまま開いているタブ」に限られる。
 
