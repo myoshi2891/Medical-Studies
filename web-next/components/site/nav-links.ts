@@ -59,6 +59,10 @@ export const navLinks: readonly NavLink[] = [
         name: "頭痛に関連する骨 (Bone-Related)",
         href: "/anatomy/bone-related-headache",
       },
+      {
+        name: "頭痛に関連する筋肉 (Muscles)",
+        href: "/anatomy/headache-related-muscles",
+      },
     ],
   },
   {

@@ -164,6 +164,7 @@ const STRUCTURES: AnatomyStructure[] = [
     ],
     mri: CERVICAL_SERIES,
     links: [
+      { label: "頭痛に関連する筋肉 (Muscles)", href: "/anatomy/headache-related-muscles" },
       { label: "緊張型頭痛 (TTH)", href: "/headaches/tension-type-headache" },
       {
         label: "頭痛に対する理学療法 (PT)",

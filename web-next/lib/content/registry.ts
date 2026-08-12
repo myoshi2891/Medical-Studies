@@ -42,6 +42,27 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
       "/headaches/headache-pathophysiology",
     ],
   },
+  {
+    href: "/anatomy/headache-related-muscles",
+    title: "頭痛に関連する筋肉 (Muscles)",
+    category: "anatomy",
+    lastReviewed: "2026-08-12",
+    keywords: [
+      "頭痛",
+      "筋肉",
+      "ICHD-3",
+      "緊張型頭痛",
+      "トリガーポイント",
+      "中枢性感作",
+      "三叉神経頸髄複合体",
+    ],
+    related: [
+      "/anatomy",
+      "/headaches/tension-type-headache",
+      "/headaches/cervicogenic-headache",
+      "/therapies/physical-therapy-for-headache",
+    ],
+  },
 
   // ── 疾患 ──────────────────────────────────────────────
   {
