@@ -37,6 +37,7 @@
   line-height: 1.8;
   color: var(--g9);
   background: #eef2f7;
+  min-height: 100vh;
 }
 
 .bone-related-headache * {
@@ -212,21 +213,27 @@
   font-size: clamp(17px, 2.5vw, 24px);
   font-weight: 700;
   color: var(--bhd1);
+  /* h2 化に伴い汎用 .bone-related-headache h2 ルールの margin/border/padding が
+     leak するのを打ち消し、従来の見た目を維持する。 */
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
 }
 
 .bone-related-headache h2 {
-  font-size: clamp(17px, 2.5vw, 24px);
-  font-weight: 700;
-  color: var(--bhd1);
-}
-
-.bone-related-headache h3 {
   font-size: 16px;
   font-weight: 700;
   color: var(--bhd2);
   margin: 22px 0 10px;
   padding-left: 10px;
   border-left: 4px solid var(--bhd3);
+}
+
+.bone-related-headache h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
 }
 
 .bone-related-headache p {
