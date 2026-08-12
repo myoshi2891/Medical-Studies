@@ -142,6 +142,7 @@ const STRUCTURES: AnatomyStructure[] = [
     ],
     mri: CERVICAL_SERIES,
     links: [
+      { label: "頭痛に関連する骨 (Bone-Related)", href: "/headaches/bone-related-headache" },
       { label: "頸原性頭痛 (CEH)", href: "/headaches/cervicogenic-headache" },
       { label: "頸椎神経叢ブロック (CPB)", href: "/blocks/cervical-plexus-block" },
     ],

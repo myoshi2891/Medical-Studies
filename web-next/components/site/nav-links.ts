@@ -69,6 +69,10 @@ export const navLinks: readonly NavLink[] = [
         href: "/headaches/cervicogenic-headache",
       },
       {
+        name: "頭痛に関連する骨 (Bone-Related)",
+        href: "/headaches/bone-related-headache",
+      },
+      {
         name: "病態生理 (Pathophysiology)",
         href: "/headaches/headache-pathophysiology",
       },

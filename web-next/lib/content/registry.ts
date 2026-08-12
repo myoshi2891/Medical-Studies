@@ -24,6 +24,7 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
     lastReviewed: "2026-07-03",
     keywords: ["3D", "解剖", "アトラス", "神経", "血管", "MRI"],
     related: [
+      "/headaches/bone-related-headache",
       "/headaches/headache-pathophysiology",
       "/blocks/occipital-nerve-block",
       "/headaches/cervicogenic-headache",
@@ -79,6 +80,18 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
       "/therapies/physical-therapy-for-headache",
       "/therapies/trigger-points-and-headache",
       "/blocks/occipital-nerve-block",
+    ],
+  },
+  {
+    href: "/headaches/bone-related-headache",
+    title: "頭痛に関連する骨 (Bone-Related)",
+    category: "headaches",
+    lastReviewed: "2026-08-12",
+    keywords: ["頭痛", "骨", "ICHD-3", "頸椎", "顎関節", "副鼻腔", "後頭神経痛"],
+    related: [
+      "/anatomy",
+      "/headaches/cervicogenic-headache",
+      "/headaches/headache-pathophysiology",
     ],
   },
   {

@@ -1,0 +1,583 @@
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.bone-related-headache {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+  --bhd1: #37474f;
+  --bhd2: #546e7a;
+  --bhd3: #78909c;
+  --bhd-l: #eceff1;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+}
+
+.bone-related-headache * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.bone-related-headache .hero {
+  background: linear-gradient(135deg, #37474f, #546e7a 55%, #78909c);
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+
+.bone-related-headache .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+
+.bone-related-headache .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+
+.bone-related-headache .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bone-related-headache .hero-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Disclaimer */
+.bone-related-headache .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+
+.bone-related-headache .disclaimer strong {
+  color: var(--orange);
+}
+
+/* Layout */
+.bone-related-headache .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* Sidebar */
+.bone-related-headache .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+
+.bone-related-headache .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.bone-related-headache .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+
+.bone-related-headache .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+
+.bone-related-headache .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+
+.bone-related-headache .nav-a:hover,
+.bone-related-headache .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--bhd1);
+  color: var(--bhd1);
+}
+
+.bone-related-headache .nav-a.active {
+  font-weight: 600;
+  background: var(--bhd-l);
+}
+
+.bone-related-headache .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Main */
+.bone-related-headache .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* Section */
+.bone-related-headache .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+
+.bone-related-headache .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+
+.bone-related-headache .sec-num {
+  background: var(--bhd1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.bone-related-headache .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--bhd1);
+}
+
+.bone-related-headache h2 {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--bhd1);
+}
+
+.bone-related-headache h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--bhd2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--bhd3);
+}
+
+.bone-related-headache p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+
+.bone-related-headache ul,
+.bone-related-headache ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.bone-related-headache li {
+  margin-bottom: 4px;
+}
+
+.bone-related-headache a {
+  color: var(--blue);
+}
+
+.bone-related-headache a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.bone-related-headache .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* Alerts */
+.bone-related-headache .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+
+.bone-related-headache .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.bone-related-headache .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+
+.bone-related-headache .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+
+.bone-related-headache .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+
+.bone-related-headache .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+
+.bone-related-headache .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* Tables */
+.bone-related-headache .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+
+.bone-related-headache table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+
+.bone-related-headache thead th {
+  background: var(--bhd1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.bone-related-headache tbody tr:nth-child(even) {
+  background: var(--bhd-l);
+}
+
+.bone-related-headache tbody tr:hover {
+  background: var(--g1);
+}
+
+.bone-related-headache tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+
+.bone-related-headache .th-teal thead th {
+  background: var(--teal);
+}
+
+.bone-related-headache .th-red thead th {
+  background: var(--red);
+}
+
+.bone-related-headache .th-orange thead th {
+  background: var(--orange);
+}
+
+.bone-related-headache .th-purple thead th {
+  background: var(--purple);
+}
+
+/* Evidence badges */
+.bone-related-headache .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+
+.bone-related-headache .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+
+.bone-related-headache .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+
+.bone-related-headache .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+
+.bone-related-headache .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+
+.bone-related-headache .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+
+.bone-related-headache .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* Color text */
+.bone-related-headache .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.bone-related-headache .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.bone-related-headache .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+.bone-related-headache .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.bone-related-headache .tN {
+  color: var(--bhd1);
+  font-weight: 700;
+}
+
+/* Mermaid */
+.bone-related-headache .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+
+.bone-related-headache .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bone-related-headache .mmd-lbl::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--bhd2);
+  display: inline-block;
+}
+
+.bone-related-headache pre.mermaid {
+  text-align: center;
+}
+
+/* Quick ref / legend */
+.bone-related-headache .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.bone-related-headache .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+
+.bone-related-headache .qr-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bhd1);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* Source cards */
+.bone-related-headache .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.bone-related-headache .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+
+.bone-related-headache .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+
+.bone-related-headache .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.bone-related-headache .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* Footer */
+.bone-related-headache .footer {
+  background: var(--bhd1);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+
+.bone-related-headache .footer strong {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .bone-related-headache .sidebar {
+    display: none;
+  }
+
+  .bone-related-headache .main {
+    padding: 16px 14px 60px;
+  }
+}
