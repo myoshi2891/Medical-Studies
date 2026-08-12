@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import Term from "@/components/glossary/Term";
@@ -17,7 +18,7 @@ const MIGRAINE_MERMAID_THEME = {
 };
 
 /**
- * Renders the comprehensive migraine guide page.
+ * Renders the comprehensive migraine education guide, including diagnostic criteria, treatment options, prevention strategies, and supporting references.
  */
 export default function MigrainePage() {
   return (
@@ -2299,6 +2300,9 @@ style Ref fill:#880e4f,color:#ffffff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/headaches/migraine" />
 
       {/* FOOTER */}
       <div className="footer">

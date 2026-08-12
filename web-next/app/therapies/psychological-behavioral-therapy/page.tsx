@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -23,6 +24,9 @@ const MIND_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders a comprehensive Japanese educational guide to psychological and behavioral therapies for headache.
+ */
 export default function PsychologicalBehavioralTherapyPage() {
   return (
     <div className="psychological-behavioral-accent">
@@ -2535,6 +2539,9 @@ style P4 fill:#27ae60,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/therapies/psychological-behavioral-therapy" />
 
       {/* FOOTER */}
       <div className="footer">

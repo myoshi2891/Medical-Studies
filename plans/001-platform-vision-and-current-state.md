@@ -19,42 +19,59 @@
 
 ## Why this matters
 
-web-next は「頭痛疾患の教育コンテンツ集」として成長してきたが、疾患 4 種・療法 3 種・PROM 6 種という
-現在の構成は、頭痛診療の全体像（ICHD-3 が定義する一次性・二次性頭痛の広がり、薬物・非薬物治療の選択肢、
+web-next は「頭痛疾患の教育コンテンツ集」として成長してきたが、**計画立案時点（2026-07-09、コミット
+`a9e470c`）の**疾患 4 種・療法 3 種・PROM 6 種という構成は、頭痛診療の全体像（ICHD-3 が定義する一次性・二次性頭痛の広がり、薬物・非薬物治療の選択肢、
 患者の療養生活）のごく一部にとどまる。今後「頭痛を専門とするプラットフォーム」へ拡張するには、
 (1) 何を柱とするか、(2) 既存資産のどこに接ぎ木するか、(3) 何を恒久的にやらないか、を先に文書として
 固定する必要がある。本プランはその共通前提であり、後続の 002（カテゴリ体系）、003（情報収集運用）、
 004〜006（コンテンツ拡張）、007（技術基盤）はすべて本ファイルのビジョンを参照する。
 
+> [!NOTE]
+> 上記の 4 種・3 種は**立案の動機を説明するための当時のスナップショット**であり、現行値ではない。
+> 現行構成は下記「Current state（ディレクトリ構成・2026-08-10 実測）」の**疾患 5・療法 7**。
+> 本節は履歴として据え置き、件数の正準記録は Current state 側に一本化する。
+
 ## Current state（現状分析）
 
-### ディレクトリ構成（web-next、commit `a9e470c` 時点）
+### ディレクトリ構成（web-next、2026-08-10 実測）
 
 ```text
-web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / Biome / Vitest（356 tests green）
+web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / Biome / Vitest
+                             #   （テスト件数の正準記録は PROGRESS.md「現在地」。本ファイルでは追わない）
 ├── app/
 │   ├── page.tsx             # ホーム（/prom-checker へ誘導）
 │   ├── anatomy/             # 3D 解剖アトラス（glTF + MRI PNG。docs/architecture.md v1.3 準拠）
-│   ├── headaches/           # 疾患 4: migraine / tension-type-headache /
-│   │                        #   medication-overuse-headache / cervicogenic-headache
-│   ├── blocks/              # 神経ブロック 3: occipital-nerve-block / cervical-plexus-block /
-│   │                        #   stellate-ganglion-block
-│   ├── therapies/           # 療法 3: physical-therapy-for-headache /
-│   │                        #   nutrition-and-supplements / psychological-behavioral-therapy
+│   ├── headaches/           # 疾患 5: migraine / tension-type-headache /
+│   │                        #   medication-overuse-headache / cervicogenic-headache /
+│   │                        #   headache-pathophysiology
+│   ├── treatment/           # 治療 7: acute-treatment-of-headache /
+│   │                        #   migraine-prevention-therapy-guide /
+│   │                        #   cgrp-pathway-headache-treatments / moh-acute-use-days /
+│   │                        #   headache-lifestyle-seeds-guide /
+│   │                        #   headache-trigger-identification-guide /
+│   │                        #   headache-workplace-school-accommodations
+│   ├── blocks/              # 神経ブロック 4: occipital-nerve-block / cervical-plexus-block /
+│   │                        #   stellate-ganglion-block / superior-cervical-ganglion-block
+│   ├── therapies/           # 療法 7: physical-therapy-for-headache /
+│   │                        #   nutrition-and-supplements / psychological-behavioral-therapy /
+│   │                        #   headache-acupoints-trigger-points / trigger-points-and-headache /
+│   │                        #   aerobic-exercise-headache-prevention / sleep-and-headache-guide
 │   ├── prom/                # PROM 解説 6: headache-diary / headache-impact-test(HIT-6) /
 │   │                        #   migraine-disability-assessment(MIDAS) /
 │   │                        #   migraine-specific-quality-of-life(MSQ) /
 │   │                        #   numerical-rating-scale-visual-analogue-scale(NRS/VAS) /
 │   │                        #   patient-global-impression-of-change(PGIC)
+│   ├── privacy/ terms/      # 法務ページ（plans/013 で新設）
 │   └── prom-checker/        # 患者向け PROM 統合チェッカー（クライアント SPA）
 ├── lib/
 │   ├── prom/                # scoring / registry / storage / upsert / datetime（純関数コア + テスト）
 │   ├── anatomy/             # manifest / search / types / png-sanitize
 │   ├── glossary/            # 用語集レジストリ（読み仮名＋やさしい解説ツールチップ）
+│   ├── security/            # セキュリティ関連ユーティリティ（plans/011）
 │   └── export/              # ExportWorkbook 中間表現 → CSV / Google Sheets（google/ 配下）
 ├── components/
-│   ├── site/                # SiteHeader / nav-links.ts / DisclaimerBanner
-│   ├── headaches/ blocks/ therapies/ prom/ anatomy/ glossary/
+│   ├── site/                # SiteHeader / SiteFooter / nav-links.ts / DisclaimerBanner
+│   ├── headaches/ blocks/ therapies/ treatment/ prom/ anatomy/ glossary/
 │   └── prom/views/
 ├── public/                  # 静的資産（3D モデル・MRI PNG 等）
 ├── scripts/ tests/ types/
@@ -65,12 +82,22 @@ web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / B
 
 | カテゴリ | ルート | ページ数 | 成熟度 |
 |---|---|---|---|
-| 疾患解説 | `/headaches/*` | 4 | 一次性 2 + 二次性 2。ICHD-3 の主要疾患のうち群発頭痛等が未着手 |
-| 神経ブロック | `/blocks/*` | 3 | 主要 3 手技は完了 |
-| 療法 | `/therapies/*` | 3 | 理学療法・栄養/サプリ・心理行動療法。薬物療法の独立ページなし |
+| 疾患解説 | `/headaches/*` | 5 | 一次性 2 + 二次性 2 + 病態生理 1。ICHD-3 の主要疾患のうち群発頭痛等が未着手 |
+| 治療 | `/treatment/*` | 7 | plans/004 の P1/P2 4 領域（急性期・予防・CGRP・MOH 予防）を網羅済み |
+| 神経ブロック | `/blocks/*` | 4 | 主要 4 手技は完了 |
+| 療法 | `/therapies/*` | 7 | 理学療法・栄養/サプリ・心理行動療法・経穴/トリガーポイント・有酸素運動・睡眠衛生 |
 | PROM 解説 | `/prom/*` | 6 | 主要尺度は網羅 |
 | PROM ツール | `/prom-checker` | 1 | スコアリング・保存・CSV/Sheets エクスポートまで実装済み |
 | 解剖 | `/anatomy` | 1 | 3D アトラス実装済み。実 glTF 資産投入が残作業（PROGRESS.md 参照） |
+| 法務 | `/privacy`・`/terms` | 2 | plans/013 で新設。文言は法務レビュー待ち |
+
+> **横断基盤の現況（2026-08-11 時点）**: サイト横断のコンテンツレジストリ（`lib/content/registry.ts`・
+> 全 30 ルート）とサイトマップ（`app/sitemap.ts`・34 URL）は **実装済み**（plans/007 A・D）。
+> 相互リンク（plans/002 Step 3）もレジストリ駆動の `RelatedLinks` として実装済み。
+> **適用範囲は全 30 コンテンツルート**（コンポーネント配置数 30 / 関連リンク表示数 30・各 3〜4 本。
+> 指標の定義は `plans/README.md` の注記に従う。2026-08-11 実測）。
+> かつて本節に記載していた「8 ページ適用済み・残カテゴリは今後展開」は、plans/007 Step 3 の
+> 全カテゴリ展開（2026-08-11）で解消済みであり、**残作業は無い**。
 
 ### 既存の設計・運用資産（コードから読み取れない決定事項）
 
@@ -82,7 +109,8 @@ web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / B
   インフラの検討記録。コンテンツ拡張時の法的制約はここが権威。
 - コンテンツパイプライン: `Types-of-headache/md-files/`（ICHD-3 準拠の教育 Markdown）→ 教育 HTML →
   `nextjs-page-migration` スキルで web-next へ TDD 移行。**未移行 HTML 残 0**（PROGRESS.md）。
-  つまり新規拡張は「新しい md を書く」ところから始まる。
+  **ただし `Types-of-headache/` はコミット `ebdd955` で `.gitignore` へ追加・untrack され、
+  現在リポジトリ内に存在しない**（下記「不変の原則」3 の注記を参照）。
 - ナビ: `web-next/components/site/nav-links.ts` に `disabled: true`（準備中表示）機構があり、
   未実装ルートを 404 にせず事前掲示できる。段階公開の受け皿として利用する。
 - 全ページ共通の免責: `components/site/DisclaimerBanner.tsx`（教育目的・医療助言ではない旨）。
@@ -110,6 +138,12 @@ web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / B
 3. **単一コンテンツパイプライン**: 新規ページは `Types-of-headache/md-files/` の Markdown を SSoT とし、
    `nextjs-page-migration` スキル（アーキタイプ A/B）で web-next 化する。web-next 直書きの
    コンテンツを作らない。
+
+   > **保留中（2026-08-10）**: `Types-of-headache/` はコミット `ebdd955` でリポジトリ管理外となり、
+   > 本原則が前提とする SSoT が参照できない状態にある。**新規コンテンツページの執筆は方針決定まで
+   > 保留**とし、当面は web-next 内で完結する基盤作業（レジストリ・相互リンク・サイトマップ等）のみ
+   > 進める。恒久方針（md-files を復元するか、web-next を新 SSoT とするか）が決まり次第、
+   > 本原則と `.claude/rules/tdd-mandatory-cycle.md` の `paths:` 指定を同時に改訂すること。
 4. **段階公開**: 新カテゴリは nav-links.ts の `disabled` で先に骨格を掲示し、ページ完成ごとに開放する。
 5. **やさしい言い換え**: 専門用語は `lib/glossary` レジストリに登録し `<Term>` ツールチップで注釈する。
 

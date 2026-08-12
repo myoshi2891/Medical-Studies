@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -29,6 +30,9 @@ const HIT_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents a Japanese reference guide to the Headache Impact Test-6, including scoring, interpretation, clinical use, limitations, and supporting evidence.
+ */
 export default function HeadacheImpactTestPage() {
   return (
     <div className="headache-impact-test-accent">
@@ -2374,6 +2378,9 @@ style Q fill:#8e44ad,color:#ffffff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/prom/headache-impact-test" />
 
       {/* FOOTER */}
       <div className="footer">

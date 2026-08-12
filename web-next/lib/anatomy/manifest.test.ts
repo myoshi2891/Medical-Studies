@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { ANATOMY_MANIFEST, getStructure } from "./manifest";
 import { validateManifest } from "./types";
@@ -25,6 +27,20 @@ describe("ANATOMY_MANIFEST", () => {
     for (const s of ANATOMY_MANIFEST) {
       for (const link of s.links) {
         expect(link.href.length).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  // validateManifest は href の書式（/ か # 始まり）しか見ないため、実在しないルートを
+  // 素通しして 404 になる（例: /physical-therapy/... と /therapies/... の取り違え）。
+  // App Router の page.tsx の実在をここで突き合わせて回帰を防ぐ。
+  it("内部リンクの href が App Router の実在ルートを指す", () => {
+    const appDir = path.resolve(import.meta.dirname, "../../app");
+    for (const s of ANATOMY_MANIFEST) {
+      for (const link of s.links) {
+        if (!link.href.startsWith("/")) continue;
+        const pagePath = path.join(appDir, link.href, "page.tsx");
+        expect(existsSync(pagePath), `${s.id}: ${link.href} に対応する page.tsx が無い`).toBe(true);
       }
     }
   });

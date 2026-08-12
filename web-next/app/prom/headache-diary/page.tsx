@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./headache-diary.css";
 import { Ext } from "@/components/Ext";
@@ -15,6 +16,9 @@ const DIARY_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational guide to headache diaries.
+ */
 export default function HeadacheDiaryPage() {
   return (
     <div className="headache-diary-accent">
@@ -2338,6 +2342,9 @@ style I fill:#2980b9,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/prom/headache-diary" />
 
       {/* FOOTER */}
       <div className="footer">

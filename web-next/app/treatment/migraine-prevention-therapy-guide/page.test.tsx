@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { getRelated } from "@/lib/content/registry";
 import MigrainePreventionTherapyGuidePage from "./page";
 
 // Mermaid は描画コストと CDN 依存を排除するため軽量モックに差し替える。
@@ -31,7 +32,12 @@ describe("MigrainePreventionTherapyGuidePage: 契約（忠実転記）", () => {
 
   it("<h2> の個数がソースと一致する", () => {
     const { container } = render(<MigrainePreventionTherapyGuidePage />);
-    expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
+    // 転記契約は元 HTML 由来の見出しのみを数える。RelatedLinks（plans/002 Step 3 の
+    // サイト共通導線）が足す h2 は転記物ではないため除外する。
+    const h2s = Array.from(container.querySelectorAll("h2")).filter(
+      (h) => h.closest(".related-links") === null
+    );
+    expect(h2s).toHaveLength(H2_COUNT);
   });
 
   it("<h3> の個数がソースと一致する", () => {
@@ -74,6 +80,32 @@ describe("MigrainePreventionTherapyGuidePage: 契約（忠実転記）", () => {
     expect(internals.length).toBeGreaterThan(0);
     for (const a of internals) {
       expect(a.getAttribute("href")).not.toContain(".html");
+    }
+  });
+});
+
+/**
+ * 関連ページ導線の契約（plans/002 Step 3 / plans/004 残作業）。
+ * リンク関係は本文ではなく lib/content/registry.ts が持つため、
+ * ここではレジストリとの結線のみを固定する。
+ */
+describe("MigrainePreventionTherapyGuidePage: 関連ページ導線", () => {
+  const HREF = "/treatment/migraine-prevention-therapy-guide";
+
+  it("レジストリの関連ページをすべてリンクとして描画する", () => {
+    const { container } = render(<MigrainePreventionTherapyGuidePage />);
+    const hrefs = Array.from(container.querySelectorAll(".related-links a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(hrefs).toEqual(getRelated(HREF).map((e) => e.href));
+  });
+
+  it("内部リンクを最低 2 本持つ（plans/002 Step 3）", () => {
+    const { container } = render(<MigrainePreventionTherapyGuidePage />);
+    const links = container.querySelectorAll(".related-links a");
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
     }
   });
 });

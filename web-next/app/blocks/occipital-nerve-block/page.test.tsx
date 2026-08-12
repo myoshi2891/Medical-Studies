@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { getRelated } from "@/lib/content/registry";
 import OccipitalNerveBlockPage from "./page";
 
 // Mermaid は描画コストと CDN 依存を排除するため軽量モックに差し替える。
@@ -41,7 +42,12 @@ describe("OccipitalNerveBlockPage: 契約（忠実転記）", () => {
 
   it("<h2> の個数が section タイトル数と一致する", () => {
     const { container } = render(<OccipitalNerveBlockPage />);
-    expect(container.querySelectorAll("h2")).toHaveLength(H2_COUNT);
+    // RelatedLinks（plans/002 Step 3 のサイト共通導線）が足す h2 は
+    // 元 HTML の転記物ではないため除外する。
+    const h2s = Array.from(container.querySelectorAll("h2")).filter(
+      (h) => h.closest(".related-links") === null
+    );
+    expect(h2s).toHaveLength(H2_COUNT);
   });
 
   it("<h3> の個数が降格後の小見出し数と一致する", () => {
@@ -91,6 +97,32 @@ describe("OccipitalNerveBlockPage: 契約（忠実転記）", () => {
     expect(internals.length).toBeGreaterThan(0);
     for (const a of internals) {
       expect(a.getAttribute("href")).not.toContain(".html");
+    }
+  });
+});
+
+/**
+ * 関連ページ導線の契約（plans/002 Step 3）。
+ * リンク関係は本文ではなく lib/content/registry.ts が持つため、
+ * ここではレジストリとの結線のみを固定する。
+ */
+describe("OccipitalNerveBlockPage: 関連ページ導線", () => {
+  const HREF = "/blocks/occipital-nerve-block";
+
+  it("レジストリの関連ページをすべてリンクとして描画する", () => {
+    const { container } = render(<OccipitalNerveBlockPage />);
+    const hrefs = Array.from(container.querySelectorAll(".related-links a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(hrefs).toEqual(getRelated(HREF).map((e) => e.href));
+  });
+
+  it("内部リンクを最低 2 本持つ（plans/002 Step 3）", () => {
+    const { container } = render(<OccipitalNerveBlockPage />);
+    const links = container.querySelectorAll(".related-links a");
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
     }
   });
 });

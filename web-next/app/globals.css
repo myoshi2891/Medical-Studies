@@ -110,6 +110,116 @@ body.has-common-header {
   letter-spacing: -0.02em;
 }
 
+/* ── サイト横断検索（components/site/SiteSearch.tsx） ────────────
+ * app/anatomy/anatomy.css の .anatomy-search を手本に、暗色ヘッダー用の
+ * 独立クラスとして定義する（明色ページ用の変数を流用すると視認できないため）。 */
+.site-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 0 1 320px;
+  margin: 0 1rem;
+}
+
+.site-search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.8rem;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.site-search-input {
+  width: 100%;
+  padding: 0.4rem 0.75rem 0.4rem 2rem;
+  border: 1px solid var(--ch-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ch-text);
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.site-search-input::placeholder {
+  color: rgba(234, 240, 245, 0.55);
+}
+
+.site-search-input:focus-visible {
+  outline: 2px solid var(--ch-focus);
+  outline-offset: 2px;
+}
+
+.site-search-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  max-height: 60vh;
+  overflow-y: auto;
+  background-color: var(--ch-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--ch-border);
+  border-radius: 8px;
+  padding: 0.4rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.site-search-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--ch-text);
+}
+
+.site-search-opt:hover,
+.site-search-opt.active {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.site-search-opt:focus-visible {
+  outline: 2px solid var(--ch-focus);
+  outline-offset: -2px;
+}
+
+.site-search-opt-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.site-search-opt-meta {
+  font-size: 0.7rem;
+  color: rgba(234, 240, 245, 0.6);
+}
+
+.site-search-empty {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  padding: 0.6rem 0.8rem;
+  background-color: var(--ch-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--ch-border);
+  border-radius: 8px;
+  color: rgba(234, 240, 245, 0.7);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  /* ハンバーガーと並ぶ幅を確保しつつ、ブランド名を押し出さない。 */
+  .site-search {
+    flex: 1 1 auto;
+    margin: 0 0.75rem;
+  }
+}
+
 .ch-links {
   display: flex;
   list-style: none;
@@ -282,6 +392,14 @@ body.has-common-header {
     flex-direction: column;
     padding: 1rem 0;
     gap: 0;
+    /* ドロワーは position:fixed のためページスクロールで動かない。ドロップダウンを開くと
+     * 内容がビューポート高を超え、末尾項目が操作不能になる（375x667 で Therapies の
+     * 7 項目中 3 項目が画面外）。自前のスクロール領域にして到達可能性を保証する。
+     * dvh 対応ブラウザではモバイルの URL バー伸縮を考慮した実高さを使う。 */
+    max-height: calc(100vh - var(--ch-height));
+    max-height: calc(100dvh - var(--ch-height));
+    overflow-y: auto;
+    overscroll-behavior: contain;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     transition:
       clip-path 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -517,5 +635,54 @@ body.has-common-header {
   margin-top: 32px;
   font-size: 13px;
   color: #9fb3c8;
+}
+
+/* ──────────────────────────────────────────────────────────────
+ * 関連ページ導線（components/content/RelatedLinks）
+ * plans/002 Step 3。各コンテンツページはそれぞれ固有のカラーパレットを
+ * ローカル変数で持つため、本ブロックはページ側トークンに依存せず自己完結させる。
+ * ────────────────────────────────────────────────────────────── */
+
+.related-links {
+  --rl-surface: #f4f7fa;
+  --rl-border: #d3dde6;
+  --rl-heading: #1f3a52;
+  --rl-link: #0b4f8a;
+
+  max-width: 1100px;
+  margin: 40px auto 8px;
+  padding: 20px 22px;
+  border: 1px solid var(--rl-border);
+  border-radius: 12px;
+  background: var(--rl-surface);
+}
+
+.related-links h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--rl-heading);
+  border: 0;
+}
+
+.related-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.related-links a {
+  color: var(--rl-link);
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.related-links a:hover,
+.related-links a:focus-visible {
+  text-decoration-thickness: 2px;
 }
 

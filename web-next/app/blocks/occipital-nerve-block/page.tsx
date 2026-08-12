@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./occipital-nerve-block.css";
 import { OnbSidebar } from "@/components/blocks/OnbSidebar";
@@ -16,9 +17,9 @@ const ONB_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders the occipital nerve block guide page.
+ * Renders the educational guide page for occipital nerve blocks, covering anatomy, indications, techniques, safety, and evidence.
  *
- * @returns The rendered ONB educational page.
+ * @returns The rendered occipital nerve block guide page.
  */
 export default function OccipitalNerveBlockPage() {
   return (
@@ -2253,6 +2254,9 @@ style H fill:#e65100,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/blocks/occipital-nerve-block" />
 
       {/* FOOTER */}
       <div className="footer">

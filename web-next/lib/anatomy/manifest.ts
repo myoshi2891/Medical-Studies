@@ -166,7 +166,7 @@ const STRUCTURES: AnatomyStructure[] = [
       { label: "緊張型頭痛 (TTH)", href: "/headaches/tension-type-headache" },
       {
         label: "頭痛に対する理学療法 (PT)",
-        href: "/physical-therapy/physical-therapy-for-headache",
+        href: "/therapies/physical-therapy-for-headache",
       },
     ],
   },

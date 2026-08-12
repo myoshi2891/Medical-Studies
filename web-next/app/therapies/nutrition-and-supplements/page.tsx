@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -23,6 +24,9 @@ const NUTRITION_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders a comprehensive Japanese guide to nutrition and supplement therapies for headache, including evidence grading, safety considerations, dietary triggers, medication-overuse headache assessment, and treatment integration.
+ */
 export default function NutritionAndSupplementsPage() {
   return (
     <div className="nutrition-accent">
@@ -2654,6 +2658,9 @@ style Escalate fill:#c0392b,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/therapies/nutrition-and-supplements" />
 
       {/* FOOTER */}
       <div className="footer">

@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -59,6 +60,9 @@ const MSQ_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents a comprehensive Japanese-language guide to the Migraine-Specific Quality of Life Questionnaire (MSQ v2.1).
+ */
 export default function MigraineSpecificQualityOfLifePage() {
   return (
     <div className="migraine-specific-quality-of-life-accent">
@@ -2541,6 +2545,9 @@ style RE fill:#880e4f,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/prom/migraine-specific-quality-of-life" />
 
       {/* FOOTER */}
       <div className="footer">

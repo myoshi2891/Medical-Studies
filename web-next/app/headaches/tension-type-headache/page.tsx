@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import Term from "@/components/glossary/Term";
@@ -249,6 +250,9 @@ style MOH fill:#c0392b,color:#fff
 style SAFE fill:#27ae60,color:#fff
 style MANAGE fill:#e67e22,color:#fff`;
 
+/**
+ * Renders an educational guide to tension-type headache covering its classification, diagnosis, assessment, treatment, and prevention.
+ */
 export default function TensionTypeHeadachePage() {
   return (
     <div className="tth-accent">
@@ -2851,6 +2855,9 @@ export default function TensionTypeHeadachePage() {
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/headaches/tension-type-headache" />
 
       {/* FOOTER */}
       <div className="footer">

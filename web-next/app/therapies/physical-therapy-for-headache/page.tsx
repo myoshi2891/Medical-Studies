@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -23,6 +24,12 @@ const PT_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to physical therapy approaches for headaches.
+ *
+ * The guide covers headache classification, safety screening, evidence-based modalities,
+ * clinical protocols, outcome assessment, self-care, and considerations for special populations.
+ */
 export default function PhysicalTherapyForHeadachePage() {
   return (
     <div className="physical-therapy-accent">
@@ -2856,6 +2863,9 @@ style S5 fill:#1E8449,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/therapies/physical-therapy-for-headache" />
 
       {/* FOOTER */}
       <footer className="footer">

@@ -29,16 +29,20 @@ URL 変更（=外部リンク切れ）を招く。本プランで **拡張後も
 
 ## Current state
 
-### ナビ構成（`web-next/components/site/nav-links.ts`、commit `a9e470c` 時点）
+### ナビ構成（`web-next/components/site/nav-links.ts`、2026-08-10 実測）
 
 | ナビ項目 | 種別 | 配下ルート |
 |---|---|---|
 | Home | リーフ | `/prom-checker` |
 | Anatomy | リーフ | `/anatomy` |
-| Headaches | ドロップダウン | `/headaches/{migraine, tension-type-headache, medication-overuse-headache, cervicogenic-headache}` |
-| Blocks | ドロップダウン | `/blocks/{occipital-nerve-block, cervical-plexus-block, stellate-ganglion-block}` |
-| Therapies | ドロップダウン | `/therapies/{physical-therapy-for-headache, nutrition-and-supplements, psychological-behavioral-therapy}` |
+| Headaches | ドロップダウン | `/headaches/{migraine, tension-type-headache, medication-overuse-headache, cervicogenic-headache, headache-pathophysiology}` |
+| Treatment | ドロップダウン | `/treatment/{acute-treatment-of-headache, headache-lifestyle-seeds-guide, headache-trigger-identification-guide, headache-workplace-school-accommodations, cgrp-pathway-headache-treatments, migraine-prevention-therapy-guide, moh-acute-use-days}` |
+| Blocks | ドロップダウン | `/blocks/{occipital-nerve-block, cervical-plexus-block, stellate-ganglion-block, superior-cervical-ganglion-block}` |
+| Therapies | ドロップダウン | `/therapies/{physical-therapy-for-headache, nutrition-and-supplements, psychological-behavioral-therapy, headache-acupoints-trigger-points, trigger-points-and-headache, aerobic-exercise-headache-prevention, sleep-and-headache-guide}` |
 | PROM 指標 | ドロップダウン | `/prom/{headache-diary, headache-impact-test, migraine-disability-assessment, migraine-specific-quality-of-life, numerical-rating-scale-visual-analogue-scale, patient-global-impression-of-change}` |
+
+`/privacy`・`/terms` は `SiteFooter`（plans/013 で新設）からのみ辿れるルートで、
+ヘッダーナビには載せない。
 
 ### 踏襲すべき既存規約（nav-links.ts のコメントより）
 
@@ -79,19 +83,29 @@ URL 変更（=外部リンク切れ）を招く。本プランで **拡張後も
 
 非薬物療法（既存 `/therapies`）と対をなす。**個別の用量推奨は行わない**（plans/001 原則 1）。
 
-| ページ（slug） | 内容 | 優先度 |
-|---|---|---|
-| `acute-treatment-of-headache` | 急性期治療薬（アセトアミノフェン・NSAIDs・トリプタン・ジタン・ゲパント） | **P1** |
-| `preventive-treatment` | 予防薬（従来予防薬: β遮断薬・抗てんかん薬・抗うつ薬・Ca 拮抗薬） | **P1** |
-| `cgrp-targeted-therapies` | CGRP 関連薬（抗 CGRP/受容体抗体・経口ゲパント予防） | P2 |
-| `medication-overuse-prevention` | 鎮痛薬の適正使用（既存 MOH ページと相互リンク） | P2 |
+**実装済み**（2026-08-10。立案時の想定 slug から改名されたものがあるが、**公開済み URL は変更しない**
+＝本表を実態に合わせる。下表の「立案時 slug」は履歴として残す）。
+
+| 実装 slug（正） | 立案時 slug | 内容 | 状態 |
+|---|---|---|---|
+| `acute-treatment-of-headache` | 同左 | 急性期治療薬（アセトアミノフェン・NSAIDs・トリプタン・ジタン・ゲパント） | ✅ 実装済み |
+| `migraine-prevention-therapy-guide` | `preventive-treatment` | 予防薬（従来予防薬: β遮断薬・抗てんかん薬・抗うつ薬・Ca 拮抗薬） | ✅ 実装済み |
+| `cgrp-pathway-headache-treatments` | `cgrp-targeted-therapies` | CGRP 関連薬（抗 CGRP/受容体抗体・経口ゲパント予防） | ✅ 実装済み |
+| `moh-acute-use-days` | `medication-overuse-prevention` | 鎮痛薬の適正使用日数（既存 MOH ページと相互リンク） | ✅ 実装済み |
+| `headache-lifestyle-seeds-guide` | （立案時なし） | 生活習慣管理と SEEDS | ✅ 実装済み |
+| `headache-trigger-identification-guide` | （立案時なし） | トリガーの特定と管理 | ✅ 実装済み |
+| `headache-workplace-school-accommodations` | （立案時なし） | 職場・学校での合理的配慮の一般論 | ✅ 実装済み |
 
 ### 4. 非薬物療法（既存 `/therapies/*` に追加）
 
 | 追加ページ（slug） | 内容 | 優先度 |
 |---|---|---|
 | `neuromodulation` | ニューロモジュレーション（非侵襲的迷走神経刺激・経頭蓋磁気刺激等の教育的概説） | P3 |
-| `acupuncture-and-manual-therapy` | 鍼・徒手療法のエビデンス概説 | P3 |
+
+立案時に P3 としていた `acupuncture-and-manual-therapy` は、実装済みの
+`headache-acupoints-trigger-points` および `trigger-points-and-headache` が実質的にカバーする。
+このほか `aerobic-exercise-headache-prevention`・`sleep-and-headache-guide` が立案外で追加され、
+`/therapies` は計 7 ページとなっている。
 
 既存 `nutrition-and-supplements`（サプリメント: Mg・ビタミン B2・CoQ10 等）の拡充は plans/004 で扱う。
 
@@ -160,7 +174,13 @@ P1（`cluster-headache` / `secondary-headaches-red-flags` / `womens-headache` /
 関連する既存ページ（例: `cluster-headache` → `/blocks/stellate-ganglion-block`、
 `acute-treatment-of-headache` → `/headaches/medication-overuse-headache`）。
 
+**実装方式（2026-08-10 決定）**: リンク関係を各 `page.tsx` に手書きせず、
+`web-next/lib/content/registry.ts`（宣言的コンテンツレジストリ・plans/007 A）の `related` に集約し、
+`RelatedLinks` コンポーネントが描画する。リンク切れ・登録漏れをレジストリの契約テストで機械検知でき、
+サイトマップ・鮮度メタと単一のデータ源を共有できる。
+
 **Verify**: 各ページの契約テスト（`page.test.tsx`）に内部リンク存在のアサーションがあること。
+レジストリ契約テストが `related` の dangling 参照ゼロを保証すること。
 
 ## Done criteria
 

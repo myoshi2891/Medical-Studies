@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import "./numerical-rating-scale-visual-analogue-scale.css";
 import { Ext } from "@/components/Ext";
@@ -15,6 +16,9 @@ const VNS_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to VAS, NRS, and VRS pain-intensity assessment, including interpretation, psychometric properties, clinical workflows, special-population considerations, and applications in headache medicine.
+ */
 export default function NumericalRatingScaleVisualAnalogueScalePage() {
   return (
     <div className="nrs-vas-accent">
@@ -2325,6 +2329,9 @@ style End fill:#c8e6c9,stroke:#1B5E20`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/prom/numerical-rating-scale-visual-analogue-scale" />
 
       {/* FOOTER */}
       <div className="footer">

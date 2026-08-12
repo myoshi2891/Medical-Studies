@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import Term from "@/components/glossary/Term";
@@ -25,9 +26,9 @@ const CEH_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders the cervicogenic headache educational guide page.
+ * Renders the cervicogenic headache educational guide with diagnostic, treatment, and safety information.
  *
- * @returns The full CEH guide page layout.
+ * @returns The complete CEH guide page.
  */
 export default function CervicogenicHeadachePage() {
   return (
@@ -2047,6 +2048,9 @@ style BLOCK fill:#8e44ad,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/headaches/cervicogenic-headache" />
 
       {/* FOOTER */}
       <div className="footer">

@@ -43,10 +43,15 @@ describe("buildContentSecurityPolicy: 自己ホスト方針の担保", () => {
 });
 
 describe("buildContentSecurityPolicy: 既存許可の非退行", () => {
-  it("script-src が accounts.google.com と cdnjs を許可し続ける", () => {
+  it("script-src が accounts.google.com（GIS）を許可し続ける", () => {
     const scriptSrc = directive(buildContentSecurityPolicy(false), "script-src");
     expect(scriptSrc).toContain("https://accounts.google.com");
-    expect(scriptSrc).toContain("https://cdnjs.cloudflare.com");
+  });
+
+  it("script-src に未使用の外部 CDN（cdnjs）を含まない", () => {
+    // 実コードから参照が無い許可は最小化する（再混入の回帰防止）。
+    expect(directive(buildContentSecurityPolicy(false), "script-src")).not.toContain("cdnjs");
+    expect(directive(buildContentSecurityPolicy(true), "script-src")).not.toContain("cdnjs");
   });
 
   it("connect-src が sheets.googleapis.com と accounts.google.com を許可し続ける", () => {

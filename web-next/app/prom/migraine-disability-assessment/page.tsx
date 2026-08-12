@@ -1,3 +1,4 @@
+import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
 import MermaidDiagram from "@/components/MermaidDiagram";
@@ -15,6 +16,9 @@ const MIDAS_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Renders a Japanese-language reference guide for the Migraine Disability Assessment (MIDAS) questionnaire.
+ */
 export default function MigraineDisabilityAssessmentPage() {
   return (
     <div className="migraine-disability-assessment-accent">
@@ -2495,6 +2499,9 @@ style P4 fill:#27ae60,color:#fff`}
           </AutoGlossary>
         </main>
       </div>
+
+      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+      <RelatedLinks href="/prom/migraine-disability-assessment" />
 
       {/* FOOTER */}
       <div className="footer">

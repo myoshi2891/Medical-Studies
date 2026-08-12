@@ -18,15 +18,40 @@
 
 | Plan | 内容 | Priority | Effort | Depends on | Status |
 |------|------|----------|--------|------------|--------|
-| 001  | プラットフォーム全体ビジョンと現状分析 | P1 | S | — | TODO |
-| 002  | カテゴリ体系・情報アーキテクチャ確定 | P1 | M | 001 | TODO |
-| 003  | 情報収集・最新情報キャッチアップ運用 | P1 | M | 001 | TODO |
-| 004  | 治療法カテゴリ（薬物・サプリ）拡張 | P1 | L | 001, 002, 003 | **IN PROGRESS**（`/treatment/*` 7 ページ移行済: acute-treatment / cgrp-pathway / migraine-prevention / moh-acute-use-days / lifestyle-seeds / trigger-identification / workplace-school。slug は立案時から改名あり例 `preventive-treatment`→`migraine-prevention-therapy-guide`。残: 予防・CGRP 系の残ページと相互リンク精査） |
-| 005  | 研究・エビデンスカテゴリ新設 | P2 | L | 001, 002, 003 | TODO |
-| 006  | 療養・セルフケアカテゴリ新設 | P2 | M | 001, 002, 003 | TODO |
-| 007  | 技術基盤拡張（横断検索・鮮度メタ・ナビ再設計） | P2 | L | 001, 002 | TODO |
+| 001  | プラットフォーム全体ビジョンと現状分析 | P1 | S | — | **DONE**（2026-08-10。Current state を実測へ補正し、`Types-of-headache/` がリポジトリ管理外である旨を原則 3 に注記。参照文書として確定） |
+| 002  | カテゴリ体系・情報アーキテクチャ確定 | P1 | M | 001 | **DONE**（2026-08-10。ナビ構成表を実態へ更新、`/treatment/*` の立案時 slug→実装 slug 対応表を追記。Step 3 の相互リンクはレジストリ駆動方式に確定） |
+| 003  | 情報収集・最新情報キャッチアップ運用 | P1 | M | 001 | **DONE**（2026-08-10。規約は確定。md 起点ワークフローは SSoT 方針決定まで保留、鮮度メタは 007 のレジストリで先行実装） |
+| 004  | 治療法カテゴリ（薬物・サプリ）拡張 | P1 | L | 001, 002, 003 | **DONE**（2026-08-10。`/treatment/*` 7 ページで立案時の P1/P2 4 領域〈急性期・予防・CGRP・MOH 予防〉を網羅。相互リンクをレジストリ駆動で実装し MOH 系 3 ページの双方向リンクを契約テストで固定。サプリ増補は SSoT 保留のため別途） |
+| 005  | 研究・エビデンスカテゴリ新設 | P2 | L | 001, 002, 003 | **BLOCKED**（新規コンテンツ執筆は `Types-of-headache/` の SSoT 方針決定まで保留） |
+| 006  | 療養・セルフケアカテゴリ新設 | P2 | M | 001, 002, 003 | **BLOCKED**（同上） |
+| 007  | 技術基盤拡張（横断検索・鮮度メタ・ナビ再設計） | P2 | L | 001, 002 | **DONE**（2026-08-11。Step 0〜3 完了: `lib/content/{types,registry,search}.ts`＋ヘッダー検索 `components/site/SiteSearch.tsx`、sitemap 34 URL（コンテンツ 30 + 静的 4）、RelatedLinks・用語集を全 30 ページへ展開。Step 4 ナビ再設計は実機計測の結果「不要」と判断し閉じた〈下記〉） |
 
 Status 値: TODO | IN PROGRESS | DONE | BLOCKED（理由 1 行）| REJECTED（理由 1 行）
+
+> [!NOTE]
+> **`RelatedLinks` の「適用件数」の定義（本リポジトリ共通。2026-08-11 実測）**: 以下 3 つを区別して記録する。
+> 現状は 3 つすべてが **30** で一致しているため、単に「全 30 ページ」と書いてよい。
+> 一致が崩れた時点で、どの数を指すか明示すること。
+>
+> | 指標 | 意味 | 現在値 | 測り方 |
+> |---|---|---|---|
+> | **レジストリ登録数** | `lib/content/registry.ts` の `CONTENT_REGISTRY` エントリ数 | 30 | `CONTENT_REGISTRY.length` |
+> | **コンポーネント配置数** | `<RelatedLinks>` を描画している `app/**/page.tsx` の数 | 30 | `grep -rl "RelatedLinks" app/ --include=page.tsx \| wc -l` |
+> | **関連リンク表示数** | `getRelated(href)` が 1 本以上返すルート数（＝実際に導線が出るページ） | 30（各 3〜4 本） | `CONTENT_REGISTRY.filter((e) => getRelated(e.href).length > 0).length` |
+>
+> 配置しても `related` が空なら表示は 0 になる。「配置＝表示」は保証ではないため、両者を同一視しないこと
+> （登録漏れ・幽霊エントリ・dangling 参照は `lib/content/registry.test.ts` が機械検知する）。
+> なお sitemap の 34 URL は「コンテンツ 30 + 静的ルート 4（`/`・`/prom-checker`・`/privacy`・`/terms`）」であり、
+> 上記 3 指標とは母数が異なる。
+
+> [!IMPORTANT]
+> **コンテンツ SSoT 保留（2026-08-10）**: `Types-of-headache/`（md-files / html-files）は
+> コミット `ebdd955` で `.gitignore` へ追加・untrack され、リポジトリ内に存在しない。
+> plans/001 の「不変の原則 3（md-files を SSoT とし web-next へ移行）」が前提とするソースが
+> 参照できないため、**新規コンテンツページの執筆を伴うプラン（005・006、および 002 の
+> 未実装ページ）は保留**とする。当面は web-next 内で完結する基盤作業（007）を進める。
+> 恒久方針が決まり次第、plans/001 原則 3 と `.claude/rules/tdd-mandatory-cycle.md` の
+> `paths:` 指定を同時に改訂すること。
 
 ## 公開ガバナンス系 008〜015（docs/publishing F1〜F7 由来）
 
@@ -38,7 +63,7 @@ Status 値: TODO | IN PROGRESS | DONE | BLOCKED（理由 1 行）| REJECTED（�
 | 008  | PROM 権利確認ゲート＋許諾不可時の代替表示 | F1 | P0 | M | 決定ゲート（権利者照会） | **DONE**（2026-07-15。ユーザー指示により照会を待たずレダクション実施。権利者照会自体は未了、履歴書き換えは別途） |
 | 009  | npm 依存ライセンス棚卸し | F2 | P0 | S | — | **DONE**（2026-07-15。THIRD_PARTY_NOTICES §4 が検証済み台帳） |
 | 010  | MRI 出典メタデータ＋公開除外フォールバック | F3 | P1 | M | 決定ゲート（出典確認） | **Phase A DONE**（2026-07-15。開発者本人保有＝`permission: "own"` で確定記録。Phase B 公開除外は決定ゲート非成立のため不要） |
-| 011  | セキュリティヘッダ・CSP の段階導入 | F4 | P1 | M | — | **IN PROGRESS**（2026-07-15。全セキュリティヘッダ + 強制 CSP を next.config.ts へ静的付与済み。実ブラウザ検証で nonce/strict-dynamic が静的ページ非対応と判明し、静的維持型 CSP へ方針変更（middleware 廃止）。残: 実 Google OAuth→Sheets 同期の実効性検証。DONE 化は保留） |
+| 011  | セキュリティヘッダ・CSP の段階導入 | F4 | P1 | M | — | **DONE（残余リスク受入あり）**（2026-08-11。全セキュリティヘッダ + 強制 CSP を next.config.ts へ静的付与。nonce/strict-dynamic は静的ページ非対応のため不採用（middleware 廃止）。未使用の cdnjs 許可を script-src から除去し外部スクリプトを accounts.google.com のみに限定。実 Google OAuth→Sheets 同期・3D/MRI・Mermaid を実ブラウザで検証し CSP 違反 0 件。**受入済み残余リスク: `script-src 'unsafe-inline'` により CSP の inline XSS 防御は無効**。代替統制・被害想定・再評価条件は `docs/publishing/04-security-policy.md` §3「残余リスクの受入記録」で確定済みのため、対策待ちではなく DONE として扱う） |
 | 012  | localStorage 注意喚起の常設＋消去導線接続 | F4/F5 | P1 | S | — | **DONE**（2026-07-23。`StorageNotice` を新設し Dashboard に常設。消去導線は既存 `DataManager` を再利用、DataManager 説明文は既に更新済のため据置。テスト 2 件追加） |
 | 013  | プライバシーポリシー・利用規約ページ新設 | F5 | P1 | M | — | **DONE**（2026-07-23。`/privacy`・`/terms` を静的ページ新設、`SiteFooter` を全ページ common footer として layout に設置。文言は plans/013 ドラフトの暫定版・法務レビュー待ち。テスト 2 件追加） |
 | 014  | 最小 CI パイプライン（5 ジョブ） | F6 | P2 | M | 009 | **DONE**（2026-07-23。`.github/workflows/ci.yml` 5 ジョブ、全ジョブをローカル再現で green 確認。前提として既存 biome 違反 11 件を自動修復。markdown ジョブは lint-clean な `*.md`/`plans/`/`docs/publishing/` に限定、コンテンツ `.md` の既存 markdownlint 負債 57 件は別タスク。push 後の Actions 実行はユーザー承認待ち） |
@@ -65,12 +90,15 @@ Status 値: TODO | IN PROGRESS | DONE | BLOCKED（理由 1 行）| REJECTED（�
 
 ## 推奨着手順
 
-1. **001 → 002 → 003**（設計・規約の土台。順に確定）
-2. **007 の Step 0〜1**（コンテンツレジストリの器を先に用意すると、以降のページ追加で
-   登録漏れを機械検知できる）
-3. **004**（P1・治療。最も需要が高い薬物療法の P1 ページ 2 種を先行）
-4. **006 → 005**（療養は既存 PROM 資産と結ぶだけで価値が出る／研究は継続運用が要るため後）
-5. **007 の残り Step**（ナビ再設計・サイトマップ・用語集展開をコンテンツ増加に合わせて）
+1. ~~**001 → 002 → 003**（設計・規約の土台。順に確定）~~ → 2026-08-10 完了
+2. ~~**007 の Step 0〜1**（コンテンツレジストリの器）~~ → 2026-08-10 完了（sitemap 含む）
+3. ~~**004 の残り**（相互リンク）~~ → 2026-08-10 完了
+4. ~~**007 の残り Step**（横断検索コア・ナビ再設計・用語集展開／RelatedLinks の残カテゴリ展開）~~
+   → 2026-08-11 完了
+5. **006 → 005**（療養は既存 PROM 資産と結ぶだけで価値が出る／研究は継続運用が要るため後）。
+   ただし新規コンテンツ執筆を伴うため、上記「コンテンツ SSoT 保留」の解消が前提。
+   ← **現在ここ**（コンテンツ SSoT 方針が決まるまで BLOCKED。011 は 2026-08-11 に DONE 化したため、
+   着手可能な残タスクは無し。次の判断は 015 の決定ゲート、または SSoT 方針の決定）
 
 ## 見送り事項（considered and rejected / 再監査不要）
 
