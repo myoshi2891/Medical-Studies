@@ -429,7 +429,12 @@ export default function BoneRelatedHeadachePage() {
 
             <p>
               <strong>頸原性頭痛(cervicogenic headache; CGH)</strong>{" "}
-              は、ICHD-3の11.2.1に定義される二次性頭痛で、首(頸椎)の骨・関節・筋肉・靱帯といった筋骨格系の障害によって引き起こされます。一般人口における有病率は調査によって幅があり、およそ0.4〜4.6%程度と報告されています。{" "}
+              は、ICHD-3の11.2.1に定義される二次性頭痛で、首(頸椎)の骨・関節・筋肉・靱帯といった筋骨格系の障害によって引き起こされます。有病率は
+              <strong>対象とする母集団と用いる診断基準によって大きく異なる</strong>
+              点に注意が必要です。ICHD-2の基準を適用した一般人口の疫学調査(ノルウェーのAkershus
+              study of chronic headache, Cephalalgia 2010)では<strong>0.17%</strong>
+              と報告されています。一方、すでに頭痛を有する患者を母集団とした集計(StatPearls)では
+              <strong>0.4〜4%</strong>とされており、この値は一般人口の有病率ではありません。{" "}
               <span className="bA">Class A</span>
             </p>
 

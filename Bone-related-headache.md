@@ -63,7 +63,7 @@ flowchart TD
 
 出典: NCBI Bookshelf(StatPearls)による各骨の解剖記述 [注1, 注2, 注3]
 
-さらに、頭蓋骨は単独で存在するのではなく、**頸椎(特に第1頸椎=環椎/C1、第2頸椎=軸椎/C2)** と大後頭孔(foramen magnum)を介して連結しています。この「頭蓋骨と頸椎のつなぎ目」を **頭蓋頸椎移行部(craniocervical junction, CVJ)** と呼び、頭痛の原因として重要な部位です(ステップ4で詳述)。
+さらに、頭蓋骨は単独で存在するのではなく、**頸椎(特に第1頸椎=環椎/C1、第2頸椎=軸椎/C2)** と関節を介して連結しています。大後頭孔(foramen magnum)そのものは延髄・脊髄や血管が通過する「開口部」であり、関節面ではありません。実際に頭蓋と頸椎をつないでいるのは、大後頭孔の左右にある **後頭顆(occipital condyle)** と環椎(C1)の **上関節面** が形成する **環椎後頭関節(atlanto-occipital joint)** です。この「頭蓋骨と頸椎のつなぎ目」を **頭蓋頸椎移行部(craniocervical junction, CVJ)** と呼び、頭痛の原因として重要な部位です(ステップ4で詳述)。
 
 ```mermaid
 flowchart LR
@@ -131,13 +131,13 @@ flowchart TD
     Compress --> HA["せき・いきみで悪化する<br/>後頭部の頭痛など"]
 ```
 
-出典: 米国NINDS「キアリ奇形ファクトシート」[注5]、Merck Manual(専門家版)「頭蓋頸椎移行部異常」[注7]、MSD Manual(一般向け)「頭蓋頸椎移行部の病気」[注8]
+出典: 米国NINDS「キアリ奇形ファクトシート」[注5]、Merck Manual(専門家版)「頭蓋頸椎移行部異常」[注7]、MSD Manual(一般向け)「頭蓋頸椎移行部の病気」[注8]、PMC収載の頭蓋底陥入症とキアリ奇形I型の症例報告[注28]
 
 ---
 
 ## ステップ5: 頸原性頭痛 ― 首の骨・関節が引き起こす頭痛(ICHD-3 11.2.1)
 
-**頸原性頭痛(cervicogenic headache; CGH)** は、ICHD-3の11.2.1に定義される二次性頭痛で、首(頸椎)の骨・関節・筋肉・靱帯といった筋骨格系の障害によって引き起こされます。一般人口における有病率は4〜7%程度と報告されています[注9]。
+**頸原性頭痛(cervicogenic headache; CGH)** は、ICHD-3の11.2.1に定義される二次性頭痛で、首(頸椎)の骨・関節・筋肉・靱帯といった筋骨格系の障害によって引き起こされます。有病率は **対象とする母集団と用いる診断基準によって大きく異なる** 点に注意が必要です。ICHD-2の基準を適用した一般人口の疫学調査(ノルウェーのAkershus study of chronic headache, Cephalalgia 2010)では **0.17%** と報告されています[注9]。一方、すでに頭痛を有する患者を母集団とした集計では **0.4〜4%** とされており、この値は一般人口の有病率ではありません[注14]。
 
 原因となりうる代表的な構造は以下の通りです[注10]。
 
@@ -213,11 +213,11 @@ ICHD-3の11.7では、TMDに起因する頭痛について次のように整理�
 
 ## ステップ8: 後頭部の骨と神経 ― 後頭神経痛
 
-**後頭神経痛(occipital neuralgia)** は、後頭骨の下縁から頭皮に向かって走行する **大後頭神経(greater occipital nerve)** ・小後頭神経(lesser occipital nerve)が、骨・筋膜のトンネルを通過する部分などで刺激・絞扼されることによって生じる、電気が走るような鋭い痛みを特徴とする病態です。大後頭神経は解剖学的に第2頸神経(C2)後枝の内側枝であり、軸椎(C2)周囲の骨・靱帯構造と密接に関係しています[注24, 注25]。
+**後頭神経痛(occipital neuralgia)** は、後頭骨の下縁から頭皮に向かって走行する **大後頭神経(greater occipital nerve)** ・小後頭神経(lesser occipital nerve)・第三後頭神経(third occipital nerve)が、骨・筋膜のトンネルを通過する部分などで刺激・絞扼されることによって生じる、電気が走るような鋭い痛みを特徴とする病態です。大後頭神経は解剖学的に第2頸神経(C2)後枝の内側枝、第三後頭神経は第3頸神経(C3)後枝の内側枝であり、いずれも軸椎(C2)周囲の骨・靱帯構造やC2-C3椎間関節と密接に関係しています[注24, 注25]。
 
 痛みは首の後ろから始まり、頭皮・前頭部・眼の奥にまで広がることがあり、頭皮の接触過敏や光過敏を伴うこともあります[注25]。
 
-臨床的には、大後頭神経ブロック(局所麻酔薬の注射)によって痛みが消失するかどうかが、診断的にも治療的にも重要な手がかりとして用いられています[注26]。
+臨床的には、罹患が疑われる神経(大後頭神経・小後頭神経・第三後頭神経)へのブロック(局所麻酔薬の注射)によって痛みが **一時的に軽減する** かどうかが、診断的にも治療的にも重要な手がかりとして用いられています[注26]。
 
 ---
 
@@ -249,14 +249,19 @@ flowchart TD
     Bone --> A5["顎関節(側頭骨)の障害<br/>TMD ICHD-3 11.7"]
     Bone --> A6["後頭骨周囲の神経刺激<br/>後頭神経痛"]
     Bone --> A7["茎状突起(側頭骨)の異常<br/>Eagle症候群 ICHD-3 11.8"]
-    A1 --> TCN2["三叉神経・上位頸神経が<br/>収束する侵害受容ネットワーク<br/>(三叉神経頸髄核など)"]
-    A2 --> TCN2
-    A3 --> TCN2
-    A4 --> TCN2
-    A5 --> TCN2
-    A6 --> TCN2
-    A7 --> TCN2
-    TCN2 --> Result["頭部・顔面の痛みとして自覚される"]
+    A1 -->|骨膜・硬膜の侵害受容| TG["三叉神経の求心路<br/>(V1〜V3)"]
+    A4 -->|副鼻腔粘膜・骨膜の炎症| TG
+    A5 -->|"顎関節・咀嚼筋(V3)"| TG
+    A2 -->|後頭蓋窩硬膜・上位頸椎構造| CX["上位頸神経の求心路<br/>(C1〜C3)"]
+    A3 -->|環軸関節・C2-C3椎間関節| CX
+    A6 -->|"後頭神経そのものの絞扼・炎症(神経障害性疼痛)"| CX
+    A7 -->|茎状突起・靱帯による周囲組織の刺激| GX["舌咽神経・迷走神経<br/>および三叉神経下顎枝(V3)"]
+    TG --> TCN2["三叉神経頸髄核での収束<br/>(トリジェミノサーヴィカル・コンプレックス)"]
+    CX --> TCN2
+    TCN2 --> Ref["関連痛<br/>(発生源と離れた前頭部・眼窩周囲にも感じる)"]
+    GX --> Local["咽頭・頸部・顔面の<br/>局所痛および放散痛"]
+    Ref --> Result["頭部・顔面の痛みとして自覚される"]
+    Local --> Result
 ```
 
 共通して重要なのは、**痛みを感じる場所(頭)と、実際に問題が起きている場所(骨・関節)が必ずしも一致しない** という点です。これは三叉神経系と上位頸神経系が神経学的に「合流」する構造(トリジェミノサーヴィカル・コンプレックス)を持つためであり、この仕組みを理解することが、頸原性頭痛や後頭神経痛など「骨・関節由来の頭痛」を正しく捉える第一歩になります。
@@ -287,13 +292,15 @@ flowchart TD
 - NCBI Bookshelf(StatPearls)蝶形骨: https://www.ncbi.nlm.nih.gov/books/NBK544308/
 - NCBI Bookshelf(StatPearls)頭蓋骨孔: https://www.ncbi.nlm.nih.gov/books/NBK546621/
 - NCBI Bookshelf(StatPearls)頭蓋骨画像診断: https://www.ncbi.nlm.nih.gov/books/NBK556122/
-- [注14] NCBI Bookshelf(StatPearls)頸原性頭痛: https://www.ncbi.nlm.nih.gov/books/NBK507862/
+- [注14] NCBI Bookshelf(StatPearls)頸原性頭痛(「頭痛患者における有病率0.4〜4%」の出典): https://www.ncbi.nlm.nih.gov/books/NBK507862/
+- [注9] Knackstedt H, et al. Cervicogenic headache in the general population: the Akershus study of chronic headache. Cephalalgia. 2010;30(12):1468-76.(ICHD-2基準による一般人口有病率0.17%): https://pubmed.ncbi.nlm.nih.gov/20974607/
+- [注12] Bartsch T, Goadsby PJ. Increased responses in trigeminocervical nociceptive neurons to cervical input after stimulation of the dura mater. Brain. 2003;126(Pt 8):1801-13.(三叉神経入力と頸神経入力の収束を示した実験的研究): https://doi.org/10.1093/brain/awg190
 - [注5] NINDS「キアリ奇形」: https://www.ninds.nih.gov/health-information/disorders/chiari-malformation
 - [注19, 注22] NIDCR/米国科学・工学・医学アカデミー 顎関節症(TMD)関連資料: https://www.nationalacademies.org/projects/HMD-HSP-18-21
 - [注20] 医療技術評価機関(AHRQ)委託によるTMD治療ガイドラインに関する技術概要: https://effectivehealthcare.ahrq.gov/sites/default/files/nt_docs/1029-temporomandibular-dysfunction-topic-brief.pdf
-- [注12, 注24] PMC(NIH/NLM収載論文)大後頭神経の形態学的特徴: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10780152/
+- [注24] PMC(NIH/NLM収載論文)大後頭神経の形態学的特徴: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10780152/
 - [注11] PMC(NIH/NLM収載論文)後頭神経痛による顔面症状の報告: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5346380/
-- [注9] PMC(NIH/NLM収載論文)頭蓋底陥入症とキアリ奇形I型の症例報告: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10518641/
+- [注28] PMC(NIH/NLM収載論文)頭蓋底陥入症とキアリ奇形I型の症例報告: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10518641/
 
 **その他の国際的専門機関・学会**
 - [注25] Society for Neuroscience「BrainFacts.org」(NINDS作成の疾患解説の転載): https://www.brainfacts.org/diseases-and-disorders/neurological-disorders-az/diseases-a-to-z-from-ninds/occipital-neuralgia
