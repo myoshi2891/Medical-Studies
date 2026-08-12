@@ -108,7 +108,10 @@ describe("CONTENT_REGISTRY: エントリ単体の不変条件", () => {
   it("href がカテゴリと整合する（/anatomy カテゴリは /anatomy で始まる）", () => {
     for (const entry of CONTENT_REGISTRY) {
       if (entry.category === "anatomy") {
-        expect(entry.href.startsWith("/anatomy"), `mismatch: ${entry.href}`).toBe(true);
+        // インデックス（/anatomy 完全一致）か配下ページのみを許容し、
+        // /anatomy-archive のような前方一致だけの別ルートは弾く
+        const isAnatomyRoute = entry.href === "/anatomy" || entry.href.startsWith("/anatomy/");
+        expect(isAnatomyRoute, `mismatch: ${entry.href}`).toBe(true);
         continue;
       }
       expect(entry.href.startsWith(`/${entry.category}/`), `mismatch: ${entry.href}`).toBe(true);
