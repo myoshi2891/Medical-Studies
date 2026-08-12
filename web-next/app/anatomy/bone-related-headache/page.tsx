@@ -1036,7 +1036,7 @@ export default function BoneRelatedHeadachePage() {
       </div>
 
       {/* Related links */}
-      <RelatedLinks href="/headaches/bone-related-headache" />
+      <RelatedLinks href="/anatomy/bone-related-headache" />
     </div>
   );
 }

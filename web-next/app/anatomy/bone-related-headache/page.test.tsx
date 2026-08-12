@@ -144,7 +144,7 @@ describe("BoneRelatedHeadachePage: 契約（忠実転記 & 厳格検証）", () 
 });
 
 describe("BoneRelatedHeadachePage: 関連ページ導線", () => {
-  const HREF = "/headaches/bone-related-headache";
+  const HREF = "/anatomy/bone-related-headache";
 
   it("レジストリの関連ページをすべてリンクとして描画する", () => {
     const { container } = render(<BoneRelatedHeadachePage />);

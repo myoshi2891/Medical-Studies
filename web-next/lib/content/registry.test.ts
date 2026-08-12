@@ -105,10 +105,10 @@ describe("CONTENT_REGISTRY: エントリ単体の不変条件", () => {
     }
   });
 
-  it("href がカテゴリと整合する（/anatomy を除き /<category>/<slug> 形式）", () => {
+  it("href がカテゴリと整合する（/anatomy カテゴリは /anatomy で始まる）", () => {
     for (const entry of CONTENT_REGISTRY) {
       if (entry.category === "anatomy") {
-        expect(entry.href).toBe("/anatomy");
+        expect(entry.href.startsWith("/anatomy"), `mismatch: ${entry.href}`).toBe(true);
         continue;
       }
       expect(entry.href.startsWith(`/${entry.category}/`), `mismatch: ${entry.href}`).toBe(true);

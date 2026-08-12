@@ -51,7 +51,16 @@ export function isDropdown(link: NavLink): link is NavDropdown {
 
 export const navLinks: readonly NavLink[] = [
   { name: "Home", href: "/prom-checker" },
-  { name: "Anatomy", href: "/anatomy" },
+  {
+    name: "Anatomy",
+    children: [
+      { name: "3D 解剖アトラス", href: "/anatomy" },
+      {
+        name: "頭痛に関連する骨 (Bone-Related)",
+        href: "/anatomy/bone-related-headache",
+      },
+    ],
+  },
   {
     name: "Headaches",
     children: [
@@ -67,10 +76,6 @@ export const navLinks: readonly NavLink[] = [
       {
         name: "頸原性頭痛 (CEH)",
         href: "/headaches/cervicogenic-headache",
-      },
-      {
-        name: "頭痛に関連する骨 (Bone-Related)",
-        href: "/headaches/bone-related-headache",
       },
       {
         name: "病態生理 (Pathophysiology)",

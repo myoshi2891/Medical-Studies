@@ -47,16 +47,16 @@ describe("SiteHeader - ルート構造", () => {
 });
 
 describe("SiteHeader - ドロップダウン描画", () => {
-  it("renders 5 dropdowns (Headaches/Treatment/Blocks/Therapies/PROM) as .ch-dropdown <li>", () => {
+  it("renders 6 dropdowns (Anatomy/Headaches/Treatment/Blocks/Therapies/PROM) as .ch-dropdown <li>", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const dropdowns = container.querySelectorAll("li.ch-dropdown");
-    expect(dropdowns.length).toBe(5);
+    expect(dropdowns.length).toBe(6);
   });
 
   it("each dropdown toggle has aria-haspopup=true", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const toggles = container.querySelectorAll("li.ch-dropdown .ch-dropdown-toggle");
-    expect(toggles.length).toBe(5);
+    expect(toggles.length).toBe(6);
     toggles.forEach((btn) => {
       expect(btn.getAttribute("aria-haspopup")).toBe("true");
     });
@@ -97,7 +97,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/headaches/migraine");
     expect(hrefs).toContain("/headaches/tension-type-headache");
     expect(hrefs).toContain("/headaches/cervicogenic-headache");
-    expect(hrefs).toContain("/headaches/bone-related-headache");
+    expect(hrefs).toContain("/anatomy/bone-related-headache");
     expect(hrefs).toContain("/headaches/headache-pathophysiology");
     expect(hrefs).toContain("/blocks/occipital-nerve-block");
     expect(hrefs).toContain("/blocks/cervical-plexus-block");
