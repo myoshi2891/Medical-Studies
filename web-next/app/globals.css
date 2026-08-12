@@ -43,6 +43,11 @@ body.has-common-header {
   margin-top: calc(var(--ch-height) + var(--ch-disclaimer-height, 44px) + 10px);
 }
 
+body.has-common-header .sidebar {
+  top: calc(var(--ch-height) + var(--ch-disclaimer-height, 44px) + 10px);
+  height: calc(100vh - var(--ch-height) - var(--ch-disclaimer-height, 44px) - 20px);
+}
+
 .ch-disclaimer {
   position: fixed;
   top: var(--ch-height);
@@ -649,12 +654,13 @@ body.has-common-header {
   --rl-heading: #1f3a52;
   --rl-link: #0b4f8a;
 
-  max-width: 1100px;
-  margin: 40px auto 8px;
-  padding: 20px 22px;
+  max-width: 1360px;
+  margin: 40px auto 32px;
+  padding: 20px 24px;
   border: 1px solid var(--rl-border);
   border-radius: 12px;
   background: var(--rl-surface);
+  box-sizing: border-box;
 }
 
 .related-links h2 {
