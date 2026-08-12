@@ -2497,11 +2497,11 @@ style P4 fill:#27ae60,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/prom/migraine-disability-assessment" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/prom/migraine-disability-assessment" />
 
       {/* FOOTER */}
       <div className="footer">

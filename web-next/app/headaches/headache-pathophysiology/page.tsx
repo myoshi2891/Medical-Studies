@@ -950,11 +950,11 @@ export default function HeadachePathophysiologyPage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/headaches/headache-pathophysiology" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/headaches/headache-pathophysiology" />
 
       {/* FOOTER */}
       <div className="footer">

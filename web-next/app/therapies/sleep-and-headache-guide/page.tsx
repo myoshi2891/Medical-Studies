@@ -1320,11 +1320,11 @@ export default function SleepAndHeadacheGuidePage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/therapies/sleep-and-headache-guide" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/therapies/sleep-and-headache-guide" />
 
       {/* FOOTER */}
       <footer className="footer">

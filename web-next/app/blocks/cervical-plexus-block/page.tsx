@@ -2157,12 +2157,12 @@ style F fill:#e65100,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/blocks/cervical-plexus-block" />
         </main>
       </div>
       {/* end layout */}
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/blocks/cervical-plexus-block" />
 
       {/* FOOTER */}
       <div className="footer">

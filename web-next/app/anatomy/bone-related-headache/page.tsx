@@ -1022,6 +1022,9 @@ export default function BoneRelatedHeadachePage() {
               </div>
             </div>
           </section>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/anatomy/bone-related-headache" />
         </main>
       </div>
 
@@ -1034,9 +1037,6 @@ export default function BoneRelatedHeadachePage() {
         ⚠️
         本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
       </div>
-
-      {/* Related links */}
-      <RelatedLinks href="/anatomy/bone-related-headache" />
     </div>
   );
 }

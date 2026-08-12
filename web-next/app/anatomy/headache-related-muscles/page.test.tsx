@@ -4,23 +4,10 @@ import HeadacheRelatedMusclesPage from "./page";
 
 // MermaidDiagram はコンポーネントテストでモック化
 vi.mock("@/components/MermaidDiagram", () => ({
-  default: ({ chart }: { chart: string }) => (
-    <div className="mermaid" data-chart={chart} />
-  ),
+  default: ({ chart }: { chart: string }) => <div className="mermaid" data-chart={chart} />,
 }));
 
-const SECTION_IDS = [
-  "s1",
-  "s2",
-  "s3",
-  "s4",
-  "s5",
-  "s6",
-  "s7",
-  "s8",
-  "s9",
-  "s10",
-];
+const SECTION_IDS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"];
 
 describe("HeadacheRelatedMusclesPage: 契約テスト", () => {
   it("h1 タイトルが正確に描画される", () => {

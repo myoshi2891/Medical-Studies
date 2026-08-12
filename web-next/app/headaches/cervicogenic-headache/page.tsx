@@ -2046,11 +2046,11 @@ style BLOCK fill:#8e44ad,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/headaches/cervicogenic-headache" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/headaches/cervicogenic-headache" />
 
       {/* FOOTER */}
       <div className="footer">

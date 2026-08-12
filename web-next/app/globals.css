@@ -43,11 +43,6 @@ body.has-common-header {
   margin-top: calc(var(--ch-height) + var(--ch-disclaimer-height, 44px) + 10px);
 }
 
-body.has-common-header .sidebar {
-  top: calc(var(--ch-height) + var(--ch-disclaimer-height, 44px) + 10px);
-  height: calc(100vh - var(--ch-height) - var(--ch-disclaimer-height, 44px) - 20px);
-}
-
 .ch-disclaimer {
   position: fixed;
   top: var(--ch-height);
@@ -646,6 +641,10 @@ body.has-common-header .sidebar {
  * 関連ページ導線（components/content/RelatedLinks）
  * plans/002 Step 3。各コンテンツページはそれぞれ固有のカラーパレットを
  * ローカル変数で持つため、本ブロックはページ側トークンに依存せず自己完結させる。
+ *
+ * 配置規約: 全ページで <main> 内の最終要素として描画する（footer の直前）。
+ * 本文カラムの幅・左右パディングをそのまま継承させるため、ここでは
+ * max-width や margin:auto による独自の中央寄せを行わない。
  * ────────────────────────────────────────────────────────────── */
 
 .related-links {
@@ -654,13 +653,12 @@ body.has-common-header .sidebar {
   --rl-heading: #1f3a52;
   --rl-link: #0b4f8a;
 
-  max-width: 1360px;
-  margin: 40px auto 32px;
-  padding: 20px 24px;
+  box-sizing: border-box;
+  margin: 32px 0 0;
+  padding: 20px 22px;
   border: 1px solid var(--rl-border);
   border-radius: 12px;
   background: var(--rl-surface);
-  box-sizing: border-box;
 }
 
 .related-links h2 {

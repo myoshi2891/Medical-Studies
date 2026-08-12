@@ -2543,11 +2543,11 @@ style RE fill:#880e4f,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/prom/migraine-specific-quality-of-life" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/prom/migraine-specific-quality-of-life" />
 
       {/* FOOTER */}
       <div className="footer">

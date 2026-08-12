@@ -1024,19 +1024,19 @@ export default function MohAcuteUseDaysPage() {
                 </div>
               </div>
             </section>
-
-            {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-            <RelatedLinks href="/treatment/moh-acute-use-days" />
-
-            {/* FOOTER */}
-            <footer className="footer">
-              <strong>Types of Headache — 医療教育コンテンツ</strong>
-              <br />
-              本ページはICHD-3・国際ガイドラインに基づく学術・教育目的の情報整理です。個別の治療推奨・診断・処方ではありません。
-            </footer>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/treatment/moh-acute-use-days" />
         </main>
       </div>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <strong>Types of Headache — 医療教育コンテンツ</strong>
+        <br />
+        本ページはICHD-3・国際ガイドラインに基づく学術・教育目的の情報整理です。個別の治療推奨・診断・処方ではありません。
+      </footer>
     </div>
   );
 }

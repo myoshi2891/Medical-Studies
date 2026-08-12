@@ -840,11 +840,11 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/treatment/headache-workplace-school-accommodations" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/treatment/headache-workplace-school-accommodations" />
 
       {/* FOOTER */}
       <div className="footer">
