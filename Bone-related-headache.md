@@ -61,7 +61,7 @@ flowchart TD
 | 下顎骨 | Mandible | 顔面頭蓋 | 側頭骨と顎関節を形成、TMDに直結 |
 | 頬骨・鼻骨・涙骨・口蓋骨・下鼻甲介・鋤骨 | Zygomatic, Nasal, Lacrimal, Palatine, Inferior nasal concha, Vomer | 顔面頭蓋 | 顔面の輪郭・眼窩・鼻腔を構成 |
 
-出典: NCBI Bookshelf(StatPearls)による各骨の解剖記述 [注1][注2][注3]
+出典: NCBI Bookshelf(StatPearls)による各骨の解剖記述 [注1, 注2, 注3]
 
 さらに、頭蓋骨は単独で存在するのではなく、**頸椎(特に第1頸椎=環椎/C1、第2頸椎=軸椎/C2)** と大後頭孔(foramen magnum)を介して連結しています。この「頭蓋骨と頸椎のつなぎ目」を **頭蓋頸椎移行部(craniocervical junction, CVJ)** と呼び、頭痛の原因として重要な部位です(ステップ4で詳述)。
 
@@ -148,7 +148,7 @@ flowchart TD
 
 ### なぜ「首の骨・関節」の問題が「頭」の痛みとして感じられるのか
 
-このカラクリを理解する鍵が **三叉神経頸髄核(trigeminocervical nucleus)** という神経の中継地点です。三叉神経(顔・前頭部の感覚を担う脳神経)の脊髄路核は、延髄から下降して上位頸髄(C1〜C4付近)の後角にまで連続しています。ここに、三叉神経由来の感覚情報と、上位頸神経(C1〜C3、首の骨・関節由来の感覚情報)が「合流」します。そのため、首の骨や関節の異常刺激が、あたかも頭部(前頭部や眼窩周囲を含む)の痛みであるかのように脳へ伝わってしまうのです[注11][注12]。
+このカラクリを理解する鍵が **三叉神経頸髄核(trigeminocervical nucleus)** という神経の中継地点です。三叉神経(顔・前頭部の感覚を担う脳神経)の脊髄路核は、延髄から下降して上位頸髄(C1〜C4付近)の後角にまで連続しています。ここに、三叉神経由来の感覚情報と、上位頸神経(C1〜C3、首の骨・関節由来の感覚情報)が「合流」します。そのため、首の骨や関節の異常刺激が、あたかも頭部(前頭部や眼窩周囲を含む)の痛みであるかのように脳へ伝わってしまうのです[注11, 注12]。
 
 ```mermaid
 flowchart LR
@@ -184,7 +184,7 @@ flowchart LR
 | 篩骨洞炎(篩骨内) | 両眼の間 |
 | 前頭洞炎(前頭骨内) | 前頭部 |
 
-出典: 米国頭痛学会関連の教育資料(Michael J. Marmura, MD による解説)[注16]
+出典: 米国頭痛学会関連の教育資料（Michael J. Marmura, MD による解説）[注16]
 
 急性副鼻腔炎による頭痛(11.5.1)の診断の考え方は次の通りです。
 
@@ -193,13 +193,13 @@ flowchart LR
 - 片側性の副鼻腔炎であれば、頭痛もその側に局在する
 - 他のICHD-3診断でよりよく説明されない
 
-慢性・反復性副鼻腔炎による頭痛(11.5.2)でも同様の因果関係の基準が用いられますが、慢性の場合はより慎重な評価(鼻内視鏡検査や画像検査での炎症所見の確認)が推奨されます[注17][注18]。
+慢性・反復性副鼻腔炎による頭痛(11.5.2)でも同様の因果関係の基準が用いられますが、慢性の場合はより慎重な評価(鼻内視鏡検査や画像検査での炎症所見の確認)が推奨されます[注17, 注18]。
 
 ---
 
 ## ステップ7: 顎関節(側頭骨)による頭痛 ― TMD(ICHD-3 11.7)
 
-顎関節症(temporomandibular disorders; TMD)は、**側頭骨** と下顎骨の間にある顎関節(TMJ)、およびそれを動かす咀嚼筋群に関する30種類以上の疾患群の総称です。米国国立歯科顎顔面研究所(NIDCR、NIHの一機関)によれば、米国だけで1,100万〜1,200万人の成人が顎関節周囲の痛みを抱えているとされ、頭痛・線維筋痛症など他の疾患と併発することも多いとされています[注19][注20]。
+顎関節症(temporomandibular disorders; TMD)は、**側頭骨** と下顎骨の間にある顎関節(TMJ)、およびそれを動かす咀嚼筋群に関する30種類以上の疾患群の総称です。米国国立歯科顎顔面研究所(NIDCR、NIHの一機関)によれば、米国だけで1,100万〜1,200万人の成人が顎関節周囲の痛みを抱えているとされ、頭痛・線維筋痛症など他の疾患と併発することも多いとされています[注19, 注20]。
 
 ICHD-3の11.7では、TMDに起因する頭痛について次のように整理されています。
 
@@ -213,7 +213,7 @@ ICHD-3の11.7では、TMDに起因する頭痛について次のように整理�
 
 ## ステップ8: 後頭部の骨と神経 ― 後頭神経痛
 
-**後頭神経痛(occipital neuralgia)** は、後頭骨の下縁から頭皮に向かって走行する **大後頭神経(greater occipital nerve)** ・小後頭神経(lesser occipital nerve)が、骨・筋膜のトンネルを通過する部分などで刺激・絞扼されることによって生じる、電気が走るような鋭い痛みを特徴とする病態です。大後頭神経は解剖学的に第2頸神経(C2)後枝の内側枝であり、軸椎(C2)周囲の骨・靱帯構造と密接に関係しています[注24][注25]。
+**後頭神経痛(occipital neuralgia)** は、後頭骨の下縁から頭皮に向かって走行する **大後頭神経(greater occipital nerve)** ・小後頭神経(lesser occipital nerve)が、骨・筋膜のトンネルを通過する部分などで刺激・絞扼されることによって生じる、電気が走るような鋭い痛みを特徴とする病態です。大後頭神経は解剖学的に第2頸神経(C2)後枝の内側枝であり、軸椎(C2)周囲の骨・靱帯構造と密接に関係しています[注24, 注25]。
 
 痛みは首の後ろから始まり、頭皮・前頭部・眼の奥にまで広がることがあり、頭皮の接触過敏や光過敏を伴うこともあります[注25]。
 
@@ -268,7 +268,7 @@ flowchart TD
 以下はすべて国際的に認知された学術・専門機関による情報源です。
 
 **国際頭痛分類 第3版(ICHD-3)/ 国際頭痛学会(International Headache Society)**
-- [注4][注13][注15][注17][注18][注21][注27] ICHD-3 公式サイト トップページ: https://ichd-3.org/
+- [注4, 注13, 注15, 注17, 注18, 注21, 注27] ICHD-3 公式サイト トップページ: https://ichd-3.org/
 - 分類全体の一覧: https://ichd-3.org/classification-outline/
 - 第11章 総論: https://ichd-3.org/11-headache-or-facial-pain-attributed-to-disorder-of-the-cranium-neck-eyes-ears-nose-sinuses-teeth-mouth-or-other-facial-or-cervical-structure/
 - 11.1 頭蓋骨の障害に起因する頭痛: https://ichd-3.org/11-headache-or-facial-pain-attributed-to-disorder-of-the-cranium-neck-eyes-ears-nose-sinuses-teeth-mouth-or-other-facial-or-cervical-structure/11-1-headache-attributed-to-disorder-of-cranial-bone/
@@ -282,16 +282,16 @@ flowchart TD
 - 11.9 その他の構造に起因する頭痛: https://ichd-3.org/11-headache-or-facial-pain-attributed-to-disorder-of-the-cranium-neck-eyes-ears-nose-sinuses-teeth-mouth-or-other-facial-or-cervical-structure/11-9-headache-or-facial-pain-attributed-to-other-disorder-of-cranium-neck-eyes-ears-nose-sinuses-teeth-mouth-or-other-facial-or-cervical-structure/
 
 **米国国立衛生研究所(NIH)関連**
-- [注1][注2][注3] NCBI Bookshelf(StatPearls)前頭骨: https://www.ncbi.nlm.nih.gov/books/NBK535424/
+- [注1, 注2, 注3] NCBI Bookshelf(StatPearls)前頭骨: https://www.ncbi.nlm.nih.gov/books/NBK535424/
 - NCBI Bookshelf(StatPearls)後頭骨・動脈・静脈・神経: https://www.ncbi.nlm.nih.gov/books/NBK541093/
 - NCBI Bookshelf(StatPearls)蝶形骨: https://www.ncbi.nlm.nih.gov/books/NBK544308/
 - NCBI Bookshelf(StatPearls)頭蓋骨孔: https://www.ncbi.nlm.nih.gov/books/NBK546621/
 - NCBI Bookshelf(StatPearls)頭蓋骨画像診断: https://www.ncbi.nlm.nih.gov/books/NBK556122/
 - [注14] NCBI Bookshelf(StatPearls)頸原性頭痛: https://www.ncbi.nlm.nih.gov/books/NBK507862/
 - [注5] NINDS「キアリ奇形」: https://www.ninds.nih.gov/health-information/disorders/chiari-malformation
-- [注19][注22] NIDCR/米国科学・工学・医学アカデミー 顎関節症(TMD)関連資料: https://www.nationalacademies.org/projects/HMD-HSP-18-21
+- [注19, 注22] NIDCR/米国科学・工学・医学アカデミー 顎関節症(TMD)関連資料: https://www.nationalacademies.org/projects/HMD-HSP-18-21
 - [注20] 医療技術評価機関(AHRQ)委託によるTMD治療ガイドラインに関する技術概要: https://effectivehealthcare.ahrq.gov/sites/default/files/nt_docs/1029-temporomandibular-dysfunction-topic-brief.pdf
-- [注24][注12] PMC(NIH/NLM収載論文)大後頭神経の形態学的特徴: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10780152/
+- [注12, 注24] PMC(NIH/NLM収載論文)大後頭神経の形態学的特徴: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10780152/
 - [注11] PMC(NIH/NLM収載論文)後頭神経痛による顔面症状の報告: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5346380/
 - [注9] PMC(NIH/NLM収載論文)頭蓋底陥入症とキアリ奇形I型の症例報告: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10518641/
 
