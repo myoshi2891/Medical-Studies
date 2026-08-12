@@ -228,14 +228,48 @@
   border-left: 4px solid var(--msc3);
 }
 
+.headache-related-muscles .related-links {
+  box-sizing: border-box;
+  margin: 32px 0 0;
+  padding: 20px 22px;
+  border: 1px solid #d3dde6;
+  border-radius: 12px;
+  background: #f4f7fa;
+}
+
 .headache-related-muscles .related-links h2 {
   margin: 0 0 12px;
-  padding-left: 0;
+  padding: 0;
   border: 0;
   border-left: none;
   font-size: 16px;
   font-weight: 700;
   color: #1f3a52;
+}
+
+.headache-related-muscles .related-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.headache-related-muscles .related-links li {
+  margin: 0;
+}
+
+.headache-related-muscles .related-links a {
+  color: #0b4f8a;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.headache-related-muscles .related-links a:hover,
+.headache-related-muscles .related-links a:focus-visible {
+  text-decoration-thickness: 2px;
 }
 
 .headache-related-muscles h3 {
