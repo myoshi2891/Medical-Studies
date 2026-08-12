@@ -4,10 +4,10 @@
 
 ## 現在地
 
-- **最新 HEAD**: `c1c063d` fix(anatomy): correct broken physical therapy link
-- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。**テスト 666 passed / 69 ファイル**
-  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-11、HEAD `c1c063d`
-  ＋レビュー指摘対応の作業ツリー変更適用後。変更前の HEAD `c1c063d` 素の値は 657 passed / 69 ファイル）。
+- **最新 HEAD**: `f004704` fix(web-next): CONTENT_REGISTRYの/anatomyルート一致検証ロジックを修正
+- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。**テスト 694 passed / 72 ファイル**
+  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-12、HEAD `f004704`
+  ＋レビュー指摘対応の作業ツリー変更適用後）。
   内訳はアーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／
   PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／
   コンテンツレジストリ・sitemap・RelatedLinks・サイト横断検索（`SiteSearch`）・CSP（`lib/security/csp.ts`）。
@@ -68,8 +68,8 @@
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
 | Phase 5 | 外部連携: Google スプレッドシート同期 + CSV エクスポート | ✅ 完了 |
 
-- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統（`lib/prom` / `components/prom` / `app/prom-checker` / `lib/export`）は計 130 passed
-  ＝ web-next 全体 666 passed / 69 ファイルの一部（**いずれも HEAD `3745329` 時点・2026-08-11 の実測値**。
+- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統（`lib/prom` / `components/prom` / `app/prom-checker` / `lib/export`）は計 132 passed
+  ＝ web-next 全体 694 passed / 72 ファイルの一部（**いずれも HEAD `f004704` 時点・2026-08-12 の実測値**。
   実行範囲は `bunx vitest run lib/prom components/prom app/prom-checker lib/export` と
   `bun run test`）。typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
@@ -135,22 +135,22 @@
   `components/treatment/MohAcuteUseDaysSidebar.tsx`, `components/therapies/AerobicExerciseSidebar.tsx`, `components/therapies/SleepAndHeadacheSidebar.tsx`, `components/treatment/CgrpPathwaySidebar.tsx`, `components/treatment/MigrainePreventionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` / `.aerobic-exercise-accent` / `.sleep-guide` / `.cgrp-pathway-headache-treatments` / `.migraine-prevention` などでスコープ。
-- **テスト**: アーキタイプ A（`app/{headaches,blocks,therapies,prom,treatment,anatomy}` + `lib/anatomy` + `components/anatomy`）は計 363 passed ＝ web-next 全体 585 passed の一部（**いずれも HEAD `fe21e7d` 時点の実測値**。現行の全体値は 666 passed / 69 ファイル — 上記「現在地」参照）。lint / typecheck / test 全通過。
-- **横断基盤（plans/007 A・D / plans/002 Step 3）**: `lib/content/registry.ts` に全 30 コンテンツルートの
+- **テスト**: アーキタイプ A（`app/{headaches,blocks,therapies,prom,treatment,anatomy}` + `lib/anatomy` + `components/anatomy`）は計 432 passed ＝ web-next 全体 694 passed の一部（**いずれも HEAD `f004704` 時点・2026-08-12 の実測値**。全体値は上記「現在地」参照）。lint / typecheck / test 全通過。
+- **横断基盤（plans/007 A・D / plans/002 Step 3）**: `lib/content/registry.ts` に全 32 コンテンツルートの
   メタ（カテゴリ・`lastReviewed`・`related`）を宣言的に集約し、`getEntry` / `getRelated` を純関数で提供
-  （`lib/anatomy` パターン踏襲）。これを単一データ源として `app/sitemap.ts`（コンテンツ 30 + 静的 4 = 34 URL）と
+  （`lib/anatomy` パターン踏襲）。これを単一データ源として `app/sitemap.ts`（コンテンツ 32 + 静的 4 = 36 URL）と
   `components/content/RelatedLinks.tsx`（関連ページ導線・Server Component）が動く。`registry.test.ts` は
   `node:fs` で `app/**/page.tsx` を走査し、登録漏れ・幽霊エントリ・dangling 参照を機械検知する。
 - **RelatedLinks の適用件数（2026-08-11 実測。定義は `plans/README.md` の注記に統一）**:
 
   | 指標 | 現在値 |
   |---|---|
-  | レジストリ登録数（`CONTENT_REGISTRY.length`） | 30 |
-  | コンポーネント配置数（`<RelatedLinks>` を描画する `page.tsx`） | 30 |
-  | 関連リンク表示数（`getRelated(href).length > 0` のルート） | 30（各 3〜4 本） |
+  | レジストリ登録数（`CONTENT_REGISTRY.length`） | 32 |
+  | コンポーネント配置数（`<RelatedLinks>` を描画する `page.tsx`） | 32 |
+  | 関連リンク表示数（`getRelated(href).length > 0` のルート） | 32（各 3〜4 本） |
 
   3 指標は現在すべて一致している。**配置＝表示は保証ではない**ため（`related` が空なら配置しても 0 本）、
-  一致が崩れた場合はどの数を指すか明示すること。sitemap の 34 URL はコンテンツ 30 + 静的 4 で母数が異なる。
+  一致が崩れた場合はどの数を指すか明示すること。sitemap の 36 URL はコンテンツ 32 + 静的 4 で母数が異なる。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → RelatedLinks 適用済みの
   `/headaches/medication-overuse-headache` および `/treatment/moh-acute-use-days`。
   関連ページ導線は `/treatment/moh-acute-use-days` ↔ `/headaches/medication-overuse-headache` の双方向遷移を確認済み。
@@ -162,9 +162,9 @@
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
 - 最新 HEAD: c1c063d
-- テスト: 666 passed / 69 ファイル（`web-next` で `bun run test` 全件・2026-08-11 実測）
+- テスト: 694 passed / 72 ファイル（`web-next` で `bun run test` 全件・2026-08-12 実測）
 - 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／plans/015 の決定ゲート判断／コンテンツ SSoT 方針の決定
-- 完了済み（再着手不要）: plans/007 全 Step（横断検索コア・ナビ再設計の判断）／RelatedLinks の全 30 ページ展開
+- 完了済み（再着手不要）: plans/007 全 Step（横断検索コア・ナビ再設計の判断）／RelatedLinks の全 32 ページ展開
 - 未移行 HTML 残数: 0
 - 注意: コンテンツ SSoT（Types-of-headache/）はリポジトリ外。新規コンテンツ執筆は方針決定まで保留
 ```
