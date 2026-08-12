@@ -17,7 +17,7 @@
   --cvn-l:#e5f4f2;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
 
 /* Hero */
@@ -361,10 +361,10 @@ flowchart TD
 
   <div class="qr-grid" style="margin-bottom:4px">
     <div class="qr" style="padding:10px 16px">
-      <span class="bA">bA</span> システマティックレビュー／メタ分析（最高レベル）　
-      <span class="bB">bB</span> ランダム化比較試験（RCT）　
-      <span class="bC">bC</span> 横断研究／観察研究　
-      <span class="bU">bU</span> 専門家見解／ポジションペーパー
+      <span class="bA">システマティックレビュー／メタ分析（最高レベル）</span>　
+      <span class="bB">ランダム化比較試験（RCT）</span>　
+      <span class="bC">横断研究／観察研究</span>　
+      <span class="bU">専門家見解／ポジションペーパー</span>
     </div>
   </div>
 
@@ -379,28 +379,28 @@ flowchart TD
           <td>システマティックレビュー＋メタ分析</td>
           <td>15研究・2,339人</td>
           <td>頸部痛のある人はFHPの角度が有意に大きい（平均差4.84度）。ただし因果関係の証明にはなお議論の余地があると結論</td>
-          <td><span class="bA">bA</span></td>
+          <td><span class="bA">SR／メタ分析</span></td>
         </tr>
         <tr>
           <td>Usen &amp; Demiroz Gunduz, 2025</td>
           <td>横断研究</td>
           <td>117人（FHPを有する頸部痛患者）</td>
           <td>FHP患者の53.8%が頸原性頭痛を併発。CVAが小さい（頭部前方位が強い）ほど頸原性頭痛のリスクが高い</td>
-          <td><span class="bC">bC</span></td>
+          <td><span class="bC">横断研究</span></td>
         </tr>
         <tr>
           <td>Fernández-de-las-Peñas ら, 2022</td>
           <td>専門家によるポジションペーパー</td>
           <td>—</td>
           <td>緊張型頭痛患者にも頭部前方位・頸部可動域制限・頸部感作が共通してみられると報告</td>
-          <td><span class="bU">bU</span></td>
+          <td><span class="bU">専門家見解</span></td>
         </tr>
         <tr>
           <td>Jull et al., 2002</td>
           <td>ランダム化比較試験（RCT）</td>
           <td>200人（頸原性頭痛患者）</td>
           <td>頸部エクササイズと徒手療法により、12ヶ月後も頭痛の頻度・強度が有意に改善（対照群と比較）</td>
-          <td><span class="bB">bB</span></td>
+          <td><span class="bB">RCT</span></td>
         </tr>
       </tbody>
     </table>
@@ -712,7 +712,8 @@ navAs.forEach(a => {
     e.preventDefault();
     const id = a.getAttribute('href').slice(1);
     const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:'smooth'});
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(el) el.scrollIntoView(reduce ? undefined : {behavior:'smooth'});
   });
 });
 
