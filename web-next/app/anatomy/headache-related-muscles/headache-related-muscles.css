@@ -220,18 +220,29 @@
 }
 
 .headache-related-muscles h2 {
-  font-size: clamp(17px, 2.5vw, 24px);
-  font-weight: 700;
-  color: var(--msc1);
-}
-
-.headache-related-muscles h3 {
   font-size: 16px;
   font-weight: 700;
   color: var(--msc2);
   margin: 22px 0 10px;
   padding-left: 10px;
   border-left: 4px solid var(--msc3);
+}
+
+.headache-related-muscles .related-links h2 {
+  margin: 0 0 12px;
+  padding-left: 0;
+  border: 0;
+  border-left: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f3a52;
+}
+
+.headache-related-muscles h3 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 16px 0 8px;
 }
 
 .headache-related-muscles p {

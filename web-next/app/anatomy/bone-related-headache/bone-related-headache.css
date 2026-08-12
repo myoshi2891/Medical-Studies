@@ -229,6 +229,16 @@
   border-left: 4px solid var(--bhd3);
 }
 
+.bone-related-headache .related-links h2 {
+  margin: 0 0 12px;
+  padding-left: 0;
+  border: 0;
+  border-left: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f3a52;
+}
+
 .bone-related-headache h3 {
   font-size: 14.5px;
   font-weight: 700;

@@ -911,11 +911,11 @@ export default function HeadacheRelatedMusclesPage() {
               </div>
             </div>
           </section>
+
+          {/* Related links */}
+          <RelatedLinks href="/anatomy/headache-related-muscles" />
         </main>
       </div>
-
-      {/* Related links */}
-      <RelatedLinks href="/anatomy/headache-related-muscles" />
 
       {/* FOOTER */}
       <div className="footer">
