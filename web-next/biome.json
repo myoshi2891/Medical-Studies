@@ -45,6 +45,7 @@
       "!app/therapies/sleep-and-headache-guide/sleep-and-headache-guide.css",
       "!app/blocks/superior-cervical-ganglion-block/superior-cervical-ganglion-block.css",
       "!app/anatomy/bone-related-headache/bone-related-headache.css",
+      "!app/anatomy/headache-related-muscles/headache-related-muscles.css",
       "!public/draco"
     ]
   },
