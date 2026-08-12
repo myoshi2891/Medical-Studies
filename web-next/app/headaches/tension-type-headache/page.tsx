@@ -251,7 +251,7 @@ style SAFE fill:#27ae60,color:#fff
 style MANAGE fill:#e67e22,color:#fff`;
 
 /**
- * Renders an educational guide to tension-type headache, including its classification, diagnosis, assessment, and management.
+ * Renders an educational guide to tension-type headache covering its classification, diagnosis, assessment, treatment, and prevention.
  */
 export default function TensionTypeHeadachePage() {
   return (

@@ -14,6 +14,13 @@ function isActivePath(href: string, pathname: string): boolean {
   return href === pathname;
 }
 
+/**
+ * Determines whether a dropdown navigation item has an active enabled child.
+ *
+ * @param link - The navigation item to inspect
+ * @param pathname - The current pathname
+ * @returns `true` if an enabled child exactly matches the pathname, `false` otherwise.
+ */
 function isParentActive(link: NavLink, pathname: string): boolean {
   if (!isDropdown(link)) return false;
   return link.children.some((c) => !c.disabled && isActivePath(c.href, pathname));
