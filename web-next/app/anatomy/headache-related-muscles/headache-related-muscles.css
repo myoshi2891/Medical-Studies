@@ -33,7 +33,9 @@
   --msc3: #c9506f;
   --msc-l: #fbeef1;
 
-  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-family:
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans JP",
+    "Segoe UI", Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
   color: var(--g9);
@@ -41,7 +43,10 @@
   min-height: 100vh;
 }
 
-.headache-related-muscles * {
+/* 共有コンポーネント（RelatedLinks 等）にはページ固有のリセット／要素スタイルを
+   適用せず、globals.css の共通定義をそのまま効かせる。
+   :where() は詳細度 0 のため、既存カスケードの優先順位は変わらない。 */
+.headache-related-muscles *:where(:not(.related-links, .related-links *)) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -219,57 +224,13 @@
   border-left: none;
 }
 
-.headache-related-muscles h2 {
+.headache-related-muscles h2:where(:not(.related-links *)) {
   font-size: 16px;
   font-weight: 700;
   color: var(--msc2);
   margin: 22px 0 10px;
   padding-left: 10px;
   border-left: 4px solid var(--msc3);
-}
-
-.headache-related-muscles .related-links {
-  box-sizing: border-box;
-  margin: 32px 0 0;
-  padding: 20px 22px;
-  border: 1px solid #d3dde6;
-  border-radius: 12px;
-  background: #f4f7fa;
-}
-
-.headache-related-muscles .related-links h2 {
-  margin: 0 0 12px;
-  padding: 0;
-  border: 0;
-  border-left: none;
-  font-size: 16px;
-  font-weight: 700;
-  color: #1f3a52;
-}
-
-.headache-related-muscles .related-links ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.headache-related-muscles .related-links li {
-  margin: 0;
-}
-
-.headache-related-muscles .related-links a {
-  color: #0b4f8a;
-  font-size: 14px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.headache-related-muscles .related-links a:hover,
-.headache-related-muscles .related-links a:focus-visible {
-  text-decoration-thickness: 2px;
 }
 
 .headache-related-muscles h3 {
@@ -284,21 +245,21 @@
   color: var(--g8);
 }
 
-.headache-related-muscles ul,
-.headache-related-muscles ol {
+.headache-related-muscles ul:where(:not(.related-links *)),
+.headache-related-muscles ol:where(:not(.related-links *)) {
   padding-left: 20px;
   margin-bottom: 10px;
 }
 
-.headache-related-muscles li {
+.headache-related-muscles li:where(:not(.related-links *)) {
   margin-bottom: 4px;
 }
 
-.headache-related-muscles a {
+.headache-related-muscles a:where(:not(.related-links *)) {
   color: var(--blue);
 }
 
-.headache-related-muscles a:hover {
+.headache-related-muscles a:hover:where(:not(.related-links *)) {
   text-decoration: underline;
 }
 
@@ -498,7 +459,7 @@
 }
 
 .headache-related-muscles .mmd-lbl::before {
-  content: '';
+  content: "";
   width: 10px;
   height: 10px;
   border-radius: 2px;

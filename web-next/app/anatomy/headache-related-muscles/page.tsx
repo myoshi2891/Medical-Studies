@@ -716,65 +716,57 @@ export default function HeadacheRelatedMusclesPage() {
               <div className="src">
                 <div className="src-org">International Headache Society</div>
                 <div className="src-t">ICHD-3 公式分類：緊張型頭痛の項</div>
-                <div className="src-url">
-                  <Ext href="https://ichd-3.org/2-tension-type-headache/">
-                    ichd-3.org/2-tension-type-headache
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://ichd-3.org/2-tension-type-headache/">
+                  ichd-3.org/2-tension-type-headache
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">International Headache Society</div>
                 <div className="src-t">ICHD-3 公式分類アウトライン</div>
-                <div className="src-url">
-                  <Ext href="https://ichd-3.org/classification-outline/">
-                    ichd-3.org/classification-outline
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://ichd-3.org/classification-outline/">
+                  ichd-3.org/classification-outline
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">International Headache Society</div>
                 <div className="src-t">ICHD-3 第3版 公式PDF</div>
-                <div className="src-url">
-                  <Ext href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf">
-                    ichd-3.org（公式PDF）
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://ichd-3.org/wp-content/uploads/2018/01/The-International-Classification-of-Headache-Disorders-3rd-Edition-2018.pdf"
+                >
+                  ichd-3.org（公式PDF）
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">International Headache Society</div>
                 <div className="src-t">緊張型頭痛の疫学に関する公式ページ</div>
-                <div className="src-url">
-                  <Ext href="https://ihs-headache.org/en/resources/tension-type-headache-awareness-campaign/">
-                    ihs-headache.org
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://ihs-headache.org/en/resources/tension-type-headache-awareness-campaign/"
+                >
+                  ihs-headache.org
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">NCBI StatPearls</div>
                 <div className="src-t">Muscle Contraction Tension Headache</div>
-                <div className="src-url">
-                  <Ext href="https://www.ncbi.nlm.nih.gov/books/NBK562274/">
-                    ncbi.nlm.nih.gov/books/NBK562274
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://www.ncbi.nlm.nih.gov/books/NBK562274/">
+                  ncbi.nlm.nih.gov/books/NBK562274
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">NCBI StatPearls</div>
                 <div className="src-t">Anatomy, Head and Neck, Suboccipital Muscles</div>
-                <div className="src-url">
-                  <Ext href="https://www.ncbi.nlm.nih.gov/books/NBK567762/">
-                    ncbi.nlm.nih.gov/books/NBK567762
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://www.ncbi.nlm.nih.gov/books/NBK567762/">
+                  ncbi.nlm.nih.gov/books/NBK567762
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">NCBI StatPearls</div>
                 <div className="src-t">Neuroanatomy, Suboccipital Nerve</div>
-                <div className="src-url">
-                  <Ext href="https://www.ncbi.nlm.nih.gov/books/NBK556133/">
-                    ncbi.nlm.nih.gov/books/NBK556133
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://www.ncbi.nlm.nih.gov/books/NBK556133/">
+                  ncbi.nlm.nih.gov/books/NBK556133
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">PubMed</div>
@@ -782,78 +774,77 @@ export default function HeadacheRelatedMusclesPage() {
                   Fernández-de-las-Peñas et al.
                   慢性緊張型頭痛におけるトリガーポイントと臨床パラメータの関係
                 </div>
-                <div className="src-url">
-                  <Ext href="https://pubmed.ncbi.nlm.nih.gov/16942471/">
-                    pubmed.ncbi.nlm.nih.gov/16942471
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/16942471/">
+                  pubmed.ncbi.nlm.nih.gov/16942471
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">PMC（NIH）</div>
                 <div className="src-t">
                   小児の慢性緊張型頭痛における頭頸部トリガーポイントからの関連痛
                 </div>
-                <div className="src-url">
-                  <Ext href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3056016/">
-                    pmc.ncbi.nlm.nih.gov/PMC3056016
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3056016/">
+                  pmc.ncbi.nlm.nih.gov/PMC3056016
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Cephalalgia</div>
                 <div className="src-t">
                   Bendtsen L. Central Sensitization in Tension-Type Headache（2000）
                 </div>
-                <div className="src-url">
-                  <Ext href="https://journals.sagepub.com/doi/10.1046/j.1468-2982.2000.00070.x">
-                    journals.sagepub.com
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://journals.sagepub.com/doi/10.1046/j.1468-2982.2000.00070.x"
+                >
+                  journals.sagepub.com
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Neurologic Clinics</div>
                 <div className="src-t">Bendtsen L, Jensen R. Tension-type headache（2009）</div>
-                <div className="src-url">
-                  <Ext href="https://pubmed.ncbi.nlm.nih.gov/19289230/">
-                    pubmed.ncbi.nlm.nih.gov/19289230
-                  </Ext>
-                </div>
+                <Ext className="src-url" href="https://pubmed.ncbi.nlm.nih.gov/19289230/">
+                  pubmed.ncbi.nlm.nih.gov/19289230
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Practical Neurology</div>
                 <div className="src-t">Cervical Spine Considerations in Headache Management</div>
-                <div className="src-url">
-                  <Ext href="https://practicalneurology.com/archives/may-jun-2025-issue/cervical-spine-considerations-in-headache-management/35799/">
-                    practicalneurology.com
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://practicalneurology.com/archives/may-jun-2025-issue/cervical-spine-considerations-in-headache-management/35799/"
+                >
+                  practicalneurology.com
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">ASRA Pain Medicine</div>
                 <div className="src-t">Cervicogenic Headache</div>
-                <div className="src-url">
-                  <Ext href="https://asra.com/news-publications/asra-updates/blog-landing/legacy-b-blog-posts/2019/08/06/cervicogenic-headache">
-                    asra.com
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://asra.com/news-publications/asra-updates/blog-landing/legacy-b-blog-posts/2019/08/06/cervicogenic-headache"
+                >
+                  asra.com
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">TeachMeAnatomy</div>
                 <div className="src-t">Suboccipital Muscles（筋硬膜橋についての記述を含む）</div>
-                <div className="src-url">
-                  <Ext href="https://teachmeanatomy.info/neck/muscles/suboccipital/">
-                    teachmeanatomy.info
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://teachmeanatomy.info/neck/muscles/suboccipital/"
+                >
+                  teachmeanatomy.info
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">Kenhub</div>
                 <div className="src-t">Suboccipital Triangle</div>
-                <div className="src-url">
-                  <Ext href="https://www.kenhub.com/en/library/anatomy/suboccipital-triangle">
-                    kenhub.com
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://www.kenhub.com/en/library/anatomy/suboccipital-triangle"
+                >
+                  kenhub.com
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">PMC（NIH）</div>
@@ -861,53 +852,58 @@ export default function HeadacheRelatedMusclesPage() {
                   The global prevalence of headache disorders of public-health
                   importance（メタ解析）
                 </div>
-                <div className="src-url">
-                  <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12502191/">
-                    ncbi.nlm.nih.gov/pmc/PMC12502191
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12502191/"
+                >
+                  ncbi.nlm.nih.gov/pmc/PMC12502191
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">PMC（NIH）</div>
                 <div className="src-t">
                   Trigger Point Therapy Techniques for Tension Headaches（システマティックレビュー）
                 </div>
-                <div className="src-url">
-                  <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11431695/">
-                    ncbi.nlm.nih.gov/pmc/PMC11431695
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11431695/"
+                >
+                  ncbi.nlm.nih.gov/pmc/PMC11431695
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">PMC（NIH）</div>
                 <div className="src-t">
                   Physical Therapy in Tension-Type Headache: Systematic Review of RCTs
                 </div>
-                <div className="src-url">
-                  <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10001815/">
-                    ncbi.nlm.nih.gov/pmc/PMC10001815
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10001815/"
+                >
+                  ncbi.nlm.nih.gov/pmc/PMC10001815
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">PMC（NIH）</div>
                 <div className="src-t">
                   Effectiveness of Trigger Point Manual Treatment on Primary Headaches（メタ解析）
                 </div>
-                <div className="src-url">
-                  <Ext href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5928320/">
-                    ncbi.nlm.nih.gov/pmc/PMC5928320
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5928320/"
+                >
+                  ncbi.nlm.nih.gov/pmc/PMC5928320
+                </Ext>
               </div>
               <div className="src">
                 <div className="src-org">MedLink Neurology</div>
                 <div className="src-t">Tension-type headache</div>
-                <div className="src-url">
-                  <Ext href="https://www.medlink.com/articles/tension-type-headache">
-                    medlink.com
-                  </Ext>
-                </div>
+                <Ext
+                  className="src-url"
+                  href="https://www.medlink.com/articles/tension-type-headache"
+                >
+                  medlink.com
+                </Ext>
               </div>
             </div>
           </section>

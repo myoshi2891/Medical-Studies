@@ -176,7 +176,7 @@ export default function BoneRelatedHeadachePage() {
                     <td>Temporal bone</td>
                     <td>脳頭蓋</td>
                     <td>
-                      側頭骨と顎関節(TMJ)・乳様突起・茎状突起・中耳を含み、TMD・乳様突起炎・Eagle症候群の起点
+                      顎関節(TMJ)・乳様突起・茎状突起・中耳を含み、TMD・乳様突起炎・Eagle症候群の起点
                     </td>
                   </tr>
                   <tr>

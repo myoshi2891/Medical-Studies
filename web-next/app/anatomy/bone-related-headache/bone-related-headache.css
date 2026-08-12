@@ -33,7 +33,9 @@
   --bhd3: #78909c;
   --bhd-l: #eceff1;
 
-  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-family:
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans JP",
+    "Segoe UI", Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
   color: var(--g9);
@@ -41,7 +43,10 @@
   min-height: 100vh;
 }
 
-.bone-related-headache * {
+/* 共有コンポーネント（RelatedLinks 等）にはページ固有のリセット／要素スタイルを
+   適用せず、globals.css の共通定義をそのまま効かせる。
+   :where() は詳細度 0 のため、既存カスケードの優先順位は変わらない。 */
+.bone-related-headache *:where(:not(.related-links, .related-links *)) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -221,57 +226,13 @@
   border-left: none;
 }
 
-.bone-related-headache h2 {
+.bone-related-headache h2:where(:not(.related-links *)) {
   font-size: 16px;
   font-weight: 700;
   color: var(--bhd2);
   margin: 22px 0 10px;
   padding-left: 10px;
   border-left: 4px solid var(--bhd3);
-}
-
-.bone-related-headache .related-links {
-  box-sizing: border-box;
-  margin: 32px 0 0;
-  padding: 20px 22px;
-  border: 1px solid #d3dde6;
-  border-radius: 12px;
-  background: #f4f7fa;
-}
-
-.bone-related-headache .related-links h2 {
-  margin: 0 0 12px;
-  padding: 0;
-  border: 0;
-  border-left: none;
-  font-size: 16px;
-  font-weight: 700;
-  color: #1f3a52;
-}
-
-.bone-related-headache .related-links ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.bone-related-headache .related-links li {
-  margin: 0;
-}
-
-.bone-related-headache .related-links a {
-  color: #0b4f8a;
-  font-size: 14px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.bone-related-headache .related-links a:hover,
-.bone-related-headache .related-links a:focus-visible {
-  text-decoration-thickness: 2px;
 }
 
 .bone-related-headache h3 {
@@ -286,21 +247,21 @@
   color: var(--g8);
 }
 
-.bone-related-headache ul,
-.bone-related-headache ol {
+.bone-related-headache ul:where(:not(.related-links *)),
+.bone-related-headache ol:where(:not(.related-links *)) {
   padding-left: 20px;
   margin-bottom: 10px;
 }
 
-.bone-related-headache li {
+.bone-related-headache li:where(:not(.related-links *)) {
   margin-bottom: 4px;
 }
 
-.bone-related-headache a {
+.bone-related-headache a:where(:not(.related-links *)) {
   color: var(--blue);
 }
 
-.bone-related-headache a:hover {
+.bone-related-headache a:hover:where(:not(.related-links *)) {
   text-decoration: underline;
 }
 
@@ -533,7 +494,7 @@
 }
 
 .bone-related-headache .mmd-lbl::before {
-  content: '';
+  content: "";
   width: 10px;
   height: 10px;
   border-radius: 2px;
