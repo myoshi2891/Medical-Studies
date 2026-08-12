@@ -16,6 +16,9 @@ const VNS_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to VAS, NRS, and VRS pain-intensity assessment, including interpretation, psychometric properties, clinical workflows, special-population considerations, and applications in headache medicine.
+ */
 export default function NumericalRatingScaleVisualAnalogueScalePage() {
   return (
     <div className="nrs-vas-accent">

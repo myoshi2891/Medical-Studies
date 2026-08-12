@@ -42,6 +42,11 @@ interface IndexEntry {
 /** レジストリから検索索引を一度だけ構築する（モジュールロード時に確定）。 */
 const INDEX: readonly IndexEntry[] = buildIndex();
 
+/**
+ * Builds the search index from the registered content entries.
+ *
+ * @returns The indexed content entries with searchable text and display metadata
+ */
 function buildIndex(): IndexEntry[] {
   const entries: IndexEntry[] = [];
   for (const entry of CONTENT_REGISTRY) {
@@ -62,10 +67,10 @@ function buildIndex(): IndexEntry[] {
 }
 
 /**
- * クエリでコンテンツ索引を照合し、ヒットをレジストリ宣言順で返す。
+ * Searches the content index for pages matching a query.
  *
- * @param query - 検索語（日英・略称可、大文字小文字非依存、前後空白は無視）。空・空白のみは `[]`。
- * @returns 一致したページのヒット（href 重複なし）。
+ * @param query - The search term; matching ignores case and surrounding whitespace.
+ * @returns Matching page hits in registry order, without duplicate `href` values; an empty array for blank queries.
  */
 export function searchContent(query: string): ContentSearchHit[] {
   const q = query.trim().toLowerCase();

@@ -26,6 +26,8 @@ const ACCOMMODATIONS_MERMAID_THEME: Record<string, string> = {
 
 /**
  * Presents educational information about headache accommodations and support in workplace and school settings.
+ *
+ * @returns The rendered workplace and school headache accommodations page.
  */
 export default function HeadacheWorkplaceSchoolAccommodationsPage() {
   return (

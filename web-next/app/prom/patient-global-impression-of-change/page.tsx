@@ -16,6 +16,9 @@ const PGIC_MERMAID_THEME = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational overview of the Patient Global Impression of Change (PGIC) and its application in headache medicine.
+ */
 export default function PatientGlobalImpressionOfChangePage() {
   return (
     <div className="pgic-accent">

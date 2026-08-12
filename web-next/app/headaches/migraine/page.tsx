@@ -18,7 +18,7 @@ const MIGRAINE_MERMAID_THEME = {
 };
 
 /**
- * Renders the comprehensive migraine guide page.
+ * Renders the comprehensive migraine education guide, including diagnostic criteria, treatment options, prevention strategies, and supporting references.
  */
 export default function MigrainePage() {
   return (

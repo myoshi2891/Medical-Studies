@@ -383,23 +383,20 @@ const BY_HREF: ReadonlyMap<string, ContentEntry> = new Map(
 );
 
 /**
- * href からレジストリエントリを引く。
+ * Finds a registered content entry by its internal URL.
  *
- * @param href - 内部絶対パス（例: `/treatment/moh-acute-use-days`）。
- * @returns 該当エントリ。未登録なら `undefined`。
+ * @param href - The internal absolute path to look up
+ * @returns The matching content entry, or `undefined` if the path is not registered
  */
 export function getEntry(href: string): ContentEntry | undefined {
   return BY_HREF.get(href);
 }
 
 /**
- * 指定ページの関連ページを、レジストリ宣言順に解決して返す。
+ * Resolves the related pages declared for a content page.
  *
- * dangling 参照は契約テストで排除済みだが、実行時は防御的に読み飛ばす
- * （関連リンクの欠落でページ全体を落とさない）。
- *
- * @param href - 起点ページの内部絶対パス。
- * @returns 関連ページのエントリ配列。未登録 href なら空配列。
+ * @param href - The internal path of the source page.
+ * @returns The related page entries in declaration order, or an empty array if the page is unregistered or a related page is missing.
  */
 export function getRelated(href: string): ContentEntry[] {
   const entry = BY_HREF.get(href);

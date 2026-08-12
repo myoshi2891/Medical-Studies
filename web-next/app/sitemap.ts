@@ -19,19 +19,10 @@ export const STATIC_ROUTES: readonly string[] = ["/", "/prom-checker", "/privacy
 const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "[::1]", "0.0.0.0"]);
 
 /**
- * 末尾スラッシュを除いたベース URL を返す（`${base}${href}` で二重スラッシュを避ける）。
+ * Resolves the configured site URL into a normalized base URL for absolute sitemap links.
  *
- * サイトマップは検索エンジンに正規 URL を宣言する成果物であり、既定値へ黙って落とすと
- * 誤ったオリジンを配信し続ける。未設定・不正・http(s) 以外は設定エラーとして失敗させる。
- *
- * クエリ・フラグメントはサイトマップの正規 URL に意味を持たず、`${base}${href}` へ連結すると
- * `https://example.test?x=1/privacy` のような壊れた URL を生む。設定ミスとして失敗させる。
- *
- * 戻り値は `origin + pathname`（末尾スラッシュ除去）に正規化する。設定値を素通しすると
- * 大文字ホスト名や既定ポート（`https://Example.test:443`）の表記揺れがそのまま出力に漏れる。
- *
- * @throws {Error} NEXT_PUBLIC_SITE_URL が未設定、URL として不正、http/https 以外、
- *   またはクエリ・フラグメントを含む場合。
+ * @returns The origin and pathname without trailing slashes.
+ * @throws Error if `NEXT_PUBLIC_SITE_URL` is missing, invalid, uses a protocol other than HTTP(S), contains a query or fragment, or violates production URL requirements.
  */
 function resolveBaseUrl(): string {
   const configured = process.env.NEXT_PUBLIC_SITE_URL ?? "";
@@ -66,9 +57,9 @@ function resolveBaseUrl(): string {
 }
 
 /**
- * コンテンツレジストリと静的ルートからサイトマップを生成する。
+ * Generates a sitemap from the content registry and static routes.
  *
- * @returns Next.js メタデータルート用のサイトマップエントリ。
+ * @returns Sitemap entries for Next.js metadata routes
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = resolveBaseUrl();

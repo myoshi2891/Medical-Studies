@@ -24,6 +24,9 @@ const MIND_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders a comprehensive Japanese educational guide to psychological and behavioral therapies for headache.
+ */
 export default function PsychologicalBehavioralTherapyPage() {
   return (
     <div className="psychological-behavioral-accent">
