@@ -63,6 +63,30 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
       "/therapies/physical-therapy-for-headache",
     ],
   },
+  {
+    href: "/anatomy/headache-and-straight-neck",
+    title: "頭痛とストレートネック (Straight Neck)",
+    category: "anatomy",
+    lastReviewed: "2026-08-13",
+    keywords: [
+      "頭痛",
+      "ストレートネック",
+      "ICHD-3",
+      "Forward Head Posture",
+      "FHP",
+      "緊張型頭痛",
+      "頸原性頭痛",
+      "三叉神経頸髄核",
+      "CVA",
+    ],
+    related: [
+      "/anatomy/bone-related-headache",
+      "/anatomy/headache-related-muscles",
+      "/headaches/cervicogenic-headache",
+      "/headaches/tension-type-headache",
+      "/therapies/physical-therapy-for-headache",
+    ],
+  },
 
   // ── 疾患 ──────────────────────────────────────────────
   {
