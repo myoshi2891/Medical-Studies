@@ -85,13 +85,16 @@ tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
 .th-purple thead th{background:var(--purple)}
 
 /* Evidence badges */
-.bA{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
-.bB{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
-.bC{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
-.bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
-.bRed{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a}
-.bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
-.bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
+.bA{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7;white-space:nowrap}
+.bB{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9;white-space:nowrap}
+.bC{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80;white-space:nowrap}
+.bU{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8;white-space:nowrap}
+.bRed{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a;white-space:nowrap}
+.bGrn{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7;white-space:nowrap}
+.bOra{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80;white-space:nowrap}
+
+.evidence-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:#fff;padding:12px 16px;border-radius:var(--rs);box-shadow:var(--sh);margin-bottom:12px;border:1px solid var(--g2)}
+.evidence-legend-title{font-size:12px;font-weight:700;color:var(--cvn1);margin-right:4px}
 
 /* Color text */
 .tR{color:var(--red);font-weight:700}
@@ -230,13 +233,13 @@ pre.mermaid{text-align:center}
     <div class="mmd-lbl">フローチャート — ICHD-3による頭痛の分類</div>
 <pre class="mermaid">
 flowchart TD
-    ROOT["頭痛&lt;br/&gt;Headache"] --> PRIM["一次性頭痛&lt;br/&gt;Primary Headache"]
-    ROOT --> SEC["二次性頭痛&lt;br/&gt;Secondary Headache"]
-    PRIM --> M["片頭痛&lt;br/&gt;Migraine"]
-    PRIM --> T["緊張型頭痛&lt;br/&gt;Tension-Type Headache"]
-    PRIM --> CL["群発頭痛&lt;br/&gt;Cluster Headache"]
-    SEC --> CGH["頸原性頭痛&lt;br/&gt;Cervicogenic Headache&lt;br/&gt;ICHD-3 第11.2.1項"]
-    SEC --> OTHER["その他の二次性頭痛&lt;br/&gt;外傷後・血管障害・感染症など"]
+ROOT["頭痛&lt;br/&gt;Headache"] --> PRIM["一次性頭痛&lt;br/&gt;Primary Headache"]
+ROOT --> SEC["二次性頭痛&lt;br/&gt;Secondary Headache"]
+PRIM --> M["片頭痛&lt;br/&gt;Migraine"]
+PRIM --> T["緊張型頭痛&lt;br/&gt;Tension-Type Headache"]
+PRIM --> CL["群発頭痛&lt;br/&gt;Cluster Headache"]
+SEC --> CGH["頸原性頭痛&lt;br/&gt;Cervicogenic Headache&lt;br/&gt;ICHD-3 第11.2.1項"]
+SEC --> OTHER["その他の二次性頭痛&lt;br/&gt;外傷後・血管障害・感染症など"]
 </pre>
   </div>
 
@@ -323,14 +326,14 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 姿勢から頭痛が生じるまでの経路</div>
 <pre class="mermaid">
 flowchart TD
-    A["長時間のスマートフォン・PC使用"] --> B["頭部が前方へ移動&lt;br/&gt;Forward Head Posture"]
-    B --> C["頸椎前弯の減少&lt;br/&gt;いわゆる「ストレートネック」"]
-    C --> D["頭部を支える力学的負荷の増加&lt;br/&gt;Hansraj, 2014"]
-    D --> E["後頭下筋群・僧帽筋の持続的な過緊張"]
-    E --> F["上位頸神経（C1-C3）の感作・刺激"]
-    F --> G["三叉神経頸髄核での感覚の収束&lt;br/&gt;Trigeminocervical Nucleus"]
-    G --> H["脳が痛みを「頭部由来」と誤って認識"]
-    H --> I["緊張型頭痛 / 頸原性頭痛として自覚される"]
+A["長時間のスマートフォン・PC使用"] --> B["頭部が前方へ移動&lt;br/&gt;Forward Head Posture"]
+B --> C["頸椎前弯の減少&lt;br/&gt;いわゆる「ストレートネック」"]
+C --> D["頭部を支える力学的負荷の増加&lt;br/&gt;Hansraj, 2014"]
+D --> E["後頭下筋群・僧帽筋の持続的な過緊張"]
+E --> F["上位頸神経（C1-C3）の感作・刺激"]
+F --> G["三叉神経頸髄核での感覚の収束&lt;br/&gt;Trigeminocervical Nucleus"]
+G --> H["脳が痛みを「頭部由来」と誤って認識"]
+H --> I["緊張型頭痛 / 頸原性頭痛として自覚される"]
 </pre>
   </div>
 
@@ -359,13 +362,12 @@ flowchart TD
 
   <p>姿勢と頭痛の関係は、臨床的には広く語られる一方で、研究者の間では<strong>まだ議論が続いているテーマ</strong>です。誠実な理解のために、代表的な研究を紹介します。</p>
 
-  <div class="qr-grid" style="margin-bottom:4px">
-    <div class="qr" style="padding:10px 16px">
-      <span class="bA">システマティックレビュー／メタ分析（最高レベル）</span>　
-      <span class="bB">ランダム化比較試験（RCT）</span>　
-      <span class="bC">横断研究／観察研究</span>　
-      <span class="bU">専門家見解／ポジションペーパー</span>
-    </div>
+  <div class="evidence-legend">
+    <span class="evidence-legend-title">エビデンス区分：</span>
+    <span class="bA">システマティックレビュー／メタ分析（最高レベル）</span>
+    <span class="bB">ランダム化比較試験（RCT）</span>
+    <span class="bC">横断研究／観察研究</span>
+    <span class="bU">専門家見解／ポジションペーパー</span>
   </div>
 
   <div class="tbl">
@@ -480,15 +482,15 @@ flowchart TD
     <div class="mmd-lbl">フローチャート — 受診要否の判断</div>
 <pre class="mermaid">
 flowchart TD
-    START["頭痛がある"] --> Q1{"突然発症し数分でピークに達する&lt;br/&gt;「人生最悪の頭痛」か？"}
-    Q1 -->|"はい"| ER["直ちに救急受診&lt;br/&gt;くも膜下出血などの除外が必要"]
-    Q1 -->|"いいえ"| Q2{"発熱・首の硬直・意識障害・&lt;br/&gt;視覚異常・手足の麻痺を伴うか？"}
-    Q2 -->|"はい"| ER
-    Q2 -->|"いいえ"| Q3{"頭部への外傷後に生じた、&lt;br/&gt;または50歳以降に初めて生じたか？"}
-    Q3 -->|"はい"| DOC["早めに医療機関を受診"]
-    Q3 -->|"いいえ"| Q4{"頻度や強さが&lt;br/&gt;徐々に悪化しているか？"}
-    Q4 -->|"はい"| DOC
-    Q4 -->|"いいえ"| SELF["セルフケア＋経過観察&lt;br/&gt;改善しなければ受診"]
+START["頭痛がある"] --> Q1{"突然発症し数分でピークに達する&lt;br/&gt;「人生最悪の頭痛」か？"}
+Q1 -->|"はい"| ER["直ちに救急受診&lt;br/&gt;くも膜下出血などの除外が必要"]
+Q1 -->|"いいえ"| Q2{"発熱・首の硬直・意識障害・&lt;br/&gt;視覚異常・手足の麻痺を伴うか？"}
+Q2 -->|"はい"| ER
+Q2 -->|"いいえ"| Q3{"頭部への外傷後に生じた、&lt;br/&gt;または50歳以降に初めて生じたか？"}
+Q3 -->|"はい"| DOC["早めに医療機関を受診"]
+Q3 -->|"いいえ"| Q4{"頻度や強さが&lt;br/&gt;徐々に悪化しているか？"}
+Q4 -->|"はい"| DOC
+Q4 -->|"いいえ"| SELF["セルフケア＋経過観察&lt;br/&gt;改善しなければ受診"]
 </pre>
   </div>
 

@@ -2,6 +2,9 @@
 paths:
   - "Types-of-headache/md-files/**/*.md"
   - "Types-of-headache/html-files/**/*.html"
+  - "web-next/app/**"
+  - "web-next/components/**"
+  - "web-next/lib/**"
 ---
 
 # 編集・変換の必須サイクル & コミット分割ルール
@@ -16,10 +19,24 @@ paths:
 1. **検証チェック（Lint/テスト）を経ないコミットや、無秩序な一括コミットは禁止。**
 2. **ステップバイステップでの実装・コミットの厳守。** 「Markdown の修正」と「HTML の作成・変換」など、異なる作業フェーズを一括で実装・コミットしてはならない。必ず 1 つのステップが完了し、検証（Lint/テスト）を通過した段階で個別にコミットを実行し、その後に次のステップへ進むこと。
 3. **大規模 HTML 作成時は 4 フェーズ分割コミット戦略の徹底。**
-4. **違反検知時は即時報告。** サイクルを飛ばしたことに気づいた場合、独断で `git reset` 等を実行せず、直ちにユーザーへ報告し、承認を得たうえでリカバリ手順を実施すること。
+4. **web-next では Red（失敗するテスト）を経ないコードをコミットしない。** 実装 → テストの順で書いてはならない。
+5. **違反検知時は即時報告。** サイクルを飛ばしたことに気づいた場合、独断で `git reset` 等を実行せず、直ちにユーザーへ報告し、承認を得たうえでリカバリ手順を実施すること。
 </ai_agent_directive>
 
-## 必須ワークフロー
+## 適用ドメイン（2 系統・混同しないこと）
+
+本リポジトリには**性質の異なる 2 つの成果物パイプライン**があり、それぞれ別のサイクルを適用する。
+
+| ドメイン | 対象パス | 適用サイクル |
+| --- | --- | --- |
+| **レガシー HTML**（素の HTML + Mermaid CDN） | `Types-of-headache/md-files/**`, `Types-of-headache/html-files/**` | 下記「必須ワークフロー（レガシー HTML）」ステップ 1〜3 |
+| **web-next**（Next.js App Router + Vitest） | `web-next/app/**`, `web-next/components/**`, `web-next/lib/**` | 下記「web-next の必須 TDD サイクル」 |
+
+レガシー HTML を web-next へ移行する作業は**両方に該当する**。その場合、
+移行元 HTML の修正（ステップ 1〜3）と移行先 TSX の実装（web-next サイクル）を
+**別コミットに分ける**こと。手順の詳細は `.claude/skills/nextjs-page-migration/SKILL.md`。
+
+## 必須ワークフロー（レガシー HTML）
 
 ### ステップ 1: Markdown 編集 & 品質チェック (Lint & Format)
 
@@ -59,6 +76,58 @@ Markdown から HTML を作成または修正する場合、デザインシス�
     - **(b) スライドアウト方式**: サイドバーを画面外へ退避し、トグルボタン（ネイティブ `<button>`・`aria-expanded` 同期・Escape/背景クリックで閉じる）で開閉できる。採用時はキーボード操作とフォーカス復帰を必ず検証する（例: `Headache-Diary.html`）
   - 外部リンクに `target="_blank" rel="noopener noreferrer"` が付与されているか
   - `<script>` タグ（Mermaid 等）に正しい integrity ハッシュと crossorigin が付与されているか
+
+## web-next の必須 TDD サイクル
+
+`web-next/` 配下（Next.js App Router + Vitest）では、**Red → Green →（Refactor）→ commit**
+を論理フェーズごとに 1 周させる。テスト・実装・ドキュメントを 1 コミットにまとめてはならない。
+
+### サイクル本体
+
+| フェーズ | 行うこと | コミット |
+| --- | --- | --- |
+| **Red** | 契約テスト（`*.test.tsx` / `*.test.ts`）を先に書き、`bun run test <パス>` で**失敗を目視確認**する | `test(web-next): add failing contract tests for <対象>` |
+| **Green** | テストが通る最小実装。既存テストを 1 件も壊さない | `feat(web-next): implement <対象>` |
+| **Refactor** | 重複除去・命名整理。**テストは変更しない**（変えるなら Red に戻る） | `refactor(web-next): <内容>` |
+| **Docs** | `GEMINI.md` / `CLAUDE.md` / `PROGRESS.md` の同期 | `docs: <内容>` |
+
+> **Red を経ないコードは未完了扱い。** 実装を先に書いてしまった場合は、テストを追加したうえで
+> 一度実装を戻して失敗を確認するか、その旨をユーザーへ報告すること（黙って進めない）。
+
+### 各コミット前に必須の検証（全通過が条件）
+
+```bash
+cd web-next
+bun run lint <変更ファイル…>   # Biome。引数なしの lint:fix は禁止
+bun run typecheck              # tsc --noEmit（strict + noUnusedLocals）
+bun run test                   # Vitest 全件（対象だけの部分実行で代替しない）
+bun run build                  # 本番ビルド（※ユーザーから「ビルド禁止」指示がある場合は省略）
+```
+
+- 整形差分で lint が落ちる場合は **`bunx biome format --write <変更ファイル…>`**（パス明示）で解消する。
+  リポジトリ全体の一括整形は行わない。
+- `bun run build` は `NEXT_PUBLIC_SITE_URL` を要求する（`app/sitemap.ts` の fail-closed 検証）。
+  未設定なら `web-next/.env.local.example` を `.env.local` へコピーして https の値を入れる。
+
+### 新規ページ追加時の「登録 1 セット」（漏らすとテストが落ちる）
+
+ページ本体だけを作って終わりにしない。以下は**機械検知される必須の付随更新**である。
+
+1. `web-next/lib/content/registry.ts` — `CONTENT_REGISTRY` へエントリ追加（`related` は最低 2 本）。
+   未登録は `lib/content/registry.test.ts` が `app/**/page.tsx` の実走査と突き合わせて検出する。
+2. `web-next/components/site/nav-links.ts` — グローバルナビへ追加。
+   `components/site/SiteHeader.test.tsx` の実装済みルート一覧にも追記する（Red 起点）。
+3. ページ本文末尾に `<RelatedLinks href="/<category>/<slug>" />` を置く（`<main>` 内）。
+
+`app/sitemap.ts` はレジストリから機械生成されるため**手書きの追記は不要**。
+
+### コミット前の PII チェック（必須）
+
+`.claude/rules/no-absolute-paths.md` に従い、ステージ済み差分に絶対パスが無いことを確認する。
+
+```bash
+git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)'
+```
 
 ## 違反時の対応
 

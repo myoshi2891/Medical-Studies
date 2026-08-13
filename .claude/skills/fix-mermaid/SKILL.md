@@ -5,6 +5,9 @@ description: >
   Trigger when the user mentions: "mermaid error", "Syntax error in text",
   "mermaid not rendering", "diagram is broken", "all diagrams crashed",
   or references a Mermaid version error (e.g. "mermaid version 10.9.5").
+  Also covers Mermaid inside web-next (Next.js App Router): the shared
+  components/MermaidDiagram.tsx contract, template-literal escaping (\\n), and the
+  required vi.mock in page.test.tsx.
   Fixes HTML formatter-induced indentation pollution and statement concatenation
   that break Mermaid v10 parsing.
 allowed-tools:
@@ -18,7 +21,13 @@ allowed-tools:
 
 ## 対象
 
-`<div class="mermaid">` ブロック内の構文エラー。
+| 対象ドメイン | 記述形式 | Mermaid の供給元 |
+| --- | --- | --- |
+| **レガシー HTML**（`Types-of-headache/html-files/**`） | `<div class="mermaid">` ブロック / JS テンプレートリテラル | CDN + SRI（`mermaid@10.9.6`） |
+| **web-next**（`web-next/app/**`） | `<MermaidDiagram chart={\`…\`} />` | npm 依存 `mermaid@10.9.6`（CDN 不使用） |
+
+前半（本節〜「Mermaid を諦めて…」の直前）はレガシー HTML 向け。web-next 側の作法は
+後半の「web-next（Next.js App Router）での Mermaid」を参照する。**構文ルール自体は共通**。
 
 ## Mermaid v10 の必須ルール
 
@@ -153,53 +162,72 @@ CSS にもフォールバックを追加する：
 }
 ```
 
-### React/Next.js (CSS Modules) 移植時の表示と中央寄せ（2026年5月追記）
+## web-next（Next.js App Router）での Mermaid
 
-React (Next.js App Router) 移行に際して共通の `MermaidDiagram` コンポーネントを使用する場合、CSS Modules との競合やテスト環境（Vitest）での描画エラーに注意する必要があります。
+> **重要**: 本リポジトリの `web-next/` は **CSS Modules を使っていない**（`*.module.css` は 1 つも存在しない）。
+> スタイルは「ページ専用 CSS ファイル（`app/<category>/<slug>/<slug>.css`）をページスコープクラス配下に書く」方式。
+> したがって `:global()` セレクタや `styles.mermaid` は**このリポジトリでは使わない**。
 
-#### 1. CSS Modules 環境下での中央寄せとサイズ制限
+### コンポーネントは 2 種類ある（取り違え禁止）
 
-共通の `MermaidDiagram` は出力時にグローバルクラス `"mermaid"` を付与します。しかし、CSS Modules（`*.module.css`）で指定した `.mermaid` はクラス名がハッシュ化されるため、スタイルが当たらなくなり左寄せになってしまいます。
+| パス | export 形式 | 用途 | props |
+| --- | --- | --- | --- |
+| `web-next/components/MermaidDiagram.tsx` | **default export** | アーキタイプ A（静的教育ガイドページ）共有 | `chart: string` / `themeVariables?: Record<string,string>` |
+| `web-next/components/prom/MermaidDiagram.tsx` | **named export** | アーキタイプ B（prom-checker）専用・流用禁止 | `isDark` 等・indigo 固定 |
 
-**【対策】**
-1. **TSX 側**: `MermaidDiagram` をラッパー div で囲み、ハッシュ化されるクラス名 (`styles.mermaid`) と、個別幅制限用のグローバル ID (`id="diag-X"`) を付与します。
+A 共有版の実装方針（`dangerouslySetInnerHTML` は不使用）:
+
+- `mermaid` を**動的 import**（初回描画時のみロード。バンドル肥大と SSR 実行を回避）
+- `<pre className="mermaid">` を ref で掴み、`mermaid.run({ nodes: [node] })` で **in-place 変換**
+- 再描画時は `node.removeAttribute("data-processed")` + `node.textContent = chart` で定義文へ戻す
+- `securityLevel: "strict"` / `theme: "base"` / `flowchart: { curve: "linear", padding: 20 }`
+- 描画失敗時はページ全体を落とさず、図の位置にフォールバック文言を出す（エラーを握りつぶさない）
+
+### JSX でのチャート記述ルール
 
 ```tsx
-<div id="diag-0" className={styles.mermaid}>
-  <MermaidDiagram chart={DIAGRAM_0} />
+import MermaidDiagram from "@/components/MermaidDiagram"; // default import
+
+const PAGE_MERMAID_THEME: Record<string, string> = {
+  primaryColor: "#fce4ec", primaryTextColor: "#4a0e2e", primaryBorderColor: "#c2185b",
+  lineColor: "#546e7a", edgeLabelBackground: "#ffffff", fontSize: "13px",
+};
+
+<div className="mmd">
+  <div className="mmd-lbl">フローチャート — …</div>
+  <MermaidDiagram themeVariables={PAGE_MERMAID_THEME} chart={`flowchart LR
+A["ノード A\\n2行目"] --> B["ノード B"]`} />
 </div>
 ```
 
-2. **CSS 側**: ハッシュ化クラスから下位のグローバルな `svg` をターゲットするため、`:global` セレクタを使用します。
+| ルール | 理由 |
+| --- | --- |
+| テンプレートリテラルは**左端揃え**（インデントを入れない） | カラム0ルール。JSX の見た目のためにインデントすると構文エラー |
+| ノードラベル内の改行は **`\\n`**（二重エスケープ） | テンプレートリテラルで `\n` と書くと実改行になり、Mermaid がステートメント区切りと誤認する |
+| ステートメント間は**実改行**のまま | Mermaid は改行を区切りとして要求する |
+| HTML 由来の `--&gt;` 等のエンティティは**素の記号へ戻す** | JSX 文字列にエスケープは不要（`-->` と書く） |
+| ページ別配色は `themeVariables` 定数に集約 | 元 HTML の `mermaid.initialize({ themeVariables })` の移植先 |
 
-```css
-.mermaid {
-  display: flex;
-  justify-content: center;
-}
-.mermaid :global(svg) {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-```
+### Vitest での必須モック
 
-   個別 ID セレクタ（`#diag-0 svg` 等）は CSS Modules でも変換されないため、グローバル ID セレクタ経由で最大幅（`max-width`）を制御できます。
+`MermaidDiagram` は client component で `mermaid` を動的 import するため、jsdom では描画コスト・
+非同期エラーの原因になる。**契約テストでは必ずモックする**（パスは実在するものを使うこと）。
 
-#### 2. テスト環境（Vitest）での MermaidDiagram のモック化
-
-`MermaidDiagram` はクライアントサイドで動的に `mermaid` ライブラリを読み込んで動作するため、テスト環境での DOM レンダリング時にエラーを起こす原因となります。
-テストファイル（`page.test.tsx`）では、必ず `vi.mock` を使ってダミー要素にモック化してください。
-
-```typescript
-vi.mock("@/components/docs/MermaidDiagram", () => ({
-  default: function DummyMermaidDiagram({ chart }: { chart: string }) {
-    return <pre data-testid="mermaid">{chart}</pre>;
-  },
+```tsx
+// アーキタイプ A のページテスト（app/<category>/<slug>/page.test.tsx）
+vi.mock("@/components/MermaidDiagram", () => ({
+  default: ({ chart }: { chart: string }) => <div className="mermaid" data-chart={chart} />,
 }));
 ```
+
+- モック後の図の個数は `container.querySelectorAll(".mermaid")` で数える契約にする。
+- `@/components/docs/MermaidDiagram` は**存在しない**（旧記述。指定するとモックが効かない）。
+
+### CSP との関係
+
+`web-next/next.config.ts` は静的 CSP を強制し、外部スクリプトを許可ホストに限定している。
+**web-next 側では Mermaid を CDN から読み込まない**（npm 依存 `mermaid@10.9.6` をバンドルする）。
+CDN + SRI 方式が必要なのはレガシー HTML（`Types-of-headache/html-files/`）のみ。
 
 ---
 
