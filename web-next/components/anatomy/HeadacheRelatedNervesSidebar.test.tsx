@@ -27,20 +27,27 @@ class CapturingIntersectionObserver implements IntersectionObserver {
     // 監視登録は不要（テストは capturedCallback を直接呼ぶ）
   }
   unobserve(): void {
-    // no-op
+    // 監視解除も不要（登録していないため）
   }
   disconnect(): void {
-    // no-op
+    // 破棄処理は不要（capturedCallback は beforeEach でリセットする）
   }
   takeRecords(): IntersectionObserverEntry[] {
     return [];
   }
 }
 
-/** テスト用の最小 entry。scroll-spy が参照する 3 フィールドのみを持つ。 */
-function makeEntry(id: string, top: number, isIntersecting: boolean): IntersectionObserverEntry {
+/** section の現在位置を差し替える（jsdom は常に top: 0 を返すため）。 */
+function setSectionTop(id: string, top: number): HTMLElement {
   const target = document.getElementById(id);
   if (target === null) throw new Error(`section #${id} が DOM にありません`);
+  target.getBoundingClientRect = () => ({ top }) as DOMRect;
+  return target;
+}
+
+/** テスト用の最小 entry。併せて section の現在位置も `top` に合わせる。 */
+function makeEntry(id: string, top: number, isIntersecting: boolean): IntersectionObserverEntry {
+  const target = setSectionTop(id, top);
   return {
     target,
     isIntersecting,
@@ -86,6 +93,36 @@ describe("HeadacheRelatedNervesSidebar", () => {
     });
 
     expect(activeLabel(container)).toContain("神経ネットワークの全体像");
+
+    // 同じ可視 section を逆順で通知しても選択は変わらない（先頭 entry 依存でないことの保証）。
+    act(() => {
+      capturedCallback?.([
+        makeEntry("s3", 300, true),
+        makeEntry("s4", 620, true),
+        makeEntry("s2", 40, true),
+      ]);
+    });
+
+    expect(activeLabel(container)).toContain("神経ネットワークの全体像");
+  });
+
+  it("可視のままスクロールで位置が入れ替わったら、再計測して active を更新する", () => {
+    const { container } = render(<HeadacheRelatedNervesSidebar />);
+
+    act(() => {
+      capturedCallback?.([makeEntry("s2", 40, true), makeEntry("s3", 300, true)]);
+    });
+    expect(activeLabel(container)).toContain("神経ネットワークの全体像");
+
+    // 双方とも可視のままスクロールした場合、IntersectionObserver は再通知しない。
+    // 通知時の座標を保持したままだと active が固まるため、現在位置を測り直す必要がある。
+    setSectionTop("s2", -320);
+    setSectionTop("s3", 20);
+    act(() => {
+      window.dispatchEvent(new Event("scroll"));
+    });
+
+    expect(activeLabel(container)).toContain("三叉神経(血管)系");
   });
 
   it("可視 section 集合を保持し、離脱した section を除いた残りから active を選ぶ", () => {
