@@ -85,11 +85,11 @@ describe("HeadacheAndStraightNeckPage: 契約（忠実転記 & 厳格検証）",
     const { container } = render(<HeadacheAndStraightNeckPage />);
     const alerts = container.querySelectorAll(".alert");
     expect(alerts).toHaveLength(ALERT_COUNT);
-    expect(container.querySelectorAll(".alert.a-info")).toHaveLength(4);
+    expect(container.querySelectorAll(".alert.a-info")).toHaveLength(3);
     expect(container.querySelectorAll(".alert.a-purple")).toHaveLength(1);
     expect(container.querySelectorAll(".alert.a-warn")).toHaveLength(3);
     expect(container.querySelectorAll(".alert.a-danger")).toHaveLength(2);
-    expect(container.querySelectorAll(".alert.a-ok")).toHaveLength(3);
+    expect(container.querySelectorAll(".alert.a-ok")).toHaveLength(4);
   });
 
   it("免責事項 (.disclaimer) と フッター (.footer) の文言が漏れなく含まれる", () => {
