@@ -113,6 +113,58 @@ describe("GLOSSARY: 解剖・病態ドメインの収録", () => {
   });
 });
 
+/**
+ * 治療・生活習慣・EBM・臨床ドメインの収録語。
+ * /treatment・/therapies 配下と、エビデンスバッジ周辺の解説文で高頻度に出現する。
+ */
+const TREATMENT_EBM_IDS = [
+  // 治療方針・薬剤
+  "acute-treatment",
+  "preventive-treatment",
+  "ergotamine",
+  "beta-blocker",
+  "antidepressant",
+  "antiepileptic",
+  "antiemetic",
+  "prostaglandin",
+  "nitric-oxide",
+  "withdrawal-headache",
+  "cbt-ja",
+  "adherence",
+  "menstrual-migraine",
+  // 生活習慣
+  "circadian-rhythm",
+  "sleep-hygiene",
+  "sleep-apnea",
+  "caffeine",
+  "alcohol",
+  "dehydration",
+  "trigger-factor",
+  "self-care",
+  // EBM・研究デザイン
+  "meta-analysis",
+  "systematic-review",
+  "rct",
+  "placebo",
+  "confidence-interval",
+  "evidence-level",
+  "cochrane",
+  // 臨床・社会
+  "medical-interview",
+  "imaging-study",
+  "reasonable-accommodation",
+  "occupational-physician",
+] as const;
+
+describe("GLOSSARY: 治療・EBM ドメインの収録", () => {
+  it.each(TREATMENT_EBM_IDS)("%s が解決でき、読み仮名と解説を持つ", (id) => {
+    const t = getTerm(id);
+    expect(t).toBeDefined();
+    expect(t?.reading.length).toBeGreaterThan(0);
+    expect(t?.plain.length).toBeGreaterThan(0);
+  });
+});
+
 describe("GLOSSARY: 品質不変条件", () => {
   it("term 表記が重複しない", () => {
     // 重複すると AutoGlossary の最長一致で先勝ちになり、後発エントリが恒久的に未マッチになる。
