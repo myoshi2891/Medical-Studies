@@ -83,15 +83,15 @@ describe("HeadacheRelatedNervesPage: 契約（忠実転記 & 厳格検証）", (
     expect(charts[3]).toContain("大後頭神経");
     expect(charts[4]).toContain("上唾液核");
     expect(charts[5]).toContain("中枢性感作");
-    expect(charts[6]).toContain("頭痛神経メカニズムの統合図");
+    expect(charts[6]).toContain("大脳皮質");
   });
 
   it("<table> の個数が 3 個で構造・セルデータが保持されている", () => {
     const { container } = render(<HeadacheRelatedNervesPage />);
     const tables = container.querySelectorAll("table");
     expect(tables).toHaveLength(TABLE_COUNT);
-    expect(container.querySelectorAll("table.th-teal")).toHaveLength(1);
-    expect(container.querySelectorAll("table.th-orange")).toHaveLength(1);
+    expect(container.querySelectorAll(".tbl.th-teal")).toHaveLength(1);
+    expect(container.querySelectorAll(".tbl.th-orange")).toHaveLength(1);
   });
 
   it("サイドバー nav-a の個数 10 個と href (#s1..#s10) が一致する", () => {
