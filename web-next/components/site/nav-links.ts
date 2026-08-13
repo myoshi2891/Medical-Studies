@@ -67,6 +67,10 @@ export const navLinks: readonly NavLink[] = [
         name: "頭痛とストレートネック (Straight Neck)",
         href: "/anatomy/headache-and-straight-neck",
       },
+      {
+        name: "頭痛と神経系 (Nerves)",
+        href: "/anatomy/headache-related-nerves",
+      },
     ],
   },
   {

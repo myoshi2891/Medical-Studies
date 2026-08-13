@@ -87,6 +87,29 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
       "/therapies/physical-therapy-for-headache",
     ],
   },
+  {
+    href: "/anatomy/headache-related-nerves",
+    title: "頭痛と神経系 (Nerves)",
+    category: "anatomy",
+    lastReviewed: "2026-08-13",
+    keywords: [
+      "頭痛",
+      "神経系",
+      "三叉神経血管系",
+      "三叉神経頸髄複合体",
+      "TCC",
+      "後頭神経",
+      "自律神経反射",
+      "中枢性感作",
+      "ICHD-3",
+    ],
+    related: [
+      "/anatomy",
+      "/anatomy/headache-related-muscles",
+      "/headaches/headache-pathophysiology",
+      "/headaches/cervicogenic-headache",
+    ],
+  },
 
   // ── 疾患 ──────────────────────────────────────────────
   {
