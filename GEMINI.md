@@ -75,6 +75,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 > [!NOTE]
 > `GEMINI.md` と `CLAUDE.md` は**同一内容**（`GEMINI.md` が SSoT）。一方を更新したら `spec-sync` スキルで他方も同期すること。
 
+> [!NOTE]
+> リポジトリルートの `AGENTS.md` は、`AGENTS.md` 規約を読むエージェント（Antigravity / Gemini CLI /
+> Codex / Cursor 等）向けの**薄いエントリポイント**。本ファイルの内容を複製せず、参照先と
+> 絶対規約・検証コマンドのみを持つ。ここ（`GEMINI.md`）の規約・コマンドを変更したら
+> `AGENTS.md` の該当箇所も確認すること。
+
 ## コミット規約
 
 フォーマット: `<type>(<scope>): <subject>`
