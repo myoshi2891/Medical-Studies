@@ -110,6 +110,18 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
       "/headaches/cervicogenic-headache",
     ],
   },
+  {
+    href: "/anatomy/vascular-headache",
+    title: "頭痛と血管 (Vascular Basis)",
+    category: "anatomy",
+    lastReviewed: "2026-08-13",
+    keywords: ["頭痛", "血管", "三叉神経血管系", "CGRP", "ICHD-3", "雷鳴頭痛", "くも膜下出血"],
+    related: [
+      "/headaches/headache-pathophysiology",
+      "/headaches/migraine",
+      "/treatment/cgrp-pathway-headache-treatments",
+    ],
+  },
 
   // ── 疾患 ──────────────────────────────────────────────
   {
@@ -169,18 +181,6 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
     lastReviewed: "2026-07-21",
     keywords: ["病態生理", "三叉神経血管系", "CSD", "皮質拡延性抑制", "中枢感作"],
     related: ["/headaches/migraine", "/treatment/cgrp-pathway-headache-treatments", "/anatomy"],
-  },
-  {
-    href: "/headaches/vascular-headache",
-    title: "頭痛と血管 (Vascular Basis)",
-    category: "headaches",
-    lastReviewed: "2026-08-13",
-    keywords: ["頭痛", "血管", "三叉神経血管系", "CGRP", "ICHD-3", "雷鳴頭痛", "くも膜下出血"],
-    related: [
-      "/headaches/headache-pathophysiology",
-      "/headaches/migraine",
-      "/treatment/cgrp-pathway-headache-treatments",
-    ],
   },
 
   // ── 治療 ──────────────────────────────────────────────

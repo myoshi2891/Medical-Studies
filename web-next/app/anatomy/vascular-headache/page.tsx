@@ -867,7 +867,7 @@ export default function VascularHeadachePage() {
             </div>
           </section>
 
-          <RelatedLinks href="/headaches/vascular-headache" />
+          <RelatedLinks href="/anatomy/vascular-headache" />
         </main>
       </div>
 
