@@ -91,7 +91,7 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s1" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">1</div>
-                <h1 className="sec-title">頭痛の全体像を知る</h1>
+                <h2 className="sec-title">頭痛の全体像を知る</h2>
               </div>
 
               <p>
@@ -109,7 +109,7 @@ export default function HeadacheAndStraightNeckPage() {
                 </div>
               </div>
 
-              <h2>頭痛の国際的分類（ICHD-3）</h2>
+              <h3>頭痛の国際的分類（ICHD-3）</h3>
               <p>
                 頭痛の国際的な診断基準は、国際頭痛学会（International Headache Society）が策定する
                 <strong>国際頭痛分類第3版（ICHD-3）</strong>
@@ -126,7 +126,7 @@ export default function HeadacheAndStraightNeckPage() {
                 と <strong>頸原性頭痛（cervicogenic headache）</strong> の2つに関わってきます。
               </p>
 
-              <h2>主要な頭痛タイプの比較</h2>
+              <h3>主要な頭痛タイプの比較</h3>
               <div className="tbl">
                 <table>
                   <thead>
@@ -177,10 +177,10 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s2" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">2</div>
-                <h1 className="sec-title">「ストレートネック」とは何か</h1>
+                <h2 className="sec-title">「ストレートネック」とは何か</h2>
               </div>
 
-              <h2>頸椎の基本構造</h2>
+              <h3>頸椎の基本構造</h3>
               <p>
                 頸椎（首の骨）は7個の椎骨（C1〜C7）から構成されており、健康な状態では前方に緩やかに湾曲した「生理的前弯（cervical
                 lordosis）」というC字型のカーブを描いています。この前弯は、頭部（成人でおよそ4.5〜5.5kg）の重さを効率よく支え、衝撃を分散させるための構造です。健康な頸椎前弯角度は、立位側面X線でおおむね
@@ -208,13 +208,13 @@ export default function HeadacheAndStraightNeckPage() {
                 </div>
               </div>
 
-              <h2>なぜ首がまっすぐになってしまうのか</h2>
+              <h3>なぜ首がまっすぐになってしまうのか</h3>
               <p>
                 長時間のスマートフォンやパソコンの使用、デスクワーク中の前かがみ姿勢などにより、頭部が肩よりも前方に移動した状態が慢性的に続くと、頸椎を支える筋肉のバランスが崩れ、前弯が徐々に失われていくと考えられています。この状態は「テックネック（tech
                 neck）」「テキストネック（text neck）」とも呼ばれます。
               </p>
 
-              <h2>頭部前方位を測る指標：頭蓋脊椎角（CVA）</h2>
+              <h3>頭部前方位を測る指標：頭蓋脊椎角（CVA）</h3>
               <p>
                 臨床研究では、頭部前方位の程度を{" "}
                 <strong>頭蓋脊椎角（Craniovertebral Angle, CVA）</strong>{" "}
@@ -226,10 +226,10 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s3" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">3</div>
-                <h1 className="sec-title">なぜ姿勢が頭痛を引き起こしうるのか（メカニズム）</h1>
+                <h2 className="sec-title">なぜ姿勢が頭痛を引き起こしうるのか（メカニズム）</h2>
               </div>
 
-              <h2>力学的負荷：頭を傾けるほど首への負担は跳ね上がる</h2>
+              <h3>力学的負荷：頭を傾けるほど首への負担は跳ね上がる</h3>
               <p>
                 米国の脊椎外科医Kenneth
                 Hansraj氏による2014年の生体力学研究は、頭部の前傾角度が増えるごとに頸椎にかかる負荷（相対的な重み）がどれほど増加するかを定量化しました。
@@ -272,13 +272,13 @@ export default function HeadacheAndStraightNeckPage() {
                 277–279（本記事末尾の参考文献[7]を参照）。今日の生活習慣に伴う頸部負荷を象徴するデータとしてしばしば引用されますが、単一の生体力学モデルに基づく試算である点には留意が必要です。
               </p>
 
-              <h2>筋の持続的緊張と緊張型頭痛</h2>
+              <h3>筋の持続的緊張と緊張型頭痛</h3>
               <p>
                 Cleveland
                 Clinicの解説によれば、緊張型頭痛は後頭部から首、頭皮にかけての筋肉の緊張が関与していると考えられており、その誘因として睡眠不足・不良姿勢・ストレスが挙げられています。頭部前方位が続くと、後頭下筋群や僧帽筋上部は頭の重みを支え続けるために持続的に収縮し、筋の過緊張・血流低下・痛覚過敏を招くと考えられています。
               </p>
 
-              <h2>神経学的メカニズム：三叉神経頸髄核における「収束」</h2>
+              <h3>神経学的メカニズム：三叉神経頸髄核における「収束」</h3>
               <p>
                 頸部由来の痛みがなぜ「頭痛」として感じられるのか。その鍵となるのが{" "}
                 <strong>三叉神経頸髄核（trigeminocervical nucleus）</strong>{" "}
@@ -290,7 +290,7 @@ export default function HeadacheAndStraightNeckPage() {
                 <MermaidDiagram chart={DIAGRAM_2} themeVariables={STRAIGHT_NECK_MERMAID_THEME} />
               </div>
 
-              <h2>頸原性頭痛の国際診断基準（ICHD-3 第11.2.1項）</h2>
+              <h3>頸原性頭痛の国際診断基準（ICHD-3 第11.2.1項）</h3>
               <p>ICHD-3における頸原性頭痛の診断は、大まかに以下の要件で構成されています。</p>
               <ul>
                 <li>
@@ -313,7 +313,7 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s4" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">4</div>
-                <h1 className="sec-title">科学的エビデンスは何を示しているか</h1>
+                <h2 className="sec-title">科学的エビデンスは何を示しているか</h2>
               </div>
 
               <p>
@@ -405,7 +405,7 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s5" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">5</div>
-                <h1 className="sec-title">セルフチェックの方法</h1>
+                <h2 className="sec-title">セルフチェックの方法</h2>
               </div>
 
               <div className="alert a-info">
@@ -442,7 +442,7 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s6" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">6</div>
-                <h1 className="sec-title">危険な頭痛のサイン（レッドフラッグ）</h1>
+                <h2 className="sec-title">危険な頭痛のサイン（レッドフラッグ）</h2>
               </div>
 
               <p>
@@ -499,10 +499,10 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s7" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">7</div>
-                <h1 className="sec-title">エビデンスに基づく対処法</h1>
+                <h2 className="sec-title">エビデンスに基づく対処法</h2>
               </div>
 
-              <h2>運動療法：頸部エクササイズの効果</h2>
+              <h3>運動療法：頸部エクササイズの効果</h3>
               <p>
                 頸原性頭痛に関する系統的レビューは、頸部エクササイズ（特に深頸屈筋の強化を含むcraniocervical
                 flexion
@@ -510,7 +510,7 @@ export default function HeadacheAndStraightNeckPage() {
                 flexion運動、肩甲骨のretraction、姿勢指導など）を行った群で、12ヶ月後も頭痛の頻度・強度・頸部痛指数の有意な改善が維持されていました。
               </p>
 
-              <h2>推奨される日常的なセルフケア</h2>
+              <h3>推奨される日常的なセルフケア</h3>
               <div className="drug-grid">
                 <div className="drug">
                   <div className="drug-nm">こまめな運動</div>
@@ -553,7 +553,7 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s8" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">8</div>
-                <h1 className="sec-title">まとめ</h1>
+                <h2 className="sec-title">まとめ</h2>
               </div>
 
               <div className="alert a-ok">
@@ -598,7 +598,7 @@ export default function HeadacheAndStraightNeckPage() {
             <section id="s9" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">9</div>
-                <h1 className="sec-title">参考文献・情報源</h1>
+                <h2 className="sec-title">参考文献・情報源</h2>
               </div>
 
               <p>本ガイドは以下の国際的に認可・査読された情報源に基づいています。</p>

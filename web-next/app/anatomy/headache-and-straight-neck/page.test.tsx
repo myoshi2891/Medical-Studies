@@ -11,7 +11,21 @@ vi.mock("@/components/MermaidDiagram", () => ({
 /** ソース HTML（Headache-and-straight-neck.html）から実測した忠実転記の契約値。 */
 const SECTION_IDS = Array.from({ length: 9 }, (_, i) => `s${i + 1}`);
 
+// section タイトル（.sec-title）は h2。hero の h1 が唯一の h1 で、見出し階層を飛ばさない。
 const EXPECTED_H2_TITLES = [
+  "頭痛の全体像を知る",
+  "「ストレートネック」とは何か",
+  "なぜ姿勢が頭痛を引き起こしうるのか（メカニズム）",
+  "科学的エビデンスは何を示しているか",
+  "セルフチェックの方法",
+  "危険な頭痛のサイン（レッドフラッグ）",
+  "エビデンスに基づく対処法",
+  "まとめ",
+  "参考文献・情報源",
+];
+
+// 各 section 内の小見出しは h3（旧 h2 を 1 段下げたもの）。
+const EXPECTED_H3_TITLES = [
   "頭痛の国際的分類（ICHD-3）",
   "主要な頭痛タイプの比較",
   "頸椎の基本構造",
@@ -45,7 +59,7 @@ describe("HeadacheAndStraightNeckPage: 契約（忠実転記 & 厳格検証）",
     expect(ids).toEqual(SECTION_IDS);
   });
 
-  it("<h2> の個数とテキストが section 内の主要見出し 11 個と完全一致する", () => {
+  it("<h2> の個数とテキストが section タイトル 9 個と完全一致する", () => {
     const { container } = render(<HeadacheAndStraightNeckPage />);
     const h2s = Array.from(container.querySelectorAll("h2")).filter(
       (h) => h.closest(".related-links") === null
@@ -53,6 +67,22 @@ describe("HeadacheAndStraightNeckPage: 契約（忠実転記 & 厳格検証）",
     expect(h2s).toHaveLength(EXPECTED_H2_TITLES.length);
     const titles = h2s.map((h) => h.textContent?.trim());
     expect(titles).toEqual(EXPECTED_H2_TITLES);
+  });
+
+  it("<h3> の個数とテキストが小見出し 11 個と完全一致する", () => {
+    const { container } = render(<HeadacheAndStraightNeckPage />);
+    const h3s = Array.from(container.querySelectorAll("h3")).filter(
+      (h) => h.closest(".related-links") === null
+    );
+    expect(h3s).toHaveLength(EXPECTED_H3_TITLES.length);
+    const titles = h3s.map((h) => h.textContent?.trim());
+    expect(titles).toEqual(EXPECTED_H3_TITLES);
+  });
+
+  it("h1 は hero の 1 個だけで、見出し階層を飛ばさない", () => {
+    const { container } = render(<HeadacheAndStraightNeckPage />);
+    expect(container.querySelectorAll("h1")).toHaveLength(1);
+    expect(container.querySelector("h1")?.closest(".hero")).not.toBeNull();
   });
 
   it("Mermaid 図 3 個が存在し、主要キーワードを保持している", () => {
