@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>頭痛と血管 ― Vascular Basis of Headache | Types of Headache</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{
+  --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
+  --orange:#e65100;--red:#c62828;--green:#2e7d32;--purple:#6a1b9a;
+  --red-l:#ffebee;--orange-l:#fff3e0;--green-l:#e8f5e9;
+  --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
+  --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
+  --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  --vhd1:#101d42;--vhd2:#b3211f;--vhd3:#5c0a12;
+  --vhd-l:#fdecea;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#101d42,#b3211f 55%,#5c0a12);color:#fff;padding:52px 28px 40px;text-align:center}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
+.hero-sub{font-size:14px;color:#fafafa;margin-bottom:22px}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Disclaimer */
+.disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
+.disclaimer strong{color:var(--orange)}
+
+/* Layout */
+.layout{display:flex;max-width:1360px;margin:0 auto}
+
+/* Sidebar */
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
+.s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
+.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--vhd1);color:var(--vhd1)}
+.nav-a.active{font-weight:600;background:var(--vhd-l)}
+.n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Main */
+.main{flex:1;padding:28px 32px 80px;min-width:0}
+
+/* Section */
+.sec{margin:40px 0;scroll-margin-top:12px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-num{background:var(--vhd1);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--vhd1)}
+h2{font-size:16px;font-weight:700;color:var(--vhd2);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--vhd3)}
+h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
+p{margin-bottom:10px;color:var(--g8)}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px}
+a{color:var(--blue)}
+a:hover{text-decoration:underline}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+
+/* Alerts */
+.alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.alert-i{font-size:20px;flex-shrink:0}
+.a-danger{background:var(--red-l);border-left:4px solid var(--red)}
+.a-warn{background:var(--orange-l);border-left:4px solid var(--orange)}
+.a-info{background:var(--blue-l);border-left:4px solid var(--blue)}
+.a-ok{background:var(--green-l);border-left:4px solid var(--green)}
+.a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+thead th{background:var(--vhd1);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:var(--vhd-l)}
+tbody tr:hover{background:var(--g1)}
+tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
+.th-teal thead th{background:var(--teal)}
+.th-red thead th{background:var(--red)}
+.th-orange thead th{background:var(--orange)}
+.th-purple thead th{background:var(--purple)}
+
+/* Evidence badges */
+.bA{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.bB{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9}
+.bC{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80}
+.bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+.bRed{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a}
+.bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
+.bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
+
+/* Color text */
+.tR{color:var(--red);font-weight:700}
+.tG{color:var(--green);font-weight:700}
+.tO{color:var(--orange);font-weight:700}
+.tB{color:var(--blue);font-weight:700}
+.tN{color:var(--vhd1);font-weight:700}
+
+/* Mermaid */
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--vhd2);display:inline-block}
+pre.mermaid{text-align:center}
+
+/* Evidence legend */
+.legend{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fff;border-radius:var(--rs);padding:12px 16px;box-shadow:var(--sh);margin:14px 0;font-size:12px;color:var(--g6)}
+
+/* SNOOP grid */
+.snoop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:16px 0}
+.sn{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh);border-top:4px solid var(--red)}
+.sn-letter{font-size:32px;font-weight:800;color:var(--red);line-height:1}
+.sn-title{font-size:13px;font-weight:700;color:var(--g8);margin:3px 0 5px}
+.sn-symp{font-size:12px;color:var(--g6);line-height:1.5}
+.sn-dx{font-size:11px;color:var(--red);font-weight:600;margin-top:7px;background:var(--red-l);padding:2px 7px;border-radius:4px;display:inline-block}
+
+/* Drug cards */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
+.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--teal)}
+.drug-nm{font-size:13.5px;font-weight:700;color:var(--teal);margin-bottom:2px}
+.drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
+.drug-tx{font-size:12px;line-height:1.6}
+
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--blue)}
+.src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:2px}
+.src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
+.src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
+
+/* Quick ref */
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
+.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.qr-t{font-size:13px;font-weight:700;color:var(--vhd1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
+
+/* Footer */
+.footer{background:var(--vhd1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer strong{color:#fff}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size:34px">🩸</div>
+  <h1>頭痛と血管 ― Vascular Basis of Headache</h1>
+  <p class="hero-sub">国際頭痛分類(ICHD-3)・WHO・AHA/ASA・ACR・NCBI・査読誌にもとづく神経血管メカニズムの解説</p>
+  <div class="hero-tags">
+    <span class="hero-tag">三叉神経血管系</span>
+    <span class="hero-tag">CGRP</span>
+    <span class="hero-tag">ICHD-3</span>
+    <span class="hero-tag">レッドフラッグ</span>
+    <span class="hero-tag">国際文献</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。<strong>突然発症する激しい頭痛や神経症状を伴う頭痛がある場合は、直ちに救急医療機関を受診してください。</strong>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="s-hdr">目次</div>
+  <a href="#s1" class="nav-a"><span class="n-num">1</span>なぜ頭痛と血管が関係するのか</a>
+  <a href="#s2" class="nav-a"><span class="n-num">2</span>頭蓋内血管の基礎知識</a>
+  <a href="#s3" class="nav-a"><span class="n-num">3</span>三叉神経血管系</a>
+  <a href="#s4" class="nav-a"><span class="n-num">4</span>血管説から神経血管説へ</a>
+  <a href="#s5" class="nav-a"><span class="n-num">5</span>片頭痛とCGRP</a>
+  <a href="#s6" class="nav-a"><span class="n-num">6</span>前兆と皮質拡延性抑制</a>
+  <a href="#s7" class="nav-a"><span class="n-num">7</span>血管が関わる頭痛疾患</a>
+  <a href="#s8" class="nav-a"><span class="n-num">8</span>疾患比較表</a>
+  <a href="#s9" class="nav-a"><span class="n-num">9</span>危険信号と初期対応</a>
+  <a href="#s10" class="nav-a"><span class="n-num">10</span>ICHD-3における位置づけ</a>
+  <a href="#s11" class="nav-a"><span class="n-num">11</span>まとめ</a>
+  <a href="#s12" class="nav-a"><span class="n-num">12</span>参考文献・情報源</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<div class="legend">
+  <strong style="color:var(--g8)">エビデンスグレード:</strong>
+  <span class="bA">A</span>国際ガイドライン/RCT・系統的レビュー
+  <span class="bB">B</span>コホート・臨床生理学的研究
+  <span class="bC">C</span>症例集積・専門家総説
+  <span class="bU">U</span>機序に関する発展中の知見
+</div>
+
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">なぜ頭痛と血管が関係するのか</h1>
+  </div>
+
+  <p>脳そのもの(大脳皮質や深部の神経組織)には、痛みを感じる神経終末がほとんど存在しません。では、なぜ「頭が痛い」と感じるのでしょうか。</p>
+  <p>実は、痛みを感じる(侵害受容性の)神経終末が豊富に分布しているのは、脳の実質ではなく、<strong>頭蓋内外の血管・硬膜(脳を包む膜)・その周囲の組織</strong>です。血管の壁やそれを取り巻く膜が、拡張・炎症・牽引・攣縮といった刺激を受けると、そこに分布する神経が興奮し、痛みの信号として脳へ伝わります。</p>
+  <p>この「血管(および血管周囲の神経)が痛みの発生源になりうる」という基本原理が、片頭痛や群発頭痛のような一次性頭痛から、くも膜下出血のような救急疾患まで、多くの頭痛を理解するための土台になっています。</p>
+
+  <div class="alert a-info">
+    <div class="alert-i">ℹ️</div>
+    <div>国際頭痛学会(IHS)は、片頭痛・群発頭痛のような一次性頭痛と、脳血管障害による二次性頭痛の双方を、神経と血管の相互作用(neurovascular)という共通の枠組みで捉えています。 <span class="bA">A</span></div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">頭蓋内血管の基礎知識</h1>
+  </div>
+
+  <p>頭痛を理解するうえで重要な血管は、大きく2種類に分けられます。</p>
+  <ul>
+    <li><strong>脳実質を養う動脈(脳動脈)</strong>: 内頸動脈・椎骨動脈から始まり、脳の深部で輪状のネットワーク「Willis動脈輪(circle of Willis)」を形成したのち、前・中・後大脳動脈として脳表面に分布します。</li>
+    <li><strong>硬膜を養う動脈(硬膜動脈)</strong>: 代表格は<strong>中硬膜動脈(middle meningeal artery)</strong>で、外頸動脈の枝である顎動脈から分かれ、頭蓋骨の棘孔(foramen spinosum)を通って頭蓋内に入り、硬膜に血液を供給します。硬膜は痛みに敏感な組織であり、中硬膜動脈は三叉神経から豊富な神経支配を受けています。 <span class="bB">B</span></li>
+  </ul>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — Willis動脈輪の模式図</div>
+<pre class="mermaid">
+flowchart LR
+    ICA_L["左内頸動脈"] --- ACA_L["左前大脳動脈"]
+    ICA_R["右内頸動脈"] --- ACA_R["右前大脳動脈"]
+    ACA_L --- ACOM["前交通動脈"]
+    ACA_R --- ACOM
+    ICA_L --- PCOM_L["左後交通動脈"]
+    ICA_R --- PCOM_R["右後交通動脈"]
+    PCOM_L --- PCA_L["左後大脳動脈"]
+    PCOM_R --- PCA_R["右後大脳動脈"]
+    BA["脳底動脈(左右椎骨動脈が合流)"] --- PCA_L
+    BA --- PCA_R
+    ICA_L --- MCA_L["左中大脳動脈"]
+    ICA_R --- MCA_R["右中大脳動脈"]
+</pre>
+  </div>
+  <p style="font-size:12px;color:var(--g6)">出典: NCBI Bookshelf (StatPearls) 中硬膜動脈解剖 — <a href="https://www.ncbi.nlm.nih.gov/books/NBK519545/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov/books/NBK519545</a></p>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚠️</div>
+    <div>Willis動脈輪は片側の血流減少を他方が代償する「安全装置」だが、ここに生じた動脈瘤の破裂はくも膜下出血の主因となる(詳細は第7・8節)。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">三叉神経血管系</h1>
+  </div>
+
+  <p>頭蓋内の血管(特に硬膜動脈や大きな脳動脈・静脈洞)は、主に<strong>三叉神経</strong>(脳神経の中で最大の神経で、特に第1枝である眼神経)によって知覚されています。この「血管+それを支配する三叉神経」のセットを<strong>三叉神経血管系(trigeminovascular system)</strong>と呼びます。</p>
+  <p>この概念は1990年代にArne MayとPeter Goadsbyらによってまとめられ、以後の頭痛研究の基盤となりました。 <span class="bB">B</span></p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 三叉神経血管系の痛覚伝導路</div>
+<pre class="mermaid">
+flowchart LR
+    A["頭蓋内血管(硬膜動脈・脳動脈・静脈洞)"] --&gt;|"三叉神経(主に第1枝)が知覚"| B["三叉神経節"]
+    B --&gt; C["三叉神経脊髄路核(脳幹・上位頸髄)"]
+    C --&gt; D["視床"]
+    D --&gt; E["大脳皮質(痛みとして自覚)"]
+    C -.-&gt;|"三叉神経-自律神経反射"| F["副交感神経系(涙・鼻汁・結膜充血)"]
+</pre>
+  </div>
+  <p style="font-size:12px;color:var(--g6)">出典: May A, Goadsby PJ. <em>J Cereb Blood Flow Metab</em> 1999 — <a href="https://journals.sagepub.com/doi/10.1097/00004647-199902000-00001" target="_blank" rel="noopener noreferrer">journals.sagepub.com/doi/10.1097/00004647-199902000-00001</a></p>
+
+  <p>群発頭痛でみられる同側の涙・鼻づまり・結膜充血といった自律神経症状は、この三叉神経-自律神経反射経路(trigeminoparasympathetic reflex)で説明されます。</p>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">血管説から神経血管説へ</h1>
+  </div>
+
+  <p>かつて片頭痛は、20世紀半ばのHarold Wolffらの研究にもとづき、<strong>「血管が過度に拡張すること自体が痛みの原因である」という単純な血管説</strong>で説明されていました。この考え方は「血管性頭痛(vascular headache)」という呼び名にも反映されていました。</p>
+  <p>しかし1980年代以降の脳血流測定・機能画像研究により、この図式は修正されました。現在の理解では、<strong>血管の拡張は結果の一つに過ぎず、その根本には脳・脳幹の神経活動の変化がある</strong>とされています。 <span class="bB">B</span></p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 頭痛研究のパラダイム転換</div>
+<pre class="mermaid">
+flowchart TD
+    subgraph OLD["20世紀半ば:血管説(Wolffの仮説)"]
+        O1["血管が過度に拡張する"] --&gt; O2["拡張そのものが痛みを引き起こす"]
+    end
+    subgraph NEW["1980年代以降:神経血管説(現在の主流)"]
+        N1["脳・脳幹の興奮性変化(例:皮質拡延性抑制)"] --&gt; N2["三叉神経血管系の活性化"]
+        N2 --&gt; N3["CGRPなど神経ペプチドの放出"]
+        N3 --&gt; N4["血管拡張+神経原性炎症+痛覚感作"]
+        N4 --&gt; N5["頭痛として自覚される"]
+    end
+    OLD -.-&gt;|"血流研究・分子生物学的知見により見直し"| NEW
+</pre>
+  </div>
+  <p style="font-size:12px;color:var(--g6)">出典: May A, Goadsby PJ. <em>J Cereb Blood Flow Metab</em> 1999 — <a href="https://journals.sagepub.com/doi/10.1097/00004647-199902000-00001" target="_blank" rel="noopener noreferrer">journals.sagepub.com/doi/10.1097/00004647-199902000-00001</a></p>
+
+  <p>May & Goadsby(1999)は、片頭痛や群発頭痛は「血管性頭痛」というより、神経と血管の相互作用を強調する<strong>「神経血管性頭痛(neurovascular headache)」</strong>と呼ぶべきだと論じています。</p>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">片頭痛とCGRP</h1>
+  </div>
+
+  <p>現在の片頭痛研究の中心にあるのが、<strong>CGRP(カルシトニン遺伝子関連ペプチド)</strong>という神経ペプチドです。CGRPは三叉神経の神経終末に豊富に存在し、神経が興奮すると血管周囲に放出されます。 <span class="bA">A</span></p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — CGRPを中心とした片頭痛発生メカニズム</div>
+<pre class="mermaid">
+flowchart TD
+    A["三叉神経終末の興奮"] --&gt; B["CGRP放出(カルシトニン遺伝子関連ペプチド)"]
+    B --&gt; C["硬膜血管の拡張"]
+    B --&gt; D["肥満細胞の脱顆粒 → 神経原性炎症"]
+    B --&gt; E["三叉神経終末の感作(末梢性感作)"]
+    C --&gt; F["痛覚受容器のさらなる興奮"]
+    D --&gt; F
+    E --&gt; G["脳幹・視床での中枢性感作"]
+    F --&gt; H["拍動性の頭痛"]
+    G --&gt; I["皮膚アロディニア(通常無害な刺激で痛みを感じる)"]
+    H --&gt; J["片頭痛発作"]
+    I --&gt; J
+</pre>
+  </div>
+  <p style="font-size:12px;color:var(--g6)">出典: Iyengar S, et al. <em>Headache</em> 2019 — <a href="https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.13529" target="_blank" rel="noopener noreferrer">headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.13529</a> ／ Goadsby PJ, Edvinsson L. <em>Ann Neurol</em> 1993 — <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ana.410330109" target="_blank" rel="noopener noreferrer">onlinelibrary.wiley.com/doi/abs/10.1002/ana.410330109</a></p>
+
+  <p>1990年代のGoadsby & Edvinssonの研究では、片頭痛発作中に頸静脈血中のCGRP濃度が上昇し、有効な急性期治療薬(スマトリプタンなど)によってCGRP濃度と頭痛の両方が改善することが示されました。この知見が、その後の抗CGRPモノクローナル抗体薬という、片頭痛特異的な予防治療薬の開発につながりました。</p>
+
+  <h2>代表的な抗CGRP治療薬(予防療法)</h2>
+  <div class="drug-grid">
+    <div class="drug">
+      <div class="drug-nm">エレヌマブ</div>
+      <div class="drug-br">Erenumab (AMG334)</div>
+      <div class="drug-tx">CGRP受容体拮抗抗体。月1回皮下注射。</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">フレマネズマブ</div>
+      <div class="drug-br">Fremanezumab (TEV48125)</div>
+      <div class="drug-tx">抗CGRPリガンド抗体。月1回または3か月に1回皮下注射。</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">ガルカネズマブ</div>
+      <div class="drug-br">Galcanezumab (LY2951742)</div>
+      <div class="drug-tx">抗CGRPリガンド抗体。月1回皮下注射。</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">エプチネズマブ</div>
+      <div class="drug-br">Eptinezumab (ALD403)</div>
+      <div class="drug-tx">抗CGRPリガンド抗体。3か月ごとに点滴静注。</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--g6)">出典: Springer <em>Current Pain and Headache Reports</em> 2025 CGRPモノクローナル抗体総説 — <a href="https://link.springer.com/article/10.1007/s11916-025-01365-4" target="_blank" rel="noopener noreferrer">link.springer.com/article/10.1007/s11916-025-01365-4</a></p>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">前兆と皮質拡延性抑制(CSD)</h1>
+  </div>
+
+  <p>片頭痛の約3割の患者にみられる「前兆(aura)」――視野のギザギザした光(閃輝暗点)やしびれなど――は、<strong>皮質拡延性抑制(cortical spreading depression: CSD)</strong>という現象と関連づけられています。 <span class="bB">B</span></p>
+  <p>CSDは、大脳皮質のニューロンとグリア細胞が波状に脱分極し、それがゆっくり(1分間に数mm)皮質表面を伝播していく現象です。この波が伝わるとき、脳血流も一過性の増加(充血)の後に、長時間の減少(乏血)を示すことが、Martin LauritzenやJes Olesenらのキセノン133吸入法やPET・機能的MRIを用いた研究によって示されています。この血流変化のパターンは、片頭痛の前兆症状が広がる速度や部位とよく対応します。</p>
+  <p>つまり、血流の変化は「原因」ではなく、脳の神経活動の変化に伴って<strong>二次的に生じる現象</strong>として理解されており、血管説から神経血管説への転換を支える重要な証拠となりました。</p>
+  <p style="font-size:12px;color:var(--g6)">出典: Lauritzen M. <em>Cephalalgia</em> 2001 — <a href="https://journals.sagepub.com/doi/full/10.1111/j.1468-2982.2001.00244.x" target="_blank" rel="noopener noreferrer">journals.sagepub.com/doi/full/10.1111/j.1468-2982.2001.00244.x</a></p>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">血管が関わる主な頭痛疾患</h1>
+  </div>
+
+  <p>ここでは、血管が中心的な役割を果たす代表的な頭痛疾患を、良性のものから緊急性の高いものまで紹介します。</p>
+
+  <h2>7.1 片頭痛 (Migraine)</h2>
+  <p>三叉神経血管系とCGRPを中心としたメカニズムで説明される、片側性・拍動性の頭痛です。WHOは、片頭痛を含む頭痛疾患が世界の疾病負担(DALY)において脳卒中・認知症に次いで大きいと報告しています。 <span class="bA">A</span></p>
+
+  <h2>7.2 群発頭痛 (Cluster Headache)</h2>
+  <p>三叉神経自律神経性頭痛(trigeminal autonomic cephalalgias)の代表格で、片側の眼窩・側頭部に極めて激しい痛みが15分〜3時間程度出現し、同側の流涙・結膜充血・鼻閉などの自律神経症状を伴います。三叉神経血管系に加えて視床下部の関与が示唆されています。 <span class="bA">A</span></p>
+
+  <h2>7.3 巨細胞性動脈炎 (Giant Cell Arteritis, 側頭動脈炎)</h2>
+  <p>中〜大型の血管、特に浅側頭動脈に炎症(血管炎)が生じる自己免疫疾患です。50歳以上に新規発症する、こめかみの頭痛や側頭動脈の圧痛・拍動低下が特徴で、顎跛行(咀嚼で顎が痛む)を伴うこともあります。<strong>治療が遅れると失明のリスクがある救急疾患</strong>であり、米国リウマチ学会(ACR)は疑い例への迅速なステロイド治療を推奨しています。 <span class="bA">A</span></p>
+
+  <h2>7.4 くも膜下出血 (Subarachnoid Hemorrhage, SAH)</h2>
+  <p>多くは脳動脈瘤の破裂によって、くも膜下腔に出血が生じるものです。「人生最悪の頭痛」「雷に打たれたような頭痛」と表現される、<strong>発症から1分以内にピークに達する突然の激しい頭痛(サンダークラップヘッドache)</strong>が特徴的です。意識障害や項部硬直を伴うことが多く、生命に関わる神経救急疾患です。 <span class="bA">A</span></p>
+
+  <h2>7.5 可逆性脳血管攣縮症候群 (RCVS)</h2>
+  <p>頭蓋内の複数の動脈が数日〜数週間にわたり可逆的に攣縮する疾患で、反復する雷鳴頭痛が特徴です。産褥期や特定の薬剤(血管収縮薬など)が誘因となることがあり、脳血管撮影では動脈が数珠状にくびれる所見がみられます。多くは3か月以内に自然軽快しますが、脳梗塞や脳出血を合併することがあります。 <span class="bC">C</span></p>
+
+  <h2>7.6 頸動脈・椎骨動脈解離 (Cervical Artery Dissection)</h2>
+  <p>頸部の内頸動脈や椎骨動脈の血管壁が裂けることで生じ、新規の頭痛や頸部痛が初発症状となることが多い疾患です。若年〜中年の脳卒中の重要な原因であり、AHA/ASAは、頭痛・顔面痛(約65%)、頸部痛(約50%)がしばしば脳虚血症状に先行すると報告しています。 <span class="bA">A</span></p>
+</section>
+
+<!-- ====================================================== SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">疾患比較表</h1>
+  </div>
+
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>疾患名</th><th>主に関わる血管・機序</th><th>頭痛の特徴</th><th>代表的な随伴症状</th><th>緊急度</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>片頭痛</strong></td>
+          <td>硬膜血管・三叉神経血管系・CGRP</td>
+          <td>片側性・拍動性、中等度〜重度、4〜72時間持続</td>
+          <td>悪心・嘔吐、光/音過敏、前兆(閃輝暗点など)</td>
+          <td><span class="bGrn">通常は良性</span></td>
+        </tr>
+        <tr>
+          <td><strong>群発頭痛</strong></td>
+          <td>三叉神経血管系・視床下部</td>
+          <td>片側の眼窩/側頭部、極めて激烈、15分〜3時間、群発する</td>
+          <td>同側の流涙、結膜充血、鼻閉、眼瞼下垂</td>
+          <td><span class="bGrn">良性(激痛)</span></td>
+        </tr>
+        <tr>
+          <td><strong>巨細胞性動脈炎</strong></td>
+          <td>浅側頭動脈などの血管炎</td>
+          <td>新規発症のこめかみの頭痛、動脈の圧痛</td>
+          <td>顎跛行、視力障害、全身倦怠感、50歳以上</td>
+          <td><span class="bRed">緊急(失明)</span></td>
+        </tr>
+        <tr>
+          <td><strong>くも膜下出血</strong></td>
+          <td>脳動脈瘤破裂など</td>
+          <td>「人生最悪の頭痛」、秒〜分でピークに達する雷鳴頭痛</td>
+          <td>意識障害、項部硬直、嘔吐</td>
+          <td><span class="bRed">生命に関わる救急</span></td>
+        </tr>
+        <tr>
+          <td><strong>可逆性脳血管攣縮症候群</strong></td>
+          <td>頭蓋内動脈の可逆的攣縮</td>
+          <td>反復する雷鳴頭痛(数日〜数週間)</td>
+          <td>局所神経症状、けいれん</td>
+          <td><span class="bOra">準緊急</span></td>
+        </tr>
+        <tr>
+          <td><strong>頸動脈・椎骨動脈解離</strong></td>
+          <td>頸部動脈壁の裂け</td>
+          <td>新規の頭痛+頸部痛、片側性</td>
+          <td>Horner徴候、脱力・しびれ・言語障害</td>
+          <td><span class="bRed">緊急(脳卒中)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h1 class="sec-title">危険信号と初期対応</h1>
+  </div>
+
+  <p>頭痛のほとんどは良性(一次性)ですが、一部には血管障害などの重篤な原因(二次性頭痛)が隠れています。国際頭痛学会の二次性頭痛特別研究班による<strong>SNNOOP10リスト</strong>(Do TP, et al. <em>Neurology</em> 2019)は、二次性頭痛を疑うべき危険信号を体系的にまとめたものです。 <span class="bB">B</span></p>
+
+  <div class="snoop-grid">
+    <div class="sn">
+      <div class="sn-letter">S</div>
+      <div class="sn-title">全身症状(発熱など)</div>
+      <div class="sn-symp">発熱、体重減少、倦怠感を伴う頭痛</div>
+      <div class="sn-dx">→ 感染症・髄膜炎を疑う</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">N</div>
+      <div class="sn-title">悪性腫瘍の既往</div>
+      <div class="sn-symp">がんの既往がある患者の新規頭痛</div>
+      <div class="sn-dx">→ 脳転移を疑う</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">N</div>
+      <div class="sn-title">神経脱落症状</div>
+      <div class="sn-symp">意識障害、麻痺、言語障害を伴う頭痛</div>
+      <div class="sn-dx">→ 脳卒中・出血を疑う</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">突然発症(雷鳴頭痛)</div>
+      <div class="sn-symp">1分以内にピークへ達する激しい頭痛</div>
+      <div class="sn-dx">→ SAH・RCVS・動脈解離を疑う</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">O</div>
+      <div class="sn-title">65歳以降の新規発症</div>
+      <div class="sn-symp">高齢での初めての頭痛パターン</div>
+      <div class="sn-dx">→ 巨細胞性動脈炎・腫瘍を疑う</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">P</div>
+      <div class="sn-title">妊娠・産褥期</div>
+      <div class="sn-symp">妊娠中・産後の新規/増悪する頭痛</div>
+      <div class="sn-dx">→ 静脈洞血栓症・RCVS・子癇前症を疑う</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--g6)">上記に加え、体位による変化・咳嗽/努責による誘発・乳頭浮腫・進行性/非定型の経過・眼痛+自律神経症状・外傷後の発症・免疫不全状態・鎮痛薬の使用過多も、SNNOOP10リストに含まれる危険信号です。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 突然発症の激しい頭痛への初期対応</div>
+<pre class="mermaid">
+flowchart TD
+    A["突然発症・1分以内にピークへ達する激しい頭痛(サンダークラップヘッドache)"] --&gt; B{"意識障害・神経症状・項部硬直はあるか?"}
+    B --&gt;|"あり"| C["直ちに救急要請(脳卒中・くも膜下出血を疑う)"]
+    B --&gt;|"明らかな随伴症状なし"| D["それでも速やかに医療機関(救急/専門医)を受診"]
+    D --&gt; E["頭部CT検査(発症6時間以内は高感度)"]
+    E --&gt;|"出血所見あり"| F["くも膜下出血(SAH)"]
+    E --&gt;|"出血所見なし"| G["腰椎穿刺、またはMRA/CTAによる血管評価を検討"]
+    G --&gt;|"多発性の血管攣縮所見"| H["可逆性脳血管攣縮症候群(RCVS)を疑う"]
+    G --&gt;|"頸部痛・局所神経症状あり"| I["頸動脈/椎骨動脈解離を疑う"]
+    G --&gt;|"特記所見なし・反復しない"| J["一次性雷鳴頭痛などとして経過観察・専門医フォロー"]
+</pre>
+  </div>
+  <p style="font-size:12px;color:var(--g6)">出典: SNNOOP10 — Do TP, et al. <em>Neurology</em> 2019 — <a href="https://www.neurology.org/doi/10.1212/WNL.0000000000006697" target="_blank" rel="noopener noreferrer">neurology.org/doi/10.1212/WNL.0000000000006697</a> ／ MSD Manual Professional Edition — <a href="https://www.msdmanuals.com/professional/neurologic-disorders/stroke/subarachnoid-hemorrhage" target="_blank" rel="noopener noreferrer">msdmanuals.com</a></p>
+
+  <div class="alert a-danger">
+    <div class="alert-i">🚨</div>
+    <div>上記はあくまで一般的な考え方の整理です。実際の検査方針は医療機関での評価にもとづいて決定されます。突然の激しい頭痛を経験した場合は、自己判断せず速やかに医療機関(緊急時は救急)を受診してください。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 10 -->
+<section id="s10" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">10</div>
+    <h1 class="sec-title">ICHD-3における位置づけ</h1>
+  </div>
+
+  <p>国際頭痛学会(IHS)が策定する<strong>国際頭痛分類第3版(ICHD-3, 2018年発行)</strong>は、WHOの疾病分類(ICD)にも組み込まれている、頭痛診断の国際標準です。血管に関連する頭痛は、この分類の中で次のように位置づけられています。 <span class="bA">A</span></p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>区分</th><th>内容</th><th>血管に関連する代表例</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Part 1</strong><br>一次性頭痛</td><td>基礎疾患のない、神経・血管系機能の変化による頭痛</td><td>片頭痛(第1章)、群発頭痛を含む三叉神経自律神経性頭痛(第3章)</td></tr>
+        <tr><td><strong>Part 2</strong><br>二次性頭痛</td><td>他の疾患に起因する頭痛</td><td>「頭蓋または頸部血管障害による頭痛」(第6章):くも膜下出血、RCVS、動脈解離、巨細胞性動脈炎など</td></tr>
+        <tr><td><strong>Part 3</strong><br>有痛性脳神経ニューロパチー等</td><td>神経障害性の痛みなど</td><td>三叉神経痛など</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>ICHD-3は「一次性頭痛の多くも血管系の関与を伴う機能的な変化である」という理解と、「血管そのものの器質的な病変による二次性頭痛」という理解を、明確に区別しながら体系立てています。</p>
+  <p style="font-size:12px;color:var(--g6)">出典: ICHD-3 公式サイト — <a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ichd-3.org</a></p>
+</section>
+
+<!-- ====================================================== SECTION 11 -->
+<section id="s11" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">11</div>
+    <h1 class="sec-title">まとめ</h1>
+  </div>
+
+  <div class="qr-grid">
+    <div class="qr"><div class="qr-t">痛みの発生源</div>脳実質には痛覚がほとんどなく、痛みを感じるのは主に血管とその周囲の膜・神経である。</div>
+    <div class="qr"><div class="qr-t">三叉神経血管系</div>血管とそれを支配する三叉神経のセットが、多くの頭痛の共通基盤となっている。</div>
+    <div class="qr"><div class="qr-t">血管説→神経血管説</div>単純な「血管拡張=痛み」という理解は、CGRPを介した神経原性炎症・感作という理解へ発展した。</div>
+    <div class="qr"><div class="qr-t">前兆とCSD</div>片頭痛の前兆は皮質拡延性抑制という神経活動の波とそれに伴う血流変化で説明される。</div>
+    <div class="qr"><div class="qr-t">器質的な血管疾患</div>巨細胞性動脈炎・くも膜下出血・RCVS・動脈解離など、命に関わる二次性頭痛も存在する。</div>
+    <div class="qr"><div class="qr-t">危険信号</div>突然発症の激しい頭痛や神経症状を伴う頭痛は、速やかな医療機関受診が必要である。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 12 -->
+<section id="s12" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">12</div>
+    <h1 class="sec-title">参考文献・情報源</h1>
+  </div>
+
+  <p>以下はすべて国際的に認知された学術団体・専門誌・公的機関によるものです。</p>
+
+  <div class="src-grid">
+    <div class="src"><div class="src-org">IHS</div><div class="src-t">国際頭痛分類 ICHD-3 公式サイト</div><div class="src-url"><a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">https://ichd-3.org/</a></div></div>
+    <div class="src"><div class="src-org">IHS</div><div class="src-t">ICHD関連リソースページ</div><div class="src-url"><a href="https://ihs-headache.org/en/resources/ichd/" target="_blank" rel="noopener noreferrer">https://ihs-headache.org/en/resources/ichd/</a></div></div>
+    <div class="src"><div class="src-org">IHS</div><div class="src-t">ICHD-3 ポケット版(PDF)</div><div class="src-url"><a href="https://ihs-headache.org/wp-content/uploads/2020/05/ICHD-3-Pocket-version.pdf" target="_blank" rel="noopener noreferrer">https://ihs-headache.org/wp-content/uploads/2020/05/ICHD-3-Pocket-version.pdf</a></div></div>
+    <div class="src"><div class="src-org">WHO</div><div class="src-t">頭痛疾患ファクトシート</div><div class="src-url"><a href="https://www.who.int/news-room/fact-sheets/detail/headache-disorders" target="_blank" rel="noopener noreferrer">https://www.who.int/news-room/fact-sheets/detail/headache-disorders</a></div></div>
+    <div class="src"><div class="src-org">J Cereb Blood Flow Metab</div><div class="src-t">三叉神経血管系の総説(May &amp; Goadsby, 1999)</div><div class="src-url"><a href="https://journals.sagepub.com/doi/10.1097/00004647-199902000-00001" target="_blank" rel="noopener noreferrer">https://journals.sagepub.com/doi/10.1097/00004647-199902000-00001</a></div></div>
+    <div class="src"><div class="src-org">Ann Neurol</div><div class="src-t">三叉神経血管系とCGRP・治療薬の研究(Goadsby &amp; Edvinsson, 1993)</div><div class="src-url"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ana.410330109" target="_blank" rel="noopener noreferrer">https://onlinelibrary.wiley.com/doi/abs/10.1002/ana.410330109</a></div></div>
+    <div class="src"><div class="src-org">Headache</div><div class="src-t">CGRPと三叉神経血管系(総説, Iyengar et al. 2019)</div><div class="src-url"><a href="https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.13529" target="_blank" rel="noopener noreferrer">https://headachejournal.onlinelibrary.wiley.com/doi/10.1111/head.13529</a></div></div>
+    <div class="src"><div class="src-org">Cephalalgia</div><div class="src-t">皮質拡延性抑制と片頭痛(総説, Lauritzen 2001)</div><div class="src-url"><a href="https://journals.sagepub.com/doi/full/10.1111/j.1468-2982.2001.00244.x" target="_blank" rel="noopener noreferrer">https://journals.sagepub.com/doi/full/10.1111/j.1468-2982.2001.00244.x</a></div></div>
+    <div class="src"><div class="src-org">Front Neuroanat</div><div class="src-t">硬膜の神経支配(中硬膜動脈周囲, Lee et al. 2017)</div><div class="src-url"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5742225/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5742225/</a></div></div>
+    <div class="src"><div class="src-org">NCBI</div><div class="src-t">中硬膜動脈の解剖(StatPearls)</div><div class="src-url"><a href="https://www.ncbi.nlm.nih.gov/books/NBK519545/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/books/NBK519545/</a></div></div>
+    <div class="src"><div class="src-org">NCBI</div><div class="src-t">可逆性脳血管攣縮症候群(StatPearls)</div><div class="src-url"><a href="https://www.ncbi.nlm.nih.gov/books/NBK551723/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/books/NBK551723/</a></div></div>
+    <div class="src"><div class="src-org">NCBI</div><div class="src-t">巨細胞性動脈炎(StatPearls)</div><div class="src-url"><a href="https://www.ncbi.nlm.nih.gov/books/NBK459376/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/books/NBK459376/</a></div></div>
+    <div class="src"><div class="src-org">ACR</div><div class="src-t">巨細胞性動脈炎 患者向け解説</div><div class="src-url"><a href="https://rheumatology.org/patients/giant-cell-arteritis" target="_blank" rel="noopener noreferrer">https://rheumatology.org/patients/giant-cell-arteritis</a></div></div>
+    <div class="src"><div class="src-org">AHA/ASA · Stroke</div><div class="src-t">くも膜下出血診療に関する論説</div><div class="src-url"><a href="https://www.ahajournals.org/doi/10.1161/STROKEAHA.123.044560" target="_blank" rel="noopener noreferrer">https://www.ahajournals.org/doi/10.1161/STROKEAHA.123.044560</a></div></div>
+    <div class="src"><div class="src-org">AHA/ASA · Stroke</div><div class="src-t">頸動脈・椎骨動脈解離 科学的声明</div><div class="src-url"><a href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000457" target="_blank" rel="noopener noreferrer">https://www.ahajournals.org/doi/10.1161/STR.0000000000000457</a></div></div>
+    <div class="src"><div class="src-org">Neurology (AAN)</div><div class="src-t">二次性頭痛の危険信号(SNNOOP10, Do et al. 2019)</div><div class="src-url"><a href="https://www.neurology.org/doi/10.1212/WNL.0000000000006697" target="_blank" rel="noopener noreferrer">https://www.neurology.org/doi/10.1212/WNL.0000000000006697</a></div></div>
+    <div class="src"><div class="src-org">MSD Manual</div><div class="src-t">くも膜下出血の臨床解説(Professional Edition)</div><div class="src-url"><a href="https://www.msdmanuals.com/professional/neurologic-disorders/stroke/subarachnoid-hemorrhage" target="_blank" rel="noopener noreferrer">https://www.msdmanuals.com/professional/neurologic-disorders/stroke/subarachnoid-hemorrhage</a></div></div>
+    <div class="src"><div class="src-org">Curr Pain Headache Rep</div><div class="src-t">抗CGRPモノクローナル抗体の総説(2025)</div><div class="src-url"><a href="https://link.springer.com/article/10.1007/s11916-025-01365-4" target="_blank" rel="noopener noreferrer">https://link.springer.com/article/10.1007/s11916-025-01365-4</a></div></div>
+  </div>
+</section>
+
+</main>
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>頭痛と血管 ― Vascular Basis of Headache</strong> — ICHD-3・WHO・AHA/ASA・ACR・NCBI・査読誌にもとづく神経血管メカニズムの解説<br>
+  📅 作成年: 2026 | 次回レビュー推奨: ICHD-4またはガイドライン更新時<br>
+  ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#fdecea',
+    primaryTextColor: '#1a1a2e',
+    primaryBorderColor: '#b3211f',
+    lineColor: '#424242',
+    secondaryColor: '#e0f2f1',
+    tertiaryColor: '#e8f5e9',
+    edgeLabelBackground: '#ffffff',
+    fontSize: '13px'
+  },
+  flowchart: { curve: 'linear', padding: 20 }
+});
+
+const navAs = document.querySelectorAll('.nav-a');
+navAs.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+const secs = document.querySelectorAll('.sec');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const id = en.target.id;
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {threshold: 0.25});
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
