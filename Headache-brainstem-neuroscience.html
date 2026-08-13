@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>頭痛と脳・脳幹｜国際文献に基づく神経科学解説</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{
+  --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
+  --orange:#e65100;--red:#c62828;--green:#2e7d32;--purple:#6a1b9a;
+  --red-l:#ffebee;--orange-l:#fff3e0;--green-l:#e8f5e9;
+  --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
+  --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
+  --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  --brn1:#1a237e;--brn2:#0277bd;--brn3:#00796b;
+  --brn-l:#e8eaf6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#1a237e,#0277bd 55%,#00796b);color:#fff;padding:52px 28px 40px;text-align:center}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
+.hero-sub{font-size:14px;color:#fafafa;margin-bottom:22px}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Disclaimer */
+.disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
+.disclaimer strong{color:var(--orange)}
+
+/* Layout */
+.layout{display:flex;max-width:1360px;margin:0 auto}
+
+/* Sidebar */
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
+.s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
+.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--brn1);color:var(--brn1)}
+.nav-a.active{font-weight:600;background:var(--brn-l)}
+.n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Main */
+.main{flex:1;padding:28px 32px 80px;min-width:0}
+
+/* Section */
+.sec{margin:40px 0;scroll-margin-top:12px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-num{background:var(--brn1);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--brn1)}
+h2{font-size:16px;font-weight:700;color:var(--brn2);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--brn3)}
+h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
+p{margin-bottom:10px;color:var(--g8)}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px}
+a{color:var(--blue)}
+a:hover{text-decoration:underline}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+
+/* Alerts */
+.alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.alert-i{font-size:20px;flex-shrink:0}
+.a-danger{background:var(--red-l);border-left:4px solid var(--red)}
+.a-warn{background:var(--orange-l);border-left:4px solid var(--orange)}
+.a-info{background:var(--blue-l);border-left:4px solid var(--blue)}
+.a-ok{background:var(--green-l);border-left:4px solid var(--green)}
+.a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+thead th{background:var(--brn1);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:var(--brn-l)}
+tbody tr:hover{background:var(--g1)}
+tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
+.th-teal thead th{background:var(--teal)}
+.th-red thead th{background:var(--red)}
+.th-orange thead th{background:var(--orange)}
+.th-purple thead th{background:var(--purple)}
+
+/* Evidence badges */
+.bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
+.bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
+.bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
+
+/* Color text */
+.tR{color:var(--red);font-weight:700}
+.tG{color:var(--green);font-weight:700}
+.tO{color:var(--orange);font-weight:700}
+.tB{color:var(--blue);font-weight:700}
+.tN{color:var(--brn1);font-weight:700}
+
+/* Mermaid */
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--brn2);display:inline-block}
+pre.mermaid{text-align:center}
+
+/* Phase cards */
+.phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+@media(max-width:700px){.phase-grid{grid-template-columns:repeat(2,1fr)}}
+.ph{border-radius:var(--rs);padding:16px;text-align:center}
+.ph1{background:#fff8e1;border:2px solid #ffc107}
+.ph2{background:#e3f2fd;border:2px solid #2196f3}
+.ph3{background:#ffebee;border:2px solid #ef5350}
+.ph4{background:#e8f5e9;border:2px solid #66bb6a}
+.ph-icon{font-size:28px;margin-bottom:6px}
+.ph-title{font-weight:700;font-size:13.5px;margin-bottom:2px}
+.ph-time{font-size:11px;color:var(--g6);margin-bottom:6px}
+.ph-desc{font-size:12px;line-height:1.5;text-align:left}
+
+/* Drug cards */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
+.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--teal)}
+.drug-nm{font-size:13.5px;font-weight:700;color:var(--teal);margin-bottom:2px}
+.drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
+.drug-tx{font-size:12px;line-height:1.6}
+
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--blue)}
+.src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:2px}
+.src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
+.src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
+
+/* Quick ref */
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
+.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.qr-t{font-size:13px;font-weight:700;color:var(--brn1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
+
+/* Footer */
+.footer{background:var(--brn1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer strong{color:#fff}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="font-size:44px">🧠</div>
+  <h1>頭痛と脳・脳幹 ― 国際文献に基づく神経科学的解説</h1>
+  <p class="hero-sub">三叉神経血管系・脳幹核・視床下部・大脳皮質の関与をステップバイステップで学ぶ</p>
+  <div class="hero-tags">
+    <span class="hero-tag">三叉神経血管系</span>
+    <span class="hero-tag">脳幹</span>
+    <span class="hero-tag">三叉神経頸椎複合体</span>
+    <span class="hero-tag">視床下部</span>
+    <span class="hero-tag">ICHD-3</span>
+    <span class="hero-tag">CGRP</span>
+    <span class="hero-tag">群発頭痛</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。強い頭痛、突然発症した頭痛、今までと性質の異なる頭痛がある場合は、必ず医療機関を受診してください。
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="s-hdr">目次</div>
+  <a href="#s1" class="nav-a"><span class="n-num">1</span>この記事の位置づけ</a>
+  <a href="#s2" class="nav-a"><span class="n-num">2</span>頭痛の国際分類（ICHD-3）</a>
+  <a href="#s3" class="nav-a"><span class="n-num">3</span>「痛みを感じる脳」という誤解</a>
+  <a href="#s4" class="nav-a"><span class="n-num">4</span>三叉神経血管系</a>
+  <a href="#s5" class="nav-a"><span class="n-num">5</span>脳幹 ― 中継点と調整役</a>
+  <a href="#s6" class="nav-a"><span class="n-num">6</span>三叉神経頸椎複合体</a>
+  <a href="#s7" class="nav-a"><span class="n-num">7</span>視床下部の役割</a>
+  <a href="#s8" class="nav-a"><span class="n-num">8</span>皮質拡延性抑制（CSD）</a>
+  <a href="#s9" class="nav-a"><span class="n-num">9</span>片頭痛発作の全体像</a>
+  <a href="#s10" class="nav-a"><span class="n-num">10</span>群発頭痛と自律神経反射</a>
+  <a href="#s11" class="nav-a"><span class="n-num">11</span>まとめ表</a>
+  <a href="#s12" class="nav-a"><span class="n-num">12</span>治療標的との接点</a>
+  <a href="#s13" class="nav-a"><span class="n-num">13</span>参考文献・情報源</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h1 class="sec-title">この記事の位置づけ</h1>
+  </div>
+  <div class="card">
+    <p>頭痛は世界的に非常にありふれた神経症状ですが、その背後にある神経科学は決して単純ではありません。世界保健機関（WHO）のファクトシートによれば、頭痛疾患は神経系疾患の中でも特に頻度の高いものの一つであり、片頭痛・緊張型頭痛・群発頭痛などの一次性頭痛が、痛みそのものを主症状とする疾患として位置づけられています。</p>
+    <p>かつて頭痛は「血管の拡張・収縮」だけで説明される<span class="tN">「血管性頭痛」</span>と考えられていました。しかし1980年代以降の研究により、頭痛は末梢の血管だけでなく、三叉神経系・脳幹・視床下部・大脳皮質が相互に関わる<span class="tN">「神経血管性（neurovascular）」</span>な現象であることが明らかになっています。本稿ではこの神経科学的な理解を、初学者にもわかりやすいよう段階的に解説します。</p>
+    <div class="alert a-info">
+      <div class="alert-i">ℹ️</div>
+      <div>本稿の内容は、国際頭痛学会（IHS）・世界保健機関（WHO）・米国国立神経疾患・脳卒中研究所（NINDS/NIH）、および <em>Physiological Reviews</em>・<em>Nature Reviews Neurology</em>・<em>The Lancet</em>／<em>The Lancet Neurology</em> 等の査読済み国際学術誌に基づいています。各セクション末尾および第13章に一次資料のURLを明記しています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h1 class="sec-title">頭痛とは何か ― 国際的な分類の枠組み</h1>
+  </div>
+  <div class="card">
+    <p>頭痛の診断・研究における国際標準は、国際頭痛学会が発行する<strong>国際頭痛分類第3版（ICHD-3）</strong>です。ICHD-3はWHOの国際疾病分類（ICD）とも連携しており、世界中の臨床・研究で共通言語として用いられています。</p>
+
+    <h2>ICHD-3の3大部門</h2>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr><th>部門</th><th>内容</th><th>代表的な疾患</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>一次性頭痛</td><td>頭痛そのものが病気の本体であり、他の疾患の症状ではないもの</td><td>片頭痛、緊張型頭痛、群発頭痛などの三叉神経自律神経性頭痛</td></tr>
+          <tr><td>二次性頭痛</td><td>他の疾患（外傷、血管障害、感染など）に起因して生じるもの</td><td>薬物乱用頭痛、くも膜下出血に伴う頭痛など</td></tr>
+          <tr><td>有痛性脳神経ニューロパチー・顔面痛・その他</td><td>脳神経そのものの障害などによるもの</td><td>三叉神経痛など</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>本稿では、一次性頭痛（特に片頭痛・群発頭痛）の発生に脳・脳幹がどう関わるかに焦点を当てます。これは研究が最も進んでいる領域であり、脳幹の役割を理解する上で最も情報量の多いテーマだからです。</p>
+    <div class="alert a-ok">
+      <div class="alert-i">🌐</div>
+      <div>ICHD-3はWHOの国際疾病分類第10版（ICD-10）に正式に組み込まれており、単なる一学会の基準ではなく国際的な公式分類として扱われています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h1 class="sec-title">「痛みを感じる脳」というよくある誤解</h1>
+  </div>
+  <div class="card">
+    <p>初学者が誤解しやすい点として、「頭痛＝脳そのものが痛んでいる」というイメージがあります。しかし、これは神経解剖学的には正確ではありません。</p>
+    <p>脳の実質（神経細胞やグリア細胞が集まった組織そのもの）には、痛みを感知する侵害受容器がほとんど存在しません。実際に痛みを感じる（＝侵害刺激を受容できる）頭蓋内の構造は限られており、主に以下のようなものです。</p>
+    <ul>
+      <li>硬膜（脳を包む一番外側の膜）とその血管</li>
+      <li>静脈洞（硬膜内を走る太い静脈）</li>
+      <li>頭蓋底付近の大血管（内頸動脈・椎骨動脈など）</li>
+      <li>頭皮・頭蓋骨周囲の筋肉や血管</li>
+    </ul>
+    <p>これらの構造は主に三叉神経（特に第一枝である眼神経）と、上位頸髄神経（C1〜C3）によって支配されています。</p>
+    <div class="alert a-warn">
+      <div class="alert-i">💡</div>
+      <div><strong>ポイント：</strong>頭痛の「痛みの発生源」は脳そのものではなく、脳を取り巻く膜・血管・神経です。その情報が脳幹を経由して脳へと伝えられることで「頭が痛い」という知覚が生まれます。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h1 class="sec-title">三叉神経血管系 ― 頭痛が生まれる入口</h1>
+  </div>
+  <div class="card">
+    <p>硬膜・血管と脳をつなぐこの神経回路網は、<strong>三叉神経血管系（trigeminovascular system）</strong>と呼ばれます。1980年代にMoskowitzらのグループによって提唱され、その後May・Goadsbyらによって体系的にまとめられた、頭痛研究における中核的な概念です。</p>
+
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート ― 三叉神経血管系の痛み伝達経路</div>
+<pre class="mermaid">
+flowchart TD
+    A["硬膜・脳血管&lt;br/&gt;（痛みを感知できる数少ない頭蓋内組織）"] --&gt;|三叉神経第一枝&lt;br/&gt;眼神経の枝| B["三叉神経節&lt;br/&gt;(Trigeminal Ganglion)"]
+    B --&gt; C["三叉神経脊髄路核 尾側亜核&lt;br/&gt;(Trigeminal Nucleus Caudalis)&lt;br/&gt;脳幹・延髄に位置"]
+    C --&gt; D["視床&lt;br/&gt;(Thalamus)"]
+    D --&gt; E["大脳皮質&lt;br/&gt;体性感覚野・島皮質など&lt;br/&gt;（痛みとして自覚）"]
+    F["中脳水道周囲灰白質&lt;br/&gt;(PAG)"] -. "下行性の調節" .-&gt; C
+    G["延髄吻側腹内側部&lt;br/&gt;(RVM)"] -. "下行性の調節" .-&gt; C
+    H["青斑核&lt;br/&gt;(Locus Coeruleus)"] -. "調節" .-&gt; C
+</pre>
+    </div>
+
+    <p>三叉神経節の細い感覚神経線維（C線維・Aδ線維）は、硬膜血管の周囲に分布しています。これらの神経終末はCGRP（カルシトニン遺伝子関連ペプチド）やサブスタンスPといった神経ペプチドを含んでおり、刺激されると血管を拡張させると同時に、痛みの信号を脳幹へと伝えます。特にCGRPは片頭痛発作時に血中濃度が上昇することが確認されており、現在の片頭痛治療薬の主要な標的にもなっています（第12章参照）。</p>
+
+    <div class="alert a-info">
+      <div class="alert-i">🔁</div>
+      <div>重要なのは、この経路が一方向ではないという点です。硬膜から脳幹への「上行性」の痛み信号だけでなく、脳幹から硬膜血管への「下行性」の調節（三叉神経副交感神経反射など）も存在し、双方向のループを形成しています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h1 class="sec-title">脳幹 ― 頭痛の中継点であり調整役</h1>
+  </div>
+  <div class="card">
+    <p>脳幹は、単なる「痛み信号の通り道」ではなく、痛みの強さそのものを増幅させたり抑制させたりする調整役として働きます。ここでは頭痛研究において特に重要とされる脳幹核をひとつずつ見ていきます。</p>
+
+    <h2>5-1. 三叉神経脊髄路核 尾側亜核（Trigeminal Nucleus Caudalis, TNC）</h2>
+    <p>三叉神経の中枢側の入口にあたる核で、延髄から上位頸髄（C1〜C2）にかけて連続的に広がっています。硬膜や顔面から届いた痛み信号を最初に受け取る「二次ニューロン」が存在する場所であり、次章で扱う三叉神経頸椎複合体の中心的な構成要素です。</p>
+
+    <h2>5-2. 中脳水道周囲灰白質（Periaqueductal Gray, PAG）</h2>
+    <p>中脳に位置するPAGは、古くから全身の痛みを抑制する「下行性疼痛抑制系」の中枢として知られてきました。動物実験ではPAGを刺激するとTNCニューロンの活動が抑えられ、逆にPAGの機能を薬理学的に阻害するとTNCニューロンの自発活動・痛み関連活動がともに増加することが示されています。</p>
+
+    <h2>5-3. 延髄吻側腹内側部（Rostral Ventromedial Medulla, RVM）</h2>
+    <p>RVMはPAGからの下行性信号をTNCへ中継する「通過点」として働くと考えられており、状況に応じて痛みを促進する方向にも抑制する方向にも働き得る、双方向性の調節を担っています。</p>
+
+    <h2>5-4. 青斑核（Locus Coeruleus, LC）・縫線核（Raphe Nuclei）</h2>
+    <p>青斑核はノルアドレナリン作動性ニューロンが集まる脳幹核で、覚醒・注意・自律神経調節に関わることで知られていますが、頭痛研究においてもCGRPやPACAP（下垂体アデニル酸シクラーゼ活性化ポリペプチド）を含む神経細胞体が高密度に存在することが確認されており、三叉神経頸椎複合体の活動調節に関与すると考えられています。縫線核はセロトニン作動性の中枢であり、同様に下行性の痛み調節に関わります。</p>
+
+    <h2>5-5. 「片頭痛発生装置（migraine generator）」論争</h2>
+    <p>1990年代のPET研究で、片頭痛発作中に中脳・橋（背外側橋、dorsolateral pons）に活動の増加が観察されたことから、この領域が発作そのものを引き起こす「片頭痛発生装置」であるとする仮説が提唱されました。</p>
+
+    <div class="tbl">
+      <table class="th-purple">
+        <thead>
+          <tr><th>立場</th><th>主張の要点</th><th>評価</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>発生装置仮説を支持</td>
+            <td>片頭痛発作中に中脳・背外側橋の血流増加をPET研究で確認。発作の「引き金」となる中枢と位置づける</td>
+            <td><span class="bGrn">国際的に広く引用</span></td>
+          </tr>
+          <tr>
+            <td>発生装置仮説に批判的</td>
+            <td>脳幹の活動は片頭痛に特異的ではなく他の痛みでも観察されうる。PAGが常に活性化しているとは限らないとし、背外側橋は圧痛・悪心・感覚変調・痛みの調節など複数機能に関わる複雑な役割を担うと再解釈</td>
+            <td><span class="bOra">議論が継続中</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert a-purple">
+      <div class="alert-i">⚖️</div>
+      <div>脳幹が片頭痛の病態に深く関与していること自体は多くの研究で一致していますが、その関与が「発作の引き金」なのか「発作に伴う調節反応」なのかについては、現在も国際的な学術議論が続いているというのが正確な理解です。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h1 class="sec-title">三叉神経頸椎複合体 ― 首と頭痛がつながる理由</h1>
+  </div>
+  <div class="card">
+    <p>「肩や首のこりが頭痛につながる」という経験は多くの人にありますが、これには明確な神経解剖学的根拠があります。</p>
+    <p>三叉神経脊髄路核尾側亜核は、解剖学的に上位頸髄（C1〜C3、特にC2）の後角と連続しており、両者はまとめて<strong>三叉神経頸椎複合体（Trigeminocervical Complex, TCC）</strong>と呼ばれます。</p>
+
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート ― 三叉神経頸椎複合体における収束</div>
+<pre class="mermaid">
+flowchart LR
+    T["三叉神経&lt;br/&gt;（顔面・前頭部・硬膜からの入力）"] --&gt; TCC["三叉神経頸椎複合体&lt;br/&gt;(Trigeminocervical Complex)&lt;br/&gt;延髄〜上位頸髄"]
+    C1["頸神経 C1"] --&gt; TCC
+    C2["頸神経 C2&lt;br/&gt;（大後頭神経）"] --&gt; TCC
+    C3["頸神経 C3"] --&gt; TCC
+    TCC --&gt; UP["視床を経て大脳皮質へ&lt;br/&gt;（痛みとして認知）"]
+    TCC -. "関連痛の発生" .-&gt; REF["後頭部・側頭部・眼窩奥などに&lt;br/&gt;痛みが広がって感じられる"]
+</pre>
+    </div>
+
+    <p>TCCでは、三叉神経（顔・前頭部・硬膜からの入力）と上位頸神経（後頭部・首からの入力）の信号が同じ二次ニューロンに収束（convergence）します。脳はこの収束した信号の「発信源」を正確に区別できないため、首の構造からの痛み信号が頭部の痛みとして自覚されたり、逆に頭痛が首や肩の症状として自覚されたりする「関連痛」が起こります。</p>
+
+    <div class="alert a-info">
+      <div class="alert-i">🔗</div>
+      <div>これが、緊張型頭痛や片頭痛でしばしば首のこわばりや後頭部の痛みを伴う神経学的な背景です。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h1 class="sec-title">視床下部 ― 予兆症状と発作の周期性</h1>
+  </div>
+  <div class="card">
+    <p>片頭痛発作の多くは、頭痛そのものが始まる数時間から1日ほど前に、あくび、集中力低下、疲労感、食欲の変化、頻尿といった<strong>「予兆症状（premonitory symptoms）」</strong>を伴うことが知られています。</p>
+    <p>これらの予兆症状の背景には視床下部の活動があると考えられています。ニトログリセリンで片頭痛発作を誘発する実験でH<sub>2</sub><sup>15</sup>O-PETを用いた研究では、頭痛が始まる前の予兆期の段階で、後部視床下部・中脳腹側被蓋野・PAGの血流増加（活動の増加）が観察されました。この所見は、視床下部が片頭痛発作の非常に早い段階、すなわち痛みが発生するよりも前の段階から関与していることを示す重要な証拠とされています。</p>
+
+    <p>視床下部の関与は群発頭痛においてさらに明確です。Mayらによる1998年のPET研究では、群発頭痛発作中に限って<strong>後部視床下部灰白質</strong>の活動が特異的に増加することが示されました。この活動は発作間欠期には見られず、片頭痛や実験的な頭部痛でも同様の所見は認められませんでした。</p>
+
+    <div class="alert a-ok">
+      <div class="alert-i">⏱️</div>
+      <div>この発見は、群発頭痛の特徴である厳密な日内・季節性の周期性（体内時計様の規則性）を説明する神経基盤として重視されています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h1 class="sec-title">大脳皮質と皮質拡延性抑制（CSD）― 前兆のメカニズム</h1>
+  </div>
+  <div class="card">
+    <p>片頭痛の一部の患者（約3割程度）は、頭痛の前や最中に「前兆（aura）」と呼ばれる一過性の神経症状（視野のギザギザした光、しびれなど）を経験します。この前兆の神経基盤として最も有力視されているのが、<strong>皮質拡延性抑制（Cortical Spreading Depression, CSD）</strong>です。</p>
+    <p>CSDは1944年にブラジルの生理学者アリスチデス・レアオンによって動物脳で初めて記載された現象で、大脳皮質上を毎分数ミリメートルというごく緩やかな速度で伝播する、神経細胞の脱分極の波とそれに続く電気活動の抑制です。この波の伝播速度が、片頭痛の前兆症状（視覚症状が視野の中をゆっくり広がっていく様子）と一致することから、CSDが前兆の生理学的な基盤であるとする仮説が広く支持されています。</p>
+
+    <div class="alert a-info">
+      <div class="alert-i">🧬</div>
+      <div>CSDは単に大脳皮質だけの現象ではなく、皮質から三叉神経血管系を活性化させる引き金にもなりうると考えられています。つまり、前兆（皮質の現象）と頭痛（三叉神経血管系・脳幹の現象）は、CSDを介してひとつながりの過程として理解されつつあります。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h1 class="sec-title">片頭痛発作の全体像（統合フローチャート）</h1>
+  </div>
+  <div class="card">
+    <p>ここまで見てきた要素を、片頭痛発作の時間経過に沿って統合すると、以下のようになります。</p>
+
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート ― 片頭痛発作の4段階と関与する脳領域</div>
+<pre class="mermaid">
+flowchart LR
+    subgraph P1["① 予兆期&lt;br/&gt;（発作の数時間〜1日前）"]
+        H1["視床下部・中脳腹側被蓋野の&lt;br/&gt;活動増加"]
+    end
+    subgraph P2["② 前兆&lt;br/&gt;（一部の患者のみ／通常60分以内）"]
+        H2["大脳皮質での&lt;br/&gt;皮質拡延性抑制（CSD）"]
+    end
+    subgraph P3["③ 頭痛期"]
+        H3["三叉神経血管系の活性化&lt;br/&gt;脳幹（PAG・RVM・青斑核）による調節&lt;br/&gt;視床を経て皮質で痛みを自覚"]
+    end
+    subgraph P4["④ 回復期&lt;br/&gt;（Postdrome）"]
+        H4["疲労感・集中力低下などが&lt;br/&gt;残りつつ神経活動が正常化"]
+    end
+    P1 --&gt; P2 --&gt; P3 --&gt; P4
+</pre>
+    </div>
+
+    <div class="phase-grid">
+      <div class="ph ph1">
+        <div class="ph-icon">🌙</div>
+        <div class="ph-title">① 予兆期</div>
+        <div class="ph-time">発作の数時間〜1日前</div>
+        <div class="ph-desc">視床下部・中脳腹側被蓋野の活動が増加。あくび、疲労感、集中力低下、食欲変化など</div>
+      </div>
+      <div class="ph ph2">
+        <div class="ph-icon">✨</div>
+        <div class="ph-title">② 前兆（Aura）</div>
+        <div class="ph-time">一部の患者のみ／通常60分以内</div>
+        <div class="ph-desc">大脳皮質で皮質拡延性抑制（CSD）が進展。視覚症状・しびれなどが緩徐に広がる</div>
+      </div>
+      <div class="ph ph3">
+        <div class="ph-icon">⚡</div>
+        <div class="ph-title">③ 頭痛期</div>
+        <div class="ph-time">数時間〜72時間</div>
+        <div class="ph-desc">三叉神経血管系が活性化。脳幹（PAG・RVM・青斑核）が調節し、視床を経て皮質で痛みを自覚</div>
+      </div>
+      <div class="ph ph4">
+        <div class="ph-icon">🌤️</div>
+        <div class="ph-title">④ 回復期</div>
+        <div class="ph-time">Postdrome</div>
+        <div class="ph-desc">疲労感・集中力低下などが残存しつつ、神経活動が緩徐に正常化</div>
+      </div>
+    </div>
+
+    <div class="alert a-info">
+      <div class="alert-i">📚</div>
+      <div>この4段階モデルは、Goadsbyらによる2017年の総説（<em>Physiological Reviews</em>）で体系的に整理されたもので、片頭痛が「頭痛が起きてから始まる病気」ではなく、「脳の感覚処理システムが発作前から周期的に変化している病気」であるという理解を裏付けています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 10 -->
+<section id="s10" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">10</div>
+    <h1 class="sec-title">群発頭痛と三叉神経自律神経反射</h1>
+  </div>
+  <div class="card">
+    <p>群発頭痛は、片方の目の奥を中心とした激烈な痛みが、涙や結膜充血、鼻閉といった自律神経症状を伴って起こる一次性頭痛で、国際頭痛分類上は<strong>「三叉神経自律神経性頭痛（Trigeminal Autonomic Cephalalgias, TACs）」</strong>というグループに分類されます。</p>
+    <p>この自律神経症状の背景には、<strong>三叉神経自律神経反射（trigeminal-autonomic reflex）</strong>と呼ばれる脳幹内の反射弓があります。</p>
+
+    <div class="mmd">
+      <div class="mmd-lbl">フローチャート ― 三叉神経自律神経反射弓（群発頭痛）</div>
+<pre class="mermaid">
+flowchart TD
+    N["三叉神経（眼神経領域）への&lt;br/&gt;侵害刺激"] --&gt; TNC["三叉神経脊髄路核"]
+    TNC --&gt; SSN["上唾液核&lt;br/&gt;(Superior Salivatory Nucleus)&lt;br/&gt;橋に位置"]
+    SSN --&gt;|副交感神経遠心路&lt;br/&gt;顔面神経（第VII脳神経）経由| SPG["翼口蓋神経節&lt;br/&gt;（蝶形口蓋神経節）"]
+    SPG --&gt; SYM["流涙・結膜充血・鼻閉などの&lt;br/&gt;自律神経症状"]
+    PH["後部視床下部&lt;br/&gt;(Posterior Hypothalamus)"] -. "発作の誘発・周期性の調節" .-&gt; SSN
+    TNC --&gt; THAL["視床・大脳皮質へ&lt;br/&gt;（痛みの認知）"]
+</pre>
+    </div>
+
+    <p>三叉神経から入った痛みの信号は、三叉神経脊髄路核だけでなく橋にある上唾液核にも伝わります。上唾液核から出る副交感神経の遠心性線維は、顔面神経を経由して翼口蓋神経節（蝶形口蓋神経節）に至り、そこから涙腺や鼻粘膜の血管を刺激することで、涙・鼻閉といった自律神経症状を引き起こします。</p>
+
+    <div class="alert a-purple">
+      <div class="alert-i">🔄</div>
+      <div>前述の通り、後部視床下部はこの反射の活動性そのものを調節しており、群発頭痛特有の厳密な発作周期の背景にあると考えられています。なお、こうした自律神経症状は群発頭痛に限らず、片頭痛や三叉神経痛でも程度の差はあれ見られることがあり、TACsとその他の頭痛との違いは症状の「有無」ではなく「強さ・程度」にあるとされています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 11 -->
+<section id="s11" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">11</div>
+    <h1 class="sec-title">まとめ表 ― 脳・脳幹の主要構造と頭痛への関与</h1>
+  </div>
+  <div class="card">
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr><th>構造</th><th>主な位置</th><th>頭痛における主な役割</th><th>関連が深い頭痛</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>三叉神経節</td><td>頭蓋底（末梢）</td><td>硬膜・血管からの痛み信号を最初に受け取り、CGRPなどを放出</td><td>片頭痛、群発頭痛など</td></tr>
+          <tr><td>三叉神経脊髄路核 尾側亜核（TNC）</td><td>延髄〜上位頸髄</td><td>痛み信号を受け取る中枢側の最初の中継点。三叉神経頸椎複合体の中核</td><td>すべての一次性頭痛</td></tr>
+          <tr><td>中脳水道周囲灰白質（PAG）</td><td>中脳</td><td>下行性の痛み調節（抑制・修飾）</td><td>片頭痛（発生装置仮説の対象）</td></tr>
+          <tr><td>延髄吻側腹内側部（RVM）</td><td>延髄</td><td>PAGからの調節信号をTNCへ中継</td><td>片頭痛</td></tr>
+          <tr><td>青斑核（LC）</td><td>橋</td><td>ノルアドレナリン作動性の調節、CGRP・PACAP高発現</td><td>片頭痛</td></tr>
+          <tr><td>上唾液核</td><td>橋</td><td>三叉神経自律神経反射の遠心路の起点</td><td>群発頭痛などTACs</td></tr>
+          <tr><td>視床下部（特に後部）</td><td>間脳</td><td>予兆症状の発生、発作の周期性・体内時計様調節</td><td>片頭痛（予兆期）、群発頭痛</td></tr>
+          <tr><td>視床</td><td>間脳</td><td>痛み信号を大脳皮質へ中継、痛みの感作にも関与</td><td>片頭痛（アロディニアなど）</td></tr>
+          <tr><td>大脳皮質</td><td>終脳</td><td>皮質拡延性抑制（CSD）による前兆症状の発生</td><td>片頭痛（前兆あり）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 12 -->
+<section id="s12" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">12</div>
+    <h1 class="sec-title">治療標的との接点</h1>
+  </div>
+  <div class="card">
+    <p>ここまで解説した神経回路の理解は、実際の頭痛治療薬の作用機序にも直結しています。</p>
+
+    <div class="drug-grid">
+      <div class="drug">
+        <div class="drug-nm">トリプタン系薬剤</div>
+        <div class="drug-br">5-HT<sub>1B/1D</sub>受容体作動薬</div>
+        <div class="drug-tx">セロトニン受容体を介して三叉神経終末やTNCの活動を抑制すると考えられています。</div>
+      </div>
+      <div class="drug">
+        <div class="drug-nm">ゲパント系薬剤</div>
+        <div class="drug-br">CGRP受容体拮抗薬</div>
+        <div class="drug-tx">三叉神経血管系で放出されるCGRPの受容体結合をブロックし、急性期治療・予防の両方に用いられます。</div>
+      </div>
+      <div class="drug">
+        <div class="drug-nm">抗CGRP抗体</div>
+        <div class="drug-br">モノクローナル抗体製剤</div>
+        <div class="drug-tx">エレヌマブ、フレマネズマブなど。片頭痛の予防薬として、一部は群発頭痛の予防薬としても国際的に承認されています。</div>
+      </div>
+      <div class="drug">
+        <div class="drug-nm">神経ブロック・神経節介入</div>
+        <div class="drug-br">後頭神経ブロック／翼口蓋神経節への介入</div>
+        <div class="drug-tx">三叉神経頸椎複合体や三叉神経自律神経反射という解剖学的知見に基づき用いられます。</div>
+      </div>
+    </div>
+
+    <div class="alert a-ok">
+      <div class="alert-i">🔬</div>
+      <div>脳幹や視床下部といった中枢神経系の理解が進んだことで、単なる対症療法ではなく、発症機序そのものを標的とした治療薬の開発が可能になったという経緯があります。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 13 -->
+<section id="s13" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">13</div>
+    <h1 class="sec-title">参考文献・情報源</h1>
+  </div>
+  <div class="card">
+    <p>本稿の内容は、以下の国際的に認知された学術誌・国際機関の一次資料に基づいています（アクセス日：2026年8月）。</p>
+
+    <div class="src-grid">
+      <div class="src">
+        <div class="src-org">J Cereb Blood Flow Metab</div>
+        <div class="src-t">May A, Goadsby PJ. The trigeminovascular system in humans（1999）</div>
+        <div class="src-url">https://journals.sagepub.com/doi/10.1097/00004647-199902000-00001</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PubMed</div>
+        <div class="src-t">Neuropeptide localization in the "migraine generator" region of the human brainstem</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/11422090/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PubMed</div>
+        <div class="src-t">Migraine pathophysiology: anatomy of the trigeminovascular pathway, CSD, sensitization and modulation of pain</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/24347803/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PMC</div>
+        <div class="src-t">Ion Channel Disturbances in Migraine Headache</div>
+        <div class="src-url">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10706278/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PMC</div>
+        <div class="src-t">Peripheral and central mechanisms of migraine（PAG・RVM・TNCの調節）</div>
+        <div class="src-url">https://pmc.ncbi.nlm.nih.gov/articles/PMC6668207</div>
+      </div>
+      <div class="src">
+        <div class="src-org">J Neurol / Springer</div>
+        <div class="src-t">An update on migraine: current understanding and future directions（片頭痛発生装置仮説）</div>
+        <div class="src-url">https://link.springer.com/article/10.1007/s00415-017-8434-y</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Curr Pain Headache Rep</div>
+        <div class="src-t">Convergence of cervical and trigeminal sensory afferents</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/12946291/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">The Lancet Neurology</div>
+        <div class="src-t">Ashina M et al. Migraine and the trigeminovascular system-40 years and counting（2019）</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/31160203/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PMC</div>
+        <div class="src-t">Referred trigeminal facial pain due to greater occipital nerve entrapment（TCCの解剖）</div>
+        <div class="src-url">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9734007/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PMC</div>
+        <div class="src-t">Only cervical vertebrae C0-C2 are relevant for subgrouping migraine patients（TCCと頸椎）</div>
+        <div class="src-url">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9034562/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">WHO</div>
+        <div class="src-t">Migraine and other headache disorders（ファクトシート）</div>
+        <div class="src-url">https://www.who.int/news-room/fact-sheets/detail/headache-disorders</div>
+      </div>
+      <div class="src">
+        <div class="src-org">International Headache Society</div>
+        <div class="src-t">The International Classification of Headache Disorders, 3rd edition (ICHD-3)</div>
+        <div class="src-url">https://ichd-3.org/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">International Headache Society</div>
+        <div class="src-t">International Classification of Headache Disorders（ICHDリソースページ）</div>
+        <div class="src-url">https://ihs-headache.org/en/resources/ichd/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">The Lancet Neurology</div>
+        <div class="src-t">International Classification of Headache Disorders（解説）</div>
+        <div class="src-url">https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(18)30085-1/fulltext</div>
+      </div>
+      <div class="src">
+        <div class="src-org">NINDS / NIH</div>
+        <div class="src-t">Headache（患者向け解説ページ）</div>
+        <div class="src-url">https://www.ninds.nih.gov/health-information/disorders/headache</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Physiological Reviews</div>
+        <div class="src-t">Goadsby PJ et al. Pathophysiology of Migraine: A Disorder of Sensory Processing（2017）</div>
+        <div class="src-url">https://journals.physiology.org/doi/full/10.1152/physrev.00034.2015</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Nature Reviews Neurology</div>
+        <div class="src-t">Edvinsson L et al. CGRP as the target of new migraine therapies（2018）</div>
+        <div class="src-url">https://www.nature.com/articles/s41582-018-0003-1</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Physiological Reviews</div>
+        <div class="src-t">CGRP physiology, pharmacology, and therapeutic targets</div>
+        <div class="src-url">https://journals.physiology.org/doi/full/10.1152/physrev.00059.2021</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PMC</div>
+        <div class="src-t">Efficacy and Safety of Anti-CGRP Monoclonal Antibodies in Preventing Migraines</div>
+        <div class="src-url">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10586710/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Nature Reviews Disease Primers</div>
+        <div class="src-t">Migraine（2022）</div>
+        <div class="src-url">https://www.nature.com/articles/s41572-021-00328-4</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PMC</div>
+        <div class="src-t">The ongoing debate over the validity of the brainstem migraine generator theory</div>
+        <div class="src-url">https://pmc.ncbi.nlm.nih.gov/articles/PMC3711518</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PubMed</div>
+        <div class="src-t">Neuroimaging in the pre-ictal or premonitory phase of migraine: a narrative review</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/37563570/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PubMed</div>
+        <div class="src-t">Pathophysiology of Migraine: A Disorder of Sensory Processing（要旨）</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/28179394/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">The Lancet</div>
+        <div class="src-t">May A et al. Hypothalamic activation in cluster headache attacks（1998）</div>
+        <div class="src-url">https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(98)02470-2/abstract</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Neurology</div>
+        <div class="src-t">PET demonstration of hypothalamic activation in cluster headache</div>
+        <div class="src-url">https://www.neurology.org/doi/10.1212/WNL.52.7.1522</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PubMed</div>
+        <div class="src-t">Hypothalamic activation in cluster headache attacks（要旨）</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/9690407/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">The Lancet Neurology</div>
+        <div class="src-t">Goadsby PJ. Pathophysiology of cluster headache: a trigeminal autonomic cephalgia（2002）</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/12849458/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Nature Reviews Neurology</div>
+        <div class="src-t">Charles A, Baca SM. Cortical spreading depression and migraine（2013）</div>
+        <div class="src-url">https://www.nature.com/articles/nrneurol.2013.192</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Neurology</div>
+        <div class="src-t">Leão's cortical spreading depression（歴史的解説）</div>
+        <div class="src-url">https://www.neurology.org/doi/10.1212/01.wnl.0000183281.12779.cd</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Cephalalgia</div>
+        <div class="src-t">History of migraine with aura and cortical spreading depression from 1941 and onwards</div>
+        <div class="src-url">https://journals.sagepub.com/doi/full/10.1111/j.1468-2982.2009.02015.x</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PubMed</div>
+        <div class="src-t">The Neuropharmacology of Cluster Headache and other Trigeminal Autonomic Cephalalgias</div>
+        <div class="src-url">https://pubmed.ncbi.nlm.nih.gov/26411963/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">PMC</div>
+        <div class="src-t">Neuroimaging in cluster headache and other trigeminal autonomic cephalalgias</div>
+        <div class="src-url">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3253152/</div>
+      </div>
+      <div class="src">
+        <div class="src-org">Cephalalgia</div>
+        <div class="src-t">Goadsby PJ. Cluster headache and the trigeminal-autonomic reflex: Driving or being driven?（2018）</div>
+        <div class="src-url">https://journals.sagepub.com/doi/full/10.1177/0333102417738252</div>
+      </div>
+      <div class="src">
+        <div class="src-org">NINDS / NIH</div>
+        <div class="src-t">Migraine（患者向け解説ページ）</div>
+        <div class="src-url">https://www.ninds.nih.gov/health-information/disorders/migraine</div>
+      </div>
+    </div>
+
+    <div class="alert a-warn">
+      <div class="alert-i">📌</div>
+      <div>本稿は教育目的の要約であり、個々の症例の診断・治療方針は必ず医療専門家にご相談ください。</div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>頭痛と脳・脳幹 ― 国際文献に基づく神経科学的解説</strong> — 三叉神経血管系・脳幹核・視床下部・大脳皮質の関与をステップバイステップで学ぶ<br>
+  📅 作成年: 2026 | 次回レビュー推奨: 国際頭痛分類・主要ガイドライン更新時<br>
+  ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#e3f2fd',
+    primaryTextColor: '#1a237e',
+    primaryBorderColor: '#0277bd',
+    lineColor: '#0277bd',
+    secondaryColor: '#e0f2f1',
+    tertiaryColor: '#e8f5e9',
+    edgeLabelBackground: '#ffffff',
+    fontSize: '13px'
+  },
+  flowchart: { curve: 'linear', padding: 20 }
+});
+
+const navAs = document.querySelectorAll('.nav-a');
+navAs.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+const secs = document.querySelectorAll('.sec');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const id = en.target.id;
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {threshold: 0.25});
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
