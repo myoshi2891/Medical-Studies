@@ -33,32 +33,39 @@ export function HeadacheRelatedNervesSidebar() {
     );
     if (sections.length === 0) return;
 
-    // 現在可視な section の上端座標を保持する。コールバックの entries は「交差状態が
+    // 現在可視な section の id のみを保持する。コールバックの entries は「交差状態が
     // 変化した section」しか含まないため、集合として持ち越さないと比較できない。
-    const visibleTops = new Map<string, number>();
+    // 座標は保持しない — 通知時点の値はスクロールで即座に陳腐化するため、選択時に測り直す。
+    const visibleIds = new Set<string>();
+
+    // 可視 section のうち、ビューポート上端に最も近いものをカレントとする。
+    // 現在位置を都度計測するため、entries の順序にも通知タイミングにも依存しない。
+    const selectNearest = () => {
+      let nearestId: string | null = null;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+      for (const id of visibleIds) {
+        const el = document.getElementById(id);
+        if (el === null) continue;
+        const distance = Math.abs(el.getBoundingClientRect().top);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestId = id;
+        }
+      }
+      if (nearestId !== null) setActiveId(nearestId);
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            visibleTops.set(entry.target.id, entry.boundingClientRect.top);
+            visibleIds.add(entry.target.id);
             continue;
           }
-          visibleTops.delete(entry.target.id);
+          visibleIds.delete(entry.target.id);
         }
-        if (visibleTops.size === 0) return;
-
-        // entries の順序には依存せず、ビューポート上端に最も近い section をカレントとする。
-        let nearestId: string | null = null;
-        let nearestDistance = Number.POSITIVE_INFINITY;
-        for (const [id, top] of visibleTops) {
-          const distance = Math.abs(top);
-          if (distance < nearestDistance) {
-            nearestDistance = distance;
-            nearestId = id;
-          }
-        }
-        if (nearestId !== null) setActiveId(nearestId);
+        if (visibleIds.size === 0) return;
+        selectNearest();
       },
       { threshold: 0.25 }
     );
@@ -67,8 +74,17 @@ export function HeadacheRelatedNervesSidebar() {
       observer.observe(section);
     }
 
+    // 複数 section が可視のまま移動する間は IntersectionObserver が再通知しないため、
+    // スクロール中も測り直してカレントを追従させる。
+    const handleScroll = () => {
+      if (visibleIds.size === 0) return;
+      selectNearest();
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => {
       observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
