@@ -1,6 +1,6 @@
 # GEMINI.md
 
-Updated 2026-07-22
+Updated 2026-08-13
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -97,4 +97,4 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 既知の誤検知
 
 - **cSpell**: 医療略語（ICHD, CTTH, NSAIDs, Cochrane 等）は登録外のため `Unknown word` 警告が出るが対応不要
-- **SonarQube css:S7924**: CSS カスタムプロパティ（`var(--xxx)`）を解決できないため誤ってコントラスト不足と判定する場合がある。実色で確認すること
+- **SonarQube css:S7924**: CSS カスタムプロパティ（`var(--xxx)`）を解決出来ないため誤ってコントラスト不足と判定する場合がある。実色で確認すること
