@@ -23,7 +23,7 @@ allowed-tools:
 
 | 対象ドメイン | 記述形式 | Mermaid の供給元 |
 | --- | --- | --- |
-| **レガシー HTML**（`Types-of-headache/html-files/**`） | `<div class="mermaid">` ブロック / JS テンプレートリテラル | CDN + SRI（`mermaid@10.9.6`） |
+| **レガシー HTML**（`Types-of-headache/html-files/**`） | `<pre class="mermaid">` ブロック / JS テンプレートリテラル | CDN + SRI（`mermaid@10.9.6`） |
 | **web-next**（`web-next/app/**`） | `<MermaidDiagram chart={\`…\`} />` | npm 依存 `mermaid@10.9.6`（CDN 不使用） |
 
 前半（本節〜「Mermaid を諦めて…」の直前）はレガシー HTML 向け。web-next 側の作法は
@@ -47,11 +47,14 @@ HTMLフォーマッタによる破壊パターン:
 
 ## 修正手順
 
-1. `Grep` で `<div class="mermaid">` を全検索してブロック数を把握する
+1. `Grep` で `class="mermaid"` を全検索してブロック数を把握する（現行のレガシー HTML はすべて `<pre>`）
 2. 各ブロックを `Read` で確認し、上記ルール違反を特定する
 3. `Edit` で各ブロックの内容を修正する
-   - `<div>` タグ自体のインデントは変更しない
+   - `<pre>` タグ自体のインデントは変更しない
    - タグ内のMermaidコンテンツのみを置換対象にする
+
+> `scripts/fix_mermaid.py` は `<pre class="mermaid">` と `<div class="mermaid">` の両方を抽出対象にする
+> （旧資産の互換維持）。新規作成・修正では `<pre class="mermaid">` に統一する。
 
 自動修正が必要な場合は `scripts/fix_mermaid.py` を使用する:
 
@@ -64,22 +67,22 @@ python3 .claude/skills/fix-mermaid/scripts/fix_mermaid.py path/to/file.html
 **Before（壊れた状態）:**
 
 ```html
-<div class="mermaid">
+<pre class="mermaid">
   graph LR A["ノードA"] B["ノードB"] A --> B
   style A fill:#fff
-</div>
+</pre>
 ```
 
 **After（修正後）:**
 
 ```html
-<div class="mermaid">
+<pre class="mermaid">
 graph LR
 A["ノードA"]
 B["ノードB"]
 A --> B
 style A fill:#fff
-</div>
+</pre>
 ```
 
 ## ダイアグラム別の注意点
@@ -100,14 +103,14 @@ style A fill:#fff
 
 ### IDEフォーマッター（Prettier）による破壊が根本原因
 
-`<div class="mermaid">` に Mermaid ソースを直接書くと、VSCode/Prettier が保存のたびにインデントを付加して構文を壊す。**恒久対策は JS テンプレートリテラルへの移管**。
+`<pre class="mermaid">` に Mermaid ソースを直接書くと、VSCode/Prettier が保存のたびにインデントを付加して構文を壊す。**恒久対策は JS テンプレートリテラルへの移管**。
 
 ```html
 <!-- ❌ Prettierが保存時にインデントを付加して破壊する -->
-<div class="mermaid">
+<pre class="mermaid">
 graph LR
 A --> B
-</div>
+</pre>
 
 <!-- ✅ JSテンプレートリテラル方式（IDEが一切触れない） -->
 <div id="diag-0"></div>

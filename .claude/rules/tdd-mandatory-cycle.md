@@ -2,9 +2,7 @@
 paths:
   - "Types-of-headache/md-files/**/*.md"
   - "Types-of-headache/html-files/**/*.html"
-  - "web-next/app/**"
-  - "web-next/components/**"
-  - "web-next/lib/**"
+  - "web-next/**/*"
 ---
 
 # 編集・変換の必須サイクル & コミット分割ルール
@@ -30,7 +28,7 @@ paths:
 | ドメイン | 対象パス | 適用サイクル |
 | --- | --- | --- |
 | **レガシー HTML**（素の HTML + Mermaid CDN） | `Types-of-headache/md-files/**`, `Types-of-headache/html-files/**` | 下記「必須ワークフロー（レガシー HTML）」ステップ 1〜3 |
-| **web-next**（Next.js App Router + Vitest） | `web-next/app/**`, `web-next/components/**`, `web-next/lib/**` | 下記「web-next の必須 TDD サイクル」 |
+| **web-next**（Next.js App Router + Vitest） | `web-next/**`（`biome.json` / `next.config.ts` 等の設定ファイルを含む） | 下記「web-next の必須 TDD サイクル」 |
 
 レガシー HTML を web-next へ移行する作業は**両方に該当する**。その場合、
 移行元 HTML の修正（ステップ 1〜3）と移行先 TSX の実装（web-next サイクル）を

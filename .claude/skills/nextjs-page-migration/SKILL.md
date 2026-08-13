@@ -183,12 +183,13 @@ App Router は Server Component でも CSS import 可。元 `<style>` の `:root
 
 ```text
 0. 準備   : ソース HTML を Read → 契約値を grep で実測 → slug/category を決める
-1. [Red]  : app/<category>/<slug>/page.test.tsx を書く          → test コミット
-2. [Green]: page.tsx + <slug>.css を実装（忠実転記）             → feat コミット
-3. 登録   : lib/content/registry.ts + nav-links.ts + SiteHeader.test.tsx → feat コミット
-4. 検証   : lint / typecheck / test / build を全通過
-5. 目視   : bun run dev でユーザーが確認
-6. 同期   : GEMINI.md / CLAUDE.md / PROGRESS.md を更新           → docs コミット
+1. [Red]  : app/<category>/<slug>/page.test.tsx
+            + components/site/SiteHeader.test.tsx（href 追記）を書く  → test コミット
+2. [Green]: page.tsx + <slug>.css（忠実転記）
+            + lib/content/registry.ts + nav-links.ts への登録         → feat コミット
+3. 検証   : lint / typecheck / test / build を全通過
+4. 目視   : bun run dev でユーザーが確認
+5. 同期   : GEMINI.md / CLAUDE.md / PROGRESS.md を更新           → docs コミット
 ```
 
 > **slug 規約**: `/<category>/<kebab-case-slug>`。`category` は
@@ -510,6 +511,9 @@ import { Ext } from "@/components/Ext"; // named import
 `app/sitemap.ts` はこのレジストリから機械生成されるため**追記不要**。
 
 #### (2) グローバルナビゲーション（Red → Green）
+
+> Red 側（テスト追記）は **Step 1 の `test` コミット**に、Green 側（`nav-links.ts` への登録）は
+> **Step 2 の `feat` コミット**に含める。テストと実装を同一コミットに混ぜない。
 
 1. **[Red]** `web-next/components/site/SiteHeader.test.tsx` の「実装済みルートは通常リンクで
    描画される」ブロックへ追記し、`bun run test components/site/SiteHeader.test.tsx` で失敗を確認:
