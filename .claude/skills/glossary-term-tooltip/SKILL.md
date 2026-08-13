@@ -30,13 +30,23 @@ description: >
 
 ### 1. 用語集に語を追記（`lib/glossary/glossary.ts`）
 
-`TERMS` 配列へ `{ id, term, reading, plain }` を追加する。**カバレッジ＝辞書の収録語数**。
+`TERMS` 配列へ `{ id, term, reading, plain }` を追加する。**カバレッジ＝辞書の収録語数**（現在 162 語）。
 
 - `id`: kebab-case の一意キー（例: `"cgrp"`, `"trigeminal-nerve"`）。前後に空白を含めない。
 - `term`: 専門用語の表記（複合語も収録。最長一致で部分語より優先される）。
 - `reading`: 読み仮名（**ひらがな**。英略語は読み下し例 `"シージーアールピー"`）。
 - `plain`: **分かりやすい** 1〜2 文の言い換え。専門語の連鎖を避け、たとえを使う。
-- **過度に汎用な単漢字語（頭痛／神経／脳 単独）は収録しない**（過剰ラップ・誤マッチ防止）。
+- **過度に汎用な語は収録しない**（過剰ラップ・誤マッチ防止）。単漢字語（頭痛／神経／脳 単独）に加え、
+  日常語として頻出する語（姿勢／慢性化／ストレス／記録／におい）も対象外。必要なら
+  `不良姿勢` のような複合語として収録し、最長一致に委ねる。
+- 同義語は **別 id の別エントリ**で表現する（`aliases` フィールドは持たない）。
+  例: `moh`＝薬物乱用頭痛 / `moh-overuse`＝薬剤過用頭痛、`cbt`＝CBT / `cbt-ja`＝認知行動療法。
+
+`lib/glossary/glossary.test.ts` が以下を機械検知する（追記時はここも green を維持する）:
+
+- ドメイン別の収録 id 一覧が `getTerm()` で解決できること
+- `term` 表記の重複が無いこと（重複すると後発エントリが恒久的に未マッチになる）
+- `reading` に漢字を含まないこと / `plain` が 120 文字以内であること
 
 ### 2. ページ本文を AutoGlossary で包む
 
@@ -62,11 +72,18 @@ AutoGlossary の安全策（変更不要・把握のみ）:
 - 文字列を分割して用語を子要素に保持するだけなので **textContent は不変**（契約テスト非破壊）。
 - `MermaidDiagram` のチャートは prop（children ではない）ため自然に対象外。
 
+### 適用状況
+
+**静的教育ページ 35 枚すべてに適用済み**（`/anatomy`・`/headaches`・`/blocks`・`/prom`・
+`/therapies`・`/treatment` 配下）。新規ページを追加したときだけ、この節の手順で包む。
+
 ### 除外ページ
 
 - `app/prom-checker/page.tsx`（アーキタイプB・client の `PromApp`。`getByRole("button")` の
   振る舞いテストがあり、ボタン増加で壊れるため自動適用しない）。
 - `app/page.tsx`（リダイレクトのみ）。
+- `app/privacy/page.tsx` / `app/terms/page.tsx`（法務ページ。医学用語をほぼ含まないため、
+  必要な語は手動 `<Term>` で個別指定する。privacy は `access-token` / `oauth-provider` を手動適用済み）。
 
 ## 手動 `<Term>`（個別指定が必要な場合のみ）
 
