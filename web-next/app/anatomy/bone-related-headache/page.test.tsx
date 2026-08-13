@@ -163,3 +163,29 @@ describe("BoneRelatedHeadachePage: 関連ページ導線", () => {
     }
   });
 });
+
+describe("BoneRelatedHeadachePage: 用語ツールチップ（AutoGlossary）", () => {
+  /** 本文中でツールチップ化される用語の下限（用語集の収録語数に応じて増える）。 */
+  const MIN_TERM_TRIGGERS = 25;
+
+  it("本文の専門用語がツールチップ化されている", () => {
+    const { container } = render(<BoneRelatedHeadachePage />);
+    const triggers = container.querySelectorAll("main button.term");
+    expect(triggers.length).toBeGreaterThanOrEqual(MIN_TERM_TRIGGERS);
+  });
+
+  it("骨・関節ドメインの代表的な用語がツールチップ化されている", () => {
+    const { container } = render(<BoneRelatedHeadachePage />);
+    const labels = Array.from(container.querySelectorAll("main button.term")).map(
+      (b) => b.textContent
+    );
+    expect(labels).toContain("頸椎");
+    expect(labels).toContain("副鼻腔");
+    expect(labels).toContain("顎関節");
+  });
+
+  it("リンクの内側にツールチップを差し込まない（入れ子の対話要素を作らない）", () => {
+    const { container } = render(<BoneRelatedHeadachePage />);
+    expect(container.querySelectorAll("a button.term")).toHaveLength(0);
+  });
+});

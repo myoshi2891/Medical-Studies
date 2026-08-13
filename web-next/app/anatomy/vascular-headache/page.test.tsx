@@ -161,3 +161,29 @@ describe("VascularHeadachePage: 関連ページ導線", () => {
     }
   });
 });
+
+describe("VascularHeadachePage: 用語ツールチップ（AutoGlossary）", () => {
+  /** 本文中でツールチップ化される用語の下限（用語集の収録語数に応じて増える）。 */
+  const MIN_TERM_TRIGGERS = 25;
+
+  it("本文の専門用語がツールチップ化されている", () => {
+    const { container } = render(<VascularHeadachePage />);
+    const triggers = container.querySelectorAll("main button.term");
+    expect(triggers.length).toBeGreaterThanOrEqual(MIN_TERM_TRIGGERS);
+  });
+
+  it("血管ドメインの代表的な用語がツールチップ化されている", () => {
+    const { container } = render(<VascularHeadachePage />);
+    const labels = Array.from(container.querySelectorAll("main button.term")).map(
+      (b) => b.textContent
+    );
+    expect(labels).toContain("硬膜");
+    expect(labels).toContain("くも膜下出血");
+    expect(labels).toContain("三叉神経");
+  });
+
+  it("リンクの内側にツールチップを差し込まない（入れ子の対話要素を作らない）", () => {
+    const { container } = render(<VascularHeadachePage />);
+    expect(container.querySelectorAll("a button.term")).toHaveLength(0);
+  });
+});

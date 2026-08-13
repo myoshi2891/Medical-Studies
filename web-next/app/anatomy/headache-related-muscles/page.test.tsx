@@ -76,3 +76,29 @@ describe("HeadacheRelatedMusclesPage: 契約テスト", () => {
     expect(container.querySelector(".footer")).not.toBeNull();
   });
 });
+
+describe("HeadacheRelatedMusclesPage: 用語ツールチップ（AutoGlossary）", () => {
+  /** 本文中でツールチップ化される用語の下限（用語集の収録語数に応じて増える）。 */
+  const MIN_TERM_TRIGGERS = 30;
+
+  it("本文の専門用語がツールチップ化されている", () => {
+    const { container } = render(<HeadacheRelatedMusclesPage />);
+    const triggers = container.querySelectorAll("main button.term");
+    expect(triggers.length).toBeGreaterThanOrEqual(MIN_TERM_TRIGGERS);
+  });
+
+  it("筋・臨床所見ドメインの代表的な用語がツールチップ化されている", () => {
+    const { container } = render(<HeadacheRelatedMusclesPage />);
+    const labels = Array.from(container.querySelectorAll("main button.term")).map(
+      (b) => b.textContent
+    );
+    expect(labels).toContain("僧帽筋");
+    expect(labels).toContain("胸鎖乳突筋");
+    expect(labels).toContain("トリガーポイント");
+  });
+
+  it("リンクの内側にツールチップを差し込まない（入れ子の対話要素を作らない）", () => {
+    const { container } = render(<HeadacheRelatedMusclesPage />);
+    expect(container.querySelectorAll("a button.term")).toHaveLength(0);
+  });
+});
