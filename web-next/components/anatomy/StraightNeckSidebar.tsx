@@ -33,13 +33,32 @@ export function StraightNeckSidebar() {
     );
     if (sections.length === 0) return;
 
+    // 現在可視な section の上端座標を保持する。コールバックの entries は「交差状態が
+    // 変化した section」しか含まないため、集合として持ち越さないと比較できない。
+    const visibleTops = new Map<string, number>();
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            visibleTops.set(entry.target.id, entry.boundingClientRect.top);
+            continue;
+          }
+          visibleTops.delete(entry.target.id);
+        }
+        if (visibleTops.size === 0) return;
+
+        // entries の順序には依存せず、ビューポート上端に最も近い section をカレントとする。
+        let nearestId: string | null = null;
+        let nearestDistance = Number.POSITIVE_INFINITY;
+        for (const [id, top] of visibleTops) {
+          const distance = Math.abs(top);
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            nearestId = id;
           }
         }
+        if (nearestId !== null) setActiveId(nearestId);
       },
       { threshold: 0.25 }
     );
