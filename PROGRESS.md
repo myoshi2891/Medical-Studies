@@ -93,6 +93,7 @@
 | Bone-related-headache | `/anatomy/bone-related-headache` | ✅ 完了 | 11 section / Mermaid 5図 / table 5 / 外部リンク 30 |
 | Headache-related-muscles | `/anatomy/headache-related-muscles` | ✅ 完了 | 10 section / Mermaid 4図 / table 8 / 外部リンク 20 |
 | Headache-and-straight-neck | `/anatomy/headache-and-straight-neck` | ✅ 完了 | 9 section / Mermaid 3図 / table 3 / 外部リンク 18 |
+| Headache-related-nerves | `/anatomy/headache-related-nerves` | ✅ 完了 | 10 section / Mermaid 7図 / table 3 / 外部リンク 17 |
 | Medication-Overuse-Headache | `/headaches/medication-overuse-headache` | ✅ 完了 | 18 section / Mermaid 5図 / table 24 / 外部リンク 18 |
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
