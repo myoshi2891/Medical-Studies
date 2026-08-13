@@ -79,7 +79,7 @@ describe("VascularHeadachePage: 契約（忠実転記 & 厳格検証）", () => 
     const mermaids = container.querySelectorAll(".mermaid");
     expect(mermaids).toHaveLength(MERMAID_COUNT);
     const charts = Array.from(mermaids).map((m) => m.getAttribute("data-chart") ?? "");
-    expect(charts[0]).toContain("Willis動脈輪");
+    expect(charts[0]).toContain("内頸動脈");
     expect(charts[1]).toContain("三叉神経節");
     expect(charts[2]).toContain("血管説");
     expect(charts[3]).toContain("CGRP");
