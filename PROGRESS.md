@@ -4,10 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `f004704` fix(web-next): CONTENT_REGISTRYの/anatomyルート一致検証ロジックを修正
-- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。**テスト 694 passed / 72 ファイル**
-  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-12、HEAD `f004704`
-  ＋レビュー指摘対応の作業ツリー変更適用後）。
+- **最新 HEAD**: `42c6bf1` feat(web-next): register headache-and-straight-neck in registry and navigation
+- **ビルド状態**: web-next 全体で typecheck / lint クリーン。**テスト 706 passed / 73 ファイル**
+  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-13）。
   内訳はアーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／
   PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／
   コンテンツレジストリ・sitemap・RelatedLinks・サイト横断検索（`SiteSearch`）・CSP（`lib/security/csp.ts`）。
@@ -28,6 +27,7 @@
 | Headaches | 緊張型頭痛 (TTH) | [Tension-Type-Headache.md](Types-of-headache/md-files/Headaches/Tension-Type-Headache.md) | [Tension-Type-Headache.html](Types-of-headache/html-files/Headaches/Tension-Type-Headache.html) | ✅ 完了 | |
 | Headaches | 薬物乱用頭痛 (MOH) | [Medication-Overuse-Headache.md](Types-of-headache/md-files/Headaches/Medication-Overuse-Headache.md) | [Medication-Overuse-Headache.html](Types-of-headache/html-files/Headaches/Medication-Overuse-Headache.html) | ✅ 完了 | |
 | Headaches | 頸原性頭痛 (CEH) | [Cervicogenic-Headache.md](Types-of-headache/md-files/Headaches/Cervicogenic-Headache.md) | [Cervicogenic-Headache.html](Types-of-headache/html-files/Headaches/Cervicogenic-Headache.html) | ✅ 完了 | ディープ・スパイン ヒーロー（navy-slate→periwinkle→ice）/ Mermaid 6図 / 16セクション / .moh-grid・.src-grid 5群 / 参考文献31リンク / 4フェーズ分割 |
+| Headaches | 頭痛とストレートネック | [Headache-and-straight-neck.md](Types-of-headache/md-files/Headaches/Headache-and-straight-neck.md) | [Headache-and-straight-neck.html](Types-of-headache/html-files/Headaches/Headache-and-straight-neck.html) | ✅ 完了 | 9セクション / Mermaid 3図 / 参考文献18リンク |
 | Headaches | 頭痛の病態生理 | [Headache-pathophysiology.md](Types-of-headache/md-files/Headaches/Headache-pathophysiology.md) | [Headache-pathophysiology.html](Types-of-headache/html-files/Headaches/Headache-pathophysiology.html) | ✅ 完了 | 12セクション / Mermaid 5図 / 参考文献19リンク |
 | Blocks | 星状神経節ブロック (SGB) | [Stellate-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Stellate-Ganglion-Block.md) | [Stellate-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Stellate-Ganglion-Block.html) | ✅ 完了 | |
 | Blocks | 上頸神経節ブロック (SCGB) | [Superior-Cervical-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Superior-Cervical-Ganglion-Block.md) | [Superior-Cervical-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Superior-Cervical-Ganglion-Block.html) | ✅ 完了 | |
@@ -92,6 +92,7 @@
 | Cervicogenic-Headache | `/headaches/cervicogenic-headache` | ✅ 完了 | 16 section / Mermaid 6図 / table 19 / 外部リンク 31 |
 | Bone-related-headache | `/anatomy/bone-related-headache` | ✅ 完了 | 11 section / Mermaid 5図 / table 5 / 外部リンク 30 |
 | Headache-related-muscles | `/anatomy/headache-related-muscles` | ✅ 完了 | 10 section / Mermaid 4図 / table 8 / 外部リンク 20 |
+| Headache-and-straight-neck | `/anatomy/headache-and-straight-neck` | ✅ 完了 | 9 section / Mermaid 3図 / table 3 / 外部リンク 18 |
 | Medication-Overuse-Headache | `/headaches/medication-overuse-headache` | ✅ 完了 | 18 section / Mermaid 5図 / table 24 / 外部リンク 18 |
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
