@@ -97,6 +97,7 @@ describe("SiteHeader - 未実装ルート（準備中）", () => {
     expect(hrefs).toContain("/headaches/migraine");
     expect(hrefs).toContain("/headaches/tension-type-headache");
     expect(hrefs).toContain("/headaches/cervicogenic-headache");
+    expect(hrefs).toContain("/headaches/vascular-headache");
     expect(hrefs).toContain("/anatomy/bone-related-headache");
     expect(hrefs).toContain("/anatomy/headache-related-muscles");
     expect(hrefs).toContain("/anatomy/headache-and-straight-neck");

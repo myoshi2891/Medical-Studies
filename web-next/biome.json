@@ -48,6 +48,7 @@
       "!app/anatomy/headache-related-muscles/headache-related-muscles.css",
       "!app/anatomy/headache-and-straight-neck/headache-and-straight-neck.css",
       "!app/anatomy/headache-related-nerves/headache-related-nerves.css",
+      "!app/headaches/vascular-headache/vascular-headache.css",
       "!public/draco"
     ]
   },
