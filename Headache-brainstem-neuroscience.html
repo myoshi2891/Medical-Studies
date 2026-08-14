@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>頭痛と脳・脳幹｜国際文献に基づく神経科学解説</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js" integrity="sha512-yD6UxqB1PGCP/nC8vd2pcozgicMkT/FEFo98T0ian+EtJPkbAL+h5gYV3r5Fpy1XWTVdDVoHx/E/9fFHdrHu1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.6/dist/mermaid.min.js" integrity="sha512-eyiDsKGWLMaUpVTOgt952UPZ43H95tsE/wRiNF9lyXX7F2ZZ8piAzHVbdaFxWOCkRwgyt8hSAdBTgGwMJ8FAiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
 :root{
   --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
@@ -20,21 +20,21 @@
 html{scroll-behavior:smooth}
 body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
 
-/* Hero */
+/* ヒーロー */
 .hero{background:linear-gradient(135deg,#1a237e,#0277bd 55%,#00796b);color:#fff;padding:52px 28px 40px;text-align:center}
 .hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
 .hero-sub{font-size:14px;color:#fafafa;margin-bottom:22px}
 .hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
 
-/* Disclaimer */
+/* 免責事項 */
 .disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
 .disclaimer strong{color:var(--orange)}
 
-/* Layout */
+/* レイアウト */
 .layout{display:flex;max-width:1360px;margin:0 auto}
 
-/* Sidebar */
+/* サイドバー */
 .sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
 .sidebar::-webkit-scrollbar{width:3px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
@@ -44,15 +44,15 @@ body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP'
 .nav-a.active{font-weight:600;background:var(--brn-l)}
 .n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-/* Main */
+/* メインコンテンツ */
 .main{flex:1;padding:28px 32px 80px;min-width:0}
 
-/* Section */
+/* セクション */
 .sec{margin:40px 0;scroll-margin-top:12px}
 .sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
 .sec-num{background:var(--brn1);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
 .sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--brn1)}
-h2{font-size:16px;font-weight:700;color:var(--brn2);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--brn3)}
+h2:not(.sec-title){font-size:16px;font-weight:700;color:var(--brn2);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--brn3)}
 h3{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
 p{margin-bottom:10px;color:var(--g8)}
 ul,ol{padding-left:20px;margin-bottom:10px}
@@ -60,10 +60,10 @@ li{margin-bottom:4px}
 a{color:var(--blue)}
 a:hover{text-decoration:underline}
 
-/* Cards */
+/* カード */
 .card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
 
-/* Alerts */
+/* アラート */
 .alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
 .alert-i{font-size:20px;flex-shrink:0}
 .a-danger{background:var(--red-l);border-left:4px solid var(--red)}
@@ -72,7 +72,7 @@ a:hover{text-decoration:underline}
 .a-ok{background:var(--green-l);border-left:4px solid var(--green)}
 .a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
 
-/* Tables */
+/* テーブル */
 .tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
 table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
 thead th{background:var(--brn1);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
@@ -84,25 +84,25 @@ tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
 .th-orange thead th{background:var(--orange)}
 .th-purple thead th{background:var(--purple)}
 
-/* Evidence badges */
+/* エビデンスバッジ */
 .bGrn{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7}
 .bOra{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80}
 .bU{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8}
 
-/* Color text */
+/* 色付きテキスト */
 .tR{color:var(--red);font-weight:700}
 .tG{color:var(--green);font-weight:700}
 .tO{color:var(--orange);font-weight:700}
 .tB{color:var(--blue);font-weight:700}
 .tN{color:var(--brn1);font-weight:700}
 
-/* Mermaid */
+/* Mermaid 図 */
 .mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
 .mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
 .mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--brn2);display:inline-block}
 pre.mermaid{text-align:center}
 
-/* Phase cards */
+/* フェーズカード */
 .phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
 @media(max-width:700px){.phase-grid{grid-template-columns:repeat(2,1fr)}}
 .ph{border-radius:var(--rs);padding:16px;text-align:center}
@@ -115,30 +115,30 @@ pre.mermaid{text-align:center}
 .ph-time{font-size:11px;color:var(--g6);margin-bottom:6px}
 .ph-desc{font-size:12px;line-height:1.5;text-align:left}
 
-/* Drug cards */
+/* 薬剤カード */
 .drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
 .drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--teal)}
 .drug-nm{font-size:13.5px;font-weight:700;color:var(--teal);margin-bottom:2px}
 .drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
 .drug-tx{font-size:12px;line-height:1.6}
 
-/* Source cards */
+/* 出典カード */
 .src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
 .src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--blue)}
 .src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:2px}
 .src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
 .src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
 
-/* Quick ref */
+/* クイックリファレンス */
 .qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
 .qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
 .qr-t{font-size:13px;font-weight:700;color:var(--brn1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
 
-/* Footer */
+/* フッター */
 .footer{background:var(--brn1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
 .footer strong{color:#fff}
 
-/* Responsive */
+/* レスポンシブ */
 @media(max-width:900px){
   .sidebar{display:none}
   .main{padding:16px 14px 60px}
@@ -147,7 +147,7 @@ pre.mermaid{text-align:center}
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ヒーロー -->
 <div class="hero">
   <div style="font-size:44px">🧠</div>
   <h1>頭痛と脳・脳幹 ― 国際文献に基づく神経科学的解説</h1>
@@ -163,15 +163,15 @@ pre.mermaid{text-align:center}
   </div>
 </div>
 
-<!-- DISCLAIMER -->
+<!-- 免責事項 -->
 <div class="disclaimer">
   <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。強い頭痛、突然発症した頭痛、今までと性質の異なる頭痛がある場合は、必ず医療機関を受診してください。
 </div>
 
-<!-- LAYOUT -->
+<!-- レイアウト -->
 <div class="layout">
 
-<!-- SIDEBAR -->
+<!-- サイドバー -->
 <nav class="sidebar">
   <div class="s-hdr">目次</div>
   <a href="#s1" class="nav-a"><span class="n-num">1</span>この記事の位置づけ</a>
@@ -189,14 +189,14 @@ pre.mermaid{text-align:center}
   <a href="#s13" class="nav-a"><span class="n-num">13</span>参考文献・情報源</a>
 </nav>
 
-<!-- MAIN CONTENT -->
+<!-- メインコンテンツ -->
 <main class="main">
 
-<!-- ====================================================== SECTION 1 -->
+<!-- ====================================================== セクション 1 -->
 <section id="s1" class="sec">
   <div class="sec-hd">
     <div class="sec-num">1</div>
-    <h1 class="sec-title">この記事の位置づけ</h1>
+    <h2 class="sec-title">この記事の位置づけ</h2>
   </div>
   <div class="card">
     <p>頭痛は世界的に非常にありふれた神経症状ですが、その背後にある神経科学は決して単純ではありません。世界保健機関（WHO）のファクトシートによれば、頭痛疾患は神経系疾患の中でも特に頻度の高いものの一つであり、片頭痛・緊張型頭痛・群発頭痛などの一次性頭痛が、痛みそのものを主症状とする疾患として位置づけられています。</p>
@@ -208,11 +208,11 @@ pre.mermaid{text-align:center}
   </div>
 </section>
 
-<!-- ====================================================== SECTION 2 -->
+<!-- ====================================================== セクション 2 -->
 <section id="s2" class="sec">
   <div class="sec-hd">
     <div class="sec-num">2</div>
-    <h1 class="sec-title">頭痛とは何か ― 国際的な分類の枠組み</h1>
+    <h2 class="sec-title">頭痛とは何か ― 国際的な分類の枠組み</h2>
   </div>
   <div class="card">
     <p>頭痛の診断・研究における国際標準は、国際頭痛学会が発行する<strong>国際頭痛分類第3版（ICHD-3）</strong>です。ICHD-3はWHOの国際疾病分類（ICD）とも連携しており、世界中の臨床・研究で共通言語として用いられています。</p>
@@ -234,16 +234,16 @@ pre.mermaid{text-align:center}
     <p>本稿では、一次性頭痛（特に片頭痛・群発頭痛）の発生に脳・脳幹がどう関わるかに焦点を当てます。これは研究が最も進んでいる領域であり、脳幹の役割を理解する上で最も情報量の多いテーマだからです。</p>
     <div class="alert a-ok">
       <div class="alert-i">🌐</div>
-      <div>ICHD-3はWHOの国際疾病分類第10版（ICD-10）に正式に組み込まれており、単なる一学会の基準ではなく国際的な公式分類として扱われています。</div>
+      <div>ICHD-3の各診断には、WHOの国際疾病分類（ICD）に対応するコードが併記されています。またWHOの国際疾病分類第11版（ICD-11）の頭痛関連分類は、国際頭痛学会との連携のもとICHD-3を踏まえて整備されており、ICHD-3は臨床・研究の国際的な共通基準として広く用いられています。</div>
     </div>
   </div>
 </section>
 
-<!-- ====================================================== SECTION 3 -->
+<!-- ====================================================== セクション 3 -->
 <section id="s3" class="sec">
   <div class="sec-hd">
     <div class="sec-num">3</div>
-    <h1 class="sec-title">「痛みを感じる脳」というよくある誤解</h1>
+    <h2 class="sec-title">「痛みを感じる脳」というよくある誤解</h2>
   </div>
   <div class="card">
     <p>初学者が誤解しやすい点として、「頭痛＝脳そのものが痛んでいる」というイメージがあります。しかし、これは神経解剖学的には正確ではありません。</p>
@@ -262,11 +262,11 @@ pre.mermaid{text-align:center}
   </div>
 </section>
 
-<!-- ====================================================== SECTION 4 -->
+<!-- ====================================================== セクション 4 -->
 <section id="s4" class="sec">
   <div class="sec-hd">
     <div class="sec-num">4</div>
-    <h1 class="sec-title">三叉神経血管系 ― 頭痛が生まれる入口</h1>
+    <h2 class="sec-title">三叉神経血管系 ― 頭痛が生まれる入口</h2>
   </div>
   <div class="card">
     <p>硬膜・血管と脳をつなぐこの神経回路網は、<strong>三叉神経血管系（trigeminovascular system）</strong>と呼ばれます。1980年代にMoskowitzらのグループによって提唱され、その後May・Goadsbyらによって体系的にまとめられた、頭痛研究における中核的な概念です。</p>
@@ -275,13 +275,13 @@ pre.mermaid{text-align:center}
       <div class="mmd-lbl">フローチャート ― 三叉神経血管系の痛み伝達経路</div>
 <pre class="mermaid">
 flowchart TD
-    A["硬膜・脳血管&lt;br/&gt;（痛みを感知できる数少ない頭蓋内組織）"] --&gt;|三叉神経第一枝&lt;br/&gt;眼神経の枝| B["三叉神経節&lt;br/&gt;(Trigeminal Ganglion)"]
-    B --&gt; C["三叉神経脊髄路核 尾側亜核&lt;br/&gt;(Trigeminal Nucleus Caudalis)&lt;br/&gt;脳幹・延髄に位置"]
-    C --&gt; D["視床&lt;br/&gt;(Thalamus)"]
-    D --&gt; E["大脳皮質&lt;br/&gt;体性感覚野・島皮質など&lt;br/&gt;（痛みとして自覚）"]
-    F["中脳水道周囲灰白質&lt;br/&gt;(PAG)"] -. "下行性の調節" .-&gt; C
-    G["延髄吻側腹内側部&lt;br/&gt;(RVM)"] -. "下行性の調節" .-&gt; C
-    H["青斑核&lt;br/&gt;(Locus Coeruleus)"] -. "調節" .-&gt; C
+A["硬膜・脳血管&lt;br/&gt;（痛みを感知できる数少ない頭蓋内組織）"] --&gt;|三叉神経第一枝&lt;br/&gt;眼神経の枝| B["三叉神経節&lt;br/&gt;(Trigeminal Ganglion)"]
+B --&gt; C["三叉神経脊髄路核 尾側亜核&lt;br/&gt;(Trigeminal Nucleus Caudalis)&lt;br/&gt;脳幹・延髄に位置"]
+C --&gt; D["視床&lt;br/&gt;(Thalamus)"]
+D --&gt; E["大脳皮質&lt;br/&gt;体性感覚野・島皮質など&lt;br/&gt;（痛みとして自覚）"]
+F["中脳水道周囲灰白質&lt;br/&gt;(PAG)"] -. "下行性の調節" .-&gt; C
+G["延髄吻側腹内側部&lt;br/&gt;(RVM)"] -. "下行性の調節" .-&gt; C
+H["青斑核&lt;br/&gt;(Locus Coeruleus)"] -. "調節" .-&gt; C
 </pre>
     </div>
 
@@ -294,11 +294,11 @@ flowchart TD
   </div>
 </section>
 
-<!-- ====================================================== SECTION 5 -->
+<!-- ====================================================== セクション 5 -->
 <section id="s5" class="sec">
   <div class="sec-hd">
     <div class="sec-num">5</div>
-    <h1 class="sec-title">脳幹 ― 頭痛の中継点であり調整役</h1>
+    <h2 class="sec-title">脳幹 ― 頭痛の中継点であり調整役</h2>
   </div>
   <div class="card">
     <p>脳幹は、単なる「痛み信号の通り道」ではなく、痛みの強さそのものを増幅させたり抑制させたりする調整役として働きます。ここでは頭痛研究において特に重要とされる脳幹核をひとつずつ見ていきます。</p>
@@ -345,11 +345,11 @@ flowchart TD
   </div>
 </section>
 
-<!-- ====================================================== SECTION 6 -->
+<!-- ====================================================== セクション 6 -->
 <section id="s6" class="sec">
   <div class="sec-hd">
     <div class="sec-num">6</div>
-    <h1 class="sec-title">三叉神経頸椎複合体 ― 首と頭痛がつながる理由</h1>
+    <h2 class="sec-title">三叉神経頸椎複合体 ― 首と頭痛がつながる理由</h2>
   </div>
   <div class="card">
     <p>「肩や首のこりが頭痛につながる」という経験は多くの人にありますが、これには明確な神経解剖学的根拠があります。</p>
@@ -359,12 +359,12 @@ flowchart TD
       <div class="mmd-lbl">フローチャート ― 三叉神経頸椎複合体における収束</div>
 <pre class="mermaid">
 flowchart LR
-    T["三叉神経&lt;br/&gt;（顔面・前頭部・硬膜からの入力）"] --&gt; TCC["三叉神経頸椎複合体&lt;br/&gt;(Trigeminocervical Complex)&lt;br/&gt;延髄〜上位頸髄"]
-    C1["頸神経 C1"] --&gt; TCC
-    C2["頸神経 C2&lt;br/&gt;（大後頭神経）"] --&gt; TCC
-    C3["頸神経 C3"] --&gt; TCC
-    TCC --&gt; UP["視床を経て大脳皮質へ&lt;br/&gt;（痛みとして認知）"]
-    TCC -. "関連痛の発生" .-&gt; REF["後頭部・側頭部・眼窩奥などに&lt;br/&gt;痛みが広がって感じられる"]
+T["三叉神経&lt;br/&gt;（顔面・前頭部・硬膜からの入力）"] --&gt; TCC["三叉神経頸椎複合体&lt;br/&gt;(Trigeminocervical Complex)&lt;br/&gt;延髄〜上位頸髄"]
+C1["頸神経 C1"] --&gt; TCC
+C2["頸神経 C2&lt;br/&gt;（大後頭神経）"] --&gt; TCC
+C3["頸神経 C3"] --&gt; TCC
+TCC --&gt; UP["視床を経て大脳皮質へ&lt;br/&gt;（痛みとして認知）"]
+TCC -. "関連痛の発生" .-&gt; REF["後頭部・側頭部・眼窩奥などに&lt;br/&gt;痛みが広がって感じられる"]
 </pre>
     </div>
 
@@ -377,11 +377,11 @@ flowchart LR
   </div>
 </section>
 
-<!-- ====================================================== SECTION 7 -->
+<!-- ====================================================== セクション 7 -->
 <section id="s7" class="sec">
   <div class="sec-hd">
     <div class="sec-num">7</div>
-    <h1 class="sec-title">視床下部 ― 予兆症状と発作の周期性</h1>
+    <h2 class="sec-title">視床下部 ― 予兆症状と発作の周期性</h2>
   </div>
   <div class="card">
     <p>片頭痛発作の多くは、頭痛そのものが始まる数時間から1日ほど前に、あくび、集中力低下、疲労感、食欲の変化、頻尿といった<strong>「予兆症状（premonitory symptoms）」</strong>を伴うことが知られています。</p>
@@ -396,11 +396,11 @@ flowchart LR
   </div>
 </section>
 
-<!-- ====================================================== SECTION 8 -->
+<!-- ====================================================== セクション 8 -->
 <section id="s8" class="sec">
   <div class="sec-hd">
     <div class="sec-num">8</div>
-    <h1 class="sec-title">大脳皮質と皮質拡延性抑制（CSD）― 前兆のメカニズム</h1>
+    <h2 class="sec-title">大脳皮質と皮質拡延性抑制（CSD）― 前兆のメカニズム</h2>
   </div>
   <div class="card">
     <p>片頭痛の一部の患者（約3割程度）は、頭痛の前や最中に「前兆（aura）」と呼ばれる一過性の神経症状（視野のギザギザした光、しびれなど）を経験します。この前兆の神経基盤として最も有力視されているのが、<strong>皮質拡延性抑制（Cortical Spreading Depression, CSD）</strong>です。</p>
@@ -413,11 +413,11 @@ flowchart LR
   </div>
 </section>
 
-<!-- ====================================================== SECTION 9 -->
+<!-- ====================================================== セクション 9 -->
 <section id="s9" class="sec">
   <div class="sec-hd">
     <div class="sec-num">9</div>
-    <h1 class="sec-title">片頭痛発作の全体像（統合フローチャート）</h1>
+    <h2 class="sec-title">片頭痛発作の全体像（統合フローチャート）</h2>
   </div>
   <div class="card">
     <p>ここまで見てきた要素を、片頭痛発作の時間経過に沿って統合すると、以下のようになります。</p>
@@ -426,19 +426,19 @@ flowchart LR
       <div class="mmd-lbl">フローチャート ― 片頭痛発作の4段階と関与する脳領域</div>
 <pre class="mermaid">
 flowchart LR
-    subgraph P1["① 予兆期&lt;br/&gt;（発作の数時間〜1日前）"]
-        H1["視床下部・中脳腹側被蓋野の&lt;br/&gt;活動増加"]
-    end
-    subgraph P2["② 前兆&lt;br/&gt;（一部の患者のみ／通常60分以内）"]
-        H2["大脳皮質での&lt;br/&gt;皮質拡延性抑制（CSD）"]
-    end
-    subgraph P3["③ 頭痛期"]
-        H3["三叉神経血管系の活性化&lt;br/&gt;脳幹（PAG・RVM・青斑核）による調節&lt;br/&gt;視床を経て皮質で痛みを自覚"]
-    end
-    subgraph P4["④ 回復期&lt;br/&gt;（Postdrome）"]
-        H4["疲労感・集中力低下などが&lt;br/&gt;残りつつ神経活動が正常化"]
-    end
-    P1 --&gt; P2 --&gt; P3 --&gt; P4
+subgraph P1["① 予兆期&lt;br/&gt;（発作の数時間〜1日前）"]
+H1["視床下部・中脳腹側被蓋野の&lt;br/&gt;活動増加"]
+end
+subgraph P2["② 前兆&lt;br/&gt;（一部の患者のみ／通常60分以内）"]
+H2["大脳皮質での&lt;br/&gt;皮質拡延性抑制（CSD）"]
+end
+subgraph P3["③ 頭痛期"]
+H3["三叉神経血管系の活性化&lt;br/&gt;脳幹（PAG・RVM・青斑核）による調節&lt;br/&gt;視床を経て皮質で痛みを自覚"]
+end
+subgraph P4["④ 回復期&lt;br/&gt;（Postdrome）"]
+H4["疲労感・集中力低下などが&lt;br/&gt;残りつつ神経活動が正常化"]
+end
+P1 --&gt; P2 --&gt; P3 --&gt; P4
 </pre>
     </div>
 
@@ -476,11 +476,11 @@ flowchart LR
   </div>
 </section>
 
-<!-- ====================================================== SECTION 10 -->
+<!-- ====================================================== セクション 10 -->
 <section id="s10" class="sec">
   <div class="sec-hd">
     <div class="sec-num">10</div>
-    <h1 class="sec-title">群発頭痛と三叉神経自律神経反射</h1>
+    <h2 class="sec-title">群発頭痛と三叉神経自律神経反射</h2>
   </div>
   <div class="card">
     <p>群発頭痛は、片方の目の奥を中心とした激烈な痛みが、涙や結膜充血、鼻閉といった自律神経症状を伴って起こる一次性頭痛で、国際頭痛分類上は<strong>「三叉神経自律神経性頭痛（Trigeminal Autonomic Cephalalgias, TACs）」</strong>というグループに分類されます。</p>
@@ -490,12 +490,12 @@ flowchart LR
       <div class="mmd-lbl">フローチャート ― 三叉神経自律神経反射弓（群発頭痛）</div>
 <pre class="mermaid">
 flowchart TD
-    N["三叉神経（眼神経領域）への&lt;br/&gt;侵害刺激"] --&gt; TNC["三叉神経脊髄路核"]
-    TNC --&gt; SSN["上唾液核&lt;br/&gt;(Superior Salivatory Nucleus)&lt;br/&gt;橋に位置"]
-    SSN --&gt;|副交感神経遠心路&lt;br/&gt;顔面神経（第VII脳神経）経由| SPG["翼口蓋神経節&lt;br/&gt;（蝶形口蓋神経節）"]
-    SPG --&gt; SYM["流涙・結膜充血・鼻閉などの&lt;br/&gt;自律神経症状"]
-    PH["後部視床下部&lt;br/&gt;(Posterior Hypothalamus)"] -. "発作の誘発・周期性の調節" .-&gt; SSN
-    TNC --&gt; THAL["視床・大脳皮質へ&lt;br/&gt;（痛みの認知）"]
+N["三叉神経（眼神経領域）への&lt;br/&gt;侵害刺激"] --&gt; TNC["三叉神経脊髄路核"]
+TNC --&gt; SSN["上唾液核&lt;br/&gt;(Superior Salivatory Nucleus)&lt;br/&gt;橋に位置"]
+SSN --&gt;|副交感神経遠心路&lt;br/&gt;顔面神経（第VII脳神経）経由| SPG["翼口蓋神経節&lt;br/&gt;（蝶形口蓋神経節）"]
+SPG --&gt; SYM["流涙・結膜充血・鼻閉などの&lt;br/&gt;自律神経症状"]
+PH["後部視床下部&lt;br/&gt;(Posterior Hypothalamus)"] -. "発作の誘発・周期性の調節" .-&gt; SSN
+TNC --&gt; THAL["視床・大脳皮質へ&lt;br/&gt;（痛みの認知）"]
 </pre>
     </div>
 
@@ -508,11 +508,11 @@ flowchart TD
   </div>
 </section>
 
-<!-- ====================================================== SECTION 11 -->
+<!-- ====================================================== セクション 11 -->
 <section id="s11" class="sec">
   <div class="sec-hd">
     <div class="sec-num">11</div>
-    <h1 class="sec-title">まとめ表 ― 脳・脳幹の主要構造と頭痛への関与</h1>
+    <h2 class="sec-title">まとめ表 ― 脳・脳幹の主要構造と頭痛への関与</h2>
   </div>
   <div class="card">
     <div class="tbl">
@@ -536,11 +536,11 @@ flowchart TD
   </div>
 </section>
 
-<!-- ====================================================== SECTION 12 -->
+<!-- ====================================================== セクション 12 -->
 <section id="s12" class="sec">
   <div class="sec-hd">
     <div class="sec-num">12</div>
-    <h1 class="sec-title">治療標的との接点</h1>
+    <h2 class="sec-title">治療標的との接点</h2>
   </div>
   <div class="card">
     <p>ここまで解説した神経回路の理解は、実際の頭痛治療薬の作用機序にも直結しています。</p>
@@ -575,11 +575,11 @@ flowchart TD
   </div>
 </section>
 
-<!-- ====================================================== SECTION 13 -->
+<!-- ====================================================== セクション 13 -->
 <section id="s13" class="sec">
   <div class="sec-hd">
     <div class="sec-num">13</div>
-    <h1 class="sec-title">参考文献・情報源</h1>
+    <h2 class="sec-title">参考文献・情報源</h2>
   </div>
   <div class="card">
     <p>本稿の内容は、以下の国際的に認知された学術誌・国際機関の一次資料に基づいています（アクセス日：2026年8月）。</p>
@@ -765,9 +765,9 @@ flowchart TD
 </section>
 
 </main>
-</div><!-- end layout -->
+</div><!-- レイアウト終了 -->
 
-<!-- FOOTER -->
+<!-- フッター -->
 <div class="footer">
   <strong>頭痛と脳・脳幹 ― 国際文献に基づく神経科学的解説</strong> — 三叉神経血管系・脳幹核・視床下部・大脳皮質の関与をステップバイステップで学ぶ<br>
   📅 作成年: 2026 | 次回レビュー推奨: 国際頭痛分類・主要ガイドライン更新時<br>
