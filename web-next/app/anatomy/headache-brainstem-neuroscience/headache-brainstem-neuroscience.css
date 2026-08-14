@@ -26,6 +26,7 @@
   --brn2: #0277bd;
   --brn3: #00796b;
   --brn-l: #e8eaf6;
+
   font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
@@ -162,9 +163,11 @@
 }
 
 /* セクション */
+.brainstem-page .sec {
+  margin: 40px 0;
+}
 .brainstem-page .sec,
 .brainstem-page .sec-hd {
-  margin: 40px 0;
   scroll-margin-top: 120px;
 }
 .brainstem-page .sec-hd {
