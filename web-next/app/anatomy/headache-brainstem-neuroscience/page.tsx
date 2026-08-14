@@ -886,7 +886,9 @@ TNC --> THAL["視床・大脳皮質へ\\n（痛みの認知）"]`}
                   </div>
                   <div className="src">
                     <div className="src-org">PMC</div>
-                    <div className="src-t">Premonitory symptoms in migraine: a review</div>
+                    <div className="src-t">
+                      The enigma of the dorsolateral pons as a migraine generator
+                    </div>
                     <Ext
                       className="src-url"
                       href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3711518"
