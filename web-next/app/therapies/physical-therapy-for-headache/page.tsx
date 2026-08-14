@@ -2861,11 +2861,11 @@ style S5 fill:#1E8449,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/therapies/physical-therapy-for-headache" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/therapies/physical-therapy-for-headache" />
 
       {/* FOOTER */}
       <footer className="footer">

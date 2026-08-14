@@ -734,11 +734,11 @@ export default function HeadacheTriggerIdentificationGuidePage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/treatment/headache-trigger-identification-guide" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/treatment/headache-trigger-identification-guide" />
 
       {/* FOOTER */}
       <div className="footer">

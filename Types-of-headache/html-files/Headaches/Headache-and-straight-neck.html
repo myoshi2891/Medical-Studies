@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>頭痛とストレートネック | エビデンスに基づく医学教育ガイド</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.6/dist/mermaid.min.js" integrity="sha512-eyiDsKGWLMaUpVTOgt952UPZ43H95tsE/wRiNF9lyXX7F2ZZ8piAzHVbdaFxWOCkRwgyt8hSAdBTgGwMJ8FAiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{
+  --navy:#1a237e;--navy2:#283593;--blue:#0277bd;--teal:#00796b;
+  --orange:#e65100;--red:#c62828;--green:#2e7d32;--purple:#6a1b9a;
+  --red-l:#ffebee;--orange-l:#fff3e0;--green-l:#e8f5e9;
+  --blue-l:#e3f2fd;--teal-l:#e0f2f1;--yellow-l:#fffde7;
+  --g1:#f5f5f5;--g2:#eeeeee;--g3:#e0e0e0;--g6:#757575;--g8:#424242;--g9:#212121;
+  --sh:0 1px 6px rgba(0,0,0,.10);--r:12px;--rs:8px;
+  --cvn1:#132a56;--cvn2:#0f6674;--cvn3:#12977e;
+  --cvn-l:#e5f4f2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo','Noto Sans JP','Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.8;color:var(--g9);background:#eef2f7}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#132a56,#0f6674 55%,#12977e);color:#fff;padding:52px 28px 40px;text-align:center}
+.hero h1{font-size:clamp(20px,4vw,38px);font-weight:800;letter-spacing:-.5px;margin:10px 0 8px}
+.hero-sub{font-size:14px;color:#fafafa;margin-bottom:22px}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:500}
+
+/* Disclaimer */
+.disclaimer{background:linear-gradient(135deg,#fff8e1,#ffecb3);border-left:5px solid var(--orange);padding:14px 24px;font-size:13.5px;color:var(--g8)}
+.disclaimer strong{color:var(--orange)}
+
+/* Layout */
+.layout{display:flex;max-width:1360px;margin:0 auto}
+
+/* Sidebar */
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#fff;border-right:1px solid var(--g3);padding:18px 0}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--g3)}
+.s-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--g6);padding:0 16px 10px}
+.nav-a{display:flex;align-items:center;gap:8px;padding:6px 16px;text-decoration:none;color:var(--g8);font-size:12.5px;transition:all .15s;border-left:3px solid transparent;line-height:1.4}
+.nav-a:hover,.nav-a.active{background:var(--g1);border-left-color:var(--cvn1);color:var(--cvn1)}
+.nav-a.active{font-weight:600;background:var(--cvn-l)}
+.n-num{background:var(--g2);color:var(--g6);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Main */
+.main{flex:1;padding:28px 32px 80px;min-width:0}
+
+/* Section */
+.sec{margin:40px 0;scroll-margin-top:12px}
+.sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--g2)}
+.sec-num{background:var(--cvn1);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+.sec-title{font-size:clamp(17px,2.5vw,24px);font-weight:700;color:var(--cvn1);margin:0;border-left:none;padding-left:0}
+h2{font-size:18px;font-weight:700;color:var(--cvn1);margin:0}
+h3{font-size:16px;font-weight:700;color:var(--cvn2);margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--cvn3)}
+h4{font-size:14.5px;font-weight:700;color:var(--g8);margin:16px 0 8px}
+p{margin-bottom:10px;color:var(--g8)}
+ul,ol{padding-left:20px;margin-bottom:10px}
+li{margin-bottom:4px}
+a{color:var(--blue)}
+a:hover{text-decoration:underline}
+
+/* Cards */
+.card{background:#fff;border-radius:var(--r);padding:20px;box-shadow:var(--sh);margin-bottom:18px}
+
+/* Alerts */
+.alert{border-radius:var(--rs);padding:12px 16px;margin:12px 0;display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.alert-i{font-size:20px;flex-shrink:0}
+.a-danger{background:var(--red-l);border-left:4px solid var(--red)}
+.a-warn{background:var(--orange-l);border-left:4px solid var(--orange)}
+.a-info{background:var(--blue-l);border-left:4px solid var(--blue)}
+.a-ok{background:var(--green-l);border-left:4px solid var(--green)}
+.a-purple{background:#f3e5f5;border-left:4px solid var(--purple)}
+
+/* Tables */
+.tbl{overflow-x:auto;border-radius:var(--rs);box-shadow:var(--sh);margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+thead th{background:var(--cvn1);color:#fff;padding:10px 13px;text-align:left;font-weight:600;white-space:nowrap}
+tbody tr:nth-child(even){background:var(--cvn-l)}
+tbody tr:hover{background:var(--g1)}
+tbody td{padding:8px 13px;border-bottom:1px solid var(--g2);vertical-align:top}
+.th-teal thead th{background:var(--teal)}
+.th-red thead th{background:var(--red)}
+.th-orange thead th{background:var(--orange)}
+.th-purple thead th{background:var(--purple)}
+
+/* Evidence badges */
+.bA{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7;white-space:nowrap}
+.bB{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#e3f2fd;color:#0d47a1;border:1px solid #90caf9;white-space:nowrap}
+.bC{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#fff3e0;color:#e65100;border:1px solid #ffcc80;white-space:nowrap}
+.bU{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:#f3e5f5;color:#4a148c;border:1px solid #ce93d8;white-space:nowrap}
+.bRed{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--red-l);color:var(--red);border:1px solid #ef9a9a;white-space:nowrap}
+.bGrn{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--green-l);color:var(--green);border:1px solid #a5d6a7;white-space:nowrap}
+.bOra{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--orange-l);color:var(--orange);border:1px solid #ffcc80;white-space:nowrap}
+
+.evidence-legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;background:#fff;padding:12px 16px;border-radius:var(--rs);box-shadow:var(--sh);margin-bottom:12px;border:1px solid var(--g2)}
+.evidence-legend-title{font-size:12px;font-weight:700;color:var(--cvn1);margin-right:4px}
+
+/* Color text */
+.tR{color:var(--red);font-weight:700}
+.tG{color:var(--green);font-weight:700}
+.tO{color:var(--orange);font-weight:700}
+.tB{color:var(--blue);font-weight:700}
+.tN{color:var(--cvn1);font-weight:700}
+
+/* Mermaid */
+.mmd{background:#fff;border-radius:var(--r);padding:20px 16px;box-shadow:var(--sh);margin:18px 0;overflow-x:auto}
+.mmd-lbl{font-size:12px;font-weight:600;color:var(--g6);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.mmd-lbl::before{content:'';width:10px;height:10px;border-radius:2px;background:var(--cvn2);display:inline-block}
+pre.mermaid{text-align:center}
+
+/* Phase cards */
+.phase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+@media(max-width:700px){.phase-grid{grid-template-columns:repeat(2,1fr)}}
+.ph{border-radius:var(--rs);padding:16px;text-align:center}
+.ph1{background:#fff8e1;border:2px solid #ffc107}
+.ph2{background:#e3f2fd;border:2px solid #2196f3}
+.ph3{background:#ffebee;border:2px solid #ef5350}
+.ph4{background:#e8f5e9;border:2px solid #66bb6a}
+.ph-icon{font-size:28px;margin-bottom:6px}
+.ph-title{font-weight:700;font-size:13.5px;margin-bottom:2px}
+.ph-time{font-size:11px;color:var(--g6);margin-bottom:6px}
+.ph-desc{font-size:12px;line-height:1.5;text-align:left}
+
+/* SNOOP4 cards (red-flag warning cards) */
+.snoop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:16px 0}
+.sn{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh);border-top:4px solid var(--red)}
+.sn-letter{font-size:32px;font-weight:800;color:var(--red);line-height:1}
+.sn-title{font-size:13px;font-weight:700;color:var(--g8);margin:3px 0 5px}
+.sn-symp{font-size:12px;color:var(--g6);line-height:1.5}
+.sn-dx{font-size:11px;color:var(--red);font-weight:600;margin-top:7px;background:var(--red-l);padding:2px 7px;border-radius:4px;display:inline-block}
+
+/* Intervention / drug-style cards */
+.drug-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin:14px 0}
+.drug{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-top:4px solid var(--teal)}
+.drug-nm{font-size:13.5px;font-weight:700;color:var(--teal);margin-bottom:2px}
+.drug-br{font-size:11px;color:var(--g6);margin-bottom:8px}
+.drug-tx{font-size:12px;line-height:1.6}
+
+/* MOH-style tri cards */
+.moh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:14px 0}
+.moh{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.moh-h{border-top:4px solid var(--red)}
+.moh-m{border-top:4px solid var(--orange)}
+.moh-l{border-top:4px solid var(--green)}
+.moh-day{font-size:26px;font-weight:800;line-height:1}
+.moh-unit{font-size:10.5px;color:var(--g6);margin-bottom:4px}
+.moh-drug{font-size:12.5px;font-weight:600;color:var(--g8)}
+
+/* Source cards */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin:16px 0}
+.src{background:#fff;border-radius:var(--rs);padding:14px;box-shadow:var(--sh);border-left:4px solid var(--blue)}
+.src-org{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:2px}
+.src-t{font-size:13px;font-weight:600;color:var(--g8);margin-bottom:6px;line-height:1.4}
+.src-url{font-size:11px;color:var(--blue);word-break:break-all;line-height:1.5}
+
+/* Quick ref */
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:16px 0}
+.qr{background:#fff;border-radius:var(--rs);padding:16px;box-shadow:var(--sh)}
+.qr-t{font-size:13px;font-weight:700;color:var(--cvn1);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--g2)}
+
+/* Footer */
+.footer{background:var(--cvn1);color:rgba(255,255,255,.75);text-align:center;padding:24px;font-size:13px;margin-top:48px}
+.footer strong{color:#fff}
+
+/* Responsive */
+@media(max-width:900px){
+  .sidebar{display:none}
+  .main{padding:16px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div>🧠</div>
+  <h1>頭痛とストレートネック</h1>
+  <p class="hero-sub">Forward Head Posture と頭痛の関係 — 国際的エビデンスに基づく教育ガイド</p>
+  <div class="hero-tags">
+    <span class="hero-tag">ICHD-3</span>
+    <span class="hero-tag">WHO</span>
+    <span class="hero-tag">NIH / PubMed</span>
+    <span class="hero-tag">Cervicogenic Headache</span>
+    <span class="hero-tag">Forward Head Posture</span>
+    <span class="hero-tag">Evidence-Based</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は<strong>学術・教育・研究目的のみ</strong>を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="s-hdr">目次</div>
+  <a class="nav-a" href="#s1"><span class="n-num">1</span>頭痛の全体像</a>
+  <a class="nav-a" href="#s2"><span class="n-num">2</span>ストレートネックとは</a>
+  <a class="nav-a" href="#s3"><span class="n-num">3</span>発症メカニズム</a>
+  <a class="nav-a" href="#s4"><span class="n-num">4</span>科学的エビデンス</a>
+  <a class="nav-a" href="#s5"><span class="n-num">5</span>セルフチェック</a>
+  <a class="nav-a" href="#s6"><span class="n-num">6</span>危険なサイン</a>
+  <a class="nav-a" href="#s7"><span class="n-num">7</span>対処法</a>
+  <a class="nav-a" href="#s8"><span class="n-num">8</span>まとめ</a>
+  <a class="nav-a" href="#s9"><span class="n-num">9</span>参考文献</a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<!-- ====================================================== SECTION 1 -->
+<section id="s1" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">1</div>
+    <h2 class="sec-title">頭痛の全体像を知る</h2>
+  </div>
+
+  <p>頭痛性疾患は、世界保健機関（WHO）によれば全世界で最も頻度の高い神経疾患の一つです。片頭痛は脳卒中・新生児脳症に次いで世界第3位のDALY（障害調整生命年）原因とされています <span class="bB">WHO</span>。2023年時点のGlobal Burden of Disease研究では、世界で約29億人が何らかの頭痛性疾患の影響を受けており、年齢調整有病率は34.6%と報告されています <span class="bA">GBD 2023</span>。</p>
+
+  <div class="alert a-info">
+    <div class="alert-i">ℹ️</div>
+    <div>頭痛は「珍しい病気」ではなく「人類の大多数が経験する、しかし軽視されやすい疾患」です。</div>
+  </div>
+
+  <h3>頭痛の国際的分類（ICHD-3）</h3>
+  <p>頭痛の国際的な診断基準は、国際頭痛学会（International Headache Society）が策定する<strong>国際頭痛分類第3版（ICHD-3）</strong>です。ICHD-3は頭痛を大きく「一次性頭痛（それ自体が疾患）」と「二次性頭痛（他の疾患が原因）」に分けています。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — ICHD-3による頭痛の分類</div>
+<pre class="mermaid">
+flowchart TD
+ROOT["頭痛&lt;br/&gt;Headache"] --> PRIM["一次性頭痛&lt;br/&gt;Primary Headache"]
+ROOT --> SEC["二次性頭痛&lt;br/&gt;Secondary Headache"]
+PRIM --> M["片頭痛&lt;br/&gt;Migraine"]
+PRIM --> T["緊張型頭痛&lt;br/&gt;Tension-Type Headache"]
+PRIM --> CL["群発頭痛&lt;br/&gt;Cluster Headache"]
+SEC --> CGH["頸原性頭痛&lt;br/&gt;Cervicogenic Headache&lt;br/&gt;ICHD-3 第11.2.1項"]
+SEC --> OTHER["その他の二次性頭痛&lt;br/&gt;外傷後・血管障害・感染症など"]
+</pre>
+  </div>
+
+  <p>本ガイドのテーマである「ストレートネックと頭痛」は、主に <strong>緊張型頭痛</strong> と <strong>頸原性頭痛（cervicogenic headache）</strong> の2つに関わってきます。</p>
+
+  <h3>主要な頭痛タイプの比較</h3>
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr><th>特徴</th><th>緊張型頭痛</th><th>片頭痛</th><th>頸原性頭痛</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>痛みの性質</td><td>締め付けられる・圧迫されるような痛み</td><td>ズキズキとした拍動性の痛み</td><td>片側性で、首の後ろから頭部へ広がる痛み</td></tr>
+        <tr><td>主な部位</td><td>両側性が多い</td><td>片側性が多い</td><td>片側性（首の動きで誘発・悪化）</td></tr>
+        <tr><td>よくある随伴症状</td><td>首・肩の筋肉のこわばり</td><td>光過敏・音過敏・吐き気</td><td>頸部可動域の制限、首を押すと痛みが再現される</td></tr>
+        <tr><td>分類上の位置づけ</td><td>一次性頭痛</td><td>一次性頭痛</td><td>二次性頭痛（首の構造的問題に起因）</td></tr>
+        <tr><td>出典</td><td>Cleveland Clinic</td><td>WHO</td><td>StatPearls（NIH）／Cleveland Clinic</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 2 -->
+<section id="s2" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">2</div>
+    <h2 class="sec-title">「ストレートネック」とは何か</h2>
+  </div>
+
+  <h3>頸椎の基本構造</h3>
+  <p>頸椎（首の骨）は7個の椎骨（C1〜C7）から構成されており、健康な状態では前方に緩やかに湾曲した「生理的前弯（cervical lordosis）」というC字型のカーブを描いています。この前弯は、頭部（成人でおよそ4.5〜5.5kg）の重さを効率よく支え、衝撃を分散させるための構造です。健康な頸椎前弯角度は、立位側面X線でおおむね<strong>20〜40度</strong>の範囲とされますが、個人差は大きい点に留意が必要です。</p>
+
+  <div class="alert a-purple">
+    <div class="alert-i">📌</div>
+    <div>「ストレートネック」は日本で広く使われる通称ですが、国際的な医学文献ではおおむね以下の用語が対応する概念として扱われています。
+      <ul style="margin-top:6px">
+        <li><strong>Loss of cervical lordosis</strong>（頸椎前弯の減少・消失）</li>
+        <li><strong>Forward Head Posture, FHP</strong>（頭部前方位）</li>
+        <li><strong>Military neck</strong>（前弯が失われ真っ直ぐになった状態の通称）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>なぜ首がまっすぐになってしまうのか</h3>
+  <p>長時間のスマートフォンやパソコンの使用、デスクワーク中の前かがみ姿勢などにより、頭部が肩よりも前方に移動した状態が慢性的に続くと、頸椎を支える筋肉のバランスが崩れ、前弯が徐々に失われていくと考えられています。この状態は「テックネック（tech neck）」「テキストネック（text neck）」とも呼ばれます。</p>
+
+  <h3>頭部前方位を測る指標：頭蓋脊椎角（CVA）</h3>
+  <p>臨床研究では、頭部前方位の程度を <strong>頭蓋脊椎角（Craniovertebral Angle, CVA）</strong> という指標で数値化することが一般的です。これは、耳垂（耳たぶ）と第7頸椎棘突起を結ぶ線と、水平線がなす角度で、この角度が小さいほど頭部が前方に突出していることを意味します。</p>
+</section>
+
+<!-- ====================================================== SECTION 3 -->
+<section id="s3" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">3</div>
+    <h2 class="sec-title">なぜ姿勢が頭痛を引き起こしうるのか（メカニズム）</h2>
+  </div>
+
+  <h3>力学的負荷：頭を傾けるほど首への負担は跳ね上がる</h3>
+  <p>米国の脊椎外科医Kenneth Hansraj氏による2014年の生体力学研究は、頭部の前傾角度が増えるごとに頸椎にかかる負荷（相対的な重み）がどれほど増加するかを定量化しました。</p>
+
+  <div class="tbl">
+    <table class="th-teal">
+      <thead>
+        <tr><th>頭部の前傾角度</th><th>頸椎にかかる相対的な負荷</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0°（耳が肩の真上にある自然な姿勢）</td><td>約4.5〜5.5kg（頭部本来の重さ）</td></tr>
+        <tr><td>15°</td><td>約12kg</td></tr>
+        <tr><td>30°</td><td>約18kg</td></tr>
+        <tr><td>45°</td><td>約22kg</td></tr>
+        <tr><td>60°（スマートフォンを見る際の典型的な角度）</td><td>約27kg</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--g6)">出典：Hansraj, K. K. (2014). <em>Surgical Technology International</em>, 25, 277–279（本記事末尾の参考文献[7]を参照）。今日の生活習慣に伴う頸部負荷を象徴するデータとしてしばしば引用されますが、単一の生体力学モデルに基づく試算である点には留意が必要です。</p>
+
+  <h3>筋の持続的緊張と緊張型頭痛</h3>
+  <p>Cleveland Clinicの解説によれば、緊張型頭痛は後頭部から首、頭皮にかけての筋肉の緊張が関与していると考えられており、その誘因として睡眠不足・不良姿勢・ストレスが挙げられています。頭部前方位が続くと、後頭下筋群や僧帽筋上部は頭の重みを支え続けるために持続的に収縮し、筋の過緊張・血流低下・痛覚過敏を招くと考えられています。</p>
+
+  <h3>神経学的メカニズム：三叉神経頸髄核における「収束」</h3>
+  <p>頸部由来の痛みがなぜ「頭痛」として感じられるのか。その鍵となるのが <strong>三叉神経頸髄核（trigeminocervical nucleus）</strong> です。NIHの医学教育資料（StatPearls）によると、上位頸神経（C1〜C3）は、顔面や頭部の感覚を伝える三叉神経の脊髄路核と、脳幹〜上位頸髄のレベルで神経学的に収束（合流）しています。この収束構造のために、本来は首から発生した痛み信号が、脳内では「頭部から来た痛み」として誤って認識されることがあります。</p>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 姿勢から頭痛が生じるまでの経路</div>
+<pre class="mermaid">
+flowchart TD
+A["長時間のスマートフォン・PC使用"] --> B["頭部が前方へ移動&lt;br/&gt;Forward Head Posture"]
+B --> C["頸椎前弯の減少&lt;br/&gt;いわゆる「ストレートネック」"]
+C --> D["頭部を支える力学的負荷の増加&lt;br/&gt;Hansraj, 2014"]
+D --> E["後頭下筋群・僧帽筋の持続的な過緊張"]
+E --> F["上位頸神経（C1-C3）の感作・刺激"]
+F --> G["三叉神経頸髄核での感覚の収束&lt;br/&gt;Trigeminocervical Nucleus"]
+G --> H["脳が痛みを「頭部由来」と誤って認識"]
+H --> I["緊張型頭痛 / 頸原性頭痛として自覚される"]
+</pre>
+  </div>
+
+  <h3>頸原性頭痛の国際診断基準（ICHD-3 第11.2.1項）</h3>
+  <p>ICHD-3における頸原性頭痛の診断は、大まかに以下の要件で構成されています。</p>
+  <ul>
+    <li>頭痛の原因として、頸椎または頸部軟部組織の障害・病変が臨床的または画像的に確認できること</li>
+    <li>以下のうち少なくとも2つで、頸部の問題と頭痛の因果関係が示されること
+      <ol>
+        <li>頸部の障害の発症と時間的に一致して頭痛が始まった</li>
+        <li>頸部の障害の改善と並行して頭痛が改善・消失した</li>
+        <li>頸部の可動域が制限されており、誘発動作で頭痛が明らかに悪化する</li>
+        <li>頸部の構造やその神経支配への診断的ブロック注射で頭痛が消失する</li>
+      </ol>
+    </li>
+    <li>他のICHD-3診断ではうまく説明できないこと</li>
+  </ul>
+</section>
+
+<!-- ====================================================== SECTION 4 -->
+<section id="s4" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">4</div>
+    <h2 class="sec-title">科学的エビデンスは何を示しているか</h2>
+  </div>
+
+  <p>姿勢と頭痛の関係は、臨床的には広く語られる一方で、研究者の間では<strong>まだ議論が続いているテーマ</strong>です。誠実な理解のために、代表的な研究を紹介します。</p>
+
+  <div class="evidence-legend">
+    <span class="evidence-legend-title">エビデンス区分：</span>
+    <span class="bA">システマティックレビュー／メタ分析（最高レベル）</span>
+    <span class="bB">ランダム化比較試験（RCT）</span>
+    <span class="bC">横断研究／観察研究</span>
+    <span class="bU">専門家見解／ポジションペーパー</span>
+  </div>
+
+  <div class="tbl">
+    <table class="th-purple">
+      <thead>
+        <tr><th>研究</th><th>デザイン</th><th>対象規模</th><th>主な知見</th><th>エビデンス</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mahmoud et al., 2019</td>
+          <td>システマティックレビュー＋メタ分析</td>
+          <td>15研究・2,339人</td>
+          <td>頸部痛のある人はFHPの角度が有意に大きい（平均差4.84度）。ただし因果関係の証明にはなお議論の余地があると結論</td>
+          <td><span class="bA">SR／メタ分析</span></td>
+        </tr>
+        <tr>
+          <td>Usen &amp; Demiroz Gunduz, 2025</td>
+          <td>横断研究</td>
+          <td>117人（FHPを有する頸部痛患者）</td>
+          <td>FHP患者の53.8%が頸原性頭痛を併発。CVAが小さい（頭部前方位が強い）ほど頸原性頭痛のリスクが高い</td>
+          <td><span class="bC">横断研究</span></td>
+        </tr>
+        <tr>
+          <td>Fernández-de-las-Peñas ら, 2022</td>
+          <td>専門家によるポジションペーパー</td>
+          <td>—</td>
+          <td>緊張型頭痛患者にも頭部前方位・頸部可動域制限・頸部感作が共通してみられると報告</td>
+          <td><span class="bU">専門家見解</span></td>
+        </tr>
+        <tr>
+          <td>Jull et al., 2002</td>
+          <td>ランダム化比較試験（RCT）</td>
+          <td>200人（頸原性頭痛患者）</td>
+          <td>頸部エクササイズと徒手療法により、12ヶ月後も頭痛の頻度・強度が有意に改善（対照群と比較）</td>
+          <td><span class="bB">RCT</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">⚖️</div>
+    <div>Mahmoud らのレビュー（2019）が明言しているように、「頭部前方位が頸部痛や頭痛の“原因”である」という主張は、依然として<strong>議論の的</strong>です。多くの研究は横断研究（ある一時点での相関関係を見る研究）であり、「姿勢が悪いから頭痛になる」のか「頭痛や頸部の問題があるから姿勢が崩れる」のか、因果の向きを完全には特定できていません。統計的な関連は繰り返し報告されていますが、単純な一方向の因果関係と断定するのは時期尚早です。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 5 -->
+<section id="s5" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">5</div>
+    <h2 class="sec-title">セルフチェックの方法</h2>
+  </div>
+
+  <div class="alert a-info">
+    <div class="alert-i">ℹ️</div>
+    <div>以下は一般的な教育目的のセルフチェックであり、<strong>医学的診断ではありません</strong>。</div>
+  </div>
+
+  <div class="qr-grid">
+    <div class="qr">
+      <div class="qr-t">① 壁を使ったチェック</div>
+      <p style="margin:0;font-size:13px">かかと・お尻・肩甲骨を壁につけて自然に立ったとき、後頭部が無理なく壁につくかどうかを確認する。頭を大きく前に出さないと壁につかない場合、頭部前方位の可能性があります。</p>
+    </div>
+    <div class="qr">
+      <div class="qr-t">② 横からの写真チェック</div>
+      <p style="margin:0;font-size:13px">リラックスした状態で真横から全身写真を撮り、耳の穴の位置が肩の中心（肩峰）の真上にあるかを確認する。耳が肩よりも明らかに前に出ている場合、頭部前方位のサインである可能性があります。</p>
+    </div>
+    <div class="qr">
+      <div class="qr-t">③ 症状のセルフモニタリング</div>
+      <p style="margin:0;font-size:13px">後頭部から始まる片側性の頭痛、首を動かすと悪化する頭痛、首・肩のこわばりを伴う頭痛がある場合は、頸部由来の頭痛の可能性を考慮し、専門家に相談することが推奨されます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 6 -->
+<section id="s6" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">6</div>
+    <h2 class="sec-title">危険な頭痛のサイン（レッドフラッグ）</h2>
+  </div>
+
+  <p>姿勢由来の頭痛の多くは良性ですが、<strong>まれに緊急性の高い病気が背景にある頭痛</strong>も存在します。英国国民保健サービス（NHS）は、以下のような症状がある場合はただちに医療機関を受診するよう案内しています。</p>
+
+  <div class="snoop-grid">
+    <div class="sn">
+      <div class="sn-letter">01</div>
+      <div class="sn-title">雷鳴頭痛</div>
+      <div class="sn-symp">突然発症し、数分でピークに達する「人生最悪の頭痛」</div>
+      <div class="sn-dx">要：くも膜下出血の除外</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">02</div>
+      <div class="sn-title">随伴する神経症状</div>
+      <div class="sn-symp">発熱・首の硬直・意識障害・視覚異常・手足の麻痺を伴う頭痛</div>
+      <div class="sn-dx">要：緊急受診</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">03</div>
+      <div class="sn-title">外傷後・遅発性</div>
+      <div class="sn-symp">頭部外傷後に生じた頭痛、または50歳以降に初めて生じた頭痛</div>
+      <div class="sn-dx">要：早期受診</div>
+    </div>
+    <div class="sn">
+      <div class="sn-letter">04</div>
+      <div class="sn-title">進行性の悪化</div>
+      <div class="sn-symp">頻度や強さが時間とともに徐々に悪化していく頭痛</div>
+      <div class="sn-dx">要：早期受診</div>
+    </div>
+  </div>
+
+  <div class="mmd">
+    <div class="mmd-lbl">フローチャート — 受診要否の判断</div>
+<pre class="mermaid">
+flowchart TD
+START["頭痛がある"] --> Q1{"突然発症し数分でピークに達する&lt;br/&gt;「人生最悪の頭痛」か？"}
+Q1 -->|"はい"| ER["直ちに救急受診&lt;br/&gt;くも膜下出血などの除外が必要"]
+Q1 -->|"いいえ"| Q2{"発熱・首の硬直・意識障害・&lt;br/&gt;視覚異常・手足の麻痺を伴うか？"}
+Q2 -->|"はい"| ER
+Q2 -->|"いいえ"| Q3{"頭部への外傷後に生じた、&lt;br/&gt;または50歳以降に初めて生じたか？"}
+Q3 -->|"はい"| DOC["早めに医療機関を受診"]
+Q3 -->|"いいえ"| Q4{"頻度や強さが&lt;br/&gt;徐々に悪化しているか？"}
+Q4 -->|"はい"| DOC
+Q4 -->|"いいえ"| SELF["セルフケア＋経過観察&lt;br/&gt;改善しなければ受診"]
+</pre>
+  </div>
+
+  <div class="alert a-danger">
+    <div class="alert-i">🚨</div>
+    <div>上記のいずれかに該当する場合は、本ガイドのようなセルフケア情報を参照する前に、必ず医療機関を受診してください。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 7 -->
+<section id="s7" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">7</div>
+    <h2 class="sec-title">エビデンスに基づく対処法</h2>
+  </div>
+
+  <h3>運動療法：頸部エクササイズの効果</h3>
+  <p>頸原性頭痛に関する系統的レビューは、頸部エクササイズ（特に深頸屈筋の強化を含むcraniocervical flexion exercise）や徒手療法が、頭痛の頻度と強度の改善に有効である可能性を報告しています。特にJullら（2002）のRCTでは、6週間の頸部エクササイズ（背臥位での等尺性craniocervical flexion運動、肩甲骨のretraction、姿勢指導など）を行った群で、12ヶ月後も頭痛の頻度・強度・頸部痛指数の有意な改善が維持されていました。</p>
+
+  <h3>推奨される日常的なセルフケア</h3>
+  <div class="drug-grid">
+    <div class="drug">
+      <div class="drug-nm">こまめな運動</div>
+      <div class="drug-br">Cleveland Clinic</div>
+      <div class="drug-tx">長時間同じ姿勢を続けず、こまめに動く（"motion is lotion"の考え方）</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">ストレッチ</div>
+      <div class="drug-br">Cleveland Clinic</div>
+      <div class="drug-tx">首・肩のストレッチを日常的に取り入れる</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">デスク環境の見直し</div>
+      <div class="drug-br">Cleveland Clinic</div>
+      <div class="drug-tx">モニターの高さ、椅子の高さなどエルゴノミクスを調整する</div>
+    </div>
+    <div class="drug">
+      <div class="drug-nm">休養・水分・食事</div>
+      <div class="drug-br">NHS</div>
+      <div class="drug-tx">十分な休養・水分摂取・規則正しい食事、リラックスできる活動（運動、ヨガ、マッサージなど）</div>
+    </div>
+  </div>
+
+  <div class="alert a-warn">
+    <div class="alert-i">💊</div>
+    <div>NHSは、鎮痛薬の使用は<strong>月10〜15日を超えないよう</strong>注意を呼びかけています（使いすぎによる薬物乱用頭痛の予防のため）。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 8 -->
+<section id="s8" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">8</div>
+    <h2 class="sec-title">まとめ</h2>
+  </div>
+
+  <div class="alert a-ok">
+    <div class="alert-i">1️⃣</div>
+    <div>頭痛は世界的に非常に頻度の高い疾患であり、緊張型頭痛と頸原性頭痛は「首」との関連が深いタイプである。</div>
+  </div>
+  <div class="alert a-ok">
+    <div class="alert-i">2️⃣</div>
+    <div>「ストレートネック」は国際文献における「頭部前方位（FHP）」「頸椎前弯の減少（loss of cervical lordosis）」に相当する概念であり、頭部を支える力学的負荷の増加と関連する。</div>
+  </div>
+  <div class="alert a-ok">
+    <div class="alert-i">3️⃣</div>
+    <div>首と頭痛をつなぐ神経学的な鍵は「三叉神経頸髄核」における感覚の収束であり、頸部由来の痛みが頭痛として知覚され得る。</div>
+  </div>
+  <div class="alert a-warn">
+    <div class="alert-i">4️⃣</div>
+    <div>姿勢と頭痛の関連は多くの研究で報告されているが、因果関係の証明はなお議論が続いており、断定的な結論は避けるべきである。</div>
+  </div>
+  <div class="alert a-danger">
+    <div class="alert-i">5️⃣</div>
+    <div>突然の激しい頭痛や神経症状を伴う頭痛は、姿勢由来と自己判断せず、直ちに医療機関を受診すべきである。</div>
+  </div>
+  <div class="alert a-ok">
+    <div class="alert-i">6️⃣</div>
+    <div>頸部エクササイズや姿勢改善など、エビデンスに支持された対処法が存在する。</div>
+  </div>
+</section>
+
+<!-- ====================================================== SECTION 9 -->
+<section id="s9" class="sec">
+  <div class="sec-hd">
+    <div class="sec-num">9</div>
+    <h2 class="sec-title">参考文献・情報源</h2>
+  </div>
+
+  <p>本ガイドは以下の国際的に認可・査読された情報源に基づいています。</p>
+
+  <div class="src-grid">
+    <div class="src">
+      <div class="src-org">World Health Organization</div>
+      <div class="src-t">[1] Migraine and other headache disorders</div>
+      <div class="src-url"><a href="https://www.who.int/news-room/fact-sheets/detail/headache-disorders" target="_blank" rel="noopener noreferrer">who.int/news-room/fact-sheets/detail/headache-disorders</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">International Headache Society</div>
+      <div class="src-t">[2] The International Classification of Headache Disorders, ICHD-3</div>
+      <div class="src-url"><a href="https://ichd-3.org/" target="_blank" rel="noopener noreferrer">ichd-3.org</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">International Headache Society</div>
+      <div class="src-t">[3] ICHD-3 Pocket version（PDF）</div>
+      <div class="src-url"><a href="https://ihs-headache.org/wp-content/uploads/2020/05/ICHD-3-Pocket-version.pdf" target="_blank" rel="noopener noreferrer">ihs-headache.org/.../ICHD-3-Pocket-version.pdf</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">NIH — NCBI Bookshelf / StatPearls</div>
+      <div class="src-t">[4] Cervicogenic Headache</div>
+      <div class="src-url"><a href="https://www.ncbi.nlm.nih.gov/books/NBK507862/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov/books/NBK507862</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">NIH — PubMed Central (PMC)</div>
+      <div class="src-t">[5] Understanding Cervicogenic Headache</div>
+      <div class="src-url"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3821111/" target="_blank" rel="noopener noreferrer">ncbi.nlm.nih.gov/pmc/articles/PMC3821111</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">PubMed</div>
+      <div class="src-t">[6] Cervicogenic headache: a review of diagnostic and treatment strategies</div>
+      <div class="src-url"><a href="https://pubmed.ncbi.nlm.nih.gov/15928349/" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/15928349</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">PubMed</div>
+      <div class="src-t">[7] Hansraj (2014). Assessment of stresses in the cervical spine caused by posture and position of the head. Surgical Technology International, 25.</div>
+      <div class="src-url"><a href="https://pubmed.ncbi.nlm.nih.gov/25393825/?dopt=Abstract" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/25393825</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">PubMed</div>
+      <div class="src-t">[8] Mahmoud et al. (2019). The Relationship Between Forward Head Posture and Neck Pain: a Systematic Review and Meta-Analysis. Current Reviews in Musculoskeletal Medicine, 12(4).</div>
+      <div class="src-url"><a href="https://pubmed.ncbi.nlm.nih.gov/31773477/?dopt=Abstract" target="_blank" rel="noopener noreferrer">pubmed.ncbi.nlm.nih.gov/31773477</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">NIH — PubMed Central (PMC)</div>
+      <div class="src-t">[9] Usen &amp; Demiroz Gunduz (2025). Cervicogenic headache in forward head posture: frequency and associated factors in a cross-sectional study</div>
+      <div class="src-url"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12520431/" target="_blank" rel="noopener noreferrer">pmc.ncbi.nlm.nih.gov/articles/PMC12520431</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">ScienceDirect（査読誌）</div>
+      <div class="src-t">[10] The cervical spine in tension-type headache: position paper</div>
+      <div class="src-url"><a href="https://www.sciencedirect.com/science/article/abs/pii/S2468781222001400" target="_blank" rel="noopener noreferrer">sciencedirect.com/.../S2468781222001400</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">Macquarie University Research Portal</div>
+      <div class="src-t">[11] Jull et al. (2002). A Randomized Controlled Trial of Exercise and Manipulative Therapy for Cervicogenic Headache</div>
+      <div class="src-url"><a href="https://researchers.mq.edu.au/en/publications/a-randomized-controlled-trial-of-exercise-and-manipulative-therap/" target="_blank" rel="noopener noreferrer">researchers.mq.edu.au/.../a-randomized-controlled-trial...</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">NIH — PubMed Central (PMC)</div>
+      <div class="src-t">[12] The effectiveness of manual and exercise therapy on headache intensity and frequency among patients with cervicogenic headache: a systematic review and meta-analysis</div>
+      <div class="src-url"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9682850/" target="_blank" rel="noopener noreferrer">pmc.ncbi.nlm.nih.gov/articles/PMC9682850</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">Cleveland Clinic</div>
+      <div class="src-t">[13] Tension Headache: Symptoms &amp; Treatment</div>
+      <div class="src-url"><a href="https://my.clevelandclinic.org/health/diseases/8257-tension-headaches" target="_blank" rel="noopener noreferrer">my.clevelandclinic.org/health/diseases/8257-tension-headaches</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">Cleveland Clinic</div>
+      <div class="src-t">[14] Cervicogenic Headache: What It Is, Symptoms &amp; Treatment</div>
+      <div class="src-url"><a href="https://my.clevelandclinic.org/health/diseases/cervicogenic-headache" target="_blank" rel="noopener noreferrer">my.clevelandclinic.org/health/diseases/cervicogenic-headache</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">Cleveland Clinic</div>
+      <div class="src-t">[15] Neck Pain: 6 Common Causes and Treatments</div>
+      <div class="src-url"><a href="https://my.clevelandclinic.org/health/symptoms/21179-neck-pain" target="_blank" rel="noopener noreferrer">my.clevelandclinic.org/health/symptoms/21179-neck-pain</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">NHS（英国国民保健サービス）</div>
+      <div class="src-t">[16] Headaches</div>
+      <div class="src-url"><a href="https://www.nhs.uk/symptoms/headaches/" target="_blank" rel="noopener noreferrer">nhs.uk/symptoms/headaches</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">NHS（英国国民保健サービス）</div>
+      <div class="src-t">[17] Tension headaches</div>
+      <div class="src-url"><a href="https://www.nhs.uk/conditions/tension-headaches/" target="_blank" rel="noopener noreferrer">nhs.uk/conditions/tension-headaches</a></div>
+    </div>
+    <div class="src">
+      <div class="src-org">The Lancet Neurology</div>
+      <div class="src-t">[18] Global, regional, and national burden of headache disorders, 1990–2023: GBD 2023</div>
+      <div class="src-url"><a href="https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(25)00402-8/fulltext" target="_blank" rel="noopener noreferrer">thelancet.com/journals/laneur/.../fulltext</a></div>
+    </div>
+  </div>
+
+  <div class="alert a-info" style="margin-top:18px">
+    <div class="alert-i">📝</div>
+    <div>[19] 頸椎前弯角度の一般的範囲（約20〜40度）は、臨床解剖学・脊椎外科分野で広く参照される数値を採用しています。個人差があり、単一の「正常値」で判定すべきではない点に留意してください。</div>
+  </div>
+</section>
+
+</main>
+</div><!-- end layout -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>頭痛とストレートネック</strong> — Forward Head Posture と頭痛の関係：国際的エビデンスに基づく教育ガイド<br>
+  📅 作成年: 2026 | 次回レビュー推奨: ガイドライン更新時<br>
+  ⚠️ 本資料は学術・教育・研究目的のみを対象としています。臨床への適用は必ず資格を持つ医療専門家の監督のもとで行ってください。
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'base',
+  themeVariables: {
+    primaryColor: '#e5f4f2',
+    primaryTextColor: '#132a56',
+    primaryBorderColor: '#12977e',
+    lineColor: '#0f6674',
+    secondaryColor: '#e0f2f1',
+    tertiaryColor: '#e8f5e9',
+    edgeLabelBackground: '#ffffff',
+    fontSize: '13px'
+  },
+  flowchart: { curve: 'linear', padding: 20 }
+});
+
+const navAs = document.querySelectorAll('.nav-a');
+navAs.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(el) el.scrollIntoView(reduce ? undefined : {behavior:'smooth'});
+  });
+});
+
+const secs = document.querySelectorAll('.sec');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      const id = en.target.id;
+      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, {threshold: 0.25});
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>

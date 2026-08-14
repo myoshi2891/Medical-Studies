@@ -28,6 +28,7 @@ The economics of this skill: an expensive, high-ceiling model does the part wher
 
 Map the territory before judging it:
 
+- **Repo-local addendum (this repository only):** read [references/project-context.md](references/project-context.md) first — it records the verification commands, architectural invariants, and already-decided tradeoffs of this repo, so you neither re-derive them nor report them as findings. Not part of the upstream skill; skip it if absent.
 - Read `README`, `CLAUDE.md`/`AGENTS.md`, `CONTRIBUTING`, root config files (`package.json`, `pyproject.toml`, `go.mod`, etc.), CI config, and the directory structure.
 - Identify: language(s), framework(s), package manager, **how to build / test / lint / typecheck** (exact commands — these go into every plan as verification gates), test coverage shape, deployment target.
 - Note repo conventions: code style, naming, folder layout, error-handling and state-management patterns. Plans must tell the executor to *match* these, with examples.

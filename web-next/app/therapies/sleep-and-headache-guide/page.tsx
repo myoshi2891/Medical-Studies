@@ -24,7 +24,7 @@ const SLEEP_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders an educational guide about the relationship between sleep and headache.
+ * Renders the sleep and headache educational guide page.
  *
  * @returns The complete sleep and headache guide page
  */
@@ -1320,11 +1320,11 @@ export default function SleepAndHeadacheGuidePage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/therapies/sleep-and-headache-guide" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/therapies/sleep-and-headache-guide" />
 
       {/* FOOTER */}
       <footer className="footer">

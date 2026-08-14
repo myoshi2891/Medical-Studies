@@ -1405,11 +1405,11 @@ export default function CgrpPathwayHeadacheTreatmentsPage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/treatment/cgrp-pathway-headache-treatments" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/treatment/cgrp-pathway-headache-treatments" />
 
       {/* FOOTER */}
       <div className="footer">

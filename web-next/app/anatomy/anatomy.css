@@ -291,6 +291,11 @@
   gap: 24px;
 }
 
+/* grid の gap と related-links 側の margin が二重に効くため、ここでは margin を殺す */
+.anatomy-main > .related-links {
+  margin-top: 0;
+}
+
 @media (max-width: 900px) {
   /* モバイル/タブレットではサイドナビを退避し、Hero の検索・チップで導線を確保する */
   .anatomy-layout {

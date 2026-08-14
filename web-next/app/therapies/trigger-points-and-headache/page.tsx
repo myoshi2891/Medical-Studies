@@ -20,7 +20,7 @@ const MTP_MERMAID_THEME: Record<string, string> = {
 /**
  * Presents an educational guide to myofascial trigger points and their relationship to headache.
  *
- * @returns The rendered trigger-points and headache information page.
+ * @returns The rendered educational page.
  */
 export default function TriggerPointsAndHeadachePage() {
   return (
@@ -791,11 +791,11 @@ export default function TriggerPointsAndHeadachePage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/therapies/trigger-points-and-headache" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/therapies/trigger-points-and-headache" />
 
       {/* FOOTER */}
       <div className="footer">

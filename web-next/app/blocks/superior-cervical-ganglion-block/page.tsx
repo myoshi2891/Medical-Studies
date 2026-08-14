@@ -1049,11 +1049,11 @@ export default function SuperiorCervicalGanglionBlockPage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/blocks/superior-cervical-ganglion-block" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/blocks/superior-cervical-ganglion-block" />
 
       {/* FOOTER */}
       <div className="footer">

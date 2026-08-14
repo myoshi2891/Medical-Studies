@@ -59,9 +59,15 @@ HTML ページを `web-next/`（Next.js App Router）へ TDD で移行する。�
 `components/prom/` シェル）。新規 B 移行はこの構成に倣う。
 
 > [!IMPORTANT]
-> **このスキルは移行開始前（`web-next/` ディレクトリ未作成の段階）での準備スキルです。**
-> 移行開始時に最初の移行ページをブートストラップし、そのページが「参照実装」となります。
-> 以後の移行はすべてその参照実装のパターンに倣ってください。
+> **`web-next/` は既に稼働中で、30 以上のページが移行済みです。** ブートストラップは不要で、
+> 新規移行は**既存の参照実装をコピー元とする追加作業**になります。「B-0: ブートストラップ」節は
+> 履歴・再構築時の記録であり、通常の移行では実行しません。
+
+**現行スタック（`web-next/package.json` が正）**: next `16.2.11` / react・react-dom `19.2.4` /
+mermaid `10.9.6` / @tabler/icons-react `^3.34.0` / @google/model-viewer `^4.3.1` /
+typescript `^5`（strict + `noUnusedLocals`） / @biomejs/biome `^2.5.0` / vitest `4.1.4` +
+@testing-library/react `^16.3.2` / jsdom `^25` / packageManager `bun@1.3.14`。
+**バージョンは推測せず、必ず `web-next/package.json` を Read して確認すること。**
 
 **デザインの権威ソース（移行時も継承する）**: `Types-of-headache/html-files/Headaches/Migraine.html`
 （CSS 変数・コンポーネントクラスはここを基準とする。詳細は `css-design-system/SKILL.md` 参照）
@@ -71,21 +77,52 @@ HTML ページを `web-next/`（Next.js App Router）へ TDD で移行する。�
 1. **このファイル** — 標準手順と実装パターン
 2. **`.claude/rules/tdd-mandatory-cycle.md`** — TDD コミットワークフロー（Red→Green→Refactor→commit）
 3. **参照実装（アーキタイプ別・既存。新規探索は不要 — まずこれを Read する）**:
-   - **アーキタイプ A**（静的教育ガイド）: `web-next/app/blocks/cervical-plexus-block/page.tsx` +
-     `page.test.tsx` + `cervical-plexus-block.css` / `web-next/components/MermaidDiagram.tsx` /
-     `web-next/components/Ext.tsx` / `web-next/components/blocks/CpbSidebar.tsx` /
-     `web-next/tests/setup.ts`（jsdom shim）。**この 7 ファイルを読めば A の全パターンが揃う。**
+   - **アーキタイプ A（静的教育ガイド）— 最新の正準リファレンス**:
+     `web-next/app/anatomy/bone-related-headache/page.tsx` + `page.test.tsx` +
+     `bone-related-headache.css`（レジストリ登録・`RelatedLinks`・見出しテキスト完全一致契約まで
+     現行作法を全部含む最新例）。
+     旧リファレンス `web-next/app/blocks/cervical-plexus-block/**` も A として有効だが、
+     **`RelatedLinks` / レジストリ登場前の構成が混ざるため、契約テストの雛形は
+     `bone-related-headache/page.test.tsx` を優先する**。
+   - **A の共有部品**: `web-next/components/MermaidDiagram.tsx`（default export）/
+     `web-next/components/Ext.tsx`（named export `Ext`）/
+     `web-next/components/content/RelatedLinks.tsx` /
+     `web-next/components/blocks/CpbSidebar.tsx`（scroll-spy サイドバーの型）/
+     `web-next/tests/setup.ts`（jsdom shim）。
+   - **サイト横断の単一データ源**: `web-next/lib/content/registry.ts` + `types.ts` +
+     `registry.test.ts`（**登録漏れを機械検知する。必ず読む**）/ `web-next/components/site/nav-links.ts`。
    - **アーキタイプ B**（インタラクティブ SPA）: `web-next/app/prom-checker/page.tsx` +
      `page.test.tsx` + `prom-checker.css` / `web-next/lib/prom/`（コア）/ `web-next/components/prom/`（シェル）。
-   - 共通: `web-next/app/layout.tsx` / `web-next/app/globals.css` / `web-next/biome.json` / `web-next/tests/setup.ts`。
+   - 共通: `web-next/app/layout.tsx` / `web-next/app/globals.css` / `web-next/biome.json` /
+     `web-next/next.config.ts`（CSP・セキュリティヘッダ）。
    - デザインの権威ソース（配色・コンポーネントクラスの由来）: `Types-of-headache/html-files/Headaches/Migraine.html`。
 
 > **トークン節約の鉄則**: web-next の構成は上記参照実装に固定済み。`Explore`/`Task` エージェントで
 > 構造を再導出しない。対象パスは既知なので **直接 Read** する（ファイル名は本節と次の表で確定）。
 
+### 他モデル（Gemini 等）で実行する場合の最小読み込みセット
+
+スキル機構を持たないエージェントでも、以下を**この順で読めば**アーキタイプ A の移行を完遂できる。
+リポジトリ全体スキャンは禁止（トークン浪費かつ構成の再導出は誤りを生む）。
+
+```text
+1. .claude/skills/nextjs-page-migration/SKILL.md   ← 本ファイル（手順の正）
+2. .claude/rules/tdd-mandatory-cycle.md            ← コミット分割と検証コマンド
+3. .claude/rules/no-absolute-paths.md              ← コミット前 PII チェック
+4. web-next/package.json                           ← 版数とスクリプト名（推測禁止）
+5. web-next/app/anatomy/bone-related-headache/page.test.tsx   ← 契約テストの雛形
+6. web-next/app/anatomy/bone-related-headache/page.tsx        ← ページ骨格の雛形
+7. web-next/lib/content/registry.ts（先頭 60 行）+ types.ts   ← 登録エントリの形
+8. web-next/components/site/nav-links.ts（先頭 70 行）        ← ナビ登録の形
+9. 移行元 HTML（対象ファイル 1 本）
+```
+
+`web-next/components/MermaidDiagram.tsx` / `Ext.tsx` / `content/RelatedLinks.tsx` は
+**本ファイルに props と export 形式を明記済み**なので、疑義が出たときだけ読めばよい。
+
 ---
 
-## プロジェクト構成（web-next/ — 移行開始後の想定）
+## プロジェクト構成（web-next/ — 現行実態）
 
 | パス | 役割 |
 | --- | --- |
@@ -100,6 +137,16 @@ HTML ページを `web-next/`（Next.js App Router）へ TDD で移行する。�
 | `components/prom/MermaidDiagram.tsx` | **（B 専用・流用禁止）** named export・`isDark` prop・indigo 固定。A の共有 `components/MermaidDiagram.tsx` とは別物 |
 | `tests/setup.ts` | jsdom shim 集約（`matchMedia` / `scrollTo` / `scrollIntoView` / `IntersectionObserver`）。コンポーネント側で再実装しない |
 | `lib/fonts.ts` | next/font 定義（`outfit` / `inter`。`layout.tsx` で `<html className>` に適用済み） |
+| `lib/content/registry.ts` | **サイト横断コンテンツレジストリ（単一データ源）。新規ページは必ず登録する。** 相互リンク・サイトマップ・横断検索・鮮度棚卸しが全てここを参照 |
+| `lib/content/registry.test.ts` | `app/**/page.tsx` を実走査し、**未登録ページ・dangling な `related`・不正日付を機械検知**する |
+| `lib/content/search.ts` | 横断検索コア（索引源はレジストリの `title` / `keywords` のみ。本文は解析しない） |
+| `components/content/RelatedLinks.tsx` | レジストリの `related` から関連ページ導線を描画。**各ページの `<main>` 末尾に置く**（named export） |
+| `components/site/nav-links.ts` | グローバルナビ定義。未移行ルートは `disabled: true`（「準備中」表示）。移行完了時に外す |
+| `components/site/SiteHeader.test.tsx` | 「実装済みルートは通常リンクで描画される」契約。新ページ追加時に href を追記する |
+| `components/glossary/AutoGlossary.tsx` | 本文ツリーを走査し、用語集の語の**初出 1 回だけ**をツールチップ化（`<main>` を包むだけ。textContent 不変なので既存契約テストを壊さない） |
+| `app/sitemap.ts` | レジストリから機械生成。**手書き追記は不要**。`NEXT_PUBLIC_SITE_URL` 必須（fail-closed） |
+| `next.config.ts` | 強制 CSP + セキュリティヘッダ。**外部 CDN スクリプトを追加しない**（Mermaid も npm 依存） |
+| `tests/dependency-security.test.ts` | 依存の既知脆弱バージョンを固定検証（`overrides` と対応） |
 | `biome.json` | Lint/Format。完結した CSS デザインシステムを持つページ CSS は `includes` で整形対象外にする |
 
 **スタイル方式**: A 参照実装（`cervical-plexus-block`）は **ページ専用 CSS ファイル**
@@ -132,6 +179,24 @@ App Router は Server Component でも CSS import 可。元 `<style>` の `:root
 
 > 静的教育ページ（Server Component・忠実転記）の手順。B の場合は次の大節へ。
 
+### 全体フロー（この順に 1 つずつ・各段でコミット）
+
+```text
+0. 準備   : ソース HTML を Read → 契約値を grep で実測 → slug/category を決める
+1. [Red]  : app/<category>/<slug>/page.test.tsx
+            + components/site/SiteHeader.test.tsx（href 追記）を書く  → test コミット
+2. [Green]: page.tsx + <slug>.css（忠実転記）
+            + lib/content/registry.ts + nav-links.ts への登録         → feat コミット
+3. 検証   : lint / typecheck / test / build を全通過
+4. 目視   : bun run dev でユーザーが確認
+5. 同期   : GEMINI.md / CLAUDE.md / PROGRESS.md を更新           → docs コミット
+```
+
+> **slug 規約**: `/<category>/<kebab-case-slug>`。`category` は
+> `headaches` / `treatment` / `blocks` / `therapies` / `prom` / `anatomy` のいずれか
+> （`lib/content/types.ts` の `ContentCategory` が正。**新カテゴリの追加は型・テスト・ナビの変更を伴うため、
+> 独断で増やさずユーザーに確認する**）。
+
 ### Step 1: [Red] 契約テストの作成
 
 `app/<category>/<slug>/page.test.tsx` を作成。Mermaid は描画コストを排除するため
@@ -145,13 +210,43 @@ vi.mock("@/components/MermaidDiagram", () => ({
 
 最低限の契約（ソースの実数を `grep` で数えてから固定する）:
 
-1. `<h1>` テキスト一致
-2. `<h2>`（主要セクション）の個数
-3. `section.sec` の `id` 配列がソースと一致（参照実装の `page.test.tsx` / `page.tsx` が使う実セレクタ。`section.section` ではない）
+1. `.hero h1` のテキスト一致
+2. `<h2>`（主要セクション）の**個数とテキスト配列の完全一致**（`EXPECTED_H2_TITLES` として定数化）
+3. `section.sec` の `id` 配列がソースと一致（実セレクタは `section.sec`。`section.section` ではない）
 4. 外部リンク（href が `http` 始まり）すべてに `target="_blank"` と `rel="noopener noreferrer"`
-5. 内部リンク（`#`・相対パス）に `.html` を含まない（外部リンクは除外）
-6. Mermaid 図・table・コードブロック（`pre`）の個数
+5. 内部リンク（`#` 始まり）に `.html` を含まない（外部リンクは除外）
+6. Mermaid 図・table・`.alert`・サイドバー `nav.sidebar a.nav-a` の個数
 7. **見出し階層の各レベル個数**（`h3` / `h4` …）を固定する。後述の「見出し階層を飛ばさない」を満たす値にする
+8. `.disclaimer` と `.footer` が描画され、想定文言を含む
+9. **関連ページ導線（必須・レジストリ連動）** — 下記の 2 本を必ず含める
+
+```tsx
+import { getRelated } from "@/lib/content/registry";
+
+describe("<Page>: 関連ページ導線", () => {
+  const HREF = "/<category>/<slug>";
+
+  it("レジストリの関連ページをすべてリンクとして描画する", () => {
+    const { container } = render(<Page />);
+    const hrefs = Array.from(container.querySelectorAll(".related-links a")).map((a) =>
+      a.getAttribute("href")
+    );
+    expect(hrefs).toEqual(getRelated(HREF).map((e) => e.href));
+  });
+
+  it("内部リンクを最低 2 本持つ（plans/002 Step 3）", () => {
+    const { container } = render(<Page />);
+    const links = container.querySelectorAll(".related-links a");
+    expect(links.length).toBeGreaterThanOrEqual(2);
+    for (const link of links) {
+      expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
+    }
+  });
+});
+```
+
+> このテストは `CONTENT_REGISTRY` への登録が済むまで空配列同士で緩く通ってしまうため、
+> **Step 2.5 のレジストリ登録（`related` を 2 本以上）まで完了させて初めて意味を持つ**。
 
 `bun run test` で**失敗を確認**してから commit（`test(web-next): add failing contract tests …`）。
 
@@ -165,8 +260,12 @@ vi.mock("@/components/MermaidDiagram", () => ({
 > grep -c 'class="mermaid"' "$f"              # Mermaid 図
 > grep -c '<table' "$f"                        # table（`<table>` も `<table class=...>` も拾う）
 > grep -c '<pre>' "$f"                         # 非 Mermaid コードブロック（0 なら dangerouslySetInnerHTML 不要）
+> grep -cE 'class="alert' "$f"                 # callout（.alert）
 > grep -oE 'href="https?://[^"]*"' "$f" | wc -l   # 外部リンク（target/rel 検証の母数）
+> grep -oE '<h3[^>]*>[^<]*</h3>' "$f"          # h3 のテキスト（EXPECTED_H3_TITLES の素材）
 > ```
+>
+> 注: 外部リンク数は `<Ext>` へ集約後も同数でなければならない（faithful 転記の検算になる）。
 >
 > > 参考: CPB 参照実装の実測値 = section 18 / nav-a 18 / h2 38 / mermaid 12 / table 22 / pre 0 / 外部リンク 15。
 > > これらは `page.test.tsx` に定数（`SECTION_IDS` / `H2_COUNT` 等）として固定する。
@@ -177,7 +276,38 @@ vi.mock("@/components/MermaidDiagram", () => ({
 > JSX に転写する。要約・省略・縮約は禁止。
 
 - **Server Component デフォルト**。`"use client"` は状態が必要な場合のみ
+- **`metadata` を必ず export する**（SEO タイトル。レジストリの `title`（短いナビ表記）とは役割が別）:
+
+  ```tsx
+  import type { Metadata } from "next";
+
+  export const metadata: Metadata = {
+    title: "頭痛に関連する筋肉 ― 国際文献に基づく解剖学とメカニズム",
+    description: "ICHD-3 および国際的エビデンスに基づく…（120 字程度の要約）",
+  };
+  ```
+
 - ルートを `<div className="<scope>">`（例 `.cervical-accent`）で包む
+- **ページ骨格は参照実装に合わせる**（契約テストのセレクタがこれに依存する）:
+
+  ```tsx
+  <div className="<scope>">
+    <div className="hero">…<h1>…</h1>…</div>
+    <div className="disclaimer">⚠️ Academic Disclaimer…</div>
+    <div className="layout">
+      <XxxSidebar />
+      <main className="main">
+        <section id="s1" className="sec">…</section>
+        …
+        <RelatedLinks href="/<category>/<slug>" />   {/* main の内側・末尾 */}
+      </main>
+    </div>
+    <div className="footer">…</div>
+  </div>
+  ```
+
+  `RelatedLinks` は `</main>` の**内側**に置く（外に出すとレイアウト幅が崩れる。
+  commit `ee98921` で `main` 内へ移動済み）。
 - 元 HTML の `<style>` を **ページ専用 CSS ファイル**（`app/<category>/<slug>/<slug>.css`）へ移植し、
   `page.tsx` の先頭で `import "./<slug>.css"` する。`:root` のページ固有トークンは `.<scope>` 配下の
   ローカル変数へ移す（`globals.css` の共通トークンへ強制リマップしない）
@@ -302,7 +432,6 @@ faithful 転記でも**見出しレベルを 1 段ずつ下げる一律変換は
 > [!WARNING]
 > Do not pass user input, API responses, database content, or generated/dynamic templates to the `__html` property. Using `dangerouslySetInnerHTML` with non-static content introduces a severe Cross-Site Scripting (XSS) vulnerability. The value passed to `__html` must be a static string literal hardcoded in the source code.
 
-
 ハイライト用クラス（`globals.css` に定義）: `kw`（キーワード）/ `cm`（コメント・斜体）/
 `st`（文字列）/ `fn`（関数名）/ `nu`（数値）。
 
@@ -342,42 +471,101 @@ import { Ext } from "@/components/Ext"; // named import
 `Ext` が `target=_blank` + `rel=noopener noreferrer` を保証する。内部リンク（`#anchor`）は
 通常の `<a>` を使う。
 
-### Step 2.5: グローバルナビゲーションへの登録（TDD）
+### Step 2.5: サイト横断レジストリ＋ナビへの登録（TDD・省略不可）
 
-ページ本体の移行が完了したら、サイト共通ヘッダー（グローバルナビゲーション）に新ページを登録する。
+ページ本体だけでは**未完了**。以下 3 点を 1 セットで行う。1 でも欠けると
+`lib/content/registry.test.ts`（`app/**/page.tsx` の実走査）と `SiteHeader.test.tsx` が落ちる。
 
-1. **[Red] 契約テストの更新**:
-   `web-next/components/site/SiteHeader.test.tsx` の「実装済みルートは通常リンクで描画される」テストブロックに新ページのパスを追加する:
+#### (1) コンテンツレジストリ（単一データ源）
+
+`web-next/lib/content/registry.ts` の `CONTENT_REGISTRY` へカテゴリ順にエントリを追加する:
+
+```ts
+{
+  href: "/anatomy/headache-related-muscles",   // 実ルートと完全一致
+  title: "頭痛に関連する筋肉 (Muscles)",        // ナビ表記に準じる短いラベル
+  category: "anatomy",                          // ContentCategory の値
+  lastReviewed: "2026-08-12",                   // 実在する暦日（YYYY-MM-DD）
+  keywords: ["頭痛", "筋肉", "ICHD-3", "トリガーポイント"], // 横断検索の索引語（略称・別名）
+  related: [                                    // 最低 2 本・全てレジストリ内に実在すること
+    "/anatomy",
+    "/headaches/tension-type-headache",
+  ],
+},
+```
+
+`registry.test.ts` が検証する不変条件（＝落ちる条件）:
+
+| 検証 | 落ちる原因 |
+| --- | --- |
+| `app/**/page.tsx` の全ルートが登録済み（`NON_CONTENT_ROUTES` を除く） | ページを作ったのに未登録 |
+| `href` が一意・`isSafeHref` を満たす | 重複、`/` 始まりでない |
+| `related` の参照先が全て実在 | typo・未作成ページを先に参照（dangling） |
+| `lastReviewed` / `sourcesAsOf` が**実在する暦日** | `2026-02-31` のような形式は正しいが存在しない日付 |
+| `category` が `ContentCategory` に含まれる | 新カテゴリの独断追加 |
+
+> **双方向リンクの配慮**: `related` に挙げた相手側からも本ページを参照させると導線が対称になる。
+> 相手エントリの `related` へ追記する場合、その相手ページの契約テスト
+> （`toEqual(getRelated(HREF)…)`）も同時に更新が必要になる点に注意。
+
+`app/sitemap.ts` はこのレジストリから機械生成されるため**追記不要**。
+
+#### (2) グローバルナビゲーション（Red → Green）
+
+> Red 側（テスト追記）は **Step 1 の `test` コミット**に、Green 側（`nav-links.ts` への登録）は
+> **Step 2 の `feat` コミット**に含める。テストと実装を同一コミットに混ぜない。
+
+1. **[Red]** `web-next/components/site/SiteHeader.test.tsx` の「実装済みルートは通常リンクで
+   描画される」ブロックへ追記し、`bun run test components/site/SiteHeader.test.tsx` で失敗を確認:
 
    ```tsx
    expect(hrefs).toContain("/<category>/<slug>");
    ```
 
-   `bun run test components/site/SiteHeader.test.tsx` で**失敗を確認**する。
-
-2. **[Green] ナビゲーション定義への追記**:
-   `web-next/components/site/nav-links.ts` の該当カテゴリ（`Headaches` / `Treatment` / `Blocks` / `Therapies` / `PROM`）に定義を追加する:
+2. **[Green]** `web-next/components/site/nav-links.ts` の該当カテゴリへ追加:
 
    ```ts
-   {
-     name: "ページ表示名",
-     href: "/<category>/<slug>",
-   }
+   { name: "ページ表示名", href: "/<category>/<slug>" }
    ```
 
-   テストを再実行して全グリーンを確認し、コミット（`feat(web-next): add <slug> link to SiteHeader nav-links`）する。
+   既に `disabled: true`（準備中）で仮登録されているルートを移行した場合は、
+   **`disabled` を削除する**（残すとナビが非活性のままになる）。
+
+#### (3) 用語ツールチップ（任意・推奨）
+
+本文ルートを `AutoGlossary` で包むと、`lib/glossary` 登録語の初出だけがツールチップ化される。
+`AutoGlossary` は文字列を分割して子要素に保持するだけで **textContent を変えない**ため、
+見出し・表の契約テストは壊れない。未登録語を足す手順は `.claude/skills/glossary-term-tooltip/SKILL.md`。
+
+```tsx
+<main className="main">
+  <AutoGlossary>
+    {/* section 群 */}
+  </AutoGlossary>
+</main>
+```
+
+コミット（例）: `feat(web-next): register <slug> guide in navbar, registry, and related links`
 
 ### Step 3: ローカル検証
 
 ```bash
 cd web-next
 bun run lint        # Biome（変更ファイル単位でパス指定。lint:fix の引数なし実行は禁止）
-bun run typecheck   # tsc --noEmit
-bun run test        # vitest
+bun run typecheck   # tsc --noEmit（strict + noUnusedLocals/noUnusedParameters）
+bun run test        # vitest（全件。対象ファイルだけの部分実行で代替しない）
 bun run build       # Next.js production build（※ユーザーから「ビルド禁止」指示がある場合は実行しない）
 ```
 
 **全通過**が必須。部分 pass でコミットしない。
+
+> **`bun run build` の前提**: `app/sitemap.ts` は `NEXT_PUBLIC_SITE_URL` を fail-closed で検証し、
+> 未設定・不正 URL・本番ビルドでの localhost / 平文 http を**ビルドエラーにする**。
+> 未整備なら `cp .env.local.example .env.local` して https の値を入れる（`.env.local` はコミットしない）。
+>
+> **CSP**: `next.config.ts` が外部スクリプト/接続先をホスト単位で許可している。移行で外部 CDN や
+> 新しい API ホストが必要になった場合は `lib/security/csp.ts` の変更＋契約テスト更新が要る。
+> **独断で許可ホストを増やさず、ユーザーに確認する**（セキュリティ変更）。
 
 ### Step 4: 視覚確認（ユーザー手動）
 
@@ -403,14 +591,14 @@ bun run build       # Next.js production build（※ユーザーから「ビル�
   DOM / Storage / 時刻に触れない。HTML 版と TS 版で **1:1 移植可能**。
 - **シェル（差し替え可能）** = ③a 描画レイヤ（HTML/JS → React/TSX） + ③b 永続化アダプタ（StorageAdapter）。
 
-### B-0: ブートストラップ（`web-next/` 未作成時のみ・`chore`）
+### B-0: ブートストラップ（履歴記録・通常は実行しない）
+
+> `web-next/` は既に存在するため、この節は**再構築時のための記録**。通常の移行では B-1 から始める。
 
 - 配置先はリポジトリルートの **`web-next/`**（`.gitignore` が `web-next/coverage/` を予約済み）。
 - `create-next-app` は**使わない**（最新版を引き決定論を損なう）。設定ファイルを手書きで複製する。
-  確定スタック（参照 `package.json` を複製）: next `16.2.6` / react・react-dom `19.2.4` /
-  mermaid `10.9.6` / @tabler/icons-react `^3.34.0` / typescript `^5` /
-  tailwindcss `^4` + @tailwindcss/postcss `^4` / @biomejs/biome `^2.5.0` /
-  vitest `^4.1.4` + @vitest/coverage-v8 `4.1.4` / jsdom `^25` / @testing-library/{react,dom,jest-dom}。
+  スタックは**現行の `web-next/package.json` を正**とする（本節に版数を再掲しない ―
+  重複記載は必ず陳腐化するため）。
 - スクリプト: `dev/build/start/lint(biome check .)/lint:fix/format/test(vitest run)/test:coverage/test:watch/typecheck`。
 - `tsconfig`: `strict: true` + paths `@/*`。`vitest.config`: `environment: "jsdom"` + setup（jest-dom）。
 
@@ -529,7 +717,12 @@ bun run build       # Next.js production build（※ユーザーから「ビル�
 - **`scroll-behavior:smooth` を無条件で置かない** — `@media (prefers-reduced-motion: no-preference)` で囲う
 - **単語フォント名に引用符を付けない** — `font-family-name-quotes`（例: `Meiryo` は無引用符）
 - **Mermaid 判断ノードに異なる条件を混在させない** — 独立条件は独立ノードに分け、本文の禁忌記述と整合させる
-- **グローバルナビゲーションの登録を忘れない** — `nav-links.ts` へ新ページを追加し、`SiteHeader.test.tsx` でテスト検証（TDD）を行う
+- **`CONTENT_REGISTRY` への登録を忘れない** — `lib/content/registry.ts` に `related` 2 本以上で登録。未登録は `registry.test.ts` が実ルート走査で検知する
+- **グローバルナビゲーションの登録を忘れない** — `nav-links.ts` へ新ページを追加し、`SiteHeader.test.tsx` でテスト検証（TDD）を行う。仮登録の `disabled: true` は移行完了時に外す
+- **`RelatedLinks` を `<main>` の内側末尾に置く** — 外に出すとレイアウト幅が崩れる
+- **`sitemap.ts` に手書きで URL を足さない** — レジストリから機械生成される
+- **CSP の許可ホストを独断で増やさない** — `lib/security/csp.ts` の変更はセキュリティ変更としてユーザー確認
+- **CSS Modules（`*.module.css`）を持ち込まない** — 本リポジトリは 0 件。ページ専用 CSS + スコープクラス方式
 - **`"use client"` を不必要に使わない** — Server Component デフォルト
 - **shiki / CSS Modules を導入しない** — 手書き span + globals.css スコープ方式
 - **`<i class="ti …">` を残さない** — `@tabler/icons-react` へ変換

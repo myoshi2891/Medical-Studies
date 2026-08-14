@@ -2340,11 +2340,11 @@ style I fill:#2980b9,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/prom/headache-diary" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/prom/headache-diary" />
 
       {/* FOOTER */}
       <div className="footer">

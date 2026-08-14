@@ -824,11 +824,11 @@ export default function HeadacheLifestyleSeedsGuidePage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/treatment/headache-lifestyle-seeds-guide" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/treatment/headache-lifestyle-seeds-guide" />
 
       {/* FOOTER */}
       <div className="footer">

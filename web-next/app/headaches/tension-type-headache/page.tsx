@@ -251,7 +251,7 @@ style SAFE fill:#27ae60,color:#fff
 style MANAGE fill:#e67e22,color:#fff`;
 
 /**
- * Renders an educational guide to tension-type headache covering its classification, diagnosis, assessment, treatment, and prevention.
+ * Renders a comprehensive educational guide to tension-type headache, covering its classification, diagnosis, assessment, treatment, prevention, and supporting evidence.
  */
 export default function TensionTypeHeadachePage() {
   return (
@@ -2853,11 +2853,11 @@ export default function TensionTypeHeadachePage() {
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/headaches/tension-type-headache" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/headaches/tension-type-headache" />
 
       {/* FOOTER */}
       <div className="footer">

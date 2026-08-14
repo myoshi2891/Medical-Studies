@@ -1952,11 +1952,11 @@ style DISCHARGE fill:#2e7d32,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/blocks/stellate-ganglion-block" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/blocks/stellate-ganglion-block" />
 
       {/* FOOTER */}
       <div className="footer">

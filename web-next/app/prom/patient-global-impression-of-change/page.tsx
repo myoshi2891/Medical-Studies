@@ -1782,12 +1782,12 @@ style S10 fill:#ffcdd2,stroke:#c62828`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/prom/patient-global-impression-of-change" />
         </main>
       </div>
       {/* end layout */}
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/prom/patient-global-impression-of-change" />
 
       {/* FOOTER */}
       <div className="footer">

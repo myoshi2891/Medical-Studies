@@ -4,10 +4,9 @@
 
 ## 現在地
 
-- **最新 HEAD**: `c1c063d` fix(anatomy): correct broken physical therapy link
-- **ビルド状態**: web-next 全体で typecheck / lint / build クリーン。**テスト 666 passed / 69 ファイル**
-  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-11、HEAD `c1c063d`
-  ＋レビュー指摘対応の作業ツリー変更適用後。変更前の HEAD `c1c063d` 素の値は 657 passed / 69 ファイル）。
+- **最新 HEAD**: `42c6bf1` feat(web-next): register headache-and-straight-neck in registry and navigation
+- **ビルド状態**: web-next 全体で typecheck / lint クリーン。**テスト 706 passed / 73 ファイル**
+  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-13）。
   内訳はアーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／
   PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／
   コンテンツレジストリ・sitemap・RelatedLinks・サイト横断検索（`SiteSearch`）・CSP（`lib/security/csp.ts`）。
@@ -28,7 +27,10 @@
 | Headaches | 緊張型頭痛 (TTH) | [Tension-Type-Headache.md](Types-of-headache/md-files/Headaches/Tension-Type-Headache.md) | [Tension-Type-Headache.html](Types-of-headache/html-files/Headaches/Tension-Type-Headache.html) | ✅ 完了 | |
 | Headaches | 薬物乱用頭痛 (MOH) | [Medication-Overuse-Headache.md](Types-of-headache/md-files/Headaches/Medication-Overuse-Headache.md) | [Medication-Overuse-Headache.html](Types-of-headache/html-files/Headaches/Medication-Overuse-Headache.html) | ✅ 完了 | |
 | Headaches | 頸原性頭痛 (CEH) | [Cervicogenic-Headache.md](Types-of-headache/md-files/Headaches/Cervicogenic-Headache.md) | [Cervicogenic-Headache.html](Types-of-headache/html-files/Headaches/Cervicogenic-Headache.html) | ✅ 完了 | ディープ・スパイン ヒーロー（navy-slate→periwinkle→ice）/ Mermaid 6図 / 16セクション / .moh-grid・.src-grid 5群 / 参考文献31リンク / 4フェーズ分割 |
+| Headaches | 頭痛とストレートネック | [Headache-and-straight-neck.md](Types-of-headache/md-files/Headaches/Headache-and-straight-neck.md) | [Headache-and-straight-neck.html](Types-of-headache/html-files/Headaches/Headache-and-straight-neck.html) | ✅ 完了 | 9セクション / Mermaid 3図 / 参考文献18リンク |
+| Headaches | 頭痛と神経系 | [Headache-related-nerves.md](Types-of-headache/md-files/Headaches/Headache-related-nerves.md) | [Headache-related-nerves.html](Types-of-headache/html-files/Headaches/Headache-related-nerves.html) | ✅ 完了 | 10セクション / Mermaid 7図 / 参考文献17リンク |
 | Headaches | 頭痛の病態生理 | [Headache-pathophysiology.md](Types-of-headache/md-files/Headaches/Headache-pathophysiology.md) | [Headache-pathophysiology.html](Types-of-headache/html-files/Headaches/Headache-pathophysiology.html) | ✅ 完了 | 12セクション / Mermaid 5図 / 参考文献19リンク |
+| Anatomy | 頭痛と血管 | [Vascular-headache.md](Types-of-headache/md-files/Headaches/Vascular-headache.md) | [Vascular-headache.html](Vascular-headache.html) | ✅ 完了 | 12セクション / Mermaid 5図 / 参考文献28リンク |
 | Blocks | 星状神経節ブロック (SGB) | [Stellate-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Stellate-Ganglion-Block.md) | [Stellate-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Stellate-Ganglion-Block.html) | ✅ 完了 | |
 | Blocks | 上頸神経節ブロック (SCGB) | [Superior-Cervical-Ganglion-Block.md](Types-of-headache/md-files/Blocks/Superior-Cervical-Ganglion-Block.md) | [Superior-Cervical-Ganglion-Block.html](Types-of-headache/html-files/Blocks/Superior-Cervical-Ganglion-Block.html) | ✅ 完了 | |
 | Blocks | 後頭神経ブロック (ONB) | [Occipital-Nerve-Block.md](Types-of-headache/md-files/Blocks/Occipital-Nerve-Block.md) | [Occipital-Nerve-Block.html](Types-of-headache/html-files/Blocks/Occipital-Nerve-Block.html) | ✅ 完了 | Deep Teal→Cyan ヒーロー / Mermaid 10図 / 4フェーズ分割 |
@@ -68,8 +70,8 @@
 | Phase 4 | SKILL を 2 アーキタイプ対応へ拡張 + docs sync | ✅ 完了 |
 | Phase 5 | 外部連携: Google スプレッドシート同期 + CSV エクスポート | ✅ 完了 |
 
-- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統（`lib/prom` / `components/prom` / `app/prom-checker` / `lib/export`）は計 130 passed
-  ＝ web-next 全体 666 passed / 69 ファイルの一部（**いずれも HEAD `3745329` 時点・2026-08-11 の実測値**。
+- **テスト**: アーキタイプ B（prom）はコア + シェル契約に加え、export モジュール（flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI）を TDD 追加。加えて制限尺度 overlay（`restricted.test`）・save-flow 契約（PromForm/Diary）・`upsert` dedupe を追加。B 系統（`lib/prom` / `components/prom` / `app/prom-checker` / `lib/export`）は計 132 passed
+  ＝ web-next 全体 694 passed / 72 ファイルの一部（**いずれも HEAD `f004704` 時点・2026-08-12 の実測値**。
   実行範囲は `bunx vitest run lib/prom components/prom app/prom-checker lib/export` と
   `bun run test`）。typecheck / build 全通過。
 - **構成**: `lib/prom/`（コア = registry/scoring/storage/types）+
@@ -90,6 +92,10 @@
 | ページ | ルート | ステータス | 備考 |
 |---|---|---|---|
 | Cervicogenic-Headache | `/headaches/cervicogenic-headache` | ✅ 完了 | 16 section / Mermaid 6図 / table 19 / 外部リンク 31 |
+| Bone-related-headache | `/anatomy/bone-related-headache` | ✅ 完了 | 11 section / Mermaid 5図 / table 5 / 外部リンク 30 |
+| Headache-related-muscles | `/anatomy/headache-related-muscles` | ✅ 完了 | 10 section / Mermaid 4図 / table 8 / 外部リンク 20 |
+| Headache-and-straight-neck | `/anatomy/headache-and-straight-neck` | ✅ 完了 | 9 section / Mermaid 3図 / table 3 / 外部リンク 18 |
+| Headache-related-nerves | `/anatomy/headache-related-nerves` | ✅ 完了 | 10 section / Mermaid 7図 / table 3 / 外部リンク 17 |
 | Medication-Overuse-Headache | `/headaches/medication-overuse-headache` | ✅ 完了 | 18 section / Mermaid 5図 / table 24 / 外部リンク 18 |
 | Cervical-Plexus-Block | `/blocks/cervical-plexus-block` | ✅ 完了 | **A 参照実装**。18 section / Mermaid 12図 / table 22 / 外部リンク 15 |
 | Occipital-Nerve-Block | `/blocks/occipital-nerve-block` | ✅ 完了 | 17 section / Mermaid 10図 / table 24 / 外部リンク 31 |
@@ -117,8 +123,8 @@
 | Cgrp-pathway-headache-treatments | `/treatment/cgrp-pathway-headache-treatments` | ✅ 完了 | 14 section / Mermaid 4図 / table 5 / 外部リンク 46 |
 | Migraine-prevention-therapy-guide | `/treatment/migraine-prevention-therapy-guide` | ✅ 完了 | 10 section / Mermaid 6図 / table 10 / 外部リンク 22 |
 | Moh-acute-use-days | `/treatment/moh-acute-use-days` | ✅ 完了 | 9 section / Mermaid 4図 / table 6 / 外部リンク 0 |
-| Sleep-and-headache-guide | `/therapies/sleep-and-headache-guide` | ✅ 完了 | 10 section / Mermaid 5図 / table 7 / 外部リンク 48 |
-| 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer`遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し `/anatomy` 凡例＋主要ガイド（`app/headaches/` 4ページ）へ適用（残り画面は `.claude/skills/glossary-term-tooltip` の手順で展開）。Phase4=UX/IA/A11y ブラッシュアップ完了（manifest 駆動の検索コア `lib/anatomy/search.ts`＋WAI-ARIA autocomplete `AnatomySearch`、scroll-spy 左ナビ `AnatomySidebar`、`.anatomy-layout` 化、Hero 検索/カテゴリチップ/skip リンク、教育リンクのセマンティックタグ `data-cat`、`prefers-color-scheme` ダークモード、reduced-motion、focus-visible）。残=実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測 |
+| Vascular-headache | `/anatomy/vascular-headache` | ✅ 完了 | 12 section / Mermaid 5図 / table 2 / 外部リンク 28 |
+| 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer`遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し、`AutoGlossary`（本文ルートを包むと既知用語の初出を自動ラップ）で**静的教育ページ35枚すべてへ展開完了**。用語集は162語（解剖・血管・骨格筋・病態・治療薬・生活習慣・EBM・臨床）。`glossary.test.ts` がドメイン別 id の解決／`term` 重複禁止／`reading` かな表記／`plain` 長さ上限を機械検知。除外は `app/page.tsx`（リダイレクト）・`prom-checker`（ボタン契約テスト）・法務2ページ。手順は `.claude/skills/glossary-term-tooltip`。Phase4=UX/IA/A11y ブラッシュアップ完了（manifest 駆動の検索コア `lib/anatomy/search.ts`＋WAI-ARIA autocomplete `AnatomySearch`、scroll-spy 左ナビ `AnatomySidebar`、`.anatomy-layout` 化、Hero 検索/カテゴリチップ/skip リンク、教育リンクのセマンティックタグ `data-cat`、`prefers-color-scheme` ダークモード、reduced-motion、focus-visible）。残=実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
   lazy import・`themeVariables` 上書き可）/ `components/Ext.tsx`（外部リンク安全化）。
@@ -133,22 +139,22 @@
   `components/treatment/MohAcuteUseDaysSidebar.tsx`, `components/therapies/AerobicExerciseSidebar.tsx`, `components/therapies/SleepAndHeadacheSidebar.tsx`, `components/treatment/CgrpPathwaySidebar.tsx`, `components/treatment/MigrainePreventionSidebar.tsx`。
   本文は Server Component のまま。スタイルは `app/<area>/<slug>/<slug>.css` に `.cervical-accent` / `.occipital-accent` / `.ceh-accent` /
   `.moh-accent` / `.migraine-accent` / `.tth-accent` / `.psychological-behavioral-accent` / `.headache-diary-accent` / `.pgic-accent` / `.acute-treatment-of-headache` / `.lifestyle-seeds-accent` / `.headache-trigger-accent` / `.accommodations-accent` / `.aerobic-exercise-accent` / `.sleep-guide` / `.cgrp-pathway-headache-treatments` / `.migraine-prevention` などでスコープ。
-- **テスト**: アーキタイプ A（`app/{headaches,blocks,therapies,prom,treatment,anatomy}` + `lib/anatomy` + `components/anatomy`）は計 363 passed ＝ web-next 全体 585 passed の一部（**いずれも HEAD `fe21e7d` 時点の実測値**。現行の全体値は 666 passed / 69 ファイル — 上記「現在地」参照）。lint / typecheck / test 全通過。
-- **横断基盤（plans/007 A・D / plans/002 Step 3）**: `lib/content/registry.ts` に全 30 コンテンツルートの
+- **テスト**: アーキタイプ A（`app/{headaches,blocks,therapies,prom,treatment,anatomy}` + `lib/anatomy` + `components/anatomy`）は計 432 passed ＝ web-next 全体 694 passed の一部（**いずれも HEAD `f004704` 時点・2026-08-12 の実測値**。全体値は上記「現在地」参照）。lint / typecheck / test 全通過。
+- **横断基盤（plans/007 A・D / plans/002 Step 3）**: `lib/content/registry.ts` に全 32 コンテンツルートの
   メタ（カテゴリ・`lastReviewed`・`related`）を宣言的に集約し、`getEntry` / `getRelated` を純関数で提供
-  （`lib/anatomy` パターン踏襲）。これを単一データ源として `app/sitemap.ts`（コンテンツ 30 + 静的 4 = 34 URL）と
+  （`lib/anatomy` パターン踏襲）。これを単一データ源として `app/sitemap.ts`（コンテンツ 32 + 静的 4 = 36 URL）と
   `components/content/RelatedLinks.tsx`（関連ページ導線・Server Component）が動く。`registry.test.ts` は
   `node:fs` で `app/**/page.tsx` を走査し、登録漏れ・幽霊エントリ・dangling 参照を機械検知する。
 - **RelatedLinks の適用件数（2026-08-11 実測。定義は `plans/README.md` の注記に統一）**:
 
   | 指標 | 現在値 |
   |---|---|
-  | レジストリ登録数（`CONTENT_REGISTRY.length`） | 30 |
-  | コンポーネント配置数（`<RelatedLinks>` を描画する `page.tsx`） | 30 |
-  | 関連リンク表示数（`getRelated(href).length > 0` のルート） | 30（各 3〜4 本） |
+  | レジストリ登録数（`CONTENT_REGISTRY.length`） | 32 |
+  | コンポーネント配置数（`<RelatedLinks>` を描画する `page.tsx`） | 32 |
+  | 関連リンク表示数（`getRelated(href).length > 0` のルート） | 32（各 3〜4 本） |
 
   3 指標は現在すべて一致している。**配置＝表示は保証ではない**ため（`related` が空なら配置しても 0 本）、
-  一致が崩れた場合はどの数を指すか明示すること。sitemap の 34 URL はコンテンツ 30 + 静的 4 で母数が異なる。
+  一致が崩れた場合はどの数を指すか明示すること。sitemap の 36 URL はコンテンツ 32 + 静的 4 で母数が異なる。
 - **視覚確認（ユーザー手動）**: `web-next` で開発サーバ（`npm run dev`）を起動 → RelatedLinks 適用済みの
   `/headaches/medication-overuse-headache` および `/treatment/moh-acute-use-days`。
   関連ページ導線は `/treatment/moh-acute-use-days` ↔ `/headaches/medication-overuse-headache` の双方向遷移を確認済み。
@@ -160,9 +166,9 @@
 ```text
 進捗管理ファイルに基づき、次回セッションを再開します。
 - 最新 HEAD: c1c063d
-- テスト: 666 passed / 69 ファイル（`web-next` で `bun run test` 全件・2026-08-11 実測）
+- テスト: 694 passed / 72 ファイル（`web-next` で `bun run test` 全件・2026-08-12 実測）
 - 次の作業: `/anatomy` 実 glTF 資産投入・Lighthouse 実測／Google Sheets 同期の実機確認／plans/015 の決定ゲート判断／コンテンツ SSoT 方針の決定
-- 完了済み（再着手不要）: plans/007 全 Step（横断検索コア・ナビ再設計の判断）／RelatedLinks の全 30 ページ展開
+- 完了済み（再着手不要）: plans/007 全 Step（横断検索コア・ナビ再設計の判断）／RelatedLinks の全 32 ページ展開
 - 未移行 HTML 残数: 0
 - 注意: コンテンツ SSoT（Types-of-headache/）はリポジトリ外。新規コンテンツ執筆は方針決定まで保留
 ```

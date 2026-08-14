@@ -2376,11 +2376,11 @@ style Q fill:#8e44ad,color:#ffffff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/prom/headache-impact-test" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/prom/headache-impact-test" />
 
       {/* FOOTER */}
       <div className="footer">

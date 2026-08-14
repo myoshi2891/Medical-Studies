@@ -2252,11 +2252,11 @@ style H fill:#e65100,color:#fff`}
               </div>
             </section>
           </AutoGlossary>
+
+          {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
+          <RelatedLinks href="/blocks/occipital-nerve-block" />
         </main>
       </div>
-
-      {/* 関連ページ導線（plans/002 Step 3・レジストリ駆動） */}
-      <RelatedLinks href="/blocks/occipital-nerve-block" />
 
       {/* FOOTER */}
       <div className="footer">

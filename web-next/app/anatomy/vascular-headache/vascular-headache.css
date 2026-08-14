@@ -1,0 +1,608 @@
+.vascular-headache {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+  --vhd1: #101d42;
+  --vhd2: #b3211f;
+  --vhd3: #5c0a12;
+  --vhd-l: #fdecea;
+
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, "Noto Sans JP", "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ヒーロー */
+.vascular-headache .hero {
+  background: linear-gradient(135deg, #101d42, #b3211f 55%, #5c0a12);
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.vascular-headache .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+.vascular-headache .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.vascular-headache .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.vascular-headache .hero-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 免責事項 */
+.vascular-headache .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.vascular-headache .disclaimer strong {
+  color: var(--orange);
+}
+
+/* レイアウト */
+.vascular-headache .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* サイドバー */
+.vascular-headache .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.vascular-headache .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.vascular-headache .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.vascular-headache .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.vascular-headache .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.vascular-headache .nav-a:hover,
+.vascular-headache .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--vhd1);
+  color: var(--vhd1);
+}
+.vascular-headache .nav-a.active {
+  font-weight: 600;
+  background: var(--vhd-l);
+}
+.vascular-headache .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* メインコンテンツ */
+.vascular-headache .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* セクション */
+.vascular-headache .sec {
+  margin: 40px 0;
+  scroll-margin-top: 12px;
+}
+.vascular-headache .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.vascular-headache .sec-num {
+  background: var(--vhd1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.vascular-headache .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--vhd1);
+}
+.vascular-headache h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vhd1);
+  margin: 0;
+}
+.vascular-headache h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--vhd2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--vhd3);
+}
+.vascular-headache p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.vascular-headache ul,
+.vascular-headache ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.vascular-headache li {
+  margin-bottom: 4px;
+}
+.vascular-headache a {
+  color: var(--blue);
+}
+.vascular-headache a:hover {
+  text-decoration: underline;
+}
+
+/* カード */
+.vascular-headache .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* アラート */
+.vascular-headache .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.vascular-headache .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.vascular-headache .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.vascular-headache .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.vascular-headache .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.vascular-headache .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.vascular-headache .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* テーブル */
+.vascular-headache .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.vascular-headache table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.vascular-headache thead th {
+  background: var(--vhd1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.vascular-headache tbody tr:nth-child(even) {
+  background: var(--vhd-l);
+}
+.vascular-headache tbody tr:hover {
+  background: var(--g1);
+}
+.vascular-headache tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.vascular-headache .th-teal thead th {
+  background: var(--teal);
+}
+.vascular-headache .th-red thead th {
+  background: var(--red);
+}
+.vascular-headache .th-orange thead th {
+  background: var(--orange);
+}
+.vascular-headache .th-purple thead th {
+  background: var(--purple);
+}
+
+/* エビデンスバッジ */
+.vascular-headache .bA {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: #1b5e20;
+  border: 1px solid #a5d6a7;
+}
+.vascular-headache .bB {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #e3f2fd;
+  color: #0d47a1;
+  border: 1px solid #90caf9;
+}
+.vascular-headache .bC {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #fff3e0;
+  color: #e65100;
+  border: 1px solid #ffcc80;
+}
+.vascular-headache .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+.vascular-headache .bRed {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--red-l);
+  color: var(--red);
+  border: 1px solid #ef9a9a;
+}
+.vascular-headache .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.vascular-headache .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+
+/* 色付きテキスト */
+.vascular-headache .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.vascular-headache .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.vascular-headache .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.vascular-headache .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.vascular-headache .tN {
+  color: var(--vhd1);
+  font-weight: 700;
+}
+
+/* Mermaid 図 */
+.vascular-headache .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.vascular-headache .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.vascular-headache .mmd-lbl::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--vhd2);
+  display: inline-block;
+}
+.vascular-headache pre.mermaid {
+  text-align: center;
+}
+
+/* エビデンス凡例 */
+.vascular-headache .legend {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  box-shadow: var(--sh);
+  margin: 14px 0;
+  font-size: 12px;
+  color: var(--g6);
+}
+
+/* SNOOP グリッド */
+.vascular-headache .snoop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.vascular-headache .sn {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--red);
+}
+.vascular-headache .sn-letter {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1;
+}
+.vascular-headache .sn-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--g8);
+  margin: 3px 0 5px;
+}
+.vascular-headache .sn-symp {
+  font-size: 12px;
+  color: var(--g6);
+  line-height: 1.5;
+}
+.vascular-headache .sn-dx {
+  font-size: 11px;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 7px;
+  background: var(--red-l);
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* 薬剤カード */
+.vascular-headache .drug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.vascular-headache .drug {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--teal);
+}
+.vascular-headache .drug-nm {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 2px;
+}
+.vascular-headache .drug-br {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 8px;
+}
+.vascular-headache .drug-tx {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 出典カード */
+.vascular-headache .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.vascular-headache .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+.vascular-headache .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.vascular-headache .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.vascular-headache .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* クイックリファレンス */
+.vascular-headache .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.vascular-headache .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.vascular-headache .qr-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--vhd1);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* フッター */
+.vascular-headache .footer {
+  background: var(--vhd1);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.vascular-headache .footer strong {
+  color: #fff;
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+  .vascular-headache .sidebar {
+    display: none;
+  }
+  .vascular-headache .main {
+    padding: 16px 14px 60px;
+  }
+}

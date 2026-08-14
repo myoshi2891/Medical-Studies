@@ -44,6 +44,11 @@
       "!app/treatment/moh-acute-use-days/moh-acute-use-days.css",
       "!app/therapies/sleep-and-headache-guide/sleep-and-headache-guide.css",
       "!app/blocks/superior-cervical-ganglion-block/superior-cervical-ganglion-block.css",
+      "!app/anatomy/bone-related-headache/bone-related-headache.css",
+      "!app/anatomy/headache-related-muscles/headache-related-muscles.css",
+      "!app/anatomy/headache-and-straight-neck/headache-and-straight-neck.css",
+      "!app/anatomy/headache-related-nerves/headache-related-nerves.css",
+      "!app/anatomy/vascular-headache/vascular-headache.css",
       "!public/draco"
     ]
   },
