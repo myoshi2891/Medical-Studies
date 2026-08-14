@@ -59,7 +59,9 @@ describe("HeadacheBrainstemNeurosciencePage: 契約（忠実転記 & 厳格検�
     const heroH1 = container.querySelector(".hero h1");
     expect(heroH1?.textContent).toBe(HERO_H1);
 
-    const tags = Array.from(container.querySelectorAll(".hero-tag")).map((t) => t.textContent?.trim());
+    const tags = Array.from(container.querySelectorAll(".hero-tag")).map((t) =>
+      t.textContent?.trim()
+    );
     expect(tags).toEqual(HERO_TAGS);
   });
 

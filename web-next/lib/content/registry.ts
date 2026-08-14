@@ -122,6 +122,29 @@ export const CONTENT_REGISTRY: readonly ContentEntry[] = [
       "/treatment/cgrp-pathway-headache-treatments",
     ],
   },
+  {
+    href: "/anatomy/headache-brainstem-neuroscience",
+    title: "頭痛と脳・脳幹 (Brain & Brainstem)",
+    category: "anatomy",
+    lastReviewed: "2026-08-14",
+    keywords: [
+      "頭痛",
+      "脳幹",
+      "三叉神経血管系",
+      "視床下部",
+      "CSD",
+      "CGRP",
+      "群発頭痛",
+      "TNC",
+      "PAG",
+      "ICHD-3",
+    ],
+    related: [
+      "/anatomy/bone-related-headache",
+      "/anatomy/vascular-headache",
+      "/headaches/headache-pathophysiology",
+    ],
+  },
 
   // ── 疾患 ──────────────────────────────────────────────
   {
