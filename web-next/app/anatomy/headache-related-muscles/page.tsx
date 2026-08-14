@@ -24,7 +24,7 @@ const MSC_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders an evidence-based guide to muscles associated with headaches, including headache classification, relevant anatomy, pain mechanisms, clinical assessment, and management approaches.
+ * Renders an evidence-based guide to headache-related muscles, including their anatomy, associated headache conditions, pain mechanisms, clinical assessment, and management approaches.
  */
 export default function HeadacheRelatedMusclesPage() {
   return (
