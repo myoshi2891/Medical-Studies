@@ -162,9 +162,10 @@
 }
 
 /* セクション */
-.brainstem-page .sec {
+.brainstem-page .sec,
+.brainstem-page .sec-hd {
   margin: 40px 0;
-  scroll-margin-top: 12px;
+  scroll-margin-top: 120px;
 }
 .brainstem-page .sec-hd {
   display: flex;
@@ -191,8 +192,11 @@
   font-size: clamp(17px, 2.5vw, 24px);
   font-weight: 700;
   color: var(--brn1);
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
 }
-.brainstem-page h2:not(.sec-title) {
+.brainstem-page h2:where(:not(.related-links *)) {
   font-size: 16px;
   font-weight: 700;
   color: var(--brn2);
@@ -201,10 +205,12 @@
   border-left: 4px solid var(--brn3);
 }
 .brainstem-page h3 {
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 700;
-  color: var(--g8);
-  margin: 16px 0 8px;
+  color: var(--brn2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--brn3);
 }
 .brainstem-page p {
   margin-bottom: 10px;
