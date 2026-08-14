@@ -193,7 +193,7 @@ export default function HeadacheBrainstemNeurosciencePage() {
                   <MermaidDiagram
                     themeVariables={BRAINSTEM_MERMAID_THEME}
                     chart={`flowchart TD
-A["硬膜・脳血管\\n（痛みを感知できる数少ない頭蓋内組織）"] -->|三叉神経第一枝\\n眼神経の枝| B["三叉神経節\\n(Trigeminal Ganglion)"]
+A["硬膜・脳血管\\n（痛みを感知できる数少ない頭蓋内組織）"] -->|三叉神経第一枝<br/>眼神経の枝| B["三叉神経節\\n(Trigeminal Ganglion)"]
 B --> C["三叉神経脊髄路核 尾側亜核\\n(Trigeminal Nucleus Caudalis)\\n脳幹・延髄に位置"]
 C --> D["視床\\n(Thalamus)"]
 D --> E["大脳皮質\\n体性感覚野・島皮質など\\n（痛みとして自覚）"]
@@ -498,7 +498,7 @@ P1 --> P2 --> P3 --> P4`}
                     chart={`flowchart TD
 N["三叉神経（眼神経領域）への\\n侵害刺激"] --> TNC["三叉神経脊髄路核"]
 TNC --> SSN["上唾液核\\n(Superior Salivatory Nucleus)\\n橋に位置"]
-SSN -->|副交感神経遠心路\\n顔面神経（第VII脳神経）経由| SPG["翼口蓋神経節\\n（蝶形口蓋神経節）"]
+SSN -->|副交感神経遠心路<br/>顔面神経（第VII脳神経）経由| SPG["翼口蓋神経節\\n（蝶形口蓋神経節）"]
 SPG --> SYM["流涙・結膜充血・鼻閉などの\\n自律神経症状"]
 PH["後部視床下部\\n(Posterior Hypothalamus)"] -. "発作の誘発・周期性の調節" .-> SSN
 TNC --> THAL["視床・大脳皮質へ\\n（痛みの認知）"]`}
