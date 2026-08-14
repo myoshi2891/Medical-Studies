@@ -23,6 +23,10 @@ const BRAINSTEM_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational overview of headache neuroscience, including brainstem,
+ * trigeminovascular, hypothalamic, cortical, and trigeminal-autonomic pathways.
+ */
 export default function HeadacheBrainstemNeurosciencePage() {
   return (
     <div className="brainstem-page">
