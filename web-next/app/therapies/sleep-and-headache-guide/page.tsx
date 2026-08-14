@@ -24,7 +24,7 @@ const SLEEP_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Renders an educational guide about the relationship between sleep and headache.
+ * Renders the sleep and headache educational guide page.
  *
  * @returns The complete sleep and headache guide page
  */

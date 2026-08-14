@@ -24,7 +24,7 @@ const NERVES_MERMAID_THEME: Record<string, string> = {
 };
 
 /**
- * Presents an educational guide to the neuroanatomy and pain mechanisms associated with headaches.
+ * Renders an educational guide to the neuroanatomy and pain mechanisms associated with headaches.
  */
 export default function HeadacheRelatedNervesPage() {
   return (
