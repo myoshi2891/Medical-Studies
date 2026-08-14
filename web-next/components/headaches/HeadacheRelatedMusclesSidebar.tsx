@@ -15,6 +15,11 @@ const NAV_ITEMS = [
   { id: "s10", num: "10", title: "参考文献・情報源" },
 ];
 
+/**
+ * Renders a table of contents for headache-related muscle sections and highlights the visible section.
+ *
+ * @returns The sidebar navigation element
+ */
 export function HeadacheRelatedMusclesSidebar() {
   const [activeId, setActiveId] = useState<string>("s1");
 

@@ -23,6 +23,9 @@ const MSC_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an evidence-based guide to muscles associated with headaches, including headache classification, relevant anatomy, pain mechanisms, clinical assessment, and management approaches.
+ */
 export default function HeadacheRelatedMusclesPage() {
   return (
     <div className="headache-related-muscles">

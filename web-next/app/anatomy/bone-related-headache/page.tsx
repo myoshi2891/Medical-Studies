@@ -23,6 +23,11 @@ const BHD_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational overview of bone-related headache disorders based on ICHD-3.
+ *
+ * @returns The page content for bone-related headache disorders
+ */
 export default function BoneRelatedHeadachePage() {
   return (
     <div className="bone-related-headache">

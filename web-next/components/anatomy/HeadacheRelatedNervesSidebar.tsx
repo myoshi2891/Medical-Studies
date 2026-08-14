@@ -18,11 +18,11 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛と神経系 (Headache Related Nerves) ガイドの固定サイドバー目次。
+ * Renders a fixed sidebar table of contents for the headache-related nerves guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * IntersectionObserver（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。
+ * Highlights the navigation link for the section nearest the top of the viewport.
+ *
+ * @returns The sidebar navigation element.
  */
 export function HeadacheRelatedNervesSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

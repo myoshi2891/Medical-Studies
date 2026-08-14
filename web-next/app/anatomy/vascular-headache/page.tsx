@@ -23,6 +23,9 @@ const VHD_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Renders an educational guide explaining the neurovascular mechanisms of headache, related disorders, warning signs, and supporting references.
+ */
 export default function VascularHeadachePage() {
   return (
     <div className="vascular-headache">

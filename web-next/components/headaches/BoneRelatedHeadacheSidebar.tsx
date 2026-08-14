@@ -19,11 +19,11 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛に関連する骨 (Bone-Related Headache) ガイドの固定サイドバー目次。
+ * Renders a fixed table of contents for the bone-related headache guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * IntersectionObserver（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。
+ * Highlights the navigation item corresponding to the currently visible section.
+ *
+ * @returns The sidebar navigation element.
  */
 export function BoneRelatedHeadacheSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

@@ -20,16 +20,11 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛と血管 (Vascular Basis of Headache) ガイドの固定サイドバー目次。
+ * Renders the fixed table of contents sidebar for the headache and vascular mechanisms guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * IntersectionObserver（threshold 0.25）で可視 section の集合を保持し、
- * その中でビューポート上端に最も近いものを active とする。
+ * The active navigation item tracks the visible section closest to the top of the viewport.
  *
- * IntersectionObserver のコールバック引数は「変化のあったターゲット」の配列であり
- * ドキュメント順は保証されない。そのため entries の順序には依存させず、
- * 常に可視集合全体から幾何的に選び直す。加えて、交差状態が変化しないまま
- * 長い section 内をスクロールした場合にも追従できるよう scroll でも再計算する。
+ * @returns The sidebar navigation element.
  */
 export function VascularHeadacheSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);

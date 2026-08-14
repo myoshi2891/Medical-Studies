@@ -53,6 +53,9 @@ Q3 -->|"いいえ"| Q4{"頻度や強さが\\n徐々に悪化しているか？"}
 Q4 -->|"はい"| DOC
 Q4 -->|"いいえ"| SELF["セルフケア＋経過観察\\n改善しなければ受診"]`;
 
+/**
+ * Presents an evidence-based educational guide about headaches and forward head posture.
+ */
 export default function HeadacheAndStraightNeckPage() {
   return (
     <div className="straight-neck">

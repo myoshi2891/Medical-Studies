@@ -23,6 +23,9 @@ const NERVES_MERMAID_THEME: Record<string, string> = {
   fontSize: "13px",
 };
 
+/**
+ * Presents an educational guide to the neuroanatomy and pain mechanisms associated with headaches.
+ */
 export default function HeadacheRelatedNervesPage() {
   return (
     <div className="headache-related-nerves">

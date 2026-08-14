@@ -18,11 +18,11 @@ const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 /**
- * 頭痛とストレートネックガイドの固定サイドバー目次。
+ * Renders a fixed table of contents for the headache and straight-neck guide.
  *
- * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * IntersectionObserver（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。スムーズスクロールは CSS（scroll-behavior）に委ねる。
+ * Tracks the current guide section and highlights its corresponding navigation link.
+ *
+ * @returns The guide navigation sidebar.
  */
 export function StraightNeckSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
