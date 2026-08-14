@@ -167,6 +167,18 @@ describe("HeadacheBrainstemNeurosciencePage: 契約（忠実転記 & 厳格検�
       expect(a.getAttribute("href")).not.toContain(".html");
     }
   });
+
+  it("PMC3711518 の URL と正式タイトルが対応する", () => {
+    const { container } = render(<HeadacheBrainstemNeurosciencePage />);
+    const sourceLink = container.querySelector(
+      'a[href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3711518"]'
+    );
+
+    expect(sourceLink).not.toBeNull();
+    expect(sourceLink?.closest(".src")?.querySelector(".src-t")?.textContent).toBe(
+      "The enigma of the dorsolateral pons as a migraine generator"
+    );
+  });
 });
 
 describe("HeadacheBrainstemNeurosciencePage: 関連ページ導線", () => {
