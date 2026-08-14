@@ -26,7 +26,7 @@ const VHD_MERMAID_THEME: Record<string, string> = {
 export default function VascularHeadachePage() {
   return (
     <div className="vascular-headache">
-      {/* HERO */}
+      {/* ヒーロー */}
       <div className="hero">
         <div style={{ fontSize: 34 }}>🩸</div>
         <h1>頭痛と血管 ― Vascular Basis of Headache</h1>
@@ -42,7 +42,7 @@ export default function VascularHeadachePage() {
         </div>
       </div>
 
-      {/* DISCLAIMER */}
+      {/* 免責事項 */}
       <div className="disclaimer">
         <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
         <strong>学術・教育・研究目的のみ</strong>
@@ -52,12 +52,12 @@ export default function VascularHeadachePage() {
         </strong>
       </div>
 
-      {/* LAYOUT */}
+      {/* レイアウト */}
       <div className="layout">
-        {/* SIDEBAR */}
+        {/* サイドバー */}
         <VascularHeadacheSidebar />
 
-        {/* MAIN CONTENT */}
+        {/* メインコンテンツ */}
         <main className="main">
           <AutoGlossary>
             <div className="legend">
@@ -68,7 +68,7 @@ export default function VascularHeadachePage() {
               <span className="bU">U</span>機序に関する発展中の知見
             </div>
 
-            {/* SECTION 1 */}
+            {/* セクション 1 */}
             <section id="s1" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">1</div>
@@ -96,7 +96,7 @@ export default function VascularHeadachePage() {
               </div>
             </section>
 
-            {/* SECTION 2 */}
+            {/* セクション 2 */}
             <section id="s2" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">2</div>
@@ -153,7 +153,7 @@ export default function VascularHeadachePage() {
               </div>
             </section>
 
-            {/* SECTION 3 */}
+            {/* セクション 3 */}
             <section id="s3" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">3</div>
@@ -180,7 +180,6 @@ export default function VascularHeadachePage() {
     B --> C["三叉神経脊髄路核(脳幹・上位頸髄)"]
     C --> D["視床"]
     D --> E["大脳皮質(痛みとして自覚)"]
-    C -.- border-color:transparent
     C -.-|"三叉神経-自律神経反射"| F["副交感神経系(涙・鼻汁・結膜充血)"]`}
                 />
               </div>
@@ -197,7 +196,7 @@ export default function VascularHeadachePage() {
               </p>
             </section>
 
-            {/* SECTION 4 */}
+            {/* セクション 4 */}
             <section id="s4" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">4</div>
@@ -252,7 +251,7 @@ export default function VascularHeadachePage() {
               </p>
             </section>
 
-            {/* SECTION 5 */}
+            {/* セクション 5 */}
             <section id="s5" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">5</div>
@@ -332,7 +331,7 @@ export default function VascularHeadachePage() {
               </p>
             </section>
 
-            {/* SECTION 6 */}
+            {/* セクション 6 */}
             <section id="s6" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">6</div>
@@ -362,7 +361,7 @@ export default function VascularHeadachePage() {
               </p>
             </section>
 
-            {/* SECTION 7 */}
+            {/* セクション 7 */}
             <section id="s7" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">7</div>
@@ -375,7 +374,7 @@ export default function VascularHeadachePage() {
 
               <h3>7.1 片頭痛 (Migraine)</h3>
               <p>
-                三叉神経血管系とCGRPを中心としたメカニズムで説明される、片側性・拍動性の頭痛です。WHOは、片頭痛を含む頭痛疾患が世界の疾病負担(DALY)において脳卒中・認知症に次いで大きいと報告しています。{" "}
+                三叉神経血管系とCGRPを中心としたメカニズムで説明される、片側性・拍動性の頭痛です。WHOは、片頭痛が世界の疾病負担(DALY)において脳卒中・新生児脳症に次いで3番目に大きいと報告しています。{" "}
                 <span className="bA">A</span>
               </p>
 
@@ -398,7 +397,7 @@ export default function VascularHeadachePage() {
               <p>
                 多くは脳動脈瘤の破裂によって、くも膜下腔に出血が生じるものです。「人生最悪の頭痛」「雷に打たれたような頭痛」と表現される、
                 <strong>
-                  発症から1分以内にピークに達する突然の激しい頭痛(サンダークラップヘッドache)
+                  発症から1分以内にピークに達する突然の激しい頭痛(サンダークラップ頭痛)
                 </strong>
                 が特徴的です。意識障害や項部硬直を伴うことが多く、生命に関わる神経救急疾患です。{" "}
                 <span className="bA">A</span>
@@ -417,7 +416,7 @@ export default function VascularHeadachePage() {
               </p>
             </section>
 
-            {/* SECTION 8 */}
+            {/* セクション 8 */}
             <section id="s8" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">8</div>
@@ -507,7 +506,7 @@ export default function VascularHeadachePage() {
               </div>
             </section>
 
-            {/* SECTION 9 */}
+            {/* セクション 9 */}
             <section id="s9" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">9</div>
@@ -568,7 +567,7 @@ export default function VascularHeadachePage() {
                 <MermaidDiagram
                   themeVariables={VHD_MERMAID_THEME}
                   chart={`flowchart TD
-    A["突然発症・1分以内にピークへ達する激しい頭痛(サンダークラップヘッドache)"] --> B{"意識障害・神経症状・項部硬直はあるか?"}
+    A["突然発症・1分以内にピークへ達する激しい頭痛(サンダークラップ頭痛)"] --> B{"意識障害・神経症状・項部硬直はあるか?"}
     B -->|"あり"| C["直ちに救急要請(脳卒中・くも膜下出血を疑う)"]
     B -->|"明らかな随伴症状なし"| D["それでも速やかに医療機関(救急/専門医)を受診"]
     D --> E["頭部CT検査(発症6時間以内は高感度)"]
@@ -598,7 +597,7 @@ export default function VascularHeadachePage() {
               </div>
             </section>
 
-            {/* SECTION 10 */}
+            {/* セクション 10 */}
             <section id="s10" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">10</div>
@@ -661,7 +660,7 @@ export default function VascularHeadachePage() {
               </p>
             </section>
 
-            {/* SECTION 11 */}
+            {/* セクション 11 */}
             <section id="s11" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">11</div>
@@ -696,7 +695,7 @@ export default function VascularHeadachePage() {
               </div>
             </section>
 
-            {/* SECTION 12 */}
+            {/* セクション 12 */}
             <section id="s12" className="sec">
               <div className="sec-hd">
                 <div className="sec-num">12</div>
@@ -733,7 +732,7 @@ export default function VascularHeadachePage() {
                 </div>
                 <div className="src">
                   <div className="src-org">WHO</div>
-                  <div className="src-t">頭痛疾患ファクトシート</div>
+                  <div className="src-t">頭痛疾患ファクトシート(2025年10月24日更新)</div>
                   <div className="src-url">
                     <Ext href="https://www.who.int/news-room/fact-sheets/detail/headache-disorders">
                       https://www.who.int/news-room/fact-sheets/detail/headache-disorders
@@ -876,7 +875,7 @@ export default function VascularHeadachePage() {
         </main>
       </div>
 
-      {/* FOOTER */}
+      {/* フッター */}
       <div className="footer">
         <strong>頭痛と血管 ― Vascular Basis of Headache</strong> —
         ICHD-3・WHO・AHA/ASA・ACR・NCBI・査読誌にもとづく神経血管メカニズムの解説

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type NavItem = { id: string; num: string; label: string };
 
@@ -23,11 +23,38 @@ const NAV_ITEMS: readonly NavItem[] = [
  * 頭痛と血管 (Vascular Basis of Headache) ガイドの固定サイドバー目次。
  *
  * 本文（section 群）は Server Component のまま、scroll-spy だけをクライアント化する。
- * IntersectionObserver（threshold 0.25）で可視 section を追跡し、
- * 対応する nav-a に `active` を付与する。
+ * IntersectionObserver（threshold 0.25）で可視 section の集合を保持し、
+ * その中でビューポート上端に最も近いものを active とする。
+ *
+ * IntersectionObserver のコールバック引数は「変化のあったターゲット」の配列であり
+ * ドキュメント順は保証されない。そのため entries の順序には依存させず、
+ * 常に可視集合全体から幾何的に選び直す。加えて、交差状態が変化しないまま
+ * 長い section 内をスクロールした場合にも追従できるよう scroll でも再計算する。
  */
 export function VascularHeadacheSidebar() {
   const [activeId, setActiveId] = useState<string>(NAV_ITEMS[0].id);
+  const visibleIdsRef = useRef<Set<string>>(new Set());
+
+  // 可視 section のうち、ビューポート上端との距離が最小のものを選ぶ
+  const syncActiveId = useCallback(() => {
+    let nearestId: string | null = null;
+    let nearestDistance = Number.POSITIVE_INFINITY;
+
+    for (const id of visibleIdsRef.current) {
+      const el = document.getElementById(id);
+      if (el === null) continue;
+
+      const distance = Math.abs(el.getBoundingClientRect().top);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestId = id;
+      }
+    }
+
+    if (nearestId !== null) {
+      setActiveId(nearestId);
+    }
+  }, []);
 
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(
@@ -39,9 +66,12 @@ export function VascularHeadacheSidebar() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            visibleIdsRef.current.add(entry.target.id);
+            continue;
           }
+          visibleIdsRef.current.delete(entry.target.id);
         }
+        syncActiveId();
       },
       { threshold: 0.25 }
     );
@@ -50,10 +80,13 @@ export function VascularHeadacheSidebar() {
       observer.observe(section);
     }
 
+    window.addEventListener("scroll", syncActiveId, { passive: true });
+
     return () => {
       observer.disconnect();
+      window.removeEventListener("scroll", syncActiveId);
     };
-  }, []);
+  }, [syncActiveId]);
 
   return (
     <nav className="sidebar">

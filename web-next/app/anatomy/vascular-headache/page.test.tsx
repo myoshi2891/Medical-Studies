@@ -90,6 +90,35 @@ describe("VascularHeadachePage: 契約（忠実転記 & 厳格検証）", () => 
     const { container } = render(<VascularHeadachePage />);
     const tables = container.querySelectorAll("table");
     expect(tables).toHaveLength(TABLE_COUNT);
+
+    // 表 1: 疾患比較表 — ヘッダ行と代表的なデータ行のセルを検証する
+    const diseaseTable = tables[0];
+    const diseaseHeaders = Array.from(diseaseTable.querySelectorAll("thead th")).map((th) =>
+      th.textContent?.trim()
+    );
+    expect(diseaseHeaders).toEqual([
+      "疾患名",
+      "主に関わる血管・機序",
+      "頭痛の特徴",
+      "代表的な随伴症状",
+      "緊急度",
+    ]);
+
+    const diseaseRows = diseaseTable.querySelectorAll("tbody tr");
+    expect(diseaseRows).toHaveLength(6);
+    const firstRowCells = Array.from(diseaseRows[0].querySelectorAll("td")).map((td) =>
+      td.textContent?.trim()
+    );
+    expect(firstRowCells[1]).toBe("硬膜血管・三叉神経血管系・CGRP");
+    expect(firstRowCells[2]).toBe("片側性・拍動性、中等度〜重度、4〜72時間持続");
+
+    // 表 2: ICHD-3 区分表
+    const ichdTable = tables[1];
+    const ichdHeaders = Array.from(ichdTable.querySelectorAll("thead th")).map((th) =>
+      th.textContent?.trim()
+    );
+    expect(ichdHeaders).toEqual(["区分", "内容", "血管に関連する代表例"]);
+    expect(ichdTable.textContent).toContain("基礎疾患のない、神経・血管系機能の変化による頭痛");
   });
 
   it("サイドバー nav-a の個数 12 個と href (#s1..#s12) が一致する", () => {
