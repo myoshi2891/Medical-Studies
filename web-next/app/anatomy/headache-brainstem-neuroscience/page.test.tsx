@@ -100,6 +100,18 @@ describe("HeadacheBrainstemNeurosciencePage: 契約（忠実転記 & 厳格検�
     expect(charts[3]).toContain("上唾液核");
   });
 
+  it("Mermaid の辺ラベルだけを br で改行し、ノードラベルの改行は保持する", () => {
+    const { container } = render(<HeadacheBrainstemNeurosciencePage />);
+    const charts = Array.from(container.querySelectorAll(".mermaid")).map(
+      (diagram) => diagram.getAttribute("data-chart") ?? ""
+    );
+
+    expect(charts[0]).toContain("|三叉神経第一枝<br/>眼神経の枝|");
+    expect(charts[3]).toContain("|副交感神経遠心路<br/>顔面神経（第VII脳神経）経由|");
+    expect(charts[0]).toContain(String.raw`A["硬膜・脳血管\n`);
+    expect(charts[3]).toContain(String.raw`SSN["上唾液核\n`);
+  });
+
   it("<table> の個数が 3 個で構造・セルデータが保持されている", () => {
     const { container } = render(<HeadacheBrainstemNeurosciencePage />);
     const tables = container.querySelectorAll("table");
