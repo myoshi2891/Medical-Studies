@@ -275,7 +275,7 @@ flowchart TD
     https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10586710/
 21. Migraine | Nature Reviews Disease Primers. 2022.
     https://www.nature.com/articles/s41572-021-00328-4
-22. The ongoing debate over the validity of the brainstem migraine generator theory. *PMC*.
+22. The enigma of the dorsolateral pons as a migraine generator. *PMC*.
     https://pmc.ncbi.nlm.nih.gov/articles/PMC3711518
 23. Trigeminocervical Complex（総説解説ページ）. Watson Headache.
     https://watsonheadache.com/unveiling-the-gateway-the-trigeminocervical-complex-as-the-key-player-in-headache-and-migraine/

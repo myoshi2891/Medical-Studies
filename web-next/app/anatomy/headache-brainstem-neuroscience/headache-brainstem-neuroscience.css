@@ -1,0 +1,569 @@
+.brainstem-page {
+  --navy: #1a237e;
+  --navy2: #283593;
+  --blue: #0277bd;
+  --teal: #00796b;
+  --orange: #e65100;
+  --red: #c62828;
+  --green: #2e7d32;
+  --purple: #6a1b9a;
+  --red-l: #ffebee;
+  --orange-l: #fff3e0;
+  --green-l: #e8f5e9;
+  --blue-l: #e3f2fd;
+  --teal-l: #e0f2f1;
+  --yellow-l: #fffde7;
+  --g1: #f5f5f5;
+  --g2: #eeeeee;
+  --g3: #e0e0e0;
+  --g6: #757575;
+  --g8: #424242;
+  --g9: #212121;
+  --sh: 0 1px 6px rgba(0, 0, 0, 0.1);
+  --r: 12px;
+  --rs: 8px;
+  --brn1: #1a237e;
+  --brn2: #0277bd;
+  --brn3: #00796b;
+  --brn-l: #e8eaf6;
+
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--g9);
+  background: #eef2f7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ヒーロー */
+.brainstem-page .hero {
+  background: linear-gradient(135deg, #1a237e, #0277bd 55%, #00796b);
+  color: #fff;
+  padding: 52px 28px 40px;
+  text-align: center;
+}
+.brainstem-page .hero h1 {
+  font-size: clamp(20px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 10px 0 8px;
+}
+.brainstem-page .hero-sub {
+  font-size: 14px;
+  color: #fafafa;
+  margin-bottom: 22px;
+}
+.brainstem-page .hero-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.brainstem-page .hero-tag {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 免責事項 */
+.brainstem-page .disclaimer {
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  border-left: 5px solid var(--orange);
+  padding: 14px 24px;
+  font-size: 13.5px;
+  color: var(--g8);
+}
+.brainstem-page .disclaimer strong {
+  color: var(--orange);
+}
+
+/* レイアウト */
+.brainstem-page .layout {
+  display: flex;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* サイドバー */
+.brainstem-page .sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--g3);
+  padding: 18px 0;
+}
+.brainstem-page .sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+.brainstem-page .sidebar::-webkit-scrollbar-thumb {
+  background: var(--g3);
+}
+.brainstem-page .s-hdr {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--g6);
+  padding: 0 16px 10px;
+}
+.brainstem-page .nav-a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  text-decoration: none;
+  color: var(--g8);
+  font-size: 12.5px;
+  transition: all 0.15s;
+  border-left: 3px solid transparent;
+  line-height: 1.4;
+}
+.brainstem-page .nav-a:hover,
+.brainstem-page .nav-a.active {
+  background: var(--g1);
+  border-left-color: var(--brn1);
+  color: var(--brn1);
+}
+.brainstem-page .nav-a.active {
+  font-weight: 600;
+  background: var(--brn-l);
+}
+.brainstem-page .n-num {
+  background: var(--g2);
+  color: var(--g6);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* メインコンテンツ */
+.brainstem-page .main {
+  flex: 1;
+  padding: 28px 32px 80px;
+  min-width: 0;
+}
+
+/* セクション */
+.brainstem-page .sec {
+  margin: 40px 0;
+}
+.brainstem-page .sec,
+.brainstem-page .sec-hd {
+  scroll-margin-top: 120px;
+}
+.brainstem-page .sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--g2);
+}
+.brainstem-page .sec-num {
+  background: var(--brn1);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.brainstem-page .sec-title {
+  font-size: clamp(17px, 2.5vw, 24px);
+  font-weight: 700;
+  color: var(--brn1);
+  margin: 0;
+  padding-left: 0;
+  border-left: none;
+}
+.brainstem-page h2:where(:not(.related-links *)) {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brn2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--brn3);
+}
+.brainstem-page h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brn2);
+  margin: 22px 0 10px;
+  padding-left: 10px;
+  border-left: 4px solid var(--brn3);
+}
+.brainstem-page p {
+  margin-bottom: 10px;
+  color: var(--g8);
+}
+.brainstem-page ul,
+.brainstem-page ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.brainstem-page li {
+  margin-bottom: 4px;
+}
+.brainstem-page a {
+  color: var(--blue);
+}
+.brainstem-page a:hover {
+  text-decoration: underline;
+}
+
+/* カード */
+.brainstem-page .card {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px;
+  box-shadow: var(--sh);
+  margin-bottom: 18px;
+}
+
+/* アラート */
+.brainstem-page .alert {
+  border-radius: var(--rs);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13.5px;
+}
+.brainstem-page .alert-i {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.brainstem-page .a-danger {
+  background: var(--red-l);
+  border-left: 4px solid var(--red);
+}
+.brainstem-page .a-warn {
+  background: var(--orange-l);
+  border-left: 4px solid var(--orange);
+}
+.brainstem-page .a-info {
+  background: var(--blue-l);
+  border-left: 4px solid var(--blue);
+}
+.brainstem-page .a-ok {
+  background: var(--green-l);
+  border-left: 4px solid var(--green);
+}
+.brainstem-page .a-purple {
+  background: #f3e5f5;
+  border-left: 4px solid var(--purple);
+}
+
+/* テーブル */
+.brainstem-page .tbl {
+  overflow-x: auto;
+  border-radius: var(--rs);
+  box-shadow: var(--sh);
+  margin: 14px 0;
+}
+.brainstem-page table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 13px;
+}
+.brainstem-page thead th {
+  background: var(--brn1);
+  color: #fff;
+  padding: 10px 13px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.brainstem-page tbody tr:nth-child(even) {
+  background: var(--brn-l);
+}
+.brainstem-page tbody tr:hover {
+  background: var(--g1);
+}
+.brainstem-page tbody td {
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--g2);
+  vertical-align: top;
+}
+.brainstem-page .th-teal thead th {
+  background: var(--teal);
+}
+.brainstem-page .th-red thead th {
+  background: var(--red);
+}
+.brainstem-page .th-orange thead th {
+  background: var(--orange);
+}
+.brainstem-page .th-purple thead th {
+  background: var(--purple);
+}
+
+/* エビデンスバッジ */
+.brainstem-page .bGrn {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--green-l);
+  color: var(--green);
+  border: 1px solid #a5d6a7;
+}
+.brainstem-page .bOra {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--orange-l);
+  color: var(--orange);
+  border: 1px solid #ffcc80;
+}
+.brainstem-page .bU {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f3e5f5;
+  color: #4a148c;
+  border: 1px solid #ce93d8;
+}
+
+/* 色付きテキスト */
+.brainstem-page .tR {
+  color: var(--red);
+  font-weight: 700;
+}
+.brainstem-page .tG {
+  color: var(--green);
+  font-weight: 700;
+}
+.brainstem-page .tO {
+  color: var(--orange);
+  font-weight: 700;
+}
+.brainstem-page .tB {
+  color: var(--blue);
+  font-weight: 700;
+}
+.brainstem-page .tN {
+  color: var(--brn1);
+  font-weight: 700;
+}
+
+/* Mermaid 図 */
+.brainstem-page .mmd {
+  background: #fff;
+  border-radius: var(--r);
+  padding: 20px 16px;
+  box-shadow: var(--sh);
+  margin: 18px 0;
+  overflow-x: auto;
+}
+.brainstem-page .mmd-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--g6);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.brainstem-page .mmd-lbl::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--brn2);
+  display: inline-block;
+}
+
+/* フェーズカード */
+.brainstem-page .phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+@media (max-width: 700px) {
+  .brainstem-page .phase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.brainstem-page .ph {
+  border-radius: var(--rs);
+  padding: 16px;
+  text-align: center;
+}
+.brainstem-page .ph1 {
+  background: #fff8e1;
+  border: 2px solid #ffc107;
+}
+.brainstem-page .ph2 {
+  background: #e3f2fd;
+  border: 2px solid #2196f3;
+}
+.brainstem-page .ph3 {
+  background: #ffebee;
+  border: 2px solid #ef5350;
+}
+.brainstem-page .ph4 {
+  background: #e8f5e9;
+  border: 2px solid #66bb6a;
+}
+.brainstem-page .ph-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.brainstem-page .ph-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 2px;
+}
+.brainstem-page .ph-time {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 6px;
+}
+.brainstem-page .ph-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* 薬剤カード */
+.brainstem-page .drug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.brainstem-page .drug {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-top: 4px solid var(--teal);
+}
+.brainstem-page .drug-nm {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 2px;
+}
+.brainstem-page .drug-br {
+  font-size: 11px;
+  color: var(--g6);
+  margin-bottom: 8px;
+}
+.brainstem-page .drug-tx {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* 出典カード */
+.brainstem-page .src-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.brainstem-page .src {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 14px;
+  box-shadow: var(--sh);
+  border-left: 4px solid var(--blue);
+}
+.brainstem-page .src-org {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+.brainstem-page .src-t {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--g8);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.brainstem-page .src-url {
+  font-size: 11px;
+  color: var(--blue);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* クイックリファレンス */
+.brainstem-page .qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.brainstem-page .qr {
+  background: #fff;
+  border-radius: var(--rs);
+  padding: 16px;
+  box-shadow: var(--sh);
+}
+.brainstem-page .qr-t {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brn1);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--g2);
+}
+
+/* フッター */
+.brainstem-page .footer {
+  background: var(--brn1);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 48px;
+}
+.brainstem-page .footer strong {
+  color: #fff;
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+  .brainstem-page .sidebar {
+    display: none;
+  }
+  .brainstem-page .main {
+    padding: 16px 14px 60px;
+  }
+}

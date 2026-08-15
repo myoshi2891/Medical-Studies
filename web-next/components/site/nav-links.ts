@@ -75,6 +75,10 @@ export const navLinks: readonly NavLink[] = [
         name: "頭痛と血管 (Vascular)",
         href: "/anatomy/vascular-headache",
       },
+      {
+        name: "頭痛と脳・脳幹 (Brainstem)",
+        href: "/anatomy/headache-brainstem-neuroscience",
+      },
     ],
   },
   {

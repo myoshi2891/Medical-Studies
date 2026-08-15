@@ -5,8 +5,8 @@
 ## 現在地
 
 - **最新 HEAD**: `42c6bf1` feat(web-next): register headache-and-straight-neck in registry and navigation
-- **ビルド状態**: web-next 全体で typecheck / lint クリーン。**テスト 706 passed / 73 ファイル**
-  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-13）。
+- **ビルド状態**: web-next 全体で typecheck / lint クリーン。**テスト 575 passed / 41 ファイル**
+  （実行範囲: `web-next/` で `bun run test`＝`vitest run` の全件。計測時点: 2026-08-14）。
   内訳はアーキタイプ A 全ページ契約＋ anatomy〈検索コア＋autocomplete＋scroll-spy 左ナビ＋セマンティックタグ〉／
   PROM 各尺度＋用語集＋ export モジュール〈flatten/workbook/csv/sheetsClient/upsert/DataManager 同期 UI〉／
   コンテンツレジストリ・sitemap・RelatedLinks・サイト横断検索（`SiteSearch`）・CSP（`lib/security/csp.ts`）。
@@ -124,6 +124,7 @@
 | Migraine-prevention-therapy-guide | `/treatment/migraine-prevention-therapy-guide` | ✅ 完了 | 10 section / Mermaid 6図 / table 10 / 外部リンク 22 |
 | Moh-acute-use-days | `/treatment/moh-acute-use-days` | ✅ 完了 | 9 section / Mermaid 4図 / table 6 / 外部リンク 0 |
 | Vascular-headache | `/anatomy/vascular-headache` | ✅ 完了 | 12 section / Mermaid 5図 / table 2 / 外部リンク 28 |
+| Headache-brainstem-neuroscience | `/anatomy/headache-brainstem-neuroscience` | ✅ 完了 | 13 section / Mermaid 4図 / table 3 / 外部リンク 34 |
 | 3D解剖アトラス | `/anatomy` | 🟢 Phase 2 コード完了 | **新設・data-driven**（HTML転記ではない）。`lib/anatomy` manifest 駆動で6構造（神経/血管/脳/骨/筋/総覧）。ModelViewer（`@google/model-viewer`遅延描画＋3Dホットスポット注釈＋読込失敗時の降格）/ MriSliceViewer（読影風2Dスクラバ）をクライアントアイランド遅延配置。Phase1=匿名化MRI投入（脳/頚椎 各8枚・`sanitizePng`+`scripts/curate-mri.mjs`）／Phase2=glTFビューア実装（`types/model-viewer.d.ts`・7テスト）完了。設計書 `docs/architecture.md`。Phase3=用語ツールチップ基盤（`lib/glossary`＋`components/glossary/Term.tsx`／読み仮名＋やさしい解説、ホバー・フォーカス・タップ対応）を新設し、`AutoGlossary`（本文ルートを包むと既知用語の初出を自動ラップ）で**静的教育ページ35枚すべてへ展開完了**。用語集は162語（解剖・血管・骨格筋・病態・治療薬・生活習慣・EBM・臨床）。`glossary.test.ts` がドメイン別 id の解決／`term` 重複禁止／`reading` かな表記／`plain` 長さ上限を機械検知。除外は `app/page.tsx`（リダイレクト）・`prom-checker`（ボタン契約テスト）・法務2ページ。手順は `.claude/skills/glossary-term-tooltip`。Phase4=UX/IA/A11y ブラッシュアップ完了（manifest 駆動の検索コア `lib/anatomy/search.ts`＋WAI-ARIA autocomplete `AnatomySearch`、scroll-spy 左ナビ `AnatomySidebar`、`.anatomy-layout` 化、Hero 検索/カテゴリチップ/skip リンク、教育リンクのセマンティックタグ `data-cat`、`prefers-color-scheme` ダークモード、reduced-motion、focus-visible）。残=実 glTF 資産投入（`public/models/LICENSES.md`）・Lighthouse 実測 |
 
 - **共有コンポーネント（A 共通・本移行で新設）**: `components/MermaidDiagram.tsx`（default export・
