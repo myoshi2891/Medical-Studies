@@ -88,16 +88,18 @@ web-next/                    # Next.js 16 / React 19 / Bun 1.3 / Tailwind v4 / B
 | 療法 | `/therapies/*` | 7 | 理学療法・栄養/サプリ・心理行動療法・経穴/トリガーポイント・有酸素運動・睡眠衛生 |
 | PROM 解説 | `/prom/*` | 6 | 主要尺度は網羅 |
 | PROM ツール | `/prom-checker` | 1 | スコアリング・保存・CSV/Sheets エクスポートまで実装済み |
-| 解剖 | `/anatomy` | 1 | 3D アトラス実装済み。実 glTF 資産投入が残作業（PROGRESS.md 参照） |
+| 解剖 | `/anatomy/*` | 7 | `/anatomy`（総覧）＋ `bone-related-headache`・`headache-related-muscles`・`headache-related-nerves`・`headache-and-straight-neck`・`vascular-headache`・`headache-brainstem-neuroscience` の 6 サブページ。実 glTF 資産投入が残作業（PROGRESS.md 参照）。2026-08-11 時点は `/anatomy` 1 ページのみだったが、その後サブページ 6 件が追加された |
 | 法務 | `/privacy`・`/terms` | 2 | plans/013 で新設。文言は法務レビュー待ち |
 
-> **横断基盤の現況（2026-08-11 時点）**: サイト横断のコンテンツレジストリ（`lib/content/registry.ts`・
-> 全 30 ルート）とサイトマップ（`app/sitemap.ts`・34 URL）は **実装済み**（plans/007 A・D）。
+> **横断基盤の現況（2026-09-18 実測・HEAD `e9b09fc`）**: サイト横断のコンテンツレジストリ（`lib/content/registry.ts`・
+> 全 36 ルート）とサイトマップ（`app/sitemap.ts`・40 URL＝コンテンツ 36 + 静的 4）は **実装済み**（plans/007 A・D）。
 > 相互リンク（plans/002 Step 3）もレジストリ駆動の `RelatedLinks` として実装済み。
-> **適用範囲は全 30 コンテンツルート**（コンポーネント配置数 30 / 関連リンク表示数 30・各 3〜4 本。
-> 指標の定義は `plans/README.md` の注記に従う。2026-08-11 実測）。
+> **適用範囲は全 36 コンテンツルート**（コンポーネント配置数 36 / 関連リンク表示数 36・各 3〜4 本。
+> 指標の定義は `plans/README.md` の注記に従う）。
 > かつて本節に記載していた「8 ページ適用済み・残カテゴリは今後展開」は、plans/007 Step 3 の
-> 全カテゴリ展開（2026-08-11）で解消済みであり、**残作業は無い**。
+> 全カテゴリ展開（2026-08-11）で解消済みであり、**残作業は無い**。数値は plans/007 完了時点
+> （2026-08-11・30 ルート）から `/anatomy` サブページ 6 件の追加により 36 へ増加している
+> （詳細は `plans/README.md` の NOTE を参照）。
 
 ### 既存の設計・運用資産（コードから読み取れない決定事項）
 
