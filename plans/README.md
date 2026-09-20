@@ -24,25 +24,31 @@
 | 004  | 治療法カテゴリ（薬物・サプリ）拡張 | P1 | L | 001, 002, 003 | **DONE**（2026-08-10。`/treatment/*` 7 ページで立案時の P1/P2 4 領域〈急性期・予防・CGRP・MOH 予防〉を網羅。相互リンクをレジストリ駆動で実装し MOH 系 3 ページの双方向リンクを契約テストで固定。サプリ増補は SSoT 保留のため別途） |
 | 005  | 研究・エビデンスカテゴリ新設 | P2 | L | 001, 002, 003 | **BLOCKED**（新規コンテンツ執筆は `Types-of-headache/` の SSoT 方針決定まで保留） |
 | 006  | 療養・セルフケアカテゴリ新設 | P2 | M | 001, 002, 003 | **BLOCKED**（同上） |
-| 007  | 技術基盤拡張（横断検索・鮮度メタ・ナビ再設計） | P2 | L | 001, 002 | **DONE**（2026-08-11。Step 0〜3 完了: `lib/content/{types,registry,search}.ts`＋ヘッダー検索 `components/site/SiteSearch.tsx`、sitemap 34 URL（コンテンツ 30 + 静的 4）、RelatedLinks・用語集を全 30 ページへ展開。Step 4 ナビ再設計は実機計測の結果「不要」と判断し閉じた〈下記〉） |
+| 007  | 技術基盤拡張（横断検索・鮮度メタ・ナビ再設計） | P2 | L | 001, 002 | **DONE**（2026-08-11。Step 0〜3 完了: `lib/content/{types,registry,search}.ts`＋ヘッダー検索 `components/site/SiteSearch.tsx`、sitemap 34 URL（コンテンツ 30 + 静的 4、完了当時の実測）、RelatedLinks・用語集を全 30 ページへ展開。Step 4 ナビ再設計は実機計測の結果「不要」と判断し閉じた〈下記〉。**その後のコンテンツ追加によりコンテンツ登録数は増加している。最新値は直下 NOTE 参照**） |
 
 Status 値: TODO | IN PROGRESS | DONE | BLOCKED（理由 1 行）| REJECTED（理由 1 行）
 
 > [!NOTE]
-> **`RelatedLinks` の「適用件数」の定義（本リポジトリ共通。2026-08-11 実測）**: 以下 3 つを区別して記録する。
-> 現状は 3 つすべてが **30** で一致しているため、単に「全 30 ページ」と書いてよい。
+> **`RelatedLinks` の「適用件数」の定義（本リポジトリ共通。2026-09-18 実測・HEAD `e9b09fc`）**: 以下 3 つを区別して記録する。
+> 現状は 3 つすべてが **36** で一致しているため、単に「全 36 ページ」と書いてよい。
 > 一致が崩れた時点で、どの数を指すか明示すること。
 >
 > | 指標 | 意味 | 現在値 | 測り方 |
 > |---|---|---|---|
-> | **レジストリ登録数** | `lib/content/registry.ts` の `CONTENT_REGISTRY` エントリ数 | 30 | `CONTENT_REGISTRY.length` |
-> | **コンポーネント配置数** | `<RelatedLinks>` を描画している `app/**/page.tsx` の数 | 30 | `grep -rl "RelatedLinks" app/ --include=page.tsx \| wc -l` |
-> | **関連リンク表示数** | `getRelated(href)` が 1 本以上返すルート数（＝実際に導線が出るページ） | 30（各 3〜4 本） | `CONTENT_REGISTRY.filter((e) => getRelated(e.href).length > 0).length` |
+> | **レジストリ登録数** | `lib/content/registry.ts` の `CONTENT_REGISTRY` エントリ数 | 36 | `CONTENT_REGISTRY.length` |
+> | **コンポーネント配置数** | `<RelatedLinks>` を描画している `app/**/page.tsx` の数 | 36 | `grep -rl "RelatedLinks" app/ --include=page.tsx \| wc -l` |
+> | **関連リンク表示数** | `getRelated(href)` が 1 本以上返すルート数（＝実際に導線が出るページ） | 36（各 3〜4 本） | `CONTENT_REGISTRY.filter((e) => getRelated(e.href).length > 0).length` |
 >
 > 配置しても `related` が空なら表示は 0 になる。「配置＝表示」は保証ではないため、両者を同一視しないこと
 > （登録漏れ・幽霊エントリ・dangling 参照は `lib/content/registry.test.ts` が機械検知する）。
-> なお sitemap の 34 URL は「コンテンツ 30 + 静的ルート 4（`/`・`/prom-checker`・`/privacy`・`/terms`）」であり、
-> 上記 3 指標とは母数が異なる。
+> なお sitemap の URL 総数は「コンテンツ 36 + 静的ルート 4（`/`・`/prom-checker`・`/privacy`・`/terms`）＝ 40」であり、
+> `app/**/page.tsx` の実ファイル数（40）と一致する。上記 3 指標とは母数（コンテンツのみ vs 全ルート）が異なる点に注意。
+>
+> 2026-08-11 完了時点の実測（30／30／30・sitemap 34 URL）から増加したのは、`/anatomy` 配下に
+> `bone-related-headache`・`headache-related-muscles`・`headache-related-nerves` の 3 ページ、および
+> `headache-and-straight-neck`・`vascular-headache`・`headache-brainstem-neuroscience` を加えた計 6 ページが
+> レジストリへ登録されたため（カテゴリ内訳: anatomy 7 / headaches 5 / treatment 7 / blocks 4 /
+> therapies 7 / prom 6 ＝ 36）。
 
 > [!IMPORTANT]
 > **コンテンツ SSoT 保留（2026-08-10）**: `Types-of-headache/`（md-files / html-files）は
