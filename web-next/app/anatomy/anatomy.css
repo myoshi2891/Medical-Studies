@@ -673,7 +673,8 @@
 .atlas-stage { position: relative; min-width: 0; }
 .atlas-model { position: relative; background: radial-gradient(ellipse at 50% 38%, #ffffff 0, #eef4f4 72%, #e0eaea 100%); color: #263d43; border-radius: 10px; overflow: hidden; }
 .atlas-model model-viewer { display: block; width: 100%; height: 530px; min-height: 360px; --progress-bar-color: #168e83; }
-.atlas-camera { position: absolute; z-index: 1; top: 14px; left: 14px; display: flex; gap: 4px; background: #fffffff0; padding: 4px; border: 1px solid #d3dfdf; border-radius: 9px; }
+/* 視点操作をモデルの外へ置き、頭頂部のラベルを覆わない。 */
+.atlas-camera { position: relative; z-index: 1; width: max-content; margin: 12px; display: flex; gap: 4px; background: #fffffff0; padding: 4px; border: 1px solid #d3dfdf; border-radius: 9px; }
 .atlas-camera button { border: 0; background: transparent; color: #42565b; border-radius: 5px; padding: 5px 9px; cursor: pointer; font: inherit; font-size: 12px; }
 .atlas-camera button[aria-pressed="true"] { background: #176f68; color: #fff; }
 .atlas-pin { padding: 4px 10px; border: 1px solid #658c89; border-radius: 6px; background: #fffffff0; color: #183c3b; font-size: 11px; cursor: pointer; box-shadow: 0 2px 8px #163c3a15; }
@@ -753,29 +754,20 @@
 }
 /* 重なりやすい正中のラベルを左右へ分け、内部の目印も常時表示する。 */
 .atlas-model model-viewer { --min-hotspot-opacity: 1; }
-.atlas-camera { margin: 0; }
 .atlas-overview-grid .atlas-pin { min-width: 56px; }
-.atlas-overview-grid [slot="hotspot-brain"] { transform: translate(90px, -45px); }
-.atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-95px, -45px); }
+.atlas-overview-grid [slot="hotspot-brain"] { transform: translate(90px, -10px); }
+.atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-95px, -10px); }
 .atlas-overview-grid [slot="hotspot-nerves"] { transform: translate(-105px, -8px); }
 .atlas-overview-grid [slot="hotspot-vessels"] { transform: translate(90px, 5px); }
 .atlas-overview-grid [slot="hotspot-brainstem"] { transform: translate(-100px, 15px); }
 .atlas-overview-grid [slot="hotspot-cervical"] { transform: translate(85px, 20px); }
 .atlas-overview-grid [slot="hotspot-muscles"] { transform: translate(-100px, 25px); }
 @media (max-width: 480px) {
-  .atlas-overview-grid [slot="hotspot-brain"] { transform: translate(60px, -40px); }
-  .atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-65px, -45px); }
+  .atlas-overview-grid [slot="hotspot-brain"] { transform: translate(60px, -10px); }
+  .atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-65px, -10px); }
   .atlas-overview-grid [slot="hotspot-nerves"] { transform: translate(-65px, -8px); }
   .atlas-overview-grid [slot="hotspot-vessels"] { transform: translate(65px, 0); }
   .atlas-overview-grid [slot="hotspot-brainstem"] { transform: translate(-65px, 15px); }
   .atlas-overview-grid [slot="hotspot-cervical"] { transform: translate(65px, 20px); }
   .atlas-overview-grid [slot="hotspot-muscles"] { transform: translate(-65px, 25px); }
-}
-/* 視点操作をモデルの外へ置き、頭頂部のラベルを覆わない。 */
-.atlas-camera { position: relative; top: auto; left: auto; width: max-content; margin: 12px; }
-.atlas-overview-grid [slot="hotspot-brain"] { transform: translate(90px, -10px); }
-.atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-95px, -10px); }
-@media (max-width: 480px) {
-  .atlas-overview-grid [slot="hotspot-brain"] { transform: translate(60px, -10px); }
-  .atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-65px, -10px); }
 }
