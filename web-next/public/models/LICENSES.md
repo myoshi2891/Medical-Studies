@@ -21,6 +21,25 @@
 | `bones.glb` | bones | BodyParts3D v4.0 (DBCLS) | CC-BY-SA 2.1 JP | あり | 必須（下記） |
 | `muscles.glb` | muscles | BodyParts3D v4.0 (DBCLS) | CC-BY-SA 2.1 JP | あり | 必須（下記） |
 
+### 頭頸部の統合アトラス（追加）
+
+`atlas/overview.glb`、7系統の `atlas/{nerves,vessels,brain,brainstem,skull,cervical,muscles}.glb`、
+42部位の `atlas/<part-id>.glb` は、同じ BodyParts3D v4.0 のローカルOBJから生成しています。
+**CC BY-SA 2.1 JP** を適用します（各元OBJのライセンス表記に従う）。
+Human Atlas が配布する別ライセンスのデータを転用したものではありません。
+
+改変: 202個のOBJを42部位へ統合、カテゴリ別色付け、mm→mとZ-up→Y-upの変換、
+共通原点への移動、重複頂点整理、Draco圧縮。部位別の原点移動や架空の補完は行いません。
+大脳表面と顔面骨を追加し、静脈を青色で区別しています。
+
+- 再生成: `cd web-next` の後に `bun scripts/build-head-neck-atlas.mjs`
+- 元データ: `BodyParts3D/isa_BP3D_4.0_obj_99/`
+- 部位定義・日英解説: `web-next/lib/anatomy/atlas.ts`
+- 収録OBJ IDと共通座標の位置: `web-next/lib/anatomy/atlas-models.json`
+- 元OBJの帰属表示は以下の既存モデルと共通です。
+- 操作設計の参考: [Human Atlas](https://github.com/ashemag/human-atlas)
+  （レイヤー表示、部位選択、単独表示。実装コード・モデルのコピーはありません）
+
 > [!NOTE]
 > `nerves.glb` は三叉神経本幹・大後頭神経(GON)が BodyParts3D に非在のため、三叉神経第1枝(V1)・
 > 眼窩枝で近似構成している（`manifest.ts` の nerves 概要と `scripts/bodyparts3d/output/not_found_report.txt` 参照）。

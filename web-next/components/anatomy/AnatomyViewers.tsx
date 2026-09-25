@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import type { Hotspot, MriSeries } from "@/lib/anatomy/types";
+import type { Hotspot, MriSeries, StructureId } from "@/lib/anatomy/types";
 
 /**
  * 重いクライアント専用ビューア（ModelViewer / MriSliceViewer）を遅延読込する境界。
@@ -21,18 +21,53 @@ const MriSliceViewer = dynamic(() => import("@/components/anatomy/MriSliceViewer
   loading: () => <div className="anatomy-viewer-loading">MRI ビューアを読み込み中…</div>,
 });
 
+const AnatomyAtlas = dynamic(() => import("./AnatomyAtlas"), { ssr: false });
+const AtlasSectionButton = dynamic(
+  () => import("./AnatomyAtlas").then((module) => module.AtlasSectionButton),
+  { ssr: false }
+);
+
 interface AnatomyViewersProps {
+  structureId: StructureId;
   modelSrc: string | null;
   hotspots: Hotspot[];
   mri: MriSeries | null;
   title: string;
 }
 
-export function AnatomyViewers({ modelSrc, hotspots, mri, title }: AnatomyViewersProps) {
+export function AnatomyViewers({
+  structureId,
+  modelSrc,
+  hotspots,
+  mri,
+  title,
+}: AnatomyViewersProps) {
   return (
-    <div className="anatomy-viewers">
-      <ModelViewer src={modelSrc} hotspots={hotspots} title={title} />
-      <MriSliceViewer mri={mri} title={title} />
-    </div>
+    <>
+      {structureId === "overview" ? (
+        <>
+          <AnatomyAtlas />
+          <div className="anatomy-viewers">
+            <MriSliceViewer mri={mri} title={title} />
+          </div>
+        </>
+      ) : (
+        <>
+          <AtlasSectionButton
+            layers={
+              structureId === "brain"
+                ? ["brain", "brainstem"]
+                : structureId === "bones"
+                  ? ["skull", "cervical"]
+                  : [structureId]
+            }
+          />
+          <div className="anatomy-viewers">
+            <ModelViewer src={modelSrc} hotspots={hotspots} title={title} />
+            <MriSliceViewer mri={mri} title={title} />
+          </div>
+        </>
+      )}
+    </>
   );
 }

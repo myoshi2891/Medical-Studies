@@ -14,6 +14,11 @@ vi.mock("@/components/anatomy/MriSliceViewer", () => ({
   default: () => <div data-testid="mri-viewer" />,
 }));
 
+vi.mock("@/components/anatomy/AnatomyAtlas", () => ({
+  default: () => <div data-testid="model-viewer" data-atlas="integrated" />,
+  AtlasSectionButton: () => <button type="button">部位を拡大</button>,
+}));
+
 const HERO_H1 = "頭痛 3D 解剖アトラス";
 
 describe("AnatomyPage: 契約", () => {
@@ -102,4 +107,10 @@ describe("AnatomyPage: 関連ページ導線", () => {
       expect(link.getAttribute("href")?.startsWith("/")).toBe(true);
     }
   });
+});
+
+// 総覧が既存の空モデルへ退行しないことを固定する。
+it("総覧に統合アトラスを接続する", () => {
+  const { container } = render(<AnatomyPage />);
+  expect(container.querySelector('#overview [data-atlas="integrated"]')).not.toBeNull();
 });

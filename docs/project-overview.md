@@ -159,7 +159,7 @@ sequenceDiagram
 
 | カテゴリ | 採用技術 | 備考 |
 |---|---|---|
-| フレームワーク | Next.js 16.2.11 / React 19.2.4 | App Router、Server Component 主体 |
+| フレームワーク | Next.js 16.3.5 / React 19.2.4 | App Router、Server Component 主体 |
 | 言語 | TypeScript 5.x（strict） | `any` 禁止方針（プロジェクト CLAUDE.md 準拠） |
 | パッケージマネージャ | bun 1.3.14 | `bun install --frozen-lockfile` を CI で使用 |
 | スタイル | Tailwind CSS v4 + scoped CSS | `Types-of-headache/html-files/Headaches/Migraine.html` 由来の CSS 変数を継承 |
@@ -204,7 +204,7 @@ sequenceDiagram
 | スコープの恒久的除外 | DICOM 読込・患者固有 3D 再構築・AI 診断・用量計算機能等は SaMD 該当リスクのため採用しない方針 | `docs/architecture.md` §1.3、`plans/README.md`「見送り事項」 |
 | markdownlint 適用範囲 | CI の markdown ジョブはルート `*.md` / `plans/` / `docs/publishing/` に限定。コンテンツ `.md` 側には既存負債 57 件が残る（別タスク） | `.github/workflows/ci.yml` コメント、`plans/README.md` Plan 014 |
 | ライセンスゲート | 本番依存に強コピーレフト（GPL/AGPL 系）混入を CI で拒否 | `.github/workflows/ci.yml` `license-gate` ジョブ |
-| 絶対パス禁止 | コミット対象ファイルに環境依存の絶対パス（`/Users/johndoe/` 等）を含めてはならない。CI の `pii-check` ジョブで機械検証 | `.claude/rules/no-absolute-paths.md`、`.github/workflows/ci.yml` |
+| 絶対パス禁止 | コミット対象ファイルに環境依存の絶対パス（`/Users/<name>/` 等）を含めてはならない。CI の `pii-check` ジョブで機械検証 | `.claude/rules/no-absolute-paths.md`、`.github/workflows/ci.yml` |
 
 ---
 
@@ -250,7 +250,6 @@ sequenceDiagram
 |---|---|
 | CSP `unsafe-inline` の残余リスク | Next.js の静的プリレンダと nonce ベース CSP が両立しないための設計上のトレードオフ。inline XSS 防御は無効だが、リスク受容の根拠と再評価条件を文書化済み（`docs/publishing/04-security-policy.md` §3） |
 | コンテンツ `.md` の markdownlint 負債 | 57 件が未修正のまま CI 対象外（`plans/README.md` Plan 014） |
-| root 直下の残置ファイル | `Vascular-headache.html` / `Vascular-headache.md` が git 上で削除（`D`）状態のまま残っている（本書作成時点の `git status`）。移行過程の残骸である可能性が高いが、コミット履歴の意図確認が必要 |
 
 ---
 
