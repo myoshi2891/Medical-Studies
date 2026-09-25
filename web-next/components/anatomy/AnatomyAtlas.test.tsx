@@ -110,7 +110,8 @@ it("StrictModeの再マウントでもダイアログが閉じず、キーボー
   fireEvent.click(trigger);
   const dialog = screen.getByRole("dialog");
   expect(dialog).toHaveAttribute("open");
-  fireEvent.keyDown(dialog, { key: "Escape" });
+  // Escape はブラウザが dialog の cancel イベントとして通知する。
+  fireEvent(dialog, new Event("cancel", { bubbles: true }));
   expect(screen.queryByRole("dialog")).toBeNull();
   expect(trigger).toHaveFocus();
 });
