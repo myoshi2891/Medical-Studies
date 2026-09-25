@@ -47,6 +47,7 @@ function AtlasDetail({ selection, onClose }: { selection: Selection; onClose: ()
   }, []);
 
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: Escape はネイティブ dialog の cancel イベントで onCancel が処理する
     <dialog
       ref={ref}
       className="atlas-dialog"
@@ -54,12 +55,6 @@ function AtlasDetail({ selection, onClose }: { selection: Selection; onClose: ()
       onCancel={(event) => {
         event.preventDefault();
         onClose();
-      }}
-      onKeyDown={(event) => {
-        if (event.key === "Escape") {
-          event.preventDefault();
-          onClose();
-        }
       }}
       onClick={(event) => {
         if (event.target === ref.current) onClose();
