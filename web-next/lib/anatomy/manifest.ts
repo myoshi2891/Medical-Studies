@@ -44,8 +44,9 @@ const STRUCTURES: AnatomyStructure[] = [
   {
     id: "overview",
     title: "頭頚部の全体像",
-    summary: "頭痛に関わる神経・血管・脳・骨・筋の位置関係を俯瞰します。",
-    modelSrc: null,
+    summary:
+      "神経・血管・脳・脳幹・頭蓋骨・頸椎・筋を共通の座標で表示し、部位ごとに拡大して日英で学びます。",
+    modelSrc: "/models/atlas/overview.glb",
     hotspots: [],
     mri: BRAIN_SERIES,
     links: [
@@ -114,8 +115,9 @@ const STRUCTURES: AnatomyStructure[] = [
         id: "tcc",
         label: "三叉頚椎複合体 (TCC)",
         reading: "さんさけいついふくごうたい",
-        plain: "首と頭の痛みが脳幹で合流する場所",
-        // 延髄(medulla oblongata)の中心＝TCC の座（glb_report.json）。
+        plain:
+          "尾側の三叉神経脊髄路核と上位頸髄の機能的な連続領域（ピンは延髄付近の目印で、TCCの境界ではありません）",
+        // 延髄付近の位置の目印。TCCは延髄全体と同一ではなく上位頸髄へ連続する。
         position: "0 -0.03 0.007",
       },
     ],

@@ -83,6 +83,7 @@ export default function AnatomyPage() {
                 <p className="anatomy-sec-summary">{s.summary}</p>
 
                 <AnatomyViewers
+                  structureId={s.id}
                   modelSrc={s.modelSrc}
                   hotspots={s.hotspots}
                   mri={s.mri}
