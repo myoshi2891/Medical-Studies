@@ -43,25 +43,29 @@ interface AnatomyViewersProps {
   structureId: StructureId;
   mri: MriSeries | null;
   title: string;
+  /** MRIは一時的に非表示。再公開時に明示指定する。 */
+  showMri?: boolean;
 }
 
-export function AnatomyViewers({ structureId, mri, title }: AnatomyViewersProps) {
+export function AnatomyViewers({ structureId, mri, title, showMri = false }: AnatomyViewersProps) {
   return (
     <>
       {structureId === "overview" ? (
         <>
           <AnatomyAtlas />
-          <div className="anatomy-viewers">
-            <MriSliceViewer mri={mri} title={title} />
-          </div>
+          {showMri && (
+            <div className="anatomy-viewers">
+              <MriSliceViewer mri={mri} title={title} />
+            </div>
+          )}
         </>
       ) : (
         <>
-          <AtlasSectionButton layers={SECTION_LAYERS[structureId]} />
           <div className="anatomy-viewers">
             <AtlasSectionGroup layers={SECTION_LAYERS[structureId]} title={title} />
-            <MriSliceViewer mri={mri} title={title} />
+            {showMri && <MriSliceViewer mri={mri} title={title} />}
           </div>
+          <AtlasSectionButton layers={SECTION_LAYERS[structureId]} />
         </>
       )}
     </>

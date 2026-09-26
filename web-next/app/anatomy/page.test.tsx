@@ -1,5 +1,6 @@
 import { render, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { AnatomyViewers } from "@/components/anatomy/AnatomyViewers";
 import { ANATOMY_MANIFEST } from "@/lib/anatomy/manifest";
 import { getRelated } from "@/lib/content/registry";
 import AnatomyPage from "./page";
@@ -58,12 +59,18 @@ describe("AnatomyPage: 契約", () => {
     expect(ids).toEqual(ANATOMY_MANIFEST.map((s) => s.id));
   });
 
-  it("各構造に ModelViewer と MriSliceViewer を配置する", async () => {
-    const { getAllByTestId } = render(<AnatomyPage />);
+  it("各構造に3Dを表示し、MRIビューアは初期状態で描画しない", async () => {
+    const { getAllByTestId, queryAllByTestId } = render(<AnatomyPage />);
     await waitFor(() => {
       expect(getAllByTestId("model-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
-      expect(getAllByTestId("mri-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
+      expect(queryAllByTestId("mri-viewer")).toHaveLength(0);
     });
+  });
+
+  it("ヒーローから全体像へ進め、MRI表示を案内しない", () => {
+    const { getByRole, container } = render(<AnatomyPage />);
+    expect(getByRole("link", { name: "全体像を探索" })).toHaveAttribute("href", "#overview");
+    expect(container.querySelector(".anatomy-hero")?.textContent).not.toContain("MRI");
   });
 
   it("各教育リンクが href に応じたセマンティックカテゴリ(data-cat)を持つ", () => {
@@ -135,11 +142,27 @@ it.each([
   ["brain", "brain,brainstem"],
   ["bones", "skull,cervical"],
   ["muscles", "muscles"],
-])("%s欄を系統別アトラスに接続し、MRIも保持する", async (id, layers) => {
+])("%s欄を系統別アトラスに接続し、MRIを非表示にする", async (id, layers) => {
   const { container } = render(<AnatomyPage />);
   await waitFor(() => {
     expect(container.querySelector(`#${id} [data-atlas-layers="${layers}"]`)).not.toBeNull();
-    expect(container.querySelector(`#${id} [data-testid="mri-viewer"]`)).not.toBeNull();
+    expect(container.querySelector(`#${id} [data-testid="mri-viewer"]`)).toBeNull();
     expect(container.querySelector(`#${id} [data-src]`)).toBeNull();
   });
+});
+
+it.each([
+  "overview",
+  "brain",
+] as const)("%sのMRIデータは保持し、明示指定時だけ再表示できる", async (structureId) => {
+  const structure = ANATOMY_MANIFEST.find((item) => item.id === structureId);
+  if (!structure) throw new Error("対象の構造がありません");
+  const { queryByTestId, rerender } = render(
+    <AnatomyViewers structureId={structureId} mri={structure.mri} title={structure.title} showMri />
+  );
+  await waitFor(() => expect(queryByTestId("mri-viewer")).not.toBeNull());
+  rerender(
+    <AnatomyViewers structureId={structureId} mri={structure.mri} title={structure.title} />
+  );
+  expect(queryByTestId("mri-viewer")).toBeNull();
 });

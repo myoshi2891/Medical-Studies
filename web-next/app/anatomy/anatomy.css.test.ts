@@ -20,7 +20,7 @@ describe("anatomy レイアウト", () => {
     expect(declarations).toMatch(/max-width:\s*none/);
   });
 
-  it("3D と MRI を同じ横幅で縦に並べる", () => {
+  it("3Dビューアの横幅が親コンテナからはみ出さない", () => {
     const viewers = declarationsFor(".anatomy-viewers");
     const children = declarationsFor(".anatomy-viewers > *");
 
@@ -42,5 +42,15 @@ describe("anatomy レイアウト", () => {
     expect(partList).toMatch(/overflow:\s*visible/);
     expect(partList).not.toMatch(/max-height/);
     expect(partList).not.toMatch(/overflow-y:\s*auto/);
+  });
+
+  it("系統切替を視点操作から分離し、長いラベルでも折り返せる", () => {
+    const switcher = declarationsFor(".atlas-system-switcher");
+    const options = declarationsFor(".atlas-system-options");
+    const button = declarationsFor(".atlas-system-options button");
+    expect(switcher).toMatch(/min-width:\s*0/);
+    expect(options).toMatch(/display:\s*flex/);
+    expect(options).toMatch(/flex-wrap:\s*wrap/);
+    expect(button).toMatch(/white-space:\s*nowrap/);
   });
 });

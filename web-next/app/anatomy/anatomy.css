@@ -1,769 +1,203 @@
-/* /anatomy 頭痛 3D 解剖アトラス scoped CSS（接頭辞 .anatomy-）。
-   配色は Migraine.html デザインシステムに整合（ティール×スレート）。 */
-
+/* 解剖アトラス専用。明るいモデル表示面と落ち着いた操作パネルを組み合わせる。 */
 .anatomy-accent {
-  --atl1: #0f3d3e;
-  --atl2: #11716e;
-  --atl3: #16a394;
-  --ink: #1f2933;
-  --muted: #5b6770;
-  --line: #d7dee3;
-  --surface: #ffffff;
-  --bg: #eef3f5;
-  --r: 14px;
-  --rs: 10px;
-  --sh: 0 4px 20px rgba(15, 61, 62, 0.08);
-  /* リンクピルの固定アクセント（ライト/ダーク双方で白文字が AA を満たす中濃度ティール）。
-     見出しトークン(--atl1)はダークで明色へ反転するため、ピルには使わない。 */
-  --pill: #0f6f68;
-  --pill-hover: #0b504b;
-
-  font-family: var(--font-sans, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif);
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--ink);
-  background: var(--bg);
-}
-
-.anatomy-accent * {
-  box-sizing: border-box;
-}
-
-/* Hero */
-.anatomy-hero {
-  background: linear-gradient(135deg, var(--atl1), var(--atl2) 55%, var(--atl3));
-  color: #fff;
-  padding: 52px 28px 40px;
-  text-align: center;
-}
-
-.anatomy-hero-emoji {
-  font-size: 34px;
-}
-
-.anatomy-hero h1 {
-  font-size: clamp(20px, 4vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin: 10px 0 8px;
-}
-
-.anatomy-hero-sub {
-  font-size: 14px;
-  color: #f1f5f4;
-}
-
-/* Disclaimer */
-.anatomy-disclaimer {
-  max-width: 980px;
-  margin: 18px auto 0;
-  padding: 14px 18px;
-  background: #fff8e1;
-  border: 1px solid #ffe082;
-  border-radius: var(--rs);
-  font-size: 13.5px;
-  color: #5d4037;
-}
-
-/* Search (autocomplete / WAI-ARIA combobox) */
-.anatomy-search {
-  position: relative;
-  max-width: 560px;
-  margin: 18px auto 0;
-  display: flex;
-  align-items: center;
-}
-
-.anatomy-search-icon {
-  position: absolute;
-  left: 14px;
-  font-size: 15px;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.anatomy-search-input {
-  width: 100%;
-  padding: 12px 16px 12px 40px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--ink);
-  font: inherit;
-  font-size: 15px;
-  box-shadow: 0 6px 24px rgba(15, 61, 62, 0.22);
-}
-
-.anatomy-search-input::placeholder {
-  color: var(--muted);
-}
-
-.anatomy-search-input:focus-visible {
-  outline: 3px solid var(--atl3);
-  outline-offset: 2px;
-}
-
-.anatomy-search-list {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
-  z-index: 20;
-  max-height: 340px;
-  overflow-y: auto;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--rs);
-  box-shadow: var(--sh);
-  padding: 6px;
-  text-align: left;
-}
-
-.anatomy-search-opt {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 9px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  color: var(--ink);
-  cursor: pointer;
-}
-
-.anatomy-search-opt:hover,
-.anatomy-search-opt.active {
-  background: rgba(22, 163, 148, 0.12);
-}
-
-.anatomy-search-opt:focus-visible {
-  outline: 2px solid var(--atl3);
-  outline-offset: -2px;
-}
-
-.anatomy-search-opt-label {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--atl1);
-}
-
-.anatomy-search-opt-meta {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.anatomy-search-empty {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
-  z-index: 20;
-  padding: 12px 16px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--rs);
-  box-shadow: var(--sh);
-  color: var(--muted);
-  font-size: 13px;
-  text-align: left;
-}
-
-/* Skip link（キーボード導線・通常は隠し、フォーカスで出現） */
-.anatomy-skip {
-  position: absolute;
-  left: 12px;
-  top: -48px;
-  z-index: 40;
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: var(--atl1);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: top 0.15s ease;
-}
-
-.anatomy-skip:focus-visible {
-  top: 10px;
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
-
-/* Category chips（Hero 内クイックジャンプ） */
-.anatomy-chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  max-width: 620px;
-  margin: 16px auto 0;
-}
-
-.anatomy-chip {
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.15s ease;
-}
-
-.anatomy-chip:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.anatomy-chip:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
-
-/* Layout: 左固定サイドナビ + 本文 */
-.anatomy-layout {
-  width: 100%;
-  max-width: none;
-  margin: 0 auto;
-  padding: 24px 18px 8px;
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 24px;
-  align-items: start;
-}
-
-.anatomy-sidebar {
-  position: sticky;
-  top: calc(var(--ch-height, 60px) + 16px);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 12px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r);
-  box-shadow: var(--sh);
-  max-height: calc(100vh - var(--ch-height, 60px) - 32px);
-  overflow-y: auto;
-}
-
-.anatomy-sidebar-hdr {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding: 4px 10px 8px;
-}
-
-.anatomy-nav-a {
-  display: block;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border-left: 3px solid transparent;
-  color: var(--ink);
-  font-size: 13.5px;
-  font-weight: 600;
-  text-decoration: none;
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease;
-}
-
-.anatomy-nav-a:hover {
-  background: rgba(22, 163, 148, 0.1);
-}
-
-.anatomy-nav-a.active {
-  background: rgba(22, 163, 148, 0.14);
-  border-left-color: var(--atl3);
-  color: var(--atl1);
-}
-
-.anatomy-nav-a:focus-visible {
-  outline: 2px solid var(--atl3);
-  outline-offset: -2px;
-}
-
-/* Sections */
-.anatomy-main {
-  padding: 0 0 40px;
-  display: grid;
-  gap: 24px;
-}
-
-/* grid の gap と related-links 側の margin が二重に効くため、ここでは margin を殺す */
-.anatomy-main > .related-links {
-  margin-top: 0;
-}
-
-@media (max-width: 900px) {
-  /* モバイル/タブレットではサイドナビを退避し、Hero の検索・チップで導線を確保する */
-  .anatomy-layout {
-    grid-template-columns: 1fr;
-  }
-  .anatomy-sidebar {
-    display: none;
-  }
-}
-
-.anatomy-sec {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r);
-  box-shadow: var(--sh);
-  padding: 22px 22px 18px;
-  scroll-margin-top: 16px;
-}
-
-.anatomy-sec-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--atl1);
-  margin: 0 0 6px;
-  border-left: 5px solid var(--atl3);
-  padding-left: 12px;
-}
-
-.anatomy-sec-summary {
-  margin: 0 0 16px;
-  color: var(--muted);
-}
-
-/* Viewers */
-.anatomy-viewers {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 16px;
-}
-
-.anatomy-viewers > * {
-  width: 100%;
-  min-width: 0;
-}
-
-.anatomy-viewer {
-  border: 1px solid var(--line);
-  border-radius: var(--rs);
-  background: #f7fafb;
-  padding: 14px;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.anatomy-viewer-stage,
-.anatomy-mri-empty {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: 1px dashed var(--line);
-  border-radius: var(--rs);
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(22, 163, 148, 0.05),
-      rgba(22, 163, 148, 0.05) 10px,
-      transparent 10px,
-      transparent 20px
-    );
-  color: var(--muted);
-  text-align: center;
-}
-
-.anatomy-viewer-badge {
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #fff;
-  background: var(--atl2);
-  border-radius: 999px;
-  padding: 2px 10px;
-}
-
-.anatomy-viewer-note {
-  margin: 0;
-  font-size: 13px;
-}
-
-/* Hotspot legend */
-.anatomy-hotspots {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 6px;
-}
-
-.anatomy-hotspot {
-  display: flex;
-  flex-direction: column;
-  padding: 8px 10px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.anatomy-hotspot-label {
-  font-weight: 700;
-  font-size: 13px;
-  color: var(--atl1);
-}
-
-.anatomy-hotspot-plain {
-  font-size: 12.5px;
-  color: var(--muted);
-}
-
-/* 3D ステージ（@google/model-viewer） */
-.anatomy-model model-viewer {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  min-height: 240px;
-  border: 1px solid var(--line);
-  border-radius: var(--rs);
-  background:
-    radial-gradient(circle at 50% 35%, #ffffff, #eef3f5 70%);
-  --poster-color: transparent;
-}
-
-/* 3D 上に固定されるホットスポットピン（model-viewer の slot 子要素） */
-.anatomy-hotspot-pin {
-  display: inline-flex;
-  align-items: center;
-  max-width: 180px;
-  padding: 3px 9px;
-  font-size: 11.5px;
-  font-weight: 700;
-  line-height: 1.3;
-  color: #fff;
-  background: var(--atl2);
-  border: 1px solid #fff;
-  border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(15, 61, 62, 0.35);
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.anatomy-hotspot-pin:hover,
-.anatomy-hotspot-pin:focus-visible {
-  background: var(--atl3);
-  outline: 2px solid var(--atl1);
-  outline-offset: 1px;
-}
-
-/* MRI scrubber — 放射線読影風ステージ */
-.anatomy-mri-stage, .anatomy-mri-controls {
-  width: min(100%, clamp(320px, 50vw, 520px));
-  align-self: center;
-}
-
-.anatomy-mri-stage {
-  position: relative;
-  border-radius: var(--rs);
-  background: #0b0f12;
-  overflow: hidden;
-}
-
-.anatomy-mri-img {
-  display: block;
-  width: 100%;
-  background: #0b0f12;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-}
-
-/* DICOM ワークステーション風の角オーバーレイ（装飾） */
-.anatomy-mri-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.anatomy-mri-ov {
-  position: absolute;
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  color: rgba(110, 231, 214, 0.85);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-  font-variant-numeric: tabular-nums;
-}
-
-.anatomy-mri-ov-series {
-  top: 8px;
-  left: 10px;
-}
-
-.anatomy-mri-ov-index {
-  right: 10px;
-  bottom: 8px;
-}
-
-.anatomy-mri-controls {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.anatomy-mri-btn {
-  border: 1px solid var(--line);
-  background: #fff;
-  border-radius: 8px;
-  width: 32px;
-  height: 32px;
-  font-size: 18px;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--atl1);
-}
-
-.anatomy-mri-btn:hover {
-  background: var(--atl3);
-  color: #fff;
-}
-
-.anatomy-mri-range {
-  flex: 1;
-  accent-color: var(--atl3);
-}
-
-.anatomy-mri-count {
-  font-variant-numeric: tabular-nums;
-  font-size: 12.5px;
-  color: var(--muted);
-}
-
-.anatomy-mri-note {
-  margin: 0;
-  font-size: 12.5px;
-  color: var(--muted);
-}
-
-/* Related links */
-.anatomy-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.anatomy-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 14px 6px 7px;
-  border-radius: 999px;
-  background: var(--pill);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.15s ease;
-}
-
-.anatomy-link:hover {
-  background: var(--pill-hover);
-}
-
-.anatomy-link:focus-visible {
-  outline: 3px solid var(--atl3);
-  outline-offset: 2px;
-}
-
-/* セマンティックカテゴリのバッジ（何のページか＝疾患/ブロック/治療/教育） */
-.anatomy-link-cat {
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.22);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
-
-/* 帰属表示フッター（BodyParts3D / CC-BY-SA。掲示は必須） */
-.anatomy-credits {
-  max-width: 980px;
-  margin: 32px auto 8px;
-  padding: 12px 18px;
-  border-top: 1px solid #e2e8e7;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.anatomy-credits a {
-  color: var(--atl3);
-  text-decoration: underline;
-}
-
-/* ──────────────────────────────────────────────────────────────
- * ダークモード（promp.md ⑲）
- * トークンを反転するだけで大半のコンポーネントが追従する（変数化の恩恵）。
- * ただし白文字前提の面（hero グラデ・リンクピル）は個別に固定色で担保する。
- * ────────────────────────────────────────────────────────────── */
-@media (prefers-color-scheme: dark) {
-  .anatomy-accent {
-    --atl1: #7fe3d6; /* 見出し・ラベルは明色ティールへ反転 */
-    --atl2: #16a394;
-    --atl3: #2bd4bd;
-    --ink: #e6edf3;
-    --muted: #9aa7b1;
-    --line: #2b333a;
-    --surface: #161b22;
-    --bg: #0d1117;
-    --sh: 0 4px 20px rgba(0, 0, 0, 0.5);
-    /* ピルはダークでも中濃度ティールのまま白文字を維持 */
-    --pill: #12857c;
-    --pill-hover: #16a394;
-  }
-
-  /* hero は明色トークンに引きずられないよう固定の暗ティールグラデにする */
-  .anatomy-hero {
-    background: linear-gradient(135deg, #0b2e2f, #0f4a47 55%, #12615c);
-  }
-
-  .anatomy-disclaimer {
-    background: rgba(234, 179, 8, 0.12);
-    border-color: rgba(234, 179, 8, 0.3);
-    color: #f0c674;
-  }
-
-  /* ビューア面・注釈カードを暗色サーフェスへ */
-  .anatomy-viewer {
-    background: #0f151a;
-  }
-
-  .anatomy-hotspot {
-    background: var(--surface);
-  }
-
-  .anatomy-model model-viewer {
-    background: radial-gradient(circle at 50% 35%, #1b2330, #0d1117 70%);
-  }
-
-  .anatomy-mri-btn {
-    background: var(--surface);
-    color: var(--atl1);
-  }
-}
-
-/* モーション削減（promp.md ⑫ / ⑬）: 派手さを排し、遷移・アニメを無効化する */
-@media (prefers-reduced-motion: reduce) {
-  .anatomy-accent *,
-  .anatomy-accent *::before,
-  .anatomy-accent *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* 共通座標の頭頸部アトラスと拡大ダイアログ */
-.atlas-explorer { margin: 20px 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--surface); }
-.atlas-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 24px; border-bottom: 1px solid var(--line); }
-.atlas-eyebrow { margin: 0 0 5px; color: var(--atl2); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
-.atlas-heading h3 { margin: 0; font-size: clamp(17px, 2vw, 22px); }
-.atlas-count { font-size: 10px; letter-spacing: .1em; color: var(--muted); white-space: nowrap; }
-.atlas-overview-grid { display: grid; grid-template-columns: minmax(0, 1fr) 230px; }
-.atlas-stage { position: relative; min-width: 0; }
-.atlas-model { position: relative; background: radial-gradient(ellipse at 50% 38%, #ffffff 0, #eef4f4 72%, #e0eaea 100%); color: #263d43; border-radius: 10px; overflow: hidden; }
-.atlas-model model-viewer { display: block; width: 100%; height: 530px; min-height: 360px; --progress-bar-color: #168e83; }
-/* 視点操作をモデルの外へ置き、頭頂部のラベルを覆わない。 */
-.atlas-camera { position: relative; z-index: 1; width: max-content; margin: 12px; display: flex; gap: 4px; background: #fffffff0; padding: 4px; border: 1px solid #d3dfdf; border-radius: 9px; }
-.atlas-camera button { border: 0; background: transparent; color: #42565b; border-radius: 5px; padding: 5px 9px; cursor: pointer; font: inherit; font-size: 12px; }
-.atlas-camera button[aria-pressed="true"] { background: #176f68; color: #fff; }
-.atlas-pin { padding: 4px 10px; border: 1px solid #658c89; border-radius: 6px; background: #fffffff0; color: #183c3b; font-size: 11px; cursor: pointer; box-shadow: 0 2px 8px #163c3a15; }
-.atlas-pin:hover, .atlas-pin[aria-pressed="true"] { background: #0f6f68; color: #fff; }
-.atlas-gesture { margin: 0; padding: 10px 14px; text-align: center; color: #53696e; font-size: 11px; border-top: 1px solid #d8e4e4; }
-.atlas-load { position: absolute; top: 60px; left: 20px; padding: 5px 10px; font-size: 12px; background: #ffffffee; border-radius: 6px; pointer-events: none; }
-.atlas-error { position: absolute; top: 25%; left: 8%; right: 8%; padding: 20px; border-radius: 12px; background: #fff5ee; color: #7b351c; font-size: 14px; }
-.atlas-error button { padding: 7px 14px; cursor: pointer; }
-.atlas-controls { padding: 22px 16px; border-left: 1px solid var(--line); }
-.atlas-controls h4 { margin: 0; font-size: 14px; }
-.atlas-controls h4 span { display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
-.atlas-help { font-size: 11px; color: var(--muted); line-height: 1.6; margin: 8px 0 16px; }
-.atlas-layer { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--line); }
-.atlas-layer input, .atlas-display-options input { accent-color: #148377; width: 16px; height: 16px; cursor: pointer; flex: 0 0 auto; }
-.atlas-swatch { width: 8px; height: 25px; border-radius: 3px; flex-shrink: 0; }
-.atlas-layer button { border: 0; display: grid; grid-template-columns: 1fr auto; text-align: left; flex: 1; background: transparent; color: var(--ink); padding: 3px; cursor: pointer; }
-.atlas-layer button strong { font-size: 13px; }
-.atlas-layer button span[lang] { grid-column: 1; font-size: 10px; color: var(--muted); }
+  --atl1: #193d46; --atl2: #176f68; --atl3: #238b80;
+  --ink: #20313d; --muted: #62717b; --line: #dbe3e5;
+  --surface: #fff; --bg: #f3f5f4; --soft: #edf3f1;
+  --r: 18px; --rs: 12px; --sh: 0 12px 36px #182d3810;
+  font-family: var(--font-sans, sans-serif); font-size: 14px; line-height: 1.8;
+  color: var(--ink); background: var(--bg);
+}
+.anatomy-accent * { box-sizing: border-box; }
+.anatomy-accent :focus-visible { outline: 3px solid var(--atl3); outline-offset: 4px; }
+.anatomy-accent button, .anatomy-accent input { font-family: inherit; }
+
+/* 導入と検索。見出しと余白で情報の階層を作る。 */
+.anatomy-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); gap: 28px 64px; padding: 40px clamp(24px, 5vw, 80px) 0; color: #f6faf9; background: #142733; border-bottom: 3px solid #69b9a8; }
+.anatomy-eyebrow, .atlas-eyebrow { margin: 0 0 12px; font-size: 10px; font-weight: 700; letter-spacing: .16em; line-height: 1.6; }
+.anatomy-eyebrow { color: #a4c8c2; }
+.anatomy-eyebrow span { margin: 0 12px; color: #597780; }
+.anatomy-hero h1 { margin: 0 0 14px; font-size: clamp(25px, 3.1vw, 44px); font-weight: 700; letter-spacing: -.045em; line-height: 1.4; }
+.anatomy-hero-sub { margin: 0; color: #bbcbd1; font-size: 14px; line-height: 1.9; }
+.anatomy-explore { display: inline-flex; align-items: center; gap: 30px; margin-top: 22px; padding: 10px 18px; border-radius: 8px; background: #bee7d8; color: #173e37; text-decoration: none; font-size: 13px; font-weight: 700; }
+.anatomy-explore:hover { background: #d2f3e7; }
+.anatomy-hero-tools { align-self: center; min-width: 0; }
+.anatomy-stats { display: grid; grid-template-columns: 1fr 1fr 1.2fr; margin: 0 0 24px; }
+.anatomy-stats > div { display: flex; flex-direction: column-reverse; gap: 3px; padding: 0 20px; border-left: 1px solid #3a505a; }
+.anatomy-stats > div:first-child { padding-left: 0; border: 0; }
+.anatomy-stats dt { color: #adbdc4; font-size: 11px; }
+.anatomy-stats dd { margin: 0; font: 400 40px/1.2 var(--font-display, sans-serif); letter-spacing: -.03em; }
+.anatomy-stats dd.anatomy-stats-lang { font-size: 25px; line-height: 1.9; white-space: nowrap; }
+.anatomy-search-caption { margin: 0 0 8px; color: #bccdd2; font-size: 11px; }
+.anatomy-chips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px 24px; border-top: 1px solid #354b55; }
+.anatomy-chip { display: inline-flex; align-items: center; gap: 9px; padding: 15px 0; color: #c8d6da; font-size: 12px; text-decoration: none; }
+.anatomy-chip span { color: #7ca59f; font: 11px var(--font-display, sans-serif); }
+.anatomy-chip:hover { color: #fff; }
+.anatomy-disclaimer { margin: 0; padding: 14px clamp(24px, 5vw, 80px); border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.anatomy-disclaimer summary { cursor: pointer; color: var(--ink); font-weight: 600; }
+.anatomy-disclaimer summary span { margin-left: 16px; color: var(--muted); font-weight: 400; }
+.anatomy-disclaimer p { max-width: 1000px; margin: 12px 0 0; }
+
+/* 検索候補はヒーローの外へも展開できる。 */
+.anatomy-search { position: relative; display: flex; align-items: center; width: 100%; }
+.anatomy-search-icon { position: absolute; left: 14px; pointer-events: none; font-size: 14px; }
+.anatomy-search-input { width: 100%; min-width: 0; padding: 13px 14px 13px 40px; border: 1px solid #52666d; border-radius: 9px; background: #ffffff0d; color: #fff; font-size: 13px; }
+.anatomy-search-input::placeholder { color: #b7c7cd; }
+.anatomy-search-list, .anatomy-search-empty { position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 20; margin: 0; padding: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--sh); color: var(--ink); text-align: left; }
+.anatomy-search-list { max-height: 340px; overflow-y: auto; }
+.anatomy-search-opt { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border-radius: 7px; text-decoration: none; color: var(--ink); }
+.anatomy-search-opt:hover, .anatomy-search-opt.active { background: var(--soft); }
+.anatomy-search-opt-label { font-size: 13px; font-weight: 600; }
+.anatomy-search-opt-meta { color: var(--muted); font-size: 11px; }
+.anatomy-search-empty { padding: 14px; }
+.anatomy-skip { position: fixed; left: 12px; top: -80px; z-index: 100001; padding: 10px 18px; border-radius: 8px; background: #fff; color: #173e37; }
+.anatomy-skip:focus-visible { top: 12px; }
+
+/* 系統目次と本文。固定ヘッダー・免責バナーの高さも考慮する。 */
+.anatomy-layout { width: 100%; max-width: none; margin: 0 auto; padding: 36px clamp(20px, 4vw, 64px) 24px; display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; align-items: start; }
+.anatomy-sidebar { position: sticky; top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px) + 24px); display: flex; flex-direction: column; gap: 4px; max-height: calc(100dvh - var(--ch-height, 60px) - var(--ch-disclaimer-height, 44px) - 48px); overflow-y: auto; counter-reset: anatomy-nav; }
+.anatomy-sidebar-hdr { padding: 0 12px 14px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.anatomy-nav-a { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 8px; color: var(--muted); font-size: 12px; text-decoration: none; counter-increment: anatomy-nav; }
+.anatomy-nav-a::before { content: counter(anatomy-nav, decimal-leading-zero); color: var(--muted); font: 11px var(--font-display, sans-serif); }
+.anatomy-nav-a:hover { background: var(--surface); color: var(--ink); }
+.anatomy-nav-a.active { background: var(--atl1); color: var(--surface); }
+.anatomy-nav-a.active::before { color: inherit; opacity: .7; }
+.anatomy-main { display: grid; gap: 48px; min-width: 0; padding: 0 0 32px; }
+.anatomy-main > .related-links { margin-top: 0; }
+.anatomy-sec { min-width: 0; scroll-margin-top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px) + 24px); }
+.anatomy-section-heading { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 20px; }
+.anatomy-section-number { flex: 0 0 auto; padding-top: 3px; color: var(--atl3); font: 400 28px/1.4 var(--font-display, sans-serif); }
+.anatomy-sec-title { margin: 0 0 6px; color: var(--ink); font-size: 23px; font-weight: 650; letter-spacing: -.02em; }
+.anatomy-sec-summary { margin: 0; color: var(--muted); font-size: 12px; max-width: 80ch; line-height: 1.9; }
+.anatomy-viewers { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.anatomy-viewers > * { width: 100%; min-width: 0; }
+.anatomy-viewer-loading { padding: 48px 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); color: var(--muted); }
+.anatomy-viewer { min-width: 0; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+
+/* モデルの背景は解剖の色を読みやすい明色に固定する。 */
+.atlas-explorer { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); box-shadow: var(--sh); }
+.atlas-heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 26px; border-bottom: 1px solid var(--line); }
+.atlas-eyebrow { color: var(--atl2); font-size: 9px; margin: 0 0 6px; }
+.atlas-heading h3 { margin: 0; font-size: 18px; letter-spacing: -.025em; font-weight: 600; }
+.atlas-count { color: var(--muted); font: 10px var(--font-display, sans-serif); letter-spacing: .09em; white-space: nowrap; }
+.atlas-overview-grid { display: grid; grid-template-columns: minmax(0, 1fr) 250px; }
+.atlas-stage { position: relative; min-width: 0; background: #eff4f2; }
+.atlas-model { position: relative; min-width: 0; overflow: hidden; background: radial-gradient(ellipse at 50% 38%, #fff 0, #edf3f1 70%, #e3ece8 100%); color: #304b50; }
+.atlas-model model-viewer { display: block; width: 100%; height: 500px; min-height: 340px; --progress-bar-color: #3b8b78; --min-hotspot-opacity: 1; }
+.atlas-camera { display: flex; flex-wrap: wrap; gap: 3px; width: fit-content; max-width: calc(100% - 32px); min-width: 0; margin: 16px; padding: 4px; border: 1px solid #ccd9d4; border-radius: 9px; background: #ffffffed; }
+.atlas-camera button { min-height: 34px; padding: 6px 12px; border: 0; border-radius: 6px; background: transparent; color: #506665; font-size: 11px; cursor: pointer; }
+.atlas-camera button:hover { background: #e7f0eb; }
+.atlas-camera button[aria-pressed="true"] { background: #285d50; color: #fff; }
+.atlas-gesture { margin: 0; padding: 12px 16px; border-top: 1px solid #d8e3dd; color: #59716a; font-size: 10px; text-align: center; }
+.atlas-pin { border: 1px solid #8da99b; border-radius: 6px; padding: 5px 9px; color: #284d40; background: #fffffff5; box-shadow: 0 2px 8px #193e2912; font-size: 10px; cursor: pointer; }
+.atlas-pin:hover, .atlas-pin[aria-pressed="true"] { background: #285d50; color: #fff; }
+.atlas-load { position: absolute; top: 70px; left: 18px; margin: 0; padding: 6px 12px; border-radius: 6px; background: #ffffffeb; color: #3b5f55; font-size: 11px; pointer-events: none; }
+.atlas-error { position: absolute; top: 25%; left: 8%; right: 8%; padding: 20px; border: 1px solid #dcc3b5; border-radius: 12px; background: #fff4ec; color: #773c24; font-size: 13px; }
+.atlas-error button { border: 1px solid #b68e78; border-radius: 6px; padding: 7px 12px; background: #fff; color: #773c24; cursor: pointer; }
+.atlas-controls { padding: 22px 18px; border-left: 1px solid var(--line); background: var(--surface); }
+.atlas-controls h4 { display: flex; align-items: baseline; gap: 8px; margin: 0; font-size: 13px; }
+.atlas-controls h4 span { font-size: 10px; color: var(--muted); font-weight: 400; }
+.atlas-help { margin: 6px 0 16px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.atlas-layer { display: flex; align-items: center; gap: 9px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.atlas-layer input, .atlas-display-options input { width: 16px; height: 16px; flex: 0 0 auto; accent-color: var(--atl2); cursor: pointer; }
+.atlas-swatch { width: 5px; height: 25px; border-radius: 3px; flex-shrink: 0; }
+.atlas-layer button { display: grid; grid-template-columns: 1fr auto; flex: 1; min-width: 0; padding: 0; text-align: left; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+.atlas-layer button strong { font-size: 12px; font-weight: 600; }
+.atlas-layer button span[lang] { grid-column: 1; font-size: 9px; color: var(--muted); }
 .atlas-layer button span[aria-hidden] { grid-column: 2; grid-row: 1 / 3; align-self: center; color: var(--atl2); }
 .atlas-layer button:hover strong { color: var(--atl2); text-decoration: underline; }
-.atlas-display-options { display: grid; gap: 6px; padding: 14px 0; font-size: 11px; }
-.atlas-display-options label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
-.atlas-reset, .atlas-back, .atlas-section-actions button { border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--atl2); padding: 8px 12px; font: inherit; font-size: 12px; cursor: pointer; }
+.atlas-display-options { display: flex; flex-wrap: wrap; gap: 12px 18px; min-width: 0; margin: 0; padding: 0; border: 0; font-size: 11px; }
+.atlas-display-options label { display: inline-flex; align-items: center; gap: 7px; min-height: 30px; cursor: pointer; }
+.atlas-controls .atlas-display-options { flex-direction: column; gap: 3px; padding: 15px 0; }
+.atlas-reset, .atlas-back { padding: 9px 12px; border: 1px solid var(--line); border-radius: 7px; background: var(--soft); color: var(--atl2); font-size: 11px; cursor: pointer; }
 .atlas-reset { width: 100%; }
-.atlas-empty { padding: 12px; font-size: 13px; }
-.atlas-search { padding: 20px 24px; border-top: 1px solid var(--line); }
-.atlas-search-label { display: grid; gap: 6px; color: var(--ink); font-size: 12px; font-weight: 600; }
-.atlas-search-label input { width: 100%; min-width: 0; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 16px; font-weight: 400; }
-.atlas-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; margin-top: 12px; }
-.atlas-coverage { border-top: 1px solid var(--line); padding: 14px 24px; font-size: 12px; color: var(--muted); }
-.atlas-coverage summary { cursor: pointer; color: var(--ink); }
-.atlas-section-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
-.atlas-section-viewer { min-width: 0; }
-.atlas-section-viewer .atlas-display-options { display: flex; flex-wrap: wrap; gap: 16px; }
-.atlas-section-viewer fieldset { min-width: 0; margin: 0; border: 0; }
-.atlas-section-viewer .atlas-camera { margin: 12px; border: 1px solid #d3dfdf; }
-.atlas-section-viewer model-viewer { height: 360px; }
-.atlas-section-viewer :focus-visible { outline: 3px solid #29998d; outline-offset: 3px; }
-.atlas-dialog { width: min(1180px, calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 40px); margin: auto; padding: 0; overflow-y: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); color: var(--ink); box-shadow: 0 24px 100px #0005; overscroll-behavior: contain; }
-.atlas-dialog::backdrop { background: #10272dc9; backdrop-filter: blur(5px); }
-.atlas-dialog-inner { padding: 24px; }
-.atlas-detail-header { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 20px; }
-.atlas-detail-header h2 { margin: 0; font-size: 23px; }
-.atlas-detail-header h2 span { color: var(--muted); font-size: 14px; font-weight: 400; margin-left: 12px; }
-.atlas-close { border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--surface); padding: 10px 15px; white-space: nowrap; cursor: pointer; }
-.atlas-detail-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(280px, 1fr); gap: 24px; }
+.atlas-empty { margin: 0; padding: 14px; color: #304b50; font-size: 12px; }
+.atlas-search { padding: 20px 26px; border-top: 1px solid var(--line); }
+.atlas-search-label { display: grid; gap: 8px; font-size: 11px; color: var(--muted); font-weight: 600; }
+.atlas-search-label input { width: 100%; min-width: 0; padding: 11px 13px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font-size: 16px; }
+.atlas-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px; margin-top: 12px; }
+.atlas-coverage { padding: 14px 26px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.atlas-coverage summary { color: var(--ink); cursor: pointer; }
+.atlas-coverage a { color: var(--atl2); }
+
+/* 系統切替専用。legendを含むfieldset自体にはflexを指定しない。 */
+.atlas-section-group { min-width: 0; }
+.atlas-system-switcher { min-width: 0; margin: 0 0 16px; padding: 0; border: 0; }
+.atlas-system-switcher legend { display: block; float: none; margin: 0 0 8px; padding: 0; color: var(--muted); font-size: 11px; font-weight: 600; }
+.atlas-system-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.atlas-system-options button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 44px; padding: 10px 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-size: 13px; font-weight: 600; white-space: nowrap; cursor: pointer; }
+.atlas-system-options button span[lang] { color: var(--muted); font-size: 10px; font-weight: 400; }
+.atlas-system-options button:hover { border-color: var(--atl3); }
+.atlas-system-options button[aria-pressed="true"] { border-color: var(--atl1); background: var(--atl1); color: var(--surface); }
+.atlas-system-options button[aria-pressed="true"] span[lang] { color: inherit; opacity: .8; }
+.atlas-section-viewer { min-width: 0; padding: 0; overflow: hidden; box-shadow: var(--sh); }
+.atlas-section-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 20px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+.atlas-section-toolbar .atlas-eyebrow { margin: 0; }
+.atlas-section-workspace { display: grid; grid-template-columns: minmax(0, 1fr) 250px; }
+.atlas-section-viewer model-viewer { height: 400px; }
+.atlas-section-parts { min-width: 0; padding: 22px 18px; border-left: 1px solid var(--line); }
+.atlas-section-parts h3 { display: flex; justify-content: space-between; align-items: center; margin: 0; font-size: 13px; font-weight: 600; }
+.atlas-section-parts h3 span { padding: 2px 7px; border-radius: 4px; background: var(--soft); color: var(--muted); font-size: 10px; font-weight: 400; }
+.atlas-part-list { display: flex; flex-wrap: wrap; gap: 7px; min-width: 0; margin: 0; padding: 0; border: 0; overflow: visible; }
+.atlas-section-parts .atlas-part-list { flex-direction: column; }
+.atlas-part-button { display: grid; gap: 2px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-size: 12px; line-height: 1.5; text-align: left; cursor: pointer; }
+.atlas-part-button span[lang] { color: var(--muted); font-size: 10px; font-weight: 400; }
+.atlas-part-button:hover, .atlas-part-button[aria-pressed="true"] { border-color: var(--atl3); background: var(--soft); }
+.atlas-section-actions { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 12px 0 0; }
+.atlas-section-actions button { padding: 4px 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--atl2); font-size: 11px; cursor: pointer; }
+
+/* 全項目を表示したまま、ダイアログ全体だけをスクロールする。 */
+.atlas-dialog { width: min(1180px, calc(100vw - 48px)); max-width: none; max-height: calc(100dvh - 48px); margin: auto; padding: 0; overflow-y: auto; overscroll-behavior: contain; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); box-shadow: 0 32px 100px #091e3860; }
+.atlas-dialog::backdrop { background: #0e2135bb; backdrop-filter: blur(7px); }
+.atlas-dialog-inner { padding: 26px; }
+.atlas-detail-header { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 22px; }
+.atlas-detail-header h2 { margin: 0; font-size: 24px; font-weight: 600; }
+.atlas-detail-header h2 span { margin-left: 12px; color: var(--muted); font-size: 13px; font-weight: 400; }
+.atlas-close { padding: 9px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); white-space: nowrap; cursor: pointer; }
+.atlas-detail-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1fr); gap: 26px; }
 .atlas-detail-grid > div { min-width: 0; }
-.atlas-detail-grid model-viewer { height: min(58vh, 570px); }
-.atlas-part-list { display: flex; flex-wrap: wrap; gap: 6px; overflow: visible; padding: 10px 0; }
-.atlas-part-button { display: grid; gap: 2px; border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; background: var(--surface); color: var(--ink); text-align: left; cursor: pointer; font: inherit; font-size: 12px; line-height: 1.45; }
-.atlas-part-button span[lang] { color: var(--muted); font-size: 10px; }
-.atlas-part-button:hover, .atlas-part-button[aria-pressed="true"] { border-color: var(--atl3); box-shadow: inset 3px 0 var(--atl3); }
-.atlas-description { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 12px; font-size: 13px; }
-.atlas-description h3 { margin: 0 0 15px; font-size: 18px; }
-.atlas-description h3 span { display: block; font-weight: 400; font-size: 13px; color: var(--muted); }
-.atlas-description h4 { font-size: 12px; color: var(--atl2); margin: 16px 0 6px; }
-.atlas-description h4 span { font-weight: 400; margin-left: 8px; }
-.atlas-description p { margin: 8px 0; line-height: 1.85; }
-.atlas-description p[lang] { color: var(--muted); font-size: 12px; line-height: 1.7; }
-.atlas-sources a { margin-left: 8px; font-size: 11px; }
-.atlas-back { margin-top: 12px; }
+.atlas-detail-grid .atlas-model { border-radius: 12px; }
+.atlas-detail-grid .atlas-display-options { margin-bottom: 12px; }
+.atlas-detail-grid model-viewer { height: min(56vh, 540px); }
+.atlas-detail-text .atlas-part-list { margin: 14px 0; }
 .atlas-model-note { color: var(--muted); font-size: 11px; }
-.atlas-explorer :focus-visible, .atlas-dialog :focus-visible, .atlas-section-actions :focus-visible { outline: 3px solid #29998d; outline-offset: 3px; }
-@media (max-width: 760px) {
-  .atlas-heading { display: block; padding: 18px; }
-  .atlas-count { display: block; margin-top: 8px; }
-  .atlas-overview-grid, .atlas-detail-grid { grid-template-columns: 1fr; }
-  .atlas-model model-viewer { height: 420px; min-height: 280px; }
-  .atlas-controls { border-left: 0; border-top: 1px solid var(--line); padding: 16px; }
-  .atlas-layer { min-height: 46px; }
-  .atlas-layer button { grid-template-columns: 90px 1fr auto; align-items: center; }
-  .atlas-layer button span[lang] { grid-column: 2; }
-  .atlas-layer button span[aria-hidden] { grid-column: 3; grid-row: 1; }
-  .atlas-display-options { grid-template-columns: 1fr 1fr; }
-  .atlas-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); border-radius: 12px; }
-  .atlas-dialog-inner { padding: 14px; }
-  .atlas-detail-header { position: sticky; top: -14px; background: var(--surface); z-index: 2; padding: 10px 0; }
-  .atlas-detail-header h2 span { display: block; margin: 0; font-size: 12px; }
-  .atlas-detail-grid model-viewer { height: 340px; }
-  .atlas-search, .atlas-coverage { padding: 16px; }
-  .atlas-pin { font-size: 10px; padding: 3px 6px; }
-}
-/* 重なりやすい正中のラベルを左右へ分け、内部の目印も常時表示する。 */
-.atlas-model model-viewer { --min-hotspot-opacity: 1; }
+.atlas-description { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; }
+.atlas-description h3 { margin: 0 0 16px; font-size: 20px; }
+.atlas-description h3 span { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; font-weight: 400; }
+.atlas-description h4 { margin: 20px 0 8px; color: var(--atl2); font-size: 12px; }
+.atlas-description h4 span { margin-left: 8px; font-weight: 400; }
+.atlas-description p { margin: 8px 0; line-height: 1.9; }
+.atlas-description p[lang] { color: var(--muted); font-size: 12px; }
+.atlas-sources a { margin-left: 8px; color: var(--atl2); font-size: 11px; }
+.atlas-back { margin-top: 12px; }
+
+/* 教育ページへの導線と出典。 */
+.anatomy-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.anatomy-link { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-size: 11px; text-decoration: none; }
+.anatomy-link:hover { color: var(--atl2); text-decoration: underline; }
+.anatomy-link-cat { padding: 2px 7px; border-radius: 4px; background: var(--soft); color: var(--atl2); font-size: 9px; white-space: nowrap; }
+.anatomy-credits { padding: 20px clamp(24px, 5vw, 80px) 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+.anatomy-credits p { margin: 0; }
+.anatomy-credits a { color: var(--atl2); }
+
+/* MRIの資産とスタイルは保持。通常画面ではコンポーネント自体を描画しない。 */
+.anatomy-mri { display: flex; flex-direction: column; gap: 12px; }
+.anatomy-mri-stage, .anatomy-mri-controls { width: min(100%, clamp(320px, 50vw, 520px)); align-self: center; }
+.anatomy-mri-stage { position: relative; overflow: hidden; border-radius: 10px; background: #0b0f12; }
+.anatomy-mri-img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; }
+.anatomy-mri-overlay { position: absolute; inset: 0; pointer-events: none; }
+.anatomy-mri-ov { position: absolute; color: #9ee8d3; font: 11px monospace; }
+.anatomy-mri-ov-series { top: 8px; left: 10px; }
+.anatomy-mri-ov-index { right: 10px; bottom: 8px; }
+.anatomy-mri-controls { display: flex; align-items: center; gap: 8px; }
+.anatomy-mri-btn { width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--atl2); cursor: pointer; }
+.anatomy-mri-range { flex: 1; accent-color: var(--atl3); }
+.anatomy-mri-count, .anatomy-mri-note { color: var(--muted); font-size: 11px; }
+.anatomy-mri-note { margin: 0; }
+.anatomy-viewer-badge { font-size: 11px; color: var(--atl2); }
+.anatomy-mri-empty, .anatomy-viewer-stage { padding: 40px 20px; text-align: center; color: var(--muted); }
+.anatomy-viewer-note { font-size: 12px; }
+
+/* 全体像の正中ラベルを左右に分ける。 */
 .atlas-overview-grid .atlas-pin { min-width: 56px; }
 .atlas-overview-grid [slot="hotspot-brain"] { transform: translate(90px, -10px); }
 .atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-95px, -10px); }
@@ -772,7 +206,63 @@
 .atlas-overview-grid [slot="hotspot-brainstem"] { transform: translate(-100px, 15px); }
 .atlas-overview-grid [slot="hotspot-cervical"] { transform: translate(85px, 20px); }
 .atlas-overview-grid [slot="hotspot-muscles"] { transform: translate(-100px, 25px); }
-@media (max-width: 480px) {
+
+@media (prefers-color-scheme: dark) {
+  .anatomy-accent { --atl1: #b0dccb; --atl2: #8ccfb9; --atl3: #6dbba2; --ink: #e0eae7; --muted: #a1b2af; --line: #354740; --surface: #1b2b2c; --bg: #132124; --soft: #263c38; --sh: 0 12px 36px #00000018; }
+}
+@media (max-width: 1100px) {
+  .anatomy-layout { grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding-inline: 24px; }
+  .atlas-overview-grid, .atlas-section-workspace { grid-template-columns: minmax(0, 1fr) 210px; }
+  .anatomy-hero { gap: 24px 32px; }
+}
+@media (max-width: 900px) {
+  .anatomy-layout { grid-template-columns: minmax(0, 1fr); }
+  .anatomy-sidebar { display: none; }
+  .anatomy-hero { grid-template-columns: minmax(0, 1fr) minmax(260px, .85fr); padding-inline: 24px; }
+  .anatomy-stats > div { padding-inline: 12px; }
+  .anatomy-stats dd { font-size: 32px; }
+  .anatomy-stats dd.anatomy-stats-lang { font-size: 20px; }
+  .atlas-detail-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .anatomy-hero { grid-template-columns: minmax(0, 1fr); padding: 26px 20px 0; gap: 24px; }
+  .anatomy-hero h1 { font-size: 27px; }
+  .anatomy-hero-sub { font-size: 12px; }
+  .anatomy-explore { margin-top: 16px; }
+  .anatomy-stats { margin-bottom: 18px; }
+  .anatomy-chips { gap: 0 18px; padding-block: 6px; }
+  .anatomy-chip { padding-block: 8px; font-size: 11px; }
+  .anatomy-disclaimer { padding: 12px 20px; }
+  .anatomy-disclaimer summary span { display: block; margin: 4px 0 0; }
+  .anatomy-layout { padding: 24px 14px; }
+  .anatomy-main { gap: 36px; }
+  .anatomy-section-heading { gap: 12px; margin-bottom: 16px; }
+  .anatomy-section-number { font-size: 23px; }
+  .anatomy-sec-title { font-size: 20px; }
+  .anatomy-sec-summary { font-size: 11px; }
+  .atlas-heading { padding: 18px; align-items: flex-start; flex-direction: column; gap: 10px; }
+  .atlas-heading h3 { font-size: 16px; }
+  .atlas-overview-grid, .atlas-section-workspace { grid-template-columns: minmax(0, 1fr); }
+  .atlas-model model-viewer { height: 380px; min-height: 280px; }
+  .atlas-camera { margin: 12px; }
+  .atlas-controls, .atlas-section-parts { border-left: 0; border-top: 1px solid var(--line); padding: 18px; }
+  .atlas-layer { min-height: 46px; }
+  .atlas-layer button { grid-template-columns: 90px 1fr auto; align-items: center; }
+  .atlas-layer button span[lang] { grid-column: 2; }
+  .atlas-layer button span[aria-hidden] { grid-column: 3; grid-row: 1; }
+  .atlas-controls .atlas-display-options { flex-direction: row; }
+  .atlas-search, .atlas-coverage { padding: 16px 18px; }
+  .atlas-section-toolbar { padding: 12px 16px; }
+  .atlas-section-parts .atlas-part-list { flex-direction: row; }
+  .atlas-section-parts .atlas-part-button { flex: 1 1 135px; }
+  .atlas-system-options button { flex: 1; padding: 10px 14px; gap: 10px; }
+  .atlas-gesture { padding-inline: 8px; font-size: 9px; }
+  .atlas-dialog { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); border-radius: 14px; }
+  .atlas-dialog-inner { padding: 16px; }
+  .atlas-detail-header { position: sticky; top: -16px; z-index: 2; padding-block: 10px; background: var(--surface); }
+  .atlas-detail-header h2 { font-size: 20px; }
+  .atlas-detail-header h2 span { display: block; margin: 3px 0 0; font-size: 11px; }
+  .atlas-detail-grid model-viewer { height: 340px; }
   .atlas-overview-grid [slot="hotspot-brain"] { transform: translate(60px, -10px); }
   .atlas-overview-grid [slot="hotspot-skull"] { transform: translate(-65px, -10px); }
   .atlas-overview-grid [slot="hotspot-nerves"] { transform: translate(-65px, -8px); }
@@ -780,4 +270,7 @@
   .atlas-overview-grid [slot="hotspot-brainstem"] { transform: translate(-65px, 15px); }
   .atlas-overview-grid [slot="hotspot-cervical"] { transform: translate(65px, 20px); }
   .atlas-overview-grid [slot="hotspot-muscles"] { transform: translate(-65px, 25px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anatomy-accent *, .anatomy-accent *::before, .anatomy-accent *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }

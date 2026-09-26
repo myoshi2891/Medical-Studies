@@ -231,6 +231,8 @@ describe("複数系統を含む欄の表示", () => {
     const secondLayer = ATLAS_LAYERS.find((layer) => layer.id === second);
     if (!firstLayer || !secondLayer) throw new Error("系統がありません");
     const switcher = screen.getByRole("group", { name: `${title}の表示系統` });
+    expect(switcher).toHaveClass("atlas-system-switcher");
+    expect(switcher).not.toHaveClass("atlas-camera");
     const firstButton = within(switcher).getByRole("button", { name: firstLayer.ja });
     const secondButton = within(switcher).getByRole("button", { name: secondLayer.ja });
     expect(firstButton).toHaveAttribute("aria-pressed", "true");
