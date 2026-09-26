@@ -130,7 +130,7 @@ it("神経欄を系統別アトラスに接続し、MRIも保持する", async (
   const { container } = render(<AnatomyPage />);
   await waitFor(() => {
     expect(container.querySelector('#nerves [data-atlas-layer="nerves"]')).not.toBeNull();
+    expect(container.querySelector('#nerves [data-testid="mri-viewer"]')).not.toBeNull();
+    expect(container.querySelector('#vessels [data-src="/models/vessels.glb"]')).not.toBeNull();
   });
-  expect(container.querySelector('#nerves [data-testid="mri-viewer"]')).not.toBeNull();
-  expect(container.querySelector('#vessels [data-src="/models/vessels.glb"]')).not.toBeNull();
 });
