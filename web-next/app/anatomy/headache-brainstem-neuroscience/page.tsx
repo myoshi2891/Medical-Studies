@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./headache-brainstem-neuroscience.css";
 import type { Metadata } from "next";
 import { BrainstemSidebar } from "@/components/anatomy/BrainstemSidebar";
@@ -31,12 +32,30 @@ export default function HeadacheBrainstemNeurosciencePage() {
   return (
     <div className="brainstem-page">
       {/* ヒーロー */}
-      <div className="hero">
-        <div style={{ fontSize: 44 }}>🧠</div>
-        <h1>頭痛と脳・脳幹 ― 国際文献に基づく神経科学的解説</h1>
-        <p className="hero-sub">
-          三叉神経血管系・脳幹核・視床下部・大脳皮質の関与をステップバイステップで学ぶ
-        </p>
+      <header className="hero">
+        <div className="brn-hero-copy">
+          <Link className="brn-breadcrumb" href="/anatomy">
+            ← 頭痛 3D 解剖アトラス
+          </Link>
+          <p className="brn-eyebrow">ANATOMY GUIDE / BRAIN &amp; BRAINSTEM &amp; HEADACHE</p>
+          <h1>頭痛と脳・脳幹 ― 国際文献に基づく神経科学的解説</h1>
+          <p className="hero-sub">
+            三叉神経血管系・脳幹核・視床下部・大脳皮質の関与をステップバイステップで学ぶ
+          </p>
+          <a className="brn-start" href="#s1">
+            脳・脳幹と頭痛のつながりを学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="brn-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>13</dd>
+          </div>
+          <div>
+            <dt>構造・機序の図解</dt>
+            <dd>04</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">三叉神経血管系</span>
           <span className="hero-tag">脳幹</span>
@@ -46,14 +65,19 @@ export default function HeadacheBrainstemNeurosciencePage() {
           <span className="hero-tag">CGRP</span>
           <span className="hero-tag">群発頭痛</span>
         </div>
-      </div>
+      </header>
 
       {/* 免責事項 */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。強い頭痛、突然発症した頭痛、今までと性質の異なる頭痛がある場合は、必ず医療機関を受診してください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。強い頭痛、突然発症した頭痛、今までと性質の異なる頭痛がある場合は、必ず医療機関を受診してください。
+        </p>
+      </details>
 
       {/* レイアウト */}
       <div className="layout">

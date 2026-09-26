@@ -36,12 +36,34 @@ describe("anatomy レイアウト", () => {
     expect(mriContent).toMatch(/align-self:\s*center/);
   });
 
+  it("操作説明を小さくし、3D図解の縦方向の表示領域を広げる", () => {
+    expect(declarationsFor(".atlas-model model-viewer")).toMatch(
+      /height:\s*clamp\(500px,\s*65dvh,\s*720px\)/
+    );
+    expect(declarationsFor(".atlas-section-viewer model-viewer")).toMatch(
+      /height:\s*clamp\(460px,\s*60dvh,\s*640px\)/
+    );
+    expect(declarationsFor(".atlas-gesture")).toMatch(/padding:\s*6px 12px/);
+  });
+
   it("詳細画面の部位一覧を内部スクロールなしで全件表示する", () => {
     const partList = declarationsFor(".atlas-part-list");
 
     expect(partList).toMatch(/overflow:\s*visible/);
     expect(partList).not.toMatch(/max-height/);
     expect(partList).not.toMatch(/overflow-y:\s*auto/);
+  });
+
+  it("系統別の部位一覧と操作説明を詰め、余った高さを図解に割り当てる", () => {
+    expect(declarationsFor(".atlas-section-workspace > .atlas-model")).toMatch(/display:\s*flex/);
+    expect(declarationsFor(".atlas-section-workspace > .atlas-model")).toMatch(
+      /flex-direction:\s*column/
+    );
+    expect(declarationsFor(".atlas-section-viewer model-viewer")).toMatch(/flex:\s*1 0 auto/);
+    expect(declarationsFor(".atlas-section-parts .atlas-part-button")).toMatch(
+      /padding:\s*4px 8px/
+    );
+    expect(declarationsFor(".atlas-section-viewer .atlas-gesture")).toMatch(/padding:\s*2px 8px/);
   });
 
   it("系統切替を視点操作から分離し、長いラベルでも折り返せる", () => {

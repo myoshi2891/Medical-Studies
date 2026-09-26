@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { HeadacheRelatedNervesSidebar } from "@/components/anatomy/HeadacheRelatedNervesSidebar";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
@@ -30,10 +31,28 @@ export default function HeadacheRelatedNervesPage() {
   return (
     <div className="headache-related-nerves">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>🧠</div>
-        <h1>頭痛と神経系</h1>
-        <p className="hero-sub">国際文献にもとづく神経解剖ステップバイステップガイド</p>
+      <header className="hero">
+        <div className="hnv-hero-copy">
+          <Link className="hnv-breadcrumb" href="/anatomy">
+            ← 頭痛 3D 解剖アトラス
+          </Link>
+          <p className="hnv-eyebrow">ANATOMY GUIDE / NERVES &amp; HEADACHE</p>
+          <h1>頭痛と神経系</h1>
+          <p className="hero-sub">国際文献にもとづく神経解剖ステップバイステップガイド</p>
+          <a className="hnv-start" href="#s1">
+            神経と頭痛のつながりを学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="hnv-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>10</dd>
+          </div>
+          <div>
+            <dt>構造・機序の図解</dt>
+            <dd>07</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">三叉神経系</span>
           <span className="hero-tag">後頭神経</span>
@@ -41,13 +60,18 @@ export default function HeadacheRelatedNervesPage() {
           <span className="hero-tag">自律神経反射</span>
           <span className="hero-tag">中枢性感作</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ 学術・教育目的の免責事項</strong> 本資料は<strong>学術・教育目的のみ</strong>
-        を対象とした解説です。個々の症状の診断・治療方針を示すものではありません。実際の頭痛症状については医療機関を受診してください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育目的の資料です</span>
+        </summary>
+        <p>
+          <strong>学術・教育目的の免責事項</strong> 本資料は<strong>学術・教育目的のみ</strong>
+          を対象とした解説です。個々の症状の診断・治療方針を示すものではありません。実際の頭痛症状については医療機関を受診してください。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

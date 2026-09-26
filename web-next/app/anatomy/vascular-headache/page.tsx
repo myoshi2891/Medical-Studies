@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./vascular-headache.css";
 import type { Metadata } from "next";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
@@ -30,12 +31,30 @@ export default function VascularHeadachePage() {
   return (
     <div className="vascular-headache">
       {/* ヒーロー */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🩸</div>
-        <h1>頭痛と血管 ― Vascular Basis of Headache</h1>
-        <p className="hero-sub">
-          国際頭痛分類(ICHD-3)・WHO・AHA/ASA・ACR・NCBI・査読誌にもとづく神経血管メカニズムの解説
-        </p>
+      <header className="hero">
+        <div className="vhd-hero-copy">
+          <Link className="vhd-breadcrumb" href="/anatomy">
+            ← 頭痛 3D 解剖アトラス
+          </Link>
+          <p className="vhd-eyebrow">ANATOMY GUIDE / VASCULATURE &amp; HEADACHE</p>
+          <h1>頭痛と血管 ― Vascular Basis of Headache</h1>
+          <p className="hero-sub">
+            国際頭痛分類(ICHD-3)・WHO・AHA/ASA・ACR・NCBI・査読誌にもとづく神経血管メカニズムの解説
+          </p>
+          <a className="vhd-start" href="#s1">
+            血管と頭痛のつながりを学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="vhd-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>12</dd>
+          </div>
+          <div>
+            <dt>構造・機序の図解</dt>
+            <dd>05</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">三叉神経血管系</span>
           <span className="hero-tag">CGRP</span>
@@ -43,17 +62,22 @@ export default function VascularHeadachePage() {
           <span className="hero-tag">レッドフラッグ</span>
           <span className="hero-tag">国際文献</span>
         </div>
-      </div>
+      </header>
 
       {/* 免責事項 */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-        <strong>
-          突然発症する激しい頭痛や神経症状を伴う頭痛がある場合は、直ちに救急医療機関を受診してください。
-        </strong>
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+          <strong>
+            突然発症する激しい頭痛や神経症状を伴う頭痛がある場合は、直ちに救急医療機関を受診してください。
+          </strong>
+        </p>
+      </details>
 
       {/* レイアウト */}
       <div className="layout">
