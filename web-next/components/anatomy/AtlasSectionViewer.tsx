@@ -8,6 +8,44 @@ import AtlasModel from "./AtlasModel";
 
 const models: Record<string, { center: number[] }> = modelData.parts;
 
+/** 複数系統の欄では表示する系統を選び、ラベル・回転設定は欄内で共有する。 */
+export function AtlasSectionGroup({
+  layers,
+  title,
+}: {
+  layers: [string, ...string[]];
+  title: string;
+}) {
+  const [selected, setSelected] = useState(layers[0]);
+  const layerId = layers.includes(selected) ? selected : layers[0];
+  const options = layers.map((id) => {
+    const layer = ATLAS_LAYERS.find((item) => item.id === id);
+    if (!layer) throw new Error(`未登録のアトラス系統: ${id}`);
+    return layer;
+  });
+
+  return (
+    <div className="atlas-section-viewer">
+      {options.length > 1 && (
+        <fieldset className="atlas-camera" aria-label={`${title}の表示系統`}>
+          <legend>表示する系統</legend>
+          {options.map((layer) => (
+            <button
+              key={layer.id}
+              type="button"
+              aria-pressed={layer.id === layerId}
+              onClick={() => setSelected(layer.id)}
+            >
+              {layer.ja}
+            </button>
+          ))}
+        </fieldset>
+      )}
+      <AtlasSectionViewer layerId={layerId} />
+    </div>
+  );
+}
+
 /** 全体像と同じモデル・座標・部位解説を使う系統別ビューア。 */
 export default function AtlasSectionViewer({ layerId }: { layerId: string }) {
   const [labels, setLabels] = useState(true);

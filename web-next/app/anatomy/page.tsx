@@ -82,13 +82,7 @@ export default function AnatomyPage() {
                 <h2 className="anatomy-sec-title">{s.title}</h2>
                 <p className="anatomy-sec-summary">{s.summary}</p>
 
-                <AnatomyViewers
-                  structureId={s.id}
-                  modelSrc={s.modelSrc}
-                  hotspots={s.hotspots}
-                  mri={s.mri}
-                  title={s.title}
-                />
+                <AnatomyViewers structureId={s.id} mri={s.mri} title={s.title} />
 
                 <nav className="anatomy-links" aria-label={`${s.title} の関連教育ページ`}>
                   {s.links.map((l) => {
