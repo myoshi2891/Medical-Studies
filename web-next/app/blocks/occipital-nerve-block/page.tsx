@@ -25,13 +25,29 @@ export default function OccipitalNerveBlockPage() {
   return (
     <div className="occipital-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🧠</div>
-        <h1>後頭神経ブロック（Occipital Nerve Block: ONB）完全ガイド</h1>
-        <p className="hero-sub">
-          国際エビデンス（ICHD-3 / AAN / IHS / StatPearls 2025）に基づく包括的解説 —
-          初学者向けステップバイステップ
-        </p>
+      <header className="hero">
+        <div className="onb-hero-copy">
+          <p className="onb-breadcrumb">神経ブロック / NERVE BLOCKS</p>
+          <p className="onb-eyebrow">CLINICAL GUIDE / OCCIPITAL NERVE BLOCK</p>
+          <h1>後頭神経ブロック（Occipital Nerve Block: ONB）完全ガイド</h1>
+          <p className="hero-sub">
+            国際エビデンス（ICHD-3 / AAN / IHS / StatPearls 2025）に基づく包括的解説 —
+            初学者向けステップバイステップ
+          </p>
+          <a className="onb-start" href="#s1">
+            後頭神経ブロックの基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="onb-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>17</dd>
+          </div>
+          <div>
+            <dt>解剖・手技の図解</dt>
+            <dd>10</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">大後頭神経（GON / C2）</span>
           <span className="hero-tag">三叉頸椎複合体（TCC）</span>
@@ -39,16 +55,21 @@ export default function OccipitalNerveBlockPage() {
           <span className="hero-tag">エコーガイド下法</span>
           <span className="hero-tag">SNOOP4 安全管理</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。後頭神経ブロックは
-        <strong>侵襲的手技</strong>
-        であり、適切なトレーニング・設備・緊急対応体制を備えた医療専門家のみが実施できます。本資料は個人への医療アドバイス・診断・処方を提供するものではありません。実際の手技は必ず有資格医師の判断のもとで行ってください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。後頭神経ブロックは
+          <strong>侵襲的手技</strong>
+          であり、適切なトレーニング・設備・緊急対応体制を備えた医療専門家のみが実施できます。本資料は個人への医療アドバイス・診断・処方を提供するものではありません。実際の手技は必ず有資格医師の判断のもとで行ってください。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">
