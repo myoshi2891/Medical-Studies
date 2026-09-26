@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ATLAS_LAYERS, ATLAS_PARTS } from "@/lib/anatomy/atlas";
 import modelData from "@/lib/anatomy/atlas-models.json";
 import { AtlasDetail, LabelToggle, PartButton, type Selection } from "./AnatomyAtlas";
@@ -56,6 +56,11 @@ export default function AtlasSectionViewer({ layerId }: { layerId: string }) {
   const [labels, setLabels] = useState(true);
   const [autoRotate, setAutoRotate] = useState(true);
   const [selection, setSelection] = useState<Selection | null>(null);
+  // 動きを減らす設定の利用者には自動回転を初期停止する（SSR との不整合を避けマウント後に判定）
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) setAutoRotate(false);
+  }, []);
   const layer = ATLAS_LAYERS.find((item) => item.id === layerId);
   if (!layer) throw new Error(`未登録のアトラス系統: ${layerId}`);
   const parts = ATLAS_PARTS.filter((part) => part.layer === layerId);

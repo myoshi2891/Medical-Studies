@@ -101,6 +101,8 @@ export default function AtlasModel({
             aria-pressed={view === orbit}
             onClick={() => {
               setView(orbit);
+              // 自動回転で蓄積したモデル自体の回転を戻し、プリセットの向きを正しく表示する
+              ref.current?.resetTurntableRotation?.(0);
               ref.current?.setAttribute("camera-orbit", orbit);
             }}
           >
