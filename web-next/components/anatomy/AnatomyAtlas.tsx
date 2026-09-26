@@ -99,25 +99,20 @@ export function AtlasDetail({ selection, onClose }: { selection: Selection; onCl
               <LabelToggle checked={labels} onChange={setLabels} />
             </div>
             <AtlasModel
-              key={part?.id ?? layer.id}
-              src={`/models/atlas/${part?.id ?? layer.id}.glb`}
-              title={part?.ja ?? layer.ja}
+              src={`/models/atlas/${layer.id}.glb`}
+              title={layer.ja}
               pins={
-                part || !labels
-                  ? []
-                  : parts.map((p) => ({ id: p.id, label: p.ja, position: models[p.id].center }))
+                labels
+                  ? parts.map((p) => ({ id: p.id, label: p.ja, position: models[p.id].center }))
+                  : []
               }
+              selectedPart={part?.id}
               onSelect={setPartId}
             />
-            {part && (
-              <button type="button" className="atlas-back" onClick={() => setPartId(undefined)}>
-                セクション全体に戻る
-              </button>
-            )}
             <p className="atlas-model-note">
               {part
-                ? "選択部位を単独で拡大しています。左右の構造は同時に表示します。"
-                : "部位名を選ぶと、その構造だけを拡大します。"}
+                ? "全体像の中で選択部位を強調表示しています。"
+                : "部位名を選ぶと、全体像の中でその構造を強調表示します。"}
             </p>
           </div>
           <div className="atlas-detail-text">
