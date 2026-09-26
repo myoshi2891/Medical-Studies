@@ -40,6 +40,7 @@ function buildSvg({ rounded, pulseWidth = 28 }) {
     : `<rect width="512" height="512" fill="${BG}"/>`;
   // 十字・パルスとも中心から半径 ~194 以内に収め、maskable の安全領域（半径 204.8）を満たす
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>Medical Studies のアイコン</title>
   ${background}
   <g fill="${ACCENT}">
     <rect x="176" y="80" width="160" height="352" rx="32"/>

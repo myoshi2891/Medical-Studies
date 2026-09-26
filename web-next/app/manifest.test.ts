@@ -53,6 +53,15 @@ describe("app/ のアイコンファイル規約", () => {
     expect(svg).toContain("<svg");
   });
 
+  it("icon.svg の先頭の子要素に空でないアクセシブルなタイトルを持つ", () => {
+    const svg = readFileSync(join(appDir, "icon.svg"), "utf8");
+    const document = new DOMParser().parseFromString(svg, "image/svg+xml");
+    expect(document.querySelector("parsererror")).toBeNull();
+    const title = document.documentElement.firstElementChild;
+    expect(title?.localName).toBe("title");
+    expect(title?.textContent?.trim()).toBeTruthy();
+  });
+
   it("apple-icon.png（iOS 用）が 180x180 である", () => {
     const size = pngSize(readFileSync(join(appDir, "apple-icon.png")));
     expect(size).toEqual({ width: 180, height: 180 });
