@@ -33,17 +33,12 @@ describe("頭頸部の統合アトラス", () => {
     fireEvent.click(labels);
     expect(dialog.querySelectorAll(".atlas-pin")).toHaveLength(0);
     fireEvent.click(within(dialog).getByRole("button", { name: /眼神経.*Ophthalmic/ }));
-    expect(dialog.querySelector("model-viewer")).toHaveAttribute(
-      "src",
-      "/models/atlas/nerves.glb"
-    );
+    expect(dialog.querySelector("model-viewer")).toHaveAttribute("src", "/models/atlas/nerves.glb");
     expect(within(dialog).getByRole("button", { name: /眼神経.*Ophthalmic/ })).toHaveAttribute(
       "aria-pressed",
       "true"
     );
-    expect(
-      within(dialog).queryByRole("button", { name: "セクション全体に戻る" })
-    ).toBeNull();
+    expect(within(dialog).queryByRole("button", { name: "セクション全体に戻る" })).toBeNull();
     expect(labels).not.toBeChecked();
     expect(dialog.querySelectorAll(".atlas-pin")).toHaveLength(0);
     fireEvent.click(labels);
@@ -154,10 +149,7 @@ describe("系統別のアトラス表示", () => {
     trigger.focus();
     fireEvent.click(trigger);
     const dialog = screen.getByRole("dialog");
-    expect(dialog.querySelector("model-viewer")).toHaveAttribute(
-      "src",
-      "/models/atlas/nerves.glb"
-    );
+    expect(dialog.querySelector("model-viewer")).toHaveAttribute("src", "/models/atlas/nerves.glb");
     fireEvent.click(within(dialog).getByRole("button", { name: "閉じる" }));
     expect(trigger).toHaveFocus();
     expect(screen.getByRole("checkbox", { name: "3Dラベルを表示" })).not.toBeChecked();

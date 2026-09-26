@@ -65,11 +65,7 @@ describe("アトラスの描画制御", () => {
     const atlas = material("atlas-c1");
     const axis = material("axis-c2");
     const { container, rerender } = render(
-      <AtlasModel
-        src="/models/atlas/cervical.glb"
-        title="頸椎"
-        selectedPart="atlas-c1"
-      />
+      <AtlasModel src="/models/atlas/cervical.glb" title="頸椎" selectedPart="atlas-c1" />
     );
     const viewer = container.querySelector("model-viewer");
     if (!viewer) throw new Error("ビューアがありません");
@@ -83,9 +79,7 @@ describe("アトラスの描画制御", () => {
       0.2, 0.3, 0.4, 1,
     ]);
 
-    rerender(
-      <AtlasModel src="/models/atlas/cervical.glb" title="頸椎" selectedPart="axis-c2" />
-    );
+    rerender(<AtlasModel src="/models/atlas/cervical.glb" title="頸椎" selectedPart="axis-c2" />);
     expect(atlas.pbrMetallicRoughness.setBaseColorFactor).toHaveBeenLastCalledWith([
       0.2, 0.3, 0.4, 1,
     ]);
