@@ -20,7 +20,10 @@ vi.mock("@/components/anatomy/AnatomyAtlas", () => ({
 }));
 vi.mock("@/components/anatomy/AtlasSectionViewer", () => ({
   default: ({ layerId }: { layerId: string }) => (
-    <div data-testid="model-viewer" data-atlas-layer={layerId} />
+    <div data-testid="model-viewer" data-atlas-layers={layerId} />
+  ),
+  AtlasSectionGroup: ({ layers }: { layers: string[] }) => (
+    <div data-testid="model-viewer" data-atlas-layers={layers.join(",")} />
   ),
 }));
 
@@ -126,11 +129,17 @@ it("総覧に統合アトラスを接続する", () => {
   expect(container.querySelector('#overview [data-atlas="integrated"]')).not.toBeNull();
 });
 
-it("神経欄を系統別アトラスに接続し、MRIも保持する", async () => {
+it.each([
+  ["nerves", "nerves"],
+  ["vessels", "vessels"],
+  ["brain", "brain,brainstem"],
+  ["bones", "skull,cervical"],
+  ["muscles", "muscles"],
+])("%s欄を系統別アトラスに接続し、MRIも保持する", async (id, layers) => {
   const { container } = render(<AnatomyPage />);
   await waitFor(() => {
-    expect(container.querySelector('#nerves [data-atlas-layer="nerves"]')).not.toBeNull();
-    expect(container.querySelector('#nerves [data-testid="mri-viewer"]')).not.toBeNull();
-    expect(container.querySelector('#vessels [data-src="/models/vessels.glb"]')).not.toBeNull();
+    expect(container.querySelector(`#${id} [data-atlas-layers="${layers}"]`)).not.toBeNull();
+    expect(container.querySelector(`#${id} [data-testid="mri-viewer"]`)).not.toBeNull();
+    expect(container.querySelector(`#${id} [data-src]`)).toBeNull();
   });
 });

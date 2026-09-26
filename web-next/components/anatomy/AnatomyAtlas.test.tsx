@@ -3,7 +3,7 @@ import { StrictMode } from "react";
 import { afterEach, beforeAll, describe, expect, it, vi } from "vitest";
 import { ATLAS_LAYERS, ATLAS_PARTS } from "@/lib/anatomy/atlas";
 import AnatomyAtlas from "./AnatomyAtlas";
-import AtlasSectionViewer from "./AtlasSectionViewer";
+import AtlasSectionViewer, { AtlasSectionGroup } from "./AtlasSectionViewer";
 
 vi.mock("@/lib/anatomy/load-model-viewer", () => ({
   loadModelViewer: vi.fn().mockResolvedValue(undefined),
@@ -118,15 +118,23 @@ describe("頭頸部の統合アトラス", () => {
 });
 
 describe("系統別のアトラス表示", () => {
-  it("共通座標の神経モデルを自動回転し、ラベルだけを切り替える", () => {
-    const { container } = render(<AtlasSectionViewer layerId="nerves" />);
+  it.each([
+    "nerves",
+    "vessels",
+    "brain",
+    "brainstem",
+    "skull",
+    "cervical",
+    "muscles",
+  ])("共通座標の%sモデルを自動回転し、ラベルだけを切り替える", (layerId) => {
+    const { container } = render(<AtlasSectionViewer layerId={layerId} />);
     const viewer = container.querySelector("model-viewer");
-    expect(viewer).toHaveAttribute("src", "/models/atlas/nerves.glb");
+    expect(viewer).toHaveAttribute("src", `/models/atlas/${layerId}.glb`);
     expect(viewer).toHaveAttribute("auto-rotate");
     const labels = screen.getByRole("checkbox", { name: "3Dラベルを表示" });
     expect(labels).toBeChecked();
-    const nerveParts = ATLAS_PARTS.filter((p) => p.layer === "nerves");
-    expect(viewer?.querySelectorAll(".atlas-pin")).toHaveLength(nerveParts.length);
+    const parts = ATLAS_PARTS.filter((p) => p.layer === layerId);
+    expect(viewer?.querySelectorAll(".atlas-pin")).toHaveLength(parts.length);
     fireEvent.click(labels);
     expect(container.querySelector("model-viewer")).toBe(viewer);
     expect(viewer?.querySelectorAll(".atlas-pin")).toHaveLength(0);
@@ -134,7 +142,10 @@ describe("系統別のアトラス表示", () => {
     fireEvent.click(screen.getByRole("checkbox", { name: "自動回転" }));
     expect(viewer).not.toHaveAttribute("auto-rotate");
     fireEvent.click(labels);
-    expect(viewer?.querySelectorAll(".atlas-pin")).toHaveLength(nerveParts.length);
+    expect(viewer?.querySelectorAll(".atlas-pin")).toHaveLength(parts.length);
+    expect(viewer).not.toHaveAttribute("auto-rotate");
+    fireEvent.click(screen.getByRole("checkbox", { name: "自動回転" }));
+    expect(viewer).toHaveAttribute("auto-rotate");
     fireEvent.click(screen.getByRole("button", { name: "正面" }));
     expect(viewer).toHaveAttribute("camera-orbit", "0deg 90deg auto");
   });
@@ -168,6 +179,116 @@ describe("系統別のアトラス表示", () => {
       "src",
       "/models/atlas/vessels.glb"
     );
+  });
+
+  it.each(
+    ATLAS_LAYERS
+  )("$jaのラベル非表示・読込失敗でも一覧から詳細を開き、設定とフォーカスを保持する", (layer) => {
+    const { container } = render(<AtlasSectionViewer layerId={layer.id} />);
+    const labels = screen.getByRole("checkbox", { name: "3Dラベルを表示" });
+    fireEvent.click(labels);
+    const viewer = container.querySelector("model-viewer");
+    if (!viewer) throw new Error("ビューアがありません");
+    fireEvent.error(viewer);
+    expect(screen.getByRole("alert")).toBeInTheDocument();
+    const parts = ATLAS_PARTS.filter((part) => part.layer === layer.id);
+    const list = screen.getByRole("group", { name: `${layer.ja}の部位一覧` });
+    expect(within(list).getAllByRole("button")).toHaveLength(parts.length);
+    const trigger = within(list).getAllByRole("button")[0];
+    trigger.focus();
+    fireEvent.click(trigger);
+    const dialog = screen.getByRole("dialog");
+    const detailViewer = dialog.querySelector("model-viewer");
+    const detailLabels = within(dialog).getByRole("checkbox", { name: "3Dラベルを表示" });
+    expect(detailLabels).toBeChecked();
+    fireEvent.click(detailLabels);
+    const nextPart = parts[1];
+    fireEvent.click(within(dialog).getByRole("button", { name: `${nextPart.ja} ${nextPart.en}` }));
+    expect(dialog.querySelector("model-viewer")).toBe(detailViewer);
+    expect(detailViewer).toHaveAttribute("src", `/models/atlas/${layer.id}.glb`);
+    expect(detailViewer?.querySelectorAll(".atlas-pin")).toHaveLength(0);
+    expect(within(dialog).getByText(nextPart.description.ja)).toBeInTheDocument();
+    expect(within(dialog).getByText(nextPart.description.en)).toHaveAttribute("lang", "en");
+    fireEvent(dialog, new Event("cancel", { bubbles: true }));
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(trigger).toHaveFocus();
+    expect(labels).not.toBeChecked();
+    expect(viewer).toHaveAttribute("auto-rotate");
+  });
+});
+
+describe("複数系統を含む欄の表示", () => {
+  it.each([
+    { title: "脳・脳幹", first: "brain", second: "brainstem" },
+    { title: "骨・頚椎", first: "skull", second: "cervical" },
+  ])("$titleを切り替えてもラベル・回転設定を保ち、選択系統の部位だけを表示する", ({
+    title,
+    first,
+    second,
+  }) => {
+    const { container } = render(<AtlasSectionGroup layers={[first, second]} title={title} />);
+    const firstLayer = ATLAS_LAYERS.find((layer) => layer.id === first);
+    const secondLayer = ATLAS_LAYERS.find((layer) => layer.id === second);
+    if (!firstLayer || !secondLayer) throw new Error("系統がありません");
+    const switcher = screen.getByRole("group", { name: `${title}の表示系統` });
+    const firstButton = within(switcher).getByRole("button", { name: firstLayer.ja });
+    const secondButton = within(switcher).getByRole("button", { name: secondLayer.ja });
+    expect(firstButton).toHaveAttribute("aria-pressed", "true");
+    expect(container.querySelector("model-viewer")).toHaveAttribute(
+      "src",
+      `/models/atlas/${first}.glb`
+    );
+    const labels = screen.getByRole("checkbox", { name: "3Dラベルを表示" });
+    const rotation = screen.getByRole("checkbox", { name: "自動回転" });
+    fireEvent.click(labels);
+    fireEvent.click(rotation);
+    fireEvent.click(secondButton);
+    expect(firstButton).toHaveAttribute("aria-pressed", "false");
+    expect(secondButton).toHaveAttribute("aria-pressed", "true");
+    const viewer = container.querySelector("model-viewer");
+    expect(container.querySelectorAll("model-viewer")).toHaveLength(1);
+    expect(viewer).toHaveAttribute("src", `/models/atlas/${second}.glb`);
+    expect(viewer).not.toHaveAttribute("auto-rotate");
+    expect(viewer?.querySelectorAll(".atlas-pin")).toHaveLength(0);
+    expect(labels).not.toBeChecked();
+    expect(rotation).not.toBeChecked();
+    expect(screen.queryByRole("group", { name: `${firstLayer.ja}の部位一覧` })).toBeNull();
+    const parts = ATLAS_PARTS.filter((part) => part.layer === second);
+    const list = screen.getByRole("group", { name: `${secondLayer.ja}の部位一覧` });
+    expect(within(list).getAllByRole("button")).toHaveLength(parts.length);
+    const trigger = within(list).getAllByRole("button")[0];
+    trigger.focus();
+    fireEvent.click(trigger);
+    const dialog = screen.getByRole("dialog");
+    expect(dialog.querySelector("model-viewer")).toHaveAttribute(
+      "src",
+      `/models/atlas/${second}.glb`
+    );
+    expect(within(dialog).getByText(parts[0].description.ja)).toBeInTheDocument();
+    fireEvent.click(within(dialog).getByRole("button", { name: "閉じる" }));
+    expect(trigger).toHaveFocus();
+    fireEvent.click(labels);
+    expect(viewer?.querySelectorAll(".atlas-pin")).toHaveLength(parts.length);
+    fireEvent.click(rotation);
+    expect(viewer).toHaveAttribute("auto-rotate");
+    fireEvent.click(firstButton);
+    expect(container.querySelector("model-viewer")).toHaveAttribute(
+      "src",
+      `/models/atlas/${first}.glb`
+    );
+    expect(labels).toBeChecked();
+    expect(rotation).toBeChecked();
+  });
+
+  it("筋のような単一系統では系統切替を表示せず、ラベルと自動回転を利用できる", () => {
+    const { container } = render(<AtlasSectionGroup layers={["muscles"]} title="筋" />);
+    expect(screen.queryByRole("group", { name: "筋の表示系統" })).toBeNull();
+    expect(container.querySelector("model-viewer")).toHaveAttribute(
+      "src",
+      "/models/atlas/muscles.glb"
+    );
+    expect(screen.getByRole("checkbox", { name: "3Dラベルを表示" })).toBeChecked();
+    expect(screen.getByRole("checkbox", { name: "自動回転" })).toBeChecked();
   });
 });
 
