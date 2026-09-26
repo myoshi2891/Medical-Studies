@@ -460,7 +460,7 @@
 
 /* MRI scrubber — 放射線読影風ステージ */
 .anatomy-mri-stage, .anatomy-mri-controls {
-  width: min(100%, 380px);
+  width: min(100%, clamp(320px, 50vw, 520px));
   align-self: center;
 }
 
