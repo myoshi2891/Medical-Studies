@@ -21,11 +21,14 @@ const MriSliceViewer = dynamic(() => import("@/components/anatomy/MriSliceViewer
   loading: () => <div className="anatomy-viewer-loading">MRI ビューアを読み込み中…</div>,
 });
 
-const AnatomyAtlas = dynamic(() => import("./AnatomyAtlas"), { ssr: false });
+const AnatomyAtlas = dynamic(() => import("@/components/anatomy/AnatomyAtlas"), { ssr: false });
 const AtlasSectionButton = dynamic(
-  () => import("./AnatomyAtlas").then((module) => module.AtlasSectionButton),
+  () => import("@/components/anatomy/AnatomyAtlas").then((module) => module.AtlasSectionButton),
   { ssr: false }
 );
+const AtlasSectionViewer = dynamic(() => import("@/components/anatomy/AtlasSectionViewer"), {
+  ssr: false,
+});
 
 interface AnatomyViewersProps {
   structureId: StructureId;
@@ -63,7 +66,11 @@ export function AnatomyViewers({
             }
           />
           <div className="anatomy-viewers">
-            <ModelViewer src={modelSrc} hotspots={hotspots} title={title} />
+            {structureId === "nerves" ? (
+              <AtlasSectionViewer layerId={structureId} />
+            ) : (
+              <ModelViewer src={modelSrc} hotspots={hotspots} title={title} />
+            )}
             <MriSliceViewer mri={mri} title={title} />
           </div>
         </>

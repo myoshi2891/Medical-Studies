@@ -712,6 +712,12 @@
 .atlas-coverage { border-top: 1px solid var(--line); padding: 14px 24px; font-size: 12px; color: var(--muted); }
 .atlas-coverage summary { cursor: pointer; color: var(--ink); }
 .atlas-section-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+.atlas-section-viewer { min-width: 0; }
+.atlas-section-viewer .atlas-display-options { display: flex; flex-wrap: wrap; gap: 16px; }
+.atlas-section-viewer fieldset { min-width: 0; margin: 0; border: 0; }
+.atlas-section-viewer .atlas-camera { margin: 12px; border: 1px solid #d3dfdf; }
+.atlas-section-viewer model-viewer { height: 360px; }
+.atlas-section-viewer :focus-visible { outline: 3px solid #29998d; outline-offset: 3px; }
 .atlas-dialog { width: min(1180px, calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 40px); margin: auto; padding: 0; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); color: var(--ink); box-shadow: 0 24px 100px #0005; overscroll-behavior: contain; }
 .atlas-dialog::backdrop { background: #10272dc9; backdrop-filter: blur(5px); }
 .atlas-dialog-inner { padding: 24px; }

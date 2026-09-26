@@ -17,6 +17,7 @@ export default function AtlasModel({
   title,
   visible,
   transparent = false,
+  autoRotate = false,
   pins = [],
   onSelect,
 }: {
@@ -24,6 +25,7 @@ export default function AtlasModel({
   title: string;
   visible?: string[];
   transparent?: boolean;
+  autoRotate?: boolean;
   pins?: AtlasPin[];
   onSelect?: (id: string) => void;
 }) {
@@ -100,6 +102,7 @@ export default function AtlasModel({
         alt={`${title}の3Dモデル。ドラッグで回転、ホイールまたはピンチで拡大。`}
         aria-label={`${title}の3Dモデル`}
         camera-controls
+        auto-rotate={autoRotate || undefined}
         camera-orbit={view}
         touch-action="pan-y"
         interaction-prompt="none"
