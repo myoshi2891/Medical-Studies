@@ -53,8 +53,10 @@ export function HeadachePathophysiologySidebar() {
   }, []);
 
   return (
-    <nav className="sidebar">
-      <div className="s-hdr">目次</div>
+    <nav className="sidebar" aria-label="頭痛の病態生理ガイド目次">
+      <div className="s-hdr">
+        このページの目次 <span>{NAV_ITEMS.length}項目</span>
+      </div>
       {NAV_ITEMS.map((item) => (
         <a
           key={item.id}
@@ -62,7 +64,9 @@ export function HeadachePathophysiologySidebar() {
           href={`#${item.id}`}
           aria-current={item.id === activeId ? "location" : undefined}
         >
-          <span className="n-num">{item.num}</span>
+          <span className="n-num" aria-hidden="true">
+            {item.num.padStart(2, "0")}
+          </span>
           {item.label}
         </a>
       ))}

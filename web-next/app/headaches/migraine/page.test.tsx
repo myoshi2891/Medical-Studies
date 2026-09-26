@@ -19,6 +19,29 @@ const TABLE_COUNT = 20;
 const HERO_H1 = "片頭痛（Migraine）完全ガイド";
 
 describe("MigrainePage: 契約（忠実転記）", () => {
+  it("ヒーローから本文へ進め、実際のセクション数・図解数を示す", () => {
+    const { container } = render(<MigrainePage />);
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    expect(container.querySelector("header.hero .mig-breadcrumb")).toHaveTextContent("頭痛疾患");
+    expect(
+      Array.from(container.querySelectorAll(".mig-hero-stats dd"), (item) => item.textContent)
+    ).toEqual(["14", "09"]);
+  });
+
+  it("免責全文を展開でき、目次に項目数と現在位置を示す", () => {
+    const { container } = render(<MigrainePage />);
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育・研究目的");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent(
+      "個人的な医療アドバイス・診断・処方を提供するものではありません。"
+    );
+    expect(container.querySelector(".sidebar .s-hdr")).toHaveTextContent("14項目");
+    expect(container.querySelectorAll('.sidebar [aria-current="location"]')).toHaveLength(1);
+    expect(
+      Array.from(container.querySelectorAll(".sidebar .nav-a"), (item) => item.getAttribute("href"))
+    ).toEqual(SECTION_IDS.map((id) => `#${id}`));
+  });
+
   it("hero の <h1> がソースのページタイトルと一致する", () => {
     const { container } = render(<MigrainePage />);
     const hero = container.querySelector(".hero h1");

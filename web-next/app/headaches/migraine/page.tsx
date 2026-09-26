@@ -24,13 +24,29 @@ export default function MigrainePage() {
   return (
     <div className="migraine-accent">
       {/* HERO */}
-      <div className="hero">
-        <div>🧠</div>
-        <h1>片頭痛（Migraine）完全ガイド</h1>
-        <p className="hero-sub">
-          国際エビデンス（ICHD-3 / AAN / EHF / IHS 2024）に基づく包括的解説 —
-          初学者向けステップバイステップ
-        </p>
+      <header className="hero">
+        <div className="mig-hero-copy">
+          <p className="mig-breadcrumb">頭痛疾患 / HEADACHE DISORDERS</p>
+          <p className="mig-eyebrow">CLINICAL GUIDE / MIGRAINE</p>
+          <h1>片頭痛（Migraine）完全ガイド</h1>
+          <p className="hero-sub">
+            国際エビデンス（ICHD-3 / AAN / EHF / IHS 2024）に基づく包括的解説 —
+            初学者向けステップバイステップ
+          </p>
+          <a className="mig-start" href="#s1">
+            片頭痛の基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="mig-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>14</dd>
+          </div>
+          <div>
+            <dt>構造・治療の図解</dt>
+            <dd>09</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3 準拠</span>
           <span className="hero-tag">Grade A〜U エビデンス表記</span>
@@ -38,14 +54,19 @@ export default function MigrainePage() {
           <span className="hero-tag">SNOOP4 スクリーニング</span>
           <span className="hero-tag">MOH 対策</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">
