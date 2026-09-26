@@ -29,10 +29,10 @@ describe("anatomy レイアウト", () => {
     expect(children).toMatch(/min-width:\s*0/);
   });
 
-  it("MRI画像と操作列を元の表示幅で中央に保つ", () => {
+  it("MRI画像と操作列をデバイス幅に応じた表示幅で中央に保つ", () => {
     const mriContent = declarationsFor(".anatomy-mri-stage, .anatomy-mri-controls");
 
-    expect(mriContent).toMatch(/width:\s*min\(100%,\s*380px\)/);
+    expect(mriContent).toMatch(/width:\s*min\(100%,\s*clamp\(320px,\s*50vw,\s*520px\)\)/);
     expect(mriContent).toMatch(/align-self:\s*center/);
   });
 });
