@@ -1,5 +1,5 @@
-import { render } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { render, waitFor } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { ANATOMY_MANIFEST } from "@/lib/anatomy/manifest";
 import { getRelated } from "@/lib/content/registry";
 import AnatomyPage from "./page";
@@ -18,8 +18,17 @@ vi.mock("@/components/anatomy/AnatomyAtlas", () => ({
   default: () => <div data-testid="model-viewer" data-atlas="integrated" />,
   AtlasSectionButton: () => <button type="button">部位を拡大</button>,
 }));
+vi.mock("@/components/anatomy/AtlasSectionViewer", () => ({
+  default: ({ layerId }: { layerId: string }) => (
+    <div data-testid="model-viewer" data-atlas-layer={layerId} />
+  ),
+}));
 
 const HERO_H1 = "頭痛 3D 解剖アトラス";
+
+afterEach(async () => {
+  await vi.dynamicImportSettled();
+});
 
 describe("AnatomyPage: 契約", () => {
   it("hero の <h1> がページタイトルと一致する", () => {
@@ -46,10 +55,12 @@ describe("AnatomyPage: 契約", () => {
     expect(ids).toEqual(ANATOMY_MANIFEST.map((s) => s.id));
   });
 
-  it("各構造に ModelViewer と MriSliceViewer を配置する", () => {
+  it("各構造に ModelViewer と MriSliceViewer を配置する", async () => {
     const { getAllByTestId } = render(<AnatomyPage />);
-    expect(getAllByTestId("model-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
-    expect(getAllByTestId("mri-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
+    await waitFor(() => {
+      expect(getAllByTestId("model-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
+      expect(getAllByTestId("mri-viewer")).toHaveLength(ANATOMY_MANIFEST.length);
+    });
   });
 
   it("各教育リンクが href に応じたセマンティックカテゴリ(data-cat)を持つ", () => {
@@ -113,4 +124,13 @@ describe("AnatomyPage: 関連ページ導線", () => {
 it("総覧に統合アトラスを接続する", () => {
   const { container } = render(<AnatomyPage />);
   expect(container.querySelector('#overview [data-atlas="integrated"]')).not.toBeNull();
+});
+
+it("神経欄を系統別アトラスに接続し、MRIも保持する", async () => {
+  const { container } = render(<AnatomyPage />);
+  await waitFor(() => {
+    expect(container.querySelector('#nerves [data-atlas-layer="nerves"]')).not.toBeNull();
+  });
+  expect(container.querySelector('#nerves [data-testid="mri-viewer"]')).not.toBeNull();
+  expect(container.querySelector('#vessels [data-src="/models/vessels.glb"]')).not.toBeNull();
 });
