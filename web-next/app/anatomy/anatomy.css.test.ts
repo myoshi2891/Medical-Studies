@@ -28,4 +28,11 @@ describe("anatomy レイアウト", () => {
     expect(children).toMatch(/width:\s*100%/);
     expect(children).toMatch(/min-width:\s*0/);
   });
+
+  it("MRI画像と操作列を元の表示幅で中央に保つ", () => {
+    const mriContent = declarationsFor(".anatomy-mri-stage, .anatomy-mri-controls");
+
+    expect(mriContent).toMatch(/width:\s*min\(100%,\s*380px\)/);
+    expect(mriContent).toMatch(/align-self:\s*center/);
+  });
 });
