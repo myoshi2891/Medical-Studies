@@ -23,7 +23,7 @@ beforeAll(() => {
 });
 
 describe("頭頸部の統合アトラス", () => {
-  it("拡大画面のラベルを隠しても一覧から部位を選べ、戻っても設定を保持する", () => {
+  it("詳細画面のラベルを隠しても一覧から部位を選べ、系統全体の表示を保持する", () => {
     render(<AnatomyAtlas />);
     fireEvent.click(screen.getByRole("button", { name: "神経を拡大" }));
     const dialog = screen.getByRole("dialog");
@@ -35,9 +35,15 @@ describe("頭頸部の統合アトラス", () => {
     fireEvent.click(within(dialog).getByRole("button", { name: /眼神経.*Ophthalmic/ }));
     expect(dialog.querySelector("model-viewer")).toHaveAttribute(
       "src",
-      "/models/atlas/ophthalmic.glb"
+      "/models/atlas/nerves.glb"
     );
-    fireEvent.click(within(dialog).getByRole("button", { name: "セクション全体に戻る" }));
+    expect(within(dialog).getByRole("button", { name: /眼神経.*Ophthalmic/ })).toHaveAttribute(
+      "aria-pressed",
+      "true"
+    );
+    expect(
+      within(dialog).queryByRole("button", { name: "セクション全体に戻る" })
+    ).toBeNull();
     expect(labels).not.toBeChecked();
     expect(dialog.querySelectorAll(".atlas-pin")).toHaveLength(0);
     fireEvent.click(labels);
@@ -61,7 +67,7 @@ describe("頭頸部の統合アトラス", () => {
     fireEvent.click(screen.getByRole("button", { name: "全レイヤーを表示" }));
     expect(toggle).toBeChecked();
   });
-  it("セクションからモーダルを開き、部位を個別拡大して日英の解説を表示する", () => {
+  it("セクションから詳細画面を開き、全体像の選択部位と日英の解説を連動する", () => {
     render(<AnatomyAtlas />);
     fireEvent.click(screen.getByRole("button", { name: "脳幹を拡大" }));
     const dialog = screen.getByRole("dialog");
@@ -71,16 +77,12 @@ describe("頭頸部の統合アトラス", () => {
     expect(part).toBeDefined();
     expect(dialog.querySelector("model-viewer")).toHaveAttribute(
       "src",
-      "/models/atlas/medulla.glb"
+      "/models/atlas/brainstem.glb"
     );
     expect(within(dialog).getByText(part?.description.ja ?? "")).toBeInTheDocument();
     expect(within(dialog).getByText(part?.description.en ?? "")).toHaveAttribute("lang", "en");
     expect(within(dialog).getByText(part?.clinical.ja ?? "")).toBeInTheDocument();
-    fireEvent.click(within(dialog).getByRole("button", { name: "セクション全体に戻る" }));
-    expect(dialog.querySelector("model-viewer")).toHaveAttribute(
-      "src",
-      "/models/atlas/brainstem.glb"
-    );
+    expect(within(dialog).queryByText("脳幹の観察")).toBeNull();
   });
   it("閉じると開いたボタンにフォーカスが戻り、再度開ける", () => {
     render(<AnatomyAtlas />);
@@ -103,7 +105,7 @@ describe("頭頸部の統合アトラス", () => {
     fireEvent.click(screen.getByRole("button", { name: /延髄.*Medulla/ }));
     expect(screen.getByRole("dialog").querySelector("model-viewer")).toHaveAttribute(
       "src",
-      "/models/atlas/medulla.glb"
+      "/models/atlas/brainstem.glb"
     );
     fireEvent.click(within(screen.getByRole("dialog")).getByRole("button", { name: "閉じる" }));
     fireEvent.change(screen.getByRole("searchbox"), { target: { value: "no-such-part" } });
@@ -154,7 +156,7 @@ describe("系統別のアトラス表示", () => {
     const dialog = screen.getByRole("dialog");
     expect(dialog.querySelector("model-viewer")).toHaveAttribute(
       "src",
-      "/models/atlas/ophthalmic.glb"
+      "/models/atlas/nerves.glb"
     );
     fireEvent.click(within(dialog).getByRole("button", { name: "閉じる" }));
     expect(trigger).toHaveFocus();
@@ -172,7 +174,7 @@ describe("系統別のアトラス表示", () => {
     fireEvent.click(screen.getByRole("button", { name: `${part.ja}の位置から拡大` }));
     expect(screen.getByRole("dialog").querySelector("model-viewer")).toHaveAttribute(
       "src",
-      `/models/atlas/${part.id}.glb`
+      "/models/atlas/vessels.glb"
     );
   });
 });

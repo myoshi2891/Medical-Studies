@@ -35,4 +35,12 @@ describe("anatomy レイアウト", () => {
     expect(mriContent).toMatch(/width:\s*min\(100%,\s*clamp\(320px,\s*50vw,\s*520px\)\)/);
     expect(mriContent).toMatch(/align-self:\s*center/);
   });
+
+  it("詳細画面の部位一覧を内部スクロールなしで全件表示する", () => {
+    const partList = declarationsFor(".atlas-part-list");
+
+    expect(partList).toMatch(/overflow:\s*visible/);
+    expect(partList).not.toMatch(/max-height/);
+    expect(partList).not.toMatch(/overflow-y:\s*auto/);
+  });
 });
