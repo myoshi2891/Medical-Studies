@@ -44,6 +44,30 @@ const EXTERNAL_LINK_COUNT = 28;
 const HERO_H1 = "頭痛と血管 ― Vascular Basis of Headache";
 
 describe("VascularHeadachePage: 契約（忠実転記 & 厳格検証）", () => {
+  it("ヒーローからアトラス・本文へ移動でき、実際のセクション数と図解数を示す", () => {
+    const { container } = render(<VascularHeadachePage />);
+    expect(container.querySelector("header.hero a[href='/anatomy']")).not.toBeNull();
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    expect(
+      Array.from(container.querySelectorAll(".vhd-hero-stats dd"), (item) => item.textContent)
+    ).toEqual([
+      String(SECTION_IDS.length).padStart(2, "0"),
+      String(MERMAID_COUNT).padStart(2, "0"),
+    ]);
+  });
+
+  it("免責の全文を展開でき、目次に項目数と現在位置を示す", () => {
+    const { container } = render(<VascularHeadachePage />);
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent("本資料は");
+    const nav = container.querySelector("nav.sidebar");
+    expect(nav).toHaveAttribute("aria-label");
+    expect(nav?.querySelector(".s-hdr")).toHaveTextContent(`${NAV_COUNT}項目`);
+    expect(nav?.querySelectorAll('[aria-current="location"]')).toHaveLength(1);
+    expect(nav?.querySelector('a[href="#s1"]')).toHaveAttribute("aria-current", "location");
+  });
+
   it("hero の <h1> がソースのページタイトルと一致する", () => {
     const { container } = render(<VascularHeadachePage />);
     const hero = container.querySelector(".hero h1");

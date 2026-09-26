@@ -1,5 +1,6 @@
 import "./headache-related-muscles.css";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
@@ -30,12 +31,34 @@ export default function HeadacheRelatedMusclesPage() {
   return (
     <div className="headache-related-muscles">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>💪</div>
-        <h1>頭痛に関連する筋肉</h1>
-        <p className="hero-sub">
-          Muscles and Headache: Evidence-Based Anatomy, Trigger Points &amp; Central Sensitization
-        </p>
+      <header className="hero">
+        <div className="msc-hero-copy">
+          <Link className="msc-breadcrumb" href="/anatomy">
+            ← 頭痛 3D 解剖アトラス
+          </Link>
+          <p className="msc-eyebrow">ANATOMY GUIDE / MUSCLES &amp; HEADACHE</p>
+          <h1>頭痛に関連する筋肉</h1>
+          <p className="hero-sub">
+            Muscles and Headache: Evidence-Based Anatomy, Trigger Points &amp; Central Sensitization
+          </p>
+          <a className="msc-start" href="#s1">
+            筋肉と頭痛のつながりを学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="msc-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>10</dd>
+          </div>
+          <div>
+            <dt>構造・機序の図解</dt>
+            <dd>04</dd>
+          </div>
+          <div>
+            <dt>分類の基準</dt>
+            <dd className="msc-stats-label">ICHD-3</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">Tension-Type Headache</span>
@@ -43,14 +66,19 @@ export default function HeadacheRelatedMusclesPage() {
           <span className="hero-tag">Myofascial Trigger Points</span>
           <span className="hero-tag">Central Sensitization</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。頭痛が持続する、急激に悪化する、今までにない性質の頭痛が起きた場合は、必ず医師の診察を受けてください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。頭痛が持続する、急激に悪化する、今までにない性質の頭痛が起きた場合は、必ず医師の診察を受けてください。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

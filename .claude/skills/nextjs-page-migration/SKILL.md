@@ -74,6 +74,12 @@ typescript `^5`（strict + `noUnusedLocals`） / @biomejs/biome `^2.5.0` / vites
 
 ## セッション開始時に必ず読むファイル
 
+移行とあわせて `/anatomy` 風の画面更新を依頼された場合は、
+[画面更新ガイド](../css-design-system/references/web-next-page-layout.md)を併用する。
+ヒーロー・免責表示・全幅本文・左目次の外観刷新と、医療本文の忠実転記を分けて扱う。
+既存Next.jsページの外観更新だけなら、[デザインスキル](../css-design-system/SKILL.md)を使い、
+移行・新規登録の手順を繰り返さない。
+
 1. **このファイル** — 標準手順と実装パターン
 2. **`.claude/rules/tdd-mandatory-cycle.md`** — TDD コミットワークフロー（Red→Green→Refactor→commit）
 3. **参照実装（アーキタイプ別・既存。新規探索は不要 — まずこれを Read する）**:

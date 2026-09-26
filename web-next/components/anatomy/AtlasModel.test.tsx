@@ -61,6 +61,32 @@ describe("アトラスの描画制御", () => {
       0.2, 0.3, 0.4, 1,
     ]);
   });
+  it("選択部位だけを強調色にし、選択変更時に元の色へ戻す", () => {
+    const atlas = material("atlas-c1");
+    const axis = material("axis-c2");
+    const { container, rerender } = render(
+      <AtlasModel src="/models/atlas/cervical.glb" title="頸椎" selectedPart="atlas-c1" />
+    );
+    const viewer = container.querySelector("model-viewer");
+    if (!viewer) throw new Error("ビューアがありません");
+    Object.defineProperty(viewer, "model", { value: { materials: [atlas, axis] } });
+    fireEvent(viewer, new Event("load"));
+
+    expect(atlas.pbrMetallicRoughness.setBaseColorFactor).toHaveBeenLastCalledWith([
+      0.05, 0.65, 0.58, 1,
+    ]);
+    expect(axis.pbrMetallicRoughness.setBaseColorFactor).toHaveBeenLastCalledWith([
+      0.2, 0.3, 0.4, 1,
+    ]);
+
+    rerender(<AtlasModel src="/models/atlas/cervical.glb" title="頸椎" selectedPart="axis-c2" />);
+    expect(atlas.pbrMetallicRoughness.setBaseColorFactor).toHaveBeenLastCalledWith([
+      0.2, 0.3, 0.4, 1,
+    ]);
+    expect(axis.pbrMetallicRoughness.setBaseColorFactor).toHaveBeenLastCalledWith([
+      0.05, 0.65, 0.58, 1,
+    ]);
+  });
   it("失敗後に再試行し、同じモデルの読込成功まで復帰できる", async () => {
     const { container } = render(<AtlasModel src="/models/atlas/medulla.glb" title="延髄" />);
     const first = container.querySelector("model-viewer");

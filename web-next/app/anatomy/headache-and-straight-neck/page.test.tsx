@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { render } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { getRelated } from "@/lib/content/registry";
@@ -47,6 +49,30 @@ const EXTERNAL_LINK_COUNT = 18;
 const HERO_H1 = "頭痛とストレートネック";
 
 describe("HeadacheAndStraightNeckPage: 契約（忠実転記 & 厳格検証）", () => {
+  it("目次の最小行高にパディングを含め、他ページより縦に膨らませない", () => {
+    const css = readFileSync(join(__dirname, "headache-and-straight-neck.css"), "utf8");
+    const navRule = css.match(/\.straight-neck \.nav-a\s*\{([^}]+)\}/)?.[1];
+    expect(navRule).toMatch(/box-sizing:\s*border-box/);
+  });
+
+  it("ヒーローにアトラス・本文への導線と実際のセクション数・図解数を表示する", () => {
+    const { container } = render(<HeadacheAndStraightNeckPage />);
+    expect(container.querySelector("header.hero a[href='/anatomy']")).not.toBeNull();
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    expect(
+      Array.from(container.querySelectorAll(".sn-hero-stats dd"), (item) => item.textContent)
+    ).toEqual(["09", "03", "ICHD-3"]);
+  });
+
+  it("免責の要点を常時表示し、全文を展開できる", () => {
+    const { container } = render(<HeadacheAndStraightNeckPage />);
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育・研究目的");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent(
+      "すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。"
+    );
+  });
+
   it("hero の <h1> がソースのページタイトルと一致する", () => {
     const { container } = render(<HeadacheAndStraightNeckPage />);
     const hero = container.querySelector(".hero h1");
@@ -109,6 +135,9 @@ describe("HeadacheAndStraightNeckPage: 契約（忠実転記 & 厳格検証）",
     expect(navs).toHaveLength(NAV_COUNT);
     const hrefs = Array.from(navs).map((a) => a.getAttribute("href"));
     expect(hrefs).toEqual(SECTION_IDS.map((id) => `#${id}`));
+    expect(navs[0]).toHaveAttribute("aria-current", "location");
+    expect(container.querySelectorAll('.sidebar [aria-current="location"]')).toHaveLength(1);
+    expect(container.querySelector(".sidebar .s-hdr")).toHaveTextContent("9項目");
   });
 
   it("全 13 個のアラート (.alert) が正確に描画されている", () => {

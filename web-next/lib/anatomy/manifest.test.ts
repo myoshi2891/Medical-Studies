@@ -135,5 +135,7 @@ describe("getStructure", () => {
 
 it("全体像の実モデルと脳幹の説明が統合アトラスに対応する", () => {
   expect(getStructure("overview")?.modelSrc).toBe("/models/atlas/overview.glb");
+  expect(getStructure("overview")?.summary).toContain("全体像の中で選択部位を強調");
+  expect(getStructure("overview")?.summary).not.toContain("部位ごとに拡大");
   expect(getStructure("brain")?.hotspots[0].plain).toContain("上位頸髄");
 });

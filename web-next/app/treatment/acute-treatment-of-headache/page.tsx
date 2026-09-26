@@ -23,10 +23,26 @@ export default function AcuteTreatmentOfHeadachePage() {
   return (
     <div className="acute-treatment-of-headache">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>💊🧠</div>
-        <h1>頭痛の急性期治療の考え方</h1>
-        <p className="hero-sub">薬効群の総論と治療戦略 ― 階層化治療・早期服薬の原則・MOH予防</p>
+      <header className="hero">
+        <div className="ath-hero-copy">
+          <p className="ath-breadcrumb">治療 / TREATMENT</p>
+          <p className="ath-eyebrow">CLINICAL GUIDE / ACUTE HEADACHE TREATMENT</p>
+          <h1>頭痛の急性期治療の考え方</h1>
+          <p className="hero-sub">薬効群の総論と治療戦略 ― 階層化治療・早期服薬の原則・MOH予防</p>
+          <a className="ath-start" href="#s1">
+            急性期治療の考え方を学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="ath-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>07</dd>
+          </div>
+          <div>
+            <dt>治療戦略の図解</dt>
+            <dd>04</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">AHS Consensus 2021</span>
@@ -35,14 +51,19 @@ export default function AcuteTreatmentOfHeadachePage() {
           <span className="hero-tag">Cochrane Library</span>
           <span className="hero-tag">頭痛の診療ガイドライン2021</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

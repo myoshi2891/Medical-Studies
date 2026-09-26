@@ -1,5 +1,6 @@
 import "./bone-related-headache.css";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
 import { Ext } from "@/components/Ext";
 import AutoGlossary from "@/components/glossary/AutoGlossary";
@@ -32,12 +33,34 @@ export default function BoneRelatedHeadachePage() {
   return (
     <div className="bone-related-headache">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 44 }}>🦴</div>
-        <h1>頭痛に関連する骨</h1>
-        <p className="hero-sub">
-          Bone-Related Headache Disorders ― ICHD-3に基づく初学者向けステップバイステップ解説
-        </p>
+      <header className="hero">
+        <div className="bhd-hero-copy">
+          <Link className="bhd-breadcrumb" href="/anatomy">
+            ← 頭痛 3D 解剖アトラス
+          </Link>
+          <p className="bhd-eyebrow">ANATOMY GUIDE / BONE &amp; HEADACHE</p>
+          <h1>頭痛に関連する骨</h1>
+          <p className="hero-sub">
+            Bone-Related Headache Disorders ― ICHD-3に基づく初学者向けステップバイステップ解説
+          </p>
+          <a className="bhd-start" href="#s1">
+            骨と頭痛のつながりを学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="bhd-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>11</dd>
+          </div>
+          <div>
+            <dt>構造・機序の図解</dt>
+            <dd>05</dd>
+          </div>
+          <div>
+            <dt>分類の基準</dt>
+            <dd className="bhd-stats-label">ICHD-3</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">国際頭痛学会 IHS</span>
@@ -45,14 +68,19 @@ export default function BoneRelatedHeadachePage() {
           <span className="hero-tag">顎関節症 TMD</span>
           <span className="hero-tag">頭蓋頸椎移行部</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer(学術免責事項)</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。頭痛が続く、悪化する、または神経症状を伴う場合は、速やかに医療機関を受診してください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer(学術免責事項)</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。頭痛が続く、悪化する、または神経症状を伴う場合は、速やかに医療機関を受診してください。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

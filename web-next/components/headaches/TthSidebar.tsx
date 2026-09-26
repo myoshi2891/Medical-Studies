@@ -75,7 +75,9 @@ export function TthSidebar() {
 
   return (
     <nav className="sidebar" aria-label="緊張型頭痛ガイド目次">
-      <div className="s-hdr">目次</div>
+      <div className="s-hdr">
+        このページの目次 <span>{NAV_ITEMS.length}項目</span>
+      </div>
       {NAV_ITEMS.map((item) => (
         <a
           key={item.id}
@@ -83,7 +85,9 @@ export function TthSidebar() {
           href={`#${item.id}`}
           aria-current={item.id === activeId ? "location" : undefined}
         >
-          <span className="n-num">{item.num}</span>
+          <span className="n-num" aria-hidden="true">
+            {item.num.padStart(2, "0")}
+          </span>
           {item.label}
         </a>
       ))}

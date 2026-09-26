@@ -14,7 +14,7 @@ describe("headache-brainstem-neuroscience.css", () => {
 
   it("セクションだけに外側余白を設定し、見出しにはスクロール余白だけを共有する", () => {
     expect(stylesheet).toMatch(
-      /\.brainstem-page \.sec \{\n {2}margin: 40px 0;\n\}\n\.brainstem-page \.sec,\n\.brainstem-page \.sec-hd \{\n {2}scroll-margin-top: 120px;\n\}/
+      /\.brainstem-page \.sec \{\n {2}margin: 40px 0;\n\}\n\.brainstem-page \.sec,\n\.brainstem-page \.sec-hd \{\n {2}scroll-margin-top: calc\(var\(--ch-height, 60px\) \+ var\(--ch-disclaimer-height, 44px\) \+ 20px\);\n\}/
     );
     expect(stylesheet).toMatch(/\.brainstem-page \.sec-hd \{[\s\S]*?margin-bottom: 20px;/);
   });
