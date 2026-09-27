@@ -33,12 +33,28 @@ export default function HeadachePathophysiologyPage() {
   return (
     <div className="headache-pathophysiology-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🧠</div>
-        <h1>頭痛の病態生理アップデート</h1>
-        <p className="hero-sub">
-          三叉神経血管系・CGRP・皮質拡延性抑制（CSD）— 国際文献に基づくステップバイステップ解説
-        </p>
+      <header className="hero">
+        <div className="pth-hero-copy">
+          <p className="pth-breadcrumb">頭痛疾患 / HEADACHE DISORDERS</p>
+          <p className="pth-eyebrow">CLINICAL GUIDE / HEADACHE PATHOPHYSIOLOGY</p>
+          <h1>頭痛の病態生理アップデート</h1>
+          <p className="hero-sub">
+            三叉神経血管系・CGRP・皮質拡延性抑制（CSD）— 国際文献に基づくステップバイステップ解説
+          </p>
+          <a className="pth-start" href="#s1">
+            頭痛のメカニズムを学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pth-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>12</dd>
+          </div>
+          <div>
+            <dt>構造・治療の図解</dt>
+            <dd>05</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3準拠</span>
           <span className="hero-tag">三叉神経血管系</span>
@@ -46,14 +62,19 @@ export default function HeadachePathophysiologyPage() {
           <span className="hero-tag">皮質拡延性抑制（CSD）</span>
           <span className="hero-tag">教育目的のみ</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

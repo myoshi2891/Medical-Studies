@@ -16,16 +16,37 @@ const ANCHORS: Record<string, string> = {
   cervical: "axis-c2",
   muscles: "scm",
 };
-interface Selection {
+export interface Selection {
   layer: string;
   part?: string;
 }
 
+/** ラベルはモデルの表示・回転から独立して切り替える。 */
+export function LabelToggle({
+  checked,
+  onChange,
+}: {
+  checked: boolean;
+  onChange: (value: boolean) => void;
+}) {
+  return (
+    <label>
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(event) => onChange(event.target.checked)}
+      />
+      3Dラベルを表示
+    </label>
+  );
+}
+
 /** ネイティブdialogのフォーカス制御・背景の不活性化を利用する。 */
-function AtlasDetail({ selection, onClose }: { selection: Selection; onClose: () => void }) {
+export function AtlasDetail({ selection, onClose }: { selection: Selection; onClose: () => void }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [partId, setPartId] = useState(selection.part);
   const [query, setQuery] = useState("");
+  const [labels, setLabels] = useState(true);
   const layer = ATLAS_LAYERS.find((l) => l.id === selection.layer) ?? ATLAS_LAYERS[0];
   const parts = ATLAS_PARTS.filter((p) => p.layer === layer.id);
   const part = parts.find((p) => p.id === partId);
@@ -74,26 +95,24 @@ function AtlasDetail({ selection, onClose }: { selection: Selection; onClose: ()
         </header>
         <div className="atlas-detail-grid">
           <div>
+            <div className="atlas-display-options">
+              <LabelToggle checked={labels} onChange={setLabels} />
+            </div>
             <AtlasModel
-              key={part?.id ?? layer.id}
-              src={`/models/atlas/${part?.id ?? layer.id}.glb`}
-              title={part?.ja ?? layer.ja}
+              src={`/models/atlas/${layer.id}.glb`}
+              title={layer.ja}
               pins={
-                part
-                  ? []
-                  : parts.map((p) => ({ id: p.id, label: p.ja, position: models[p.id].center }))
+                labels
+                  ? parts.map((p) => ({ id: p.id, label: p.ja, position: models[p.id].center }))
+                  : []
               }
+              selectedPart={part?.id}
               onSelect={setPartId}
             />
-            {part && (
-              <button type="button" className="atlas-back" onClick={() => setPartId(undefined)}>
-                セクション全体に戻る
-              </button>
-            )}
             <p className="atlas-model-note">
               {part
-                ? "選択部位を単独で拡大しています。左右の構造は同時に表示します。"
-                : "部位名を選ぶと、その構造だけを拡大します。"}
+                ? "全体像の中で選択部位を強調表示しています。"
+                : "部位名を選ぶと、全体像の中でその構造を強調表示します。"}
             </p>
           </div>
           <div className="atlas-detail-text">
@@ -157,7 +176,7 @@ function AtlasDetail({ selection, onClose }: { selection: Selection; onClose: ()
   );
 }
 
-function PartButton({
+export function PartButton({
   part,
   selected,
   onClick,
@@ -273,14 +292,7 @@ export default function AnatomyAtlas() {
               />
               骨・脳・筋を透過
             </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={labels}
-                onChange={(event) => setLabels(event.target.checked)}
-              />
-              3Dラベルを表示
-            </label>
+            <LabelToggle checked={labels} onChange={setLabels} />
           </div>
           <button type="button" className="atlas-reset" onClick={() => setVisible(ALL_LAYERS)}>
             全レイヤーを表示

@@ -19,6 +19,31 @@ const HERO_H1 = "頭痛の急性期治療の考え方";
 const EXTERNAL_LINKS_COUNT = 48;
 
 describe("AcuteTreatmentOfHeadachePage: 契約（忠実転記）", () => {
+  it("治療カテゴリーのヒーローから本文へ進め、実際の件数を示す", () => {
+    const { container } = render(<AcuteTreatmentOfHeadachePage />);
+    expect(container.querySelector("header.hero .ath-breadcrumb")).toHaveTextContent("治療");
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    expect(
+      Array.from(container.querySelectorAll(".ath-hero-stats dd"), (item) => item.textContent)
+    ).toEqual(["07", "04"]);
+  });
+
+  it("免責全文を展開でき、目次に件数と現在位置を示す", () => {
+    const { container } = render(<AcuteTreatmentOfHeadachePage />);
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育・研究目的");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent(
+      "個人的な医療アドバイス・診断・処方を提供するものではありません。"
+    );
+    const nav = container.querySelector("nav.sidebar");
+    expect(nav).toHaveAttribute("aria-label");
+    expect(nav?.querySelector(".s-hdr")).toHaveTextContent("7項目");
+    expect(nav?.querySelectorAll('[aria-current="location"]')).toHaveLength(1);
+    expect(
+      Array.from(container.querySelectorAll(".sidebar .nav-a"), (item) => item.getAttribute("href"))
+    ).toEqual(SECTION_IDS.map((id) => `#${id}`));
+  });
+
   it("hero の <h1> がソース of ページタイトルと一致する", () => {
     const { container } = render(<AcuteTreatmentOfHeadachePage />);
     const hero = container.querySelector(".hero h1");

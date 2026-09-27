@@ -45,7 +45,9 @@ export function HeadacheRelatedMusclesSidebar() {
 
   return (
     <nav className="sidebar" aria-label="頭痛に関連する筋肉目次">
-      <div className="s-hdr">目次</div>
+      <div className="s-hdr">
+        このページの目次 <span>{NAV_ITEMS.length}項目</span>
+      </div>
       {NAV_ITEMS.map((item) => (
         <a
           key={item.id}
@@ -53,7 +55,9 @@ export function HeadacheRelatedMusclesSidebar() {
           href={`#${item.id}`}
           aria-current={activeId === item.id ? "location" : undefined}
         >
-          <span className="n-num">{item.num}</span>
+          <span className="n-num" aria-hidden="true">
+            {item.num.padStart(2, "0")}
+          </span>
           {item.title}
         </a>
       ))}

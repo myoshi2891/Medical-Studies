@@ -1,11 +1,10 @@
 ---
 name: css-design-system
 description: >
-  Guideline for inheriting the core CSS design system from Migraine.html.
-  Ensures color consistency, layout templates, evidence badge configurations,
-  and prefixing for page-specific styles. Trigger when user says:
-  "デザインシステムを継承", "CSS変数を適用", "Migraine.htmlのデザイン", "CSS共通クラス",
-  "css design system", or "inherit layout".
+  医療教育ページのデザイン継承と画面更新。レガシーHTMLの共通CSS継承、
+  web-nextのヒーロー・免責表示・左サイドバー・全幅本文の改善とカテゴリー別配色に使用する。
+  「anatomyを参考に他画面を変更」「目次をブラッシュアップ」も対象。
+  医療本文の執筆やHTMLからNext.jsへの移行そのものは各専用スキルを使う。
 allowed-tools:
   - Read
   - Write
@@ -13,7 +12,23 @@ allowed-tools:
   - Bash
 ---
 
-# デザインシステム（Migraine.html）継承スキル
+# 医療教育ページのデザイン継承・画面更新
+
+## 対象による手順の選択
+
+| 対象 | 読む手順・参照実装 |
+| --- | --- |
+| `web-next/**` の画面更新 | [画面更新ガイド](references/web-next-page-layout.md)を読み、共通レイアウトと対象カテゴリーの参照実装を確認する |
+| レガシーHTMLの作成・修正 | 以下のレガシーHTML向け規約を使う |
+| HTMLからNext.jsへの移行 | [移行スキル](../nextjs-page-migration/SKILL.md)を使い、外観の刷新も依頼されている場合は画面更新ガイドを併用する |
+
+ページ更新では対象ページにスコープを閉じる。レガシーHTML用のヒーロー配色重複禁止や
+CDN初期化テンプレートを、Next.jsの画面統一に持ち込まない。
+ユーザーが指定したデザイン参照と今回の対象範囲を優先し、他ページへ自動で一括展開しない。
+web-nextでは同じカテゴリー内の配色を揃え、カテゴリー間は色で区別する。
+「同様に対応」の場合も参照元の配色をそのまま流用せず、画面更新ガイドの配色表で対象を選ぶ。
+
+## レガシーHTML向け規約
 
 本リポジトリで作成または編集するすべての頭痛教育コンテンツ HTML は、デザインの権威ソースである `Types-of-headache/html-files/Headaches/Migraine.html` のデザインシステム（CSS 変数・コンポーネント・レイアウト）を厳密に継承しなければならない。
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./headache-and-straight-neck.css";
 import { StraightNeckSidebar } from "@/components/anatomy/StraightNeckSidebar";
 import { RelatedLinks } from "@/components/content/RelatedLinks";
@@ -60,12 +61,34 @@ export default function HeadacheAndStraightNeckPage() {
   return (
     <div className="straight-neck">
       {/* HERO */}
-      <div className="hero">
-        <div>🧠</div>
-        <h1>頭痛とストレートネック</h1>
-        <p className="hero-sub">
-          Forward Head Posture と頭痛の関係 — 国際的エビデンスに基づく教育ガイド
-        </p>
+      <header className="hero">
+        <div className="sn-hero-copy">
+          <Link className="sn-breadcrumb" href="/anatomy">
+            ← 頭痛 3D 解剖アトラス
+          </Link>
+          <p className="sn-eyebrow">ANATOMY GUIDE / POSTURE &amp; HEADACHE</p>
+          <h1>頭痛とストレートネック</h1>
+          <p className="hero-sub">
+            Forward Head Posture と頭痛の関係 — 国際的エビデンスに基づく教育ガイド
+          </p>
+          <a className="sn-start" href="#s1">
+            姿勢と頭痛のつながりを学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="sn-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>09</dd>
+          </div>
+          <div>
+            <dt>構造・機序の図解</dt>
+            <dd>03</dd>
+          </div>
+          <div>
+            <dt>分類の基準</dt>
+            <dd className="sn-stats-label">ICHD-3</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">WHO</span>
@@ -74,14 +97,19 @@ export default function HeadacheAndStraightNeckPage() {
           <span className="hero-tag">Forward Head Posture</span>
           <span className="hero-tag">Evidence-Based</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong> 本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong> 本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

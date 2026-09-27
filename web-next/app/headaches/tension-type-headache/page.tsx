@@ -257,13 +257,29 @@ export default function TensionTypeHeadachePage() {
   return (
     <div className="tth-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 48, marginBottom: 6 }}>💆</div>
-        <h1>緊張型頭痛（Tension-Type Headache）完全ガイド</h1>
-        <p className="hero-sub">
-          初学者から臨床家まで ─ 国際標準エビデンス（ICHD-3 / EFNS 2010 / AAN /
-          Cochrane）に基づく包括的解説
-        </p>
+      <header className="hero">
+        <div className="tth-hero-copy">
+          <p className="tth-breadcrumb">頭痛疾患 / HEADACHE DISORDERS</p>
+          <p className="tth-eyebrow">CLINICAL GUIDE / TENSION-TYPE HEADACHE</p>
+          <h1>緊張型頭痛（Tension-Type Headache）完全ガイド</h1>
+          <p className="hero-sub">
+            初学者から臨床家まで ─ 国際標準エビデンス（ICHD-3 / EFNS 2010 / AAN /
+            Cochrane）に基づく包括的解説
+          </p>
+          <a className="tth-start" href="#s1">
+            緊張型頭痛の基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="tth-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>15</dd>
+          </div>
+          <div>
+            <dt>構造・治療の図解</dt>
+            <dd>08</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3 準拠</span>
           <span className="hero-tag">Grade A〜U エビデンス表記</span>
@@ -272,14 +288,19 @@ export default function TensionTypeHeadachePage() {
           <span className="hero-tag">MOH 対策</span>
           <span className="hero-tag">アミトリプチリン予防療法</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong> 本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong> 本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

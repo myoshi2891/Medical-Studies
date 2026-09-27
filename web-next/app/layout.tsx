@@ -15,6 +15,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   colorScheme: "light dark",
+  // モバイルブラウザのアドレスバー色（ヘッダー背景 --ch-bg と揃える）
+  themeColor: "#0d1117",
 };
 
 /**

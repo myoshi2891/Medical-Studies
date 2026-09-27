@@ -6,12 +6,13 @@ import Link from "next/link";
 import AnatomySearch from "@/components/anatomy/AnatomySearch";
 import { AnatomySidebar } from "@/components/anatomy/AnatomySidebar";
 import { AnatomyViewers } from "@/components/anatomy/AnatomyViewers";
+import { ATLAS_LAYERS, ATLAS_PARTS } from "@/lib/anatomy/atlas";
 import { ANATOMY_MANIFEST } from "@/lib/anatomy/manifest";
 
 export const metadata: Metadata = {
   title: "頭痛 3D 解剖アトラス",
   description:
-    "頭痛に関わる神経・血管・脳・骨・頚椎・筋の解剖を 3D モデルと MRI で学び、各教育ページへ誘導する教育コンテンツ。",
+    "頭痛に関わる神経・血管・脳・骨・頚椎・筋のつながりを、3Dモデルと日英の部位解説で学ぶ解剖アトラス。",
 };
 
 /**
@@ -43,19 +44,42 @@ export default function AnatomyPage() {
 
       {/* HERO */}
       <header className="anatomy-hero">
-        <div className="anatomy-hero-emoji">🧠🦴</div>
-        <h1>頭痛 3D 解剖アトラス</h1>
-        <p className="anatomy-hero-sub">
-          神経・血管・脳・骨・頚椎・筋を立体と MRI で学び、各教育ページへ
-        </p>
-
-        {/* 横断検索（autocomplete）— 目的の解剖へ最短到達する主動線 */}
-        <AnatomySearch />
-
-        {/* 人気カテゴリ・クイックジャンプ（3 クリック以内到達の導線。promp.md ①） */}
+        <div className="anatomy-hero-copy">
+          <p className="anatomy-eyebrow">
+            MEDICAL STUDIES <span>/</span> ANATOMY ATLAS
+          </p>
+          <h1>頭痛 3D 解剖アトラス</h1>
+          <p className="anatomy-hero-sub">
+            構造を知る。つながりが見える。
+            <br />
+            頭頸部をめぐる解剖を、触れて学ぶ3Dアトラス。
+          </p>
+          <a className="anatomy-explore" href="#overview">
+            全体像を探索 <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div className="anatomy-hero-tools">
+          <dl className="anatomy-stats">
+            <div>
+              <dt>系統</dt>
+              <dd>{String(ATLAS_LAYERS.length).padStart(2, "0")}</dd>
+            </div>
+            <div>
+              <dt>解剖構造</dt>
+              <dd>{ATLAS_PARTS.length}</dd>
+            </div>
+            <div>
+              <dt>部位解説</dt>
+              <dd className="anatomy-stats-lang">JA / EN</dd>
+            </div>
+          </dl>
+          <p className="anatomy-search-caption">気になる構造・疾患から探す</p>
+          <AnatomySearch />
+        </div>
         <nav className="anatomy-chips" aria-label="カテゴリへジャンプ">
-          {ANATOMY_MANIFEST.map((s) => (
+          {ANATOMY_MANIFEST.map((s, index) => (
             <a key={s.id} className="anatomy-chip" href={`#${s.id}`}>
+              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
               {s.title}
             </a>
           ))}
@@ -63,12 +87,17 @@ export default function AnatomyPage() {
       </header>
 
       {/* DISCLAIMER */}
-      <div className="anatomy-disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本コンテンツは
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。表示される 3D モデルおよび MRI
-        は代表的な教材であり、特定個人の診断・処方・治療方針を提供するものではありません。実際の診断は必ず有資格医師の判断のもとで行ってください。
-      </div>
+      <details className="anatomy-disclaimer">
+        <summary>
+          このアトラスについて <span>学習・研究用の代表的な解剖モデルです</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本コンテンツは
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。表示される 3D モデル
+          は代表的な教材であり、特定個人の診断・処方・治療方針を提供するものではありません。実際の診断は必ず有資格医師の判断のもとで行ってください。
+        </p>
+      </details>
 
       {/* LAYOUT: 左固定サイドナビ（scroll-spy）＋ 本文 */}
       <div className="anatomy-layout">
@@ -77,18 +106,19 @@ export default function AnatomyPage() {
         {/* SECTIONS */}
         <main id="anatomy-main" className="anatomy-main">
           <AutoGlossary>
-            {ANATOMY_MANIFEST.map((s) => (
+            {ANATOMY_MANIFEST.map((s, index) => (
               <section key={s.id} id={s.id} className="anatomy-sec">
-                <h2 className="anatomy-sec-title">{s.title}</h2>
-                <p className="anatomy-sec-summary">{s.summary}</p>
+                <header className="anatomy-section-heading">
+                  <span className="anatomy-section-number" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h2 className="anatomy-sec-title">{s.title}</h2>
+                    <p className="anatomy-sec-summary">{s.summary}</p>
+                  </div>
+                </header>
 
-                <AnatomyViewers
-                  structureId={s.id}
-                  modelSrc={s.modelSrc}
-                  hotspots={s.hotspots}
-                  mri={s.mri}
-                  title={s.title}
-                />
+                <AnatomyViewers structureId={s.id} mri={s.mri} title={s.title} />
 
                 <nav className="anatomy-links" aria-label={`${s.title} の関連教育ページ`}>
                   {s.links.map((l) => {

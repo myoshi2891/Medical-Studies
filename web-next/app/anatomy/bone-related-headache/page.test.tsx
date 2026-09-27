@@ -43,6 +43,17 @@ const EXTERNAL_LINK_COUNT = 30;
 const HERO_H1 = "頭痛に関連する骨";
 
 describe("BoneRelatedHeadachePage: 契約（忠実転記 & 厳格検証）", () => {
+  it("ヒーローからアトラスと本文へ移動でき、免責事項の全文を開ける", () => {
+    const { container } = render(<BoneRelatedHeadachePage />);
+    expect(container.querySelector("header.hero a[href='/anatomy']")).not.toBeNull();
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")?.textContent).toContain("学術・教育・研究目的");
+    expect(disclaimer?.querySelector("p")?.textContent).toContain(
+      "すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。"
+    );
+  });
+
   it("hero の <h1> がソースのページタイトルと一致する", () => {
     const { container } = render(<BoneRelatedHeadachePage />);
     const hero = container.querySelector(".hero h1");
@@ -99,6 +110,12 @@ describe("BoneRelatedHeadachePage: 契約（忠実転記 & 厳格検証）", () 
     expect(navs).toHaveLength(NAV_COUNT);
     const hrefs = Array.from(navs).map((a) => a.getAttribute("href"));
     expect(hrefs).toEqual(SECTION_IDS.map((id) => `#${id}`));
+    expect(container.querySelector("nav.sidebar")).toHaveAttribute(
+      "aria-label",
+      "このページの目次"
+    );
+    expect(navs[0]).toHaveAttribute("aria-current", "location");
+    expect(container.querySelectorAll('.sidebar [aria-current="location"]')).toHaveLength(1);
   });
 
   it("全 7 個のアラート (.alert) が正確に描画されている", () => {

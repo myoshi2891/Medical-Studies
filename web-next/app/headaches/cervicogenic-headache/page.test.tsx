@@ -21,6 +21,34 @@ const NAV_COUNT = 16;
 const HERO_H1 = "頸原性頭痛（Cervicogenic Headache: CEH）完全ガイド";
 
 describe("CervicogenicHeadachePage: 契約（忠実転記）", () => {
+  it("頭痛カテゴリーのヒーローから本文へ進め、実際の件数を示す", () => {
+    const { container } = render(<CervicogenicHeadachePage />);
+    expect(container.querySelector("header.hero .ceh-breadcrumb")).toHaveTextContent("頭痛疾患");
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    expect(
+      Array.from(container.querySelectorAll(".ceh-hero-stats dd"), (item) => item.textContent)
+    ).toEqual([
+      String(SECTION_IDS.length).padStart(2, "0"),
+      String(MERMAID_COUNT).padStart(2, "0"),
+    ]);
+  });
+
+  it("免責全文を展開でき、目次に件数と現在位置を示す", () => {
+    const { container } = render(<CervicogenicHeadachePage />);
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育・研究目的");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent(
+      "個人的な医療アドバイス・診断・処方を提供するものではありません。"
+    );
+    expect(container.querySelector(".sidebar .s-hdr")).toHaveTextContent(
+      `${SECTION_IDS.length}項目`
+    );
+    expect(container.querySelectorAll('.sidebar [aria-current="location"]')).toHaveLength(1);
+    expect(
+      Array.from(container.querySelectorAll(".sidebar .nav-a"), (item) => item.getAttribute("href"))
+    ).toEqual(SECTION_IDS.map((id) => `#${id}`));
+  });
+
   it("hero の <h1> がソースのページタイトルと一致する", () => {
     const { container } = render(<CervicogenicHeadachePage />);
     const hero = container.querySelector(".hero h1");

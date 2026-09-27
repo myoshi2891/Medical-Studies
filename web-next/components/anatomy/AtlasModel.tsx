@@ -11,23 +11,30 @@ interface AtlasPin {
   position: number[];
 }
 
+const SELECTED_PART_COLOR = [0.05, 0.65, 0.58] as const;
+
 /** 同じ出典座標で生成したGLBを表示し、公開マテリアルAPIで透過を制御する。 */
 export default function AtlasModel({
   src,
   title,
   visible,
   transparent = false,
+  autoRotate = false,
   pins = [],
+  selectedPart,
   onSelect,
 }: {
   src: string;
   title: string;
   visible?: string[];
   transparent?: boolean;
+  autoRotate?: boolean;
   pins?: AtlasPin[];
+  selectedPart?: string;
   onSelect?: (id: string) => void;
 }) {
   const ref = useRef<ModelViewerElement>(null);
+  const originalColors = useRef(new Map<string, [number, number, number]>());
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [attempt, setAttempt] = useState(0);
   const [view, setView] = useState("25deg 80deg auto");
@@ -36,6 +43,7 @@ export default function AtlasModel({
   // biome-ignore lint/correctness/useExhaustiveDependencies: src と attempt はモデル再読込の境界
   useEffect(() => {
     setStatus("loading");
+    originalColors.current.clear();
     const element = ref.current;
     if (!element) return;
     let cancelled = false;
@@ -65,11 +73,18 @@ export default function AtlasModel({
       const layer = ATLAS_LAYERS.find((l) => l.id === part?.layer);
       if (!layer) continue;
       const alpha = visible && !visible.includes(layer.id) ? 0 : transparent ? layer.opacity : 1;
-      const [r, g, b] = material.pbrMetallicRoughness.baseColorFactor;
+      const current = material.pbrMetallicRoughness.baseColorFactor;
+      const original = originalColors.current.get(material.name) ?? [
+        current[0],
+        current[1],
+        current[2],
+      ];
+      originalColors.current.set(material.name, original);
+      const [r, g, b] = material.name === selectedPart ? SELECTED_PART_COLOR : original;
       material.setAlphaMode(alpha < 1 ? "BLEND" : "OPAQUE");
       material.pbrMetallicRoughness.setBaseColorFactor([r, g, b, alpha]);
     }
-  }, [status, visible, transparent]);
+  }, [status, visible, transparent, selectedPart]);
 
   return (
     <div className="atlas-model">
@@ -86,6 +101,8 @@ export default function AtlasModel({
             aria-pressed={view === orbit}
             onClick={() => {
               setView(orbit);
+              // 自動回転で蓄積したモデル自体の回転を戻し、プリセットの向きを正しく表示する
+              ref.current?.resetTurntableRotation?.(0);
               ref.current?.setAttribute("camera-orbit", orbit);
             }}
           >
@@ -100,6 +117,7 @@ export default function AtlasModel({
         alt={`${title}の3Dモデル。ドラッグで回転、ホイールまたはピンチで拡大。`}
         aria-label={`${title}の3Dモデル`}
         camera-controls
+        auto-rotate={autoRotate || undefined}
         camera-orbit={view}
         touch-action="pan-y"
         interaction-prompt="none"
@@ -114,6 +132,7 @@ export default function AtlasModel({
             className="atlas-pin"
             onClick={() => onSelect?.(pin.id)}
             aria-label={`${pin.label}の位置から拡大`}
+            aria-pressed={pin.id === selectedPart}
           >
             {pin.label}
           </button>

@@ -34,26 +34,47 @@ export default function CervicogenicHeadachePage() {
   return (
     <div className="ceh-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🦴</div>
-        <h1>頸原性頭痛（Cervicogenic Headache: CEH）完全ガイド</h1>
-        <p className="hero-sub">
-          国際標準エビデンス（ICHD-3 11.2.1）に基づくステップバイステップ解説
-        </p>
+      <header className="hero">
+        <div className="ceh-hero-copy">
+          <p className="ceh-breadcrumb">頭痛疾患 / HEADACHE DISORDERS</p>
+          <p className="ceh-eyebrow">CLINICAL GUIDE / CERVICOGENIC HEADACHE</p>
+          <h1>頸原性頭痛（Cervicogenic Headache: CEH）完全ガイド</h1>
+          <p className="hero-sub">
+            国際標準エビデンス（ICHD-3 11.2.1）に基づくステップバイステップ解説
+          </p>
+          <a className="ceh-start" href="#s1">
+            頸原性頭痛の基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="ceh-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>16</dd>
+          </div>
+          <div>
+            <dt>構造・治療の図解</dt>
+            <dd>06</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3 11.2.1</span>
           <span className="hero-tag">二次性頭痛</span>
           <span className="hero-tag">三叉神経頸髄複合体</span>
           <span className="hero-tag">理学療法 Grade A</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <p>
+          <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </p>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

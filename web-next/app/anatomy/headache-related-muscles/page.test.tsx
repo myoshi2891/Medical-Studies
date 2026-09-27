@@ -10,6 +10,23 @@ vi.mock("@/components/MermaidDiagram", () => ({
 const SECTION_IDS = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"];
 
 describe("HeadacheRelatedMusclesPage: 契約テスト", () => {
+  it("ヒーローにアトラス・本文への導線と実際のセクション数・図解数を表示する", () => {
+    const { container } = render(<HeadacheRelatedMusclesPage />);
+    expect(container.querySelector("header.hero a[href='/anatomy']")).not.toBeNull();
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    const counts = Array.from(container.querySelectorAll(".msc-hero-stats dd"));
+    expect(counts.map((item) => item.textContent)).toEqual(["10", "04", "ICHD-3"]);
+  });
+
+  it("免責の要点を常時表示し、全文を展開できる", () => {
+    const { container } = render(<HeadacheRelatedMusclesPage />);
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育・研究目的");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent(
+      "頭痛が持続する、急激に悪化する、今までにない性質の頭痛が起きた場合は、必ず医師の診察を受けてください。"
+    );
+  });
+
   it("h1 タイトルが正確に描画される", () => {
     render(<HeadacheRelatedMusclesPage />);
     const h1 = screen.getByRole("heading", { level: 1 });
@@ -68,6 +85,12 @@ describe("HeadacheRelatedMusclesPage: 契約テスト", () => {
     const { container } = render(<HeadacheRelatedMusclesPage />);
     const navLinks = container.querySelectorAll("nav.sidebar a.nav-a");
     expect(navLinks.length).toBe(10);
+    expect(Array.from(navLinks).map((link) => link.getAttribute("href"))).toEqual(
+      SECTION_IDS.map((id) => `#${id}`)
+    );
+    expect(navLinks[0]).toHaveAttribute("aria-current", "location");
+    expect(container.querySelectorAll('.sidebar [aria-current="location"]')).toHaveLength(1);
+    expect(container.querySelector(".sidebar .s-hdr")).toHaveTextContent("10項目");
   });
 
   it("免責事項とフッターが描画される", () => {

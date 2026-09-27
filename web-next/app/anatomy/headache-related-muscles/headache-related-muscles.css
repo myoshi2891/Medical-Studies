@@ -52,144 +52,113 @@
   box-sizing: border-box;
 }
 
-/* Hero */
+/* アトラスと揃えた導入と、全文を展開できる免責表示。 */
 .headache-related-muscles .hero {
-  background: linear-gradient(135deg, #5c1a2e, #8e2748 55%, #c9506f);
-  color: #fff;
-  padding: 52px 28px 40px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+  gap: 28px 56px;
+  padding: 36px clamp(24px, 4vw, 64px) 0;
+  background: #142733;
+  color: #f6faf9;
+  border-bottom: 3px solid #69b9a8;
+  text-align: left;
 }
+.headache-related-muscles .msc-hero-copy { min-width: 0; }
+.headache-related-muscles .msc-breadcrumb { color: #bfd6d3; font-size: 12px; text-decoration: none; }
+.headache-related-muscles .msc-breadcrumb:hover { color: #fff; text-decoration: underline; }
+.headache-related-muscles .msc-eyebrow { margin: 24px 0 10px; color: #a4c8c2; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.headache-related-muscles .hero h1 { margin: 0 0 14px; font-size: clamp(26px, 3.1vw, 44px); font-weight: 700; letter-spacing: -.045em; line-height: 1.4; }
+.headache-related-muscles .hero-sub { margin: 0; color: #bbcbd1; font-size: 14px; line-height: 1.9; }
+.headache-related-muscles .msc-start { display: inline-flex; align-items: center; gap: 28px; margin-top: 22px; padding: 10px 18px; border-radius: 8px; background: #bee7d8; color: #173e37; font-size: 13px; font-weight: 700; text-decoration: none; }
+.headache-related-muscles .msc-start:hover { background: #d2f3e7; }
+.headache-related-muscles .msc-hero-stats { display: grid; grid-template-columns: 1fr 1fr 1.2fr; align-self: center; min-width: 0; }
+.headache-related-muscles .msc-hero-stats > div { display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 18px; border-left: 1px solid #3a505a; }
+.headache-related-muscles .msc-hero-stats dt { color: #adbdc4; font-size: 11px; }
+.headache-related-muscles .msc-hero-stats dd { font-size: 40px; line-height: 1.3; letter-spacing: -.03em; }
+.headache-related-muscles .msc-hero-stats .msc-stats-label { font-size: 24px; line-height: 2.16; white-space: nowrap; }
+.headache-related-muscles .hero-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 14px 0; border-top: 1px solid #354b55; }
+.headache-related-muscles .hero-tag { color: #c8d6da; font-size: 12px; }
+.headache-related-muscles .disclaimer { padding: 14px clamp(24px, 4vw, 64px); border-bottom: 1px solid #dbe3e5; background: #f3f5f4; color: #62717b; font-size: 12px; }
+.headache-related-muscles .disclaimer summary { cursor: pointer; color: #20313d; font-weight: 600; }
+.headache-related-muscles .disclaimer summary span { margin-left: 16px; color: #62717b; font-weight: 400; }
+.headache-related-muscles .disclaimer p { margin: 12px 0 0; width: 100%; max-width: none; line-height: 1.9; }
+.headache-related-muscles .disclaimer strong { color: #20313d; }
+.headache-related-muscles :focus-visible { outline: 3px solid #238b80; outline-offset: 4px; }
 
-.headache-related-muscles .hero h1 {
-  font-size: clamp(20px, 4vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin: 10px 0 8px;
-}
+/* 左端の目次と、残りの画面幅を使う本文。 */
+.headache-related-muscles .layout { display: flex; align-items: flex-start; width: 100%; max-width: none; margin: 0; }
 
-.headache-related-muscles .hero-sub {
-  font-size: 14px;
-  color: #fafafa;
-  margin-bottom: 22px;
-}
-
-.headache-related-muscles .hero-tags {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.headache-related-muscles .hero-tag {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  padding: 3px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-/* Disclaimer */
-.headache-related-muscles .disclaimer {
-  background: linear-gradient(135deg, #fff8e1, #ffecb3);
-  border-left: 5px solid var(--orange);
-  padding: 14px 24px;
-  font-size: 13.5px;
-  color: var(--g8);
-}
-
-.headache-related-muscles .disclaimer strong {
-  color: var(--orange);
-}
-
-/* Layout */
-.headache-related-muscles .layout {
-  display: flex;
-  max-width: 1360px;
-  margin: 0 auto;
-}
-
-/* Sidebar */
+/* 左端の目次。番号と現在位置を明確に区別する。 */
 .headache-related-muscles .sidebar {
   width: 260px;
   flex-shrink: 0;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px));
+  max-height: calc(100dvh - var(--ch-height, 60px) - var(--ch-disclaimer-height, 44px));
   overflow-y: auto;
-  background: #fff;
-  border-right: 1px solid var(--g3);
-  padding: 18px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #b7c9c4 transparent;
+  background: #f5f8f7;
+  border-right: 1px solid #dbe3e5;
+  padding: 24px 12px;
 }
-
-.headache-related-muscles .sidebar::-webkit-scrollbar {
-  width: 3px;
-}
-
-.headache-related-muscles .sidebar::-webkit-scrollbar-thumb {
-  background: var(--g3);
-}
-
 .headache-related-muscles .s-hdr {
-  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 8px 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #dbe3e5;
+  color: #304b50;
+  font-size: 11px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--g6);
-  padding: 0 16px 10px;
+  letter-spacing: .04em;
 }
-
+.headache-related-muscles .s-hdr span { color: #62717b; font-size: 10px; font-weight: 400; }
 .headache-related-muscles .nav-a {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
+  gap: 10px;
+  min-height: 44px;
+  margin-block: 4px;
+  padding: 10px;
+  border-radius: 8px;
   text-decoration: none;
-  color: var(--g8);
-  font-size: 12.5px;
-  transition: all 0.15s;
-  border-left: 3px solid transparent;
-  line-height: 1.4;
+  color: #50636b;
+  font-size: 12px;
+  line-height: 1.6;
 }
-
-.headache-related-muscles .nav-a:hover,
-.headache-related-muscles .nav-a.active {
-  background: var(--g1);
-  border-left-color: var(--msc1);
-  color: var(--msc1);
-}
-
-.headache-related-muscles .nav-a.active {
-  font-weight: 600;
-  background: var(--msc-l);
-}
-
+.headache-related-muscles .nav-a:hover { background: #e5eeea; color: #193d46; }
+.headache-related-muscles .nav-a.active { background: #193d46; color: #fff; font-weight: 600; }
 .headache-related-muscles .n-num {
-  background: var(--g2);
-  color: var(--g6);
-  font-size: 10px;
-  font-weight: 700;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #e5eeea;
+  color: #526e66;
+  font-size: 10px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
+.headache-related-muscles .nav-a.active .n-num { background: #ffffff1a; color: #bee7d8; }
 
 /* Main */
 .headache-related-muscles .main {
   flex: 1;
-  padding: 28px 32px 80px;
+  max-width: none;
+  padding: 32px clamp(20px, 3vw, 48px) 80px;
   min-width: 0;
 }
 
 /* Section */
 .headache-related-muscles .sec {
   margin: 40px 0;
-  scroll-margin-top: 12px;
+  scroll-margin-top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px) + 20px);
 }
 
 .headache-related-muscles .sec-hd {
@@ -551,6 +520,9 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+  .headache-related-muscles .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .headache-related-muscles .msc-hero-stats { max-width: 480px; }
+  .headache-related-muscles .msc-hero-stats > div:first-child { padding-left: 0; border-left: 0; }
   .headache-related-muscles .sidebar {
     display: none;
   }
@@ -558,4 +530,14 @@
   .headache-related-muscles .main {
     padding: 16px 14px 60px;
   }
+}
+
+@media (max-width: 640px) {
+  .headache-related-muscles .hero { padding: 24px 20px 0; }
+  .headache-related-muscles .hero-sub { font-size: 12px; }
+  .headache-related-muscles .msc-hero-stats > div { padding-inline: 12px; }
+  .headache-related-muscles .msc-hero-stats dd { font-size: 32px; }
+  .headache-related-muscles .msc-hero-stats .msc-stats-label { font-size: 20px; }
+  .headache-related-muscles .disclaimer { padding: 12px 20px; }
+  .headache-related-muscles .disclaimer summary span { display: block; margin: 4px 0 0; }
 }

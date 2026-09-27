@@ -45,7 +45,7 @@ const STRUCTURES: AnatomyStructure[] = [
     id: "overview",
     title: "頭頚部の全体像",
     summary:
-      "神経・血管・脳・脳幹・頭蓋骨・頸椎・筋を共通の座標で表示し、部位ごとに拡大して日英で学びます。",
+      "神経・血管・脳・脳幹・頭蓋骨・頸椎・筋を共通の座標で表示し、全体像の中で選択部位を強調して日英で学びます。",
     modelSrc: "/models/atlas/overview.glb",
     hotspots: [],
     mri: BRAIN_SERIES,

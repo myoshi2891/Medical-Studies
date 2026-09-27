@@ -28,6 +28,34 @@ const NAV_COUNT = 17;
 const HERO_H1 = "後頭神経ブロック（Occipital Nerve Block: ONB）完全ガイド";
 
 describe("OccipitalNerveBlockPage: 契約（忠実転記）", () => {
+  it("ブロックカテゴリーのヒーローから本文へ進め、実際の件数を示す", () => {
+    const { container } = render(<OccipitalNerveBlockPage />);
+    expect(container.querySelector("header.hero .onb-breadcrumb")).toHaveTextContent(
+      "神経ブロック"
+    );
+    expect(container.querySelector("header.hero a[href='#s1']")).not.toBeNull();
+    expect(
+      Array.from(container.querySelectorAll(".onb-hero-stats dd"), (item) => item.textContent)
+    ).toEqual(["17", "10"]);
+  });
+
+  it("免責の全文と侵襲的手技の注意を保持し、目次に項目数を示す", () => {
+    const { container } = render(<OccipitalNerveBlockPage />);
+    const disclaimer = container.querySelector("details.disclaimer");
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育・研究目的");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent("侵襲的手技");
+    expect(disclaimer?.querySelector("p")).toHaveTextContent(
+      "適切なトレーニング・設備・緊急対応体制を備えた医療専門家のみが実施できます。"
+    );
+    const nav = container.querySelector("nav.sidebar");
+    expect(nav).toHaveAttribute("aria-label");
+    expect(nav?.querySelector(".s-hdr")).toHaveTextContent("17項目");
+    expect(nav?.querySelectorAll('[aria-current="location"]')).toHaveLength(1);
+    expect(
+      Array.from(container.querySelectorAll(".sidebar .nav-a"), (item) => item.getAttribute("href"))
+    ).toEqual(SECTION_IDS.map((id) => `#${id}`));
+  });
+
   it("hero の <h1> がソースのページタイトルと一致する", () => {
     const { container } = render(<OccipitalNerveBlockPage />);
     const hero = container.querySelector(".hero h1");
