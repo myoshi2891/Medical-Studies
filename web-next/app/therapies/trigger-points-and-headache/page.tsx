@@ -26,13 +26,29 @@ export default function TriggerPointsAndHeadachePage() {
   return (
     <div className="trigger-points-accent">
       {/* HERO */}
-      <div className="hero">
-        <div>🎯</div>
-        <h1>頭痛のトリガーポイント入門</h1>
-        <p className="hero-sub">
-          筋膜性疼痛（トリガーポイント）と頭痛の関係を ICHD-3
-          と国際文献から読み解く、初学者向けステップバイステップガイド
-        </p>
+      <header className="hero">
+        <div className="pt-hero-copy">
+          <p className="pt-breadcrumb">セラピー / THERAPIES</p>
+          <p className="pt-eyebrow">CLINICAL GUIDE / TRIGGER POINTS / HEADACHE</p>
+          <h1>頭痛のトリガーポイント入門</h1>
+          <p className="hero-sub">
+            筋膜性疼痛（トリガーポイント）と頭痛の関係を ICHD-3
+            と国際文献から読み解く、初学者向けステップバイステップガイド
+          </p>
+          <a className="pt-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pt-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>09</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>03</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">緊張型頭痛</span>
@@ -41,17 +57,22 @@ export default function TriggerPointsAndHeadachePage() {
           <span className="hero-tag">SNOOP10</span>
           <span className="hero-tag">エビデンスに基づく医療</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ DisclaimerBanner／学術・教育目的に関する重要事項</strong>　 本ページは
-        <strong>
-          教育・情報提供のみを目的として作成されたものであり、個別の患者に対する診断・治療の推奨ではありません
-        </strong>
-        。 すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。
-        症状がある場合は自己判断せず、医師・理学療法士・鍼灸師等の有資格の医療専門家にご相談ください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="pt-disclaimer-body">
+          <strong>⚠️ DisclaimerBanner／学術・教育目的に関する重要事項</strong>　 本ページは
+          <strong>
+            教育・情報提供のみを目的として作成されたものであり、個別の患者に対する診断・治療の推奨ではありません
+          </strong>
+          。 すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。
+          症状がある場合は自己判断せず、医師・理学療法士・鍼灸師等の有資格の医療専門家にご相談ください。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

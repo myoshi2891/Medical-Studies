@@ -31,13 +31,29 @@ export default function NutritionAndSupplementsPage() {
   return (
     <div className="nutrition-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🌿</div>
-        <h1>頭痛と栄養・サプリメント療法 完全ガイド</h1>
-        <p className="hero-sub">
-          国際エビデンス（ICHD-3 / AAN / EHF / Cochrane / NICE）に基づく包括的解説 —
-          初学者向けステップバイステップ
-        </p>
+      <header className="hero">
+        <div className="pt-hero-copy">
+          <p className="pt-breadcrumb">セラピー / THERAPIES</p>
+          <p className="pt-eyebrow">CLINICAL GUIDE / NUTRITION / SUPPLEMENTS</p>
+          <h1>頭痛と栄養・サプリメント療法 完全ガイド</h1>
+          <p className="hero-sub">
+            国際エビデンス（ICHD-3 / AAN / EHF / Cochrane / NICE）に基づく包括的解説 —
+            初学者向けステップバイステップ
+          </p>
+          <a className="pt-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pt-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>12</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>08</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">Mg・B2・CoQ10 コアトリオ</span>
           <span className="hero-tag">Grade A〜U エビデンス表記</span>
@@ -45,17 +61,22 @@ export default function NutritionAndSupplementsPage() {
           <span className="hero-tag">MOH 統合評価</span>
           <span className="hero-tag">薬剤相互作用チェック</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は国際的に認定された文献・ガイドラインに基づいていますが、個人の医療診断・処方・治療の代替とはなりません。臨床応用の前に必ず資格を持つ医療専門家（神経内科・頭痛専門医）にご相談ください。
-        <br />
-        <strong>参照基準</strong>: ICHD-3 | AAN | EHF | IHS 2024 | NICE CG150 | Cochrane Library |
-        WHO | PubMed
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="pt-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は国際的に認定された文献・ガイドラインに基づいていますが、個人の医療診断・処方・治療の代替とはなりません。臨床応用の前に必ず資格を持つ医療専門家（神経内科・頭痛専門医）にご相談ください。
+          <br />
+          <strong>参照基準</strong>: ICHD-3 | AAN | EHF | IHS 2024 | NICE CG150 | Cochrane Library |
+          WHO | PubMed
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

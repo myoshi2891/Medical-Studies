@@ -31,13 +31,29 @@ export default function PsychologicalBehavioralTherapyPage() {
   return (
     <div className="psychological-behavioral-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🌙</div>
-        <h1>頭痛の心理・行動療法 完全ガイド</h1>
-        <p className="hero-sub">
-          国際エビデンス（ICHD-3 / AAN / EHF / Cochrane / NICE）に基づく包括的解説 —
-          初学者向けステップバイステップ
-        </p>
+      <header className="hero">
+        <div className="pt-hero-copy">
+          <p className="pt-breadcrumb">セラピー / THERAPIES</p>
+          <p className="pt-eyebrow">CLINICAL GUIDE / PSYCHOLOGICAL / BEHAVIORAL THERAPY</p>
+          <h1>頭痛の心理・行動療法 完全ガイド</h1>
+          <p className="hero-sub">
+            国際エビデンス（ICHD-3 / AAN / EHF / Cochrane / NICE）に基づく包括的解説 —
+            初学者向けステップバイステップ
+          </p>
+          <a className="pt-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pt-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>14</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>08</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3 準拠</span>
           <span className="hero-tag">CBT・バイオフィードバック</span>
@@ -45,16 +61,21 @@ export default function PsychologicalBehavioralTherapyPage() {
           <span className="hero-tag">SNOOP4 必須</span>
           <span className="hero-tag">MOH 対策</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。内容は ICHD-3 / AAN / EHF / IHS 2024 / NICE CG150 / Cochrane / WHO /
-        PubMed
-        に基づく国際的に認定された文献に準拠していますが、個人の医療診断・処方・治療の代替にはなりません。臨床への適用前に、必ず資格を有する医療専門家（神経内科・頭痛専門医・臨床心理士）にご相談ください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="pt-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。内容は ICHD-3 / AAN / EHF / IHS 2024 / NICE CG150 / Cochrane / WHO /
+          PubMed
+          に基づく国際的に認定された文献に準拠していますが、個人の医療診断・処方・治療の代替にはなりません。臨床への適用前に、必ず資格を有する医療専門家（神経内科・頭痛専門医・臨床心理士）にご相談ください。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">
