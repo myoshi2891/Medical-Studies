@@ -33,10 +33,26 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
   return (
     <div className="accommodations-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>🤝</div>
-        <h1>職場・学校での頭痛への対処と周囲の理解</h1>
-        <p className="hero-sub">合理的配慮の一般論｜国際的な枠組みとエビデンスに基づく解説</p>
+      <header className="hero">
+        <div className="ath-hero-copy">
+          <p className="ath-breadcrumb">治療 / TREATMENT</p>
+          <p className="ath-eyebrow">CLINICAL GUIDE / WORKPLACE / SCHOOL SUPPORT</p>
+          <h1>職場・学校での頭痛への対処と周囲の理解</h1>
+          <p className="hero-sub">合理的配慮の一般論｜国際的な枠組みとエビデンスに基づく解説</p>
+          <a className="ath-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="ath-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>08</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>03</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">職場の合理的配慮</span>
           <span className="hero-tag">学校の合理的配慮</span>
@@ -45,14 +61,19 @@ export default function HeadacheWorkplaceSchoolAccommodationsPage() {
           <span className="hero-tag">障害者差別解消法（日本）</span>
           <span className="hero-tag">スティグマと開示</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="ath-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

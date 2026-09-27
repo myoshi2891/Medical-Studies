@@ -32,12 +32,28 @@ export default function HeadacheTriggerIdentificationGuidePage() {
   return (
     <div className="headache-trigger-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>🔍</div>
-        <h1>頭痛トリガーの特定と管理</h1>
-        <p className="hero-sub">
-          記録から振り返りまでの実践ガイド ― 前兆症状との混同を避け、エビデンスに基づいて振り返る
-        </p>
+      <header className="hero">
+        <div className="ath-hero-copy">
+          <p className="ath-breadcrumb">治療 / TREATMENT</p>
+          <p className="ath-eyebrow">CLINICAL GUIDE / HEADACHE TRIGGERS</p>
+          <h1>頭痛トリガーの特定と管理</h1>
+          <p className="hero-sub">
+            記録から振り返りまでの実践ガイド ― 前兆症状との混同を避け、エビデンスに基づいて振り返る
+          </p>
+          <a className="ath-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="ath-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>10</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>03</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">頭痛ダイアリー</span>
@@ -45,14 +61,20 @@ export default function HeadacheTriggerIdentificationGuidePage() {
           <span className="hero-tag">エビデンスベース</span>
           <span className="hero-tag">初学者向け</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ DisclaimerBanner（学術・教育目的の免責事項）</strong>
-        　本ページは教育目的の一般的な情報提供であり、<strong>個別の治療推奨ではありません</strong>
-        。頭痛の診断・トリガーの特定・生活習慣の変更については、自己判断で完結させず、必ず医師・医療専門家にご相談ください。本ページの内容は特定の方法の効果や安全性を保証するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="ath-disclaimer-body">
+          <strong>⚠️ DisclaimerBanner（学術・教育目的の免責事項）</strong>
+          　本ページは教育目的の一般的な情報提供であり、
+          <strong>個別の治療推奨ではありません</strong>
+          。頭痛の診断・トリガーの特定・生活習慣の変更については、自己判断で完結させず、必ず医師・医療専門家にご相談ください。本ページの内容は特定の方法の効果や安全性を保証するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">
