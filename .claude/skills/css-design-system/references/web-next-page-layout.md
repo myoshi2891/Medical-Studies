@@ -8,8 +8,8 @@
 
 | 用途 | 参照先 |
 | --- | --- |
-| 全体の外観、ヒーロー、余白、レスポンシブ | `web-next/app/anatomy/page.tsx` と `anatomy.css` |
-| 教育ページへの適用例 | `web-next/app/anatomy/bone-related-headache/page.tsx` と `bone-related-headache.css` |
+| 全体の外観、ヒーロー、余白、レスポンシブ | `web-next/app/anatomy/page.tsx` と `web-next/app/anatomy/anatomy.css` |
+| 教育ページへの適用例 | `web-next/app/anatomy/bone-related-headache/page.tsx` と `web-next/app/anatomy/bone-related-headache/bone-related-headache.css` |
 | 左目次、現在位置の表示 | `web-next/components/headaches/BoneRelatedHeadacheSidebar.tsx` |
 | 本文保持・導線の契約 | `web-next/app/anatomy/bone-related-headache/page.test.tsx` |
 
