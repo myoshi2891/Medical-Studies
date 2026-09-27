@@ -61,6 +61,9 @@ export default function OccipitalNerveBlockPage() {
       <details className="disclaimer">
         <summary>
           このガイドについて <span>学術・教育・研究目的の資料です</span>
+          <span>
+            <strong>侵襲的手技のため、医療専門家のみが実施できます</strong>
+          </span>
         </summary>
         <p>
           <strong>Academic Disclaimer（学術免責事項）</strong>　本資料は
