@@ -44,131 +44,118 @@
 }
 
 /* Hero */
+/* PROMは記録・振り返りをイメージしたシアンと水色で揃える。 */
+.headache-diary-accent .hero,
+.headache-diary-accent .disclaimer,
+.headache-diary-accent .layout,
+.headache-diary-accent .sidebar,
+.headache-diary-accent .main { box-sizing: border-box; }
 .headache-diary-accent .hero {
-  background: linear-gradient(135deg, var(--diary1), var(--diary2) 55%, var(--diary3));
-  color: #fff;
-  padding: 52px 28px 40px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+  gap: 28px 56px;
+  padding: 36px clamp(24px, 4vw, 64px) 0;
+  background: linear-gradient(125deg, #104451, #176b7c);
+  color: #f5fdff;
+  border-bottom: 3px solid #7fd2df;
+  text-align: left;
 }
-.headache-diary-accent .hero h1 {
-  font-size: clamp(20px, 4vw, 38px);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin: 10px 0 8px;
-}
-.headache-diary-accent .hero-sub {
-  font-size: 1rem;
-  color: #fafafa;
-  margin-bottom: 22px;
-}
-.headache-diary-accent .hero-tags {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.headache-diary-accent .hero-tag {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-  padding: 3px 12px;
-  border-radius: 20px;
-  font-size: 1rem;
-  font-weight: 500;
-}
+.headache-diary-accent .diary-hero-copy { min-width: 0; }
+.headache-diary-accent .diary-breadcrumb { margin: 0; color: #d0f0f5; font-size: 12px; text-decoration: none; }
+.headache-diary-accent .diary-eyebrow { margin: 24px 0 10px; color: #c6edf2; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+.headache-diary-accent .hero h1 { margin: 0 0 14px; font-size: clamp(26px, 3.1vw, 44px); font-weight: 700; letter-spacing: -.045em; line-height: 1.4; }
+.headache-diary-accent .hero-sub { margin: 0; color: #d7f0f4; font-size: 14px; line-height: 1.9; }
+.headache-diary-accent .diary-start { display: inline-flex; align-items: center; gap: 28px; margin-top: 22px; padding: 10px 18px; border-radius: 8px; background: #d4f3f7; color: #14515f; font-size: 13px; font-weight: 700; text-decoration: none; }
+.headache-diary-accent .diary-start:hover { background: #eefcff; }
+.headache-diary-accent .diary-hero-stats { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-self: center; min-width: 0; }
+.headache-diary-accent .diary-hero-stats > div { display: flex; flex-direction: column-reverse; gap: 4px; padding: 0 18px; border-left: 1px solid #5396a3; }
+.headache-diary-accent .diary-hero-stats dt { color: #d0edf2; font-size: 11px; }
+.headache-diary-accent .diary-hero-stats dd { margin: 0; font-size: 40px; line-height: 1.3; letter-spacing: -.03em; }
+.headache-diary-accent .diary-hero-stats .diary-stats-label { font-size: 24px; line-height: 2.16; white-space: nowrap; }
+.headache-diary-accent .hero-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 14px 0; border-top: 1px solid #5396a3; }
+.headache-diary-accent .hero-tag { color: #d9f2f5; font-size: 12px; }
+.headache-diary-accent .disclaimer { padding: 14px clamp(24px, 4vw, 64px); border-bottom: 1px solid #cfe5e9; background: #f1f9fb; color: #4b6b73; font-size: 12px; }
+.headache-diary-accent .disclaimer summary { cursor: pointer; color: #244f59; font-weight: 600; }
+.headache-diary-accent .disclaimer summary span { margin-left: 16px; color: #4b6b73; font-weight: 400; }
+.headache-diary-accent .disclaimer p { margin: 12px 0 0; width: 100%; max-width: none; line-height: 1.9; }
+.headache-diary-accent .disclaimer strong { color: #244f59; }
+.headache-diary-accent :focus-visible { outline: 3px solid #318999; outline-offset: 4px; }
 
-/* Disclaimer */
-.headache-diary-accent .disclaimer {
-  background: linear-gradient(135deg, #fff8e1, #ffecb3);
-  border-left: 5px solid var(--orange);
-  padding: 14px 24px;
-  font-size: 1rem;
-  color: var(--g8);
-}
-.headache-diary-accent .disclaimer strong {
-  color: var(--orange);
-}
+/* 左端の目次と、残りの画面幅を使う本文。 */
+.headache-diary-accent .layout { display: flex; align-items: flex-start; width: 100%; max-width: none; margin: 0; }
 
-/* Layout */
-.headache-diary-accent .layout {
-  display: flex;
-  max-width: 1360px;
-  margin: 0 auto;
-}
-
-/* Sidebar */
+/* 左端の目次。番号と現在位置を明確に区別する。 */
 .headache-diary-accent .sidebar {
   width: 260px;
   flex-shrink: 0;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px));
+  max-height: calc(100dvh - var(--ch-height, 60px) - var(--ch-disclaimer-height, 44px));
   overflow-y: auto;
-  background: #fff;
-  border-right: 1px solid var(--g3);
-  padding: 18px 0;
-}
-.headache-diary-accent .sidebar::-webkit-scrollbar {
-  width: 3px;
-}
-.headache-diary-accent .sidebar::-webkit-scrollbar-thumb {
-  background: var(--g3);
+  scrollbar-width: thin;
+  scrollbar-color: #afd3da transparent;
+  background: #f4fafc;
+  border-right: 1px solid #cfe5e9;
+  padding: 24px 12px;
 }
 .headache-diary-accent .s-hdr {
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--g6);
-  padding: 0 16px 10px;
-}
-.headache-diary-accent .nav-a {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
-  padding: 6px 16px;
-  text-decoration: none;
-  color: var(--g8);
-  font-size: 1rem;
-  transition: all 0.15s;
-  border-left: 3px solid transparent;
-  line-height: 1.4;
-}
-.headache-diary-accent .nav-a:hover,
-.headache-diary-accent .nav-a.active {
-  background: var(--g1);
-  border-left-color: var(--diary1);
-  color: var(--diary1);
-}
-.headache-diary-accent .nav-a.active {
-  font-weight: 600;
-  background: var(--diary-l);
-}
-.headache-diary-accent .n-num {
-  background: var(--g2);
-  color: var(--g6);
-  font-size: 1rem;
+  margin: 0 8px 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #cfe5e9;
+  color: #2e5e69;
+  font-size: 11px;
   font-weight: 700;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+  letter-spacing: .04em;
+}
+.headache-diary-accent .s-hdr span { color: #4b6b73; font-size: 10px; font-weight: 400; }
+.headache-diary-accent .nav-a {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-block: 4px;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #456a73;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.headache-diary-accent .nav-a:hover { background: #dff1f5; color: #187184; }
+.headache-diary-accent .nav-a.active { background: #187184; color: #fff; font-weight: 600; }
+.headache-diary-accent .n-num {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #dff1f5;
+  color: #4a6e77;
+  font-size: 10px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
+.headache-diary-accent .nav-a.active .n-num { background: #ffffff1a; color: #d4f3f7; }
 
 /* Main */
 .headache-diary-accent .main {
   flex: 1;
-  padding: 28px 32px 80px;
+  max-width: none;
+  padding: 32px clamp(20px, 3vw, 48px) 80px;
   min-width: 0;
 }
 
 /* Section */
 .headache-diary-accent .sec {
   margin: 40px 0;
-  scroll-margin-top: 12px;
+  scroll-margin-top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px) + 20px);
 }
 .headache-diary-accent .sec-hd {
   display: flex;
@@ -414,6 +401,11 @@
   box-shadow: var(--sh);
   margin: 18px 0;
   overflow-x: auto;
+}
+/* SVGはブロック要素として描画されるため、自動余白で図だけを中央に置く。 */
+.headache-diary-accent .mmd pre.mermaid > svg {
+  display: block;
+  margin-inline: auto;
 }
 .headache-diary-accent .mmd-lbl {
   font-size: 1rem;
@@ -671,12 +663,12 @@
 .headache-diary-accent .menu-toggle {
   display: none;
   position: fixed;
-  top: 12px;
+  top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px) + 12px);
   left: 12px;
   z-index: 1002;
   align-items: center;
   gap: 6px;
-  background: var(--diary1);
+  background: #187184;
   color: #fff;
   border: none;
   padding: 9px 14px;
@@ -687,7 +679,7 @@
   box-shadow: var(--sh);
 }
 .headache-diary-accent .menu-toggle:focus-visible {
-  outline: 3px solid var(--diary-l);
+  outline: 3px solid #318999;
   outline-offset: 2px;
 }
 .headache-diary-accent .nav-backdrop {
@@ -704,7 +696,8 @@
 @media (max-width: 900px) {
   .headache-diary-accent .sidebar {
     position: fixed;
-    top: 0;
+    top: calc(var(--ch-height, 60px) + var(--ch-disclaimer-height, 44px));
+    padding-top: 72px;
     left: 0;
     transform: translateX(-100%);
     transition: transform 0.25s ease;
@@ -725,3 +718,21 @@
     padding: 64px 14px 60px;
   }
 }
+
+@media (max-width: 900px) {
+  .headache-diary-accent .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .headache-diary-accent .diary-hero-stats { max-width: 480px; }
+  .headache-diary-accent .diary-hero-stats > div:first-child { padding-left: 0; border-left: 0; }
+
+}
+
+@media (max-width: 640px) {
+  .headache-diary-accent .hero { padding: 24px 20px 0; }
+  .headache-diary-accent .hero-sub { font-size: 12px; }
+  .headache-diary-accent .diary-hero-stats > div { padding-inline: 12px; }
+  .headache-diary-accent .diary-hero-stats dd { font-size: 32px; }
+  .headache-diary-accent .diary-hero-stats .diary-stats-label { font-size: 20px; }
+  .headache-diary-accent .disclaimer { padding: 12px 20px; }
+  .headache-diary-accent .disclaimer summary span { display: block; margin: 4px 0 0; }
+}
+.headache-diary-accent .diary-disclaimer-body { margin: 12px 0 0; width: 100%; max-width: none; line-height: 1.9; }

@@ -1,0 +1,84 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { describe, expect, it } from "vitest";
+
+const css = readFileSync(join(__dirname, "headache-diary.css"), "utf8");
+
+function rule(selector: string): string {
+  const start = css.indexOf(`.headache-diary-accent ${selector} {`);
+  expect(start).toBeGreaterThanOrEqual(0);
+  return css.slice(start, css.indexOf("}", start));
+}
+
+function luminance(hex: string): number {
+  const channels = hex.match(/[a-f\d]{2}/gi)?.map((part) => {
+    const value = Number.parseInt(part, 16) / 255;
+    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+  });
+  if (channels?.length !== 3) throw new Error("6桁の色指定が必要です");
+  return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+}
+
+describe("頭痛日誌ページの配色", () => {
+  it("ヒーローを落ち着いた濃さにし、明るい文字で読みやすさを保つ", () => {
+    const backgrounds =
+      rule(".hero")
+        .match(/background:\s*([^;]+)/)?.[1]
+        .match(/#[a-f\d]{6}/gi) ?? [];
+    expect(backgrounds).toHaveLength(2);
+    for (const background of backgrounds) {
+      expect(luminance(background)).toBeLessThan(0.2);
+      for (const selector of [
+        ".hero",
+        ".diary-breadcrumb",
+        ".diary-eyebrow",
+        ".hero-sub",
+        ".diary-hero-stats dt",
+        ".hero-tag",
+      ]) {
+        const foreground = rule(selector).match(/(?:;|\s)color:\s*(#[a-f\d]{6})/i)?.[1];
+        if (!foreground) throw new Error("ヒーローの文字色が必要です");
+        expect(
+          (luminance(foreground) + 0.05) / (luminance(background) + 0.05)
+        ).toBeGreaterThanOrEqual(4.5);
+      }
+    }
+  });
+
+  it("ヒーローと現在位置に、記録・評価をイメージしたシアン系を使う", () => {
+    for (const selector of [".hero", ".nav-a.active"]) {
+      const background = rule(selector).match(/background:\s*([^;]+)/)?.[1] ?? "";
+      const colors = background.match(/#[a-f\d]{6}/gi) ?? [];
+      expect(colors.length).toBeGreaterThan(0);
+      for (const color of colors) {
+        const red = Number.parseInt(color.slice(1, 3), 16);
+        const green = Number.parseInt(color.slice(3, 5), 16);
+        const blue = Number.parseInt(color.slice(5, 7), 16);
+        expect(blue).toBeGreaterThan(green);
+        expect(green).toBeGreaterThan(red);
+      }
+    }
+  });
+
+  it("開始ボタンと目次の通常・ホバー・現在位置で文字のコントラストを確保する", () => {
+    for (const [foreground, background] of [
+      [".diary-start", ".diary-start"],
+      [".diary-start", ".diary-start:hover"],
+      [".nav-a", ".sidebar"],
+      [".nav-a:hover", ".nav-a:hover"],
+      [".nav-a.active", ".nav-a.active"],
+      [".n-num", ".n-num"],
+    ]) {
+      const text = rule(foreground).match(/(?:;|\s)color:\s*(#[a-f\d]+)/i)?.[1];
+      const fill = rule(background).match(/background:\s*(#[a-f\d]+)/i)?.[1];
+      const expand = (value: string | undefined) => {
+        if (!value) throw new Error("文字色と背景色が必要です");
+        return value.length === 4 ? value.replace(/[a-f\d]/gi, "$&$&") : value;
+      };
+      const values = [luminance(expand(text)), luminance(expand(fill))];
+      expect((Math.max(...values) + 0.05) / (Math.min(...values) + 0.05)).toBeGreaterThanOrEqual(
+        4.5
+      );
+    }
+  });
+});

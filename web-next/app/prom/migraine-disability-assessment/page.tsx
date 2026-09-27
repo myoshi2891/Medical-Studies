@@ -23,26 +23,47 @@ export default function MigraineDisabilityAssessmentPage() {
   return (
     <div className="migraine-disability-assessment-accent">
       {/* HERO */}
-      <div className="hero">
-        <div>📊</div>
-        <h1>MIDAS（片頭痛障害評価スコア）完全リファレンスガイド</h1>
-        <p className="hero-sub">
-          頭痛による機能損失日数を3ヵ月単位で定量化する国際標準PRO — 初学者から臨床家まで
-        </p>
+      <header className="hero">
+        <div className="diary-hero-copy">
+          <p className="diary-breadcrumb">記録・評価 / PROM</p>
+          <p className="diary-eyebrow">PATIENT-REPORTED OUTCOMES / MIGRAINE DISABILITY / MIDAS</p>
+          <h1>MIDAS（片頭痛障害評価スコア）完全リファレンスガイド</h1>
+          <p className="hero-sub">
+            頭痛による機能損失日数を3ヵ月単位で定量化する国際標準PRO — 初学者から臨床家まで
+          </p>
+          <a className="diary-start" href="#s1">
+            評価指標の基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="diary-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>16</dd>
+          </div>
+          <div>
+            <dt>記録・評価の図解</dt>
+            <dd>03</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">PRO</span>
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">Disability</span>
           <span className="hero-tag">CGRP</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>
-        　本資料は<strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="diary-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>
+          　本資料は<strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">
