@@ -23,7 +23,7 @@ const NAV_ITEMS: readonly NavItem[] = [
   { id: "s15", num: "15", label: "適応別エビデンスレビュー" },
   { id: "s16", num: "16", label: "アウトカム評価指標" },
   { id: "s17", num: "17", label: "参考文献・公式リソース" },
-  { id: "s18", num: "★", label: "まとめ — 10ポイント" },
+  { id: "s18", num: "18", label: "まとめ — 10ポイント" },
 ];
 
 /**
@@ -63,15 +63,20 @@ export function CpbSidebar() {
   }, []);
 
   return (
-    <nav className="sidebar">
-      <div className="s-hdr">目次</div>
+    <nav className="sidebar" aria-label="頚神経叢ブロックガイド目次">
+      <div className="s-hdr">
+        このページの目次 <span>{NAV_ITEMS.length}項目</span>
+      </div>
       {NAV_ITEMS.map((item) => (
         <a
           key={item.id}
           className={item.id === activeId ? "nav-a active" : "nav-a"}
           href={`#${item.id}`}
+          aria-current={item.id === activeId ? "location" : undefined}
         >
-          <span className="n-num">{item.num}</span>
+          <span className="n-num" aria-hidden="true">
+            {item.num.padStart(2, "0")}
+          </span>
           {item.label}
         </a>
       ))}

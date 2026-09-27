@@ -23,12 +23,28 @@ export default function NumericalRatingScaleVisualAnalogueScalePage() {
   return (
     <div className="nrs-vas-accent">
       {/* HERO */}
-      <div className="hero">
-        <div>📏</div>
-        <h1>VAS / NRS（視覚的アナログスケール / 数値評価スケール）</h1>
-        <p className="hero-sub">
-          疼痛強度評価の理論・実践・頭痛医学への応用 — 初学者向けステップバイステップ
-        </p>
+      <header className="hero">
+        <div className="diary-hero-copy">
+          <p className="diary-breadcrumb">記録・評価 / PROM</p>
+          <p className="diary-eyebrow">PATIENT-REPORTED OUTCOMES / PAIN INTENSITY / VAS / NRS</p>
+          <h1>VAS / NRS（視覚的アナログスケール / 数値評価スケール）</h1>
+          <p className="hero-sub">
+            疼痛強度評価の理論・実践・頭痛医学への応用 — 初学者向けステップバイステップ
+          </p>
+          <a className="diary-start" href="#s1">
+            評価指標の基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="diary-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>15</dd>
+          </div>
+          <div>
+            <dt>記録・評価の図解</dt>
+            <dd>08</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">IASP</span>
           <span className="hero-tag">IHS</span>
@@ -36,14 +52,19 @@ export default function NumericalRatingScaleVisualAnalogueScalePage() {
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">MCID</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="diary-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

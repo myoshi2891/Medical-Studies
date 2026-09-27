@@ -29,12 +29,28 @@ export default function CgrpPathwayHeadacheTreatmentsPage() {
   return (
     <div className="cgrp-pathway-headache-treatments">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>🧬</div>
-        <h1>CGRP経路を標的とした頭痛治療薬</h1>
-        <p className="hero-sub">
-          抗CGRP/受容体モノクローナル抗体と経口ゲパントの位置づけ・国内承認状況（PMDA準拠）
-        </p>
+      <header className="hero">
+        <div className="ath-hero-copy">
+          <p className="ath-breadcrumb">治療 / TREATMENT</p>
+          <p className="ath-eyebrow">CLINICAL GUIDE / CGRP-TARGETED TREATMENTS</p>
+          <h1>CGRP経路を標的とした頭痛治療薬</h1>
+          <p className="hero-sub">
+            抗CGRP/受容体モノクローナル抗体と経口ゲパントの位置づけ・国内承認状況（PMDA準拠）
+          </p>
+          <a className="ath-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="ath-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>14</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>04</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3準拠</span>
           <span className="hero-tag">抗CGRPモノクローナル抗体</span>
@@ -43,14 +59,19 @@ export default function CgrpPathwayHeadacheTreatmentsPage() {
           <span className="hero-tag">AHS / NICE / EHF / 日本頭痛学会</span>
           <span className="hero-tag">教育目的資料</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="ath-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

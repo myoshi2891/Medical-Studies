@@ -32,10 +32,28 @@ export default function MigrainePreventionTherapyGuidePage() {
   return (
     <div className="migraine-prevention">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🛡️</div>
-        <h1>片頭痛予防治療ガイド</h1>
-        <p className="hero-sub">適応判断・従来予防薬の薬効群・効果発現期間・継続/中止の一般原則</p>
+      <header className="hero">
+        <div className="ath-hero-copy">
+          <p className="ath-breadcrumb">治療 / TREATMENT</p>
+          <p className="ath-eyebrow">CLINICAL GUIDE / MIGRAINE PREVENTION</p>
+          <h1>片頭痛予防治療ガイド</h1>
+          <p className="hero-sub">
+            適応判断・従来予防薬の薬効群・効果発現期間・継続/中止の一般原則
+          </p>
+          <a className="ath-start" href="#overview">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="ath-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>10</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>06</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">AAN・AHS</span>
@@ -43,19 +61,24 @@ export default function MigrainePreventionTherapyGuidePage() {
           <span className="hero-tag">NICE</span>
           <span className="hero-tag">教育目的・個別治療推奨ではありません</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本ページは
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象とした一般的な医学情報の整理であり、
-        <strong>個別の患者に対する治療推奨・処方指示ではありません</strong>
-        。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。
-        <div className="d-line">
-          診断・治療方針の決定は、必ず医師・薬剤師にご相談ください。本ページの記述は、国際的に認知されたガイドライン・システマティックレビュー・規制当局情報に基づく要約であり、特定の医薬品の効果・安全性を保証するものではなく、特定商品名の優劣を主張するものでもありません。
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="ath-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本ページは
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象とした一般的な医学情報の整理であり、
+          <strong>個別の患者に対する治療推奨・処方指示ではありません</strong>
+          。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。
+          <div className="d-line">
+            診断・治療方針の決定は、必ず医師・薬剤師にご相談ください。本ページの記述は、国際的に認知されたガイドライン・システマティックレビュー・規制当局情報に基づく要約であり、特定の医薬品の効果・安全性を保証するものではなく、特定商品名の優劣を主張するものでもありません。
+          </div>
         </div>
-      </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

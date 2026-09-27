@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type NavItem = {
   id: string;
@@ -29,6 +29,7 @@ const navItems: NavItem[] = [
 export default function NumericalRatingScaleVisualAnalogueScaleSidebar() {
   const [activeId, setActiveId] = useState<string>("s1");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
@@ -68,12 +69,14 @@ export default function NumericalRatingScaleVisualAnalogueScaleSidebar() {
 
   const handleNavClick = () => {
     setIsOpen(false);
+    if (isOpen) toggleRef.current?.focus();
   };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
         setIsOpen(false);
+        toggleRef.current?.focus();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
@@ -83,6 +86,7 @@ export default function NumericalRatingScaleVisualAnalogueScaleSidebar() {
   return (
     <>
       <button
+        ref={toggleRef}
         className="menu-toggle"
         id="menuToggle"
         type="button"
@@ -97,25 +101,33 @@ export default function NumericalRatingScaleVisualAnalogueScaleSidebar() {
         type="button"
         className={`nav-backdrop ${isOpen ? "open" : ""}`}
         id="navBackdrop"
-        onClick={() => setIsOpen(false)}
+        onClick={() => {
+          setIsOpen(false);
+          toggleRef.current?.focus();
+        }}
         aria-label="目次を閉じる"
       />
 
       <nav
         className={`sidebar ${isOpen ? "open" : ""}`}
         id="site-nav"
-        aria-label="目次"
+        aria-label="PROM評価ガイド目次"
         inert={isMobile && !isOpen ? true : undefined}
       >
-        <div className="s-hdr">目次</div>
+        <div className="s-hdr">
+          このページの目次 <span>{navItems.length}項目</span>
+        </div>
         {navItems.map((item) => (
           <a
             key={item.id}
             className={`nav-a ${activeId === item.id ? "active" : ""}`}
             href={`#${item.id}`}
+            aria-current={activeId === item.id ? "location" : undefined}
             onClick={handleNavClick}
           >
-            <span className="n-num">{item.num}</span>
+            <span className="n-num" aria-hidden="true">
+              {String(item.num).padStart(2, "0")}
+            </span>
             {item.title}
           </a>
         ))}

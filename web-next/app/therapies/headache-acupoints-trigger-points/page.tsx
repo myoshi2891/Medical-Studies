@@ -24,12 +24,28 @@ export default function HeadacheAcupointsPage() {
   return (
     <div className="headache-acupoints-accent">
       {/* HERO */}
-      <div className="hero">
-        <div>🪡</div>
-        <h1>頭痛と経穴 ― 肩井・肩外兪・膏肓・風池・天柱</h1>
-        <p className="hero-sub">
-          経穴とトリガーポイントの対応関係を国際文献から読み解く、初学者向けステップバイステップガイド
-        </p>
+      <header className="hero">
+        <div className="pt-hero-copy">
+          <p className="pt-breadcrumb">セラピー / THERAPIES</p>
+          <p className="pt-eyebrow">CLINICAL GUIDE / ACUPOINTS / TRIGGER POINTS</p>
+          <h1>頭痛と経穴 ― 肩井・肩外兪・膏肓・風池・天柱</h1>
+          <p className="hero-sub">
+            経穴とトリガーポイントの対応関係を国際文献から読み解く、初学者向けステップバイステップガイド
+          </p>
+          <a className="pt-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pt-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>09</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>02</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">WHO標準経穴部位</span>
           <span className="hero-tag">ICHD-3</span>
@@ -38,16 +54,21 @@ export default function HeadacheAcupointsPage() {
           <span className="hero-tag">鍼治療のエビデンス</span>
           <span className="hero-tag">安全性</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ DisclaimerBanner／学術・教育目的に関する重要事項</strong>　本ページは
-        <strong>
-          教育・情報提供のみを目的として作成されたものであり、個別の患者に対する診断・治療の推奨ではありません
-        </strong>
-        。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。症状がある場合は自己判断による鍼の自己施術や強い自己圧迫を行わず、医師・有資格の鍼灸師（はり師・きゅう師）にご相談ください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="pt-disclaimer-body">
+          <strong>⚠️ DisclaimerBanner／学術・教育目的に関する重要事項</strong>　本ページは
+          <strong>
+            教育・情報提供のみを目的として作成されたものであり、個別の患者に対する診断・治療の推奨ではありません
+          </strong>
+          。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。症状がある場合は自己判断による鍼の自己施術や強い自己圧迫を行わず、医師・有資格の鍼灸師（はり師・きゅう師）にご相談ください。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

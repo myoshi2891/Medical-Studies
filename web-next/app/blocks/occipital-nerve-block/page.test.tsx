@@ -43,6 +43,8 @@ describe("OccipitalNerveBlockPage: 契約（忠実転記）", () => {
     const { container } = render(<OccipitalNerveBlockPage />);
     const disclaimer = container.querySelector("details.disclaimer");
     expect(disclaimer?.querySelector("summary")).toHaveTextContent("学術・教育・研究目的");
+    // 閉じた状態でも実施資格の警告が見えること
+    expect(disclaimer?.querySelector("summary")).toHaveTextContent("医療専門家のみが実施できます");
     expect(disclaimer?.querySelector("p")).toHaveTextContent("侵襲的手技");
     expect(disclaimer?.querySelector("p")).toHaveTextContent(
       "適切なトレーニング・設備・緊急対応体制を備えた医療専門家のみが実施できます。"

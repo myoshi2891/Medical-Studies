@@ -67,12 +67,28 @@ export default function MigraineSpecificQualityOfLifePage() {
   return (
     <div className="migraine-specific-quality-of-life-accent">
       {/* HERO */}
-      <div className="hero">
-        <div>🌅</div>
-        <h1>MSQ v2.1 — 片頭痛特異的 QOL 質問票 完全ガイド</h1>
-        <p className="hero-sub">
-          Migraine-Specific Quality of Life Questionnaire v2.1 — 初学者から臨床研究者まで
-        </p>
+      <header className="hero">
+        <div className="diary-hero-copy">
+          <p className="diary-breadcrumb">記録・評価 / PROM</p>
+          <p className="diary-eyebrow">PATIENT-REPORTED OUTCOMES / QUALITY OF LIFE / MSQ</p>
+          <h1>MSQ v2.1 — 片頭痛特異的 QOL 質問票 完全ガイド</h1>
+          <p className="hero-sub">
+            Migraine-Specific Quality of Life Questionnaire v2.1 — 初学者から臨床研究者まで
+          </p>
+          <a className="diary-start" href="#s1">
+            評価指標の基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="diary-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>15</dd>
+          </div>
+          <div>
+            <dt>記録・評価の図解</dt>
+            <dd>06</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">PRO</span>
           <span className="hero-tag">QOL</span>
@@ -80,14 +96,19 @@ export default function MigraineSpecificQualityOfLifePage() {
           <span className="hero-tag">CGRP試験</span>
           <span className="hero-tag">MWPC</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>
-        　本資料は<strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="diary-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>
+          　本資料は<strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

@@ -34,13 +34,29 @@ export default function PhysicalTherapyForHeadachePage() {
   return (
     <div className="physical-therapy-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🏃‍♀️</div>
-        <h1>頭痛に対する理学療法 完全ガイド</h1>
-        <p className="hero-sub">
-          国際エビデンス（ICHD-3 / AAN / EHF / NICE CG150 / Cochrane）に基づく包括的解説 —
-          初学者向けステップバイステップ
-        </p>
+      <header className="hero">
+        <div className="pt-hero-copy">
+          <p className="pt-breadcrumb">セラピー / THERAPIES</p>
+          <p className="pt-eyebrow">CLINICAL GUIDE / PHYSICAL THERAPY</p>
+          <h1>頭痛に対する理学療法 完全ガイド</h1>
+          <p className="hero-sub">
+            国際エビデンス（ICHD-3 / AAN / EHF / NICE CG150 / Cochrane）に基づく包括的解説 —
+            初学者向けステップバイステップ
+          </p>
+          <a className="pt-start" href="#s1">
+            理学療法の基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pt-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>15</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>09</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3 準拠</span>
           <span className="hero-tag">Grade A〜U エビデンス表記</span>
@@ -48,14 +64,19 @@ export default function PhysicalTherapyForHeadachePage() {
           <span className="hero-tag">非薬物療法の中核</span>
           <span className="hero-tag">頸因性頭痛 第一選択</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての臨床的判断・治療介入は資格を有する医療専門家による評価・監督のもとで実施してください。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="pt-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての臨床的判断・治療介入は資格を有する医療専門家による評価・監督のもとで実施してください。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

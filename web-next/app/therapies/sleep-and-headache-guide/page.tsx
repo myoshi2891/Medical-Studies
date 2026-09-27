@@ -32,12 +32,28 @@ export default function SleepAndHeadacheGuidePage() {
   return (
     <div className="sleep-guide">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>🌙🧠</div>
-        <h1>睡眠と頭痛 — エビデンスに基づく基礎知識と睡眠衛生ガイド</h1>
-        <p className="hero-sub">
-          ICHD-3・NICE・AASM・Cochraneなど国際的な一次情報に基づく教育コンテンツ（初学者向け・ステップバイステップ解説）
-        </p>
+      <header className="hero">
+        <div className="pt-hero-copy">
+          <p className="pt-breadcrumb">セラピー / THERAPIES</p>
+          <p className="pt-eyebrow">CLINICAL GUIDE / SLEEP / HEADACHE</p>
+          <h1>睡眠と頭痛 — エビデンスに基づく基礎知識と睡眠衛生ガイド</h1>
+          <p className="hero-sub">
+            ICHD-3・NICE・AASM・Cochraneなど国際的な一次情報に基づく教育コンテンツ（初学者向け・ステップバイステップ解説）
+          </p>
+          <a className="pt-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pt-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>10</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>05</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">ICHD-3</span>
           <span className="hero-tag">AASM / World Sleep Society</span>
@@ -46,16 +62,21 @@ export default function SleepAndHeadacheGuidePage() {
           <span className="hero-tag">睡眠衛生 &amp; CBT-I</span>
           <span className="hero-tag">教育目的</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>
-        <br />
-        本ページは<strong>学術・教育・情報提供のみ</strong>
-        を目的としており、個別の患者に対する診断・治療の推奨ではありません。記載内容は国際的に認知されているガイドライン・システマティックレビュー等の一次情報に基づく一般的な解説です。ご自身の症状・治療方針については、必ず医師・薬剤師にご相談ください。緊急性の高い症状（Step
-        8「レッドフラッグ」参照）がある場合は速やかに医療機関を受診してください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="pt-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>
+          <br />
+          本ページは<strong>学術・教育・情報提供のみ</strong>
+          を目的としており、個別の患者に対する診断・治療の推奨ではありません。記載内容は国際的に認知されているガイドライン・システマティックレビュー等の一次情報に基づく一般的な解説です。ご自身の症状・治療方針については、必ず医師・薬剤師にご相談ください。緊急性の高い症状（Step
+          8「レッドフラッグ」参照）がある場合は速やかに医療機関を受診してください。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

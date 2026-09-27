@@ -33,13 +33,29 @@ export default function AerobicExerciseHeadachePreventionPage() {
   return (
     <div className="aerobic-exercise-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>🏃</div>
-        <h1>頭痛予防のための有酸素運動 ― エビデンスに基づくステップガイド</h1>
-        <p className="hero-sub">
-          ICHD-3・AHS・EHF/EAN・NICE・WHO・Cochrane Library
-          など国際的な一次情報に基づく、無理のない運動導入の解説
-        </p>
+      <header className="hero">
+        <div className="pt-hero-copy">
+          <p className="pt-breadcrumb">セラピー / THERAPIES</p>
+          <p className="pt-eyebrow">CLINICAL GUIDE / AEROBIC EXERCISE</p>
+          <h1>頭痛予防のための有酸素運動 ― エビデンスに基づくステップガイド</h1>
+          <p className="hero-sub">
+            ICHD-3・AHS・EHF/EAN・NICE・WHO・Cochrane Library
+            など国際的な一次情報に基づく、無理のない運動導入の解説
+          </p>
+          <a className="pt-start" href="#s1">
+            ガイドを読み始める <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="pt-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>10</dd>
+          </div>
+          <div>
+            <dt>理解を深める図解</dt>
+            <dd>02</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">有酸素運動</span>
           <span className="hero-tag">頭痛予防</span>
@@ -47,14 +63,19 @@ export default function AerobicExerciseHeadachePreventionPage() {
           <span className="hero-tag">初学者向け</span>
           <span className="hero-tag">国際ガイドライン準拠</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="pt-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

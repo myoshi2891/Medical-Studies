@@ -33,13 +33,29 @@ export default function CervicalPlexusBlockPage() {
   return (
     <div className="cervical-accent">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 34 }}>💉</div>
-        <h1>浅・深頚神経叢ブロック（Cervical Plexus Block: CPB）完全ガイド</h1>
-        <p className="hero-sub">
-          国際エビデンス（StatPearls 2024 / NYSORA / Korean J Anesthesiol 2018 / BJA Education
-          2023）に基づく包括的解説 — 初学者向けステップバイステップ
-        </p>
+      <header className="hero">
+        <div className="onb-hero-copy">
+          <p className="onb-breadcrumb">神経ブロック / NERVE BLOCKS</p>
+          <p className="onb-eyebrow">CLINICAL GUIDE / CERVICAL PLEXUS BLOCK</p>
+          <h1>浅・深頚神経叢ブロック（Cervical Plexus Block: CPB）完全ガイド</h1>
+          <p className="hero-sub">
+            国際エビデンス（StatPearls 2024 / NYSORA / Korean J Anesthesiol 2018 / BJA Education
+            2023）に基づく包括的解説 — 初学者向けステップバイステップ
+          </p>
+          <a className="onb-start" href="#s1">
+            ブロックの基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="onb-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>18</dd>
+          </div>
+          <div>
+            <dt>解剖・手技の図解</dt>
+            <dd>12</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">浅・中間・深の3層</span>
           <span className="hero-tag">C2〜C4 感覚枝（4本）</span>
@@ -47,15 +63,23 @@ export default function CervicalPlexusBlockPage() {
           <span className="hero-tag">超音波ガイド下法</span>
           <span className="hero-tag">LAST 安全管理</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。頚神経叢ブロックは<strong>侵襲的手技</strong>
-        であり、適切なトレーニング・設備・緊急対応体制を備えた医療専門家のみが実施できます。本資料は個人への医療アドバイス・診断・処方を提供するものではありません。実際の手技は必ず有資格医師の判断のもとで行ってください。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+          <span>
+            <strong>侵襲的手技のため、医療専門家のみが実施できます</strong>
+          </span>
+        </summary>
+        <div className="onb-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。頚神経叢ブロックは<strong>侵襲的手技</strong>
+          であり、適切なトレーニング・設備・緊急対応体制を備えた医療専門家のみが実施できます。本資料は個人への医療アドバイス・診断・処方を提供するものではありません。実際の手技は必ず有資格医師の判断のもとで行ってください。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">

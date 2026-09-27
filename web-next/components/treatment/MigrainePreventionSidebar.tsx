@@ -63,7 +63,9 @@ export function MigrainePreventionSidebar() {
 
   return (
     <nav className="sidebar" aria-label="片頭痛予防治療ガイド目次">
-      <div className="s-hdr">目次</div>
+      <div className="s-hdr">
+        このページの目次 <span>{NAV_ITEMS.length}項目</span>
+      </div>
       {NAV_ITEMS.map((item) => (
         <a
           key={item.id}
@@ -71,7 +73,9 @@ export function MigrainePreventionSidebar() {
           href={`#${item.id}`}
           aria-current={item.id === activeId ? "location" : undefined}
         >
-          {item.num ? <span className="n-num">{item.num}</span> : null}
+          <span className="n-num" aria-hidden="true">
+            {(item.num ?? "0").padStart(2, "0")}
+          </span>
           {item.label}
         </a>
       ))}

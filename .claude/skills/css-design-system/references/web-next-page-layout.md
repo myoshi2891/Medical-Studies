@@ -8,8 +8,8 @@
 
 | 用途 | 参照先 |
 | --- | --- |
-| 全体の外観、ヒーロー、余白、レスポンシブ | `web-next/app/anatomy/page.tsx` と `anatomy.css` |
-| 教育ページへの適用例 | `web-next/app/anatomy/bone-related-headache/page.tsx` と `bone-related-headache.css` |
+| 全体の外観、ヒーロー、余白、レスポンシブ | `web-next/app/anatomy/page.tsx` と `web-next/app/anatomy/anatomy.css` |
+| 教育ページへの適用例 | `web-next/app/anatomy/bone-related-headache/page.tsx` と `web-next/app/anatomy/bone-related-headache/bone-related-headache.css` |
 | 左目次、現在位置の表示 | `web-next/components/headaches/BoneRelatedHeadacheSidebar.tsx` |
 | 本文保持・導線の契約 | `web-next/app/anatomy/bone-related-headache/page.test.tsx` |
 
@@ -25,11 +25,14 @@ CSSの数値・配色は現行実装を読んで選ぶ。このガイドにス�
 | --- | --- | --- | --- | --- |
 | `/anatomy/**` | 青緑 | `#142733`（単色） | `#69b9a8` | `#193d46` |
 | `/headaches/**` | インディゴ・ブルー | `#171d4b` → `#263b82` | `#9aaeff` | `#2e408f` |
-| `/treatment/**` | プラム・紫 | `#321c3e` → `#623e70` | `#cfade0` | `#704580` |
-| `/blocks/**` | アンバー・ブラウン | `#33251a` → `#67472b` | `#e2b86c` | `#805427` |
+| `/treatment/**` | エメラルド・ミント | `#123e35` → `#246653` | `#8fd4b1` | `#286347` |
+| `/blocks/**` | スレートブルー | `#192f42` → `#345e7a` | `#8cbfda` | `#365f7c` |
+| `/therapies/**` | ローズ・コーラル | `#633d4b` → `#965568` | `#e4b0b6` | `#965568` |
+| `/prom/**` | シアン・水色 | `#104451` → `#176b7c` | `#7fd2df` | `#187184` |
 
 グラデーションの角度は参照実装では125度。細部の色（文字・ボタン・淡い背景・ホバー・フォーカス）は
 下記の同一カテゴリーの現行CSSを参照する。表は導入・ナビゲーションのパレットであり、本文全体の色指定ではない。
+セラピーは落ち着いたローズの濃色背景と明るい文字に、淡いコーラルのアクセントを合わせる。
 
 | カテゴリー | 配色の参照実装（リポジトリルート相対） |
 | --- | --- |
@@ -37,6 +40,8 @@ CSSの数値・配色は現行実装を読んで選ぶ。このガイドにス�
 | 頭痛疾患 | `web-next/app/headaches/migraine/migraine.css` |
 | 治療 | `web-next/app/treatment/acute-treatment-of-headache/acute-treatment-of-headache.css` |
 | 神経ブロック | `web-next/app/blocks/occipital-nerve-block/occipital-nerve-block.css` |
+| セラピー | `web-next/app/therapies/physical-therapy-for-headache/physical-therapy-for-headache.css` |
+| PROM（記録・評価） | `web-next/app/prom/headache-diary/headache-diary.css` |
 
 - 変更する配色の範囲は、ヒーロー背景・ラベル・トピック帯・開始ボタン、免責表示の淡い背景と文字、
   目次の背景・番号・現在位置・ホバー、フォーカス表示。背景だけ差し替えて文字色を取り残さない。
