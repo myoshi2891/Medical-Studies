@@ -32,12 +32,28 @@ export default function SuperiorCervicalGanglionBlockPage() {
   return (
     <div className="superior-cervical-ganglion-block">
       {/* HERO */}
-      <div className="hero">
-        <div style={{ fontSize: 40 }}>🧠</div>
-        <h1>上頸神経節ブロック（Superior Cervical Ganglion Block）</h1>
-        <p className="hero-sub">
-          国際文献に基づくステップ・バイ・ステップ解説 — 初学者のための頸部交感神経ブロック講座
-        </p>
+      <header className="hero">
+        <div className="onb-hero-copy">
+          <p className="onb-breadcrumb">神経ブロック / NERVE BLOCKS</p>
+          <p className="onb-eyebrow">CLINICAL GUIDE / SUPERIOR CERVICAL GANGLION BLOCK</p>
+          <h1>上頸神経節ブロック（Superior Cervical Ganglion Block）</h1>
+          <p className="hero-sub">
+            国際文献に基づくステップ・バイ・ステップ解説 — 初学者のための頸部交感神経ブロック講座
+          </p>
+          <a className="onb-start" href="#s1">
+            ブロックの基礎から学ぶ <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <dl className="onb-hero-stats">
+          <div>
+            <dt>学習セクション</dt>
+            <dd>13</dd>
+          </div>
+          <div>
+            <dt>解剖・手技の図解</dt>
+            <dd>04</dd>
+          </div>
+        </dl>
         <div className="hero-tags">
           <span className="hero-tag">頭痛・顔面痛</span>
           <span className="hero-tag">頸部交感神経</span>
@@ -45,14 +61,19 @@ export default function SuperiorCervicalGanglionBlockPage() {
           <span className="hero-tag">エビデンスに基づく医療</span>
           <span className="hero-tag">上頸神経節(SCG)</span>
         </div>
-      </div>
+      </header>
 
       {/* DISCLAIMER */}
-      <div className="disclaimer">
-        <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
-        <strong>学術・教育・研究目的のみ</strong>
-        を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
-      </div>
+      <details className="disclaimer">
+        <summary>
+          このガイドについて <span>学術・教育・研究目的の資料です</span>
+        </summary>
+        <div className="onb-disclaimer-body">
+          <strong>⚠️ Academic Disclaimer（学術免責事項）</strong>　本資料は
+          <strong>学術・教育・研究目的のみ</strong>
+          を対象としています。すべての内容は資格を持つ医療専門家による臨床適用前のレビューが必要です。個人的な医療アドバイス・診断・処方を提供するものではありません。
+        </div>
+      </details>
 
       {/* LAYOUT */}
       <div className="layout">
