@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { Settings } from "@/lib/prom/types";
 import { usePromContext } from "./PromContext";
 
@@ -23,11 +24,14 @@ export function Header({
   return (
     <header className="app-header no-print">
       <div className="c-brand">
-        <span className="c-dot" aria-hidden="true" />
-        <span>頭痛 PROM チェッカー</span>
+        <Image className="c-brand-icon" src="/icon.svg" alt="" width={38} height={38} />
+        <span className="c-brand-copy">
+          <span className="c-brand-overline">HEADACHE CARE TOOLS</span>
+          <span>頭痛 PROM チェッカー</span>
+        </span>
       </div>
       <span className="c-spacer" />
-      <nav aria-label="主要ナビゲーション" style={{ display: "flex", gap: "8px" }}>
+      <nav className="app-header-actions" aria-label="主要ナビゲーション">
         <button type="button" className="c-iconbtn" onClick={() => navigate("#/dashboard")}>
           ホーム
         </button>

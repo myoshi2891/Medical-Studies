@@ -44,3 +44,42 @@ describe("PromCheckerPage: SNOOP4 ゲート", () => {
     ).not.toBeInTheDocument();
   });
 });
+
+describe("PromCheckerPage: 画面間ナビゲーション", () => {
+  it("共通免責を中央の専用領域に表示する", async () => {
+    const { container } = render(<PromCheckerPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "確認して次へ進む" }));
+    const footer = container.querySelector(".app-footer .app-footer-inner");
+    expect(footer).not.toBeNull();
+    expect(footer?.textContent).toContain("共通免責");
+    expect(footer?.textContent).toContain("医師の診断ではありません");
+  });
+
+  it("アプリのタイトル左に医療アイコンを表示する", async () => {
+    const { container } = render(<PromCheckerPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "確認して次へ進む" }));
+    const brand = container.querySelector(".app-header .c-brand");
+    expect(brand?.textContent).toContain("HEADACHE CARE TOOLS");
+    expect(brand?.querySelector("img")?.getAttribute("src")).toBe("/icon.svg");
+    expect(brand?.querySelector("img")?.getAttribute("alt")).toBe("");
+  });
+
+  it("安全確認後は主要画面を一覧でき、現在の画面を示す", async () => {
+    render(<PromCheckerPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "確認して次へ進む" }));
+
+    const navigation = await screen.findByRole("navigation", { name: "PROM チェッカーの画面" });
+    expect(navigation).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "ダッシュボード" })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "頭痛日誌" }));
+    expect(await screen.findByRole("heading", { name: "今日の頭痛を記録" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "頭痛日誌" })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+  });
+});

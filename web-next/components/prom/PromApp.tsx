@@ -33,6 +33,16 @@ import { SnoopGate } from "./views/SnoopGate";
 
 const isObject = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null;
 
+const APP_VIEWS = [
+  { view: "dashboard", hash: "#/dashboard", label: "ダッシュボード", number: "01" },
+  { view: "diary", hash: "#/diary", label: "頭痛日誌", number: "02" },
+  { view: "prom", hash: "#/prom/hit6", label: "PROM 評価", number: "03" },
+  { view: "pain", hash: "#/pain", label: "疼痛強度", number: "04" },
+  { view: "report", hash: "#/report", label: "レポート", number: "05" },
+  { view: "data", hash: "#/data", label: "データ管理", number: "06" },
+  { view: "about", hash: "#/about", label: "このアプリについて", number: "07" },
+] as const;
+
 /**
  * Loads persisted app data from storage and normalizes list fields.
  *
@@ -285,19 +295,48 @@ export function PromApp() {
           本文へスキップ
         </a>
         <Header theme={theme} onCycleTheme={cycleTheme} />
-        <main id="main" className="app-main" tabIndex={-1}>
-          {body}
+        <main
+          id="main"
+          className={`app-main${gated || view === "snoop" || view === "selftest" ? " app-main--gate" : ""}`}
+          tabIndex={-1}
+        >
+          {!gated && view !== "snoop" && view !== "selftest" ? (
+            <nav className="app-sidebar no-print" aria-label="PROM チェッカーの画面">
+              <div className="app-sidebar-heading">
+                <span>WORKSPACE</span>
+                <strong>記録と評価</strong>
+              </div>
+              <div className="app-sidebar-links">
+                {APP_VIEWS.map((item) => (
+                  <button
+                    key={item.view}
+                    type="button"
+                    className="app-sidebar-link"
+                    aria-current={view === item.view ? "page" : undefined}
+                    onClick={() => navigate(item.hash)}
+                  >
+                    <span className="app-sidebar-number" aria-hidden="true">
+                      {item.number}
+                    </span>
+                    <span>{item.label}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="app-sidebar-note">記録は端末内に保存されます</div>
+            </nav>
+          ) : null}
+          <div className="app-content">{body}</div>
         </main>
         <footer className="app-footer">
-          <p>
-            <strong>共通免責:</strong>{" "}
-            本ツールは自己評価・記録支援を目的とし、医師の診断ではありません。スコアや解釈は参考情報であり、治療や緊急受診の判断は必ず医療従事者にご相談ください。質問票はそれぞれの権利者に帰属します。データは端末内にのみ保存され、外部へ送信されません（ローカルファースト）。
-          </p>
-          <p>
+          <div className="app-footer-inner">
+            <strong className="app-footer-title">共通免責</strong>
+            <p>
+              本ツールは自己評価・記録支援を目的とし、医師の診断ではありません。スコアや解釈は参考情報であり、治療や緊急受診の判断は必ず医療従事者にご相談ください。質問票はそれぞれの権利者に帰属します。データは端末内にのみ保存され、外部へ送信されません（ローカルファースト）。
+            </p>
             <button type="button" className="c-link" onClick={() => navigate("#/selftest")}>
               開発者向け: スコアリング自己テストを実行
             </button>
-          </p>
+          </div>
         </footer>
         <UrgentDialog
           open={urgent.open}

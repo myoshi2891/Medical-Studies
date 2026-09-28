@@ -37,22 +37,23 @@ export function Dashboard() {
   return (
     <>
       <div className="c-viewhead">
-        <div className="c-eyebrow">統合ダッシュボード</div>
+        <div className="c-eyebrow">PROM / PERSONAL WORKSPACE</div>
         <h1>こんにちは。今日の記録を始めましょう</h1>
         <p>各機能はここから。すべての入力は端末内にのみ保存されます。</p>
+        <div className="c-viewhead-tags">
+          <span>頭痛日誌</span>
+          <span>PROM 評価</span>
+          <span>疼痛強度</span>
+        </div>
       </div>
       <StorageNotice />
-      <div className="c-card">
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: "12px",
-            justifyContent: "space-between",
-          }}
-        >
+      <div className="c-card c-safety-card">
+        <span className="c-safety-icon" aria-hidden="true">
+          ✳
+        </span>
+        <div className="c-safety-details">
           <div>
+            <div className="c-card-kicker">SAFETY CHECK</div>
             <strong>安全確認（SNOOP4）</strong>
             <div className="c-small c-muted">
               {lastSnoop
@@ -60,63 +61,96 @@ export function Dashboard() {
                 : "未実施"}
             </div>
           </div>
-          <button type="button" className="c-btn c-btn--ghost" onClick={() => navigate("#/snoop")}>
-            再スクリーニング
-          </button>
         </div>
+        <button type="button" className="c-btn c-btn--ghost" onClick={() => navigate("#/snoop")}>
+          再スクリーニング
+        </button>
       </div>
-      <div className="c-tiles">
-        {TILES.map((x) => (
+      <div className="c-section-heading">
+        <div>
+          <span className="c-card-kicker">01 / DAILY TOOLS</span>
+          <h2>記録・評価を始める</h2>
+        </div>
+        <p>目的に合わせて入力画面を選んでください。</p>
+      </div>
+      <div className="c-tiles c-tiles--primary">
+        {TILES.slice(0, 3).map((x) => (
           <button type="button" className="c-tile" key={x.go} onClick={() => navigate(x.go)}>
             <span className="c-tile-ic" aria-hidden="true">
               {x.ic}
             </span>
             <span className="c-tile-t">{x.t}</span>
             <span className="c-tile-d">{x.d}</span>
+            <span className="c-tile-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </button>
+        ))}
+      </div>
+      <div className="c-section-heading">
+        <div>
+          <span className="c-card-kicker">02 / REVIEW & SHARE</span>
+          <h2>振り返り・データ管理</h2>
+        </div>
+      </div>
+      <div className="c-tiles c-tiles--secondary">
+        {TILES.slice(3).map((x) => (
+          <button type="button" className="c-tile" key={x.go} onClick={() => navigate(x.go)}>
+            <span className="c-tile-ic" aria-hidden="true">
+              {x.ic}
+            </span>
+            <span className="c-tile-t">{x.t}</span>
+            <span className="c-tile-d">{x.d}</span>
+            <span className="c-tile-arrow" aria-hidden="true">
+              ↗
+            </span>
           </button>
         ))}
       </div>
       <div className="c-card">
+        <div className="c-card-kicker">FOLLOW UP</div>
         <h2>再評価スケジュール</h2>
         <p className="c-small c-muted">
           尺度ごとにリコール期間（想起対象期間）と推奨再評価周期が異なります（設計書
           第5章）。通知機能は将来拡張点です。
         </p>
-        <table className="c-tbl">
-          <thead>
-            <tr>
-              <th>尺度</th>
-              <th>リコール期間</th>
-              <th>推奨周期</th>
-              <th>次回の目安</th>
-            </tr>
-          </thead>
-          <tbody>
-            {SCHEDULE.map((s) => {
-              let due = "未評価";
-              if (s.id === "diary") {
-                const last = diary.entries.length
-                  ? diary.entries[diary.entries.length - 1].date
-                  : null;
-                due = last ? `前回 ${last}（毎日）` : "記録なし（毎日）";
-              } else {
-                const last = lastRecordDate(s.id);
-                if (last) {
-                  const next = nextDueDate(last, s.period);
-                  due = `次回 ${next || "—"}（前回 ${last}）`;
+        <div className="c-table-scroll">
+          <table className="c-tbl">
+            <thead>
+              <tr>
+                <th>尺度</th>
+                <th>リコール期間</th>
+                <th>推奨周期</th>
+                <th>次回の目安</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SCHEDULE.map((s) => {
+                let due = "未評価";
+                if (s.id === "diary") {
+                  const last = diary.entries.length
+                    ? diary.entries[diary.entries.length - 1].date
+                    : null;
+                  due = last ? `前回 ${last}（毎日）` : "記録なし（毎日）";
+                } else {
+                  const last = lastRecordDate(s.id);
+                  if (last) {
+                    const next = nextDueDate(last, s.period);
+                    due = `次回 ${next || "—"}（前回 ${last}）`;
+                  }
                 }
-              }
-              return (
-                <tr key={s.id}>
-                  <td>{s.title}</td>
-                  <td>{s.recall}</td>
-                  <td>{s.every}</td>
-                  <td className="c-due">{due}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                return (
+                  <tr key={s.id}>
+                    <td>{s.title}</td>
+                    <td>{s.recall}</td>
+                    <td>{s.every}</td>
+                    <td className="c-due">{due}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
