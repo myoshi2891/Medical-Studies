@@ -431,6 +431,7 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
   --shadow: 0 10px 32px rgba(24, 64, 74, 0.055);
   --action-bg: #176b7c;
   --action-text: #ffffff;
+  --color-danger-text: #b91c1c; /* Red 700: 淡赤背景上でも 4.5:1 以上 */
   --radius: 16px;
   --radius-sm: 10px;
   background: var(--bg-main);
@@ -451,6 +452,7 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
   --shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
   --action-bg: #227d8c;
   --action-text: #ffffff;
+  --color-danger-text: #f87171;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -468,6 +470,7 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
     --shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
     --action-bg: #227d8c;
     --action-text: #ffffff;
+    --color-danger-text: #f87171;
   }
 }
 
@@ -631,7 +634,7 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
 .prom-app .c-snoop-item:first-child { border-top: 1px solid var(--border-color); }
 .prom-app .c-snoop-code { width: 36px; height: 36px; border-radius: 8px; }
 .prom-app .c-snoop-check { line-height: 1.7; }
-.prom-app .c-snoop-item .c-chip input:checked + span { border-color: var(--color-danger); background: rgba(var(--color-danger-rgb), .12); color: var(--color-danger); }
+.prom-app .c-snoop-item .c-chip input:checked + span { border-color: var(--color-danger); background: rgba(var(--color-danger-rgb), .12); color: var(--color-danger-text); }
 .prom-app .c-gate form.c-card > .c-alert,
 .prom-app .c-gate form.c-card > .c-btnrow { grid-column: 1 / -1; }
 .prom-app .c-gate .c-license { padding: 0 4px; border: 0; }
