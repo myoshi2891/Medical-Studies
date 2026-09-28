@@ -2,7 +2,7 @@
  * 著作権保護 PROM 質問文のローカル専用オーバーレイ（純粋関数）。
  *
  * 公開レジストリ（registry.ts）は中立プレースホルダのみを持つ。実文言は git 管理外の
- * オーバーレイ JSON（public/prom-restricted.local.json）に置き、ローカル開発時のみ注入する。
+ * オーバーレイ JSON（data/prom-restricted.local.json）に置き、ローカル開発時のみ注入する。
  * ここは I/O を持たない純粋関数だけを提供し、読み込みは restricted-loader.ts が担う。
  *
  * 不変条件: items / responseOptions の **件数・id・value は絶対に変えない**。

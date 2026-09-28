@@ -12,8 +12,8 @@ import { cache } from "react";
 import { parseRestrictedOverlay, type RestrictedOverlay } from "./restricted";
 import { isOverlayEnabled } from "./restricted-loader";
 
-/** オーバーレイの実ファイル位置（web-next/public 配下）。 */
-export const OVERLAY_FILE = join(process.cwd(), "public", "prom-restricted.local.json");
+/** オーバーレイの実ファイル位置（web-next/data 配下）。 */
+export const OVERLAY_FILE = join(process.cwd(), "data", "prom-restricted.local.json");
 
 /**
  * オーバーレイをファイルから読む。不在・パース失敗・本番モードはすべて null。
