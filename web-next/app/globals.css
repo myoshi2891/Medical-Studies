@@ -1175,7 +1175,8 @@ body.has-common-header {
   text-decoration: none;
 }
 
-.legal-toc a:hover {
+.legal-toc a:hover,
+.legal-toc a:focus-visible {
   background: #e8f3f5;
   color: #145c6c;
 }
