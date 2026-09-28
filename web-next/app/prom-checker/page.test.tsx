@@ -98,9 +98,9 @@ describe("PromCheckerPage: 画面間ナビゲーション", () => {
   });
 
   it("共通免責で通常時の端末内保存と Google Sheets 同期時の送信を区別する", async () => {
-    const { container } = render(<PromCheckerPage />);
+    render(<PromCheckerPage />);
     fireEvent.click(await screen.findByRole("button", { name: "確認して次へ進む" }));
-    const text = container.querySelector(".app-footer .app-footer-inner")?.textContent ?? "";
+    const text = (await screen.findByRole("contentinfo")).textContent ?? "";
     expect(text).toContain("通常この端末のブラウザに保存され");
     expect(text).toContain("Google Sheets への同期を実行した場合は");
     expect(text).not.toContain("データは端末内にのみ保存され、外部へ送信されません");
