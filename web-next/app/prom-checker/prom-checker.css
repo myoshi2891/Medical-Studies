@@ -687,4 +687,18 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
   .prom-app .print-container > .c-card:first-child .c-muted { color: #333; }
   .prom-app .c-card { overflow: visible; box-shadow: none; }
   .prom-app .c-tbl { min-width: 0; }
+  /* ヘッダー/ヒーローの暗い背景を白に、明るいテキストを暗色に上書き */
+  .prom-app .c-viewhead,
+  .prom-app .c-gate-hero { background: #fff; border-color: #ccc; color: #000; }
+  .prom-app .c-viewhead::after,
+  .prom-app .c-gate-hero::after { display: none; }
+  .prom-app .c-viewhead h1,
+  .prom-app .c-gate-hero h1 { color: #000; }
+  .prom-app .c-viewhead .c-eyebrow,
+  .prom-app .c-gate-hero .c-eyebrow,
+  .prom-app .c-viewhead p,
+  .prom-app .c-gate-hero p,
+  .prom-app .c-viewhead .c-muted,
+  .prom-app .c-gate-hero .c-muted { color: #333; }
+  .prom-app .c-viewhead-tags span { border-color: #999; color: #333; }
 }
