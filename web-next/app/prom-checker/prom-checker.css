@@ -519,7 +519,7 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
   display: flex; align-items: center; gap: 11px; width: 100%; min-height: 46px;
   padding: 10px 12px; border: 0; border-radius: 8px;
   background: transparent; color: var(--text-secondary); cursor: pointer;
-  font: inherit; font-size: .85rem; font-weight: 600; text-align: left;
+  font: inherit; font-size: .85rem; font-weight: 600; text-align: left; text-decoration: none;
 }
 .prom-app .app-sidebar-link:hover { background: var(--bg-main-2); color: var(--text-primary); }
 .prom-app .app-sidebar-link[aria-current="page"] { background: #176b7c; color: #fff; }

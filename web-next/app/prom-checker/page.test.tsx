@@ -70,16 +70,39 @@ describe("PromCheckerPage: 画面間ナビゲーション", () => {
 
     const navigation = await screen.findByRole("navigation", { name: "PROM チェッカーの画面" });
     expect(navigation).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "ダッシュボード" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "ダッシュボード" })).toHaveAttribute(
       "aria-current",
       "page"
     );
+    const diaryLink = screen.getByRole("link", { name: "頭痛日誌" });
+    expect(diaryLink).toHaveAttribute("href", "#/diary");
 
-    fireEvent.click(screen.getByRole("button", { name: "頭痛日誌" }));
+    // jsdom はアンカーのハッシュ遷移を行わないため、URL 変更を直接発火させる。
+    window.location.hash = "#/diary";
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
     expect(await screen.findByRole("heading", { name: "今日の頭痛を記録" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "頭痛日誌" })).toHaveAttribute(
-      "aria-current",
-      "page"
-    );
+    expect(screen.getByRole("link", { name: "頭痛日誌" })).toHaveAttribute("aria-current", "page");
+  });
+
+  it("本文へスキップはサイドバーを飛ばして本文領域へフォーカスする", async () => {
+    const { container } = render(<PromCheckerPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "確認して次へ進む" }));
+    await screen.findByRole("navigation", { name: "PROM チェッカーの画面" });
+
+    const skip = screen.getByRole("link", { name: "本文へスキップ" });
+    expect(skip).toHaveAttribute("href", "#app-content");
+    fireEvent.click(skip);
+    const content = container.querySelector(".app-content");
+    expect(content).toHaveAttribute("id", "app-content");
+    expect(document.activeElement).toBe(content);
+  });
+
+  it("共通免責で通常時の端末内保存と Google Sheets 同期時の送信を区別する", async () => {
+    const { container } = render(<PromCheckerPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "確認して次へ進む" }));
+    const text = container.querySelector(".app-footer .app-footer-inner")?.textContent ?? "";
+    expect(text).toContain("通常この端末のブラウザに保存され");
+    expect(text).toContain("Google Sheets への同期を実行した場合は");
+    expect(text).not.toContain("データは端末内にのみ保存され、外部へ送信されません");
   });
 });

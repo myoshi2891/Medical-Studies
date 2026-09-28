@@ -286,10 +286,10 @@ export function PromApp() {
         {/* biome-ignore lint/a11y/useValidAnchor: スキップリンクはキーボード操作用で href を持つ必要があるが、ルーター競合を防ぐため preventDefault する */}
         <a
           className="c-skip"
-          href="#main"
+          href="#app-content"
           onClick={(e) => {
             e.preventDefault();
-            document.getElementById("main")?.focus();
+            document.getElementById("app-content")?.focus();
           }}
         >
           本文へスキップ
@@ -308,30 +308,40 @@ export function PromApp() {
               </div>
               <div className="app-sidebar-links">
                 {APP_VIEWS.map((item) => (
-                  <button
+                  <a
                     key={item.view}
-                    type="button"
+                    href={item.hash}
                     className="app-sidebar-link"
                     aria-current={view === item.view ? "page" : undefined}
-                    onClick={() => navigate(item.hash)}
+                    onClick={(e) => {
+                      // 同一ハッシュでは hashchange が発火しないため、navigate で再描画（routeNonce 更新）する。
+                      if (window.location.hash !== item.hash) return;
+                      e.preventDefault();
+                      navigate(item.hash);
+                    }}
                   >
                     <span className="app-sidebar-number" aria-hidden="true">
                       {item.number}
                     </span>
                     <span>{item.label}</span>
-                  </button>
+                  </a>
                 ))}
               </div>
               <div className="app-sidebar-note">記録は端末内に保存されます</div>
             </nav>
           ) : null}
-          <div className="app-content">{body}</div>
+          <div id="app-content" className="app-content" tabIndex={-1}>
+            {body}
+          </div>
         </main>
         <footer className="app-footer">
           <div className="app-footer-inner">
             <strong className="app-footer-title">共通免責</strong>
             <p>
-              本ツールは自己評価・記録支援を目的とし、医師の診断ではありません。スコアや解釈は参考情報であり、治療や緊急受診の判断は必ず医療従事者にご相談ください。質問票はそれぞれの権利者に帰属します。データは端末内にのみ保存され、外部へ送信されません（ローカルファースト）。
+              本ツールは自己評価・記録支援を目的とし、医師の診断ではありません。スコアや解釈は参考情報であり、治療や緊急受診の判断は必ず医療従事者にご相談ください。質問票はそれぞれの権利者に帰属します。記録（頭痛日誌・PROM
+              スコア）は通常この端末のブラウザに保存され、外部へ送信されません（ローカルファースト）。Google
+              Sheets への同期を実行した場合は、選択したデータ（頭痛日誌および PROM スコア）が Google
+              に送信されます。
             </p>
             <button type="button" className="c-link" onClick={() => navigate("#/selftest")}>
               開発者向け: スコアリング自己テストを実行
