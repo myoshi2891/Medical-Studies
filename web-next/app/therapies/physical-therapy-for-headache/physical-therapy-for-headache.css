@@ -22,10 +22,10 @@
   --sh: 0 1px 6px rgba(0, 0, 0, .10);
   --r: 12px;
   --rs: 8px;
-  /* ページ固有：理学療法 amber→coral */
-  --pt1: #e65100;
-  --pt2: #f57c00;
-  --pt3: #ff7043;
+  /* ページ固有：理学療法 ローズ／モーブ系（ヒーローと統一） */
+  --pt1: #7a3f50;
+  --pt2: #965568;
+  --pt3: #c07b8a;
 
   font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', 'Segoe UI', Arial, sans-serif;
   font-size: 15px;
@@ -280,10 +280,10 @@
   white-space: nowrap;
 }
 .physical-therapy-accent tbody tr:nth-child(even) {
-  background: #fff8f3;
+  background: #fdf5f6;
 }
 .physical-therapy-accent tbody tr:hover {
-  background: #ffeede;
+  background: #f6e7e7;
 }
 .physical-therapy-accent tbody td {
   padding: 8px 13px;
