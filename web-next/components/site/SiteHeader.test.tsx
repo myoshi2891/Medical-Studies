@@ -194,7 +194,9 @@ describe("SiteHeader - 全画面共通の背景", () => {
   it("固定ナビ・検索候補・メニューに背景ぼかしを使わない", () => {
     const selectors = ["ch-nav", "site-search-list", "site-search-empty", "ch-submenu", "ch-links"];
     for (const selector of selectors) {
-      const rules = [...css.matchAll(new RegExp(`\\.${selector}\\s*\\{([^}]*)\\}`, "g"))];
+      const rules = [
+        ...css.matchAll(new RegExp(`\\.${selector}(?![\\w-])[^{}]*\\{([^}]*)\\}`, "g")),
+      ];
       expect(rules.length).toBeGreaterThan(0);
       for (const rule of rules) {
         expect(rule[1]).not.toMatch(/backdrop-filter/);
