@@ -50,9 +50,9 @@ export function isDropdown(link: NavLink): link is NavDropdown {
 }
 
 export const navLinks: readonly NavLink[] = [
-  { name: "Home", href: "/prom-checker" },
+  { name: "ホーム", href: "/prom-checker" },
   {
-    name: "Anatomy",
+    name: "解剖",
     children: [
       { name: "3D 解剖アトラス", href: "/anatomy" },
       {
@@ -82,7 +82,7 @@ export const navLinks: readonly NavLink[] = [
     ],
   },
   {
-    name: "Headaches",
+    name: "頭痛疾患",
     children: [
       { name: "片頭痛 (Migraine)", href: "/headaches/migraine" },
       {
@@ -104,7 +104,7 @@ export const navLinks: readonly NavLink[] = [
     ],
   },
   {
-    name: "Treatment",
+    name: "治療",
     children: [
       {
         name: "急性期治療の考え方",
@@ -137,7 +137,7 @@ export const navLinks: readonly NavLink[] = [
     ],
   },
   {
-    name: "Blocks",
+    name: "神経ブロック",
     children: [
       { name: "後頭神経ブロック (ONB)", href: "/blocks/occipital-nerve-block" },
       { name: "頚神経叢ブロック (CPB)", href: "/blocks/cervical-plexus-block" },
@@ -152,7 +152,7 @@ export const navLinks: readonly NavLink[] = [
     ],
   },
   {
-    name: "Therapies",
+    name: "関連療法",
     children: [
       {
         name: "理学療法 (PT)",

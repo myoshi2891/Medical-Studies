@@ -92,3 +92,20 @@ describe("DisclaimerBanner - 静的ソース", () => {
     expect(firstStmt).toMatch(/^["']use client["']/);
   });
 });
+
+describe("DisclaimerBanner - 全画面共通の表示位置と背景", () => {
+  const css = readFileSync(join(__dirname, "../../app/globals.css"), "utf8");
+
+  it("バナー下に余分な隙間を設けない", () => {
+    const bodyRule = css.match(/body\.has-common-header\s*\{([^}]*)\}/)?.[1];
+    expect(bodyRule).toMatch(
+      /margin-top:\s*calc\(var\(--ch-height\)\s*\+\s*var\(--ch-disclaimer-height,\s*44px\)\);/
+    );
+  });
+
+  it("背後のページ色が透けない不透明な背景を使う", () => {
+    const bannerRule = css.match(/\.ch-disclaimer\s*\{([^}]*)\}/)?.[1];
+    expect(bannerRule).toMatch(/background:\s*#[\da-f]{6};/i);
+    expect(bannerRule).not.toMatch(/background:\s*rgba\(/);
+  });
+});

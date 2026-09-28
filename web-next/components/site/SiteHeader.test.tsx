@@ -2,14 +2,14 @@
  * 共通ナビゲーション SiteHeader の契約テスト。
  *
  * 参考元 (AI/LLM-Studies/web-next/components/site/SiteHeader.test.tsx) を
- * 本リポジトリのナビ構成（ブランド: Medical Studies / Blocks ドロップダウン /
+ * 本リポジトリのナビ構成（ブランド: 頭痛ケア・スタディ / 神経ブロック ドロップダウン /
  * GitHub 外部リンクなし）に合わせて移植。
  *
  * 固定する契約:
  * - ルート `<nav id="common-header" aria-label="Main Navigation" class="ch-nav">`。
- * - `<a class="ch-brand" href="/">Medical Studies</a>`。
+ * - `<a class="ch-brand" href="/prom-checker">頭痛ケア・スタディ</a>`。
  * - `<ul class="ch-links">` 配下に navLinks 由来の `<li>`。
- * - Blocks ドロップダウンは `<li class="ch-dropdown">` > toggle + submenu 構造。
+ * - 神経ブロックのドロップダウンは `<li class="ch-dropdown">` > toggle + submenu 構造。
  * - pathname="/anatomy" で該当 `<a>` に ch-active + aria-current="page"。
  * - pathname がドロップダウンの子の場合、親トグルにも ch-active が波及。
  * - 静的検査: 生 HTML 注入 API を使わない / `"use client"` 宣言。
@@ -33,11 +33,28 @@ describe("SiteHeader - ルート構造", () => {
     expect(nav?.className).toContain("ch-nav");
   });
 
-  it("renders .ch-brand anchor pointing to / with text 'Medical Studies'", () => {
+  it("ブランドにサイトの名称と既存の医療アイコンを表示する", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const brand = container.querySelector("a.ch-brand");
-    expect(brand?.getAttribute("href")).toBe("/");
-    expect(brand?.textContent).toBe("Medical Studies");
+    expect(brand?.getAttribute("href")).toBe("/prom-checker");
+    expect(brand?.textContent).toContain("頭痛ケア・スタディ");
+    expect(brand?.textContent).toContain("MEDICAL STUDIES");
+    expect(brand?.querySelector("img")?.getAttribute("src")).toBe("/icon.svg");
+    expect(brand?.querySelector("img")?.getAttribute("alt")).toBe("");
+  });
+
+  it("主要カテゴリーは日本語で案内し、現在のページを示す", () => {
+    const { container } = render(<SiteHeader pathname="/prom-checker" />);
+    expect(container.querySelector('.ch-links a[href="/prom-checker"]')?.textContent).toBe(
+      "ホーム"
+    );
+    expect(container.querySelector('.ch-links a[href="/prom-checker"]')).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+    for (const label of ["解剖", "頭痛疾患", "治療", "神経ブロック", "関連療法", "PROM 指標"]) {
+      expect(container.querySelector("ul.ch-links")?.textContent).toContain(label);
+    }
   });
 
   it("renders a .ch-links list", () => {
@@ -47,7 +64,7 @@ describe("SiteHeader - ルート構造", () => {
 });
 
 describe("SiteHeader - ドロップダウン描画", () => {
-  it("renders 6 dropdowns (Anatomy/Headaches/Treatment/Blocks/Therapies/PROM) as .ch-dropdown <li>", () => {
+  it("6 カテゴリーをドロップダウンで表示する", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const dropdowns = container.querySelectorAll("li.ch-dropdown");
     expect(dropdowns.length).toBe(6);
@@ -62,11 +79,11 @@ describe("SiteHeader - ドロップダウン描画", () => {
     });
   });
 
-  it("the Blocks dropdown has a .ch-submenu <ul> with 3 children", () => {
+  it("神経ブロックのドロップダウンに 4 件の項目がある", () => {
     const { container } = render(<SiteHeader pathname="/" />);
     const blocksToggle = Array.from(
       container.querySelectorAll<HTMLElement>("li.ch-dropdown .ch-dropdown-toggle")
-    ).find((t) => t.textContent?.includes("Blocks"));
+    ).find((t) => t.textContent?.includes("神経ブロック"));
     const submenu = blocksToggle?.closest("li.ch-dropdown")?.querySelector("ul.ch-submenu");
     expect(submenu?.querySelectorAll("li").length).toBe(4);
   });
@@ -144,7 +161,7 @@ describe("SiteHeader - active 判定", () => {
     const toggles = container.querySelectorAll("li.ch-dropdown .ch-dropdown-toggle");
     const activeToggles = Array.from(toggles).filter((t) => t.className.includes("ch-active"));
     expect(activeToggles.length).toBe(1);
-    expect(activeToggles[0]?.textContent).toContain("Blocks");
+    expect(activeToggles[0]?.textContent).toContain("神経ブロック");
   });
 
   it("does not add ch-active to any link when pathname is unrecognized", () => {
@@ -164,5 +181,24 @@ describe("SiteHeader - 静的ソース安全性", () => {
     const source = readFileSync(join(__dirname, "SiteHeader.tsx"), "utf8");
     const firstStmt = source.replace(/^\s*(\/\/[^\n]*\n|\/\*[\s\S]*?\*\/\s*\n?)*/g, "");
     expect(firstStmt).toMatch(/^["']use client["']/);
+  });
+});
+
+describe("SiteHeader - 全画面共通の背景", () => {
+  const css = readFileSync(join(__dirname, "../../app/globals.css"), "utf8");
+
+  it("ナビとメニューの背景色は背後のページを透過しない", () => {
+    expect(css).toMatch(/--ch-bg:\s*#[\da-f]{6};/i);
+  });
+
+  it("固定ナビ・検索候補・メニューに背景ぼかしを使わない", () => {
+    const selectors = ["ch-nav", "site-search-list", "site-search-empty", "ch-submenu", "ch-links"];
+    for (const selector of selectors) {
+      const rules = [...css.matchAll(new RegExp(`\\.${selector}\\s*\\{([^}]*)\\}`, "g"))];
+      expect(rules.length).toBeGreaterThan(0);
+      for (const rule of rules) {
+        expect(rule[1]).not.toMatch(/backdrop-filter/);
+      }
+    }
   });
 });
