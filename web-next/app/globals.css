@@ -44,6 +44,260 @@ body.has-common-header {
   margin-top: calc(var(--ch-height) + var(--ch-disclaimer-height, 44px));
 }
 
+/* ── 404 / 実行時エラー ─────────────────────────────────────────── */
+.error-page {
+  box-sizing: border-box;
+  min-height: 680px;
+  display: grid;
+  align-items: center;
+  padding: clamp(52px, 7vw, 104px) clamp(20px, 5vw, 72px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 14%, rgba(73, 163, 173, 0.14), transparent 36%),
+    linear-gradient(145deg, #f7fafb 0%, #eef4f5 100%);
+  color: #173039;
+  font-family: var(--font-sans);
+}
+
+.error-page-inner {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 112px);
+}
+
+.error-page-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.error-page-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 24px;
+  color: #257580;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.error-page-status {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #329ba2;
+  box-shadow: 0 0 0 5px rgba(50, 155, 162, 0.14);
+}
+
+.error-page h1 {
+  max-width: 13em;
+  margin: 0;
+  color: #142b34;
+  font-size: clamp(2.2rem, 4.3vw, 4rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.error-page-description {
+  max-width: 34em;
+  margin: 23px 0 0;
+  color: #526a72;
+  font-size: clamp(0.98rem, 1.4vw, 1.08rem);
+  line-height: 1.9;
+}
+
+.error-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.error-page-button {
+  box-sizing: border-box;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 21px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 750;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.error-page-button span {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.error-page-button-primary {
+  background: #166a75;
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(22, 106, 117, 0.18);
+}
+
+.error-page-button-primary:hover {
+  background: #10525b;
+  transform: translateY(-2px);
+}
+
+.error-page-button-secondary {
+  border-color: #bbd1d6;
+  background: rgba(255, 255, 255, 0.73);
+  color: #24505a;
+}
+
+.error-page-button-secondary:hover {
+  border-color: #6aa3ac;
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.error-page-button:focus-visible {
+  outline: 3px solid #166a75;
+  outline-offset: 3px;
+}
+
+.error-page-note {
+  max-width: 36em;
+  margin: 25px 0 0;
+  padding-left: 14px;
+  border-left: 2px solid #9ec8ce;
+  color: #6a8088;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.error-page-art {
+  position: relative;
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+  justify-self: center;
+  border: 1px solid rgba(175, 216, 222, 0.22);
+  border-radius: 32px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 48%, #204a55 0%, #132e39 55%, #0d242f 100%);
+  box-shadow: 0 28px 64px rgba(17, 48, 58, 0.18);
+}
+
+.error-page-art-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(148, 209, 216, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 209, 216, 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle, #000 20%, transparent 74%);
+}
+
+.error-page-art-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(127, 207, 213, 0.22);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-page-art-ring-outer {
+  width: 79%;
+  aspect-ratio: 1;
+}
+
+.error-page-art-ring-inner {
+  width: 61%;
+  aspect-ratio: 1;
+  border-style: dashed;
+  border-color: rgba(127, 207, 213, 0.35);
+}
+
+.error-page-art-core {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #e9fbfa;
+  text-shadow: 0 0 35px rgba(110, 226, 224, 0.3);
+}
+
+.error-page-art-core span {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 11vw, 9.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.09em;
+}
+
+.error-page-art-core small {
+  color: #a6d6d7;
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.24em;
+}
+
+.error-page-art-dot,
+.error-page-art-line {
+  position: absolute;
+  background: #78d5d3;
+  box-shadow: 0 0 18px rgba(120, 213, 211, 0.8);
+}
+
+.error-page-art-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.error-page-art-dot-one { top: 23%; left: 20%; }
+.error-page-art-dot-two { right: 17%; bottom: 22%; }
+.error-page-art-line { width: 54px; height: 1px; opacity: 0.7; }
+.error-page-art-line-one { top: 27%; right: 10%; transform: rotate(-35deg); }
+.error-page-art-line-two { bottom: 27%; left: 9%; transform: rotate(-35deg); }
+
+.error-page-500 .error-page-status {
+  background: #d4a56b;
+  box-shadow: 0 0 0 5px rgba(212, 165, 107, 0.17);
+}
+
+@media (max-width: 850px) {
+  .error-page { min-height: 0; }
+  .error-page-inner { grid-template-columns: 1fr; gap: 42px; }
+  .error-page-art { width: min(100%, 370px); }
+}
+
+@media (max-width: 520px) {
+  .error-page { padding-block: 54px 64px; }
+  .error-page-eyebrow { margin-bottom: 19px; }
+  .error-page-actions { margin-top: 29px; }
+  .error-page-button { width: 100%; justify-content: space-between; }
+  .error-page-art { width: min(100%, 300px); border-radius: 24px; }
+  .error-page-art-core span { font-size: clamp(5rem, 28vw, 7rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .error-page-button { transition: none; }
+  .error-page-button:hover { transform: none; }
+}
+
 .ch-disclaimer {
   position: fixed;
   top: var(--ch-height);
