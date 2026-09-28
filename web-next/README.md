@@ -22,12 +22,12 @@ HIT-6 と MSQ v2.1 は**質問文が権利者所有の著作物**のため、こ
 オーバーレイ JSON を用意する。
 
 ```bash
-cp public/prom-restricted.example.json public/prom-restricted.local.json
+cp data/prom-restricted.example.json data/prom-restricted.local.json
 # 公式配布元から入手した質問文を prom-restricted.local.json に記入する
 bun run dev
 ```
 
-- `public/*.local.json` は `.gitignore` 済みで、コミットされない。
+- `data/*.local.json` は `.gitignore` 済みで、コミットされない。
 - 項目数・順序は `registry.ts` の定義と一致させること。**件数が食い違うオーバーレイは破棄され**、
   プレースホルダ表示のままになる（採点との不整合を防ぐフェイルセーフ）。
 - ファイルが無い場合はエラーにならず、代替表示にフォールバックする（これが既定の正常系）。

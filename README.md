@@ -34,7 +34,7 @@
   - **NRS / VAS** (Numerical Rating Scale / Visual Analogue Scale)
   - **PGIC** (Patient Global Impression of Change)
   - **頭痛ダイアリー** (日々の頭痛記録・薬剤服薬管理)
-- **プライバシー保護**: Google スプレッドシート同期を有効にしていない場合、入力されたスコアや日誌データは利用者の端末内（ブラウザの `localStorage`）にのみ保存され、外部サーバへ送信されません。同期を有効にして実行した場合は、選択したデータ（頭痛日誌および PROM スコア）が Google スプレッドシートへ送信されます。
+- **プライバシー保護**: Google スプレッドシート同期を有効にしていない場合、入力されたスコアや日誌データは利用者の端末内（ブラウザの `localStorage`）にのみ保存され、外部サーバへ送信されません。同期を有効にして実行した場合は、利用者の端末に保存されている頭痛日誌および PROM スコアの全記録が Google スプレッドシートへ送信されます。
 - **データ連携**: CSV エクスポート機能および Google スプレッドシート同期機能（Google Drive の `drive.file` 最小スコープで連携）を搭載。
 
 > ※ HIT-6 および MSQ v2.1 は権利者所有の著作物であるため、公開リポジトリ・本番環境では中立プレースホルダが表示されます（詳細は後述の「著作権保護 PROM の取り扱い」を参照）。
@@ -125,12 +125,12 @@ HIT-6 および MSQ v2.1 は著作権保護された質問票です。このた�
 
 ```bash
 cd web-next
-cp public/prom-restricted.example.json public/prom-restricted.local.json
+cp data/prom-restricted.example.json data/prom-restricted.local.json
 # 公式配布元から取得した質問文を prom-restricted.local.json に記入
 bun run dev
 ```
 
-- `public/*.local.json` は `.gitignore` に指定されており、Git にコミットされません。
+- `data/*.local.json` は `.gitignore` に指定されており、Git にコミットされません。
 - 本番ビルド（`NODE_ENV=production`）では安全策として読み込みが無効化されます。
 - 詳細および配布元リンクは [`web-next/README.md`](web-next/README.md) および [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) を参照してください。
 
@@ -138,7 +138,7 @@ bun run dev
 
 ## 🔒 セキュリティとプライバシー
 
-- **クライアントサイド完結**: Google スプレッドシート同期を有効にしていない場合、ユーザーの頭痛記録や PROM 回答データはサーバーへ送信されず、すべてブラウザの `localStorage` で保持されます。同期を有効にして実行した場合は、選択したデータ（頭痛日誌および PROM スコア）が Google スプレッドシートへ送信されます。
+- **クライアントサイド完結**: Google スプレッドシート同期を有効にしていない場合、ユーザーの頭痛記録や PROM 回答データはサーバーへ送信されず、すべてブラウザの `localStorage` で保持されます。同期を有効にして実行した場合は、利用者の端末に保存されている頭痛日誌および PROM スコアの全記録が Google スプレッドシートへ送信されます。
 - **厳格な CSP (Content Security Policy)**: 外部通信やスクリプト実行を厳格に制限しています。
 - **脆弱性報告**: セキュリティに関する懸念を発見された場合は、公開 Issue ではなく GitHub の [Private Vulnerability Reporting](https://github.com/myoshi2891/Medical-Studies/security/advisories) を通じてご連絡ください。詳細は [`SECURITY.md`](SECURITY.md) に記載されています。
 

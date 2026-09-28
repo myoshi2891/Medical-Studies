@@ -12,7 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **成果物**: `Types-of-headache/html-files/{Headaches,Blocks}/*.html` — ブラウザで閲覧可能な教育 HTML ページ
 - **デザインの権威ソース**: `Types-of-headache/html-files/Headaches/Migraine.html`（CSS 変数・コンポーネントはここを基準とする）
 - **web-next PROM 外部連携設計**: `docs/google-sheets-sync-design.md` — 頭痛日誌・PROM スコアの Google スプレッドシート同期／CSV エクスポート詳細設計。純粋中間表現 `ExportWorkbook` → `ReportExporter`（`web-next/lib/export/`）の三層分離
-- **PROM 制限尺度の redaction 運用**: HIT-6・MSQ など著作権で保護された尺度の verbatim 設問文は公開レジストリ（`web-next/lib/prom/`）から redaction 済み。復元はリポジトリ外の local-only overlay でのみ行い、`web-next/public/prom-restricted.example.json` をテンプレートとして gitignore 対象の overlay を配置し `lib/prom/restricted-*` が読み込む。運用詳細は `docs/publishing/01-urgent-exposure.md` を参照
+- **PROM 制限尺度の redaction 運用**: HIT-6・MSQ など著作権で保護された尺度の verbatim 設問文は公開レジストリ（`web-next/lib/prom/`）から redaction 済み。復元はリポジトリ外の local-only overlay でのみ行い、`web-next/data/prom-restricted.example.json` をテンプレートとして gitignore 対象の overlay を配置し `lib/prom/restricted-*` が読み込む。運用詳細は `docs/publishing/01-urgent-exposure.md` を参照
 
 ## コマンド
 

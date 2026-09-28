@@ -82,7 +82,7 @@
 - 公開レジストリ（`web-next/lib/prom/registry.ts`）の HIT-6 / MSQ v2.1 の質問文・回答選択肢を中立
   プレースホルダへ差し替え、`license.status = "restricted"` と `license.officialUrl` を付与した。
   項目数・`id`・`value` は不変のため、採点と保存済み `ScoreRecord` の互換は保たれる。
-- 実文言は git 管理外のローカル専用オーバーレイ（`web-next/public/prom-restricted.local.json`）へ退避し、
+- 実文言は git 管理外のローカル専用オーバーレイ（`web-next/data/prom-restricted.local.json`）へ退避し、
   **開発環境でのみ**画面に注入される二重ゲート（ファイル不在／`NODE_ENV=production`）を実装した。
   公開リポジトリ・公開デプロイでは「概要＋公式取得先リンク＋帰属表示」の代替表示になる。
 - 教育ページ（`web-next/app/prom/{headache-impact-test,migraine-specific-quality-of-life}`、
