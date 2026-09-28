@@ -14,9 +14,10 @@ describe("500 エラーページ", () => {
     ).toBeInTheDocument();
     expect(screen.getByText(/一時的な問題/)).toBeInTheDocument();
     expect(screen.queryByText(/private server details/)).not.toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "ホームへ戻る" })).toHaveAttribute(
+    // 障害中の可能性がある /prom-checker（および "/" のリダイレクト先）を避け、静的ページへ案内する。
+    expect(screen.getByRole("link", { name: "頭痛について学ぶ" })).toHaveAttribute(
       "href",
-      "/prom-checker"
+      "/headaches/migraine"
     );
     fireEvent.click(screen.getByRole("button", { name: "もう一度試す" }));
     expect(reset).toHaveBeenCalledOnce();

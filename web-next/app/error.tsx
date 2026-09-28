@@ -25,8 +25,12 @@ export default function ErrorPage({
           >
             もう一度試す <span aria-hidden="true">↻</span>
           </button>
-          <Link className="error-page-button error-page-button-secondary" href="/prom-checker">
-            ホームへ戻る <span aria-hidden="true">→</span>
+          {/* "/" も /prom-checker へリダイレクトするため、障害経路を避けて静的ページへ案内する。 */}
+          <Link
+            className="error-page-button error-page-button-secondary"
+            href="/headaches/migraine"
+          >
+            頭痛について学ぶ <span aria-hidden="true">→</span>
           </Link>
         </>
       }
