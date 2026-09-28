@@ -18,11 +18,26 @@ export async function GET(): Promise<NextResponse> {
     return NextResponse.json(null, { status: 404 });
   }
 
+  let raw: string;
   try {
-    const raw = await readFile(OVERLAY_FILE, "utf8");
-    return NextResponse.json(JSON.parse(raw));
-  } catch {
+    raw = await readFile(OVERLAY_FILE, "utf8");
+  } catch (error) {
     // ファイル未配置（ENOENT）が既定の正常系
-    return NextResponse.json(null, { status: 404 });
+    if (isErrnoException(error) && error.code === "ENOENT") {
+      return NextResponse.json(null, { status: 404 });
+    }
+    console.error("[prom] オーバーレイの読み込みに失敗しました", error);
+    return NextResponse.json(null, { status: 500 });
   }
+
+  try {
+    return NextResponse.json(JSON.parse(raw));
+  } catch (error) {
+    console.error("[prom] オーバーレイの JSON 解析に失敗しました", error);
+    return NextResponse.json(null, { status: 500 });
+  }
+}
+
+function isErrnoException(error: unknown): error is NodeJS.ErrnoException {
+  return error instanceof Error && "code" in error;
 }
