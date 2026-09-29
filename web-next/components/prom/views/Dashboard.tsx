@@ -39,7 +39,10 @@ export function Dashboard() {
       <div className="c-viewhead">
         <div className="c-eyebrow">PROM / PERSONAL WORKSPACE</div>
         <h1>こんにちは。今日の記録を始めましょう</h1>
-        <p>各機能はここから。すべての入力は端末内にのみ保存されます。</p>
+        <p>
+          各機能はここから。入力は通常この端末のブラウザに保存されます。Google Sheets
+          への同期を実行した場合は、選択したデータが Google に送信されます。
+        </p>
         <div className="c-viewhead-tags">
           <span>頭痛日誌</span>
           <span>PROM 評価</span>
