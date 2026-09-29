@@ -104,6 +104,9 @@ describe("PromCheckerPage: 画面間ナビゲーション", () => {
     expect(text).toContain("通常この端末のブラウザに保存され");
     expect(text).toContain("Google Sheets への同期を実行した場合は");
     expect(text).not.toContain("データは端末内にのみ保存され、外部へ送信されません");
+    // 同期は選択式ではなく、端末内の全記録を送信する（DataManager → store.exportAll()）。
+    expect(text).toContain("端末に保存されているすべての頭痛日誌と PROM スコア");
+    expect(text).not.toContain("選択したデータ");
   });
 
   it("ダッシュボードの説明文で通常時の端末内保存と Google Sheets 同期時の送信を区別する", async () => {
@@ -116,5 +119,7 @@ describe("PromCheckerPage: 画面間ナビゲーション", () => {
     expect(lead).toContain("通常この端末のブラウザに保存され");
     expect(lead).toContain("Google Sheets への同期を実行した場合は");
     expect(lead).not.toContain("端末内にのみ保存されます");
+    expect(lead).toContain("端末に保存されているすべての頭痛日誌と PROM 評価の記録");
+    expect(lead).not.toContain("選択したデータ");
   });
 });
