@@ -691,6 +691,9 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
   /* ダークテーマの --bg-card はより高い詳細度で残るため、トークン経由でなく直接白を指定する */
   .prom-app .c-card { overflow: visible; box-shadow: none; background: #fff; }
   .prom-app .c-tbl { min-width: 0; }
+  /* アクセント色キッカーと表見出しは背景なし印刷でも判読できるよう白地・黒文字に固定 */
+  .prom-app .c-card-kicker { color: #000; }
+  .prom-app .c-tbl thead th { background: #fff; color: #000; }
   /* ヘッダー/ヒーローの暗い背景を白に、明るいテキストを暗色に上書き */
   .prom-app .c-viewhead,
   .prom-app .c-gate-hero { background: #fff; border-color: #ccc; color: #000; }
