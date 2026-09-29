@@ -22,6 +22,7 @@ describe("GET /api/prom-restricted", () => {
 
   afterEach(() => {
     vi.restoreAllMocks();
+    vi.unstubAllEnvs();
     mockedReadFile.mockReset();
   });
 
@@ -33,6 +34,17 @@ describe("GET /api/prom-restricted", () => {
     // Assert
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ scales: {} });
+  });
+
+  it("本番モード（NODE_ENV=production）ではファイルを読まずに 404 を返す", async () => {
+    // Arrange
+    vi.stubEnv("NODE_ENV", "production");
+    mockedReadFile.mockResolvedValue('{"scales":{}}');
+    // Act
+    const res = await GET();
+    // Assert
+    expect(res.status).toBe(404);
+    expect(mockedReadFile).not.toHaveBeenCalled();
   });
 
   it("ファイル未配置（ENOENT）は既定の正常系として 404 を返し、ログを出さない", async () => {
