@@ -688,7 +688,8 @@ fieldset.c-fs > legend { font-weight: 700; padding: 0 6px; color: var(--color-ac
   .prom-app .print-container > .c-card:first-child { background: #fff; color: #000; }
   .prom-app .print-container > .c-card:first-child .c-eyebrow,
   .prom-app .print-container > .c-card:first-child .c-muted { color: #333; }
-  .prom-app .c-card { overflow: visible; box-shadow: none; }
+  /* ダークテーマの --bg-card はより高い詳細度で残るため、トークン経由でなく直接白を指定する */
+  .prom-app .c-card { overflow: visible; box-shadow: none; background: #fff; }
   .prom-app .c-tbl { min-width: 0; }
   /* ヘッダー/ヒーローの暗い背景を白に、明るいテキストを暗色に上書き */
   .prom-app .c-viewhead,

@@ -70,3 +70,16 @@ describe("SNOOP4 ゲートの選択済みチップ", () => {
     }
   });
 });
+
+describe("印刷時のカード背景", () => {
+  it("最終 @media print で .prom-app .c-card の背景を白に直接指定する（ダークテーマのトークンに依存しない）", () => {
+    // Arrange: テーマ別スタイルより後ろにある最後の印刷ブロック
+    const print = css.slice(css.lastIndexOf("@media print"));
+    // Act
+    const start = print.indexOf(".prom-app .c-card {");
+    // Assert
+    expect(start).toBeGreaterThanOrEqual(0);
+    const rule = print.slice(start, print.indexOf("}", start));
+    expect(rule).toMatch(/(?:;|\{|\s)background:\s*#fff(?:fff)?\s*;/);
+  });
+});
