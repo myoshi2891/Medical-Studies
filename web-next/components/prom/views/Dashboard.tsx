@@ -41,7 +41,8 @@ export function Dashboard() {
         <h1>こんにちは。今日の記録を始めましょう</h1>
         <p>
           各機能はここから。入力は通常この端末のブラウザに保存されます。Google Sheets
-          への同期を実行した場合は、選択したデータが Google に送信されます。
+          への同期を実行した場合は、端末に保存されているすべての頭痛日誌と PROM 評価の記録が Google
+          に送信されます。
         </p>
         <div className="c-viewhead-tags">
           <span>頭痛日誌</span>
