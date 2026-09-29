@@ -83,3 +83,22 @@ describe("印刷時のカード背景", () => {
     expect(rule).toMatch(/(?:;|\{|\s)background:\s*#fff(?:fff)?\s*;/);
   });
 });
+
+describe("印刷時のキッカー・表見出し", () => {
+  const print = css.slice(css.lastIndexOf("@media print"));
+  const ruleOf = (selector: string): string => {
+    const start = print.indexOf(`${selector} {`);
+    expect(start).toBeGreaterThanOrEqual(0);
+    return print.slice(start, print.indexOf("}", start));
+  };
+
+  it(".c-card-kicker の文字色を黒に直接指定する（アクセント色トークンに依存しない）", () => {
+    expect(ruleOf(".prom-app .c-card-kicker")).toMatch(/(?:;|\{|\s)color:\s*#000(?:000)?\s*;/);
+  });
+
+  it(".c-tbl thead th は白背景・黒文字で印刷する", () => {
+    const rule = ruleOf(".prom-app .c-tbl thead th");
+    expect(rule).toMatch(/(?:;|\{|\s)background:\s*#fff(?:fff)?\s*;/);
+    expect(rule).toMatch(/(?:;|\{|\s)color:\s*#000(?:000)?\s*;/);
+  });
+});
