@@ -21,7 +21,7 @@ export const REGISTRY: Record<string, Instrument> = {
     reassessLabel: "月次",
     // 質問文・選択肢は権利者所有のため非掲載（license.status = "restricted"）。
     // 件数・id・value は採点と保存済みデータの互換のため固定。実文言はローカル専用
-    // オーバーレイ（public/prom-restricted.local.json）から注入される。
+    // オーバーレイ（data/prom-restricted.local.json）から注入される。
     items: [
       { id: "q1", label: "設問1（質問原文は非掲載）" },
       { id: "q2", label: "設問2（質問原文は非掲載）" },

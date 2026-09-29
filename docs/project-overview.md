@@ -66,7 +66,7 @@
 |---|---|---|---|
 | PROM 尺度記入 | ユーザーの回答選択 | `ScoreRecord`（`localStorage` へ保存） | `lib/prom/scoring.ts` が純粋関数として採点。`upsert.ts` が同日重複記録を dedupe |
 | データエクスポート | `localStorage` 上の `ExportPayload` | Google スプレッドシート更新 or CSV ファイル | `flatten.ts` → `workbook.ts` → 各 `ReportExporter` 実装（`CsvExporter` / `GoogleSheetsExporter`）の順で変換。中間表現 `ExportWorkbook` がフォーマット非依存 |
-| 制限尺度（HIT-6/MSQ）表示 | `public/prom-restricted.local.json`（任意・gitignore 対象） | 質問文の実表示、または redaction 済みプレースホルダ | 本番ビルド（`NODE_ENV=production`）では読み込まれない二重ゲート。件数不一致時はオーバーレイを破棄しプレースホルダへフォールバック |
+| 制限尺度（HIT-6/MSQ）表示 | `data/prom-restricted.local.json`（任意・gitignore 対象） | 質問文の実表示、または redaction 済みプレースホルダ | 本番ビルド（`NODE_ENV=production`）では読み込まれない二重ゲート。件数不一致時はオーバーレイを破棄しプレースホルダへフォールバック |
 | 3D 解剖ビューア | `lib/anatomy/manifest.ts` の宣言的データ | `<model-viewer>` によるインタラクティブ 3D 表示 | マウント時に動的 `import()`。読込失敗時はビューアのみ欠落しページ自体は機能する降格戦略 |
 | 用語集ツールチップ | 本文内の用語文字列 | 読み仮名＋やさしい解説のポップアップ | `AutoGlossary` が本文ルートを走査し初出のみ `<Term>` に自動変換 |
 

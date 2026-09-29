@@ -1,5 +1,5 @@
 {
-  "__note": "著作権保護 PROM 質問票のローカル専用オーバーレイのテンプレート。このファイルをコピーして 'prom-restricted.local.json' を作り、公式配布元から入手した質問文を入れると、bun run dev（開発モード）でのみ質問票が画面に表示されます。'*.local.json' は .gitignore 済みでリポジトリには含まれません。本番ビルド（NODE_ENV=production）では読み込まれません。",
+  "__note": "著作権保護 PROM 質問票のローカル専用オーバーレイのテンプレート。このファイルをコピーして同じ data/ ディレクトリ内に 'prom-restricted.local.json' を作り、公式配布元から入手した質問文を入れると、bun run dev（開発モード）でのみ質問票が画面に表示されます。'*.local.json' は .gitignore 済みでリポジトリには含まれません。本番ビルド（NODE_ENV=production）では読み込まれません。",
   "__howToObtain": {
     "hit6": "https://www.qualitymetric.com/health-surveys/the-headache-impact-test-hit-6/ （QualityMetric Incorporated。商用利用は要許諾）",
     "msq-v2.1": "https://eprovide.mapi-trust.org/instruments/migraine-specific-quality-of-life-questionnaire （Mapi Research Trust。事前の書面による許諾が必須）"

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { isDropdown, type NavLink, navLinks } from "./nav-links";
@@ -39,8 +40,12 @@ export function SiteHeader({ pathname: pathnameProp }: { pathname?: string } = {
   return (
     <SiteHeaderClient>
       <nav id="common-header" aria-label="Main Navigation" className="ch-nav">
-        <Link className="ch-brand" href="/">
-          Medical Studies
+        <Link className="ch-brand" href="/prom-checker">
+          <Image className="ch-brand-icon" src="/icon.svg" alt="" width={38} height={38} />
+          <span className="ch-brand-copy">
+            <span className="ch-brand-name">頭痛ケア・スタディ</span>
+            <span className="ch-brand-caption">MEDICAL STUDIES</span>
+          </span>
         </Link>
         {/* サイト横断検索。`.ch-links`（ドロワー）の外に置き、リンククリック時の
             ドロワー開閉ハンドラと干渉させない（SiteHeaderClient のコメント参照）。 */}

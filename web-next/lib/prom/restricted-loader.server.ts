@@ -11,14 +11,14 @@ import { parseRestrictedOverlay, type RestrictedOverlay } from "./restricted";
 import { isOverlayEnabled } from "./restricted-loader";
 
 /**
- * public/prom-restricted.local.json をファイルシステムから読む。
+ * data/prom-restricted.local.json をファイルシステムから読む。
  * 不在・パース失敗はすべて null（＝プレースホルダ表示へフォールバック）。
  */
 export async function loadRestrictedOverlay(): Promise<RestrictedOverlay | null> {
   if (!isOverlayEnabled()) return null;
 
   try {
-    const file = path.join(process.cwd(), "public", "prom-restricted.local.json");
+    const file = path.join(process.cwd(), "data", "prom-restricted.local.json");
     const parsed = parseRestrictedOverlay(JSON.parse(await readFile(file, "utf8")));
     if (!parsed.ok) {
       console.warn(`[prom] オーバーレイを無視しました: ${parsed.error}`);

@@ -10,8 +10,8 @@
  */
 import { parseRestrictedOverlay, type RestrictedOverlay } from "./restricted";
 
-/** オーバーレイの公開パス（存在しないのが既定＝正常系）。 */
-export const OVERLAY_PATH = "/prom-restricted.local.json";
+/** オーバーレイの取得パス（API Route 経由。data/ のファイルをサーバが中継する）。 */
+export const OVERLAY_PATH = "/api/prom-restricted";
 
 /** ローカル開発時のみオーバーレイを読み込む。 */
 export const isOverlayEnabled = (): boolean => process.env.NODE_ENV !== "production";

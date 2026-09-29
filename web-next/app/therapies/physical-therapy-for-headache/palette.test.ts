@@ -60,6 +60,51 @@ describe("理学療法ページの配色", () => {
     }
   });
 
+  it("アクセント変数 --pt1〜--pt3 をヒーローと同じローズ・モーブ系にする", () => {
+    for (const name of ["--pt1", "--pt2", "--pt3"]) {
+      const color = css.match(new RegExp(`${name}:\\s*(#[a-f\\d]{6})`, "i"))?.[1];
+      if (!color) throw new Error(`${name} の 6 桁の色指定が必要です`);
+      const [red, green, blue] = [1, 3, 5].map((i) => Number.parseInt(color.slice(i, i + 2), 16));
+      expect(red).toBeGreaterThan(blue);
+      expect(blue).toBeGreaterThan(green);
+    }
+  });
+
+  it("表の見出し・縞・ホバー背景をローズ系で揃え、文字のコントラストを確保する", () => {
+    const token = (name: string) => {
+      const color = css.match(new RegExp(`${name}:\\s*(#[a-f\\d]{6})`, "i"))?.[1];
+      if (!color) throw new Error(`${name} の 6 桁の色指定が必要です`);
+      return color;
+    };
+    const resolve = (value: string | undefined) => {
+      const variable = value?.match(/^var\((--[\w-]+)\)$/)?.[1];
+      return variable ? token(variable) : value;
+    };
+    const ratio = (a: string, b: string) => {
+      const values = [luminance(a), luminance(b)];
+      return (Math.max(...values) + 0.05) / (Math.min(...values) + 0.05);
+    };
+
+    // 見出し: 白文字 on --pt2
+    const head = rule("thead th");
+    const headFill = resolve(head.match(/background:\s*([^;]+)/)?.[1]?.trim());
+    const headText = head
+      .match(/(?:;|\s)color:\s*(#[a-f\d]{3}(?:[a-f\d]{3})?)\b/i)?.[1]
+      ?.replace(/^#([a-f\d])([a-f\d])([a-f\d])$/i, "#$1$1$2$2$3$3");
+    if (!headFill || !headText) throw new Error("表見出しの文字色と背景色が必要です");
+    expect(ratio(headText, headFill)).toBeGreaterThanOrEqual(4.5);
+
+    // 縞・ホバー: 赤み優位（R > B ≥ G）で本文色 --g9 と 4.5:1 以上
+    for (const selector of ["tbody tr:nth-child(even)", "tbody tr:hover"]) {
+      const fill = rule(selector).match(/background:\s*(#[a-f\d]{6})/i)?.[1];
+      if (!fill) throw new Error(`${selector} の 6 桁の背景色が必要です`);
+      const [red, green, blue] = [1, 3, 5].map((i) => Number.parseInt(fill.slice(i, i + 2), 16));
+      expect(red).toBeGreaterThan(blue);
+      expect(blue).toBeGreaterThanOrEqual(green);
+      expect(ratio(token("--g9"), fill)).toBeGreaterThanOrEqual(4.5);
+    }
+  });
+
   it("開始ボタンと目次の通常・ホバー・現在位置で文字のコントラストを確保する", () => {
     for (const [foreground, background] of [
       [".pt-start", ".pt-start"],
