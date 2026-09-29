@@ -105,4 +105,16 @@ describe("PromCheckerPage: 画面間ナビゲーション", () => {
     expect(text).toContain("Google Sheets への同期を実行した場合は");
     expect(text).not.toContain("データは端末内にのみ保存され、外部へ送信されません");
   });
+
+  it("ダッシュボードの説明文で通常時の端末内保存と Google Sheets 同期時の送信を区別する", async () => {
+    render(<PromCheckerPage />);
+    fireEvent.click(await screen.findByRole("button", { name: "確認して次へ進む" }));
+    const heading = await screen.findByRole("heading", {
+      name: "こんにちは。今日の記録を始めましょう",
+    });
+    const lead = heading.parentElement?.querySelector("p")?.textContent ?? "";
+    expect(lead).toContain("通常この端末のブラウザに保存され");
+    expect(lead).toContain("Google Sheets への同期を実行した場合は");
+    expect(lead).not.toContain("端末内にのみ保存されます");
+  });
 });
